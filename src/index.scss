@@ -1,0 +1,40 @@
+@import '~bootstrap/scss/bootstrap.scss';
+:root {
+  /* Primary 主色 */
+  --honki-red: #e83015;
+  /* Secondary 輔色 */
+  --honki-yellow: #fdf3db;
+  /* Text 文字色 */
+  --honki-black: #1c1b1b;
+  /* Theme 主題色 */
+  --honki-theme: #7ba23e;
+  /* Others 其他 */
+  --honki-white: #fff;
+  --honki-paper: #f2ece3;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  /* font-family: 'Abel', sans-serif; */
+  font-size: 16px;
+  /* 紙質背景 若要改個人顏色就在自己頁面style body background: url(相對路徑到bg_noise) white */
+  background: url('./images/bg_noise.png') var(--honki-paper);
+}
+h1 {
+  font-size: 93px;
+}
+h2 {
+  font-size: 58px;
+}
+h3 {
+  font-size: 47px;
+}
+h4 {
+  font-size: 33px;
+}
+h5 {
+  font-size: 24px;
+}
+h6 {
+  font-size: 16px;
+}

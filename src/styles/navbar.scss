@@ -1,0 +1,182 @@
+/* 調整 bootstrap 4 navbar 底色為 honki-red */
+body {
+  padding-top: 80px;
+}
+body.active {
+  overflow: hidden;
+}
+
+.honki-nav {
+  padding: 7px 0;
+  background-color: var(--honki-red);
+}
+
+/* .honki-nav-item {
+        } */
+
+.honki-nav-link {
+  font-weight: lighter;
+  padding: 0 0;
+  margin: 0 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.honki-nav-link-fa {
+  padding: 8px;
+}
+
+.zero-padding {
+  padding: 0;
+}
+
+.dummy-search-bar {
+  width: 346px;
+  height: 36px;
+
+  border-radius: 25px;
+
+  color: white;
+
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1250px) {
+  .nav-item-65px {
+    width: 65px;
+  }
+
+  .nav-item-60px {
+    width: 60px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-item-65px {
+    width: 65px;
+    margin: unset;
+    transition: margin 3s;
+  }
+
+  .nav-item-60px {
+    width: 60px;
+    margin: unset;
+    transition: margin 3s;
+  }
+}
+
+/* 使桌面版 navbar 在寬度小於 965px */
+@media only screen and (max-width: 992px) {
+  .disable-honki-red-on-992 {
+    display: none;
+  }
+}
+/* CSS 直接寫在 style */
+.navbar-brand {
+  z-index: 1;
+}
+.navbar-mobile {
+  padding: 12px 24px;
+  margin-bottom: 24px;
+}
+.nav-circle {
+  fill: var(--honki-red);
+}
+.nav-mobile-link {
+  position: relative;
+  margin-left: 12px;
+}
+/* 圓圓icon大小 */
+.nav-mobile-link svg {
+  height: 48px;
+}
+.nav-mobile-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+}
+/* 點開選單 */
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--honki-red);
+  clip-path: circle(10px at calc(100% - 36px) 40px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  overflow-y: scroll;
+}
+.wrapper.active {
+  clip-path: circle(75%);
+  opacity: 1;
+}
+.nav-burger,
+.nav-close-icon {
+  z-index: 1;
+}
+
+.nav-burger.active i::before {
+  content: '\f00d';
+  z-index: 2;
+}
+.menu-open {
+  margin-top: 100px;
+  color: var(--honki-white);
+  width: 80%;
+}
+.card {
+  border: none;
+}
+.menu-open .card,
+.menu-open .card-header {
+  background-color: transparent;
+}
+.menu-open .card-header,
+.menu-open .card-body {
+  border-bottom: 1px solid white;
+}
+.accordion > .card > .card-header {
+  margin-bottom: 0;
+  padding: 1.2rem 1.25rem;
+}
+
+.menu-open .card-body ul li {
+  list-style-type: none;
+  margin-top: 16px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.menu-subtitle {
+  font-size: 14px;
+  padding-left: 20px;
+}
+.menu-open .btn-link {
+  color: var(--honki-white);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+}
+.menu-open .btn-link.collapsed i::before {
+  content: '\f067';
+}
+.menu-open .btn-link i::before {
+  content: '\f068';
+}
+
+.menu-open .btn-link:focus,
+.menu-open .btn-link:hover {
+  box-shadow: none;
+  text-decoration: none;
+}
