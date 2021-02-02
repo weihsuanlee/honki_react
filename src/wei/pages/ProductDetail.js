@@ -1,5 +1,11 @@
 import '../styles/product.scss'
-import { FaHeart, FaShoppingCart, FaShare, FaStar } from 'react-icons/fa'
+import {
+  FaHeart,
+  FaShoppingCart,
+  FaShare,
+  FaStar,
+  FaBookOpen,
+} from 'react-icons/fa'
 
 function ProductDetail(props) {
   return (
@@ -38,7 +44,8 @@ function ProductDetail(props) {
               />
             </div>
             <button className="btn-md-dark wei-read-trial">
-              <i className="fas fa-book-open mr-3"></i>試閱
+              <FaBookOpen className="mr-3" />
+              試閱
             </button>
           </div>
           <div className="col-12 col-md-7 wei-detail-right pt-5">
