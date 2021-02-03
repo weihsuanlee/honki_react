@@ -4,7 +4,7 @@ function MainContent(props) {
   return (
     <>
       <main role="main" className="flex-shrink-0">
-        <div>{props.children}</div>
+        <body>{props.children}</body>
       </main>
     </>
   )

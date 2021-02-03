@@ -1,7 +1,5 @@
 /* 調整 bootstrap 4 navbar 底色為 honki-red */
-body {
-  padding-top: 80px;
-}
+
 body.active {
   overflow: hidden;
 }
@@ -121,7 +119,9 @@ body.active {
 .nav-close-icon {
   z-index: 1;
 }
-
+.nav-burger {
+  cursor: pointer;
+}
 .nav-burger.active i::before {
   content: '\f00d';
   z-index: 2;

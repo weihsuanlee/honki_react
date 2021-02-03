@@ -1,5 +1,5 @@
 // 套件
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // pages
 import Home from './chia/pages/Home'

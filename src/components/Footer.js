@@ -1,5 +1,6 @@
 import { FaCaretUp, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa'
 import '../styles/footer.scss'
+import { BrowserRouter as Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -20,27 +21,27 @@ function Footer() {
         <div class="container">
           <div class="row justify-content-around footer_head">
             <div class="footer-info d-flex flex-cloumn col-12 col-md">
-              <a href="#" class="logo">
+              <Link to="/" class="logo">
                 <img
                   src="http://localhost:3000/images/components/logo.svg"
                   width="72px"
                   height="55px"
                   alt=""
                 />
-              </a>
+              </Link>
             </div>
             <div class="footer-info d-flex flex-cloumn col-12 col-md">
               <dl>
                 <dt class="contactus">聯絡我們</dt>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     服務電話
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     honki@mail.com
-                  </a>
+                  </Link>
                 </dd>
                 <dd>台灣台北市</dd>
               </dl>
@@ -49,24 +50,24 @@ function Footer() {
               <dl>
                 <dt class="contactus">書城服務</dt>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     加入會員
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     查詢帳號密碼
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     訂單查詢
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     退換貨
-                  </a>
+                  </Link>
                 </dd>
               </dl>
             </div>
@@ -74,24 +75,24 @@ function Footer() {
               <dl>
                 <dt class="contactus">更多資訊</dt>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     關於HONKI
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     工作機會
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     服務條款
-                  </a>
+                  </Link>
                 </dd>
                 <dd>
-                  <a class="footer-link" href="#">
+                  <Link to="/" class="footer-link">
                     合作洽談
-                  </a>
+                  </Link>
                 </dd>
               </dl>
             </div>
@@ -123,6 +124,7 @@ function Footer() {
           <img
             class="topimg"
             src="http://localhost:3000/images/components/footeritem.svg"
+            alt=""
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
@@ -132,13 +134,14 @@ function Footer() {
         <div class="container">
           <div class="row justify-content-center footer_head">
             <div class="footer-header d-flex flex-cloumn col-12 col-md justify-content-center">
-              <a href="#" class="logo">
+              <Link to="/" class="logo">
                 <img
                   src="http://localhost:3000/images/components/logo.svg"
                   width="48px"
                   height="37px"
+                  alt=""
                 />
-              </a>
+              </Link>
             </div>
 
             <div class="sns-icon-box d-flex justify-content-center">
@@ -174,14 +177,14 @@ function Footer() {
                   style={{ marginLeft: '-5px', marginRight: '-24px' }}
                 >
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       服務電話
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       honki@mail.com
-                    </a>
+                    </Link>
                   </dd>
                   <dd class="footer-link">台灣台北市</dd>
                 </div>
@@ -194,24 +197,24 @@ function Footer() {
                 </div>
                 <div class="test " style={{ display: 'inline' }}>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       加入會員
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       查詢帳號密碼
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       訂單查詢
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       退換貨
-                    </a>
+                    </Link>
                   </dd>
                 </div>
               </dl>
@@ -231,24 +234,24 @@ function Footer() {
                   style={{ marginLeft: '-25px' }}
                 >
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       關於HONKI
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       工作機會
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       服務條款
-                    </a>
+                    </Link>
                   </dd>
                   <dd>
-                    <a class="footer-link" href="#">
+                    <Link to="/" class="footer-link">
                       合作洽談
-                    </a>
+                    </Link>
                   </dd>
                 </div>
               </dl>
@@ -268,6 +271,7 @@ function Footer() {
           <img
             class="topimg"
             src="http://localhost:3000/images/components/footeritem.svg"
+            alt=""
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
@@ -277,13 +281,14 @@ function Footer() {
         <div class="container-fluid ">
           <div class="row justify-content-center footer_head">
             <div class="footer-header d-flex flex-cloumn col-12 col-md justify-content-center">
-              <a href="#" class="logo">
+              <Link to="/" class="logo">
                 <img
                   src="http://localhost:3000/images/components/logo.svg"
                   width="48px"
                   height="37px"
+                  alt=""
                 />
-              </a>
+              </Link>
             </div>
           </div>
           <div class="sns-icon-box d-flex justify-content-center">
@@ -316,13 +321,13 @@ function Footer() {
                 </p>
               </div>
               <div class="test" style={{ marginLeft: '3px' }}>
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   服務電話
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   honki@mail.com
-                </a>
+                </Link>
                 <br />
                 <p class="footer-link" href="#" style={{ marginBottom: '0px' }}>
                   台灣台北市
@@ -347,21 +352,21 @@ function Footer() {
                 </p>
               </div>
               <div class="test ">
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   加入會員
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   查詢帳號密碼
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   訂單查詢
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   退換貨
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -382,21 +387,21 @@ function Footer() {
                 </p>
               </div>
               <div class="test ">
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   關於HONKI
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   工作機會
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   服務條款
-                </a>
+                </Link>
                 <br />
-                <a class="footer-link" href="#">
+                <Link to="/" class="footer-link">
                   合作洽談
-                </a>
+                </Link>
               </div>
             </div>
           </div>
