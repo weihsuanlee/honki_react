@@ -1,3 +1,6 @@
+import { FaCaretUp, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa'
+import '../styles/footer.scss'
+
 function Footer() {
   return (
     <>
@@ -7,9 +10,10 @@ function Footer() {
             src="http://localhost:3000/images/components/footeritem.svg"
             width="185px"
             height="118px"
+            alt=""
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
-            <i class="fas fa-caret-up"></i>
+            <FaCaretUp className="fas fa-caret-up mx-auto" />
             <sapn class="top_v">TOP</sapn>
           </div>
         </div>
@@ -21,6 +25,7 @@ function Footer() {
                   src="http://localhost:3000/images/components/logo.svg"
                   width="72px"
                   height="55px"
+                  alt=""
                 />
               </a>
             </div>
@@ -100,13 +105,13 @@ function Footer() {
             <div class="sns-icon-box">
               <ul class="sns-icon d-flex  justify-content-around">
                 <li>
-                  <i class="fab fa-instagram"></i>
+                  <FaInstagram class="fab fa-instagram" />
                 </li>
                 <li>
-                  <i class="fab fa-facebook-f"></i>
+                  <FaFacebookF class="fab fa-facebook-f" />
                 </li>
                 <li>
-                  <i class="fab fa-twitter"></i>
+                  <FaTwitter class="fab fa-twitter" />
                 </li>
               </ul>
             </div>
@@ -120,7 +125,7 @@ function Footer() {
             src="http://localhost:3000/images/components/footeritem.svg"
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
-            <i class="fas fa-caret-up"></i>
+            <FaCaretUp class="fas fa-caret-up mx-auto" />
             <sapn class="top_v">TOP</sapn>
           </div>
         </div>
@@ -139,13 +144,13 @@ function Footer() {
             <div class="sns-icon-box d-flex justify-content-center">
               <ul class="sns-icon d-flex  justify-content-around ">
                 <li>
-                  <i class="fab fa-instagram"></i>
+                  <FaInstagram class="fab fa-instagram" />
                 </li>
                 <li>
-                  <i class="fab fa-facebook-f"></i>
+                  <FaFacebookF class="fab fa-facebook-f" />
                 </li>
                 <li>
-                  <i class="fab fa-twitter"></i>
+                  <FaTwitter class="fab fa-twitter" />
                 </li>
               </ul>
             </div>
@@ -265,7 +270,7 @@ function Footer() {
             src="http://localhost:3000/images/components/footeritem.svg"
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
-            <i class="fas fa-caret-up"></i>
+            <FaCaretUp class="fas fa-caret-up mx-auto" />
             <sapn class="top_v">TOP</sapn>
           </div>
         </div>
@@ -284,13 +289,13 @@ function Footer() {
           <div class="sns-icon-box d-flex justify-content-center">
             <ul class="sns-icon d-flex  justify-content-around ">
               <li>
-                <i class="fab fa-instagram"></i>
+                <FaInstagram class="fab fa-instagram" />
               </li>
               <li>
-                <i class="fab fa-facebook-f"></i>
+                <FaFacebookF class="fab fa-facebook-f" />
               </li>
               <li>
-                <i class="fab fa-twitter"></i>
+                <FaTwitter class="fab fa-twitter" />
               </li>
             </ul>
           </div>
