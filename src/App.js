@@ -10,7 +10,6 @@ import ProductDetail from './wei/pages/ProductDetail'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
 import ScrollToTop from './components/ScrollToTop'
-import MultiLevelBreadCrumb from './components/MultiLevelBreadCrumb'
 
 // react-icons Fontawesome 對齊
 import { IconContext } from 'react-icons'
@@ -24,7 +23,6 @@ function App() {
         <Link to="/product">所有商品</Link>
         <Link to="/product-detail">商品內頁</Link>
         <MainContent>
-          {/* <MultiLevelBreadCrumb /> */}
           <ScrollToTop>
             <IconContext.Provider
               value={{ style: { transform: 'translateY(-2px)' } }}
