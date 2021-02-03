@@ -7,6 +7,7 @@ import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
 
 // components(navbar, footer..)
+import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
 import ScrollToTop from './components/ScrollToTop'
@@ -18,16 +19,31 @@ function App() {
   return (
     <Router>
       <>
-        {/* <Navbar/> */}
-        <Link to="/">Home</Link>
-        <Link to="/product">所有商品</Link>
-        <Link to="/product-detail">商品內頁</Link>
+        <Navbar />
         <MainContent>
           <ScrollToTop>
             <IconContext.Provider
               value={{ style: { transform: 'translateY(-2px)' } }}
             >
               <Switch>
+                <Route path="/member">
+                  <Home />
+                </Route>
+                <Route path="/cart">
+                  <Home />
+                </Route>
+                <Route path="/activity">
+                  <Home />
+                </Route>
+                <Route path="/old-seasons">
+                  <Home />
+                </Route>
+                <Route path="/reviews">
+                  <Home />
+                </Route>
+                <Route path="/used-books">
+                  <Home />
+                </Route>
                 <Route path="/product">
                   <Product />
                 </Route>
