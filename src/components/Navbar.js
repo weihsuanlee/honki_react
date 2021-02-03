@@ -345,7 +345,7 @@ function Navbar() {
         </div>
       </nav>
       <div class="wrapper d-lg-none">
-        <div class="accordion menu-open mx-auto" id="accordionExample">
+        <div class="accordion menu-open mx-auto">
           <div class="card">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">

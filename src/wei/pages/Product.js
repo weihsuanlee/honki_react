@@ -200,8 +200,8 @@ function Product(props) {
             </nav>
           </div>
           <div className="col-12 col-md-6 wei-button-group">
-            <button className="btn-rounded-dark mr-2">出版日期</button>
-            <button className="btn-rounded-dark mr-2">
+            <button className="btn-rounded-dark mr-1">出版日期</button>
+            <button className="btn-rounded-dark mr-1">
               <FaListUl />
             </button>
             <button className="btn-rounded-dark">

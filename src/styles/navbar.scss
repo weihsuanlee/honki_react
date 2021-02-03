@@ -103,13 +103,14 @@ body.active {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background: var(--honki-red);
   clip-path: circle(10px at calc(100% - 36px) 40px);
   transition: all 0.5s ease-in-out;
   opacity: 0;
   overflow-y: scroll;
+  z-index: 500;
 }
 .wrapper.active {
   clip-path: circle(75%);
