@@ -1,5 +1,5 @@
 import '../styles/product.scss'
-import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
+import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
 
 function Product(props) {
   return (
@@ -44,7 +44,7 @@ function Product(props) {
                   className="btn btn-dark search-submit"
                   id="search-submit"
                 >
-                  <i className="fas fa-search"></i>
+                  <FaSearch className="fas fa-search" />
                 </button>
               </form>
             </div>

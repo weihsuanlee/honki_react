@@ -23,6 +23,9 @@ body {
   background: url('https://localhost:3000/public/images/bg_noise.png')
     var(--honki-paper);
 }
+.main-content-body {
+  padding-top: 80px;
+}
 h1 {
   font-size: 93px;
 }
