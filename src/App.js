@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MainContent from './components/MainContent'
 import ScrollToTop from './components/ScrollToTop'
+import BackToTop from './components/BackToTop'
 
 // react-icons Fontawesome 對齊
 import { IconContext } from 'react-icons'
@@ -19,6 +20,7 @@ function App() {
   return (
     <Router>
       <>
+        <BackToTop />
         <Navbar />
         <MainContent>
           <ScrollToTop>

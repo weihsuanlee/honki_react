@@ -13,10 +13,10 @@ function Footer() {
             height="118px"
             alt=""
           />
-          <div class="circle mt-4 ml-3 d-flex flex-column">
+          {/* <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp className="fas fa-caret-up mx-auto" />
             <span class="top_v">TOP</span>
-          </div>
+          </div> */}
         </div>
         <div class="container">
           <div class="row justify-content-around footer_head">
@@ -126,10 +126,10 @@ function Footer() {
             src="http://localhost:3000/images/components/footeritem.svg"
             alt=""
           />
-          <div class="circle mt-4 ml-3 d-flex flex-column">
+          {/* <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
             <span class="top_v">TOP</span>
-          </div>
+          </div> */}
         </div>
         <div class="container">
           <div class="row justify-content-center footer_head">
@@ -273,10 +273,10 @@ function Footer() {
             src="http://localhost:3000/images/components/footeritem.svg"
             alt=""
           />
-          <div class="circle mt-4 ml-3 d-flex flex-column">
+          {/* <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
             <span class="top_v">TOP</span>
-          </div>
+          </div> */}
         </div>
         <div class="container-fluid ">
           <div class="row justify-content-center footer_head">
