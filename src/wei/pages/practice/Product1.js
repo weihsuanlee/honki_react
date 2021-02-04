@@ -1,6 +1,6 @@
 import { withRouter } from 'react-router-dom'
 
-function Product(props) {
+function Product1(props) {
   // 利用match.params來取得url params (記得App元件中的Route要先定義)
   console.log('props.match.params', props.match.params)
 
@@ -13,4 +13,4 @@ function Product(props) {
   )
 }
 
-export default withRouter(Product)
+export default withRouter(Product1)

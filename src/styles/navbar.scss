@@ -1,6 +1,6 @@
 /* 調整 bootstrap 4 navbar 底色為 honki-red */
 
-.main-content-body.active {
+body.active {
   overflow: hidden;
 }
 
@@ -154,6 +154,10 @@
 .menu-open .card,
 .menu-open .card-header {
   background-color: transparent;
+  a {
+    color: var(--honki-white);
+    text-decoration: none;
+  }
 }
 .menu-open .card-header,
 .menu-open .card-body {
@@ -168,7 +172,14 @@
   margin-top: 16px;
   font-size: 14px;
   padding-left: 10px;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+    color: var(--honki-white);
+  }
 }
+
 .menu-subtitle {
   font-size: 14px;
   padding-left: 20px;

@@ -2,6 +2,7 @@ import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
 import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import Product1 from '../pages/practice/Product1'
 
 function Product(props) {
   // 利用match來取得url與path (記得App元件中的Route要先定義)
@@ -215,7 +216,7 @@ function Product(props) {
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/lifestyle`}
+                  to="/product/lifestyle"
                 >
                   <p>生活風格</p>
                 </NavLink>
@@ -223,14 +224,14 @@ function Product(props) {
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/literature`}
+                  to="/product/literature"
                 >
                   <p>文學小說</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/business`}
+                  to="/product/business"
                 >
                   <p>商業理財</p>
                 </NavLink>
@@ -244,56 +245,56 @@ function Product(props) {
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/self-help`}
+                  to="/product/self-help"
                 >
                   <p>心理勵志</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/comics`}
+                  to="/product/comics"
                 >
                   <p>輕小說 漫畫</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/education`}
+                  to="/product/education"
                 >
                   <p>語言考試</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/parenting`}
+                  to="/product/parenting"
                 >
                   <p>親子教養</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/travel`}
+                  to="/product/travel"
                 >
                   <p>旅遊</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/foods`}
+                  to="/product/foods"
                 >
                   <p>飲食</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/children`}
+                  to="/product/children"
                 >
                   <p>童書</p>
                 </NavLink>
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/foreign`}
+                  to="/product/foreign"
                 >
                   <p>外文書</p>
                 </NavLink>
@@ -456,6 +457,14 @@ function Product(props) {
           </div>
         </div>
       </div>
+      <Switch>
+        <Route exact path={path}>
+          <h3>請選擇子分類</h3>
+        </Route>
+        <Route path={`${path}/:type?/:id?`}>
+          <Product1 />
+        </Route>
+      </Switch>
     </>
   )
 }

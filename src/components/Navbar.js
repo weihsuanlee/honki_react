@@ -22,9 +22,12 @@ function Navbar() {
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
-      $('.main-content-body').toggleClass('active')
+      $('body').toggleClass('active')
       $('.menu-close-icon').toggleClass('d-none')
       $('.nav-burger-icon').toggleClass('d-none')
+    })
+    $('.menu-open a').on('click', function () {
+      $('.nav-burger').trigger('click')
     })
     $('.menu-open .btn-link').on('click', function () {
       $(this).toggleClass('active')
@@ -453,10 +456,10 @@ function Navbar() {
           <Card>
             <Card.Header>
               <Accordion.Toggle
-                as={Button}
+                as={Link}
                 to="/"
                 variant="link"
-                className="menu-home"
+                className="menu-home btn btn-link"
               >
                 首頁
               </Accordion.Toggle>
@@ -472,18 +475,66 @@ function Navbar() {
               <Card.Body>
                 <p class="menu-subtitle">書籍分類</p>
                 <ul>
-                  <li>生活風格</li>
-                  <li>文學小說</li>
-                  <li>商業理財</li>
-                  <li>藝術設計</li>
-                  <li>心理勵志</li>
-                  <li>輕小說 漫畫</li>
-                  <li>語言考試</li>
-                  <li>親子教養</li>
-                  <li>旅遊</li>
-                  <li>飲食</li>
-                  <li>童書</li>
-                  <li>外文書</li>
+                  <li>
+                    <Link to="/product/lifestyle">
+                      <p>生活風格</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/literature">
+                      <p>文學小說</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/business">
+                      <p>商業理財</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/arts">
+                      <p>藝術設計</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/self-help">
+                      <p>心理勵志</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/comics">
+                      <p>輕小說 漫畫</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/education">
+                      <p>語言考試</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/parenting">
+                      <p>親子教養</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/travel">
+                      <p>旅遊</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/foods">
+                      <p>飲食</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/children">
+                      <p>童書</p>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/product/foreign">
+                      <p>外文書</p>
+                    </Link>
+                  </li>
                 </ul>
               </Card.Body>
             </Accordion.Collapse>
