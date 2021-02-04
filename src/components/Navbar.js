@@ -13,7 +13,7 @@ import { Accordion, Card, Button } from 'react-bootstrap'
 // 要使用能有active css效果的NavLink元件
 // import { NavLink } from 'react-router-dom'
 
-// jquery 研究中...
+// jquery
 import { useEffect } from 'react'
 import $ from 'jquery'
 

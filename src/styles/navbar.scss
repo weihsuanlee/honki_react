@@ -104,7 +104,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background: var(--honki-red);
   clip-path: circle(10px at calc(100% - 36px) 40px);
   transition: all 0.5s ease-in-out;
