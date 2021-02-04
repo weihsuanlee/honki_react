@@ -565,7 +565,7 @@ https://www.codeply.com/go/NKtDpPXv2x */
 .search-box-m {
   width: 252px;
   height: 26px;
-  font-size: 12px !important;
+  font-size: 12px;
 }
 
 .search-bar-m {
@@ -583,12 +583,12 @@ https://www.codeply.com/go/NKtDpPXv2x */
   outline: none;
   padding-left: 14px;
   text-align: center;
-  font-size: 12px;
+  // font-size: 12px;
 }
 
 .select-box-m {
   line-height: 26px;
-  font-size: 12px;
+  // font-size: 12px;
 }
 
 .select-btn-m {
@@ -597,11 +597,11 @@ https://www.codeply.com/go/NKtDpPXv2x */
   line-height: 36px;
   list-style: none;
   cursor: pointer;
-  font-size: 12px;
+  // font-size: 12px;
 }
 
 .select-text-m {
-  font-size: 12px;
+  // font-size: 12px;
   line-height: 26px;
 }
 
@@ -618,7 +618,7 @@ https://www.codeply.com/go/NKtDpPXv2x */
   width: 20%;
   border-radius: 0 40px 40px 0;
   background-color: #1c1b1b;
-  font-size: 12px;
+  // font-size: 12px;
   line-height: 26px;
   text-align: center;
   padding: 0;
@@ -753,48 +753,33 @@ https://www.codeply.com/go/NKtDpPXv2x */
 
 /* holder 桌機版收合選單*/
 .holder {
-  width: 100%;
+  width: 90%;
 }
-.holder label {
-  margin-bottom: 0;
-}
-.holder-radio {
-  display: none;
-}
-.tabs {
-  width: 100%;
-  text-align: center;
-}
-.tab {
-  cursor: pointer;
-  padding: 16px 20px;
-  background: #f1f1f1a6;
-  display: inline-block;
-  color: var(--honki-black);
+.nav-tabs .nav-link {
   width: 33.3%;
+  text-align: center;
   border-radius: 15px 15px 0 0;
+  background: #f1f1f1a6;
+  padding: 16px 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: var(--honki-black);
   border-bottom: 3px solid transparent;
 }
-.panels {
+.nav-tabs .nav-link:hover {
+  border: none;
+  border-bottom: 3px solid #e9ecef;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  border: none;
   background: #f1f1f1a6;
-  min-height: 200px;
-  width: 100%;
-  border-radius: 0 0 15px 15px;
-  overflow: hidden;
+  border-bottom: 3px solid var(--honki-theme);
+}
+.tab-content > .tab-pane {
   padding: 64px;
 }
-.panel {
-  display: none;
-  animation: fadein 0.8s;
-}
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 .panel-title {
   font-size: 23px;
   font-weight: medium;
@@ -802,19 +787,61 @@ https://www.codeply.com/go/NKtDpPXv2x */
   margin-bottom: 2rem;
   padding-bottom: 1rem;
 }
-#one:checked ~ .panels #one-panel,
-#two:checked ~ .panels #two-panel,
-#three:checked ~ .panels #three-panel {
-  display: block;
-}
-#one:checked ~ .tabs #one-tab,
-#two:checked ~ .tabs #two-tab,
-#three:checked ~ .tabs #three-tab {
-  background: #f1f1f1a6;
-  color: #000;
-  border-bottom: 3px solid var(--honki-theme);
-  box-sizing: border-box;
-}
+
+// .holder label {
+//   margin-bottom: 0;
+// }
+// .holder-radio {
+//   display: none;
+// }
+// .tabs {
+//   width: 100%;
+//   text-align: center;
+// }
+// .tab {
+//   cursor: pointer;
+//   padding: 16px 20px;
+//   background: #f1f1f1a6;
+//   display: inline-block;
+//   color: var(--honki-black);
+//   width: 33.3%;
+//   border-radius: 15px 15px 0 0;
+//   border-bottom: 3px solid transparent;
+// }
+// .panels {
+//   background: #f1f1f1a6;
+//   min-height: 200px;
+//   width: 100%;
+//   border-radius: 0 0 15px 15px;
+//   overflow: hidden;
+//   padding: 64px;
+// }
+// .panel {
+//   display: none;
+//   animation: fadein 0.8s;
+// }
+// @keyframes fadein {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+// #one:checked ~ .panels #one-panel,
+// #two:checked ~ .panels #two-panel,
+// #three:checked ~ .panels #three-panel {
+//   display: block;
+// }
+// #one:checked ~ .tabs #one-tab,
+// #two:checked ~ .tabs #two-tab,
+// #three:checked ~ .tabs #three-tab {
+//   background: #f1f1f1a6;
+//   color: #000;
+//   border-bottom: 3px solid var(--honki-theme);
+//   box-sizing: border-box;
+// }
+
 /* mobile holder 手機版收合選單 */
 .holder-mobile {
   width: 100%;

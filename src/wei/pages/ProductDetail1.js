@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import { withRouter } from 'react-router-dom'
-import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
+import { Tabs, Tab } from 'react-bootstrap'
 
 function ProductDetail(props) {
   return (
@@ -220,16 +220,28 @@ function ProductDetail(props) {
               </Tab>
             </Tabs>
           </div>
-          <div className="holder-mobile d-lg-none wei-holder-mobile">
-            <Accordion defaultActiveKey="10">
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="10">
-                    內容簡介
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="10">
-                  <Card.Body>
+          <div className="holder-mobile d-lg-none">
+            <div className="accordion" id="accordionHolder">
+              <div className="card">
+                <div className="card-header" id="headingHolderOne">
+                  <h4 className="mb-0">
+                    <button
+                      className="btn btn-link"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#holder-collapseOne"
+                    >
+                      內容簡介
+                    </button>
+                  </h4>
+                </div>
+
+                <div
+                  id="holder-collapseOne"
+                  className="collapse show"
+                  data-parent="#accordionExample"
+                >
+                  <div className="card-body">
                     <p>
                       《日本庶民美食：Nippon所藏日語嚴選講座》
                       <br />
@@ -257,18 +269,28 @@ function ProductDetail(props) {
                       用一雙眼，追逐日本的瞬息萬變、領略日本的傳承與創新。
                       「Nippon所藏」為你獻上日本的薈萃珍藏。
                     </p>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="11">
-                    作者介紹
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="11">
-                  <Card.Body>
-                    {' '}
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingHolderTwo">
+                  <h4 className="mb-0">
+                    <button
+                      className="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#holder-collapseTwo"
+                    >
+                      作者介紹
+                    </button>
+                  </h4>
+                </div>
+                <div
+                  id="holder-collapseTwo"
+                  className="collapse"
+                  data-parent="#accordionExample"
+                >
+                  <div className="card-body">
                     <p>
                       林潔珏、游翔皓、EZ Japan編輯部 游翔皓
                       <br />
@@ -294,17 +316,28 @@ function ProductDetail(props) {
                       <br />
                       著有《這個動作、那個情境、日語怎麼說？桃太郎的實用動詞組句，教你日語好到花瘋(附音檔)》同時也是人氣粉專「桃太郎的花瘋日文」版主。
                     </p>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="12">
-                    書籍目錄
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="12">
-                  <Card.Body>
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingHolderThree">
+                  <h4 className="mb-0">
+                    <button
+                      className="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#holder-collapseThree"
+                    >
+                      書籍目錄
+                    </button>
+                  </h4>
+                </div>
+                <div
+                  id="holder-collapseThree"
+                  className="collapse"
+                  data-parent="#accordionExample"
+                >
+                  <div className="card-body">
                     <p>
                       Part1. 卷頭特輯：有故事的庶民美食 ……壹、鄉土料理二三事　
                       <br />
@@ -394,10 +427,10 @@ function ProductDetail(props) {
                       <br />
                       ……餃子對決──菜餡爽口的宇都宮vs. 肉汁鮮美的浜松
                     </p>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

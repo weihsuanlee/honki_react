@@ -34,6 +34,43 @@ function Navbar() {
         .find('.btn-link')
         .removeClass('active')
     })
+    $('.selected').on('click', function () {
+      const hasClass = $('.select-box').hasClass('d-none')
+      console.log(hasClass)
+      if (hasClass === true) {
+        $('.select-box').removeClass('d-none')
+      } else {
+        $('.select-box').addClass('d-none')
+      }
+    })
+
+    $('.used-books').on('click', function () {
+      const usedBookBtn = $('.used-books-text').html()
+      const hasClass = $('.select-box').hasClass('d-none')
+      $('.select-text').html(
+        usedBookBtn + `&ensp;<i class="fas fa-caret-down"></i>`
+      )
+      console.log(hasClass)
+      if (hasClass === true) {
+        $('.select-box').removeClass('d-none')
+      } else {
+        $('.select-box').addClass('d-none')
+      }
+    })
+
+    $('.bookstore').on('click', function () {
+      const bookstoreBtn = $('.bookstore-text').html()
+      const hasClass = $('.select-box').hasClass('d-none')
+      $('.select-text').html(
+        bookstoreBtn + `&ensp;<i class="fas fa-caret-down"></i>`
+      )
+      console.log(hasClass)
+      if (hasClass === true) {
+        $('.select-box').removeClass('d-none')
+      } else {
+        $('.select-box').addClass('d-none')
+      }
+    })
   }, [])
   return (
     <>
@@ -218,12 +255,18 @@ function Navbar() {
               </li>
               <li class="nav-item honki-nav-link-fa active">
                 <Link class="nav-link zero-padding" to="/member">
-                  <FaUserAlt class="fas fa-user fa-lg" />
+                  <FaUserAlt
+                    class="fas fa-user fa-lg"
+                    style={{ fontSize: '24px' }}
+                  />
                 </Link>
               </li>
               <li class="nav-item honki-nav-link-fa active">
                 <Link class="nav-link zero-padding" to="/cart">
-                  <FaShoppingCart class="fas fa-shopping-cart fa-lg" />
+                  <FaShoppingCart
+                    class="fas fa-shopping-cart fa-lg"
+                    style={{ fontSize: '24px' }}
+                  />
                 </Link>
               </li>
             </ul>
@@ -232,7 +275,7 @@ function Navbar() {
       </nav>
       {/* <!-- 桌機版 navbar  end --> */}
       <nav class="navbar navbar-mobile d-lg-none fixed-top">
-        <Link class="navbar-brand" to="/">
+        <Link class="navbar-brand wei-nav-brand" to="/">
           {/* <!-- LOGO SVG --> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -357,6 +400,55 @@ function Navbar() {
         </div>
       </nav>
       <div class="wrapper d-lg-none">
+        <div class="search-box-m navbar-search-m mx-auto">
+          <form class="d-flex search-bar-m">
+            <div class="select-list-m select-list">
+              <div class="select-btn-m selected" value="bookstore">
+                <div class="select-text select-text-m">
+                  書城 
+                  <FaCaretDown
+                    class="fas fa-caret-down"
+                    style={{ transform: 'translateY(-1px)' }}
+                  />
+                </div>
+              </div>
+              <div class="select-box select-box-m d-none">
+                <div
+                  class="select-btn-m used-books"
+                  name="usedBooks"
+                  value="usedBooks"
+                >
+                  <div class="used-books-text">二手書</div>
+                </div>
+                <div
+                  class="select-btn-m bookstore"
+                  name="bookstore"
+                  value="bookstore"
+                >
+                  <div class="bookstore-text">書城</div>
+                </div>
+              </div>
+            </div>
+
+            <input
+              class="search-input-m"
+              id="search-input"
+              placeholder=" 搜尋"
+            ></input>
+
+            <button
+              type="submit"
+              class="btn btn-dark search-submit-m"
+              id="search-submit"
+            >
+              <FaSearch
+                class="fas fa-search fa-search-m"
+                style={{ transform: 'translateY(-1px)' }}
+              />
+            </button>
+          </form>
+        </div>
+
         <Accordion className="accordion menu-open mx-auto">
           <Card>
             <Card.Header>

@@ -7,6 +7,7 @@
   height: 80vh;
   position: relative;
   overflow: hidden;
+  margin-top: -80px;
 }
 
 .wei-bg-black::before {
@@ -289,15 +290,23 @@ ol.wei-breadcrumb {
 }
 
 .wei-category {
-  list-style-type: none;
-  margin-top: 2rem;
   font-size: 1rem;
+  color: var(--honki-black);
+  transition: all 0.5s;
+  &:hover {
+    color: rgb(158, 158, 158);
+    text-decoration: none;
+  }
+  p {
+    margin-bottom: 0;
+    margin-top: 2rem;
+  }
 }
 .wei-category.active {
   color: var(--honki-red);
   font-weight: bold;
 }
-.wei-category.active::before {
+.wei-category.active p::before {
   color: var(--honki-red);
   content: '•';
   position: absolute;
@@ -314,6 +323,7 @@ ol.wei-breadcrumb {
 .wei-bg-white {
   background: url('http://localhost:3000/images/bg_noise.png') white;
   padding: 72px;
+  margin-top: -80px;
 }
 @media (max-width: 400px) {
   .wei-bg-white {
@@ -354,6 +364,13 @@ ol.wei-breadcrumb {
   background-color: var(--honki-theme);
 }
 
+@media (max-width: 768px) and(min-width:576px) {
+  .wei-add-to-cart {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 @media (max-width: 576px) {
   .wei-add-to-cart {
     position: fixed;
@@ -429,4 +446,13 @@ ol.wei-breadcrumb {
   padding-left: 96px;
   margin-top: 4rem;
   font-weight: normal;
+}
+
+.wei-holder {
+  margin-top: 6rem;
+}
+@media (max-width: 768px) and (min-width: 576px) {
+  .wei-holder-mobile {
+    margin-top: 132px;
+  }
 }

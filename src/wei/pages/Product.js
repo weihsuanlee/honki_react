@@ -1,9 +1,14 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
 function Product(props) {
+  // 利用match來取得url與path (記得App元件中的Route要先定義)
+  console.log(props.match.path)
+
+  const url = props.match.url
+  const path = props.match.path
   return (
     <>
       <div className="container-fluid">
@@ -191,16 +196,6 @@ function Product(props) {
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">
           <div className="col-12 col-md-6 ">
             <MultiLevelBreadCrumb />
-            {/* <nav aria-label="breadcrumb">
-              <ol className="breadcrumb wei-breadcrumb">
-                <li className="breadcrumb-honki">
-                  <a href="#">首頁</a>
-                </li>
-                <li className="active" aria-current="page">
-                  所有商品
-                </li>
-              </ol>
-            </nav> */}
           </div>
           <div className="col-12 col-md-6 wei-button-group">
             <button className="btn-rounded-dark mr-1">出版日期</button>
@@ -217,18 +212,91 @@ function Product(props) {
             <div className="wei-categories">
               <h6 className="wei-categories-title">書籍分類</h6>
               <ul>
-                <li className="wei-category active">生活風格</li>
-                <li className="wei-category">文學小說</li>
-                <li className="wei-category">商業理財</li>
-                <li className="wei-category">藝術設計</li>
-                <li className="wei-category">心理勵志</li>
-                <li className="wei-category">輕小說 漫畫</li>
-                <li className="wei-category">語言考試</li>
-                <li className="wei-category">親子教養</li>
-                <li className="wei-category">旅遊</li>
-                <li className="wei-category">飲食</li>
-                <li className="wei-category">童書</li>
-                <li className="wei-category">外文書</li>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/lifestyle`}
+                >
+                  <p>生活風格</p>
+                </NavLink>
+
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/literature`}
+                >
+                  <p>文學小說</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/business`}
+                >
+                  <p>商業理財</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/arts`}
+                >
+                  <p>藝術設計</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/self-help`}
+                >
+                  <p>心理勵志</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/comics`}
+                >
+                  <p>輕小說 漫畫</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/education`}
+                >
+                  <p>語言考試</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/parenting`}
+                >
+                  <p>親子教養</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/travel`}
+                >
+                  <p>旅遊</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/foods`}
+                >
+                  <p>飲食</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/children`}
+                >
+                  <p>童書</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to={`${url}/foreign`}
+                >
+                  <p>外文書</p>
+                </NavLink>
               </ul>
             </div>
           </div>
