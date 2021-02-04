@@ -1,5 +1,7 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
+import { withRouter } from 'react-router-dom'
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
 function Product(props) {
   return (
@@ -188,7 +190,8 @@ function Product(props) {
       <div className="container-fluid my-5">
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">
           <div className="col-12 col-md-6 ">
-            <nav aria-label="breadcrumb">
+            <MultiLevelBreadCrumb />
+            {/* <nav aria-label="breadcrumb">
               <ol className="breadcrumb wei-breadcrumb">
                 <li className="breadcrumb-honki">
                   <a href="#">首頁</a>
@@ -197,7 +200,7 @@ function Product(props) {
                   所有商品
                 </li>
               </ol>
-            </nav>
+            </nav> */}
           </div>
           <div className="col-12 col-md-6 wei-button-group">
             <button className="btn-rounded-dark mr-1">出版日期</button>
@@ -389,4 +392,4 @@ function Product(props) {
   )
 }
 
-export default Product
+export default withRouter(Product)
