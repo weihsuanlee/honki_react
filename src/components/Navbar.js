@@ -1,12 +1,14 @@
 import '../styles/navbar.scss'
-import { BrowserRouter as Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import {
   FaCaretDown,
   FaSearch,
   FaUserAlt,
   FaShoppingCart,
   FaBars,
+  FaTimes,
 } from 'react-icons/fa'
+import { Accordion, Card, Button } from 'react-bootstrap'
 
 // 要使用能有active css效果的NavLink元件
 // import { NavLink } from 'react-router-dom'
@@ -21,7 +23,16 @@ function Navbar() {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
       $('.main-content-body').toggleClass('active')
-      // $(this).siblings().toggleClass("d-none");
+      $('.menu-close-icon').toggleClass('d-none')
+      $('.nav-burger-icon').toggleClass('d-none')
+    })
+    $('.menu-open .btn-link').on('click', function () {
+      $(this).toggleClass('active')
+      $(this)
+        .closest('.card')
+        .siblings()
+        .find('.btn-link')
+        .removeClass('active')
     })
   }, [])
   return (
@@ -340,45 +351,33 @@ function Navbar() {
                 />
               </g>
             </svg>
-            <FaBars class="fas fa-bars nav-mobile-icons nav-burger-icon" />
+            <FaBars className="fas fa-bars nav-mobile-icons nav-burger-icon" />
+            <FaTimes className="d-none menu-close-icon" />
           </div>
         </div>
       </nav>
       <div class="wrapper d-lg-none">
-        <div class="accordion menu-open mx-auto">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button class="btn btn-link" type="button">
-                  <Link to="/">首頁</Link>
-                </button>
-              </h2>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="false"
-                  aria-controls="collapseOne"
-                >
-                  <Link to="/product">
-                    所有商品<i class="fas"></i>
-                  </Link>
-                </button>
-              </h2>
-            </div>
-            <div
-              id="collapseOne"
-              class="collapse"
-              aria-labelledby="headingOne"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
+        <Accordion className="accordion menu-open mx-auto">
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                to="/"
+                variant="link"
+                className="menu-home"
+              >
+                首頁
+              </Accordion.Toggle>
+            </Card.Header>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                所有商品
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
                 <p class="menu-subtitle">書籍分類</p>
                 <ul>
                   <li>生活風格</li>
@@ -394,33 +393,17 @@ function Navbar() {
                   <li>童書</li>
                   <li>外文書</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  <Link to="/activity">
-                    活動講座<i class="fas"></i>
-                  </Link>
-                </button>
-              </h2>
-            </div>
-            <div
-              id="collapseTwo"
-              class="collapse"
-              aria-labelledby="headingTwo"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                活動講座
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>
                 <p class="menu-subtitle">活動分類</p>
                 <ul>
                   <li>講座</li>
@@ -430,106 +413,55 @@ function Navbar() {
                   <li>活動地區</li>
                   <li>節氣推薦</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  <Link to="/used-books">
-                    二手書交換<i class="fas"></i>
-                  </Link>
-                </button>
-              </h2>
-            </div>
-            <div
-              id="collapseThree"
-              class="collapse"
-              aria-labelledby="headingThree"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                {/* <!-- <p class="menu-subtitle">二手書交換</p> --> */}
-                <ul>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="2">
+                二手書交換
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="2">
+              <Card.Body>
+                <ul class="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseFour"
-                  aria-expanded="false"
-                  aria-controls="collapseFour"
-                >
-                  <Link to="/reviews">
-                    讀者感言<i class="fas"></i>
-                  </Link>
-                </button>
-              </h2>
-            </div>
-            <div
-              id="collapseFour"
-              class="collapse"
-              aria-labelledby="headingFour"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <p class="menu-subtitle">二手書交換</p>
-                <ul>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="3">
+                讀者感言
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="3">
+              <Card.Body>
+                <ul class="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingFive">
-              <h2 class="mb-0">
-                <button
-                  class="btn btn-link collapsed"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#collapseFive"
-                  aria-expanded="false"
-                  aria-controls="collapseFive"
-                >
-                  <Link to="/old-seasons">
-                    過往節氣<i class="fas"></i>
-                  </Link>
-                </button>
-              </h2>
-            </div>
-            <div
-              id="collapseFive"
-              class="collapse"
-              aria-labelledby="headingFive"
-              data-parent="#accordionExample"
-            >
-              <div class="card-body">
-                <p class="menu-subtitle">二手書交換</p>
-                <ul>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="4">
+                過往節氣
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="4">
+              <Card.Body>
+                <ul class="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
       </div>
     </>
   )

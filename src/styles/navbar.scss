@@ -118,16 +118,26 @@
 }
 .nav-burger,
 .nav-close-icon {
-  z-index: 1;
+  z-index: 501;
 }
 .nav-burger {
   cursor: pointer;
 }
-.nav-burger.active .nav-burger-icon::before {
-  content: '';
-  background: url('http://localhost:3000/images/wei/times-solid.svg');
-  z-index: 2;
+.menu-close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 13px;
 }
+// .nav-burger.active .nav-burger-icon::after {
+//   content: '';
+//   background: url('http://localhost:3000/images/wei/times-solid.svg');
+//   width: 13px;
+//   height: 15px;
+//   z-index: 501;
+// }
 .menu-open {
   margin-top: 100px;
   color: var(--honki-white);
@@ -167,13 +177,22 @@
   align-items: center;
   padding: 0;
 }
-.menu-open .btn-link.collapsed i::before {
+
+.menu-open .btn-link::after {
   content: '';
   background: url('http://localhost:3000/images/wei/plus-solid.svg');
+  width: 13px;
+  height: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.menu-open .btn-link i::before {
+
+.menu-open .btn-link.active::after {
   content: '';
   background: url('http://localhost:3000/images/wei/minus-solid.svg');
+}
+.menu-open .menu-home.btn-link::after {
+  background: none;
 }
 
 .menu-open .btn-link:focus,
