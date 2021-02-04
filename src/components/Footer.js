@@ -15,7 +15,7 @@ function Footer() {
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp className="fas fa-caret-up mx-auto" />
-            <sapn class="top_v">TOP</sapn>
+            <span class="top_v">TOP</span>
           </div>
         </div>
         <div class="container">
@@ -128,7 +128,7 @@ function Footer() {
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
-            <sapn class="top_v">TOP</sapn>
+            <span class="top_v">TOP</span>
           </div>
         </div>
         <div class="container">
@@ -275,7 +275,7 @@ function Footer() {
           />
           <div class="circle mt-4 ml-3 d-flex flex-column">
             <FaCaretUp class="fas fa-caret-up mx-auto" />
-            <sapn class="top_v">TOP</sapn>
+            <span class="top_v">TOP</span>
           </div>
         </div>
         <div class="container-fluid ">

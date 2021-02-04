@@ -1,6 +1,6 @@
 /* 調整 bootstrap 4 navbar 底色為 honki-red */
 
-body.active {
+.main-content-body.active {
   overflow: hidden;
 }
 
@@ -123,8 +123,9 @@ body.active {
 .nav-burger {
   cursor: pointer;
 }
-.nav-burger.active i::before {
-  content: '\f00d';
+.nav-burger.active .nav-burger-icon::before {
+  content: '';
+  background: url('http://localhost:3000/images/wei/times-solid.svg');
   z-index: 2;
 }
 .menu-open {
@@ -167,10 +168,12 @@ body.active {
   padding: 0;
 }
 .menu-open .btn-link.collapsed i::before {
-  content: '\f067';
+  content: '';
+  background: url('http://localhost:3000/images/wei/plus-solid.svg');
 }
 .menu-open .btn-link i::before {
-  content: '\f068';
+  content: '';
+  background: url('http://localhost:3000/images/wei/minus-solid.svg');
 }
 
 .menu-open .btn-link:focus,

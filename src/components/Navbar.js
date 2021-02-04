@@ -1,5 +1,5 @@
 import '../styles/navbar.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Link } from 'react-router-dom'
 import {
   FaCaretDown,
   FaSearch,
@@ -20,7 +20,7 @@ function Navbar() {
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
-      $('body').toggleClass('active')
+      $('.main-content-body').toggleClass('active')
       // $(this).siblings().toggleClass("d-none");
     })
   }, [])
@@ -47,7 +47,7 @@ function Navbar() {
                   transform="translate(-2073.605 12906.064)"
                   fill="#e83015"
                   stroke="#1c1b1b"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <g
                   id="Group_652"
@@ -236,7 +236,7 @@ function Navbar() {
                 transform="translate(-2073.605 12906.064)"
                 fill="#e83015"
                 stroke="#1c1b1b"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <g
                 id="Group_652"

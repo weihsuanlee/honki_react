@@ -351,7 +351,7 @@ function Product(props) {
                 <a
                   className="page-link"
                   href="#pagination"
-                  tabindex="-1"
+                  tabIndex="-1"
                   aria-disabled="true"
                 >
                   ←

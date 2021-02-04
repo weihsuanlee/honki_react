@@ -20,7 +20,7 @@ body {
   /* font-family: 'Abel', sans-serif; */
   font-size: 16px;
   /* 紙質背景 若要改個人顏色就在自己頁面style body background: url(相對路徑到bg_noise) white */
-  background: url('https://localhost:3000/public/images/bg_noise.png')
+  background: url('http://localhost:3000/images/bg_noise.png')
     var(--honki-paper);
 }
 .main-content-body {
@@ -259,8 +259,7 @@ select {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background: url('https://localhost:3000/public/images/select-btn.png')
-    no-repeat 100%;
+  background: url('http://localhost:3000/images/select-btn.png') no-repeat 100%;
 }
 
 select::-ms-expand {
@@ -276,7 +275,7 @@ input:disabled {
 }
 
 select:disabled {
-  background: url('https://localhost:3000/public/images/select-btn-disabled.png')
+  background: url('http://localhost:3000/images/select-btn-disabled.png')
     no-repeat 100%;
 }
 
