@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './chia/pages/Home'
 import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
+import Login from './yu/pages/Login'
+import Register from './yu/pages/Register'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -29,7 +31,7 @@ function App() {
             >
               <Switch>
                 <Route path="/member">
-                  <Home />
+                  <Login />
                 </Route>
                 <Route path="/cart">
                   <Home />
