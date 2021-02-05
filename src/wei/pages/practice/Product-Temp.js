@@ -1,8 +1,8 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
 import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import Product1 from '../pages/practice/Product1'
+import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
+import Product1 from './Product1'
 
 function Product(props) {
   // 利用match來取得url與path (記得App元件中的Route要先定義)
