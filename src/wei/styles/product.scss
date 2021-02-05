@@ -335,6 +335,12 @@ ol.wei-breadcrumb {
   -webkit-filter: drop-shadow(30px 10px 10px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(30px 10px 10px rgba(0, 0, 0, 0.2));
 }
+.wei-read-trial:active,
+.wei-read-trial:focus {
+  border: none;
+  box-shadow: none;
+  background-color: var(--honki-black);
+}
 .wei-line {
   background: var(--honki-yellow);
   width: 70%;

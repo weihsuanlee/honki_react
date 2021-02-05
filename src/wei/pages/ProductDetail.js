@@ -9,8 +9,11 @@ import {
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import { withRouter } from 'react-router-dom'
 import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
+import React from 'react'
+import MyVerticallyCenteredModal from '../../components/MyVerticallyCenteredModal'
 
 function ProductDetail(props) {
+  const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
       <div className="container-fluid wei-bg-white">
@@ -34,10 +37,19 @@ function ProductDetail(props) {
                 alt=""
               />
             </div>
-            <button className="btn-md-dark wei-read-trial">
+            <Button
+              variant="primary"
+              onClick={() => setModalShow(true)}
+              className="btn-md-dark wei-read-trial"
+            >
               <FaBookOpen className="mr-3" />
               試閱
-            </button>
+            </Button>
+
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
           </div>
           <div className="col-12 col-md-7 wei-detail-right pt-5">
             <h4 className="wei-detail-title">日本庶民美食</h4>
