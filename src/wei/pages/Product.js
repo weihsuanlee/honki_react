@@ -2,8 +2,8 @@ import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
 import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import Product1 from '../pages/practice/Product1'
 import ProductBanner from './ProductBanner'
+import ProductCards from './ProductCards'
 
 function Product(props) {
   // 利用match來取得url與path (記得App元件中的Route要先定義)
@@ -123,118 +123,14 @@ function Product(props) {
             </div>
           </div>
           <div className="col-11 col-lg-10 col-xl-9">
-            <div className="row">
-              <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
-                <div className="wei-card-icon">NEW</div>
-                <div className="wei-card-pic position-relative">
-                  <div className="wei-book-pic">
-                    <img
-                      className="w-100"
-                      src="http://localhost:3000/images/books/5ffd7ab5a282a.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="wei-heart-bg">
-                    <FaHeart className="wei-heart" />
-                  </div>
-                </div>
-                <div className="wei-book-text">
-                  <p className="wei-book-title">
-                    婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-                  </p>
-                  <p className="wei-book-author">約翰．伯格</p>
-                  <div className="wei-book-price">$300</div>
-                </div>
-              </div>
-              <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
-                <div className="wei-card-icon">NEW</div>
-                <div className="wei-card-pic position-relative">
-                  <div className="wei-book-pic">
-                    <img
-                      className="w-100"
-                      src="http://localhost:3000/images/books/5ffd7ab5a282a.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="wei-heart-bg">
-                    <FaHeart className="wei-heart" />
-                  </div>
-                </div>
-                <div className="wei-book-text">
-                  <p className="wei-book-title">
-                    婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-                  </p>
-                  <p className="wei-book-author">約翰．伯格</p>
-                  <div className="wei-book-price">$300</div>
-                </div>
-              </div>
-              <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
-                <div className="wei-card-icon">NEW</div>
-                <div className="wei-card-pic position-relative">
-                  <div className="wei-book-pic">
-                    <img
-                      className="w-100"
-                      src="http://localhost:3000/images/books/5ffd7ab5a282a.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="wei-heart-bg">
-                    <FaHeart className="wei-heart" />
-                  </div>
-                </div>
-                <div className="wei-book-text">
-                  <p className="wei-book-title">
-                    婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-                  </p>
-                  <p className="wei-book-author">約翰．伯格</p>
-                  <div className="wei-book-price">$300</div>
-                </div>
-              </div>
-              <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
-                <div className="wei-card-icon">NEW</div>
-                <div className="wei-card-pic position-relative">
-                  <div className="wei-book-pic">
-                    <img
-                      className="w-100"
-                      src="http://localhost:3000/images/books/5ffd7ab5a282a.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="wei-heart-bg">
-                    <FaHeart className="wei-heart" />
-                  </div>
-                </div>
-                <div className="wei-book-text">
-                  <p className="wei-book-title">
-                    婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-                  </p>
-                  <p className="wei-book-author">約翰．伯格</p>
-                  <div className="wei-book-price">$300</div>
-                </div>
-              </div>
-              <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
-                <div className="wei-card-icon">NEW</div>
-                <div className="wei-card-pic position-relative">
-                  <div className="wei-book-pic">
-                    <img
-                      className="w-100"
-                      src="http://localhost:3000/images/books/5ffd7ab5a282a.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="wei-heart-bg">
-                    <FaHeart className="wei-heart" />
-                  </div>
-                </div>
-                <div className="wei-book-text">
-                  <p className="wei-book-title">
-                    婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-                  </p>
-                  <p className="wei-book-author">約翰．伯格</p>
-                  <div className="wei-book-price">$300</div>
-                </div>
-              </div>
-            </div>
+            <Switch>
+              <Route exact path={path}>
+                <h3>請選擇子分類</h3>
+              </Route>
+              <Route path={`${path}/:category?`}>
+                <ProductCards />
+              </Route>
+            </Switch>
           </div>
         </div>
         <div className="row justify-content-end ">
@@ -278,14 +174,6 @@ function Product(props) {
           </div>
         </div>
       </div>
-      <Switch>
-        <Route exact path={path}>
-          <h3>請選擇子分類</h3>
-        </Route>
-        <Route path={`${path}/:type?/:id?`}>
-          <Product1 />
-        </Route>
-      </Switch>
     </>
   )
 }
