@@ -88,7 +88,9 @@ body.active {
 .nav-mobile-link {
   position: relative;
   margin-left: 12px;
+  transition: all 0.5s;
 }
+
 /* 圓圓icon大小 */
 .nav-mobile-link svg {
   height: 48px;
@@ -111,7 +113,7 @@ body.active {
   width: 100vw;
   background: var(--honki-red);
   clip-path: circle(10px at calc(100% - 36px) 40px);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.8s ease-in-out;
   opacity: 0;
   overflow-y: scroll;
   z-index: 500;
@@ -223,9 +225,10 @@ body.active {
   height: 40px;
   .select-text-m,
   .select-box-m,
-  .select-btn-m {
+  .select-btn-m,
+  .search-input-m {
     line-height: 40px;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (max-width: 330px) {

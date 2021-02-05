@@ -22,6 +22,7 @@ function Navbar() {
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
+      $(this).siblings().toggleClass('d-none')
       $('body').toggleClass('active')
       $('.menu-close-icon').toggleClass('d-none')
       $('.nav-burger-icon').toggleClass('d-none')
@@ -36,43 +37,6 @@ function Navbar() {
         .siblings()
         .find('.btn-link')
         .removeClass('active')
-    })
-    $('.selected').on('click', function () {
-      const hasClass = $('.select-box').hasClass('d-none')
-      console.log(hasClass)
-      if (hasClass === true) {
-        $('.select-box').removeClass('d-none')
-      } else {
-        $('.select-box').addClass('d-none')
-      }
-    })
-
-    $('.used-books').on('click', function () {
-      const usedBookBtn = $('.used-books-text').html()
-      const hasClass = $('.select-box').hasClass('d-none')
-      $('.select-text').html(
-        usedBookBtn + `&ensp;<i class="fas fa-caret-down"></i>`
-      )
-      console.log(hasClass)
-      if (hasClass === true) {
-        $('.select-box').removeClass('d-none')
-      } else {
-        $('.select-box').addClass('d-none')
-      }
-    })
-
-    $('.bookstore').on('click', function () {
-      const bookstoreBtn = $('.bookstore-text').html()
-      const hasClass = $('.select-box').hasClass('d-none')
-      $('.select-text').html(
-        bookstoreBtn + `&ensp;<i class="fas fa-caret-down"></i>`
-      )
-      console.log(hasClass)
-      if (hasClass === true) {
-        $('.select-box').removeClass('d-none')
-      } else {
-        $('.select-box').addClass('d-none')
-      }
     })
   }, [])
   return (
@@ -403,7 +367,7 @@ function Navbar() {
         </div>
       </nav>
       <div class="wrapper d-lg-none">
-        <div class="search-box-m navbar-search-m mx-auto">
+        <div class="search-box-m navbar-search-m mx-auto mb-2">
           <form class="d-flex search-bar-m">
             <div class="select-list-m select-list">
               <div class="select-btn-m selected" value="bookstore">
