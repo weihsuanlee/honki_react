@@ -1,4 +1,7 @@
 import '../styles/members-login.scss'
+import { FaLine, FaFacebookSquare } from 'react-icons/fa'
+import { ImGoogle2 } from 'react-icons/im'
+import { Link } from 'react-router-dom'
 
 function Login() {
   return (
@@ -103,19 +106,15 @@ function Login() {
           <h6>其他登入方式</h6>
         </div>
         <div class="d-flex justify-content-center col-3 mx-auto yu-otherlinks">
-          <div>
-            <i class="fab fa-facebook-square yu-facebook-link mx-2"></i>
-          </div>
-          <div>
-            <i class="fab fa-line yu-line-link mx-2"></i>
-          </div>
-          <div class="yu-google-icon mx-2">
-            <img
-              class="w-100"
-              src="http://localhost:3000/images/yu/googleicon.svg"
-              alt=""
-            />
-          </div>
+          <Link to="/">
+            <FaFacebookSquare className="yu-facebook-link mx-2" />
+          </Link>
+          <Link to="/">
+            <FaLine className="yu-line-link mx-2" />
+          </Link>
+          <Link to="/">
+            <ImGoogle2 className="yu-google-link mx-2" />
+          </Link>
         </div>
       </div>
     </>
