@@ -3,9 +3,48 @@ import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
 import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from './ProductBanner'
-import ProductCards from './ProductCards'
+import { useEffect, useState } from 'react'
 
 function Product(props) {
+  const [books, setBooks] = useState([])
+  const getDataFromServer = async () => {
+    const response = await fetch('http://localhost:3333/product/lifestyle', {
+      method: 'get',
+    })
+    const data = await response.json()
+    console.log(data)
+    setBooks(data)
+  }
+  const bookCardDisplay = (
+    <>
+      {books.map((v, i) => (
+        <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card">
+          <div className="wei-card-icon">NEW</div>
+          <div className="wei-card-pic position-relative">
+            <div className="wei-book-pic">
+              <img
+                className="w-100"
+                src={`http://localhost:3000/images/books/` + v.book_pics}
+                alt=""
+              />
+            </div>
+            <div className="wei-heart-bg">
+              <FaHeart className="wei-heart" />
+            </div>
+          </div>
+          <div className="wei-book-text">
+            <p className="wei-book-title">{v.title}</p>
+            <p className="wei-book-author">{v.author}</p>
+            <div className="wei-book-price">NT$ {v.final_price}</div>
+          </div>
+        </div>
+      ))}
+    </>
+  )
+  useEffect(() => {
+    getDataFromServer()
+  }, [])
+
   // 利用match來取得url與path (記得App元件中的Route要先定義)
   console.log(props.match.path)
 
@@ -123,14 +162,14 @@ function Product(props) {
             </div>
           </div>
           <div className="col-11 col-lg-10 col-xl-9">
-            <Switch>
+            {/* <Switch>
               <Route exact path={path}>
                 <h3>請選擇子分類</h3>
               </Route>
-              <Route path={`${path}/:category?`}>
-                <ProductCards />
-              </Route>
-            </Switch>
+              <Route path={`${path}/:category?`}> */}
+            <div className="row">{bookCardDisplay}</div>
+            {/* </Route>
+            </Switch> */}
           </div>
         </div>
         <div className="row justify-content-end ">
