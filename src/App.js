@@ -8,12 +8,9 @@ import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
 import Register from './yu/pages/Register'
 import Menu from './yu/pages/Menu'
-<<<<<<< HEAD
 import Edit from './yu/pages/Edit'
 import Bookshelf from './yu/pages/Bookshelf'
-=======
 import ActIndex from './yen/pages/ActIndex'
->>>>>>> 581860c02fc2f3f1fc79e4b4cacae739ef197568
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
