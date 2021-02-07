@@ -8,6 +8,8 @@ import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
 import Register from './yu/pages/Register'
 import Menu from './yu/pages/Menu'
+import Edit from './yu/pages/Edit'
+import Bookshelf from './yu/pages/Bookshelf'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -32,6 +34,12 @@ function App() {
             >
               <Switch>
                 <Route path="/member">
+                  <Bookshelf />
+                </Route>
+                <Route path="/edit">
+                  <Edit />
+                </Route>
+                <Route path="/menu">
                   <Menu />
                 </Route>
                 <Route path="/login">
