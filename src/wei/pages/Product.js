@@ -1,8 +1,9 @@
 import '../styles/product.scss'
-import { FaThLarge, FaListUl, FaHeart, FaSearch } from 'react-icons/fa'
-import { Route, withRouter, NavLink, Switch, matchPath } from 'react-router-dom'
+import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
+import { withRouter, NavLink } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from './ProductBanner'
+import Spinner from '../components/Spinner'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
@@ -48,8 +49,8 @@ function Product(props) {
   // 利用match來取得url與path (記得App元件中的Route要先定義)
   console.log(props.match.path)
 
-  const url = props.match.url
-  const path = props.match.path
+  // const url = props.match.url
+  // const path = props.match.path
   return (
     <>
       <ProductBanner />
@@ -98,7 +99,7 @@ function Product(props) {
                 <NavLink
                   activeClassName="active"
                   className="wei-category"
-                  to={`${url}/arts`}
+                  to="/product/arts"
                 >
                   <p>藝術設計</p>
                 </NavLink>
@@ -167,7 +168,10 @@ function Product(props) {
                 <h3>請選擇子分類</h3>
               </Route>
               <Route path={`${path}/:category?`}> */}
-            <div className="row">{bookCardDisplay}</div>
+            <div className="row">
+              <Spinner />
+              {bookCardDisplay}
+            </div>
             {/* </Route>
             </Switch> */}
           </div>

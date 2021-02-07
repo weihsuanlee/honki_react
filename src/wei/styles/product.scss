@@ -274,7 +274,140 @@ ol.wei-breadcrumb {
   position: absolute;
   left: 24px;
 }
+/* wei-list-card */
+.wei-card-list {
+  display: flex;
+  padding: 0;
+  margin-top: 5rem;
+}
+.wei-card-list-pic {
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  border-radius: 15px;
+  transition: all 0.5s;
+  width: 20%;
+  padding: 20px 10px;
+  position: relative;
+}
+.wei-list-book-pic img {
+  height: 100px;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  transition: all 0.5s;
+}
 
+.wei-list-icon {
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--honki-red);
+  color: white;
+  line-height: 48px;
+  text-align: center;
+  font-size: 13px;
+  transition: all 0.5s;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.wei-book-list-price {
+  text-align: left;
+}
+.wei-list-heart-bg {
+  background-color: white;
+  position: absolute;
+  bottom: -10%;
+  width: 100%;
+  height: 18%;
+  border-radius: 1rem 1rem 0 0;
+  transition: all 0.5s;
+  text-align: center;
+  margin: 0 -10px;
+  opacity: 0;
+}
+.wei-card-list:hover .wei-list-heart-bg {
+  bottom: 0;
+  opacity: 1;
+}
+.wei-card-list:hover .wei-list-icon {
+  transform: translate(-2.5rem, -24px);
+  opacity: 0;
+}
+.wei-card-list:hover .wei-card-list-pic {
+  background: url('http://localhost:3000/images/bg_noise.png');
+}
+.wei-card-list:hover .wei-card-list-pic img {
+  transform: scale(1.2);
+}
+.wei-list-heart {
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+}
+/* skeleton */
+.wei-skeleton {
+  margin-top: 5rem;
+}
+@media (min-width: 1200px) {
+  .wei-skeleton {
+    padding: 0 40px;
+  }
+}
+.wei-skeleton-pic {
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  border-radius: 15px;
+  padding: 40px 20px;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.wei-skeleton-text {
+  margin-top: 20px;
+}
+.wei-skeleton-title {
+  margin-bottom: 8px;
+}
+.wei-skeleton-author {
+  margin-bottom: 1rem;
+  width: 40%;
+}
+.wei-skeleton-price {
+  margin-left: auto;
+  width: 30%;
+}
+.wei-skeleton-price,
+.wei-skeleton-author,
+.wei-skeleton-title,
+.wei-skeleton-inside-pic {
+  background: #ccc;
+  overflow: hidden;
+  content: '';
+  height: 14px;
+  z-index: 1;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -100px 0;
+  background-repeat: no-repeat;
+  animation: loading 1.5s infinite;
+}
+.wei-skeleton-inside-pic {
+  height: 168px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes loading {
+  to {
+    background-position: 300px 0;
+  }
+}
 /* pagination */
 .wei-pagination {
   margin-bottom: 192px;

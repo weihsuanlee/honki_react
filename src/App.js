@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // pages
 import Home from './chia/pages/Home'
 import Product from './wei/pages/Product'
+import ProductCardsList from './wei/pages/ProductCardsList'
 import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
 import Register from './yu/pages/Register'
@@ -69,6 +70,9 @@ function App() {
                 </Route>
                 <Route path="/product-detail">
                   <ProductDetail />
+                </Route>
+                <Route path="/product-list">
+                  <ProductCardsList />
                 </Route>
                 <Route exact path="/">
                   <Home />
