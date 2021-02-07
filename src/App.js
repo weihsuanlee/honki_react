@@ -8,6 +8,7 @@ import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
 import Register from './yu/pages/Register'
 import Menu from './yu/pages/Menu'
+import ActIndex from './yen/pages/ActIndex'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
