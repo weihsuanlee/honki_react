@@ -42,7 +42,7 @@ function Menu() {
         </div>
 
         {/* <!-- 會員總表收合選單 --> */}
-        <div className="holder d-none d-lg-block mx-auto wei-holder yu-panels">
+        <div className="holder d-none d-lg-block mx-auto yu-panels">
           <Tabs defaultActiveKey="yu-menu-1" id="uncontrolled-tab-example">
             <Tab eventKey="yu-menu-1" title="會員總表">
               <div class="yu-col-2">

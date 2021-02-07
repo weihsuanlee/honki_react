@@ -1,0 +1,55 @@
+.yu-redpoint {
+  width: 64px;
+  height: 64px;
+  background-color: var(--honki-red);
+  margin: 5px;
+  float: left;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  z-index: -1;
+}
+
+.yu-breadcrumb {
+  padding-top: 72px;
+  padding-left: 158px;
+}
+
+.yu-member-menu {
+  text-align: left;
+  margin: 72px auto 38px auto;
+}
+
+.yu-member-photo {
+  width: 200px;
+  height: 200px;
+}
+
+.yu-general-member {
+  background-color: var(--honki-theme);
+  width: 110px;
+  height: 30px;
+  border-radius: 4px;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 20px;
+  position: relative;
+  left: 30%;
+}
+
+.yu-greeting {
+  position: relative;
+  left: 30%;
+  margin-top: 20px;
+}
+
+/* 會員總表收合選單 */
+.yu-tab {
+  width: 20%;
+}
+
+/* 表單背景色 */
+.yu-panels {
+  background-color: var(--honki-yellow);
+}
