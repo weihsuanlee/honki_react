@@ -1,6 +1,6 @@
 import '../styles/yen-index.scss'
 import { FaAngleDown } from 'react-icons/fa'
-import Test from './SvgText'
+import SvgText from './svg/SvgText'
 
 function IndexHeader() {
   return (
@@ -20,7 +20,7 @@ function IndexHeader() {
             </div>
             <div class="yen-header-box">
               <div class="yen-header-text">
-                <Test />
+                <SvgText />
               </div>
               <div class="yen-header-ladybug"></div>
             </div>
