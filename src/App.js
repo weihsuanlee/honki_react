@@ -54,7 +54,7 @@ function App() {
                   <Home />
                 </Route>
                 <Route path="/activity">
-                  <Home />
+                  <ActIndex />
                 </Route>
                 <Route path="/old-seasons">
                   <Home />
