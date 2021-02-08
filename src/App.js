@@ -12,6 +12,7 @@ import Menu from './yu/pages/Menu'
 import Edit from './yu/pages/Edit'
 import Bookshelf from './yu/pages/Bookshelf'
 import ActIndex from './yen/pages/ActIndex'
+import OldSeasons from './hans/pages/OldSeasons'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -57,7 +58,7 @@ function App() {
                   <ActIndex />
                 </Route>
                 <Route path="/old-seasons">
-                  <Home />
+                  <OldSeasons />
                 </Route>
                 <Route path="/reviews">
                   <Home />
