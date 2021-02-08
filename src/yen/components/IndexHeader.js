@@ -1,6 +1,6 @@
 import '../styles/yen-index.scss'
 import { FaAngleDown } from 'react-icons/fa'
-import Test from './SvgIcons'
+import Test from './SvgText'
 
 function IndexHeader() {
   return (
