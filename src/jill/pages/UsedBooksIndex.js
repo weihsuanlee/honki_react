@@ -36,7 +36,7 @@ function UsedBooksIndex() {
         </div>
         <div className="row">
           <div className="jill-modebtn">
-            <Link to="./normal-index.html">
+            <Link to="./NormalIndex.js">
               <button className="btn-md-dark jill-normalbtn">一般交換</button>
             </Link>
             <Link to="./random-index.html">
