@@ -1,0 +1,95 @@
+.yu-redpoint {
+  width: 64px;
+  height: 64px;
+  background-color: var(--honki-red);
+  margin: 5px;
+  float: left;
+  border-radius: 50%;
+  position: absolute;
+  top: 12%;
+  left: 44%;
+  z-index: -1;
+}
+
+.yu-form {
+  width: 100%;
+}
+
+.yu-form-title {
+  text-align: center;
+  margin: 72px auto 48px auto;
+}
+
+/* .yu-bookspage {
+    position: absolute;
+  } */
+.yu-bookspage1-1 {
+  width: 100%;
+  opacity: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.yu-pic {
+  /* background-image: url("/images/style-guide/logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%; */
+  border-radius: 20px;
+  border: 1px solid #bdbdbd;
+}
+
+.yu-checkbox {
+  padding-right: 50px;
+}
+
+.yu-save {
+  font-size: 14px;
+}
+
+.yu-forget-password-link {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.yu-register-link {
+  text-align: center;
+  margin: 24px auto 24px auto;
+  text-decoration: underline;
+}
+
+.yu-login-from-others {
+  width: 100%;
+  text-align: center;
+  margin: 48px auto 31px auto;
+}
+
+.yu-otherlinks {
+  border: 1px solid #bdbdbd;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 192px;
+}
+
+.yu-facebook-link {
+  font-size: 55px;
+  color: var(--honki-black);
+}
+
+.yu-line-link {
+  font-size: 55px;
+  color: var(--honki-black);
+}
+
+.yu-google-link {
+  font-size: 51px;
+  color: var(--honki-black);
+  padding-top: 2px;
+}
+/*# sourceMappingURL=members-login.css.map */

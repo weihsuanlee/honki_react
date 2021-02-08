@@ -1,0 +1,1052 @@
+body {
+  /* margin: 0; */
+  padding: 0;
+}
+
+.yen-main-content-body {
+  margin-top: -80px;
+}
+
+/* index start */
+/* header start */
+.yen-header {
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.yen-repeat-left {
+  width: 40%;
+  position: relative;
+  animation: fadein 2s ease-in;
+}
+
+.yen-pics-left {
+  width: 100%;
+  height: 100%;
+  background-image: url('http://localhost:3000/images/yen/bg-dots.gif');
+}
+
+.yen-bg-img {
+  width: 60%;
+  height: 100vh;
+  animation: fadein 2s ease-in;
+}
+
+.yen-pics-right {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: fadein 2s ease-in;
+}
+
+.yen-bg-img::after {
+  width: 60%;
+  height: 100vh;
+  z-index: 9;
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  background: rgb(180, 184, 177);
+  opacity: 0.5;
+}
+
+.yen-header-box {
+  animation: fadein 4s ease-in;
+}
+
+.yen-header-text {
+  animation: fadein 4s ease-in;
+}
+
+.yen-header-box {
+  z-index: 10;
+  position: absolute;
+  left: 20%;
+  right: 30%;
+  top: 22%;
+  bottom: 15%;
+  border: 8px solid #fff;
+  color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+.yen-header-text {
+  padding-left: 10%;
+  margin-top: 3%;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+}
+
+.yen-header-ladybug {
+  position: absolute;
+  bottom: -4%;
+  right: -4%;
+  width: 6%;
+}
+
+.yen-arrow-down {
+  font-size: 80px;
+  z-index: 9;
+  position: absolute;
+  bottom: -8px;
+  color: #fff;
+  padding-left: calc(50% - 25px);
+  animation: fadein 4s ease-in, Updown 1s infinite alternate;
+}
+
+/* header animation */
+@keyframes Updown {
+  from {
+    bottom: -16px;
+  }
+  to {
+    bottom: -8px;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* header animation end */
+
+/* header media query */
+@media (min-width: 768px) and (max-width: 992px) {
+  .yen-header-box {
+    z-index: 10;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 30%;
+    bottom: 30%;
+    border: 4px solid #fff;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+
+  .yen-header-text {
+    padding-left: 10%;
+    margin-top: 3%;
+    width: 80%;
+    position: absolute;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .yen-header-box {
+    z-index: 10;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 30%;
+    border: 4px solid #fff;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+
+  .yen-header-text {
+    padding-left: 5%;
+    margin-top: 3%;
+    width: 95%;
+    height: 95%;
+    position: absolute;
+  }
+}
+
+@media (max-width: 576px) {
+  .yen-header-box {
+    z-index: 10;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 25%;
+    bottom: 30%;
+    border: 4px solid #fff;
+    color: #fff;
+    transition: 0.5s ease-in-out;
+  }
+
+  .yen-header-text {
+    padding-left: 5%;
+    margin-top: 3%;
+    width: 85%;
+    height: 85%;
+    position: absolute;
+  }
+}
+/* header media query end */
+/* header end */
+
+/* ---------------------------------------------------- */
+
+/* hot start */
+.yen-overflow-box {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.yen-hot {
+  margin: 0 72px;
+  /* padding-top: 72px; */
+  height: 100vh;
+  overflow: visible;
+}
+
+.yen-title-box {
+  width: 100%;
+  padding-top: 72px;
+  position: relative;
+}
+
+.yen-circle {
+  width: 7%;
+  position: absolute;
+  top: 4.5rem;
+}
+
+.yen-title-text {
+  padding-left: 9%;
+  padding-top: 4%;
+  font-size: 24px;
+}
+
+.yen-hot-card-box {
+  display: flex;
+  margin-top: 2%;
+  width: 100%;
+  /* background: #ccc; */
+  overflow-x: visible;
+  position: relative;
+}
+
+.yen-hot-card-box:hover .yen-hover-box {
+  filter: blur(3px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.yen-hot-card-box:hover .yen-hover-box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+  /* background: #7ba23e; */
+}
+
+.yen-hot-cards-s {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #adc;
+  padding: 15rem;
+  height: 80%;
+  z-index: 10;
+  transition: 0.2s all;
+  position: relative;
+}
+
+.yen-hot-cards-l {
+  background: #acf;
+  padding: 15rem;
+  z-index: 10;
+  width: 100%;
+  transition: 0.2s all;
+}
+
+.yen-hot-bgimg1 {
+  background-image: url('http://localhost:3000/hot/hot-1.jpg');
+}
+
+.yen-hot-bgimg2 {
+  background-image: url('http://localhost:3000/hot/hot-2.jpg');
+}
+
+.yen-hot-bgimg3 {
+  background-image: url('http://localhost:3000//hot/hot-3.jpg');
+}
+
+.yen-hot-bgimg4 {
+  background-image: url('http://localhost:3000/hot/hot-4.jpg');
+}
+
+.yen-hot-bgimg5 {
+  background-image: url('http://localhost:3000/hot/hot-5.jpg');
+}
+
+.yen-hot-cover-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.yen-hot-cover {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: #7ba23e;
+}
+
+.yen-hot-cover-text {
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  color: #fff;
+}
+
+.yen-hot-ladybug {
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  z-index: 25;
+  width: 2%;
+  transform: rotate(0.4turn);
+}
+
+.yen-hot-run {
+  position: absolute;
+  top: -13%;
+  right: 33%;
+  z-index: 30;
+  width: 8%;
+  transform: rotate(0.05turn);
+}
+
+/* hot media query */
+@media (min-width: 768px) and (max-width: 992px) {
+  .yen-overflow-box {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .yen-hot-card-box {
+    overflow-y: visible;
+    margin-top: 2%;
+    height: 70%;
+  }
+
+  .yen-hot-cards-s {
+    margin-top: 4rem;
+    padding: 8rem 10rem;
+    height: 70%;
+  }
+
+  .yen-hot-cards-l {
+    padding: 8rem 10rem;
+    height: 100%;
+  }
+
+  .yen-hot-ladybug {
+    top: 12%;
+    width: 2%;
+  }
+
+  .yen-hot-run {
+    position: absolute;
+    top: -10%;
+    right: 30%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .yen-overflow-box {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .yen-hot-card-box {
+    margin-top: 2%;
+    height: 70%;
+    overflow: visible;
+  }
+
+  .yen-hot-cards-s {
+    margin-top: 5rem;
+    padding: 6rem 10rem;
+    height: 70%;
+  }
+
+  .yen-hot-cards-l {
+    padding: 6rem 10rem;
+  }
+
+  .yen-hot-ladybug {
+    top: 15%;
+    width: 3%;
+  }
+
+  .yen-hot-run {
+    position: absolute;
+    top: -10%;
+    right: 15%;
+    width: 10%;
+  }
+}
+
+@media (max-width: 575px) {
+  .yen-overflow-box {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .yen-hot {
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    overflow-y: visible;
+  }
+
+  .yen-title-box {
+    width: 100%;
+    padding-bottom: 24px;
+    margin-left: 30%;
+  }
+
+  .yen-circle {
+    width: 12%;
+    position: absolute;
+    top: 38%;
+  }
+
+  .yen-title-text {
+    padding-left: 15%;
+    padding-top: 4%;
+    font-size: 19px;
+  }
+
+  .yen-hot-card-box {
+    /* margin-top: 2%; */
+    width: 100vw;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .yen-hot-cards-s {
+    /* margin-top: 10%; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 11.5rem;
+  }
+
+  .yen-hot-cards-l {
+    width: 100%;
+    height: 100%;
+  }
+
+  .yen-hot-ladybug {
+    top: -2%;
+    width: 5%;
+  }
+
+  .yen-hot-run {
+    display: none;
+  }
+}
+/* hot media query end */
+/* hot end */
+
+/* ---------------------------------------------------- */
+
+/* new start */
+.yen-new {
+  margin: 0 72px 72px 72px;
+  height: 100vh;
+  position: relative;
+}
+
+.yen-new-box {
+  width: 100%;
+  height: 73%;
+  margin-top: 2%;
+}
+
+.yen-new-card-box {
+  width: 60%;
+  height: 100%;
+  /* background: #fca; */
+}
+
+.yen-new-card-box {
+  width: 80%;
+  padding-left: 2%;
+  padding-top: 5%;
+  display: flex;
+  position: relative;
+}
+
+.yen-new-card {
+  width: 40%;
+  height: 85%;
+  margin-right: 8%;
+  position: relative;
+}
+
+.yen-new-card:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid #e83015;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.yen-new-card-img {
+  width: 100%;
+  height: 45%;
+  background: #cfa;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.yen-new-card-img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.yen-new-card-tag {
+  width: 100%;
+  height: 15%;
+  background: #ffa;
+}
+
+.yen-new-card-tagl {
+  width: 65%;
+  height: 100%;
+  background: #1c1b1b;
+  color: #fff;
+  text-align: center;
+  padding-top: 5.5%;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.yen-new-card-tagr {
+  width: 35%;
+  height: 100%;
+  background: #7ba23e;
+  color: #fff;
+  text-align: center;
+  padding-top: 5.5%;
+  letter-spacing: 1px;
+}
+
+.yen-new-card-des {
+  width: 100%;
+  height: 40%;
+  background-color: #fff;
+  border-radius: 0 0 8px 8px;
+}
+
+.yen-new-card-title {
+  height: 46%;
+  width: 100%;
+  padding: 8% 10% 0 10%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.yen-new-card-bottom {
+  padding: 8% 10% 0 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.yen-new-card-location {
+  width: 50%;
+  padding-top: 2%;
+  display: flex;
+}
+
+.fa-map-marker-alt {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-right: 3%;
+}
+
+.yen-new-card-price {
+  width: 50%;
+  padding-top: -3%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.yen-new-card-money {
+  font-size: 1.7rem;
+  color: #e83015;
+  font-weight: 900;
+  letter-spacing: 2%;
+}
+
+.yen-new-card-nt {
+  padding-top: 5%;
+  padding-right: 5%;
+}
+
+.yen-island-box {
+  width: 40%;
+  position: relative;
+  /* background: #afa; */
+}
+
+.yen-island {
+  width: 95%;
+  padding-top: 2%;
+  padding-left: 30%;
+  padding-right: 10%;
+}
+
+.yen-north-area {
+  position: absolute;
+  top: -8%;
+  left: 42%;
+  width: 20%;
+  opacity: 0.5;
+  transition: 1s ease-in-out;
+  cursor: pointer;
+}
+
+.yen-medium-area {
+  position: absolute;
+  top: 18%;
+  left: 14%;
+  width: 20%;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.yen-south-area {
+  position: absolute;
+  bottom: 24%;
+  left: 12%;
+  width: 20%;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.yen-east-area {
+  position: absolute;
+  bottom: 45%;
+  right: 1%;
+  width: 20%;
+  opacity: 0.5;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.yen-north-area:hover {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.yen-medium-area:hover {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.yen-south-area:hover {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.yen-east-area:hover {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+}
+
+.yen-new-ladybug {
+  position: absolute;
+  bottom: 10%;
+  right: -4%;
+  z-index: 25;
+  width: 8%;
+  transform: rotate(0.1turn);
+}
+
+.yen-new-tag-box {
+  width: 15%;
+  height: 13%;
+  background-color: #e83015;
+  border-radius: 50%;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 4.5%;
+  color: #fff;
+  position: absolute;
+  top: -6%;
+  left: 3%;
+  z-index: 30;
+}
+
+.yen-new-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9;
+  /* background-color: #aff; */
+}
+
+.yen-new-bg-circle1 {
+  width: 12%;
+  position: absolute;
+  top: -5%;
+  left: 40%;
+  opacity: 0.4;
+}
+
+.yen-new-bg-circle2 {
+  width: 6.5%;
+  position: absolute;
+  top: 35%;
+  left: -5%;
+  opacity: 0.6;
+}
+
+.yen-new-bg-circle3 {
+  width: 12%;
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+}
+
+.yen-new-bg-circle4 {
+  width: 10%;
+  position: absolute;
+  bottom: -11%;
+  left: 25%;
+  opacity: 0.4;
+}
+
+.yen-new-bg-circle5 {
+  width: 6%;
+  position: absolute;
+  bottom: -8%;
+  right: 33%;
+  opacity: 0.8;
+}
+
+.yen-new-bg-circle6 {
+  width: 8%;
+  position: absolute;
+  top: 5%;
+  right: -3%;
+  opacity: 0.8;
+}
+
+.yen-new-bg-circle7 {
+  width: 18%;
+  position: absolute;
+  bottom: -20%;
+  right: 0%;
+  opacity: 0.8;
+}
+
+.yen-new-bg-withdog {
+  width: 9%;
+  position: absolute;
+  bottom: -9%;
+  left: 25.5%;
+  opacity: 0.8;
+}
+/* new animation */
+@keyframes example {
+  0% {
+    border-left: 2px solid #ffffff;
+  }
+
+  25% {
+    border-left: 3px solid #ffe6e6;
+  }
+
+  50% {
+    border-left: 4px solid #ff8080;
+  }
+
+  100% {
+    border-left: 5px solid #ff0000;
+  }
+}
+/* new animation */
+
+/* new media query */
+@media (min-width: 768px) and (max-width: 992px) {
+  .yen-island-box {
+    padding-top: 10%;
+  }
+
+  .yen-island {
+    width: 110%;
+    padding-top: 2%;
+    padding-left: 30%;
+    padding-right: 10%;
+  }
+
+  .yen-north-area {
+    position: absolute;
+    top: 8%;
+    left: 46%;
+    width: 30%;
+  }
+
+  .yen-medium-area {
+    position: absolute;
+    top: 28%;
+    left: 14%;
+    width: 30%;
+  }
+
+  .yen-south-area {
+    position: absolute;
+    bottom: 20%;
+    left: 3%;
+    width: 30%;
+  }
+
+  .yen-east-area {
+    position: absolute;
+    bottom: 35%;
+    right: -18%;
+    width: 30%;
+  }
+
+  .yen-new-bg {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .yen-island-box {
+    padding-top: 10%;
+  }
+
+  .yen-island {
+    width: 120%;
+    padding-top: 20%;
+    padding-left: 30%;
+    padding-right: 10%;
+  }
+
+  .yen-north-area {
+    position: absolute;
+    top: 10%;
+    left: 44%;
+    width: 40%;
+  }
+
+  .yen-medium-area {
+    position: absolute;
+    top: 28%;
+    left: 5%;
+    width: 40%;
+  }
+
+  .yen-south-area {
+    position: absolute;
+    bottom: 34%;
+    left: -10%;
+    width: 40%;
+  }
+
+  .yen-east-area {
+    position: absolute;
+    bottom: 18%;
+    right: -15%;
+    width: 40%;
+  }
+
+  .yen-new-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .yen-island-box {
+    display: none;
+  }
+
+  .yen-new-bg {
+    display: none;
+  }
+}
+/* new media query end */
+/* new end */
+
+/* ---------------------------------------------------- */
+
+/* event start */
+.yen-event {
+  margin: 0 0 72px 72px;
+  height: 280vh;
+  position: relative;
+}
+
+.yen-breadcrumb {
+  width: 60%;
+}
+
+.yen-select {
+  padding-top: 1.5rem;
+  padding-right: 25%;
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  position: relative;
+}
+
+.yen-select-btn {
+  width: 18%;
+  padding: 0 4%;
+  margin-right: 2%;
+}
+
+.yen-select-btn:hover {
+  background: #1c1b1b;
+  color: #fff;
+}
+
+.yen-event-ladybug {
+  position: absolute;
+  top: 10px;
+  left: -1%;
+  z-index: 25;
+  width: 2%;
+  transform: rotate(0.3turn);
+}
+
+.yen-allevent {
+  width: 100%;
+  height: 80%;
+}
+
+.yen-event-wrap {
+  width: 100%;
+  height: 22%;
+  padding-right: 2rem;
+  margin-bottom: 5%;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.yen-event-card {
+  margin-top: 3.5%;
+  width: 23%;
+  height: 100%;
+  margin-right: 3%;
+  cursor: pointer;
+}
+
+.yen-event-card:hover {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  animation-name: example;
+  animation-duration: 0.25s;
+  border-left: 8px solid #e83015;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.yen-event-card-tagl {
+  width: 65%;
+  height: 100%;
+  background: #1c1b1b;
+  color: #fff;
+  text-align: center;
+  padding-top: 5.5%;
+  /* font-weight: 600; */
+  letter-spacing: 1px;
+}
+
+.yen-event-card-tagr {
+  width: 35%;
+  height: 100%;
+  background: #7ba23e;
+  color: #fff;
+  text-align: center;
+  padding-top: 5.5%;
+  letter-spacing: 1px;
+}
+
+.yen-event-card-title {
+  padding: 8% 8% 5% 8%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 50%;
+}
+
+.yen-event-card-location {
+  width: 50%;
+  /* padding-top: 3%; */
+  display: flex;
+}
+
+.yen-event-card-price {
+  width: 50%;
+  margin-top: -3.2%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.yen-event-card-nt {
+  padding-top: 0.8rem;
+  padding-right: 5%;
+}
+
+.yen-event-card-money {
+  font-size: 1.7rem;
+  color: #e83015;
+  font-weight: 900;
+  letter-spacing: 2%;
+}
+
+.yen-event-card-money > span {
+  padding-top: -10%;
+  line-height: 35px;
+  vertical-align: middle;
+}
+
+.yen-pages {
+  width: 100%;
+  margin-top: 12%;
+  margin-bottom: 18%;
+}
+
+.yen-slide {
+  width: 13%;
+  position: absolute;
+  bottom: -3%;
+  left: 10%;
+}
+
+/* TODO: 暫時用，要刪除 */
+.yen-event-card > a {
+  text-decoration: none;
+  color: #1c1b1b;
+}
+/* 暫時用 */
+
+/* new media query */
+/* new media query end */
+/* index end */

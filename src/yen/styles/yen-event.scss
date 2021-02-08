@@ -1,0 +1,285 @@
+/* event page start */
+/* event header */
+.yen-event-header {
+  width: 100%;
+  height: 100vh;
+  padding: 78px 72px 0 72px;
+}
+
+.yen-event-breadcrumb {
+  margin-top: 72px;
+  margin-bottom: 48px;
+}
+
+.yen-event-header-box {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  position: relative;
+}
+
+.yen-event-pic {
+  width: 60%;
+  height: 80%;
+  background-color: #7ba23e;
+  animation: fadein 2s ease-in;
+}
+
+.yen-event-pic > img {
+  width: 100%;
+  height: 100%;
+}
+
+.yen-event-des {
+  width: 40%;
+  height: 80%;
+  padding-left: 5%;
+  padding-top: 2%;
+  /* background-color: #62f5c4; */
+}
+
+.yen-event-location-logo {
+  width: 14%;
+  height: 16%;
+  border-radius: 50%;
+  background-color: #ffefa1;
+  color: #7ba23e;
+  text-align: center;
+  /* padding-top: 3%; */
+  margin-top: 3%;
+}
+
+.yen-event-location-logo > i {
+  padding-top: 25%;
+  font-size: 240%;
+  animation: bounce 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.yen-event-subject {
+  padding-top: 5%;
+}
+
+.yen-event-subject > h5 {
+  line-height: 145%;
+}
+
+.yen-event-date {
+  padding-top: 5%;
+}
+
+.yen-event-location {
+  padding-top: 2%;
+  padding-left: 5em;
+  text-indent: -5em;
+}
+
+.yen-event-des-bottom {
+  width: 100%;
+  padding-top: 8%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.yen-event-des-price {
+  display: flex;
+  width: 30%;
+  padding-left: 20%;
+}
+
+.yen-event-nt {
+  padding-top: 0.5rem;
+  padding-right: 10%;
+}
+
+.yen-event-money {
+  font-size: 1.7rem;
+  color: #e83015;
+  font-weight: 900;
+  letter-spacing: 2%;
+}
+
+.yen-event-signup {
+  width: 80%;
+  padding-left: 20%;
+}
+.yen-event-signup-btn {
+  width: 70%;
+  background: #e83015;
+}
+
+.yen-event-signup-btn:hover {
+  background: #ff735e;
+}
+
+/* event header end */
+
+/* --------------------------------- */
+
+/* event body start */
+.yen-event-body-box {
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 18%;
+}
+
+.yen-event-des-box {
+  width: 100%;
+  height: 100%;
+  padding: 0 72px;
+  position: relative;
+}
+
+.yen-event-tag {
+  width: 80%;
+  height: 10%;
+  display: flex;
+  cursor: pointer;
+  /* background: #fff; */
+}
+
+.yen-event-tag-des {
+  width: 20%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+  margin-right: 1%;
+  box-shadow: 3px -2px 1px #aea4a4;
+  padding: 2.5% 5%;
+  text-align: center;
+}
+
+.yen-event-tag-trans {
+  width: 20%;
+  height: 100%;
+  background: #ffebbb;
+  border-radius: 8px 8px 0 0;
+  margin-right: 1%;
+  box-shadow: 3px -2px 1px #ffb400;
+  padding: 2.5% 5%;
+  text-align: center;
+}
+
+.yen-event-tag-att {
+  width: 20%;
+  height: 100%;
+  background: #ffebbb;
+  border-radius: 8px 8px 0 0;
+  margin-right: 1%;
+  box-shadow: 3px -2px 1px #ffb400;
+  padding: 2.5% 5%;
+  text-align: center;
+}
+
+.yen-event-tag-cancel {
+  width: 20%;
+  height: 100%;
+  background: #ffebbb;
+  border-radius: 8px 8px 0 0;
+  margin-right: 1%;
+  box-shadow: 3px -2px 1px #ffb400;
+  padding: 2.5% 3%;
+  text-align: center;
+}
+
+.yen-event-box {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 0 15px 15px 15px;
+  overflow-y: scroll;
+}
+
+.yen-event-text {
+  padding: 48px 100px;
+  width: 100%;
+  height: 90%;
+}
+
+.yen-event-text > span {
+  padding-bottom: 5%;
+}
+
+.yen-signup-ladybug {
+  width: 5%;
+  height: 5%;
+  position: absolute;
+  right: 1.5%;
+  bottom: 20%;
+  cursor: pointer;
+}
+
+.yen-event-cricket {
+  width: 3%;
+  height: 3%;
+  position: absolute;
+  left: 5%;
+  top: -5%;
+  animation: jump 4s ease-in, fadein 2s ease-in;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 8px 0;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #7ba23e;
+}
+
+/* animation */
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0%, -50%);
+  }
+  25% {
+    transform: translate(0%, -100%);
+  }
+  50% {
+    transform: translate(0%, -150%);
+  }
+  55% {
+    transform: translate(0%, -150%) rotate(15deg);
+  }
+  60% {
+    transform: translate(0%, -150%) rotate(-15deg);
+  }
+  65% {
+    transform: translate(0%, -150%) rotate(15deg);
+  }
+  70% {
+    transform: translate(0%, -150%) rotate(-15deg);
+  }
+  85% {
+    transform: translate(0%, -100%) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0%, -50%);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+/* animation end */
+/* event body end */
