@@ -7,12 +7,7 @@ import Spinner from '../components/Spinner'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
-  // 書籍商品狀態
   const [books, setBooks] = useState([])
-  // 分類選單 Display
-  const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別狀態
-  const [category, setCategory] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -25,43 +20,18 @@ function Product(props) {
     const data = await response.json()
     console.log(data)
     setBooks(data.rows)
-    setCategoriesDisplay(data.c_rows)
 
     // 2秒後關閉spinner
     setTimeout(() => {
       setIsLoading(false)
     }, 2000)
   }
-  const categoriesDisplay = (
-    <div className="wei-categories">
-      <h6 className="wei-categories-title">書籍分類</h6>
-      <ul>
-        {categoryDisplay.map((v, i) => (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="wei-category"
-              to={{
-                search: '?category=' + v.category_sid,
-              }}
-              key={i}
-              onClick={() => {
-                setCategory(`category=${v.category_sid}`)
-              }}
-            >
-              <p>{v.name}</p>
-            </NavLink>
-          </>
-        ))}
-      </ul>
-    </div>
-  )
-
+  let filterUrl = 'category=3'
   async function filterProduct() {
     // 先開啟spinner
     setIsLoading(true)
     // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/product?' + category, {
+    const response = await fetch('http://localhost:3333/product?' + filterUrl, {
       method: 'get',
     })
     const data = await response.json()
@@ -73,6 +43,7 @@ function Product(props) {
       setIsLoading(false)
     }, 2000)
   }
+
   const spinner = <Spinner show="true" />
   const bookCardDisplay = (
     <>
@@ -100,16 +71,12 @@ function Product(props) {
       ))}
     </>
   )
-  // 模擬componentDidMount
+  // 模擬componentDidMout
   useEffect(() => {
     getDataFromServer()
   }, [])
-  // 模擬componentDidUpdate
-  useEffect(() => {
-    filterProduct()
-  }, [category])
 
-  // console.log(props)
+  console.log(props)
 
   return (
     <>
@@ -130,7 +97,101 @@ function Product(props) {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
+          <div className="d-none d-lg-block col-2">
+            <div className="wei-categories">
+              <h6 className="wei-categories-title">書籍分類</h6>
+              <ul>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/lifestyle"
+                >
+                  <p>生活風格</p>
+                </NavLink>
+
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/literature"
+                >
+                  <p>文學小說</p>
+                </NavLink>
+                <NavLink
+                  to="/product?category=3"
+                  activeClassName="active"
+                  className="wei-category"
+                  onClick={() => {
+                    filterProduct()
+                  }}
+                >
+                  <p>商業理財</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/arts"
+                >
+                  <p>藝術設計</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/self-help"
+                >
+                  <p>心理勵志</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/comics"
+                >
+                  <p>輕小說 漫畫</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/education"
+                >
+                  <p>語言考試</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/parenting"
+                >
+                  <p>親子教養</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/travel"
+                >
+                  <p>旅遊</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/foods"
+                >
+                  <p>飲食</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/children"
+                >
+                  <p>童書</p>
+                </NavLink>
+                <NavLink
+                  activeClassName="active"
+                  className="wei-category"
+                  to="/product/foreign"
+                >
+                  <p>外文書</p>
+                </NavLink>
+              </ul>
+            </div>
+          </div>
           <div className="col-11 col-lg-10 col-xl-9">
             <div className="row">{isLoading ? spinner : bookCardDisplay}</div>
           </div>
