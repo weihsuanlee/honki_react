@@ -1,7 +1,11 @@
-import React from 'react'
+import IndexHeader from '../components/IndexHeader'
 
 function ActIndex() {
-  return <h1>Test</h1>
+  return (
+    <>
+      <IndexHeader />
+    </>
+  )
 }
 
 export default ActIndex
