@@ -5,18 +5,18 @@ function Register() {
     <>
       <div class="container my-5">
         {/* <!-- 紅圓點 --> */}
-        <div class="yu-redpoint"></div>
+        <div class="yu-register-redpoint"></div>
         <form>
           {/* <!-- 比例 --> */}
-          <div class="form-width-height yu-form">
+          <div class="form-width-height yu--register-form">
             {/* <!-- 表單標題 --> */}
-            <div class="form-tittle yu-form-title">
+            <div class="form-tittle yu-register-form-title">
               <h5>新會員註冊</h5>
             </div>
             {/* <!-- 背景圖 --> */}
-            <div class="yu-bookspage">
+            <div class="yu-register-bookspage">
               <img
-                class="yu-bookspage1-1"
+                class="yu-register-bookspage1-1"
                 src="http://localhost:3000/images/yu/book-register.jpg"
                 alt=""
               />
@@ -149,7 +149,7 @@ function Register() {
                   id="yu-saveaccountandpassword"
                 />
                 <label
-                  class="form-check-label yu-save"
+                  class="form-check-label yu-register-save"
                   for="yu-saveaccountandpassword"
                 >
                   <p>我接受服務條款及隱私政策</p>

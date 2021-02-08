@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .yu-redpoint {
   width: 64px;
   height: 64px;
@@ -7,7 +8,7 @@
   border-radius: 50%;
   position: absolute;
   top: 25%;
-  left: 65%;
+  left: 70%;
   z-index: -1;
 }
 
@@ -55,6 +56,7 @@
 .yu-dots {
   color: var(--honki-red);
 }
+
 .yu-books::before {
   content: '';
   position: absolute;
@@ -72,6 +74,7 @@
   top: 5%;
   left: 8%;
 }
+
 .yu-book-1::before {
   background-color: #776b6b;
   right: -114px;
@@ -96,8 +99,9 @@
   top: 5%;
   left: 30%;
 }
+
 .yu-book-2::before {
-  background-image: url('http://localhost:3000/images/books/5fe412cc8c308.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe412cc8c308.jpg");
 }
 
 /* book3 */
@@ -105,8 +109,9 @@
   top: 5%;
   left: 52%;
 }
+
 .yu-book-3::before {
-  background-image: url('http://localhost:3000/images/books/9789869961202.png');
+  background-image: url("http://localhost:3000/images/books/9789869961202.png");
   top: -20%;
   right: -112px;
 }
@@ -116,8 +121,9 @@
   top: 5%;
   left: 73%;
 }
+
 .yu-book-4::before {
-  background-image: url('http://localhost:3000/images/books/5ffd7ae732794.jpg');
+  background-image: url("http://localhost:3000/images/books/5ffd7ae732794.jpg");
 }
 
 /* book5 */
@@ -125,8 +131,9 @@
   top: 20%;
   left: 10%;
 }
+
 .yu-book-5::before {
-  background-image: url('http://localhost:3000/images/books/5feb00a29fc37.jpg');
+  background-image: url("http://localhost:3000/images/books/5feb00a29fc37.jpg");
 }
 
 /* book6 */
@@ -134,8 +141,9 @@
   top: 19%;
   left: 30%;
 }
+
 .yu-book-6::before {
-  background-image: url('http://localhost:3000/images/books/5fe1ece65a1ed.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1ece65a1ed.jpg");
 }
 
 /* book7 */
@@ -143,8 +151,9 @@
   top: 20%;
   left: 50%;
 }
+
 .yu-book-7::before {
-  background-image: url('http://localhost:3000/images/books/5feb003a5381b.jpg');
+  background-image: url("http://localhost:3000/images/books/5feb003a5381b.jpg");
 }
 
 /* book8 */
@@ -152,8 +161,9 @@
   top: 19%;
   left: 70%;
 }
+
 .yu-book-8::before {
-  background-image: url('http://localhost:3000/images/books/5ffd80e4030f1.jpg');
+  background-image: url("http://localhost:3000/images/books/5ffd80e4030f1.jpg");
 }
 
 /* book9 */
@@ -161,8 +171,9 @@
   top: 32%;
   left: 10%;
 }
+
 .yu-book-9::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book10 */
@@ -170,8 +181,9 @@
   top: 32%;
   left: 30%;
 }
+
 .yu-book-10::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book11 */
@@ -179,8 +191,9 @@
   top: 32%;
   left: 50%;
 }
+
 .yu-book-11::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book12 */
@@ -188,8 +201,9 @@
   top: 32%;
   left: 70%;
 }
+
 .yu-book-12::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book13 */
@@ -197,8 +211,9 @@
   top: 47.5%;
   left: 10%;
 }
+
 .yu-book-13::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book14 */
@@ -206,8 +221,9 @@
   top: 47.5%;
   left: 30%;
 }
+
 .yu-book-14::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book15 */
@@ -215,8 +231,9 @@
   top: 47.5%;
   left: 50%;
 }
+
 .yu-book-15::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book16 */
@@ -224,8 +241,9 @@
   top: 47.5%;
   left: 70%;
 }
+
 .yu-book-16::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book17 */
@@ -233,8 +251,9 @@
   top: 63%;
   left: 10%;
 }
+
 .yu-book-17::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book18 */
@@ -242,8 +261,9 @@
   top: 63%;
   left: 30%;
 }
+
 .yu-book-18::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book19 */
@@ -251,8 +271,9 @@
   top: 63%;
   left: 50%;
 }
+
 .yu-book-19::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book20 */
@@ -260,8 +281,9 @@
   top: 63%;
   left: 70%;
 }
+
 .yu-book-20::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book21 */
@@ -269,8 +291,9 @@
   top: 79%;
   left: 10%;
 }
+
 .yu-book-21::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book22 */
@@ -278,8 +301,9 @@
   top: 79%;
   left: 30%;
 }
+
 .yu-book-22::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book23 */
@@ -287,8 +311,9 @@
   top: 79%;
   left: 50%;
 }
+
 .yu-book-23::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* book24 */
@@ -296,16 +321,16 @@
   top: 79%;
   left: 70%;
 }
+
 .yu-book-24::before {
-  background-image: url('http://localhost:3000/images/books/5fe1e73e11e25.jpg');
+  background-image: url("http://localhost:3000/images/books/5fe1e73e11e25.jpg");
 }
 
 /* .yu-wood{
     width: 5px;
     height: 5px;
   } */
-
-.yu-member-menu-title {
+.yu-member-menu {
   margin-top: 15%;
   margin-left: 230px;
 }
@@ -318,12 +343,15 @@
   padding: 54px 0;
   position: relative;
 }
+
 .yu-new-book-pic {
   width: 40%;
 }
+
 .yu-ladybug {
   width: 24px;
   position: absolute;
   left: 10%;
   bottom: 10%;
 }
+/*# sourceMappingURL=members-bookshelf.css.map */

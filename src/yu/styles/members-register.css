@@ -1,4 +1,4 @@
-.yu-register-redpoint {
+.yu-redpoint {
   width: 64px;
   height: 64px;
   background-color: var(--honki-red);
@@ -11,27 +11,28 @@
   z-index: -1;
 }
 
-.yu-register-form {
+.yu-form {
   width: 100%;
 }
 
-.yu-register-form-title {
+.yu-form-title {
   text-align: center;
   margin: 72px auto 38px auto;
 }
 
-.yu-register-bookspage1-1 {
+.yu-bookspage1-1 {
   width: 100%;
   opacity: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: -1;
 }
 
-
-.yu-register-save {
+.yu-save {
   font-size: 14px;
 }
+/*# sourceMappingURL=members-register.css.map */
