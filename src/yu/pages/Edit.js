@@ -275,63 +275,738 @@ function Edit() {
                   <div class="panel-title">修改節氣頭貼</div>
                   {/* <!-- 收合選單-3修改節氣頭貼 --> */}
                   <div class="panel" id="three-panel">
-                    {/* <!-- <div class="panel-title">修改節氣頭貼</div> -->
-                            <!-- 頭貼選單-選擇表情 --> */}
-                    <div class="form-group ">
+                    {/* <!-- 頭貼選單-選擇表情 --> */}
+                    <div class="form-group yu-edit-form">
+                      <span>選擇表情</span>
+                      {/* face第一列 */}
                       <div class="formItems row d-flex">
-                        <select
-                          class="form-control formInput col-7"
-                          id="exampleFormControlSelect1"
-                        >
-                          <option>選擇表情</option>
-                          <option>
+                        {/* face-1 */}
+                        <div>
+                          <input
+                            id="face-1"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-1"
+                          />
+                          <label for="face-1" class="yu-edit-photo-face">
                             <img
-                              src="/images/members/peepsphotos/face/Awe.svg"
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Awe.svg"
                               alt=""
                             />
-                          </option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                          <option>6</option>
-                          <option>7</option>
-                        </select>
+                          </label>
+                        </div>
+                        {/* face-2 */}
+                        <div>
+                          <input
+                            id="face-2"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-2"
+                          />
+                          <label for="face-2" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Calm.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-3 */}
+                        <div>
+                          <input
+                            id="face-3"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-3"
+                          />
+                          <label for="face-3" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Cute.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-4 */}
+                        <div>
+                          <input
+                            id="face-4"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-4"
+                          />
+                          <label for="face-4" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Driven.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      {/* face第二列 */}
+                      <div class="formItems row d-flex">
+                        {/* face-5 */}
+                        <div>
+                          <input
+                            id="face-5"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-5"
+                          />
+                          <label for="face-5" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Explaining.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-6 */}
+                        <div>
+                          <input
+                            id="face-6"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-6"
+                          />
+                          <label for="face-6" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Old.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-7 */}
+                        <div>
+                          <input
+                            id="face-7"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-7"
+                          />
+                          <label for="face-7" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Smile Teeth Gap.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-8 */}
+                        <div>
+                          <input
+                            id="face-8"
+                            type="radio"
+                            className="yu-edit-face"
+                            name="face"
+                            value="face-8"
+                          />
+                          <label for="face-8" class="yu-edit-photo-face">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
                       </div>
                     </div>
-                    {/* <!-- 頭貼選單-選擇鬍子/髮型 --> */}
 
-                    <div class="yu-peeps-component-header">
-                      <span>
-                        <span>選擇表情</span>
-                        <span></span>
-                      </span>
-                      <span></span>
+                    {/* <!-- 頭貼選單-選擇髮型 --> */}
+                    <div class="form-group yu-edit-form">
+                      <span>選擇髮型</span>
+                      {/* hair第一列 */}
+                      <div class="formItems row d-flex">
+                        {/* hair-1 */}
+                        <div>
+                          <input
+                            id="hair-1"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-1"
+                          />
+                          <label for="hair-1" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/1Bangs 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-2 */}
+                        <div>
+                          <input
+                            id="hair-2"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-2"
+                          />
+                          <label for="hair-2" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/2Bun 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-3 */}
+                        <div>
+                          <input
+                            id="hair-3"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-3"
+                          />
+                          <label for="hair-3" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/3Long Bangs.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-4 */}
+                        <div>
+                          <input
+                            id="hair-4"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-4"
+                          />
+                          <label for="hair-4" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      {/* hair第二列 */}
+                      <div class="formItems row d-flex">
+                        {/* hair-5 */}
+                        <div>
+                          <input
+                            id="hair-5"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-5"
+                          />
+                          <label for="hair-5" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/5hat-hip.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-6 */}
+                        <div>
+                          <input
+                            id="hair-6"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-6"
+                          />
+                          <label for="hair-6" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/6Pomp.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-7 */}
+                        <div>
+                          <input
+                            id="hair-7"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-7"
+                          />
+                          <label for="hair-7" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/7Shaved 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-8 */}
+                        <div>
+                          <input
+                            id="hair-8"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-8"
+                          />
+                          <label for="hair-8" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/hair/8Twists 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="form-group ">
+                    {/* <!-- 頭貼選單-選擇服飾 --> */}
+                    <div class="form-group yu-edit-form">
+                      <span>選擇服飾</span>
+                      {/* cloth第一列 */}
                       <div class="formItems row d-flex">
-                        <select
-                          class="form-control formInput  col-7"
-                          id="exampleFormControlSelect1"
-                        >
-                          <option>選擇鬍子/髮型</option>
-                          <option>
+                        {/* cloth-1 */}
+                        <div>
+                          <input
+                            id="cloth-1"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-1"
+                          />
+                          <label for="cloth-1" class="yu-edit-photo-cloth">
                             <img
-                              src="/images/members/peepsphotos/face/Awe.svg"
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Button Shirt 1.svg"
                               alt=""
                             />
-                          </option>
-                          <option>
+                          </label>
+                        </div>
+                        {/* cloth2 */}
+                        <div>
+                          <input
+                            id="cloth-2"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-2"
+                          />
+                          <label for="cloth-2" class="yu-edit-photo-cloth">
                             <img
-                              src="/images/members/peepsphotos/face/Awe.svg"
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Device.svg"
                               alt=""
                             />
-                          </option>
-                          <option>4</option>
-                          <option>5</option>
-                          <option>6</option>
-                          <option>7</option>
-                        </select>
+                          </label>
+                        </div>
+                        {/* cloth-3 */}
+                        <div>
+                          <input
+                            id="cloth-3"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-3"
+                          />
+                          <label for="cloth-3" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Dress.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* cloth-4 */}
+                        <div>
+                          <input
+                            id="cloth-4"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-4"
+                          />
+                          <label for="cloth-4" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Fur Jacket.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      {/* cloth第二列 */}
+                      <div class="formItems row d-flex">
+                        {/* cloth-5 */}
+                        <div>
+                          <input
+                            id="cloth-5"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-5"
+                          />
+                          <label for="cloth-5" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Hoodie.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* cloth-6 */}
+                        <div>
+                          <input
+                            id="cloth-6"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="clothr-6"
+                          />
+                          <label for="cloth-6" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Polo and Sweater.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* cloth-7 */}
+                        <div>
+                          <input
+                            id="cloth-7"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-7"
+                          />
+                          <label for="cloth-7" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Striped Tee.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* cloth-8 */}
+                        <div>
+                          <input
+                            id="cloth-8"
+                            type="radio"
+                            className="yu-edit-cloth"
+                            name="cloth"
+                            value="cloth-8"
+                          />
+                          <label for="cloth-8" class="yu-edit-photo-cloth">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* <!-- 頭貼選單-選擇配件 --> */}
+                    <div class="form-group yu-edit-form">
+                      <span>選擇配件</span>
+                      {/* acc第一列 */}
+                      <div class="formItems row d-flex">
+                        {/* acc-1 */}
+                        <div>
+                          <input
+                            id="acc-1"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-1"
+                          />
+                          <label for="acc-1" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/_ None.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-2 */}
+                        <div>
+                          <input
+                            id="acc-2"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-2"
+                          />
+                          <label for="acc-2" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-3 */}
+                        <div>
+                          <input
+                            id="acc-3"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-3"
+                          />
+                          <label for="acc-3" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 3.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-4 */}
+                        <div>
+                          <input
+                            id="acc-4"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-4"
+                          />
+                          <label for="acc-4" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 4.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      {/* acc第二列 */}
+                      <div class="formItems row d-flex">
+                        {/* acc-5 */}
+                        <div>
+                          <input
+                            id="acc-5"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-5"
+                          />
+                          <label for="acc-5" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 5.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-6 */}
+                        <div>
+                          <input
+                            id="acc-6"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-6"
+                          />
+                          <label for="acc-6" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-7 */}
+                        <div>
+                          <input
+                            id="acc-7"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-7"
+                          />
+                          <label for="acc-7" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Sunglasses 2.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* acc-8 */}
+                        <div>
+                          <input
+                            id="acc-8"
+                            type="radio"
+                            className="yu-edit-acc"
+                            name="acc"
+                            value="acc-8"
+                          />
+                          <label for="hair-8" class="yu-edit-photo-acc">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/acc/Sunglasses.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* <!-- 頭貼選單-選擇背景 --> */}
+                    <div class="form-group yu-edit-form">
+                      <span>選擇背景</span>
+                      {/* hair第一列 */}
+                      <div class="formItems row d-flex">
+                        {/* hair-1 */}
+                        <div>
+                          <input
+                            id="hair-1"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-1"
+                          />
+                          <label for="hair-1" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Awe.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-2 */}
+                        <div>
+                          <input
+                            id="hair-2"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-2"
+                          />
+                          <label for="hair-2" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Calm.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-3 */}
+                        <div>
+                          <input
+                            id="hair-3"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-3"
+                          />
+                          <label for="hair-3" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Cute.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* face-4 */}
+                        <div>
+                          <input
+                            id="hair-4"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-4"
+                          />
+                          <label for="hair-4" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Driven.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                      </div>
+                      {/* hair第二列 */}
+                      <div class="formItems row d-flex">
+                        {/* hair-5 */}
+                        <div>
+                          <input
+                            id="hair-5"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-5"
+                          />
+                          <label for="hair-5" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Explaining.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-6 */}
+                        <div>
+                          <input
+                            id="hair-6"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-6"
+                          />
+                          <label for="hair-6" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Old.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-7 */}
+                        <div>
+                          <input
+                            id="hair-7"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-7"
+                          />
+                          <label for="hair-7" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Smile Teeth Gap.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
+                        {/* hair-8 */}
+                        <div>
+                          <input
+                            id="hair-8"
+                            type="radio"
+                            className="yu-edit-hair"
+                            name="hair"
+                            value="hair-8"
+                          />
+                          <label for="hair-8" class="yu-edit-photo-hair">
+                            <img
+                              class="w-100"
+                              src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
+                              alt=""
+                            />
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -50,3 +50,23 @@
 .yu-edit-panels {
   background-color: var(--honki-yellow);
 }
+
+.yu-edit-face,
+.yu-edit-hair,
+.yu-edit-cloth,
+.yu-edit-acc {
+  display: none;
+}
+
+.yu-edit-photo-face,
+.yu-edit-photo-hair,
+.yu-edit-photo-cloth,
+.yu-edit-photo-acc {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f3e1c6;
+  border: 1px solid #707070;
+  margin-left: 10px;
+}
