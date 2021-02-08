@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
 function Edit() {
   return (
     <>
+      {/* 麵包屑 */}
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb yu-breadcrumb">
+        <ol class="breadcrumb yu-edit-breadcrumb">
           <li class="breadcrumb-honki">
             <Link to="/">首頁</Link>
           </li>
@@ -19,39 +20,39 @@ function Edit() {
         </ol>
       </nav>
       {/* <!-- 紅圓點 --> */}
-      <div class="yu-redpoint"></div>
+      <div class="yu-edit-redpoint"></div>
 
       {/* <!-- 欄位 --> */}
       <div class="container my-5">
-        <div class="row justify-content-between">
-          {/* <!-- 左欄 --> */}
-          <div class="col-3 absolute">
+        <div class="row d-flex justify-content-between">
+          {/* 左欄 */}
+          <div class="col-3">
             {/* <!-- 標題 --> */}
-            <div>
-              <h5 class="yu-member-menu1">會員中心</h5>
+            <div class="yu-edit-member-menu">
+              <h5>會員中心</h5>
             </div>
-            <div>
+            <div class="yu-edit-member-photo">
               {/* <!-- 個人頭貼 --> */}
               <img
-                class="yu-member-photo1"
                 src="http://localhost:3000/images/yu/personalphoto.svg"
                 alt=""
               />
             </div>
             <div>
               {/* <!-- 會員等級 --> */}
-              <div class="yu-general-member1">一般會員</div>
+              <div class="yu-edit-general-member">一般會員</div>
               {/* <!-- 歡迎詞 --> */}
-              <div class="yu-greeting">哈囉，歡迎回來</div>
+              <div class="yu-edit-greeting">哈囉，歡迎回來</div>
             </div>
             {/* <!-- 右欄 --> */}
           </div>
-          <div class="col-8">
+          {/* 右欄 */}
+          <div class="col-9 yu-edit-tab">
             {/* <!-- 會員總表收合選單 --> */}
-            <div className="holder d-none d-lg-block mx-auto yu-panels">
+            <div className="holder d-none d-lg-block mx-auto yu-edit-panels">
               <Tabs defaultActiveKey="yu-edit-1" id="uncontrolled-tab-example">
                 <Tab eventKey="yu-edit-1" title="會員總表">
-                  <div class="panels yu-panels">
+                  <div class="panels yu-edit-panels">
                     {/* <!-- 收合選單-1修改個人資料 --> */}
                     <div class="panel" id="one-panel">
                       {/* <!-- <div class="panel-title">個人資料修改</div> --> */}

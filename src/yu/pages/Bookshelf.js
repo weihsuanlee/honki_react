@@ -10,7 +10,6 @@ function Bookshelf() {
             <Link to="/">首頁</Link>
           </li>
           <li class="breadcrumb-honki">
-            {' '}
             <Link to="/">會員中心</Link>
           </li>
           <li class="breadcrumb-honki active" aria-current="page">

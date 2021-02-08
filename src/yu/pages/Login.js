@@ -8,26 +8,26 @@ function Login() {
     <>
       <div class="container mt-5">
         {/* <!-- 紅圓點 --> */}
-        <div class="yu-redpoint"></div>
+        <div class="yu-login-redpoint"></div>
 
         <form>
           {/* <!-- 比例 --> */}
-          <div class="form-width-height yu-form">
+          <div class="form-width-height yu-login-form">
             {/* <!-- 表單標題 --> */}
-            <div class="form-tittle yu-form-title">
+            <div class="form-tittle yu-login-form-title">
               <h5>會員登入</h5>
             </div>
             <div>
               {/* <!-- 背景圖 --> */}
-              <div class="yu-bookspage">
+              <div class="yu-login-bookspage">
                 <img
-                  class="yu-bookspage1-1"
+                  class="yu-login-bookspage1-1"
                   src="http://localhost:3000/images/yu/book-login.jpg"
                   alt=""
                 />
               </div>
               {/* <!-- 表格input區 --> */}
-              <div class="yu-pic col-6 mx-auto">
+              <div class="yu-login-pic col-6 mx-auto">
                 {/* <!-- 信箱input --> */}
                 <div class="form-group">
                   <div class="formItems row d-flex justify-content-center">
@@ -59,7 +59,7 @@ function Login() {
                   </div>
                 </div>
                 {/* <!-- checkbox --> */}
-                <div class="d-flex justify-content-between px-5 yu-checkbox">
+                <div class="d-flex justify-content-between px-5 yu-login-checkbox">
                   <div class="form-group form-check ">
                     <input
                       type="checkbox"
@@ -67,14 +67,14 @@ function Login() {
                       id="yu-saveaccountandpassword"
                     />
                     <label
-                      class="form-check-label yu-save"
+                      class="form-check-label yu-login-save"
                       for="saveaccountandpassword"
                     >
                       <p>儲存帳號及密碼</p>
                     </label>
                   </div>
                   {/* <!-- 忘記密碼連結 --> */}
-                  <div class="yu-forget-password-link">
+                  <div class="yu-login-forget-password-link">
                     <p>忘記密碼</p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ function Login() {
             {/* <!-- 按鈕 --> */}
             <div>
               {/* <!-- 註冊連結 --> */}
-              <div class="yu-register-link">
+              <div class="yu-login-register-link">
                 <h6>註冊</h6>
               </div>
               {/* <!-- 送出按鈕 --> */}
@@ -105,15 +105,15 @@ function Login() {
           {/* <!-- 第三方登入 --> */}
           <h6>其他登入方式</h6>
         </div>
-        <div class="d-flex justify-content-center col-3 mx-auto yu-otherlinks">
+        <div class="d-flex justify-content-center col-3 mx-auto yu-login-otherlinks">
           <Link to="/">
-            <FaFacebookSquare className="yu-facebook-link mx-2" />
+            <FaFacebookSquare className="yu-login-facebook-link mx-2" />
           </Link>
           <Link to="/">
-            <FaLine className="yu-line-link mx-2" />
+            <FaLine className="yu-login-line-link mx-2" />
           </Link>
           <Link to="/">
-            <ImGoogle2 className="yu-google-link mx-2" />
+            <ImGoogle2 className="yu-login-google-link mx-2" />
           </Link>
         </div>
       </div>

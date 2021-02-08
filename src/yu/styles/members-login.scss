@@ -1,4 +1,4 @@
-.yu-redpoint {
+.yu-login-redpoint {
   width: 64px;
   height: 64px;
   background-color: var(--honki-red);
@@ -11,11 +11,11 @@
   z-index: -1;
 }
 
-.yu-form {
+.yu-login-form {
   width: 100%;
 }
 
-.yu-form-title {
+.yu-login-form-title {
   text-align: center;
   margin: 72px auto 48px auto;
 }
@@ -24,7 +24,7 @@
     position: absolute;
   } */
 
-.yu-bookspage1-1 {
+.yu-login-bookspage1-1 {
   width: 100%;
   opacity: 30%;
   position: absolute;
@@ -35,7 +35,7 @@
   z-index: -1;
 }
 
-.yu-pic {
+.yu-login-pic {
   /* background-image: url("/images/style-guide/logo.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -44,20 +44,20 @@
   border: 1px solid rgb(189, 189, 189);
 }
 
-.yu-checkbox {
+.yu-login-checkbox {
   padding-right: 50px;
 }
 
-.yu-save {
+.yu-login-save {
   font-size: 14px;
 }
 
-.yu-forget-password-link {
+.yu-login-forget-password-link {
   font-size: 14px;
   text-decoration: underline;
 }
 
-.yu-register-link {
+.yu-login-register-link {
   text-align: center;
   margin: 24px auto 24px auto;
   text-decoration: underline;
@@ -69,7 +69,7 @@
   margin: 48px auto 31px auto;
 }
 
-.yu-otherlinks {
+.yu-login-otherlinks {
   border: 1px solid rgb(189, 189, 189);
   border-radius: 20px;
   padding-top: 10px;
@@ -77,17 +77,17 @@
   margin-bottom: 192px;
 }
 
-.yu-facebook-link {
+.yu-login-facebook-link {
   font-size: 55px;
   color: var(--honki-black);
 }
 
-.yu-line-link {
+.yu-login-line-link {
   font-size: 55px;
   color: var(--honki-black);
 }
 
-.yu-google-link {
+.yu-login-google-link {
   font-size: 51px;
   color: var(--honki-black);
   padding-top: 2px;
