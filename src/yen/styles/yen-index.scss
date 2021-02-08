@@ -266,23 +266,23 @@ body {
 }
 
 .yen-hot-bgimg1 {
-  background-image: url('http://localhost:3000/hot/hot-1.jpg');
+  background-image: url('http://localhost:3000/images/yen/hot/hot-1.jpg');
 }
 
 .yen-hot-bgimg2 {
-  background-image: url('http://localhost:3000/hot/hot-2.jpg');
+  background-image: url('http://localhost:3000/images/yen/hot/hot-2.jpg');
 }
 
 .yen-hot-bgimg3 {
-  background-image: url('http://localhost:3000//hot/hot-3.jpg');
+  background-image: url('http://localhost:3000/images/yen/hot/hot-3.jpg');
 }
 
 .yen-hot-bgimg4 {
-  background-image: url('http://localhost:3000/hot/hot-4.jpg');
+  background-image: url('http://localhost:3000/images/yen/hot/hot-4.jpg');
 }
 
 .yen-hot-bgimg5 {
-  background-image: url('http://localhost:3000/hot/hot-5.jpg');
+  background-image: url('http://localhost:3000/images/yen/hot/hot-5.jpg');
 }
 
 .yen-hot-cover-box {
@@ -1039,13 +1039,6 @@ body {
   bottom: -3%;
   left: 10%;
 }
-
-/* TODO: 暫時用，要刪除 */
-.yen-event-card > a {
-  text-decoration: none;
-  color: #1c1b1b;
-}
-/* 暫時用 */
 
 /* new media query */
 /* new media query end */

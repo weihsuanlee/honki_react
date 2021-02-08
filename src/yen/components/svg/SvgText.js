@@ -1,4 +1,3 @@
-import '../styles/yen-index.scss'
 import * as React from 'react'
 
 function SvgText(props) {
