@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 // 二手書scss
 import '../styles/used-books.scss'
 
+// 二手書svg
+import ChangeBooksIcon1 from './../components/ChangeBooksIcon1'
+import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
+
 function UsedBooksIndex() {
   return (
     <>
@@ -25,8 +29,9 @@ function UsedBooksIndex() {
         <div className="row">
           <div className="jill-changemode">
             {/* 一般交換圖片 */}
-
+            <ChangeBooksIcon1 />
             {/* 隨機交換圖片 */}
+            <ChangeBooksIcon2 />
           </div>
         </div>
         <div className="row">
