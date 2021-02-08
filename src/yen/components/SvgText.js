@@ -19,39 +19,39 @@ function SvgText(props) {
           data-name="headertext"
         >
           {'READ '}
-          <tspan x={0} y={14}>
+          <tspan x={0} y={14} letterSpacing=".11em">
             {'EVERY'}
           </tspan>
-          <tspan className="prefix__cls-2" x={34.92} y={14}>
+          <tspan className="prefix__cls-2" x={36.1} y={14}>
             {'D'}
           </tspan>
-          <tspan className="prefix__cls-3" x={43.04} y={14}>
+          <tspan className="prefix__cls-3" x={44.1} y={14}>
             {'A'}
           </tspan>
-          <tspan x={50.14} y={14}>
+          <tspan x={50.8} y={14}>
             {'Y!'}
           </tspan>
           <tspan letterSpacing={0}>
             <tspan x={0} y={28}>
               {'H'}
             </tspan>
-            <tspan x={7} y={28} letterSpacing="-.01em">
+            <tspan x={8} y={28} letterSpacing="-.01em">
               {'A'}
             </tspan>
-            <tspan x={12.75} y={28} letterSpacing=".01em">
+            <tspan x={15} y={28} letterSpacing=".1em">
               {'VE FUN'}
             </tspan>
           </tspan>
-          <tspan x={0} y={42}>
+          <tspan x={0} y={42} letterSpacing=".1em">
             {'EVERY'}
           </tspan>
-          <tspan className="prefix__cls-2" x={34.92} y={42}>
+          <tspan className="prefix__cls-2" x={36.1} y={42}>
             {'D'}
           </tspan>
-          <tspan className="prefix__cls-3" x={43.04} y={42}>
+          <tspan className="prefix__cls-3" x={44.1} y={42}>
             {'A'}
           </tspan>
-          <tspan x={50.14} y={42}>
+          <tspan x={50.8} y={42}>
             {'Y!'}
           </tspan>
         </text>
