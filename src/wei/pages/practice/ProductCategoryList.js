@@ -1,9 +1,9 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
 import { withRouter, NavLink } from 'react-router-dom'
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
+import MultiLevelBreadCrumb from '../../../components/MultiLevelBreadCrumb'
 import ProductBanner from './ProductBanner'
-import Spinner from '../components/Spinner'
+import Spinner from '../../components/Spinner'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
