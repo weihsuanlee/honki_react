@@ -1,9 +1,10 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink, Link } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
 import ListSpinner from '../components/ListSpinner'
+// import MyPopOver from '../components/MyPopOver'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
@@ -72,10 +73,10 @@ function Product(props) {
     console.log(data, 'data1')
     setBooks(data.rows)
 
-    // 2秒後關閉spinner
+    // 1.5秒後關閉spinner
     setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 1500)
   }
   const spinner = <ListSpinner show="true" />
   const bookCardDisplay = (
@@ -122,12 +123,17 @@ function Product(props) {
       <ProductBanner />
       <div className="container-fluid my-5">
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">
-          <div className="col-12 col-md-6 ">
+          <div className="col-12">
             <MultiLevelBreadCrumb />
+            {/* <MyPopOver /> */}
           </div>
-          <div className="col-12 col-md-6 wei-button-group">
-            <button className="btn-rounded-dark mr-1">出版日期</button>
-            <button className="btn-rounded-dark mr-1">
+          <div className="col-12 wei-button-group">
+            <button className="btn-rounded-dark">價格</button>
+            <button className="btn-rounded-dark">折扣</button>
+            <button className="btn-rounded-dark">評分</button>
+            <br className="d-md-none" />
+            <button className="btn-rounded-dark">出版年份</button>
+            <button className="btn-rounded-dark">
               <FaListUl />
             </button>
             <button className="btn-rounded-dark">

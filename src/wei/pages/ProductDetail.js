@@ -12,6 +12,7 @@ import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import WeiModal from '../components/WeiModal'
+import ProductCarousel from '../components/ProductCarousel'
 
 function ProductDetail(props) {
   const [modalShow, setModalShow] = React.useState(false)
@@ -184,6 +185,14 @@ function ProductDetail(props) {
   return (
     <>
       {productDetailDisplay}
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-10">
+            <ProductCarousel />
+          </div>
+        </div>
+      </div>
+
       <div className="container-fluid wei-detail-books">
         <h5 className="wei-detail-books-subtitle">你可能也會喜歡</h5>
         <div className="row justify-content-center">

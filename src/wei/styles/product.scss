@@ -126,15 +126,24 @@ ol.wei-breadcrumb {
   margin-bottom: 0;
 }
 .wei-button-group {
+  margin-top: 1rem;
   text-align: right;
+}
+
+.wei-button-group .btn-rounded-dark {
+  margin-top: 0.5rem;
+  margin-right: 8px;
 }
 @media (max-width: 768px) {
   .wei-button-group {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0;
+  }
+  .wei-button-group .btn-rounded-dark {
+    margin-right: 12px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 430px) {
   .wei-button-group .btn-rounded-dark {
     height: 30px;
     font-size: 12px;
@@ -575,4 +584,25 @@ ol.wei-breadcrumb {
 }
 .wei-holder-mobile .card-body {
   white-space: pre-line;
+}
+// popover
+.wei-popover .arrow {
+  display: none;
+  border: none;
+}
+.wei-popover .popover-header {
+  font-size: 14px;
+  background-color: white;
+  border: none;
+  padding: 1rem 0.75rem;
+}
+
+// carousel slick
+.wei-slick {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.wei-slick .wei-card-icon {
+  top: -24px;
+  left: 24px;
 }
