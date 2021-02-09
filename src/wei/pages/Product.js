@@ -1,9 +1,9 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter, NavLink, Link } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-import ProductBanner from './ProductBanner'
-import Spinner from '../components/Spinner'
+import ProductBanner from '../components/ProductBanner'
+import ListSpinner from '../components/ListSpinner'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
@@ -13,6 +13,10 @@ function Product(props) {
   const [categoryDisplay, setCategoriesDisplay] = useState([])
   // 篩選類別狀態
   const [category, setCategory] = useState('')
+  // 模擬componentDidUpdate
+  useEffect(() => {
+    filterProduct()
+  }, [category])
   const [isLoading, setIsLoading] = useState(true)
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -73,11 +77,17 @@ function Product(props) {
       setIsLoading(false)
     }, 2000)
   }
-  const spinner = <Spinner show="true" />
+  const spinner = <ListSpinner show="true" />
   const bookCardDisplay = (
     <>
       {books.map((v, i) => (
-        <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card" key={i}>
+        <div
+          onClick={() => {
+            props.history.push('/products/' + v.sid)
+          }}
+          className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
+          key={i}
+        >
           <div className="wei-card-icon">NEW</div>
           <div className="wei-card-pic position-relative">
             <div className="wei-book-pic">
@@ -104,10 +114,6 @@ function Product(props) {
   useEffect(() => {
     getDataFromServer()
   }, [])
-  // 模擬componentDidUpdate
-  useEffect(() => {
-    filterProduct()
-  }, [category])
 
   // console.log(props)
 

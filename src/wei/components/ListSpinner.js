@@ -1,4 +1,4 @@
-function Spinner() {
+function ListSpinner() {
   return (
     <>
       <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
@@ -165,4 +165,4 @@ function Spinner() {
   )
 }
 
-export default Spinner
+export default ListSpinner
