@@ -5,7 +5,7 @@ function Bookshelf() {
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb yu-breadcrumb">
+        <ol class="breadcrumb yu-bookshelf-breadcrumb">
           <li class="breadcrumb-honki">
             <Link to="/">首頁</Link>
           </li>
@@ -18,8 +18,8 @@ function Bookshelf() {
         </ol>
       </nav>
       {/* <!-- 紅圓點 --> */}
-      <div class="yu-redpoint"></div>
-      <div class="yu-buyitnow">
+      <div class="yu-bookshelf-redpoint"></div>
+      <div class="yu-bookshelf-buyitnow">
         <p>馬上購買</p>
       </div>
       {/* <!-- <div class="yu-wood"><img src="../../images/members/wood.png" alt="" /></div> --> */}

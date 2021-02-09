@@ -6,7 +6,7 @@
   float: left;
   border-radius: 50%;
   position: absolute;
-  top: 12%;
+  top: 15%;
   left: 44%;
   z-index: -1;
 }
@@ -17,7 +17,7 @@
 
 .yu-login-form-title {
   text-align: center;
-  margin: 72px auto 48px auto;
+  margin: 100px auto 48px auto;
 }
 
 /* .yu-bookspage {
@@ -45,7 +45,8 @@
 }
 
 .yu-login-checkbox {
-  padding-right: 50px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .yu-login-save {
