@@ -40,6 +40,9 @@ function App() {
             >
               <Switch>
                 <Route path="/member">
+                  <Login />
+                </Route>
+                <Route path="/bookshelf">
                   <Bookshelf />
                 </Route>
                 <Route path="/edit">

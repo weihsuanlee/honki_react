@@ -59,23 +59,23 @@ function Login() {
                   </div>
                 </div>
                 {/* <!-- checkbox --> */}
-                <div class="d-flex justify-content-between px-5 yu-login-checkbox">
+                <div class="px-5 yu-login-checkbox">
                   <div class="form-group form-check ">
                     <input
                       type="checkbox"
                       class="form-check-input"
-                      id="yu-saveaccountandpassword"
+                      id="yu-login-save-account-and-password"
                     />
                     <label
                       class="form-check-label yu-login-save"
-                      for="saveaccountandpassword"
+                      for="yu-login-save-account-and-password"
                     >
                       <p>儲存帳號及密碼</p>
                     </label>
                   </div>
                   {/* <!-- 忘記密碼連結 --> */}
                   <div class="yu-login-forget-password-link">
-                    <p>忘記密碼</p>
+                    <Link to="/">忘記密碼</Link>
                   </div>
                 </div>
               </div>

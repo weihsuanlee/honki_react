@@ -17,9 +17,7 @@
 }
 
 .yu-edit-member-menu {
-  position: absolute;
-  top: 5%;
-  left: 20%;
+  margin: 24px 0 0 20px;
 }
 
 .yu-edit-member-photo {
@@ -54,7 +52,8 @@
 .yu-edit-face,
 .yu-edit-hair,
 .yu-edit-cloth,
-.yu-edit-acc {
+.yu-edit-acc,
+.yu-edit-bg {
   display: none;
 }
 
@@ -66,7 +65,39 @@
   height: 70px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #f3e1c6;
+  // background-color: #f3e1c6;
   border: 1px solid #707070;
   margin-left: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.yu-edit-photo-bg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  // background-color: #f3e1c6;
+  border: 1px solid #707070;
+  margin-left: 10px;
+}
+
+.yu-edit-photo-face img,
+.yu-edit-photo-hair img,
+.yu-edit-photo-acc img {
+  width: 90%;
+  object-fit: contain;
+}
+
+// 收合選單-4刪除帳號
+.yu-edit-delete-sentence {
+  color: var(--honki-theme);
+}
+
+.yu-edit-delete-checkbox {
+  margin: 0 0 24px 70px;
+}
+
+.yu-edit-delete-button {
+  background-color: var(--honki-red);
 }
