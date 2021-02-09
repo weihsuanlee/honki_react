@@ -2,12 +2,12 @@
   width: 64px;
   height: 64px;
   background-color: var(--honki-red);
-  margin: 5px;
+  margin: 5px 0 12px 0;
   float: left;
   border-radius: 50%;
   position: absolute;
   top: 12%;
-  left: 44%;
+  left: 43%;
   z-index: -1;
 }
 
@@ -30,7 +30,6 @@
   overflow: hidden;
   z-index: -1;
 }
-
 
 .yu-register-save {
   font-size: 14px;

@@ -53,15 +53,20 @@
   font-size: 14px;
 }
 
-.yu-login-forget-password-link {
+.yu-login-forget-password-link a {
   font-size: 14px;
   text-decoration: underline;
+  color: var(--honki-black);
 }
 
 .yu-login-register-link {
   text-align: center;
-  margin: 24px auto 24px auto;
+  margin: 32px auto 24px auto;
   text-decoration: underline;
+}
+
+.yu-login-register-link a {
+  color: var(--honki-black);
 }
 
 .yu-login-from-others {

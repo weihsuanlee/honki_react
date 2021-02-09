@@ -8,7 +8,7 @@ function Register() {
         <div class="yu-register-redpoint"></div>
         <form>
           {/* <!-- 比例 --> */}
-          <div class="form-width-height yu--register-form">
+          <div class="form-width-height yu-register-form">
             {/* <!-- 表單標題 --> */}
             <div class="form-tittle yu-register-form-title">
               <h5>新會員註冊</h5>

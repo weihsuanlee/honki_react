@@ -84,7 +84,9 @@ function Login() {
             <div>
               {/* <!-- 註冊連結 --> */}
               <div class="yu-login-register-link">
-                <h6>註冊</h6>
+                <Link to="/">
+                  <h6>註冊</h6>
+                </Link>
               </div>
               {/* <!-- 送出按鈕 --> */}
               <div class="form-group button-group">
