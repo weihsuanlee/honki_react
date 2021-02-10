@@ -20,7 +20,7 @@ function NormalIndex() {
               <Link to="#">首頁</Link>
             </li>
             <li className="breadcrumb-honki">
-              <Link to="used-books-index.html">二手交換</Link>
+              <Link to="./used-books">二手交換</Link>
             </li>
             <li className="breadcrumb-honki active" aria-current="page">
               一般交換
@@ -51,7 +51,7 @@ function NormalIndex() {
                     <option>6</option>
                     <option>7</option>
                   </select>
-                  <Link to="./normal-insert.html">
+                  <Link to="./NormalInsert">
                     <button className="btn-md-dark jill-myNchange-add-btn">
                       新增
                     </button>
@@ -223,7 +223,7 @@ function NormalIndex() {
         {/* 標題開始 */}
         <div className="container my-5">
           <h5 className="jill-otherbooks-area-title">
-            其他人在換什麼&nbsp&nbsp&nbsp
+            其他人在換什麼
             {/* 蝴蝶SVG */}
             <NormalButterfly />
           </h5>
