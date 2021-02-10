@@ -1,12 +1,13 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 // 二手書scss
 import '../styles/used-books.scss'
 
 // 二手書svg
-// import ChangeBooksIcon1 from './../components/ChangeBooksIcon1'
-// import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
+import NormalBee from './../components/NormalBee'
+import NormalButterfly from './../components/NormalButterfly'
 
 function NormalIndex() {
   return (
@@ -60,7 +61,7 @@ function NormalIndex() {
 
               <div className="jill-myNchange-display d-flex">
                 {/* 蜜蜂svg */}
-
+                <NormalBee />
                 <img
                   src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
                   alt=""
@@ -94,12 +95,12 @@ function NormalIndex() {
                 <div className="slider-aria d-flex">
                   <div className="slider jill-Iwant-slider-L">
                     <Link to="#">
-                      <i className="fas fa-chevron-left"></i>
+                      <FaChevronLeft className="fas fa-chevron-left" />
                     </Link>
                   </div>
                   <div className="slider jill-Iwant-slider-R">
                     <Link to="#">
-                      <i className="fas fa-chevron-right"></i>
+                      <FaChevronRight className="fas fa-chevron-right" />
                     </Link>
                   </div>
                 </div>
@@ -156,12 +157,12 @@ function NormalIndex() {
                 <div className="slider-aria d-flex">
                   <div className="slider jill-Peoplewant-slider-L">
                     <Link to="#">
-                      <i className="fas fa-chevron-left"></i>
+                      <FaChevronLeft className="fas fa-chevron-left" />
                     </Link>
                   </div>
                   <div className="slider jill-Peoplewant-slider-R">
                     <Link to="#">
-                      <i className="fas fa-chevron-right"></i>
+                      <FaChevronRight className="fas fa-chevron-right" />
                     </Link>
                   </div>
                 </div>
@@ -224,6 +225,7 @@ function NormalIndex() {
           <h5 className="jill-otherbooks-area-title">
             其他人在換什麼&nbsp&nbsp&nbsp
             {/* 蝴蝶SVG */}
+            <NormalButterfly />
           </h5>
           {/* 標題結束 */}
 

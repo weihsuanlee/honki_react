@@ -16,6 +16,7 @@ import ActAllSignUp from './yen/pages/ActAllSignUp'
 import ActCheckSignUp from './yen/pages/ActCheckSignUp'
 import OldSeasons from './hans/pages/OldSeasons'
 import UsedBooksIndex from './jill/pages/UsedBooksIndex'
+import NormalIndex from './jill/pages/NormalIndex'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -80,6 +81,9 @@ function App() {
                 </Route>
                 <Route path="/used-books">
                   <UsedBooksIndex />
+                </Route>
+                <Route path="/NormalIndex">
+                  <NormalIndex />
                 </Route>
                 <Route path="/products/:sid?">
                   <ProductDetail />
