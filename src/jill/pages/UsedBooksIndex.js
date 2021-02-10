@@ -39,7 +39,7 @@ function UsedBooksIndex() {
             <Link to="./NormalIndex">
               <button className="btn-md-dark jill-normalbtn">一般交換</button>
             </Link>
-            <Link to="./random-index.html">
+            <Link to="./RandomIndex">
               <button className="btn-md-dark jill-randombtn">隨機交換</button>
             </Link>
           </div>

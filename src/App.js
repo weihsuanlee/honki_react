@@ -22,6 +22,12 @@ import NormalEdit from './jill/pages/NormalEdit'
 import IWantChange from './jill/pages/IWantChange'
 import PeopleWantChange from './jill/pages/PeopleWantChange'
 import SendIWantChange from './jill/pages/SendIWantChange'
+import NormalSuccess from './jill/pages/NormalSuccess'
+import RandomIndex from './jill/pages/RandomIndex'
+import RandomInsert from './jill/pages/RandomInsert'
+import RandomEdit from './jill/pages/RandomEdit'
+import RandomSuccess from './jill/pages/RandomSuccess'
+import RandSuccessStatus from './jill/pages/RandSuccessStatus'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -104,6 +110,24 @@ function App() {
                 </Route>
                 <Route path="/SendIWantChange">
                   <SendIWantChange />
+                </Route>
+                <Route path="/NormalSuccess">
+                  <NormalSuccess />
+                </Route>
+                <Route path="/RandomIndex">
+                  <RandomIndex />
+                </Route>
+                <Route path="/RandomInsert">
+                  <RandomInsert />
+                </Route>
+                <Route path="/RandomEdit">
+                  <RandomEdit />
+                </Route>
+                <Route path="/RandomSuccess">
+                  <RandomSuccess />
+                </Route>
+                <Route path="/RandSuccessStatus">
+                  <RandSuccessStatus />
                 </Route>
                 <Route path="/products/:sid?">
                   <ProductDetail />
