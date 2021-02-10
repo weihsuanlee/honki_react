@@ -121,7 +121,7 @@ function NormalIndex() {
                     <div className="jill-underline"></div>
                     <li>鄭瑪莉</li>
                   </ul>
-                  <Link to="./normal-IwantChange.html">
+                  <Link to="./IWantChange">
                     <button className="btn-md-dark jill-card-btn-status">
                       查看
                     </button>
@@ -144,7 +144,7 @@ function NormalIndex() {
                     <div className="jill-underline"></div>
                     <li>鄭瑪莉</li>
                   </ul>
-                  <Link to="./normal-IwantChange.html">
+                  <Link to="./IWantChange">
                     <button className="btn-md-dark jill-card-btn-status2">
                       查看
                     </button>
@@ -185,7 +185,7 @@ function NormalIndex() {
                     <div className="jill-underline"></div>
                     <li>鄭瑪莉</li>
                   </ul>
-                  <Link to="./normal-PeoplewantChange.html">
+                  <Link to="./PeopleWantChange">
                     <button className="btn-md-dark jill-card-btn-status3">
                       查看
                     </button>
@@ -209,7 +209,7 @@ function NormalIndex() {
                     <div className="jill-underline"></div>
                     <li>鄭瑪莉</li>
                   </ul>
-                  <Link to="./normal-PeoplewantChange.html">
+                  <Link to="./PeopleWantChange">
                     <button className="btn-md-dark jill-card-btn-status4">
                       查看
                     </button>
@@ -248,7 +248,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -270,7 +270,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -292,7 +292,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -313,7 +313,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -334,7 +334,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -355,7 +355,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -376,7 +376,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -397,7 +397,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -418,7 +418,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -439,7 +439,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -460,7 +460,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>
@@ -481,7 +481,7 @@ function NormalIndex() {
                 <div className="jill-underline"></div>
                 <li>鄭瑪莉</li>
               </ul>
-              <Link to="./normal-Send-IwantChange.html">
+              <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
             </div>

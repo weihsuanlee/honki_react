@@ -19,6 +19,9 @@ import UsedBooksIndex from './jill/pages/UsedBooksIndex'
 import NormalIndex from './jill/pages/NormalIndex'
 import NormalInsert from './jill/pages/NormalInsert'
 import NormalEdit from './jill/pages/NormalEdit'
+import IWantChange from './jill/pages/IWantChange'
+import PeopleWantChange from './jill/pages/PeopleWantChange'
+import SendIWantChange from './jill/pages/SendIWantChange'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -92,6 +95,15 @@ function App() {
                 </Route>
                 <Route path="/NormalEdit">
                   <NormalEdit />
+                </Route>
+                <Route path="/IWantChange">
+                  <IWantChange />
+                </Route>
+                <Route path="/PeopleWantChange">
+                  <PeopleWantChange />
+                </Route>
+                <Route path="/SendIWantChange">
+                  <SendIWantChange />
                 </Route>
                 <Route path="/products/:sid?">
                   <ProductDetail />
