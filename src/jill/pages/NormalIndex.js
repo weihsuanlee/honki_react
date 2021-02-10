@@ -81,7 +81,7 @@ function NormalIndex() {
                   <li>鄭瑪莉</li>
                 </ul>
               </div>
-              <Link to="./normal-edit.html">
+              <Link to="./NormalEdit">
                 <button className="btn-md-dark jill-normal-seemyList">
                   查看
                 </button>

@@ -18,6 +18,7 @@ import OldSeasons from './hans/pages/OldSeasons'
 import UsedBooksIndex from './jill/pages/UsedBooksIndex'
 import NormalIndex from './jill/pages/NormalIndex'
 import NormalInsert from './jill/pages/NormalInsert'
+import NormalEdit from './jill/pages/NormalEdit'
 
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
@@ -88,6 +89,9 @@ function App() {
                 </Route>
                 <Route path="/NormalInsert">
                   <NormalInsert />
+                </Route>
+                <Route path="/NormalEdit">
+                  <NormalEdit />
                 </Route>
                 <Route path="/products/:sid?">
                   <ProductDetail />
