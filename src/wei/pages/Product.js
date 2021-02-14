@@ -1,23 +1,76 @@
 import '../styles/product.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter, NavLink, Link, Switch, Route } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
 import ListSpinner from '../components/ListSpinner'
-// import MyPopOver from '../components/MyPopOver'
+import PriceFilterPop from '../components/PriceFilterPop'
+import ProductPagination from '../components/ProductPagination'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
-  // 書籍商品狀態
+  // console.log(props)
+  // 書籍商品
   const [books, setBooks] = useState([])
   // 分類選單 Display
   const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別狀態
+  // 篩選類別
   const [category, setCategory] = useState('')
+  // 篩選價格
+  const [minPrice, setMinPrice] = useState('')
+  const [maxPrice, setMaxPrice] = useState('')
+  // 排序條件（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
+  const [sorts, setSorts] = useState('')
+  // 篩選搜尋
+  const [search, setSearch] = useState('')
+  // 分頁pagination
+  const [totalPages, setTotalPages] = useState('')
+  const [page, setPage] = useState(1)
+
+  // newState 處理setState異步用
+  let newState = ''
+  // let query = ''
+  // if (sorts) query += `&sorts=${sorts}`
+  // if (search) query += `&search=${search}`
+  // if (minPrice) query += `&minPrice=${minPrice}`
+  // if (maxPrice) query += `&maxPrice=${maxPrice}`
+
+  // 模擬componentDidMount
+  useEffect(() => {
+    getDataFromServer()
+  }, [])
+
   // 模擬componentDidUpdate
   useEffect(() => {
+    console.log(props)
+    async function filterProduct() {
+      // 先開啟spinner
+      setIsLoading(true)
+      // 和伺服器要資料
+      const response = await fetch(
+        // 'http://localhost:3333/product' +
+        //   (category ? `/${category}` : '') +
+        //   (query ? `?${query}` : ''),
+        'http://localhost:3333' +
+          props.location.pathname +
+          props.location.search,
+        {
+          method: 'get',
+        }
+      )
+      const data = await response.json()
+      console.log(data, 'data filtered')
+      setBooks(data.rows)
+      setTotalPages(data.totalPages)
+
+      // 1.5秒後關閉spinner
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 1500)
+    }
     filterProduct()
-  }, [category])
+    window.scrollBy(0, 0.75 * window.innerHeight)
+  }, [category, sorts])
   const [isLoading, setIsLoading] = useState(true)
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -31,6 +84,7 @@ function Product(props) {
     console.log(data)
     setBooks(data.rows)
     setCategoriesDisplay(data.c_rows)
+    setTotalPages(data.totalPages)
 
     // 2秒後關閉spinner
     setTimeout(() => {
@@ -46,12 +100,10 @@ function Product(props) {
             <NavLink
               activeClassName="active"
               className="wei-category"
-              to={{
-                search: '?category=' + v.category_sid,
-              }}
               key={i}
+              to={{ pathname: `/product/${v.eng_name}` }}
               onClick={() => {
-                setCategory(`category=${v.category_sid}`)
+                setCategory(v.eng_name)
               }}
             >
               <p>{v.name}</p>
@@ -62,22 +114,6 @@ function Product(props) {
     </div>
   )
 
-  async function filterProduct() {
-    // 先開啟spinner
-    setIsLoading(true)
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/product?' + category, {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data, 'data1')
-    setBooks(data.rows)
-
-    // 1.5秒後關閉spinner
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
-  }
   const spinner = <ListSpinner show="true" />
   const bookCardDisplay = (
     <>
@@ -111,10 +147,6 @@ function Product(props) {
       ))}
     </>
   )
-  // 模擬componentDidMount
-  useEffect(() => {
-    getDataFromServer()
-  }, [])
 
   // console.log(props)
 
@@ -125,14 +157,52 @@ function Product(props) {
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">
           <div className="col-12">
             <MultiLevelBreadCrumb />
-            {/* <MyPopOver /> */}
           </div>
           <div className="col-12 wei-button-group">
-            <button className="btn-rounded-dark">價格</button>
-            <button className="btn-rounded-dark">折扣</button>
-            <button className="btn-rounded-dark">評分</button>
+            <PriceFilterPop />
+            <button
+              className="btn-rounded-dark text-center"
+              onClick={() => {
+                if (sorts === 'discountDESC') {
+                  newState = 'discountASC'
+                } else {
+                  newState = 'discountDESC'
+                }
+                setSorts(newState)
+                props.history.push(`?sorts=${newState}`, [sorts])
+              }}
+            >
+              <p className="wei-discount">折扣</p>
+            </button>
+            <button
+              className="btn-rounded-dark"
+              onClick={() => {
+                if (sorts === 'starsDESC') {
+                  newState = 'starsASC'
+                } else {
+                  newState = 'starsDESC'
+                }
+                setSorts(newState)
+                props.history.push(`?sorts=${newState}`, [sorts])
+              }}
+            >
+              評分
+            </button>
             <br className="d-md-none" />
-            <button className="btn-rounded-dark">出版年份</button>
+            <button
+              className="btn-rounded-dark"
+              onClick={() => {
+                if (sorts === 'pubyearDESC') {
+                  newState = 'pubyearASC'
+                } else {
+                  newState = 'pubyearDESC'
+                }
+                setSorts(newState)
+                props.history.push(`?sorts=${newState}`, [sorts])
+              }}
+            >
+              出版年份
+            </button>
             <button className="btn-rounded-dark">
               <FaListUl />
             </button>
@@ -141,52 +211,27 @@ function Product(props) {
             </button>
           </div>
         </div>
-        <div className="row justify-content-center">
-          <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
-          <div className="col-11 col-lg-10 col-xl-9">
-            <div className="row">{isLoading ? spinner : bookCardDisplay}</div>
-          </div>
-        </div>
-        <div className="row justify-content-end ">
-          <div className="col-11 col-lg-10 col-xl-9">
-            <ul className="pagination wei-pagination">
-              <li className="page-item page-left disabled">
-                <a
-                  className="page-link"
-                  href="#pagination"
-                  tabIndex="-1"
-                  aria-disabled="true"
-                >
-                  ←
-                </a>
-              </li>
-              <li className="page-item page-num page-start active">
-                <a className="page-link" href="#pagination">
-                  1
-                </a>
-              </li>
-              <li className="page-item page-num">
-                <a className="page-link" href="#pagination">
-                  2
-                </a>
-              </li>
-              <li className="page-item page-num page-end">
-                <a className="page-link" href="#pagination">
-                  3
-                </a>
-              </li>
-              <li className="page-item page-right">
-                <a
-                  className="page-link"
-                  href="#pagination"
-                  aria-disabled="true"
-                >
-                  →
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Switch>
+          <Route path={`${props.match.path}/:category?`}>
+            <div className="row justify-content-center">
+              <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
+              <div className="col-11 col-lg-10 col-xl-9">
+                <div className="row">
+                  {isLoading ? spinner : bookCardDisplay}
+                </div>
+              </div>
+            </div>
+            <div className="row justify-content-end ">
+              <div className="col-11 col-lg-10 col-xl-9 wei-pagination">
+                <ProductPagination
+                  totalPages={totalPages}
+                  page={page}
+                  setPage={setPage}
+                />
+              </div>
+            </div>
+          </Route>
+        </Switch>
       </div>
     </>
   )

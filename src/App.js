@@ -132,9 +132,12 @@ function App() {
                 <Route path="/products/:sid?">
                   <ProductDetail />
                 </Route>
-                <Route exact path="/product">
+                <Route path="/product/:category?">
                   <Product />
                 </Route>
+                {/* <Route exact path="/product">
+                  <Product />
+                </Route> */}
                 <Route exact path="/">
                   <Home />
                 </Route>

@@ -127,7 +127,9 @@ ol.wei-breadcrumb {
 }
 .wei-button-group {
   margin-top: 1rem;
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .wei-button-group .btn-rounded-dark {
@@ -136,7 +138,7 @@ ol.wei-breadcrumb {
 }
 @media (max-width: 768px) {
   .wei-button-group {
-    text-align: center;
+    justify-content: center;
     margin-top: 0;
   }
   .wei-button-group .btn-rounded-dark {
@@ -151,6 +153,7 @@ ol.wei-breadcrumb {
     line-height: 12px;
   }
 }
+
 /* card */
 .wei-card {
   margin-top: 5rem;
@@ -211,7 +214,7 @@ ol.wei-breadcrumb {
 }
 @media (min-width: 1200px) {
   .wei-card-icon {
-    left: 64px;
+    left: 56px;
   }
 }
 .wei-heart-bg {
@@ -566,7 +569,7 @@ ol.wei-breadcrumb {
   }
 }
 .wei-detail-books-subtitle {
-  padding-left: 96px;
+  padding-left: 10%;
   margin-top: 4rem;
   font-weight: normal;
 }
@@ -596,7 +599,55 @@ ol.wei-breadcrumb {
   border: none;
   padding: 1rem 0.75rem;
 }
+.wei-popover {
+  width: 280px;
+  .popover-body {
+    padding: 0px 30px;
+  }
+}
+.wei-popover {
+  .rc-slider-handle {
+    border: none;
+    background-color: var(--honki-black);
+    width: 12px;
+    height: 12px;
+  }
+  .rc-slider-handle-dragging {
+    border-color: #e8311581 !important;
+    box-shadow: 0 0 0 5px #e8311581 !important;
+  }
 
+  .rc-slider-track {
+    background-color: rgba(255, 73, 73, 0.829);
+  }
+
+  .rc-slider-tooltip-placement-top {
+    padding: 4px 0 8px 0;
+  }
+  .rc-slider-tooltip-inner {
+    color: white;
+    background-color: var(--honki-black);
+    padding: 0 4px;
+    min-width: 60px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 32px;
+    border-radius: 4px;
+  }
+}
+.wei-pop.btn-rounded-dark.btn.btn-primary,
+.wei-pop.btn-sm-dark.btn.btn-primary {
+  &:active,
+  &:focus {
+    background-color: var(--honki-black);
+    border-color: none;
+    box-shadow: none;
+    outline: none;
+  }
+  &:hover {
+    background-color: rgb(114, 108, 106);
+  }
+}
 // carousel slick
 .wei-slick {
   padding-left: 1rem;
@@ -605,4 +656,16 @@ ol.wei-breadcrumb {
 .wei-slick .wei-card-icon {
   top: -24px;
   left: 24px;
+}
+.wei-detail-books .slick-prev:before,
+.wei-detail-books .slick-next:before {
+  font-family: inherit;
+  color: var(--honki-black);
+  font-size: 24px;
+  .slick-prev {
+    left: -32px;
+  }
+  .slick-next {
+    right: -32px;
+  }
 }

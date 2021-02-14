@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap'
 import { FaBookOpen } from 'react-icons/fa'
-function WeiModal(props) {
+function ReadTrialModal(props) {
   return (
     <Modal
       {...props}
@@ -29,4 +29,4 @@ function WeiModal(props) {
   )
 }
 
-export default WeiModal
+export default ReadTrialModal
