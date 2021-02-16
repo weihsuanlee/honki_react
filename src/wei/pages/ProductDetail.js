@@ -80,11 +80,31 @@ function ProductDetail(props) {
             <h5 className="wei-detail-subtitle">{productDetail.title_eng}</h5>
             <hr className="wei-line" />
             <span className="wei-stars">
-              <FaStar className="mr-1 wei-star" />
-              <FaStar className="mr-1 wei-star" />
-              <FaStar className="mr-1 wei-star" />
-              <FaStar className="mr-1 wei-star" />
-              <FaStar className="mr-3 wei-star" />
+              <FaStar
+                className={
+                  `mr-1 wei-star ` + (+productDetail.stars > 0 ? 'yellow' : '')
+                }
+              />
+              <FaStar
+                className={
+                  `mr-1 wei-star ` + (+productDetail.stars > 1 ? 'yellow' : '')
+                }
+              />
+              <FaStar
+                className={
+                  `mr-1 wei-star ` + (+productDetail.stars > 2 ? 'yellow' : '')
+                }
+              />
+              <FaStar
+                className={
+                  `mr-1 wei-star ` + (+productDetail.stars > 3 ? 'yellow' : '')
+                }
+              />
+              <FaStar
+                className={
+                  `mr-3 wei-star ` + (+productDetail.stars > 4 ? 'yellow' : '')
+                }
+              />
             </span>
             <span className="wei-reviews">95 Reviews</span>
             <h6 className="wei-detail-author mt-3">
