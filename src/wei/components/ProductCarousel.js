@@ -5,9 +5,9 @@ import React from 'react'
 import Slider from 'react-slick'
 
 export default function ProductCarousel() {
-  var settings = {
+  const settings = {
     arrows: true,
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 300,
     slidesToShow: 5,
