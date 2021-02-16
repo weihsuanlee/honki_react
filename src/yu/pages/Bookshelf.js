@@ -19,6 +19,9 @@ function Bookshelf() {
       </nav>
       {/* <!-- 紅圓點 --> */}
       <div class="yu-book-redpoint"></div>
+      <div class="yu-book-question">
+        <p>?</p>
+      </div>
       <div class="yu-book-buyitnow">
         <p>馬上購買</p>
       </div>
