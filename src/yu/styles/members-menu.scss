@@ -22,10 +22,48 @@
   margin-left: 80px;
 }
 
-.yu-menu-member-photo {
+// .yu-menu-member-photo {
+//   width: 150px;
+//   height: 150px;
+//   margin-left: 550px;
+// }
+
+.yu-menu-member-photo-face img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 964px;
+  top: 241px;
+  z-index: 200;
+}
+
+.yu-menu-member-photo-hair img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 945px;
+  top: 220px;
+  z-index: 100;
+}
+
+.yu-menu-member-photo-cloth img {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 930px;
+  top: 265px;
+  z-index: 10;
+}
+
+.yu-menu-member-photo-bg img {
   width: 150px;
   height: 150px;
-  margin-left: 550px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 900px;
+  top: 200px;
+  z-index: 10;
 }
 
 .yu-menu-general-member {
@@ -34,11 +72,11 @@
   height: 30px;
   border-radius: 4px;
   text-align: center;
-  margin: 50px 0 10px 50px;
+  margin: 10px 0 10px 720px;
 }
 
 .yu-menu-greeting {
-  margin-left: 50px;
+  margin-left: 720px;
 }
 
 /* 表單背景色 */
