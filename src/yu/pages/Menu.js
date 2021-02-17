@@ -29,8 +29,8 @@ function Menu() {
       <div className="yu-menu-redpoint"></div>
 
       {/* <!-- 標題欄 --> */}
-      <div classNameName="container-fluid my-5">
-        <div classNameName="row d-flex">
+      <div className="container-fluid my-5">
+        <div className="row d-flex">
           {/* <!-- 標題 --> */}
           <div className="yu-menu-member-menu">
             <h5>會員中心</h5>
@@ -65,7 +65,7 @@ function Menu() {
               />
             </div>
           </div>
-          <div classNameName="yu-menu-general">
+          <div className="yu-menu-general">
             {/* <!-- 會員等級 --> */}
             <div className="yu-menu-general-member">一般會員</div>
             {/* <!-- 歡迎詞 --> */}
@@ -75,9 +75,9 @@ function Menu() {
       </div>
 
       {/* <!-- 會員總表收合選單 --> */}
-      <div classNameName="container-fluid my-5">
-        <div classNameName="row d-flex justify-content-center">
-          <div classNameName="holder d-none d-lg-block mx-auto yu-menu-panels">
+      <div className="container-fluid my-5">
+        <div className="row d-flex justify-content-center">
+          <div className="holder d-none d-lg-block mx-auto yu-menu-panels">
             <Tabs defaultActiveKey="yu-menu-1" id="uncontrolled-tab-example">
               <Tab eventKey="yu-menu-1" title="會員總表">
                 <div className="yu-menu-col-2">
@@ -85,7 +85,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaAddressCard classNameName="far fa-address-card yu-menu-card" />
+                        <FaAddressCard className="far fa-address-card yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">我的帳戶</p>
                       </div>
                     </div>
@@ -93,27 +93,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">個人資料修改</div>
+                            <div className="yu-menu-links">個人資料修改</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">修改密碼</div>
+                            <div className="yu-menu-links">修改密碼</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">修改節氣頭貼</div>
+                            <div className="yu-menu-links">修改節氣頭貼</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">刪除帳號</div>
+                            <div className="yu-menu-links">刪除帳號</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">節氣書櫃</div>
+                            <div className="yu-menu-links">節氣書櫃</div>
                           </Link>
                         </li>
                       </ul>
@@ -124,7 +124,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaEdit classNameName="fas fa-edit yu-menu-card" />
+                        <FaEdit className="fas fa-edit yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">我的收藏</p>
                       </div>
                     </div>
@@ -132,27 +132,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                       </ul>
@@ -163,7 +163,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaBookOpen classNameName="fas fa-book-open yu-menu-card" />
+                        <FaBookOpen className="fas fa-book-open yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">二手交換</p>
                       </div>
                     </div>
@@ -171,27 +171,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                       </ul>
@@ -202,7 +202,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaCartPlus classNameName="fas fa-cart-plus yu-menu-card" />
+                        <FaCartPlus className="fas fa-cart-plus yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">購物紀錄</p>
                       </div>
                     </div>
@@ -210,27 +210,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                       </ul>
@@ -241,7 +241,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaBolt classNameName="fas fa-bolt yu-menu-card" />
+                        <FaBolt className="fas fa-bolt yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">專屬優惠</p>
                       </div>
                     </div>
@@ -249,27 +249,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                       </ul>
@@ -280,7 +280,7 @@ function Menu() {
                   <div>
                     <div className="d-flex justify-content-center yu-menu-account-1 ">
                       <div className="d-flex justify-content-center yu-menu-account-1-1">
-                        <FaChild classNameName="fas fa-child yu-menu-card" />
+                        <FaChild className="fas fa-child yu-menu-card" />
                         <p className="yu-menu-account-1-1-1">參與活動</p>
                       </div>
                     </div>
@@ -288,27 +288,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div classNameName="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">XXX</div>
                           </Link>
                         </li>
                       </ul>
@@ -359,7 +359,7 @@ function Menu() {
                 eventKey="yu-menu-6"
                 title="參與活動"
               >
-                <div classNameName="yen-signup-showbox">
+                <div className="yen-signup-showbox">
                   <div className="yen-signup-showbox-bg">
                     <div className="yen-signup-moon-box">
                       <div className="yen-signup-moon">

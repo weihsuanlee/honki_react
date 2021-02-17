@@ -71,7 +71,7 @@ function Edit() {
           {/* 右欄 */}
           <div className="col-9 yu-edit-tab">
             {/* <!-- 會員總表收合選單 --> */}
-            <div classNameName="holder d-none d-lg-block mx-auto yu-edit-panels">
+            <div className="holder d-none d-lg-block mx-auto yu-edit-panels">
               <Tabs defaultActiveKey="yu-edit-1" id="uncontrolled-tab-example">
                 <Tab eventKey="yu-edit-1" title="修改個人資料">
                   <div className="panels yu-edit-panels">
@@ -307,7 +307,7 @@ function Edit() {
                           <input
                             id="face-1"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-1"
                           />
@@ -324,7 +324,7 @@ function Edit() {
                           <input
                             id="face-2"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-2"
                           />
@@ -341,7 +341,7 @@ function Edit() {
                           <input
                             id="face-3"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-3"
                           />
@@ -358,7 +358,7 @@ function Edit() {
                           <input
                             id="face-4"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-4"
                           />
@@ -378,7 +378,7 @@ function Edit() {
                           <input
                             id="face-5"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-5"
                           />
@@ -395,7 +395,7 @@ function Edit() {
                           <input
                             id="face-6"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-6"
                           />
@@ -412,7 +412,7 @@ function Edit() {
                           <input
                             id="face-7"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-7"
                           />
@@ -429,7 +429,7 @@ function Edit() {
                           <input
                             id="face-8"
                             type="radio"
-                            classNameName="yu-edit-face"
+                            className="yu-edit-face"
                             name="face"
                             value="face-8"
                           />
@@ -454,7 +454,7 @@ function Edit() {
                           <input
                             id="hair-1"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-1"
                           />
@@ -471,7 +471,7 @@ function Edit() {
                           <input
                             id="hair-2"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-2"
                           />
@@ -488,7 +488,7 @@ function Edit() {
                           <input
                             id="hair-3"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-3"
                           />
@@ -505,7 +505,7 @@ function Edit() {
                           <input
                             id="hair-4"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-4"
                           />
@@ -525,7 +525,7 @@ function Edit() {
                           <input
                             id="hair-5"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-5"
                           />
@@ -542,7 +542,7 @@ function Edit() {
                           <input
                             id="hair-6"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-6"
                           />
@@ -559,7 +559,7 @@ function Edit() {
                           <input
                             id="hair-7"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-7"
                           />
@@ -576,7 +576,7 @@ function Edit() {
                           <input
                             id="hair-8"
                             type="radio"
-                            classNameName="yu-edit-hair"
+                            className="yu-edit-hair"
                             name="hair"
                             value="hair-8"
                           />
@@ -601,7 +601,7 @@ function Edit() {
                           <input
                             id="cloth-1"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-1"
                           />
@@ -618,7 +618,7 @@ function Edit() {
                           <input
                             id="cloth-2"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-2"
                           />
@@ -635,7 +635,7 @@ function Edit() {
                           <input
                             id="cloth-3"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-3"
                           />
@@ -652,7 +652,7 @@ function Edit() {
                           <input
                             id="cloth-4"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-4"
                           />
@@ -672,7 +672,7 @@ function Edit() {
                           <input
                             id="cloth-5"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-5"
                           />
@@ -689,7 +689,7 @@ function Edit() {
                           <input
                             id="cloth-6"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="clothr-6"
                           />
@@ -706,7 +706,7 @@ function Edit() {
                           <input
                             id="cloth-7"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-7"
                           />
@@ -723,7 +723,7 @@ function Edit() {
                           <input
                             id="cloth-8"
                             type="radio"
-                            classNameName="yu-edit-cloth"
+                            className="yu-edit-cloth"
                             name="cloth"
                             value="cloth-8"
                           />
@@ -748,7 +748,7 @@ function Edit() {
                           <input
                             id="acc-1"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-1"
                           />
@@ -765,7 +765,7 @@ function Edit() {
                           <input
                             id="acc-2"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-2"
                           />
@@ -782,7 +782,7 @@ function Edit() {
                           <input
                             id="acc-3"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-3"
                           />
@@ -799,7 +799,7 @@ function Edit() {
                           <input
                             id="acc-4"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-4"
                           />
@@ -819,7 +819,7 @@ function Edit() {
                           <input
                             id="acc-5"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-5"
                           />
@@ -836,7 +836,7 @@ function Edit() {
                           <input
                             id="acc-6"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-6"
                           />
@@ -853,7 +853,7 @@ function Edit() {
                           <input
                             id="acc-7"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-7"
                           />
@@ -870,7 +870,7 @@ function Edit() {
                           <input
                             id="acc-8"
                             type="radio"
-                            classNameName="yu-edit-acc"
+                            className="yu-edit-acc"
                             name="acc"
                             value="acc-8"
                           />
@@ -895,7 +895,7 @@ function Edit() {
                           <input
                             id="bg-1"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-1"
                           />
@@ -912,7 +912,7 @@ function Edit() {
                           <input
                             id="bg-2"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-2"
                           />
@@ -929,7 +929,7 @@ function Edit() {
                           <input
                             id="bg-3"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-3"
                           />
@@ -946,7 +946,7 @@ function Edit() {
                           <input
                             id="bg-4"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-4"
                           />
@@ -966,7 +966,7 @@ function Edit() {
                           <input
                             id="bg-5"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-5"
                           />
@@ -983,7 +983,7 @@ function Edit() {
                           <input
                             id="bg-6"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-6"
                           />
@@ -1000,7 +1000,7 @@ function Edit() {
                           <input
                             id="bg-7"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-7"
                           />
@@ -1017,7 +1017,7 @@ function Edit() {
                           <input
                             id="bg-8"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-8"
                           />
@@ -1037,7 +1037,7 @@ function Edit() {
                           <input
                             id="bg-9"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-9"
                           />
@@ -1054,7 +1054,7 @@ function Edit() {
                           <input
                             id="bg-10"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-10"
                           />
@@ -1071,7 +1071,7 @@ function Edit() {
                           <input
                             id="bg-11"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-11"
                           />
@@ -1088,7 +1088,7 @@ function Edit() {
                           <input
                             id="bg-12"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-12"
                           />
@@ -1109,7 +1109,7 @@ function Edit() {
                           <input
                             id="bg-13"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-13"
                           />
@@ -1126,7 +1126,7 @@ function Edit() {
                           <input
                             id="bg-14"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-14"
                           />
@@ -1143,7 +1143,7 @@ function Edit() {
                           <input
                             id="bg-15"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-15"
                           />
@@ -1160,7 +1160,7 @@ function Edit() {
                           <input
                             id="bg-16"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-16"
                           />
@@ -1180,7 +1180,7 @@ function Edit() {
                           <input
                             id="bg-17"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-17"
                           />
@@ -1197,7 +1197,7 @@ function Edit() {
                           <input
                             id="bg-18"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-18"
                           />
@@ -1214,7 +1214,7 @@ function Edit() {
                           <input
                             id="bg-19"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-19"
                           />
@@ -1231,7 +1231,7 @@ function Edit() {
                           <input
                             id="bg-20"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-20"
                           />
@@ -1251,7 +1251,7 @@ function Edit() {
                           <input
                             id="bg-21"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-21"
                           />
@@ -1268,7 +1268,7 @@ function Edit() {
                           <input
                             id="bg-22"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-22"
                           />
@@ -1285,7 +1285,7 @@ function Edit() {
                           <input
                             id="bg-23"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-23"
                           />
@@ -1302,7 +1302,7 @@ function Edit() {
                           <input
                             id="bg-24"
                             type="radio"
-                            classNameName="yu-edit-bg"
+                            className="yu-edit-bg"
                             name="bg"
                             value="bg-24"
                           />

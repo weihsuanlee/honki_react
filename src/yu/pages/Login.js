@@ -91,12 +91,16 @@ function Login() {
               {/* <!-- 送出按鈕 --> */}
               <div className="form-group button-group">
                 <div className="formItems row d-flex justify-content-center">
-                  <button
-                    type="button"
-                    className="btn-md-dark form-button form-control col-2"
-                  >
-                    送出
-                  </button>
+                  <div className="yu-login-send">
+                    <Link to="/menu">
+                      <button
+                        type="button"
+                        className="btn-md-dark form-button form-control col-2"
+                      >
+                        送出
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -109,13 +113,13 @@ function Login() {
         </div>
         <div className="d-flex justify-content-center col-3 mx-auto yu-login-otherlinks">
           <Link to="/">
-            <FaFacebookSquare classNameName="yu-login-facebook-link mx-2" />
+            <FaFacebookSquare className="yu-login-facebook-link mx-2" />
           </Link>
           <Link to="/">
-            <FaLine classNameName="yu-login-line-link mx-2" />
+            <FaLine className="yu-login-line-link mx-2" />
           </Link>
           <Link to="/">
-            <ImGoogle2 classNameName="yu-login-google-link mx-2" />
+            <ImGoogle2 className="yu-login-google-link mx-2" />
           </Link>
         </div>
       </div>
