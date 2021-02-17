@@ -354,8 +354,7 @@ function Menu() {
                   著有《這個動作、那個情境、日語怎麼說？桃太郎的實用動詞組句，教你日語好到花瘋(附音檔)》同時也是人氣粉專「桃太郎的花瘋日文」版主。
                 </p>
               </Tab>
-              <Tab eventKey="yu-menu-6" title="參與活動">
-                <div class="yen-signup-showbox">
+              <Tab class="yen-signup-showbox" eventKey="yu-menu-6" title="參與活動">
                   <div class="yen-signup-showbox-bg">
                     <div class="yen-signup-moon-box">
                       <div class="yen-signup-moon">
@@ -544,7 +543,6 @@ function Menu() {
                       </div>
                     </div>
                   </div>
-                </div>
               </Tab>
             </Tabs>
           </div>
