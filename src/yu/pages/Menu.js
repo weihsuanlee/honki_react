@@ -33,7 +33,7 @@ function Menu() {
         <div className="row d-flex">
           {/* <!-- 標題 --> */}
           <div class="yu-menu-member-menu">
-            <h5>會員總表</h5>
+            <h5>會員中心</h5>
           </div>
           <div class="yu-menu-member-photo">
             <div class="yu-menu-member-photo-bg">
@@ -354,8 +354,12 @@ function Menu() {
                   著有《這個動作、那個情境、日語怎麼說？桃太郎的實用動詞組句，教你日語好到花瘋(附音檔)》同時也是人氣粉專「桃太郎的花瘋日文」版主。
                 </p>
               </Tab>
-              <Tab class="yen-signup-showbox" eventKey="yu-menu-6" title="參與活動">
-                <div className ="yen-signup-showbox">
+              <Tab
+                class="yen-signup-showbox"
+                eventKey="yu-menu-6"
+                title="參與活動"
+              >
+                <div className="yen-signup-showbox">
                   <div class="yen-signup-showbox-bg">
                     <div class="yen-signup-moon-box">
                       <div class="yen-signup-moon">
