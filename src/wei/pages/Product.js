@@ -1,5 +1,12 @@
 import '../styles/product.scss'
-import { FaThLarge, FaListUl, FaHeart, FaStar } from 'react-icons/fa'
+import {
+  FaThLarge,
+  FaListUl,
+  FaHeart,
+  FaStar,
+  FaCaretUp,
+  FaCaretDown,
+} from 'react-icons/fa'
 import { withRouter, NavLink, Switch, Route } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
@@ -22,8 +29,9 @@ function Product(props) {
   // 篩選搜尋
   const [search, setSearch] = useState('')
   // minPrice, maxPrice 價格篩選
-  const [minPrice, setMinPrice] = useState('')
-  const [maxPrice, setMaxPrice] = useState('')
+  const [sliderValues, setSliderValues] = useState([0, 1000])
+  // avgPrice
+  const [avgPrice, setAvgPrice] = useState(0)
   // 分頁 pagination
   const [totalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
@@ -33,15 +41,19 @@ function Product(props) {
   // sorts 排序條件按鈕事件處理
   //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
   function sortsButtonClick(click1, click2) {
+    const sortArrow = document.querySelector('.wei-sort-arrow')
     if (
       searchParams.get('sorts') !== click1 &&
       searchParams.get('sorts') !== click2
     ) {
       searchParams.set('sorts', click1)
+      sortArrow.classList.remove('d-none')
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
+      sortArrow.classList.remove('d-none')
     } else {
       searchParams.delete('sorts')
+      sortArrow.classList.remove('d-none')
     }
     setPage(1)
     searchParams.delete('page')
@@ -76,6 +88,7 @@ function Product(props) {
       console.log(data, 'data filtered')
       setBooks(data.rows)
       setTotalPages(data.totalPages)
+      setAvgPrice(data.avgPrice)
 
       // 1.5秒後關閉spinner
       setTimeout(() => {
@@ -139,7 +152,15 @@ function Product(props) {
           className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
           key={i}
         >
-          <div className="wei-card-icon">NEW</div>
+          <div
+            className={
+              `wei-card-icon ` +
+              (v.tag ? 'd-block ' : 'd-none ') +
+              (v.tag === 'SALE' ? 'theme-color' : '')
+            }
+          >
+            {v.tag}
+          </div>
           <div className="wei-card-pic position-relative">
             <div className="wei-book-pic">
               <img
@@ -155,23 +176,26 @@ function Product(props) {
           <div className="wei-book-text">
             <p className="wei-book-title">{v.title}</p>
             <p className="wei-book-author">{v.author}</p>
-            <span className="wei-stars wei-product-stars">
-              <FaStar
-                className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
-              />
-              <FaStar
-                className={`mr-1 wei-star ` + (v.stars > 1 ? 'yellow' : '')}
-              />
-              <FaStar
-                className={`mr-1 wei-star ` + (v.stars > 2 ? 'yellow' : '')}
-              />
-              <FaStar
-                className={`mr-1 wei-star ` + (v.stars > 3 ? 'yellow' : '')}
-              />
-              <FaStar
-                className={`mr-1 wei-star ` + (v.stars > 4 ? 'yellow' : '')}
-              />
-            </span>
+            <div className="d-flex justify-content-between">
+              <span className="wei-stars wei-product-stars">
+                <FaStar
+                  className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
+                />
+                <FaStar
+                  className={`mr-1 wei-star ` + (v.stars > 1 ? 'yellow' : '')}
+                />
+                <FaStar
+                  className={`mr-1 wei-star ` + (v.stars > 2 ? 'yellow' : '')}
+                />
+                <FaStar
+                  className={`mr-1 wei-star ` + (v.stars > 3 ? 'yellow' : '')}
+                />
+                <FaStar
+                  className={`mr-1 wei-star ` + (v.stars > 4 ? 'yellow' : '')}
+                />
+              </span>
+              <del>NT ${v.price}</del>
+            </div>
             <div className="wei-book-price">NT$ {v.final_price}</div>
           </div>
         </div>
@@ -190,7 +214,23 @@ function Product(props) {
             <MultiLevelBreadCrumb />
           </div>
           <div className="col-12 wei-button-group">
-            <PriceFilterPop setQueryString={setQueryString} />
+            <PriceFilterPop
+              avgPrice={avgPrice}
+              setQueryString={setQueryString}
+              setSliderValues={setSliderValues}
+              sliderValues={sliderValues}
+            />
+            <button
+              className="btn-rounded-dark text-center"
+              onClick={() => {
+                const click1 = 'priceDESC'
+                const click2 = 'priceASC'
+                sortsButtonClick(click1, click2)
+              }}
+            >
+              價格排序
+              <FaCaretUp className="ml-1 wei-sort-arrow d-none" />
+            </button>
             <button
               className="btn-rounded-dark text-center"
               onClick={() => {
@@ -199,7 +239,7 @@ function Product(props) {
                 sortsButtonClick(click1, click2)
               }}
             >
-              <p className="wei-discount">折扣</p>
+              折扣
             </button>
             <button
               className="btn-rounded-dark"

@@ -132,7 +132,15 @@ ol.wei-breadcrumb {
   justify-content: flex-end;
   align-items: center;
 }
-
+.wei-sorts-button {
+  position: relative;
+}
+.wei-sorts-button::before {
+  position: absolute;
+  content: '▼';
+  font-size: 8px;
+  right: 20%;
+}
 .wei-button-group .btn-rounded-dark {
   margin-top: 0.5rem;
   margin-right: 8px;
@@ -212,6 +220,9 @@ ol.wei-breadcrumb {
   font-family: abel, sans-serif;
   font-size: 13px;
   transition: all 0.5s;
+}
+.wei-card-icon.theme-color {
+  background-color: var(--honki-theme);
 }
 @media (min-width: 1200px) {
   .wei-card-icon {
@@ -649,6 +660,9 @@ ol.wei-breadcrumb {
     border: none;
     box-shadow: none;
   }
+  // .rc-slider-tooltip-hidden {
+  //   display: block;
+  // }
 }
 .wei-pop.btn-rounded-dark.btn.btn-primary,
 .wei-pop.btn-sm-dark.btn.btn-primary {
