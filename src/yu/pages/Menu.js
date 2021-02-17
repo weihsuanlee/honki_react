@@ -29,7 +29,7 @@ function Menu() {
       <div class="yu-menu-redpoint"></div>
 
       {/* <!-- 標題欄 --> */}
-      <div className="container my-5">
+      <div className="container-fluid my-5">
         <div className="row d-flex">
           {/* <!-- 標題 --> */}
           <div class="yu-menu-member-menu">
@@ -65,7 +65,7 @@ function Menu() {
               />
             </div>
           </div>
-          <div>
+          <div className="yu-menu-general">
             {/* <!-- 會員等級 --> */}
             <div class="yu-menu-general-member">一般會員</div>
             {/* <!-- 歡迎詞 --> */}
@@ -75,7 +75,7 @@ function Menu() {
       </div>
 
       {/* <!-- 會員總表收合選單 --> */}
-      <div className="container my-5">
+      <div className="container-fluid my-5">
         <div className="row d-flex justify-content-center">
           <div className="holder d-none d-lg-block mx-auto yu-menu-panels">
             <Tabs defaultActiveKey="yu-menu-1" id="uncontrolled-tab-example">
@@ -355,6 +355,7 @@ function Menu() {
                 </p>
               </Tab>
               <Tab class="yen-signup-showbox" eventKey="yu-menu-6" title="參與活動">
+                <div className ="yen-signup-showbox">
                   <div class="yen-signup-showbox-bg">
                     <div class="yen-signup-moon-box">
                       <div class="yen-signup-moon">
@@ -543,6 +544,7 @@ function Menu() {
                       </div>
                     </div>
                   </div>
+                </div>
               </Tab>
             </Tabs>
           </div>

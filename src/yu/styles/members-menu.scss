@@ -1,6 +1,6 @@
 .yu-menu-breadcrumb {
   padding-top: 72px;
-  padding-left: 158px;
+  padding-left: 5%;
 }
 
 // 紅圓點
@@ -12,14 +12,17 @@
   float: left;
   border-radius: 50%;
   position: absolute;
-  left: 20%;
+  top: 26%;
+  left: 10%;
   z-index: -1;
 }
 
 /* 標題欄 */
 .yu-menu-member-menu {
   text-align: left;
-  margin-left: 80px;
+  padding-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 1%;
 }
 
 // .yu-menu-member-photo {
@@ -32,8 +35,8 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 1164px;
-  top: 241px;
+  right: 22.8%;
+  top: 23.5%;
   z-index: 200;
 }
 
@@ -41,8 +44,8 @@
   width: 60px;
   height: 60px;
   position: absolute;
-  left: 1145px;
-  top: 220px;
+  right: 22.3%;
+  top: 21.5%;
   z-index: 100;
 }
 
@@ -50,8 +53,8 @@
   width: 80px;
   height: 80px;
   position: absolute;
-  left: 1130px;
-  top: 265px;
+  right: 22%;
+  top: 26.5%;
   z-index: 10;
 }
 
@@ -61,9 +64,15 @@
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  left: 1100px;
-  top: 200px;
+  right: 20%;
+  top: 20%;
   z-index: 10;
+}
+
+.yu-menu-general {
+  position: absolute;
+  right: 10%;
+  top: 24%;
 }
 
 .yu-menu-general-member {
@@ -72,11 +81,11 @@
   height: 30px;
   border-radius: 4px;
   text-align: center;
-  margin: 10px 0 10px 720px;
+  margin: 10px 0 10px 0;
 }
 
 .yu-menu-greeting {
-  margin-left: 720px;
+  margin-left: 0;
 }
 
 /* 表單背景色 */

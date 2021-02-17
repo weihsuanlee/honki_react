@@ -98,16 +98,16 @@
 }
 
 .yen-signup-showbox {
-  width: 100vw;
-  height: 150vh;
+  width: 91vw;
+  height: 230vh;
   // background: #ebe7e0;
   // border-radius: 5px;
 }
 
 .yen-signup-showbox-bg {
   margin: 2%;
-  width: 49.5%;
-  height: 97%;
+  width: 88%;
+  height: 100%;
   background: #ebe7e0;
   border-radius: 5px;
 }
@@ -205,7 +205,7 @@
 }
 
 .yen-signup-calendar-text {
-  padding-left: 70%;
+  padding-left: 72%;
   line-height: 35px;
 }
 
@@ -223,8 +223,8 @@
 }
 
 .yen-signup-date {
-  padding-top: 16%;
-  padding-left: 8%;
+  padding-top: 40%;
+  padding-left: 10%;
   line-height: 24px;
 }
 
@@ -310,11 +310,11 @@
 }
 
 .yen-signup-location {
-  padding: 2% 0 2% 28%;
+  padding: 2% 0 2% 16.5%;
   text-indent: -5em;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
 }
 
 .yen-signup-btn {
