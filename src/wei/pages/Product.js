@@ -4,7 +4,6 @@ import {
   FaListUl,
   FaHeart,
   FaStar,
-  FaCaretUp,
   FaCaretDown,
 } from 'react-icons/fa'
 import { withRouter, NavLink, Switch, Route } from 'react-router-dom'
@@ -40,20 +39,27 @@ function Product(props) {
 
   // sorts 排序條件按鈕事件處理
   //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
-  function sortsButtonClick(click1, click2) {
-    const sortArrow = document.querySelector('.wei-sort-arrow')
+  function sortsButtonClick(click1, click2, num) {
+    const sortButton = document.querySelectorAll('.wei-sort-button')
+    const sortArrows = document.querySelectorAll('.wei-sort-arrow')
+    const sortArrow = sortButton[num].firstElementChild
+    for (let svg of sortArrows) {
+      svg.style.opacity = '0'
+    }
     if (
       searchParams.get('sorts') !== click1 &&
       searchParams.get('sorts') !== click2
     ) {
       searchParams.set('sorts', click1)
-      sortArrow.classList.remove('d-none')
+      sortArrow.style.opacity = '1'
+      sortArrow.style.transform = 'scaleY(1)'
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
-      sortArrow.classList.remove('d-none')
+      sortArrow.style.opacity = '1'
+      sortArrow.style.transform = 'scaleY(-1)'
     } else {
       searchParams.delete('sorts')
-      sortArrow.classList.remove('d-none')
+      sortArrow.style.opacity = '0'
     }
     setPage(1)
     searchParams.delete('page')
@@ -221,46 +227,49 @@ function Product(props) {
               sliderValues={sliderValues}
             />
             <button
-              className="btn-rounded-dark text-center"
+              className="btn-rounded-dark wei-sort-button"
               onClick={() => {
                 const click1 = 'priceDESC'
                 const click2 = 'priceASC'
-                sortsButtonClick(click1, click2)
+                sortsButtonClick(click1, click2, 0)
               }}
             >
               價格排序
-              <FaCaretUp className="ml-1 wei-sort-arrow d-none" />
+              <FaCaretDown className="ml-1 wei-sort-arrow" />
             </button>
             <button
-              className="btn-rounded-dark text-center"
+              className="btn-rounded-dark wei-sort-button"
               onClick={() => {
                 const click1 = 'discountDESC'
                 const click2 = 'discountASC'
-                sortsButtonClick(click1, click2)
+                sortsButtonClick(click1, click2, 1)
               }}
             >
               折扣
+              <FaCaretDown className="ml-1 wei-sort-arrow" />
             </button>
             <button
-              className="btn-rounded-dark"
+              className="btn-rounded-dark wei-sort-button"
               onClick={() => {
                 const click1 = 'starsDESC'
                 const click2 = 'starsASC'
-                sortsButtonClick(click1, click2)
+                sortsButtonClick(click1, click2, 2)
               }}
             >
               評分
+              <FaCaretDown className="ml-1 wei-sort-arrow" />
             </button>
             <br className="d-md-none" />
             <button
-              className="btn-rounded-dark"
+              className="btn-rounded-dark wei-sort-button"
               onClick={() => {
                 const click1 = 'pubyearDESC'
                 const click2 = 'pubyearASC'
-                sortsButtonClick(click1, click2)
+                sortsButtonClick(click1, click2, 3)
               }}
             >
               出版年份
+              <FaCaretDown className="ml-1 wei-sort-arrow" />
             </button>
             <button className="btn-rounded-dark">
               <FaListUl />

@@ -132,14 +132,11 @@ ol.wei-breadcrumb {
   justify-content: flex-end;
   align-items: center;
 }
-.wei-sorts-button {
-  position: relative;
+.wei-sort-button {
+  padding: 0 16px 0 32px;
 }
-.wei-sorts-button::before {
-  position: absolute;
-  content: '▼';
-  font-size: 8px;
-  right: 20%;
+.wei-sort-arrow {
+  opacity: 0;
 }
 .wei-button-group .btn-rounded-dark {
   margin-top: 0.5rem;
