@@ -98,19 +98,15 @@
 }
 
 .yen-signup-showbox {
-  width: 100%;
-  height: 270%;
-  border: 1px solid #000;
-  border-radius: 0px 4px 8px 8px;
-  background-color: #fdf3db;
+  width: 58.5vw;
+  height: 180vh;
+  background: #ebe7e0;
+  border-radius: 5px;
 }
 
 .yen-signup-showbox-bg {
-  width: 90%;
-  height: 90%;
-  margin: 7% 5%;
-  background: #ebe7e0;
-  border-radius: 5px;
+  width: 100%;
+  height: 100%;
 }
 
 .yen-signup-moon-box {
@@ -149,7 +145,7 @@
   top: 25%;
   width: 100%;
   height: 100%;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -206,7 +202,7 @@
 }
 
 .yen-signup-calendar-text {
-  padding-left: 75%;
+  padding-left: 70%;
   line-height: 35px;
 }
 
@@ -224,8 +220,8 @@
 }
 
 .yen-signup-date {
-  padding-top: 32%;
-  padding-left: 10%;
+  padding-top: 16%;
+  padding-left: 8%;
   line-height: 24px;
 }
 
@@ -311,8 +307,11 @@
 }
 
 .yen-signup-location {
-  padding: 2% 0 2% 20%;
+  padding: 2% 0 2% 28%;
   text-indent: -5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .yen-signup-btn {
@@ -324,7 +323,7 @@
 }
 
 .yen-signup-check {
-  margin-left: 10%;
+  margin-left: 5%;
   background: #e83015;
 }
 
@@ -346,7 +345,7 @@
 }
 
 .yen-signup-select-li-box {
-  margin: 4% 10%;
+  margin: 3% 10%;
 }
 
 .yen-signup-time-pt {
