@@ -1,6 +1,7 @@
 import { FaSearch } from 'react-icons/fa'
+import { withRouter } from 'react-router-dom'
 
-function ProductBanner() {
+function ProductBanner(props) {
   return (
     <>
       <div className="container-fluid">
@@ -51,7 +52,12 @@ function ProductBanner() {
           </div>
           <div className="col-12 px-0">
             {/* <!-- 1 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/64')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe1e6b4a812e.png"
@@ -59,7 +65,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 2 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/242')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd774fed874.jpg"
@@ -67,7 +78,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 3 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/61')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe1e25e7712a.png"
@@ -75,7 +91,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 4 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/205')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd4315e718e.png"
@@ -83,7 +104,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 5 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/240')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd76f536e17.jpg"
@@ -91,7 +117,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 6 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/72')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe1ece65a1ed.jpg"
@@ -99,7 +130,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 7 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/85')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe2b8f3e050e.jpg"
@@ -107,7 +143,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 8 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/208')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd494742e81.jpg"
@@ -115,7 +156,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 9 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/265')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd8432b6bea.png"
@@ -123,7 +169,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 10 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/128')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe424a314978.png"
@@ -131,7 +182,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 11 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/110')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe3efd8f1856.jpg"
@@ -139,7 +195,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 12 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/204')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ff2c60b2dd5d.jpg"
@@ -147,7 +208,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 13 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/226')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5ffd6044c062c.jpg"
@@ -155,7 +221,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 14 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/135')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe44c4c1f286.png"
@@ -163,7 +234,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 15 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/141')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe4544c89b6f.jpg"
@@ -171,7 +247,12 @@ function ProductBanner() {
               />
             </div>
             {/* <!-- 16 --> */}
-            <div className="wei-book">
+            <div
+              className="wei-book"
+              onClick={() => {
+                props.history.push('/products/158')
+              }}
+            >
               <img
                 className="w-100"
                 src="http://localhost:3000/images/books/5fe47b1418006.png"
@@ -186,4 +267,4 @@ function ProductBanner() {
   )
 }
 
-export default ProductBanner
+export default withRouter(ProductBanner)
