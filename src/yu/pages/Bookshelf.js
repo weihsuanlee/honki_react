@@ -5,7 +5,7 @@ function Bookshelf() {
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb yu-bookshelf-breadcrumb">
+        <ol class="breadcrumb yu-book-breadcrumb">
           <li class="breadcrumb-honki">
             <Link to="/">首頁</Link>
           </li>
@@ -18,8 +18,11 @@ function Bookshelf() {
         </ol>
       </nav>
       {/* <!-- 紅圓點 --> */}
-      <div class="yu-bookshelf-redpoint"></div>
-      <div class="yu-bookshelf-buyitnow">
+      <div class="yu-book-redpoint"></div>
+      <div class="yu-book-question">
+        <p>?</p>
+      </div>
+      <div class="yu-book-buyitnow">
         <p>馬上購買</p>
       </div>
       {/* <!-- <div class="yu-wood"><img src="../../images/members/wood.png" alt="" /></div> --> */}
@@ -27,7 +30,7 @@ function Bookshelf() {
       {/* <!-- 標題 --> */}
       <div class="container my-5">
         <div class="row d-flex justify-content-between">
-          <div class="yu-general-bookshelf col-8 ">
+          <div class="yu-book-general-bookshelf col-8 ">
             {/* <!-- 每本書的設定 --> */}
             {/* <!-- book1 --> */}
             <div class="yu-books yu-book-1 text-center">
@@ -158,18 +161,41 @@ function Bookshelf() {
           </div>
           <div class="col-4">
             <div>
-              <h5 class="yu-member-menu-title">會員中心</h5>
+              <h5 class="yu-book-member-menu-title">會員中心</h5>
               {/* <!-- 個人頭貼 --> */}
-              <div class="yu-member-photo mx-auto">
-                <img
-                  class="w-100"
-                  src="http://localhost:3000/images/yu/personalphoto.svg"
-                  alt=""
-                />
+              <div class="mx-auto">
+                <div class="yu-book-member-photo-bg">
+                  {/* <!-- 個人頭貼-bg --> */}
+                  <img
+                    src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="yu-book-member-photo-hair">
+                  {/* <!-- 個人頭貼-hair --> */}
+                  <img
+                    src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="yu-book-member-photo-face">
+                  {/* <!-- 個人頭貼-face --> */}
+                  <img
+                    src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="yu-book-member-photo-cloth">
+                  {/* <!-- 個人頭貼-cloth --> */}
+                  <img
+                    src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
+                    alt=""
+                  />
+                </div>
               </div>
               {/* <!-- 會員等級 --> */}
-              <div class="yu-member-info d-flex justify-content-center mt-3">
-                <div class="yu-general-member mr-3">一般會員</div>
+              <div class="yu-book-member-info d-flex justify-content-center mt-3">
+                <div class="yu-book-general-member mr-3">一般會員</div>
                 <div class="yu-general-member-name">凱莉</div>
               </div>
             </div>
@@ -182,10 +208,10 @@ function Bookshelf() {
                   alt=""
                 />
               </div>
-              <div class="yu-ladybug">
+              <div class="yu-book-ladybug">
                 <img
                   class="w-100"
-                  src="http://localhost:3000/images/yu/ladubug.svg"
+                  src="http://localhost:3000/images/yu/ladybug.svg"
                   alt=""
                 />
               </div>

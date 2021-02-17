@@ -28,7 +28,11 @@ import RandomInsert from './jill/pages/RandomInsert'
 import RandomEdit from './jill/pages/RandomEdit'
 import RandomSuccess from './jill/pages/RandomSuccess'
 import RandSuccessStatus from './jill/pages/RandSuccessStatus'
-
+import Cart from './aw/pages/Cart'
+import CartItems from './aw/pages/CartItems'
+import CartInput from './aw/pages/CartInput'
+import CartConfirm from './aw/pages/CartConfirm'
+import CartOrder from './aw/pages/CartOrder'
 // components(navbar, footer..)
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -70,7 +74,19 @@ function App() {
                   <Register />
                 </Route>
                 <Route path="/cart">
-                  <Home />
+                  <Cart />
+                </Route>
+                <Route path="/CartItems">
+                  <CartItems />
+                </Route>
+                <Route path="/CartInput">
+                  <CartInput />
+                </Route>
+                <Route path="/CartConfirm">
+                  <CartConfirm />
+                </Route>
+                <Route path="/CartOrder">
+                  <CartOrder />
                 </Route>
                 <Route path="/activity">
                   <ActIndex />

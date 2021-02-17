@@ -34,11 +34,34 @@ function Menu() {
             <h5>會員總表</h5>
           </div>
           <div class="yu-menu-member-photo">
-            {/* <!-- 個人頭貼 --> */}
-            <img
-              src="http://localhost:3000/images/yu/personalphoto.svg"
-              alt=""
-            />
+            <div class="yu-menu-member-photo-bg">
+              {/* <!-- 個人頭貼-bg --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="yu-menu-member-photo-hair">
+              {/* <!-- 個人頭貼-hair --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
+                alt=""
+              />
+            </div>
+            <div class="yu-menu-member-photo-face">
+              {/* <!-- 個人頭貼-face --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
+                alt=""
+              />
+            </div>
+            <div class="yu-menu-member-photo-cloth">
+              {/* <!-- 個人頭貼-cloth --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
+                alt=""
+              />
+            </div>
           </div>
           <div>
             {/* <!-- 會員等級 --> */}

@@ -72,6 +72,7 @@
   position: absolute;
   bottom: 0;
   padding-bottom: 4px;
+  cursor: pointer;
 }
 .wei-book:hover img {
   transform: translateY(-80px) rotate(-20deg);
@@ -245,17 +246,26 @@ ol.wei-breadcrumb {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 14px;
 }
 .wei-book-author {
   font-size: 14px;
   color: #afafaf;
+  margin-bottom: 6px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .wei-book-price {
   font-size: 18px;
   text-align: right;
   font-weight: bold;
+}
+.wei-product-stars .wei-star {
+  font-size: 12px;
 }
 .wei-categories {
   margin-top: 5rem;
@@ -459,10 +469,10 @@ ol.wei-breadcrumb {
   width: 70%;
 }
 .wei-star {
-  color: #ffc107;
-}
-.wei-star:last-child {
   color: grey;
+}
+.wei-star.yellow {
+  color: #ffc107;
 }
 .wei-detail-title {
   width: 70%;
@@ -633,6 +643,11 @@ ol.wei-breadcrumb {
     font-size: 12px;
     line-height: 32px;
     border-radius: 4px;
+  }
+  .rc-slider-handle-click-focused:focus,
+  .rc-slider-handle:active {
+    border: none;
+    box-shadow: none;
   }
 }
 .wei-pop.btn-rounded-dark.btn.btn-primary,

@@ -6,9 +6,8 @@
   float: left;
   border-radius: 50%;
   position: absolute;
-  top: 25%;
-  left: 18%;
-  z-index: -1;
+  top: 30%;
+  left: 10%;
 }
 
 .yu-edit-breadcrumb {
@@ -20,10 +19,41 @@
   margin: 24px 0 0 20px;
 }
 
-.yu-edit-member-photo {
-  width: 200px;
-  height: 200px;
-  margin-top: 200px;
+.yu-edit-member-photo-face img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 135px;
+  top: 210px;
+  z-index: 200;
+}
+
+.yu-edit-member-photo-hair img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 100px;
+  top: 175px;
+  z-index: 100;
+}
+
+.yu-edit-member-photo-cloth img {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 80px;
+  top: 250px;
+  z-index: 10;
+}
+
+.yu-edit-member-photo-bg img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 130px;
+  z-index: 10;
 }
 
 .yu-edit-general-member {
@@ -32,11 +62,11 @@
   height: 30px;
   border-radius: 4px;
   text-align: center;
-  margin: 30px 0 10px 45px;
+  margin: 350px 0 10px 70px;
 }
 
 .yu-edit-greeting {
-  margin: 20px 0 0 45px;
+  margin: 20px 0 0 70px;
 }
 
 /* 會員總表收合選單 */

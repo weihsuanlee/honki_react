@@ -1,6 +1,6 @@
 import '../styles/product.scss'
-import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink, Link, Switch, Route } from 'react-router-dom'
+import { FaThLarge, FaListUl, FaHeart, FaStar } from 'react-icons/fa'
+import { withRouter, NavLink, Switch, Route } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
 import ListSpinner from '../components/ListSpinner'
@@ -9,32 +9,49 @@ import ProductPagination from '../components/ProductPagination'
 import { useEffect, useState } from 'react'
 
 function Product(props) {
-  // console.log(props)
+  let searchParams = new URLSearchParams(props.location.search)
+  let url = props.match.url
+
+  console.log(props)
   // 書籍商品
   const [books, setBooks] = useState([])
   // 分類選單 Display
   const [categoryDisplay, setCategoriesDisplay] = useState([])
   // 篩選類別
   const [category, setCategory] = useState('')
-  // 篩選價格
-  const [minPrice, setMinPrice] = useState('')
-  const [maxPrice, setMaxPrice] = useState('')
-  // 排序條件（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
-  const [sorts, setSorts] = useState('')
   // 篩選搜尋
   const [search, setSearch] = useState('')
-  // 分頁pagination
+  // minPrice, maxPrice 價格篩選
+  const [minPrice, setMinPrice] = useState('')
+  const [maxPrice, setMaxPrice] = useState('')
+  // 分頁 pagination
   const [totalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
+  // query string
+  const [queryString, setQueryString] = useState('')
 
-  // newState 處理setState異步用
-  let newState = ''
-  // let query = ''
-  // if (sorts) query += `&sorts=${sorts}`
-  // if (search) query += `&search=${search}`
-  // if (minPrice) query += `&minPrice=${minPrice}`
-  // if (maxPrice) query += `&maxPrice=${maxPrice}`
-
+  // sorts 排序條件按鈕事件處理
+  //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
+  function sortsButtonClick(click1, click2) {
+    if (
+      searchParams.get('sorts') !== click1 &&
+      searchParams.get('sorts') !== click2
+    ) {
+      searchParams.set('sorts', click1)
+    } else if (searchParams.get('sorts') === click1) {
+      searchParams.set('sorts', click2)
+    } else {
+      searchParams.delete('sorts')
+    }
+    setPage(1)
+    searchParams.delete('page')
+    const queryString = {
+      pathname: url,
+      search: '?' + searchParams.toString(),
+    }
+    setQueryString(queryString)
+    props.history.push(queryString)
+  }
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
@@ -48,9 +65,6 @@ function Product(props) {
       setIsLoading(true)
       // 和伺服器要資料
       const response = await fetch(
-        // 'http://localhost:3333/product' +
-        //   (category ? `/${category}` : '') +
-        //   (query ? `?${query}` : ''),
         'http://localhost:3333' +
           props.location.pathname +
           props.location.search,
@@ -70,7 +84,7 @@ function Product(props) {
     }
     filterProduct()
     window.scrollBy(0, 0.75 * window.innerHeight)
-  }, [category, sorts])
+  }, [category, queryString])
   const [isLoading, setIsLoading] = useState(true)
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -141,6 +155,23 @@ function Product(props) {
           <div className="wei-book-text">
             <p className="wei-book-title">{v.title}</p>
             <p className="wei-book-author">{v.author}</p>
+            <span className="wei-stars wei-product-stars">
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 1 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 2 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 3 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 4 ? 'yellow' : '')}
+              />
+            </span>
             <div className="wei-book-price">NT$ {v.final_price}</div>
           </div>
         </div>
@@ -159,17 +190,13 @@ function Product(props) {
             <MultiLevelBreadCrumb />
           </div>
           <div className="col-12 wei-button-group">
-            <PriceFilterPop />
+            <PriceFilterPop setQueryString={setQueryString} />
             <button
               className="btn-rounded-dark text-center"
               onClick={() => {
-                if (sorts === 'discountDESC') {
-                  newState = 'discountASC'
-                } else {
-                  newState = 'discountDESC'
-                }
-                setSorts(newState)
-                props.history.push(`?sorts=${newState}`, [sorts])
+                const click1 = 'discountDESC'
+                const click2 = 'discountASC'
+                sortsButtonClick(click1, click2)
               }}
             >
               <p className="wei-discount">折扣</p>
@@ -177,13 +204,9 @@ function Product(props) {
             <button
               className="btn-rounded-dark"
               onClick={() => {
-                if (sorts === 'starsDESC') {
-                  newState = 'starsASC'
-                } else {
-                  newState = 'starsDESC'
-                }
-                setSorts(newState)
-                props.history.push(`?sorts=${newState}`, [sorts])
+                const click1 = 'starsDESC'
+                const click2 = 'starsASC'
+                sortsButtonClick(click1, click2)
               }}
             >
               評分
@@ -192,13 +215,9 @@ function Product(props) {
             <button
               className="btn-rounded-dark"
               onClick={() => {
-                if (sorts === 'pubyearDESC') {
-                  newState = 'pubyearASC'
-                } else {
-                  newState = 'pubyearDESC'
-                }
-                setSorts(newState)
-                props.history.push(`?sorts=${newState}`, [sorts])
+                const click1 = 'pubyearDESC'
+                const click2 = 'pubyearASC'
+                sortsButtonClick(click1, click2)
               }}
             >
               出版年份
@@ -227,6 +246,8 @@ function Product(props) {
                   totalPages={totalPages}
                   page={page}
                   setPage={setPage}
+                  queryString={queryString}
+                  setQueryString={setQueryString}
                 />
               </div>
             </div>

@@ -31,13 +31,35 @@ function Edit() {
             <div class="yu-edit-member-menu">
               <h5>會員中心</h5>
             </div>
-            <div class="yu-edit-member-photo">
-              {/* <!-- 個人頭貼 --> */}
+            <div class="yu-edit-member-photo-bg">
+              {/* <!-- 個人頭貼-bg --> */}
               <img
-                src="http://localhost:3000/images/yu/personalphoto.svg"
+                src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
                 alt=""
               />
             </div>
+            <div class="yu-edit-member-photo-hair">
+              {/* <!-- 個人頭貼-hair --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
+                alt=""
+              />
+            </div>
+            <div class="yu-edit-member-photo-face">
+              {/* <!-- 個人頭貼-face --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
+                alt=""
+              />
+            </div>
+            <div class="yu-edit-member-photo-cloth">
+              {/* <!-- 個人頭貼-cloth --> */}
+              <img
+                src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
+                alt=""
+              />
+            </div>
+
             <div>
               {/* <!-- 會員等級 --> */}
               <div class="yu-edit-general-member">一般會員</div>
