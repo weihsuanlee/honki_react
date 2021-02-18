@@ -132,13 +132,8 @@ function Navbar() {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item honki-nav-item active">
                 <Link
-<<<<<<< HEAD
                   to="/product"
                   className="nav-link honki-nav-link nav-item-60px"
-=======
-                  onClick={() => (window.location.href = '/product')}
-                  class="nav-link honki-nav-link nav-item-60px"
->>>>>>> upstream/master
                 >
                   所有商品
                 </Link>
