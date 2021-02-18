@@ -36,6 +36,7 @@ function Login() {
                     </label>
                     <input
                       type="email"
+                      required
                       className="form-control formInput col-6 mt-5"
                       placeholder="honkibooks@mail.com"
                     />
@@ -52,6 +53,7 @@ function Login() {
                     </label>
                     <input
                       type="password"
+                      required
                       className="form-control formInput col-6"
                       id="password"
                       name="password"
@@ -94,7 +96,7 @@ function Login() {
                   <div className="yu-login-send">
                     <Link to="/menu">
                       <button
-                        type="button"
+                        type="submit"
                         className="btn-md-dark form-button form-control"
                       >
                         送出
