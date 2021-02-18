@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
   position: absolute;
   transform: scaleX(-1);
-  top: calc(40vh - 73px);
+  top: calc(40vh - 76px);
   left: calc(50% - 180px);
 }
 .wei-bg-black:hover.wei-bg-black::before {
@@ -57,6 +57,56 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+  height: 40px;
+  .btn-primary.dropdown-toggle,
+  .btn-primary.dropdown-toggle:active {
+    border: 1px solid white;
+    border-radius: 20px 0 0 20px;
+    background-color: var(--honki-black);
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 14px;
+    height: 100%;
+  }
+
+  .dropdown-item:hover {
+    color: white;
+    background-color: rgb(114, 108, 106);
+  }
+  .dropdown-item:active {
+    background-color: var(--honki-black);
+  }
+  .dropdown-menu {
+    min-width: 0;
+  }
+  .btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  .btn-primary.dropdown-toggle:hover {
+    background-color: rgb(114, 108, 106);
+  }
+  input {
+    border: 1px solid white;
+    outline: none;
+  }
+  .wei-search-btn.btn.btn-primary,
+  .wei-search-btn.btn.btn-primary:active,
+  .wei-search-btn.btn.btn-primary:focus {
+    border-radius: 0 20px 20px 0;
+    background-color: var(--honki-black);
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: 1px solid white;
+    font-size: 14px;
+    height: 100%;
+    outline: none;
+    box-shadow: none;
+  }
+  .wei-search-btn.btn.btn-primary:hover {
+    background-color: rgb(114, 108, 106);
+  }
 }
 .wei-bookarea {
   width: 100%;
@@ -261,11 +311,10 @@ ol.wei-breadcrumb {
   font-size: 14px;
   color: #afafaf;
   margin-bottom: 6px;
-
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
 }
 .wei-book-price {
   font-size: 18px;
@@ -307,9 +356,40 @@ ol.wei-breadcrumb {
 }
 /* wei-list-card */
 .wei-card-list {
+  color: var(--honki-black);
   display: flex;
   padding: 0;
-  margin-top: 5rem;
+  margin-top: 4rem;
+  .wei-book-text-left {
+    width: 30%;
+    margin-right: 2rem;
+  }
+  .wei-book-text-right {
+    width: 60%;
+  }
+  .wei-book-overview {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    font-size: 14px;
+    white-space: pre-line;
+  }
+  .wei-book-title {
+    font-size: 16px;
+  }
+  .wei-book-pub {
+    font-size: 14px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+}
+.wei-card-list-text {
+  width: 80%;
+  margin-top: 20px;
 }
 .wei-card-list-pic {
   background: url('http://localhost:3000/images/bg_noise.png') white;
@@ -318,9 +398,10 @@ ol.wei-breadcrumb {
   width: 20%;
   padding: 20px 10px;
   position: relative;
+  cursor: pointer;
 }
 .wei-list-book-pic img {
-  height: 100px;
+  height: 150px;
   object-fit: contain;
   -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
@@ -345,18 +426,30 @@ ol.wei-breadcrumb {
 }
 .wei-book-list-price {
   text-align: left;
+  .wei-del-price {
+    font-size: 14px;
+    color: #afafaf;
+    margin-left: 0.5rem;
+    vertical-align: text-bottom;
+  }
+  .wei-detail-badge {
+    font-size: 12px;
+  }
 }
 .wei-list-heart-bg {
   background-color: white;
   position: absolute;
   bottom: -10%;
   width: 100%;
-  height: 18%;
+  height: 12%;
   border-radius: 1rem 1rem 0 0;
   transition: all 0.5s;
   text-align: center;
   margin: 0 -10px;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .wei-card-list:hover .wei-list-heart-bg {
   bottom: 0;
@@ -366,7 +459,7 @@ ol.wei-breadcrumb {
   transform: translate(-2.5rem, -24px);
   opacity: 0;
 }
-.wei-card-list:hover .wei-card-list-pic {
+.wei-card-list .wei-card-list-pic:hover {
   background: url('http://localhost:3000/images/bg_noise.png');
 }
 .wei-card-list:hover .wei-card-list-pic img {
@@ -425,7 +518,7 @@ ol.wei-breadcrumb {
   );
   background-position: -100px 0;
   background-repeat: no-repeat;
-  animation: loading 1.5s infinite;
+  animation: loading-wei 1.5s infinite;
 }
 .wei-skeleton-inside-pic {
   height: 168px;
@@ -434,11 +527,73 @@ ol.wei-breadcrumb {
   margin-right: auto;
 }
 
-@keyframes loading {
+@keyframes loading-wei {
   to {
     background-position: 300px 0;
   }
 }
+/* wei-list-skeleton */
+.wei-skeleton-list {
+  color: var(--honki-black);
+  display: flex;
+  padding: 0;
+  margin-top: 4rem;
+  .wei-skeleton-item {
+    background: #ccc;
+    overflow: hidden;
+    content: '';
+    height: 14px;
+    z-index: 1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    animation: loading-wei 1.5s infinite;
+  }
+  .wei-book-text-left {
+    width: 30%;
+    margin-right: 2rem;
+    .wei-skeleton-item {
+      width: 80%;
+    }
+    .wei-skeleton-item:last-child {
+      width: 50%;
+    }
+  }
+  .wei-book-text-right {
+    width: 60%;
+    .wei-skeleton-item {
+      width: 60%;
+    }
+  }
+  .wei-book-title {
+    height: 16px;
+    width: 40%;
+  }
+  .wei-card-list-text {
+    width: 80%;
+    margin-top: 20px;
+  }
+  .wei-card-list-pic {
+    background: url('http://localhost:3000/images/bg_noise.png') white;
+    border-radius: 15px;
+    transition: all 0.5s;
+    width: 20%;
+    padding: 20px 10px;
+    position: relative;
+  }
+  .wei-skeleton-inside-pic {
+    height: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* pagination */
 .wei-pagination {
   margin-bottom: 192px;
@@ -498,6 +653,7 @@ ol.wei-breadcrumb {
   font-weight: bold;
 }
 .wei-detail-badge {
+  font-weight: 400;
   text-align: center;
   border-radius: 14px;
   line-height: 28px;
@@ -505,6 +661,7 @@ ol.wei-breadcrumb {
   height: 28px;
   font-size: 14px;
   color: white;
+  vertical-align: top;
   background-color: var(--honki-theme);
 }
 

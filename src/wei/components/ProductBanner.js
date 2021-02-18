@@ -1,52 +1,75 @@
 import { FaSearch } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
+import { DropdownButton, Dropdown, Button } from 'react-bootstrap'
 
 function ProductBanner(props) {
+  const {
+    searchSelect,
+    setSearchSelect,
+    setQueryString,
+    search,
+    setSearch,
+  } = props
+  function searchButtonClick() {
+    const queryString = `?${searchSelect}search=${search}`
+    props.history.push(`/product${queryString}`)
+    setQueryString(queryString)
+  }
   return (
     <>
       <div className="container-fluid">
         <div className="row wei-bg-black">
           <div className="col-12 wei-searcharea">
             <div className="search-box wei-search-box">
-              <form className="d-flex search-bar">
-                <div className="select-list">
-                  <div className="select-btn selected" value="bookstore">
-                    <div className="select-text">
-                      書城 <i className="fas fa-caret-down"></i>
-                    </div>
-                  </div>
-                  <div className="select-box d-none">
-                    <div
-                      className="select-btn used-books"
-                      name="usedBooks"
-                      value="usedBooks"
-                    >
-                      <div className="used-books-text">二手書</div>
-                    </div>
-                    <div
-                      className="select-btn bookstore"
-                      name="bookstore"
-                      value="bookstore"
-                    >
-                      <div className="bookstore-text">書城</div>
-                    </div>
-                  </div>
-                </div>
-
+              <div className="d-flex search-bar">
+                <DropdownButton id="dropdown-basic-button" title="書名">
+                  <Dropdown.Item
+                    onClick={() => {
+                      setSearchSelect('')
+                    }}
+                  >
+                    所有
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => {
+                      setSearchSelect('title_')
+                    }}
+                  >
+                    書名
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => {
+                      setSearchSelect('author_')
+                    }}
+                  >
+                    作者
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => {
+                      setSearchSelect('publication_')
+                    }}
+                  >
+                    出版社
+                  </Dropdown.Item>
+                </DropdownButton>
                 <input
-                  className="search-input"
-                  id="search-input"
-                  placeholder="搜尋"
-                ></input>
-
-                <button
-                  type="submit"
-                  className="btn btn-dark search-submit"
-                  id="search-submit"
+                  type="text"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value)
+                  }}
+                />
+                <Button
+                  className="wei-search-btn"
+                  onClick={() => {
+                    if (search.trim()) {
+                      searchButtonClick()
+                    }
+                  }}
                 >
                   <FaSearch className="fas fa-search" />
-                </button>
-              </form>
+                </Button>
+              </div>
             </div>
             <div className="wei-hotsearch"></div>
           </div>
