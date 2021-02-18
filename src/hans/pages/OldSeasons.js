@@ -21,25 +21,6 @@ function OldSeasons() {
               <OldSeasonBookCard />
             </div>
           </div>
-
-          {/* 
-          <div className="col-xl-12">
-            <div className="row justify-content-center osb-book-col">
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-            </div>
-          </div>
-           */}
         </div>
       </div>
     </>

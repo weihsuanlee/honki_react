@@ -92,7 +92,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   float: left;
   /* display: inline-block; */
   background-color: #ffffff;
-  height: 2.5rem;
+  height: 3rem;
   overflow: initial;
   margin: 0.5rem;
   /* transform: translate(calc(100vw / 12), calc(100vh * 7 / 9 - 80px)); */
@@ -100,7 +100,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
 }
 
 .title {
-  transform: translate(0.5rem, -0.5rem);
+  transform: translate(0.1rem, -0.2rem);
 }
 
 .rotate {
@@ -268,7 +268,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
     z-index: 0;
   } */
   .title-bg {
-    transform: translate(-1rem, 0rem);
+    height: 2rem;
+    transform: translate(1rem, 0rem);
     /* z-index: 2; */
   }
 
@@ -276,7 +277,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
     font-size: 2rem;
     text-align: center;
     /* z-index: 2; */
-    transform: translate(0.5rem, -0.5rem);
+    // transform: translate(0.5rem, -0.5rem);
   }
 }
 
@@ -284,5 +285,23 @@ https://codepen.io/ant1mas/pen/MeJjaK
 @media only screen and (max-width: 992px) {
   .old-season-container {
     margin-top: -80px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  /* .solar-term-plate-v2 {
+    z-index: 0;
+  } */
+
+  .title-bg {
+    height: 1.8rem;
+    transform: translate(1rem, 0rem);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+    /* z-index: 2; */
+    transform: translate(0rem, 0rem);
   }
 }
