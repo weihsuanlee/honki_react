@@ -84,7 +84,7 @@ function Login() {
             <div>
               {/* <!-- 註冊連結 --> */}
               <div className="yu-login-register-link">
-                <Link to="/">
+                <Link to="/register">
                   <h6>註冊</h6>
                 </Link>
               </div>

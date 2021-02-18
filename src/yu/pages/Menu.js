@@ -92,7 +92,7 @@ function Menu() {
                     <div>
                       <ul className="yu-menu-account-2">
                         <li>
-                          <Link to="/">
+                          <Link to="/edit">
                             <div className="yu-menu-links">個人資料修改</div>
                           </Link>
                         </li>
@@ -112,7 +112,7 @@ function Menu() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/bookshelf">
                             <div className="yu-menu-links">節氣書櫃</div>
                           </Link>
                         </li>
@@ -444,7 +444,9 @@ function Menu() {
                         <div className="yen-signup-calendar-day">
                           <div className="yen-signup-calendar-date yen-signup-calendar-slide">
                             <span className="yen-signup-calendar-text">21</span>
-                            <span className="yen-signup-calendar-dete-l">31</span>
+                            <span className="yen-signup-calendar-dete-l">
+                              31
+                            </span>
                           </div>
                           <div className="yen-signup-calendar-date">
                             <span className="yen-signup-calendar-text">22</span>
