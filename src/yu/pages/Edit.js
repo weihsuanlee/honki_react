@@ -7,52 +7,52 @@ function Edit() {
     <>
       {/* 麵包屑 */}
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb yu-edit-breadcrumb">
-          <li class="breadcrumb-honki">
+        <ol className="breadcrumb yu-edit-breadcrumb">
+          <li className="breadcrumb-honki">
             <Link to="/">首頁</Link>
           </li>
-          <li class="breadcrumb-honki">
-            <Link to="/">會員中心</Link>
+          <li className="breadcrumb-honki">
+            <Link to="/menu">會員中心</Link>
           </li>
-          <li class="breadcrumb-honki active" aria-current="page">
+          <li className="breadcrumb-honki active" aria-current="page">
             個人資料修改
           </li>
         </ol>
       </nav>
       {/* <!-- 紅圓點 --> */}
-      <div class="yu-edit-redpoint"></div>
+      <div className="yu-edit-redpoint"></div>
 
       {/* <!-- 欄位 --> */}
-      <div class="container my-5">
-        <div class="row d-flex justify-content-between">
+      <div className="container my-5">
+        <div className="row d-flex justify-content-between">
           {/* 左欄 */}
-          <div class="col-3">
+          <div className="col-3">
             {/* <!-- 標題 --> */}
-            <div class="yu-edit-member-menu">
+            <div className="yu-edit-member-menu">
               <h5>會員中心</h5>
             </div>
-            <div class="yu-edit-member-photo-bg">
+            <div className="yu-edit-member-photo-bg">
               {/* <!-- 個人頭貼-bg --> */}
               <img
                 src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
                 alt=""
               />
             </div>
-            <div class="yu-edit-member-photo-hair">
+            <div className="yu-edit-member-photo-hair">
               {/* <!-- 個人頭貼-hair --> */}
               <img
                 src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
                 alt=""
               />
             </div>
-            <div class="yu-edit-member-photo-face">
+            <div className="yu-edit-member-photo-face">
               {/* <!-- 個人頭貼-face --> */}
               <img
                 src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
                 alt=""
               />
             </div>
-            <div class="yu-edit-member-photo-cloth">
+            <div className="yu-edit-member-photo-cloth">
               {/* <!-- 個人頭貼-cloth --> */}
               <img
                 src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
@@ -62,94 +62,94 @@ function Edit() {
 
             <div>
               {/* <!-- 會員等級 --> */}
-              <div class="yu-edit-general-member">一般會員</div>
+              <div className="yu-edit-general-member">一般會員</div>
               {/* <!-- 歡迎詞 --> */}
-              <div class="yu-edit-greeting">哈囉，歡迎回來</div>
+              <div className="yu-edit-greeting">哈囉，歡迎回來</div>
             </div>
             {/* <!-- 右欄 --> */}
           </div>
           {/* 右欄 */}
-          <div class="col-9 yu-edit-tab">
+          <div className="col-9 yu-edit-tab">
             {/* <!-- 會員總表收合選單 --> */}
             <div className="holder d-none d-lg-block mx-auto yu-edit-panels">
               <Tabs defaultActiveKey="yu-edit-1" id="uncontrolled-tab-example">
                 <Tab eventKey="yu-edit-1" title="修改個人資料">
-                  <div class="panels yu-edit-panels">
+                  <div className="panels yu-edit-panels">
                     {/* <!-- 收合選單-1修改個人資料 --> */}
-                    <div class="panel" id="one-panel">
-                      {/* <!-- <div class="panel-title">個人資料修改</div> --> */}
+                    <div className="panel" id="one-panel">
+                      {/* <!-- <div className="panel-title">個人資料修改</div> --> */}
 
                       {/* <!-- 姓名input --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlInput1"
                           >
                             姓名
                           </label>
                           <input
                             type="text"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             placeholder=""
                           />
                         </div>
                       </div>
                       {/* <!-- 暱稱input --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlInput1"
                           >
                             暱稱
                           </label>
                           <input
                             type="text"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             placeholder=""
                           />
                         </div>
                       </div>
                       {/* <!-- 信箱input_disabled --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
-                          <label class="inputText col-2">信箱</label>
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
+                          <label className="inputText col-2">信箱</label>
                           <input
                             type="email"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             placeholder="honkibooks@mail.com"
                             disabled
                           />
                         </div>
                       </div>
                       {/* <!-- 手機input --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlInput1"
                           >
                             手機
                           </label>
                           <input
                             type="text"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             placeholder=""
                           />
                         </div>
                       </div>
                       {/* <!-- 地址input --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlTextarea1"
                           >
                             地址
                           </label>
                           <textarea
-                            class="form-control col-6"
+                            className="form-control col-6"
                             id="exampleFormControlTextarea1"
                             placeholder="ex:100台北市中正區重慶南路一段122號"
                             rows="1"
@@ -157,17 +157,17 @@ function Edit() {
                         </div>
                       </div>
                       {/* <!-- 生日input --> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlTextarea1"
                           >
                             生日
                           </label>
                           <input
                             type="date"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             id="birthday"
                             name="birthday"
                           />
@@ -175,34 +175,34 @@ function Edit() {
                       </div>
 
                       {/* <!-- 密碼input--> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlTextarea1"
                           >
                             密碼
                           </label>
                           <input
                             type="password"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             id="password"
                             name="password"
                           />
                         </div>
                       </div>
                       {/* <!-- 密碼確認input--> */}
-                      <div class="form-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <label
-                            class="inputText col-2"
+                            className="inputText col-2"
                             for="exampleFormControlTextarea1"
                           >
                             確認密碼
                           </label>
                           <input
                             type="password"
-                            class="form-control formInput col-6"
+                            className="form-control formInput col-6"
                             id="password"
                             name="password"
                           />
@@ -210,11 +210,11 @@ function Edit() {
                       </div>
 
                       {/* <!-- 按鈕 --> */}
-                      <div class="form-group button-group">
-                        <div class="formItems row d-flex justify-content-center">
+                      <div className="form-group button-group">
+                        <div className="formItems row d-flex justify-content-center">
                           <button
                             type="button"
-                            class="btn-md-dark form-button form-control col-3"
+                            className="btn-md-dark form-button form-control col-3"
                           >
                             確認修改
                           </button>
@@ -224,56 +224,59 @@ function Edit() {
                   </div>
                 </Tab>
                 <Tab eventKey="yu-edit-2" title="修改密碼">
-                  <div class="panel-title">修改密碼</div>
+                  <div className="panel-title">修改密碼</div>
                   {/* <!-- 收合選單-2修改密碼 --> */}
-                  <div class="panel" id="two-panel">
-                    {/* <!-- <div class="panel-title">修改密碼</div> -->
+                  <div className="panel" id="two-panel">
+                    {/* <!-- <div className="panel-title">修改密碼</div> -->
                             <!-- 原密碼input--> */}
-                    <div class="form-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <label
-                          class="inputText col-2"
+                          className="inputText col-2"
                           for="exampleFormControlTextarea1"
                         >
                           原密碼
                         </label>
                         <input
                           type="password"
-                          class="form-control formInput col-6"
+                          required
+                          className="form-control formInput col-6"
                           id="password"
                           name="password"
                         />
                       </div>
                     </div>
                     {/* <!-- 新密碼input--> */}
-                    <div class="form-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <label
-                          class="inputText col-2"
+                          className="inputText col-2"
                           for="exampleFormControlTextarea1"
                         >
                           新密碼
                         </label>
                         <input
                           type="password"
-                          class="form-control formInput col-6"
+                          required
+                          className="form-control formInput col-6"
                           id="password"
                           name="password"
                         />
                       </div>
                     </div>
                     {/* <!-- 新密碼確認input--> */}
-                    <div class="form-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <label
-                          class="inputText col-2"
+                          className="inputText col-2"
                           for="exampleFormControlTextarea1"
                         >
                           確認新密碼
                         </label>
                         <input
                           type="password"
-                          class="form-control formInput col-6"
+                          required
+                          className="form-control formInput col-6"
                           id="password"
                           name="password"
                         />
@@ -281,11 +284,11 @@ function Edit() {
                     </div>
 
                     {/* <!-- 按鈕 --> */}
-                    <div class="form-group button-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group button-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <button
                           type="button"
-                          class="btn-md-dark form-button form-control col-3"
+                          className="btn-md-dark form-button form-control col-3"
                         >
                           確認修改
                         </button>
@@ -294,14 +297,14 @@ function Edit() {
                   </div>
                 </Tab>
                 <Tab eventKey="yu-edit-3" title="修改節氣頭貼">
-                  <div class="panel-title">修改節氣頭貼</div>
+                  <div className="panel-title">修改節氣頭貼</div>
                   {/* <!-- 收合選單-3修改節氣頭貼 --> */}
-                  <div class="panel" id="three-panel">
+                  <div className="panel" id="three-panel">
                     {/* <!-- 頭貼選單-選擇表情 --> */}
-                    <div class="form-group yu-edit-form">
+                    <div className="form-group yu-edit-form">
                       <span>選擇表情</span>
                       {/* face第一列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* face-1 */}
                         <div>
                           <input
@@ -311,9 +314,9 @@ function Edit() {
                             name="face"
                             value="face-1"
                           />
-                          <label for="face-1" class="yu-edit-photo-face">
+                          <label for="face-1" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Awe.svg"
                               alt=""
                             />
@@ -328,9 +331,9 @@ function Edit() {
                             name="face"
                             value="face-2"
                           />
-                          <label for="face-2" class="yu-edit-photo-face">
+                          <label for="face-2" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Calm.svg"
                               alt=""
                             />
@@ -345,9 +348,9 @@ function Edit() {
                             name="face"
                             value="face-3"
                           />
-                          <label for="face-3" class="yu-edit-photo-face">
+                          <label for="face-3" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Cute.svg"
                               alt=""
                             />
@@ -362,9 +365,9 @@ function Edit() {
                             name="face"
                             value="face-4"
                           />
-                          <label for="face-4" class="yu-edit-photo-face">
+                          <label for="face-4" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Driven.svg"
                               alt=""
                             />
@@ -372,7 +375,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* face第二列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* face-5 */}
                         <div>
                           <input
@@ -382,9 +385,9 @@ function Edit() {
                             name="face"
                             value="face-5"
                           />
-                          <label for="face-5" class="yu-edit-photo-face">
+                          <label for="face-5" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Explaining.svg"
                               alt=""
                             />
@@ -399,9 +402,9 @@ function Edit() {
                             name="face"
                             value="face-6"
                           />
-                          <label for="face-6" class="yu-edit-photo-face">
+                          <label for="face-6" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Old.svg"
                               alt=""
                             />
@@ -416,9 +419,9 @@ function Edit() {
                             name="face"
                             value="face-7"
                           />
-                          <label for="face-7" class="yu-edit-photo-face">
+                          <label for="face-7" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Smile Teeth Gap.svg"
                               alt=""
                             />
@@ -433,9 +436,9 @@ function Edit() {
                             name="face"
                             value="face-8"
                           />
-                          <label for="face-8" class="yu-edit-photo-face">
+                          <label for="face-8" className="yu-edit-photo-face">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
                               alt=""
                             />
@@ -445,10 +448,10 @@ function Edit() {
                     </div>
 
                     {/* <!-- 頭貼選單-選擇髮型 --> */}
-                    <div class="form-group yu-edit-form">
+                    <div className="form-group yu-edit-form">
                       <span>選擇髮型</span>
                       {/* hair第一列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* hair-1 */}
                         <div>
                           <input
@@ -458,9 +461,9 @@ function Edit() {
                             name="hair"
                             value="hair-1"
                           />
-                          <label for="hair-1" class="yu-edit-photo-hair">
+                          <label for="hair-1" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/1Bangs 2.svg"
                               alt=""
                             />
@@ -475,9 +478,9 @@ function Edit() {
                             name="hair"
                             value="hair-2"
                           />
-                          <label for="hair-2" class="yu-edit-photo-hair">
+                          <label for="hair-2" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/2Bun 2.svg"
                               alt=""
                             />
@@ -492,9 +495,9 @@ function Edit() {
                             name="hair"
                             value="hair-3"
                           />
-                          <label for="hair-3" class="yu-edit-photo-hair">
+                          <label for="hair-3" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/3Long Bangs.svg"
                               alt=""
                             />
@@ -509,9 +512,9 @@ function Edit() {
                             name="hair"
                             value="hair-4"
                           />
-                          <label for="hair-4" class="yu-edit-photo-hair">
+                          <label for="hair-4" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
                               alt=""
                             />
@@ -519,7 +522,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* hair第二列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* hair-5 */}
                         <div>
                           <input
@@ -529,9 +532,9 @@ function Edit() {
                             name="hair"
                             value="hair-5"
                           />
-                          <label for="hair-5" class="yu-edit-photo-hair">
+                          <label for="hair-5" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/5hat-hip.svg"
                               alt=""
                             />
@@ -546,9 +549,9 @@ function Edit() {
                             name="hair"
                             value="hair-6"
                           />
-                          <label for="hair-6" class="yu-edit-photo-hair">
+                          <label for="hair-6" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/6Pomp.svg"
                               alt=""
                             />
@@ -563,9 +566,9 @@ function Edit() {
                             name="hair"
                             value="hair-7"
                           />
-                          <label for="hair-7" class="yu-edit-photo-hair">
+                          <label for="hair-7" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/7Shaved 2.svg"
                               alt=""
                             />
@@ -580,9 +583,9 @@ function Edit() {
                             name="hair"
                             value="hair-8"
                           />
-                          <label for="hair-8" class="yu-edit-photo-hair">
+                          <label for="hair-8" className="yu-edit-photo-hair">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/hair/8Twists 2.svg"
                               alt=""
                             />
@@ -592,10 +595,10 @@ function Edit() {
                     </div>
 
                     {/* <!-- 頭貼選單-選擇服飾 --> */}
-                    <div class="form-group yu-edit-form">
+                    <div className="form-group yu-edit-form">
                       <span>選擇服飾</span>
                       {/* cloth第一列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* cloth-1 */}
                         <div>
                           <input
@@ -605,9 +608,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-1"
                           />
-                          <label for="cloth-1" class="yu-edit-photo-cloth">
+                          <label for="cloth-1" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Button Shirt 1.svg"
                               alt=""
                             />
@@ -622,9 +625,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-2"
                           />
-                          <label for="cloth-2" class="yu-edit-photo-cloth">
+                          <label for="cloth-2" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Device.svg"
                               alt=""
                             />
@@ -639,9 +642,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-3"
                           />
-                          <label for="cloth-3" class="yu-edit-photo-cloth">
+                          <label for="cloth-3" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Dress.svg"
                               alt=""
                             />
@@ -656,9 +659,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-4"
                           />
-                          <label for="cloth-4" class="yu-edit-photo-cloth">
+                          <label for="cloth-4" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Fur Jacket.svg"
                               alt=""
                             />
@@ -666,7 +669,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* cloth第二列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* cloth-5 */}
                         <div>
                           <input
@@ -676,9 +679,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-5"
                           />
-                          <label for="cloth-5" class="yu-edit-photo-cloth">
+                          <label for="cloth-5" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Hoodie.svg"
                               alt=""
                             />
@@ -693,9 +696,9 @@ function Edit() {
                             name="cloth"
                             value="clothr-6"
                           />
-                          <label for="cloth-6" class="yu-edit-photo-cloth">
+                          <label for="cloth-6" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Polo and Sweater.svg"
                               alt=""
                             />
@@ -710,9 +713,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-7"
                           />
-                          <label for="cloth-7" class="yu-edit-photo-cloth">
+                          <label for="cloth-7" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Striped Tee.svg"
                               alt=""
                             />
@@ -727,9 +730,9 @@ function Edit() {
                             name="cloth"
                             value="cloth-8"
                           />
-                          <label for="cloth-8" class="yu-edit-photo-cloth">
+                          <label for="cloth-8" className="yu-edit-photo-cloth">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
                               alt=""
                             />
@@ -739,10 +742,10 @@ function Edit() {
                     </div>
 
                     {/* <!-- 頭貼選單-選擇配件 --> */}
-                    <div class="form-group yu-edit-form">
+                    <div className="form-group yu-edit-form">
                       <span>選擇配件</span>
                       {/* acc第一列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* acc-1 */}
                         <div>
                           <input
@@ -752,9 +755,9 @@ function Edit() {
                             name="acc"
                             value="acc-1"
                           />
-                          <label for="acc-1" class="yu-edit-photo-acc">
+                          <label for="acc-1" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/_ None.svg"
                               alt=""
                             />
@@ -769,9 +772,9 @@ function Edit() {
                             name="acc"
                             value="acc-2"
                           />
-                          <label for="acc-2" class="yu-edit-photo-acc">
+                          <label for="acc-2" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 2.svg"
                               alt=""
                             />
@@ -786,9 +789,9 @@ function Edit() {
                             name="acc"
                             value="acc-3"
                           />
-                          <label for="acc-3" class="yu-edit-photo-acc">
+                          <label for="acc-3" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 3.svg"
                               alt=""
                             />
@@ -803,9 +806,9 @@ function Edit() {
                             name="acc"
                             value="acc-4"
                           />
-                          <label for="acc-4" class="yu-edit-photo-acc">
+                          <label for="acc-4" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 4.svg"
                               alt=""
                             />
@@ -813,7 +816,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* acc第二列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* acc-5 */}
                         <div>
                           <input
@@ -823,9 +826,9 @@ function Edit() {
                             name="acc"
                             value="acc-5"
                           />
-                          <label for="acc-5" class="yu-edit-photo-acc">
+                          <label for="acc-5" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses 5.svg"
                               alt=""
                             />
@@ -840,9 +843,9 @@ function Edit() {
                             name="acc"
                             value="acc-6"
                           />
-                          <label for="acc-6" class="yu-edit-photo-acc">
+                          <label for="acc-6" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Glasses.svg"
                               alt=""
                             />
@@ -857,9 +860,9 @@ function Edit() {
                             name="acc"
                             value="acc-7"
                           />
-                          <label for="acc-7" class="yu-edit-photo-acc">
+                          <label for="acc-7" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Sunglasses 2.svg"
                               alt=""
                             />
@@ -874,9 +877,9 @@ function Edit() {
                             name="acc"
                             value="acc-8"
                           />
-                          <label for="hair-8" class="yu-edit-photo-acc">
+                          <label for="hair-8" className="yu-edit-photo-acc">
                             <img
-                              // class="w-100"
+                              // className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/acc/Sunglasses.svg"
                               alt=""
                             />
@@ -886,10 +889,10 @@ function Edit() {
                     </div>
 
                     {/* <!-- 頭貼選單-選擇背景 --> */}
-                    <div class="form-group yu-edit-form">
+                    <div className="form-group yu-edit-form">
                       <span>選擇背景</span>
                       {/* bg第一列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-1 */}
                         <div>
                           <input
@@ -899,9 +902,9 @@ function Edit() {
                             name="bg"
                             value="bg-1"
                           />
-                          <label for="bg-1" class="yu-edit-photo-bg">
+                          <label for="bg-1" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
                               alt=""
                             />
@@ -916,9 +919,9 @@ function Edit() {
                             name="bg"
                             value="bg-2"
                           />
-                          <label for="bg-2" class="yu-edit-photo-bg">
+                          <label for="bg-2" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term2.jpg"
                               alt=""
                             />
@@ -933,9 +936,9 @@ function Edit() {
                             name="bg"
                             value="bg-3"
                           />
-                          <label for="bg-3" class="yu-edit-photo-bg">
+                          <label for="bg-3" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term3.jpg"
                               alt=""
                             />
@@ -950,9 +953,9 @@ function Edit() {
                             name="bg"
                             value="bg-4"
                           />
-                          <label for="bg-4" class="yu-edit-photo-bg">
+                          <label for="bg-4" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term4.jpg"
                               alt=""
                             />
@@ -960,7 +963,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* bg第二列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-5 */}
                         <div>
                           <input
@@ -970,9 +973,9 @@ function Edit() {
                             name="bg"
                             value="bg-5"
                           />
-                          <label for="bg-5" class="yu-edit-photo-bg">
+                          <label for="bg-5" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term5.jpg"
                               alt=""
                             />
@@ -987,9 +990,9 @@ function Edit() {
                             name="bg"
                             value="bg-6"
                           />
-                          <label for="bg-6" class="yu-edit-photo-bg">
+                          <label for="bg-6" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term6.jpg"
                               alt=""
                             />
@@ -1004,9 +1007,9 @@ function Edit() {
                             name="bg"
                             value="bg-7"
                           />
-                          <label for="bg-7" class="yu-edit-photo-bg">
+                          <label for="bg-7" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term7.jpg"
                               alt=""
                             />
@@ -1021,9 +1024,9 @@ function Edit() {
                             name="bg"
                             value="bg-8"
                           />
-                          <label for="bg-8" class="yu-edit-photo-bg">
+                          <label for="bg-8" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term8.jpg"
                               alt=""
                             />
@@ -1031,7 +1034,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* bg第三列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-9 */}
                         <div>
                           <input
@@ -1041,9 +1044,9 @@ function Edit() {
                             name="bg"
                             value="bg-9"
                           />
-                          <label for="bg-9" class="yu-edit-photo-bg">
+                          <label for="bg-9" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term9.jpg"
                               alt=""
                             />
@@ -1058,9 +1061,9 @@ function Edit() {
                             name="bg"
                             value="bg-10"
                           />
-                          <label for="bg-10" class="yu-edit-photo-bg">
+                          <label for="bg-10" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term10.jpg"
                               alt=""
                             />
@@ -1075,9 +1078,9 @@ function Edit() {
                             name="bg"
                             value="bg-11"
                           />
-                          <label for="bg-11" class="yu-edit-photo-bg">
+                          <label for="bg-11" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term11.jpg"
                               alt=""
                             />
@@ -1092,9 +1095,9 @@ function Edit() {
                             name="bg"
                             value="bg-12"
                           />
-                          <label for="bg-12" class="yu-edit-photo-bg">
+                          <label for="bg-12" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term12.jpg"
                               alt=""
                             />
@@ -1103,7 +1106,7 @@ function Edit() {
                       </div>
 
                       {/* bg第四列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-13 */}
                         <div>
                           <input
@@ -1113,9 +1116,9 @@ function Edit() {
                             name="bg"
                             value="bg-13"
                           />
-                          <label for="bg-13" class="yu-edit-photo-bg">
+                          <label for="bg-13" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term13.jpg"
                               alt=""
                             />
@@ -1130,9 +1133,9 @@ function Edit() {
                             name="bg"
                             value="bg-14"
                           />
-                          <label for="bg-14" class="yu-edit-photo-bg">
+                          <label for="bg-14" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term14.jpg"
                               alt=""
                             />
@@ -1147,9 +1150,9 @@ function Edit() {
                             name="bg"
                             value="bg-15"
                           />
-                          <label for="bg-15" class="yu-edit-photo-bg">
+                          <label for="bg-15" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term15.jpg"
                               alt=""
                             />
@@ -1164,9 +1167,9 @@ function Edit() {
                             name="bg"
                             value="bg-16"
                           />
-                          <label for="bg-16" class="yu-edit-photo-bg">
+                          <label for="bg-16" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term16.jpg"
                               alt=""
                             />
@@ -1174,7 +1177,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* bg第五列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-17 */}
                         <div>
                           <input
@@ -1184,9 +1187,9 @@ function Edit() {
                             name="bg"
                             value="bg-17"
                           />
-                          <label for="bg-17" class="yu-edit-photo-bg">
+                          <label for="bg-17" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term17.jpg"
                               alt=""
                             />
@@ -1201,9 +1204,9 @@ function Edit() {
                             name="bg"
                             value="bg-18"
                           />
-                          <label for="bg-18" class="yu-edit-photo-bg">
+                          <label for="bg-18" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term18.jpg"
                               alt=""
                             />
@@ -1218,9 +1221,9 @@ function Edit() {
                             name="bg"
                             value="bg-19"
                           />
-                          <label for="bg-19" class="yu-edit-photo-bg">
+                          <label for="bg-19" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term19.jpg"
                               alt=""
                             />
@@ -1235,9 +1238,9 @@ function Edit() {
                             name="bg"
                             value="bg-20"
                           />
-                          <label for="bg-20" class="yu-edit-photo-bg">
+                          <label for="bg-20" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term20.jpg"
                               alt=""
                             />
@@ -1245,7 +1248,7 @@ function Edit() {
                         </div>
                       </div>
                       {/* bg第六列 */}
-                      <div class="formItems row d-flex">
+                      <div className="formItems row d-flex">
                         {/* bg-21 */}
                         <div>
                           <input
@@ -1255,9 +1258,9 @@ function Edit() {
                             name="bg"
                             value="bg-21"
                           />
-                          <label for="bg-21" class="yu-edit-photo-bg">
+                          <label for="bg-21" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term21.jpg"
                               alt=""
                             />
@@ -1272,9 +1275,9 @@ function Edit() {
                             name="bg"
                             value="bg-22"
                           />
-                          <label for="bg-22" class="yu-edit-photo-bg">
+                          <label for="bg-22" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term22.jpg"
                               alt=""
                             />
@@ -1289,9 +1292,9 @@ function Edit() {
                             name="bg"
                             value="bg-23"
                           />
-                          <label for="bg-23" class="yu-edit-photo-bg">
+                          <label for="bg-23" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term23.jpg"
                               alt=""
                             />
@@ -1306,9 +1309,9 @@ function Edit() {
                             name="bg"
                             value="bg-24"
                           />
-                          <label for="bg-24" class="yu-edit-photo-bg">
+                          <label for="bg-24" className="yu-edit-photo-bg">
                             <img
-                              class="w-100"
+                              className="w-100"
                               src="http://localhost:3000/images/yu/peepsphotos/24terms/term24.jpg"
                               alt=""
                             />
@@ -1320,18 +1323,18 @@ function Edit() {
                 </Tab>
                 <Tab eventKey="yu-edit-4" title="刪除帳號">
                   {/* <!-- 收合選單-4刪除帳號 --> */}
-                  <div class="panel" id="four-panel">
-                    <div class="panel-title yu-edit-delete-sentence">
+                  <div className="panel" id="four-panel">
+                    <div className="panel-title yu-edit-delete-sentence">
                       真的要離開我們嗎......
                     </div>
-                    <div class="yu-edit-delete-checkbox">
+                    <div className="yu-edit-delete-checkbox">
                       <input
                         type="checkbox"
-                        class="form-check-input"
+                        className="form-check-input"
                         id="yu-edit-delete-checkbox"
                       />
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="yu-edit-delete-checkbox"
                       >
                         <p>是的，我要刪除帳號</p>
@@ -1339,34 +1342,34 @@ function Edit() {
                     </div>
 
                     {/* <!-- 密碼input--> */}
-                    <div class="form-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <label
-                          class="inputText col-2"
+                          className="inputText col-2"
                           for="yu-edit-delete-password"
                         >
                           密碼
                         </label>
                         <input
                           type="password"
-                          class="form-control formInput col-6"
+                          className="form-control formInput col-6"
                           id="yu-edit-delete-password"
                           name="password"
                         />
                       </div>
                     </div>
                     {/* <!-- 確認密碼input--> */}
-                    <div class="form-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <label
-                          class="inputText col-2"
+                          className="inputText col-2"
                           for="yu-edit-delete-password-comfirm"
                         >
                           確認密碼
                         </label>
                         <input
                           type="password"
-                          class="form-control formInput col-6"
+                          className="form-control formInput col-6"
                           id="yu-edit-delete-password-comfirm"
                           name="password"
                         />
@@ -1374,11 +1377,11 @@ function Edit() {
                     </div>
 
                     {/* <!-- 按鈕 --> */}
-                    <div class="form-group button-group">
-                      <div class="formItems row d-flex justify-content-center">
+                    <div className="form-group button-group">
+                      <div className="formItems row d-flex justify-content-center">
                         <button
                           type="button"
-                          class="btn-md-dark form-button form-control col-3 yu-edit-delete-button"
+                          className="btn-md-dark form-button form-control col-3 yu-edit-delete-button"
                         >
                           確定刪除
                         </button>

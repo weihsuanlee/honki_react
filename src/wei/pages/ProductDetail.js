@@ -17,9 +17,10 @@ import ProductCarousel from '../components/ProductCarousel'
 function ProductDetail(props) {
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
+  const [discountDisplay, setDiscountDisplay] = useState('')
   // const [productDetailDisplay, setProductDetailDisplay] = useState([])
 
-  console.log(props.match.params.sid)
+  // console.log(props.match.params.sid)
   const sid = props.match.params.sid
 
   // 伺服器抓資料async
@@ -30,9 +31,18 @@ function ProductDetail(props) {
     const data = await response.json()
     console.log(data)
     setProductDetail(data)
+
+    let discountState = ''
+    if (data.discount.toString().length === 4) {
+      discountState = `${data.discount * 100}折`
+    } else if (data.discount.toString().length === 3) {
+      discountState = `${data.discount * 10}折`
+    } else {
+      discountState = '原價'
+    }
+    setDiscountDisplay(discountState)
   }
 
-  // TODO: stars, readtrial
   const productDetailDisplay = (
     <>
       <div className="container-fluid wei-bg-white">
@@ -124,9 +134,7 @@ function ProductDetail(props) {
               <h5 className="wei-detail-final-price">
                 NT$ {productDetail.final_price}
               </h5>
-              <div className="wei-detail-badge mx-4">
-                {productDetail.discount * 100}折
-              </div>
+              <div className="wei-detail-badge mx-4">{discountDisplay}</div>
               <h6 className="wei-detail-price">
                 <del>NT ${productDetail.price}</del>
               </h6>
