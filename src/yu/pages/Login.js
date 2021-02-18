@@ -95,7 +95,7 @@ function Login() {
                     <Link to="/menu">
                       <button
                         type="button"
-                        className="btn-md-dark form-button form-control col-2"
+                        className="btn-md-dark form-button form-control"
                       >
                         送出
                       </button>
