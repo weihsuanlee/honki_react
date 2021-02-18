@@ -19,6 +19,7 @@ import $ from 'jquery'
 
 function Navbar() {
   useEffect(() => {
+    // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
