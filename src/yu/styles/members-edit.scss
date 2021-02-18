@@ -131,3 +131,11 @@
 .yu-edit-delete-button {
   background-color: var(--honki-red);
 }
+
+.yu-edit-delete-button:hover {
+  background-color: rgb(228, 109, 91);
+}
+
+.yu-edit-delete-button:focus {
+  outline: none;
+}
