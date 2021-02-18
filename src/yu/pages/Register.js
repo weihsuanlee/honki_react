@@ -1,7 +1,9 @@
 import '../styles/members-register.scss'
 import { Link } from 'react-router-dom'
+import {useState} from 'react'
 
-function Register() {
+function Register(props) {
+  
   return (
     <>
       <div className="container my-5">
@@ -60,6 +62,7 @@ function Register() {
                 <label className="inputText col-1">電子信箱</label>
                 <input
                   type="email"
+                  required
                   className="form-control formInput col-4"
                   placeholder="honkibooks@mail.com"
                 />
@@ -127,6 +130,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
+                  required
                   className="form-control formInput col-4"
                   id="password"
                   name="password"
@@ -144,6 +148,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
+                  required
                   className="form-control formInput col-4"
                   id="password"
                   name="password"
