@@ -1379,12 +1379,14 @@ function Edit() {
                     {/* <!-- 按鈕 --> */}
                     <div className="form-group button-group">
                       <div className="formItems row d-flex justify-content-center">
-                        <button
-                          type="button"
-                          className="btn-md-dark form-button form-control col-3 yu-edit-delete-button"
-                        >
-                          確定刪除
-                        </button>
+                        <Link to="/">
+                          <button
+                            type="button"
+                            className="btn-md-dark form-button form-control yu-edit-delete-button"
+                          >
+                            確定刪除
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

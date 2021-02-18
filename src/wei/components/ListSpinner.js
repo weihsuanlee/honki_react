@@ -1,164 +1,316 @@
 function ListSpinner() {
   return (
     <>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
-        </div>
-      </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
-        </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3 wei-skeleton">
-        <div class="wei-skeleton-pic position-relative">
-          <div class="wei-skeleton-inside-pic"></div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
         </div>
-        <div class="wei-skeleton-text">
-          <div class="wei-skeleton-title"></div>
-          <div class="wei-skeleton-author"></div>
-          <div class="wei-skeleton-price"></div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+        </div>
+      </div>
+      <div className="wei-skeleton-list position-relative w-100">
+        <div className="wei-card-list-pic mr-5 d-flex">
+          <div className="wei-skeleton-inside-pic my-auto">
+            <img className="w-100" src="" alt="" />
+          </div>
+        </div>
+        <div className="wei-card-list-text">
+          <p className="wei-book-title wei-skeleton-item"></p>
+          <div className="d-flex w-100 mt-4">
+            <div className="wei-book-text-left">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+            <div className="wei-book-text-right">
+              <p className="wei-skeleton-item"></p>
+              <p className="wei-skeleton-item"></p>
+            </div>
+          </div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
+          <div className="mt-2 wei-skeleton-item"></div>
         </div>
       </div>
     </>

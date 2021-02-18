@@ -10,6 +10,7 @@ import { withRouter, NavLink, Switch, Route } from 'react-router-dom'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
 import ListSpinner from '../components/ListSpinner'
+import CardSpinner from '../components/CardSpinner'
 import PriceFilterPop from '../components/PriceFilterPop'
 import ProductPagination from '../components/ProductPagination'
 import { useEffect, useState } from 'react'
@@ -27,6 +28,7 @@ function Product(props) {
   const [category, setCategory] = useState('')
   // 篩選搜尋
   const [search, setSearch] = useState('')
+  const [searchSelect, setSearchSelect] = useState('title')
   // minPrice, maxPrice 價格篩選
   const [sliderValues, setSliderValues] = useState([0, 1000])
   // avgPrice
@@ -36,6 +38,8 @@ function Product(props) {
   const [page, setPage] = useState(1)
   // query string
   const [queryString, setQueryString] = useState('')
+  // 列表切換
+  const [cardList, setCardList] = useState(false)
 
   // sorts 排序條件按鈕事件處理
   //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
@@ -147,7 +151,8 @@ function Product(props) {
     </div>
   )
 
-  const spinner = <ListSpinner show="true" />
+  const cardSpinner = <CardSpinner show="true" />
+  const listSpinner = <ListSpinner show="true" />
   const bookCardDisplay = (
     <>
       {books.map((v, i) => (
@@ -208,12 +213,97 @@ function Product(props) {
       ))}
     </>
   )
+  const bookCardListDisplay = (
+    <>
+      {books.map((v, i) => (
+        <div className="wei-card-list position-relative w-100" key={i}>
+          <div
+            className={
+              `wei-list-icon ` +
+              (v.tag ? 'd-block ' : 'd-none ') +
+              (v.tag === 'SALE' ? 'theme-color' : '')
+            }
+          >
+            {v.tag}
+          </div>
+          <div
+            className="wei-card-list-pic mr-5 d-flex"
+            onClick={() => {
+              props.history.push('/products/' + v.sid)
+            }}
+          >
+            <div className="wei-list-book-pic my-auto mx-auto">
+              <img
+                className="w-100"
+                src={`http://localhost:3000/images/books/` + v.book_pics}
+                alt=""
+              />
+            </div>
+            <div className="wei-list-heart-bg">
+              <FaHeart className="fas fa-heart wei-list-heart" />
+            </div>
+          </div>
+          <div className="wei-card-list-text">
+            <p className="wei-book-title w-100">{v.title}</p>{' '}
+            <span className="wei-stars wei-product-stars">
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 1 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 2 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 3 ? 'yellow' : '')}
+              />
+              <FaStar
+                className={`mr-1 wei-star ` + (v.stars > 4 ? 'yellow' : '')}
+              />
+            </span>
+            <div className="d-flex w-100 mt-2">
+              <div className="wei-book-text-left">
+                <p className="wei-book-author">{v.author}</p>
+                <div className="wei-book-price wei-book-list-price">
+                  NT$ {v.final_price}
+                  <span className="wei-detail-badge mx-4 px-3 py-1">
+                    {v.discount.toString().length === 4
+                      ? `${v.discount * 100}折`
+                      : v.discount.toString().length === 3
+                      ? `${v.discount * 10}折`
+                      : '原價'}
+                  </span>
+                  <del className="wei-del-price">NT ${v.price}</del>
+                </div>
+              </div>
+              <div className="wei-book-text-right">
+                <p className="wei-book-pub">出版社：{v.publication}</p>
+                <p className="wei-book-pub">出版年份：{v.pub_year}</p>
+              </div>
+            </div>
+            <div className="wei-book-overview mt-2">
+              簡介：
+              <br /> {v.book_overview}
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
+  )
 
   // console.log(props)
 
   return (
     <>
-      <ProductBanner />
+      <ProductBanner
+        searchSelect={searchSelect}
+        setSearchSelect={setSearchSelect}
+        queryString={queryString}
+        setQueryString={setQueryString}
+        search={search}
+        setSearch={setSearch}
+      />
       <div className="container-fluid my-5">
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">
           <div className="col-12">
@@ -271,10 +361,20 @@ function Product(props) {
               出版年份
               <FaCaretDown className="ml-1 wei-sort-arrow" />
             </button>
-            <button className="btn-rounded-dark">
+            <button
+              className="btn-rounded-dark"
+              onClick={() => {
+                setCardList(true)
+              }}
+            >
               <FaListUl />
             </button>
-            <button className="btn-rounded-dark">
+            <button
+              className="btn-rounded-dark"
+              onClick={() => {
+                setCardList(false)
+              }}
+            >
               <FaThLarge />
             </button>
           </div>
@@ -285,7 +385,13 @@ function Product(props) {
               <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
               <div className="col-11 col-lg-10 col-xl-9">
                 <div className="row">
-                  {isLoading ? spinner : bookCardDisplay}
+                  {cardList
+                    ? isLoading
+                      ? listSpinner
+                      : bookCardListDisplay
+                    : isLoading
+                    ? cardSpinner
+                    : bookCardDisplay}
                 </div>
               </div>
             </div>

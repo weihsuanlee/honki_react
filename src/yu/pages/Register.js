@@ -1,9 +1,8 @@
 import '../styles/members-register.scss'
 import { Link } from 'react-router-dom'
-import {useState} from 'react'
+// import { useState } from 'react'
 
 function Register(props) {
-  
   return (
     <>
       <div className="container my-5">

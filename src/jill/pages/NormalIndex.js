@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 
 // 二手書scss
 import '../styles/used-books.scss'
@@ -10,6 +11,40 @@ import NormalBee from './../components/NormalBee'
 import NormalButterfly from './../components/NormalButterfly'
 
 function NormalIndex() {
+  //訂單結果
+
+  const [changeData, setChangeData] = useState([])
+
+  const getDataFromServer = async () => {
+    // 先開起載入指示器
+    // setIsLoading(true)
+    // 模擬和伺服器要資料，先寫死
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const response = await fetch('http://localhost:3333/normal-index/13', {
+      method: 'get',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    const data = await response.json()
+
+    // 最後設定到狀態中
+    // setOrderDisplay(data)
+    // let arr = []
+    //  arr.push(data)
+    setChangeData(data)
+    console.log(data)
+    // 3秒後關閉指示器
+    setTimeout(() => {
+      // setIsLoading(false)
+    }, 2000)
+  }
+  // 模擬componentDidMout
+  useEffect(() => {
+    getDataFromServer()
+  }, [])
+
   return (
     <>
       <div className="container-fluid my-5">

@@ -19,6 +19,7 @@ import $ from 'jquery'
 
 function Navbar() {
   useEffect(() => {
+    // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
       $(this).toggleClass('active')
@@ -41,10 +42,10 @@ function Navbar() {
   }, [])
   return (
     <>
-      <nav class="navbar fixed-top navbar-expand-md navbar-dark honki-nav disable-honki-red-on-992">
-        <div class="container col-12" style={{ padding: '0 16px' }}>
+      <nav className="navbar fixed-top navbar-expand-md navbar-dark honki-nav disable-honki-red-on-992">
+        <div className="container col-12" style={{ padding: '0 16px' }}>
           <Link
-            class="navbar-brand"
+            className="navbar-brand"
             to="/"
             style={{ paddingLeft: '8px', paddingRight: '18px' }}
           >
@@ -128,43 +129,43 @@ function Navbar() {
               </g>
             </svg>
           </Link>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item honki-nav-item active">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item honki-nav-item active">
                 <Link
-                  onClick={() => (window.location.href = '/product')}
-                  class="nav-link honki-nav-link nav-item-60px"
+                  to="/product"
+                  className="nav-link honki-nav-link nav-item-60px"
                 >
                   所有商品
                 </Link>
               </li>
-              <li class="nav-item honki-nav-item active">
+              <li className="nav-item honki-nav-item active">
                 <Link
-                  class="nav-link honki-nav-link nav-item-60px"
+                  className="nav-link honki-nav-link nav-item-60px"
                   to="/activity"
                 >
                   活動講座
                 </Link>
               </li>
-              <li class="nav-item honki-nav-item active">
+              <li className="nav-item honki-nav-item active">
                 <Link
-                  class="nav-link honki-nav-link nav-item-60px"
+                  className="nav-link honki-nav-link nav-item-60px"
                   to="/used-books"
                 >
                   二手交換
                 </Link>
               </li>
-              <li class="nav-item honki-nav-item active">
+              <li className="nav-item honki-nav-item active">
                 <Link
-                  class="nav-link honki-nav-link nav-item-60px"
+                  className="nav-link honki-nav-link nav-item-60px"
                   to="/reviews"
                 >
                   讀者感言
                 </Link>
               </li>
-              <li class="nav-item honki-nav-item active">
+              <li className="nav-item honki-nav-item active">
                 <Link
-                  class="nav-link honki-nav-link nav-item-60px"
+                  className="nav-link honki-nav-link nav-item-60px"
                   to="/old-seasons"
                 >
                   過往節氣
@@ -172,66 +173,66 @@ function Navbar() {
               </li>
             </ul>
             <ul className="navbar-nav">
-              <li class="nav-item my-auto" style={{ padding: '0 28px' }}>
+              <li className="nav-item my-auto" style={{ padding: '0 28px' }}>
                 {/* <!-- 搜尋欄(大)，桌面版 navbar 用 --> */}
-                <div class="search-box">
-                  <form class="d-flex search-bar">
-                    <div class="select-list" id="nav-search-cat-select">
-                      <div class="select-btn selected" value="bookstore">
-                        <div class="select-text">
+                <div className="search-box">
+                  <form className="d-flex search-bar">
+                    <div className="select-list" id="nav-search-cat-select">
+                      <div className="select-btn selected" value="bookstore">
+                        <div className="select-text">
                           書城 
-                          <FaCaretDown class="fas fa-caret-down" />
+                          <FaCaretDown className="fas fa-caret-down" />
                         </div>
                       </div>
-                      <div class="select-box d-none">
+                      <div className="select-box d-none">
                         <div
-                          class="select-btn used-books"
+                          className="select-btn used-books"
                           name="usedBooks"
                           value="usedBooks"
                         >
-                          <div class="used-books-text">二手書</div>
+                          <div className="used-books-text">二手書</div>
                         </div>
                         <div
-                          class="select-btn bookstore"
+                          className="select-btn bookstore"
                           name="bookstore"
                           value="bookstore"
                         >
-                          <div class="bookstore-text">書城</div>
+                          <div className="bookstore-text">書城</div>
                         </div>
                       </div>
                     </div>
 
                     <input
-                      class="search-input"
+                      className="search-input"
                       id="search-input"
                       placeholder="搜尋"
-                    ></input>
+                    />
 
                     <button
                       type="submit"
-                      class="btn btn-dark search-submit"
+                      className="btn btn-dark search-submit"
                       id="search-submit"
                     >
                       <FaSearch
-                        class="fas fa-search"
+                        className="fas fa-search"
                         style={{ transform: 'translateY(-2px)' }}
                       />
                     </button>
                   </form>
                 </div>
               </li>
-              <li class="nav-item honki-nav-link-fa active">
-                <Link class="nav-link zero-padding" to="/member">
+              <li className="nav-item honki-nav-link-fa active">
+                <Link className="nav-link zero-padding" to="/member">
                   <FaUserAlt
-                    class="fas fa-user fa-lg"
+                    className="fas fa-user fa-lg"
                     style={{ fontSize: '24px' }}
                   />
                 </Link>
               </li>
-              <li class="nav-item honki-nav-link-fa active">
-                <Link class="nav-link zero-padding" to="/cart">
+              <li className="nav-item honki-nav-link-fa active">
+                <Link className="nav-link zero-padding" to="/cart">
                   <FaShoppingCart
-                    class="fas fa-shopping-cart fa-lg"
+                    className="fas fa-shopping-cart fa-lg"
                     style={{ fontSize: '24px' }}
                   />
                 </Link>
@@ -241,8 +242,8 @@ function Navbar() {
         </div>
       </nav>
       {/* <!-- 桌機版 navbar  end --> */}
-      <nav class="navbar navbar-mobile d-lg-none fixed-top">
-        <Link class="navbar-brand wei-nav-brand" to="/">
+      <nav className="navbar navbar-mobile d-lg-none fixed-top">
+        <Link className="navbar-brand wei-nav-brand" to="/">
           {/* <!-- LOGO SVG --> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -323,38 +324,38 @@ function Navbar() {
             </g>
           </svg>
         </Link>
-        <div class="nav-mobile-right d-flex">
-          <Link to="/member" class="nav-mobile-link">
+        <div className="nav-mobile-right d-flex">
+          <Link to="/member" className="nav-mobile-link">
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
-                  class="nav-circle"
+                  className="nav-circle"
                   d="M73.6,104c-16.6,2.5-33.9,2.3-48.2-5.3C20,95.8,15.5,91.6,11.8,87C-0.7,71.1-3.8,48.8,6.6,31.8
              c11.5-18.7,37.3-28.1,61-26c10.8,1,21.5,4.1,30,10.3c13.5,9.7,19.6,26,19,41.6c-0.3,8.4-2.5,16.9-7.1,24.2
              C102,93.6,88.3,101.7,73.6,104"
                 />
               </g>
             </svg>
-            <FaUserAlt class="fas fa-user nav-mobile-icons" />
+            <FaUserAlt className="fas fa-user nav-mobile-icons" />
           </Link>
-          <Link to="/cart" class="nav-mobile-link">
+          <Link to="/cart" className="nav-mobile-link">
             <svg x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
-                  class="nav-circle"
+                  className="nav-circle"
                   d="M73.6,109.3c-16.6,2.8-33.9,2.6-48.2-5.9c-5.4-3.2-9.9-7.9-13.6-13C-0.7,72.8-3.8,48.1,6.6,29.2
         C18.1,8.4,43.9-2,67.6,0.4c10.8,1.1,21.5,4.6,30,11.4c13.5,10.8,19.6,28.9,19,46.2c-0.3,9.3-2.5,18.7-7.1,26.8
         C102,97.8,88.3,106.7,73.6,109.3"
                 />
               </g>
             </svg>
-            <FaShoppingCart class="fas fa-shopping-cart nav-mobile-icons" />
+            <FaShoppingCart className="fas fa-shopping-cart nav-mobile-icons" />
           </Link>
-          <div class="nav-mobile-link nav-burger">
+          <div className="nav-mobile-link nav-burger">
             <svg x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
-                  class="nav-circle nav-burger-circle"
+                  className="nav-circle nav-burger-circle"
                   d="M73.6,104c-16.6,2.5-33.9,2.3-48.2-5.3C20,95.8,15.5,91.6,11.8,87C-0.7,71.1-3.8,48.8,6.6,31.8
              c11.5-18.7,37.3-28.1,61-26c10.8,1,21.5,4.1,30,10.3c13.5,9.7,19.6,26,19,41.6c-0.3,8.4-2.5,16.9-7.1,24.2
              C102,93.6,88.3,101.7,73.6,104"
@@ -366,50 +367,50 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <div class="wrapper d-lg-none">
-        <div class="search-box-m navbar-search-m mx-auto mb-2">
-          <form class="d-flex search-bar-m">
-            <div class="select-list-m select-list">
-              <div class="select-btn-m selected" value="bookstore">
-                <div class="select-text select-text-m">
+      <div className="wrapper d-lg-none">
+        <div className="search-box-m navbar-search-m mx-auto mb-2">
+          <form className="d-flex search-bar-m">
+            <div className="select-list-m select-list">
+              <div className="select-btn-m selected" value="bookstore">
+                <div className="select-text select-text-m">
                   書城 
                   <FaCaretDown
-                    class="fas fa-caret-down"
+                    className="fas fa-caret-down"
                     style={{ transform: 'translateY(-1px)' }}
                   />
                 </div>
               </div>
-              <div class="select-box select-box-m d-none">
+              <div className="select-box select-box-m d-none">
                 <div
-                  class="select-btn-m used-books"
+                  className="select-btn-m used-books"
                   name="usedBooks"
                   value="usedBooks"
                 >
-                  <div class="used-books-text">二手書</div>
+                  <div className="used-books-text">二手書</div>
                 </div>
                 <div
-                  class="select-btn-m bookstore"
+                  className="select-btn-m bookstore"
                   name="bookstore"
                   value="bookstore"
                 >
-                  <div class="bookstore-text">書城</div>
+                  <div className="bookstore-text">書城</div>
                 </div>
               </div>
             </div>
 
             <input
-              class="search-input-m"
+              className="search-input-m"
               id="search-input"
               placeholder=" 搜尋"
-            ></input>
+            />
 
             <button
               type="submit"
-              class="btn btn-dark search-submit-m"
+              className="btn btn-dark search-submit-m"
               id="search-submit"
             >
               <FaSearch
-                class="fas fa-search fa-search-m"
+                className="fas fa-search fa-search-m"
                 style={{ transform: 'translateY(-1px)' }}
               />
             </button>
@@ -437,7 +438,7 @@ function Navbar() {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-                <p class="menu-subtitle">書籍分類</p>
+                <p className="menu-subtitle">書籍分類</p>
                 <ul>
                   <li>
                     <Link to="/product/lifestyle">
@@ -511,7 +512,7 @@ function Navbar() {
             </Card.Header>
             <Accordion.Collapse eventKey="1">
               <Card.Body>
-                <p class="menu-subtitle">活動分類</p>
+                <p className="menu-subtitle">活動分類</p>
                 <ul>
                   <li>講座</li>
                   <li>讀書會</li>
@@ -531,7 +532,7 @@ function Navbar() {
             </Card.Header>
             <Accordion.Collapse eventKey="2">
               <Card.Body>
-                <ul class="menu-subtitle">
+                <ul className="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
@@ -546,7 +547,7 @@ function Navbar() {
             </Card.Header>
             <Accordion.Collapse eventKey="3">
               <Card.Body>
-                <ul class="menu-subtitle">
+                <ul className="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
@@ -561,7 +562,7 @@ function Navbar() {
             </Card.Header>
             <Accordion.Collapse eventKey="4">
               <Card.Body>
-                <ul class="menu-subtitle">
+                <ul className="menu-subtitle">
                   <li>一般交換</li>
                   <li>隨機交換</li>
                 </ul>
