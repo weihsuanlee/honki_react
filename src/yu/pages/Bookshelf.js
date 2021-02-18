@@ -10,7 +10,7 @@ function Bookshelf() {
             <Link to="/">首頁</Link>
           </li>
           <li className="breadcrumb-honki">
-            <Link to="/">會員中心</Link>
+            <Link to="/menu">會員中心</Link>
           </li>
           <li className="breadcrumb-honki active" aria-current="page">
             節氣書櫃

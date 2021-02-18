@@ -7,24 +7,24 @@ function IndexHeader() {
     <>
       <div className="yen-main-content-body">
         <div className="yen-header">
-          <div class="d-flex">
-            <div class="yen-repeat-left">
-              <div class="yen-pics-left"></div>
+          <div className="d-flex">
+            <div className="yen-repeat-left">
+              <div className="yen-pics-left"></div>
             </div>
-            <div class="yen-bg-img">
+            <div className="yen-bg-img">
               <img
                 src="http://localhost:3000/images/yen/pexels-mentatdgt-1319854.jpg"
                 alt="bg"
-                class="yen-pics-right"
+                className="yen-pics-right"
               />
             </div>
-            <div class="yen-header-box">
-              <div class="yen-header-text">
+            <div className="yen-header-box">
+              <div className="yen-header-text">
                 <SvgText />
               </div>
-              <div class="yen-header-ladybug"></div>
+              <div className="yen-header-ladybug"></div>
             </div>
-            <div class="yen-arrow-down animate__slideInDown">
+            <div className="yen-arrow-down animate__slideInDown">
               <FaAngleDown className="fa-angle-down" />
             </div>
           </div>

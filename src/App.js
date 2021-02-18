@@ -88,11 +88,11 @@ function App() {
                 <Route path="/CartOrder">
                   <CartOrder />
                 </Route>
+                <Route path="/activity/event/:sid">
+                  <ActEvent />
+                </Route>
                 <Route path="/activity">
                   <ActIndex />
-                </Route>
-                <Route path="/event">
-                  <ActEvent />
                 </Route>
                 <Route path="/allsignup">
                   <ActAllSignUp />

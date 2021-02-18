@@ -12,7 +12,7 @@ function Edit() {
             <Link to="/">首頁</Link>
           </li>
           <li className="breadcrumb-honki">
-            <Link to="/">會員中心</Link>
+            <Link to="/menu">會員中心</Link>
           </li>
           <li className="breadcrumb-honki active" aria-current="page">
             個人資料修改
@@ -239,6 +239,7 @@ function Edit() {
                         </label>
                         <input
                           type="password"
+                          required
                           className="form-control formInput col-6"
                           id="password"
                           name="password"
@@ -256,6 +257,7 @@ function Edit() {
                         </label>
                         <input
                           type="password"
+                          required
                           className="form-control formInput col-6"
                           id="password"
                           name="password"
@@ -273,6 +275,7 @@ function Edit() {
                         </label>
                         <input
                           type="password"
+                          required
                           className="form-control formInput col-6"
                           id="password"
                           name="password"

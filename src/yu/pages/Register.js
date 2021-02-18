@@ -1,6 +1,9 @@
 import '../styles/members-register.scss'
+import { Link } from 'react-router-dom'
+import {useState} from 'react'
 
-function Register() {
+function Register(props) {
+  
   return (
     <>
       <div className="container my-5">
@@ -24,7 +27,10 @@ function Register() {
             {/* <!-- 姓名input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" for="exampleFormControlInput1">
+                <label
+                  className="inputText col-1"
+                  for="exampleFormControlInput1"
+                >
                   姓名
                 </label>
                 <input
@@ -37,7 +43,10 @@ function Register() {
             {/* <!-- 暱稱input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" for="exampleFormControlInput1">
+                <label
+                  className="inputText col-1"
+                  for="exampleFormControlInput1"
+                >
                   暱稱
                 </label>
                 <input
@@ -53,6 +62,7 @@ function Register() {
                 <label className="inputText col-1">電子信箱</label>
                 <input
                   type="email"
+                  required
                   className="form-control formInput col-4"
                   placeholder="honkibooks@mail.com"
                 />
@@ -61,7 +71,10 @@ function Register() {
             {/* <!-- 手機input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" for="exampleFormControlInput1">
+                <label
+                  className="inputText col-1"
+                  for="exampleFormControlInput1"
+                >
                   手機
                 </label>
                 <input
@@ -117,6 +130,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
+                  required
                   className="form-control formInput col-4"
                   id="password"
                   name="password"
@@ -134,6 +148,7 @@ function Register() {
                 </label>
                 <input
                   type="password"
+                  required
                   className="form-control formInput col-4"
                   id="password"
                   name="password"
@@ -159,12 +174,16 @@ function Register() {
             {/* <!-- 按鈕 --> */}
             <div className="form-group button-group">
               <div className="formItems row d-flex justify-content-center">
-                <button
-                  type="button"
-                  className="btn-md-dark form-button form-control col-2"
-                >
-                  送出
-                </button>
+                <div className="yu-register-send">
+                  <Link to="/menu">
+                    <button
+                      type="submit"
+                      className="btn-md-dark form-button form-control"
+                    >
+                      送出
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
