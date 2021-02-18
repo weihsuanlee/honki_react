@@ -73,9 +73,16 @@ https://codepen.io/ant1mas/pen/MeJjaK
 } */
 
 .old-season-container {
-  height: 900px;
-  /* margin-bottom: 80px; */
+  // height: 900px;
+  margin-bottom: 80px;
   overflow-x: hidden;
+}
+
+/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 992px) {
+  .old-season-container {
+    margin-top: -80px;
+  }
 }
 
 /* solar-term-plate 的各種設定 start */
@@ -111,12 +118,12 @@ https://codepen.io/ant1mas/pen/MeJjaK
   from {
     /* transform: translate(0px, 0px) rotate(0deg); */
     /* transform: translate(-81px, -205px) rotate(0deg); */
-    transform: translate(-70px, -173px) rotate(15deg);
+    // transform: translate(-70px, -173px) rotate(15deg);
   }
   to {
     /* transform: translate(0px, 0px) rotate(359deg); */
     /* transform: translate(-81px, -205px) rotate(359deg); */
-    transform: translate(-70px, -173px) rotate(374deg);
+    // transform: translate(-70px, -173px) rotate(374deg);
   }
 }
 
