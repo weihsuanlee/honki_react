@@ -140,10 +140,11 @@ function CartInput(props) {
               <div class="aw-progress-bar">
                 <div class="row aw-row aw-progress-line">
                   <div class="aw-progress-line-item col-sm"></div>
-                  <div class="aw-progress-line-item-pink col-sm"></div>
+                  <div class="aw-progress-line-item col-sm"></div>
                   <div class="aw-progress-line-item-pink col-sm"></div>
                 </div>
                 <div class="row aw-row justify-content-between aw-progress-circle">
+                  <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item">
                     <img
@@ -151,7 +152,6 @@ function CartInput(props) {
                       alt=""
                     ></img>
                   </div>
-                  <div class="aw-progress-circle-item-pink"></div>
                   <div class="aw-progress-circle-item-pink"></div>
                 </div>
               </div>

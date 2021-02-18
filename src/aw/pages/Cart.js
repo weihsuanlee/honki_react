@@ -1,5 +1,5 @@
 import '../styles/cartStyle.scss'
-import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
+import { FaTimesCircle, FaListUl, FaHeart } from 'react-icons/fa'
 import { withRouter, NavLink } from 'react-router-dom'
 // import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 // import ProductBanner from '../components/ProductBanner'
@@ -188,63 +188,7 @@ function Cart(props) {
                         <p class="aw-book-title">種日子的人</p>
                       </div>
                       <div class="col-2 aw-book-price  d-flex justify-content-center aw-p-0">
-                        <i class="fas fa-times-circle aw-delete-cross"></i>
-                      </div>
-                    </div>
-
-                    <div class="row aw-card d-flex align-items-center ">
-                      <div class="col-3 aw-card-pic position-relative">
-                        <div class="aw-book-pic">
-                          <img
-                            class="w-100"
-                            src="http://localhost:3000/images/aw/cartpic2.png"
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div class="col-7 aw-book-text d-flex justify-content-center align-items-center aw-p-9">
-                        <p class="aw-book-title">山林製造</p>
-                      </div>
-                      <div class="col-2 aw-book-price  d-flex justify-content-center aw-p-0">
-                        <i class="fas fa-times-circle aw-delete-cross"></i>
-                      </div>
-                    </div>
-
-                    <div class="row aw-card d-flex align-items-center ">
-                      <div class="col-3 aw-card-pic position-relative">
-                        <div class="aw-book-pic">
-                          <img
-                            class="w-100"
-                            src="http://localhost:3000/images/aw/cartpic3.png"
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div class="col-7 aw-book-text d-flex justify-content-center align-items-center aw-p-9">
-                        <p class="aw-book-title">
-                          閃電崩盤：一兆美元的真相!全球追捕，史上最神祕的金融罪犯
-                        </p>
-                      </div>
-                      <div class="col-2 aw-book-price  d-flex justify-content-center aw-p-0">
-                        <i class="fas fa-times-circle aw-delete-cross"></i>
-                      </div>
-                    </div>
-
-                    <div class="row aw-card d-flex align-items-center ">
-                      <div class="col-3 aw-card-pic">
-                        <div class="aw-book-pic">
-                          <img
-                            class="w-100"
-                            src="http://localhost:3000/images/aw/cartpic1.png"
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div class="col-7 aw-book-text d-flex justify-content-center align-items-center aw-p-0">
-                        <p class="aw-book-title">種日子的人</p>
-                      </div>
-                      <div class="col-2 aw-book-price  d-flex justify-content-center aw-p-0">
-                        <i class="fas fa-times-circle aw-delete-cross"></i>
+                        <FaTimesCircle className="fas fa-times-circle aw-delete-cross" />
                       </div>
                     </div>
                   </div>
