@@ -57,6 +57,7 @@ function Login() {
                       className="form-control formInput col-6"
                       id="password"
                       name="password"
+                      minLength="6"
                     />
                   </div>
                 </div>
