@@ -16,9 +16,9 @@ function BackToTop() {
   }, [])
   return (
     <>
-      <div class="backtoTop">
+      <div className="backtoTop">
         <FaCaretUp className="fas fa-caret-up" />
-        <p class="top-text">TOP</p>
+        <p className="top-text">TOP</p>
       </div>
     </>
   )
