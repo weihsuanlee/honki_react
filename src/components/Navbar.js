@@ -132,7 +132,7 @@ function Navbar() {
             <ul class="navbar-nav mr-auto">
               <li class="nav-item honki-nav-item active">
                 <Link
-                  to="/product"
+                  onClick={() => (window.location.href = '/product')}
                   class="nav-link honki-nav-link nav-item-60px"
                 >
                   所有商品
