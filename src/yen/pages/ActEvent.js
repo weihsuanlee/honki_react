@@ -1,91 +1,94 @@
+// import { withRouter } from 'react-router-dom'
+
 import '../styles/yen-event.scss'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import SvgCricket from '../components/svg/SvgCricket'
 import SvgSignUpLadybug from '../components/svg/SvgSignUpLadybug'
 
-function ActEvent() {
+function ActEvent(props) {
   return (
     <>
-      <div class="yen-event-header">
-        <nav aria-label="breadcrumb" class="yen-event-breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-honki">
+      {/* <h2>{props.match.params.id}</h2> */}
+      <div className="yen-event-header">
+        <nav aria-label="breadcrumb" className="yen-event-breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-honki">
               <a href="#">首頁</a>
             </li>
-            <li class="active" aria-current="page">
+            <li className="active" aria-current="page">
               活動講座
             </li>
-            <li class="active" aria-current="page">
+            <li className="active" aria-current="page">
               【聚說說書會
               台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
             </li>
           </ol>
         </nav>
-        <div class="yen-event-header-box">
-          <div class="yen-event-pic">
+        <div className="yen-event-header-box">
+          <div className="yen-event-pic">
             <img
               src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
               alt=""
             />
           </div>
-          <div class="yen-event-des">
-            <div class="yen-event-location-logo">
-              <FaMapMarkerAlt class="fas fa-map-marker-alt" />
+          <div className="yen-event-des">
+            <div className="yen-event-location-logo">
+              <FaMapMarkerAlt className="fas fa-map-marker-alt" />
             </div>
-            <div class="yen-event-subject">
+            <div className="yen-event-subject">
               <h5>
                 【聚說說書會
                 台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
               </h5>
             </div>
-            <div class="yen-event-date">
+            <div className="yen-event-date">
               <span>活動時間：2021年01月24日 14:00 ~ 15:30</span>
             </div>
-            <div class="yen-event-location">
+            <div className="yen-event-location">
               <span>
                 活動地點：台北市中正區重慶南路二段51號B1 （信誼好好生活廣場）
               </span>
             </div>
-            <div class="yen-event-des-bottom">
-              <div class="yen-event-des-price">
-                <div class="yen-event-nt">
+            <div className="yen-event-des-bottom">
+              <div className="yen-event-des-price">
+                <div className="yen-event-nt">
                   <span>NT</span>
                 </div>
-                <div class="yen-event-money">
+                <div className="yen-event-money">
                   <span>200</span>
                 </div>
               </div>
-              <div class="yen-event-signup">
-                <button class="btn-md-dark yen-event-signup-btn">
+              <div className="yen-event-signup">
+                <button className="btn-md-dark yen-event-signup-btn">
                   我要報名
                 </button>
               </div>
             </div>
           </div>
-          <div class="yen-event-cricket">
+          <div className="yen-event-cricket">
             <SvgCricket />
           </div>
         </div>
       </div>
 
-      <div class="yen-event-body-box">
-        <div class="yen-event-des-box">
-          <div class="yen-event-tag">
-            <div class="yen-event-tag-des">
+      <div className="yen-event-body-box">
+        <div className="yen-event-des-box">
+          <div className="yen-event-tag">
+            <div className="yen-event-tag-des">
               <span>活動介紹</span>
             </div>
-            <div class="yen-event-tag-trans">
+            <div className="yen-event-tag-trans">
               <span>交通方式</span>
             </div>
-            <div class="yen-event-tag-att">
+            <div className="yen-event-tag-att">
               <span>注意事項</span>
             </div>
-            <div class="yen-event-tag-cancel">
+            <div className="yen-event-tag-cancel">
               <span>更改或取消辦法</span>
             </div>
           </div>
-          <div class="yen-event-box">
-            <div class="yen-event-text">
+          <div className="yen-event-box">
+            <div className="yen-event-text">
               <span>
                 主講：林瑞昌 / 吉光旅遊總經理
                 <br />
@@ -158,7 +161,7 @@ function ActEvent() {
               </span>
             </div>
           </div>
-          <div class="yen-signup-ladybug">
+          <div className="yen-signup-ladybug">
             <SvgSignUpLadybug />
           </div>
         </div>
@@ -167,4 +170,5 @@ function ActEvent() {
   )
 }
 
+// export default withRouter(ActEvent)
 export default ActEvent
