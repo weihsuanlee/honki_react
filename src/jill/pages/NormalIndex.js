@@ -14,7 +14,8 @@ function NormalIndex() {
   const [changeData, setChangeData] = useState([])
   // 測試撈會員資料
   const [memberData, setMemberData] = useState([])
-  const [totalRows, setTotalRows] = useState('')
+  // 撈我的交換單(編號15)
+  const [mybook_rows, setMybook_rows] = useState([])
 
   // 分頁 pagination
   const [totalPages, setTotalPages] = useState('')
@@ -49,6 +50,8 @@ function NormalIndex() {
     // for (x = 0; x < TRows; x++) {
     //   x += 1
     // }
+
+    setMybook_rows(data.mybook_rows[0])
 
     console.log(data)
     // 3秒後關閉指示器
@@ -94,13 +97,10 @@ function NormalIndex() {
                     id="exampleFormControlSelect1"
                   >
                     {/* 到時候要撈資料庫，member_sid_o是登入的人session */}
-                    <option>外科醫生(單號:1)</option>
-                    <option>閃電崩盤(單號:11)</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
+
+                    {mybook_rows.map((m) => (
+                      <option>{m.book_name}</option>
+                    ))}
                   </select>
                   <Link to="./NormalInsert">
                     <button className="btn-md-dark jill-myNchange-add-btn">
