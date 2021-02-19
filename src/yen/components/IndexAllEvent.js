@@ -22,13 +22,15 @@ function IndexAllEvent(props) {
     <>
       {props.eventLists.length !== 0 &&
         props.eventLists.rows.map((value, index) => {
+          const pic =
+            'http://localhost:3000/images/yen/event/' +
+            value.act_name +
+            '/0.jpg'
           return (
             <div className="yen-event-card" key={index}>
               <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
+                <img src={pic} alt="" />
+                {console.log(pic)}
               </div>
               <div className="yen-new-card-tag d-flex">
                 <div className="yen-event-card-tagl">
