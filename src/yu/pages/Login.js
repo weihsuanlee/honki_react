@@ -2,15 +2,50 @@ import '../styles/members-login.scss'
 import { FaLine, FaFacebookSquare } from 'react-icons/fa'
 import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 
 function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const login = async function (email, password) {
+    const url = 'http://localhost:3333/member/login'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+    if (data.success) {
+      window.location.href = '/menu'
+    }
+  }
+
+  // cros-session
+  // function sendAjax() {
+  //   fetch('http://localhost:3000/try-session', {
+  //     credentials: 'include',
+  //   })
+  //     .then((r) => r.text())
+  //     .then((txt) => {
+  //       info.innerHTML = txt
+  //     })
+  // }
+
   return (
     <>
       <div className="container mt-5">
         {/* <!-- 紅圓點 --> */}
         <div className="yu-login-redpoint"></div>
 
-        <form>
+        <form name="yu-login">
           {/* <!-- 比例 --> */}
           <div className="form-width-height yu-login-form">
             {/* <!-- 表單標題 --> */}
@@ -39,6 +74,10 @@ function Login() {
                       required
                       className="form-control formInput col-6 mt-5"
                       placeholder="honkibooks@mail.com"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value)
+                      }}
                     />
                   </div>
                 </div>
@@ -58,6 +97,10 @@ function Login() {
                       id="password"
                       name="password"
                       minLength="6"
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value)
+                      }}
                     />
                   </div>
                 </div>
@@ -95,14 +138,14 @@ function Login() {
               <div className="form-group button-group">
                 <div className="formItems row d-flex justify-content-center">
                   <div className="yu-login-send">
-                    <Link to="/menu">
-                      <button
-                        type="submit"
-                        className="btn-md-dark form-button form-control"
-                      >
-                        送出
-                      </button>
-                    </Link>
+                    <button
+                      className="btn-md-dark form-button form-control"
+                      onClick={() => {
+                        login(email, password)
+                      }}
+                    >
+                      送出
+                    </button>
                   </div>
                 </div>
               </div>
@@ -129,5 +172,30 @@ function Login() {
     </>
   )
 }
+
+// const info = document.querySelector('#info')
+
+// function checkForm() {
+//   info.style.display = 'none'
+
+//   const fd = new FormData(document.form1)
+
+//   fetch('', {
+//     method: 'POST',
+//     body: fd,
+//   })
+//     .then((r) => r.json())
+//     .then((obj) => {
+//       console.log(obj)
+//       if (!obj.success) {
+//         info.classList.remove('alert-success')
+//         info.classList.add('alert-danger')
+//         info.innerHTML = '帳號或密碼錯誤'
+//         info.style.display = 'block'
+//       } else {
+//         location.href = '/member/login'
+//       }
+//     })
+// }
 
 export default Login
