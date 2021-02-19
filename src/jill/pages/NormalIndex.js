@@ -12,6 +12,13 @@ import NormalButterfly from './../components/NormalButterfly'
 
 function NormalIndex() {
   const [changeData, setChangeData] = useState([])
+  // 測試撈會員資料
+  const [memberData, setMemberData] = useState([])
+  const [totalRows, setTotalRows] = useState('')
+
+  // 分頁 pagination
+  const [totalPages, setTotalPages] = useState('')
+  const [page, setPage] = useState(1)
 
   const getDataFromServer = async () => {
     // 先開起載入指示器
@@ -33,6 +40,16 @@ function NormalIndex() {
     //  arr.push(data)
     // 因為有好幾個項目，所以要.rows才可以只把rows叫出來
     setChangeData(data.rows)
+
+    // 測試撈會員資料
+    setMemberData(data.m_rows)
+    // setTotalRows(data.TotalRows)
+    // let TRows = { setTotalRows }
+    // let x = 0
+    // for (x = 0; x < TRows; x++) {
+    //   x += 1
+    // }
+
     console.log(data)
     // 3秒後關閉指示器
     setTimeout(() => {
@@ -64,12 +81,6 @@ function NormalIndex() {
 
         {/* 一般交換首頁 */}
 
-        {/* 測試 */}
-        {/* {changeData.map((v, i) => (
-          <div>
-            <h4 className="jill-myNchange-title">{v.book_name}</h4>
-          </div>
-        ))} */}
         {/* 我的交換單 */}
         <div className="jill-mylist-area">
           <div className="jill-myNchange-area">
@@ -274,10 +285,10 @@ function NormalIndex() {
           {/* 其他二手書區域  */}
           <div className="row">
             {/* 測試 */}
-            {changeData.map((item) => (
+            {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
                   alt=""
                 />
                 <ul>
@@ -290,7 +301,9 @@ function NormalIndex() {
                   <div className="jill-underline"></div>
                   <li>{item.written_or_not}</li>
                   <div className="jill-underline"></div>
-                  <li>鄭瑪莉</li>
+                  {memberData.map((m) => (
+                    <li>{m[index].nickname}</li>
+                  ))}
                 </ul>
                 <Link to="./SendIWantChange">
                   <button className="btn-md-dark jill-want-btn">
@@ -300,7 +313,7 @@ function NormalIndex() {
               </div>
             ))}
 
-            <div className="jill-mycard d-flex jill-other-card">
+            {/* <div className="jill-mycard d-flex jill-other-card">
               <img
                 src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
                 alt=""
@@ -531,7 +544,7 @@ function NormalIndex() {
               <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* 頁數選項 */}
