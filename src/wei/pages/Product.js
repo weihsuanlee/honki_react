@@ -29,6 +29,7 @@ function Product(props) {
   // 篩選搜尋
   const [search, setSearch] = useState('')
   const [searchSelect, setSearchSelect] = useState('title')
+  const [searchTitle, setSearchTitle] = useState('書名')
   // minPrice, maxPrice 價格篩選
   const [sliderValues, setSliderValues] = useState([0, 1000])
   // avgPrice
@@ -303,6 +304,8 @@ function Product(props) {
         setQueryString={setQueryString}
         search={search}
         setSearch={setSearch}
+        searchTitle={searchTitle}
+        setSearchTitle={setSearchTitle}
       />
       <div className="container-fluid my-5">
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">

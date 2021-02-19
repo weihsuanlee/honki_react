@@ -9,6 +9,8 @@ function ProductBanner(props) {
     setQueryString,
     search,
     setSearch,
+    setSearchTitle,
+    searchTitle,
   } = props
   function searchButtonClick() {
     const queryString = `?${searchSelect}search=${search}`
@@ -22,17 +24,11 @@ function ProductBanner(props) {
           <div className="col-12 wei-searcharea">
             <div className="search-box wei-search-box">
               <div className="d-flex search-bar">
-                <DropdownButton id="dropdown-basic-button" title="書名">
-                  <Dropdown.Item
-                    onClick={() => {
-                      setSearchSelect('')
-                    }}
-                  >
-                    所有
-                  </Dropdown.Item>
+                <DropdownButton id="dropdown-basic-button" title={searchTitle}>
                   <Dropdown.Item
                     onClick={() => {
                       setSearchSelect('title_')
+                      setSearchTitle('書名')
                     }}
                   >
                     書名
@@ -40,6 +36,7 @@ function ProductBanner(props) {
                   <Dropdown.Item
                     onClick={() => {
                       setSearchSelect('author_')
+                      setSearchTitle('作者')
                     }}
                   >
                     作者
@@ -47,9 +44,18 @@ function ProductBanner(props) {
                   <Dropdown.Item
                     onClick={() => {
                       setSearchSelect('publication_')
+                      setSearchTitle('出版社')
                     }}
                   >
                     出版社
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => {
+                      setSearchSelect('')
+                      setSearchTitle('全部')
+                    }}
+                  >
+                    全部
                   </Dropdown.Item>
                 </DropdownButton>
                 <input
@@ -58,6 +64,7 @@ function ProductBanner(props) {
                   onChange={(e) => {
                     setSearch(e.target.value)
                   }}
+                  placeholder="Search"
                 />
                 <Button
                   className="wei-search-btn"

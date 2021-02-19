@@ -13,12 +13,29 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import ReadTrialModal from '../components/ReadTrialModal'
 import ProductCarousel from '../components/ProductCarousel'
+import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
+  // const [history, setHistory] = useState([])
+
+  // useEffect(() => {
+  //   const recent = localStorage.getItem('recentlyViewed_sid')
+  //     ? [localStorage.getItem('recentlyViewed_sid')]
+  //     : []
+  //   let idNow = +props.match.params.sid
+  //   if (recent.indexOf(idNow) === -1) {
+  //     recent.push(idNow)
+  //   }
+  //   localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+  //   setHistory(localStorage.getItem('recentlyViewed_sid'))
+  // }, [])
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
+  const [productRelated, setProductRelated] = useState([])
+  const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
   // const [productDetailDisplay, setProductDetailDisplay] = useState([])
+  console.log(props)
 
   // console.log(props.match.params.sid)
   const sid = props.match.params.sid
@@ -29,8 +46,10 @@ function ProductDetail(props) {
       method: 'get',
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     setProductDetail(data.detail[0])
+    setProductRelated(data.related)
+    setProductHistory(data.history)
 
     let discountState = ''
     if (data.detail[0].discount.toString().length === 4) {
@@ -42,7 +61,10 @@ function ProductDetail(props) {
     }
     setDiscountDisplay(discountState)
   }
-
+  // didMount  執行伺服器抓資料
+  useEffect(() => {
+    getProductDetail()
+  }, [])
   const productDetailDisplay = (
     <>
       <div className="container-fluid wei-bg-white">
@@ -206,10 +228,7 @@ function ProductDetail(props) {
       </div>
     </>
   )
-  // didMount  執行伺服器抓資料
-  useEffect(() => {
-    getProductDetail()
-  }, [])
+
   return (
     <>
       {productDetailDisplay}
@@ -217,13 +236,13 @@ function ProductDetail(props) {
         <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
         <div className="row justify-content-center">
           <div className="col-10">
-            <ProductCarousel />
+            <ProductCarousel productRelated={productRelated} />
           </div>
         </div>
         <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
         <div className="row justify-content-center">
           <div className="col-10">
-            <ProductCarousel />
+            <ProductHistoryCarousel productHistory={productHistory} />
           </div>
         </div>
       </div>

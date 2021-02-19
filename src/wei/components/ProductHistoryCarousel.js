@@ -5,7 +5,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import { withRouter } from 'react-router-dom'
 
-function ProductCarousel(props) {
+function ProductHistoryCarousel(props) {
   const settings = {
     arrows: true,
     dots: false,
@@ -38,11 +38,11 @@ function ProductCarousel(props) {
       },
     ],
   }
-  const { productRelated } = props
+  const { productHistory } = props
   const productDisplay = (
     <>
       <Slider {...settings}>
-        {productRelated.map((v, i) => (
+        {productHistory.map((v, i) => (
           <div
             className="wei-card position-relative wei-slick"
             key={i}
@@ -103,4 +103,5 @@ function ProductCarousel(props) {
   )
   return <>{productDisplay}</>
 }
-export default withRouter(ProductCarousel)
+
+export default withRouter(ProductHistoryCarousel)
