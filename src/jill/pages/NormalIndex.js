@@ -11,8 +11,6 @@ import NormalBee from './../components/NormalBee'
 import NormalButterfly from './../components/NormalButterfly'
 
 function NormalIndex() {
-  //訂單結果
-
   const [changeData, setChangeData] = useState([])
 
   const getDataFromServer = async () => {
@@ -20,7 +18,7 @@ function NormalIndex() {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://localhost:3333/normal-index/13', {
+    const response = await fetch('http://localhost:3333/normal-index', {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',
@@ -33,12 +31,13 @@ function NormalIndex() {
     // setOrderDisplay(data)
     // let arr = []
     //  arr.push(data)
-    setChangeData(data)
+    // 因為有好幾個項目，所以要.rows才可以只把rows叫出來
+    setChangeData(data.rows)
     console.log(data)
     // 3秒後關閉指示器
     setTimeout(() => {
       // setIsLoading(false)
-    }, 2000)
+    }, 3000)
   }
   // 模擬componentDidMout
   useEffect(() => {
@@ -65,6 +64,12 @@ function NormalIndex() {
 
         {/* 一般交換首頁 */}
 
+        {/* 測試 */}
+        {/* {changeData.map((v, i) => (
+          <div>
+            <h4 className="jill-myNchange-title">{v.book_name}</h4>
+          </div>
+        ))} */}
         {/* 我的交換單 */}
         <div className="jill-mylist-area">
           <div className="jill-myNchange-area">
@@ -77,7 +82,7 @@ function NormalIndex() {
                     className="form-control formInput col-7"
                     id="exampleFormControlSelect1"
                   >
-                    {/* 到時候要撈資料庫 */}
+                    {/* 到時候要撈資料庫，member_sid_o是登入的人session */}
                     <option>外科醫生(單號:1)</option>
                     <option>閃電崩盤(單號:11)</option>
                     <option>3</option>
@@ -101,6 +106,7 @@ function NormalIndex() {
                   src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
                   alt=""
                 />
+
                 <ul className="">
                   <div className="jill-underline"></div>
                   <li>9789869507776</li>
@@ -254,6 +260,7 @@ function NormalIndex() {
             </div>
           </div>
         </div>
+
         {/* 其他人在換什麼 */}
         {/* 標題開始 */}
         <div className="container my-5">
@@ -266,27 +273,32 @@ function NormalIndex() {
 
           {/* 其他二手書區域  */}
           <div className="row">
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
+            {/* 測試 */}
+            {changeData.map((item) => (
+              <div className="jill-mycard d-flex jill-other-card">
+                <img
+                  src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                  alt=""
+                />
+                <ul>
+                  <div className="jill-underline"></div>
+                  <li>{item.ISBN}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.book_name}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.book_condition}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.written_or_not}</li>
+                  <div className="jill-underline"></div>
+                  <li>鄭瑪莉</li>
+                </ul>
+                <Link to="./SendIWantChange">
+                  <button className="btn-md-dark jill-want-btn">
+                    我想交換
+                  </button>
+                </Link>
+              </div>
+            ))}
 
             <div className="jill-mycard d-flex jill-other-card">
               <img
