@@ -96,7 +96,7 @@ function Login() {
                       className="form-control formInput col-6"
                       id="password"
                       name="password"
-                      minLength="6"
+                      minLength="4"
                       value={password}
                       onChange={(e) => {
                         setPassword(e.target.value)
