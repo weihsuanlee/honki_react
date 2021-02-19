@@ -30,13 +30,13 @@ function ProductDetail(props) {
     })
     const data = await response.json()
     console.log(data)
-    setProductDetail(data)
+    setProductDetail(data.detail[0])
 
     let discountState = ''
-    if (data.discount.toString().length === 4) {
-      discountState = `${data.discount * 100}折`
-    } else if (data.discount.toString().length === 3) {
-      discountState = `${data.discount * 10}折`
+    if (data.detail[0].discount.toString().length === 4) {
+      discountState = `${data.detail[0].discount * 100}折`
+    } else if (data.detail[0].discount.toString().length === 3) {
+      discountState = `${data.detail[0].discount * 10}折`
     } else {
       discountState = '原價'
     }
@@ -97,22 +97,22 @@ function ProductDetail(props) {
               />
               <FaStar
                 className={
-                  `mr-1 wei-star ` + (+productDetail.stars > 1 ? 'yellow' : '')
+                  `mr-1 wei-star ` + (productDetail.stars > 1 ? 'yellow' : '')
                 }
               />
               <FaStar
                 className={
-                  `mr-1 wei-star ` + (+productDetail.stars > 2 ? 'yellow' : '')
+                  `mr-1 wei-star ` + (productDetail.stars > 2 ? 'yellow' : '')
                 }
               />
               <FaStar
                 className={
-                  `mr-1 wei-star ` + (+productDetail.stars > 3 ? 'yellow' : '')
+                  `mr-1 wei-star ` + (productDetail.stars > 3 ? 'yellow' : '')
                 }
               />
               <FaStar
                 className={
-                  `mr-3 wei-star ` + (+productDetail.stars > 4 ? 'yellow' : '')
+                  `mr-3 wei-star ` + (productDetail.stars > 4 ? 'yellow' : '')
                 }
               />
             </span>
