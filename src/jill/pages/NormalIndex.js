@@ -9,6 +9,8 @@ import '../styles/used-books.scss'
 // 二手書svg
 import NormalBee from './../components/NormalBee'
 import NormalButterfly from './../components/NormalButterfly'
+// 我的交換單選單選完重新渲染
+import MyChangeBooks from './../components/MyChangeBooks'
 
 function NormalIndex() {
   const [changeData, setChangeData] = useState([])
@@ -66,6 +68,7 @@ function NormalIndex() {
 
   return (
     <>
+      <MyChangeBooks name="jill" myrows={mybook_rows} />
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
         <nav aria-label="breadcrumb">
