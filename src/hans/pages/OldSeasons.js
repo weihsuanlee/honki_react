@@ -12,7 +12,7 @@ function OldSeasons() {
           <SolarTermPlate />
 
           <div className="col-xl-6">
-            <div className="row justify-content-center osb-book-col">
+            <div className="row justify-content-center osb-book-col fadein-on-start">
               <OldSeasonBookCard />
               <OldSeasonBookCard />
               <OldSeasonBookCard />

@@ -1,3 +1,26 @@
 .solar-term-plate-filler {
   height: calc(62vh);
 }
+
+.title-pointer {
+  transform: translate(calc(18vw), 0rem);
+}
+
+.title-box {
+  width: 100vw / 2;
+}
+
+.title-bg {
+  float: left;
+  /* display: inline-block; */
+  background-color: #ffffff;
+  height: 3rem;
+  overflow: initial;
+  margin: 0.5rem;
+  /* transform: translate(calc(100vw / 12), calc(100vh * 7 / 9 - 80px)); */
+  transform: translate(calc(100vw / 12), 0rem);
+}
+
+.title {
+  transform: translate(0.1rem, -0.2rem);
+}

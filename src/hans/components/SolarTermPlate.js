@@ -1,10 +1,13 @@
 import OldSeasonPageTitle from './OldSeasonPageTitle'
 
+// import style
+import '../styles/solar-term-plate.scss'
+
 function SolarTermPlate() {
   return (
     <>
       <div className="col">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center fadein-on-start">
           {/* <!-- 節氣圓盤 Start --> */}
           <ul className="solar-term-plate-v2 rotate">
             <li className="slice">
