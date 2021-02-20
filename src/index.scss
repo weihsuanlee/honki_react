@@ -750,6 +750,16 @@ https://www.codeply.com/go/NKtDpPXv2x */
   }
 }
 
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '›';
+  color: grey;
+  padding-right: 10px;
+  vertical-align: middle;
+  transform: translateY(-8%);
+}
+.breadcrumb > li + li:before {
+  padding: 0 10px;
+}
 /* 收合選單 */
 
 /* holder 桌機版收合選單*/

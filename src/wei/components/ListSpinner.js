@@ -2,7 +2,7 @@ function ListSpinner() {
   return (
     <>
       <div className="wei-skeleton-list position-relative w-100">
-        <div className="wei-card-list-pic mr-5 d-flex">
+        <div className="wei-skeleton-list-pic mr-5 d-flex my-auto">
           <div className="wei-skeleton-inside-pic my-auto">
             <img className="w-100" src="" alt="" />
           </div>

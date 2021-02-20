@@ -193,13 +193,14 @@ ol.wei-breadcrumb {
   margin-top: 0.5rem;
   margin-right: 8px;
 }
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   .wei-button-group {
-    justify-content: center;
+    // justify-content: center;
+    flex-direction: column;
     margin-top: 0;
   }
   .wei-button-group .btn-rounded-dark {
-    margin-right: 12px;
+    // margin-right: 12px;
   }
 }
 @media (max-width: 430px) {
@@ -362,8 +363,15 @@ ol.wei-breadcrumb {
   padding: 0;
   margin-top: 4rem;
   .wei-book-text-left {
-    width: 30%;
+    width: 40%;
+    // width: 30%;
     margin-right: 2rem;
+  }
+  @media (max-width: 1200px) {
+    .wei-book-text-left {
+      width: 80%;
+      margin-bottom: 8px;
+    }
   }
   .wei-book-text-right {
     width: 60%;
@@ -400,13 +408,31 @@ ol.wei-breadcrumb {
   padding: 20px 10px;
   position: relative;
   cursor: pointer;
+  margin-right: 5rem;
+  height: 100%;
 }
+
 .wei-list-book-pic img {
   height: 150px;
   object-fit: contain;
   -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   transition: all 0.5s;
+}
+@media (max-width: 996px) {
+  .wei-card-list-pic {
+    width: 40%;
+    margin-right: 2rem;
+    height: 80%;
+  }
+  .wei-list-book-pic img {
+    height: 130px;
+  }
+}
+@media (min-width: 1200px) {
+  .wei-text-wrapper {
+    display: flex;
+  }
 }
 
 .wei-list-icon {
@@ -422,8 +448,16 @@ ol.wei-breadcrumb {
   font-size: 13px;
   transition: all 0.5s;
   top: 0;
-  left: 0;
+  left: 24px;
   transform: translate(-50%, -50%);
+}
+.wei-list-icon.theme-color {
+  background-color: var(--honki-theme);
+}
+@media (max-width: 996px) {
+  .wei-list-icon {
+    top: 24px;
+  }
 }
 .wei-book-list-price {
   text-align: left;
@@ -579,19 +613,29 @@ ol.wei-breadcrumb {
     width: 80%;
     margin-top: 20px;
   }
-  .wei-card-list-pic {
+  .wei-skeleton-list-pic {
     background: url('http://localhost:3000/images/bg_noise.png') white;
     border-radius: 15px;
     transition: all 0.5s;
     width: 20%;
     padding: 20px 10px;
     position: relative;
+    height: 100%;
   }
   .wei-skeleton-inside-pic {
     height: 150px;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+  }
+  @media (max-width: 996px) {
+    .wei-skeleton-list-pic {
+      width: 40%;
+      margin-right: 2rem;
+    }
+    .wei-skeleton-inside-pic {
+      height: 120px;
+    }
   }
 }
 
@@ -754,6 +798,19 @@ ol.wei-breadcrumb {
   margin-top: 6rem;
   p {
     white-space: pre-line;
+  }
+  .tab-content > .tab-pane {
+    background: #f1f1f1a6;
+    border-radius: 0 0 15px 15px;
+  }
+  .nav-tabs {
+    background: #f1f1f1a6;
+    border-radius: 15px 15px 0 0;
+  }
+  .nav-tabs .nav-link {
+    border-top: none;
+    border-right: none;
+    border-left: none;
   }
 }
 @media (max-width: 768px) and (min-width: 576px) {

@@ -16,7 +16,7 @@ import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
-  // const [history, setHistory] = useState([])
+  // const [recentlyViewed, setRecentlyViewed] = useState([])
 
   // useEffect(() => {
   //   const recent = localStorage.getItem('recentlyViewed_sid')
@@ -26,9 +26,10 @@ function ProductDetail(props) {
   //   if (recent.indexOf(idNow) === -1) {
   //     recent.push(idNow)
   //   }
-  //   localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-  //   setHistory(localStorage.getItem('recentlyViewed_sid'))
-  // }, [])
+  //   localStorage.setItem('recentlyViewed_sid', recent)
+  //   setRecentlyViewed(localStorage.getItem('recentlyViewed_sid'))
+  // }, [props.match.params.sid])
+
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
   const [productRelated, setProductRelated] = useState([])
@@ -65,6 +66,11 @@ function ProductDetail(props) {
   useEffect(() => {
     getProductDetail()
   }, [])
+
+  useEffect(() => {
+    getProductDetail()
+  }, [props.match.params.sid])
+
   const productDetailDisplay = (
     <>
       <div className="container-fluid wei-bg-white">
@@ -91,15 +97,18 @@ function ProductDetail(props) {
                 alt=""
               />
             </div>
-            <Button
-              variant="primary"
-              onClick={() => setModalShow(true)}
-              className="btn-md-dark wei-read-trial"
-            >
-              <FaBookOpen className="mr-3" />
-              試閱
-            </Button>
-
+            {productDetail.readtrial ? (
+              <Button
+                variant="primary"
+                onClick={() => setModalShow(true)}
+                className="btn-md-dark wei-read-trial"
+              >
+                <FaBookOpen className="mr-3" />
+                試閱
+              </Button>
+            ) : (
+              ''
+            )}
             <ReadTrialModal
               show={modalShow}
               onHide={() => setModalShow(false)}
@@ -138,7 +147,7 @@ function ProductDetail(props) {
                 }
               />
             </span>
-            <span className="wei-reviews">95 Reviews</span>
+            <span className="wei-reviews">{productDetail.reviews} Reviews</span>
             <h6 className="wei-detail-author mt-3">
               作者：{productDetail.author}
             </h6>
@@ -178,10 +187,14 @@ function ProductDetail(props) {
                 <div class="panel-title">作者介紹</div>
                 <p>{productDetail.author_intro}</p>
               </Tab>
-              <Tab eventKey="bookList" title="書籍目錄">
-                <div class="panel-title">書籍目錄</div>
-                <p>{productDetail.list}</p>
-              </Tab>
+              {productDetail.list ? (
+                <Tab eventKey="bookList" title="書籍目錄">
+                  <div class="panel-title">書籍目錄</div>
+                  <p>{productDetail.list}</p>
+                </Tab>
+              ) : (
+                ''
+              )}
             </Tabs>
           </div>
           <div className="holder-mobile d-lg-none wei-holder-mobile">
@@ -210,18 +223,22 @@ function ProductDetail(props) {
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="12">
-                    書籍目錄
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="12">
-                  <Card.Body>
-                    <p>{productDetail.list}</p>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
+              {productDetail.list ? (
+                <Card>
+                  <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="12">
+                      書籍目錄
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="12">
+                    <Card.Body>
+                      <p>{productDetail.list}</p>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              ) : (
+                ''
+              )}
             </Accordion>
           </div>
         </div>
@@ -242,7 +259,11 @@ function ProductDetail(props) {
         <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
         <div className="row justify-content-center">
           <div className="col-10">
-            <ProductHistoryCarousel productHistory={productHistory} />
+            <ProductHistoryCarousel
+              productHistory={productHistory}
+              setProductHistory={setProductHistory}
+              // recentlyViewed={recentlyViewed}
+            />
           </div>
         </div>
       </div>

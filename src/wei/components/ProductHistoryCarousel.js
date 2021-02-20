@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FaHeart, FaStar } from 'react-icons/fa'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from 'react-slick'
 import { withRouter } from 'react-router-dom'
 
@@ -38,8 +38,18 @@ function ProductHistoryCarousel(props) {
       },
     ],
   }
-  const { productHistory } = props
-  const productDisplay = (
+  const { productHistory, setProductHistory, recentlyViewed } = props
+  // useEffect(() => {
+  //   const recentArray=[]
+  //   recentArray.push(recentlyViewed)
+  //   const display = productHistory.filter((v, i) => {
+  //     return v.sid.includes(15)
+  //   })
+  //   setProductHistory(display)
+  //   console.log(display)
+  // }, [])
+
+  return (
     <>
       <Slider {...settings}>
         {productHistory.map((v, i) => (
@@ -101,7 +111,6 @@ function ProductHistoryCarousel(props) {
       </Slider>
     </>
   )
-  return <>{productDisplay}</>
 }
 
 export default withRouter(ProductHistoryCarousel)

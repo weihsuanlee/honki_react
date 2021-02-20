@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom'
 import { pathnameList, pathnameTextList } from '../config'
 
 function MultiLevelBreadCrumb(props) {
-  const { location } = props
+  const { location, match } = props
 
   //console.log(props)
 
@@ -56,6 +56,7 @@ function MultiLevelBreadCrumb(props) {
             <Link to="/">首頁</Link>
           </li>
           {formatText(findPathnameIndex(location.pathname))}
+          {formatText(findPathnameIndex(match.path))}
         </ol>
       </nav>
     </>
