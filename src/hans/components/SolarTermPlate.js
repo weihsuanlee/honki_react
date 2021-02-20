@@ -1,3 +1,5 @@
+import OldSeasonPageTitle from './OldSeasonPageTitle'
+
 function SolarTermPlate() {
   return (
     <>
@@ -52,18 +54,7 @@ function SolarTermPlate() {
           </ul>
           {/* <!-- 節氣圓盤 end --> */}
         </div>
-        <div className="row solar-term-plate-filler"></div>
-        <i className="title-pointer fas fa-caret-up fa-3x"></i>
-        <br />
-
-        <div className="row justify-content-start">
-          <div className="title-bg">
-            <h3 className="title">一個節氣，選一本書</h3>
-          </div>
-          <div className="title-bg">
-            <h3 className="title">屬於你的四季</h3>
-          </div>
-        </div>
+        <OldSeasonPageTitle />
       </div>
     </>
   )

@@ -111,18 +111,18 @@ https://codepen.io/ant1mas/pen/MeJjaK
   from {
     // transform: translate(0px, 0px) rotate(0deg);
     // transform: translate(-81px, -265px) rotate(0deg);
-    // transform: translate(-70px, -173px) rotate(15deg);
+    transform: translate(-70px, -173px) rotate(15deg);
   }
   to {
     // transform: translate(0px, 0px) rotate(359deg);
     // transform: translate(-81px, -265px) rotate(359deg);
-    // transform: translate(-70px, -173px) rotate(374deg);
+    transform: translate(-70px, -173px) rotate(374deg);
   }
 }
 
-.solar-term-plate-filler {
-  height: calc(62vh);
-}
+// .solar-term-plate-filler {
+//   height: calc(62vh);
+// }
 
 .solar-term-plate-v2 {
   overflow: hidden;
@@ -241,8 +241,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
   width: 200%;
   height: 200%;
   border-radius: 50%;
-  /* background: var(--honki-black);
-  opacity: 50%; */
+  background: var(--honki-black);
+  opacity: 50%;
 }
 
 .slice:hover .slice-contents {
