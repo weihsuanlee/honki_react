@@ -948,14 +948,15 @@ body {
   padding-right: 2rem;
   margin-bottom: 5%;
   display: flex;
+  flex-wrap: wrap;
   /* justify-content: space-between; */
 }
 
 .yen-event-card {
   margin-top: 3.5%;
-  width: 23%;
+  width: 22.5%;
   height: 100%;
-  margin-right: 3%;
+  margin-right: 2.5%;
   cursor: pointer;
 }
 
@@ -991,6 +992,7 @@ body {
 
 .yen-event-card-title {
   padding: 8% 8% 5% 8%;
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 50%;
@@ -1010,7 +1012,7 @@ body {
 }
 
 .yen-event-card-nt {
-  padding-top: 0.8rem;
+  padding-top: 0.7rem;
   padding-right: 5%;
 }
 

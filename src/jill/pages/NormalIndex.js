@@ -9,18 +9,26 @@ import '../styles/used-books.scss'
 // 二手書svg
 import NormalBee from './../components/NormalBee'
 import NormalButterfly from './../components/NormalButterfly'
+// 我的交換單選單選完重新渲染
+import MyChangeBooks from './../components/MyChangeBooks'
 
 function NormalIndex() {
-  //訂單結果
-
   const [changeData, setChangeData] = useState([])
+  // 測試撈會員資料
+  const [memberData, setMemberData] = useState([])
+  // 撈我的交換單(編號15)
+  const [mybook_rows, setMybook_rows] = useState([])
+
+  // 分頁 pagination
+  const [totalPages, setTotalPages] = useState('')
+  const [page, setPage] = useState(1)
 
   const getDataFromServer = async () => {
     // 先開起載入指示器
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://localhost:3333/normal-index/13', {
+    const response = await fetch('http://localhost:3333/normal-index', {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',
@@ -33,12 +41,25 @@ function NormalIndex() {
     // setOrderDisplay(data)
     // let arr = []
     //  arr.push(data)
-    setChangeData(data)
+    // 因為有好幾個項目，所以要.rows才可以只把rows叫出來
+    setChangeData(data.rows)
+
+    // 測試撈會員資料
+    setMemberData(data.m_rows)
+    // setTotalRows(data.TotalRows)
+    // let TRows = { setTotalRows }
+    // let x = 0
+    // for (x = 0; x < TRows; x++) {
+    //   x += 1
+    // }
+
+    setMybook_rows(data.mybook_rows[0])
+
     console.log(data)
     // 3秒後關閉指示器
     setTimeout(() => {
       // setIsLoading(false)
-    }, 2000)
+    }, 3000)
   }
   // 模擬componentDidMout
   useEffect(() => {
@@ -47,6 +68,7 @@ function NormalIndex() {
 
   return (
     <>
+      <MyChangeBooks name="jill" myrows={mybook_rows} />
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
         <nav aria-label="breadcrumb">
@@ -77,14 +99,11 @@ function NormalIndex() {
                     className="form-control formInput col-7"
                     id="exampleFormControlSelect1"
                   >
-                    {/* 到時候要撈資料庫 */}
-                    <option>外科醫生(單號:1)</option>
-                    <option>閃電崩盤(單號:11)</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
+                    {/* 到時候要撈資料庫，member_sid_o是登入的人session */}
+
+                    {mybook_rows.map((m) => (
+                      <option>{m.book_name}</option>
+                    ))}
                   </select>
                   <Link to="./NormalInsert">
                     <button className="btn-md-dark jill-myNchange-add-btn">
@@ -101,6 +120,7 @@ function NormalIndex() {
                   src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
                   alt=""
                 />
+
                 <ul className="">
                   <div className="jill-underline"></div>
                   <li>9789869507776</li>
@@ -254,6 +274,7 @@ function NormalIndex() {
             </div>
           </div>
         </div>
+
         {/* 其他人在換什麼 */}
         {/* 標題開始 */}
         <div className="container my-5">
@@ -266,29 +287,36 @@ function NormalIndex() {
 
           {/* 其他二手書區域  */}
           <div className="row">
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
+            {/* 測試 */}
+            {changeData.map((item, index) => (
+              <div className="jill-mycard d-flex jill-other-card">
+                <img
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  alt=""
+                />
+                <ul>
+                  <div className="jill-underline"></div>
+                  <li>{item.ISBN}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.book_name}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.book_condition}</li>
+                  <div className="jill-underline"></div>
+                  <li>{item.written_or_not}</li>
+                  <div className="jill-underline"></div>
+                  {memberData.map((m) => (
+                    <li>{m[index].nickname}</li>
+                  ))}
+                </ul>
+                <Link to="./SendIWantChange">
+                  <button className="btn-md-dark jill-want-btn">
+                    我想交換
+                  </button>
+                </Link>
+              </div>
+            ))}
 
-            <div className="jill-mycard d-flex jill-other-card">
+            {/* <div className="jill-mycard d-flex jill-other-card">
               <img
                 src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
                 alt=""
@@ -519,7 +547,7 @@ function NormalIndex() {
               <Link to="./SendIWantChange">
                 <button className="btn-md-dark jill-want-btn">我想交換</button>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* 頁數選項 */}

@@ -1,8 +1,70 @@
+import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import moment from 'moment'
+
+// 引用css與svg
 import '../styles/yen-index.scss'
 import SvgLadybug from './svg/SvgLadybug'
 import SvgSlide from './svg/SvgSlide'
 
-function IndexAllEvent() {
+function IndexAllEvent(props) {
+  // console.log('IndexAllEvent props', props.eventLists)
+  const classNumList = [
+    '講座',
+    '讀書會',
+    '戶外探索',
+    '休閒活動',
+    '活動地區',
+    '節氣推薦',
+  ]
+
+  const eventCard = (
+    <>
+      {props.eventLists.length !== 0 &&
+        props.eventLists.rows.map((value, index) => {
+          const pic =
+            'http://localhost:3000/images/yen/event/' +
+            value.act_name +
+            '/0.jpg'
+          return (
+            <div className="yen-event-card" key={index}>
+              <div className="yen-new-card-img">
+                <img src={pic} alt="" />
+                {console.log(pic)}
+              </div>
+              <div className="yen-new-card-tag d-flex">
+                <div className="yen-event-card-tagl">
+                  <span>{moment(value.act_time).format('YYYY-MM-DD')}</span>
+                </div>
+                <div className="yen-event-card-tagr">
+                  <span>{classNumList[parseInt(value.act_class_sid) - 1]}</span>
+                </div>
+              </div>
+              <div className="yen-new-card-des">
+                <div className="yen-event-card-title">
+                  <span>{value.act_name}</span>
+                </div>
+                <div className="yen-new-card-bottom">
+                  <div className="yen-event-card-location">
+                    <i className="fas fa-map-marker-alt"></i>
+                    <span>{value.event_city}</span>
+                  </div>
+                  <div className="yen-event-card-price">
+                    <div className="yen-event-card-nt">
+                      <span>NT</span>
+                    </div>
+                    <div className="yen-event-card-money">
+                      <span>{value.act_price}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+    </>
+  )
+
   return (
     <>
       <div className="yen-event">
@@ -28,623 +90,7 @@ function IndexAllEvent() {
           </div>
         </div>
         <div className="yen-allevent">
-          <div className="yen-event-wrap">
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="yen-event-wrap">
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="yen-event-wrap">
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="yen-event-wrap">
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-event-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-event-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-event-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-event-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-event-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-event-card-price">
-                    <div className="yen-event-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-event-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="yen-event-wrap">{eventCard}</div>
         </div>
         <div className="yen-pages">
           <ul className="pagination">
@@ -688,4 +134,4 @@ function IndexAllEvent() {
   )
 }
 
-export default IndexAllEvent
+export default withRouter(IndexAllEvent)

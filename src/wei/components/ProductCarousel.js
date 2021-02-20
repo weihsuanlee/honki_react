@@ -1,14 +1,15 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { FaHeart } from 'react-icons/fa'
+import { FaHeart, FaStar } from 'react-icons/fa'
 import React from 'react'
 import Slider from 'react-slick'
+import { withRouter } from 'react-router-dom'
 
-export default function ProductCarousel() {
+function ProductCarousel(props) {
   const settings = {
     arrows: true,
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -19,7 +20,6 @@ export default function ProductCarousel() {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -38,184 +38,69 @@ export default function ProductCarousel() {
       },
     ],
   }
-  return (
-    <Slider {...settings}>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
+  const { productRelated } = props
+  const productDisplay = (
+    <>
+      <Slider {...settings}>
+        {productRelated.map((v, i) => (
+          <div
+            className="wei-card position-relative wei-slick"
+            key={i}
+            onClick={() => {
+              props.history.push('/products/' + v.sid)
+            }}
+          >
+            <div
+              className={
+                `wei-card-icon ` +
+                (v.tag ? 'd-block ' : 'd-none ') +
+                (v.tag === 'SALE' ? 'theme-color' : '')
+              }
+            >
+              {v.tag}
+            </div>
+            <div className="wei-card-pic position-relative">
+              <div className="wei-book-pic">
+                <img
+                  className="w-100"
+                  src={`http://localhost:3000/images/books/` + v.book_pics}
+                  alt=""
+                />
+              </div>
+              <div className="wei-heart-bg">
+                <FaHeart className="wei-heart" />
+              </div>
+            </div>
+            <div className="wei-book-text">
+              <p className="wei-book-title">{v.title}</p>
+              <p className="wei-book-author">{v.author}</p>
+              <div className="d-flex justify-content-between">
+                <span className="wei-stars wei-product-stars">
+                  <FaStar
+                    className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
+                  />
+                  <FaStar
+                    className={`mr-1 wei-star ` + (v.stars > 1 ? 'yellow' : '')}
+                  />
+                  <FaStar
+                    className={`mr-1 wei-star ` + (v.stars > 2 ? 'yellow' : '')}
+                  />
+                  <FaStar
+                    className={`mr-1 wei-star ` + (v.stars > 3 ? 'yellow' : '')}
+                  />
+                  <FaStar
+                    className={`mr-1 wei-star ` + (v.stars > 4 ? 'yellow' : '')}
+                  />
+                </span>
+                <del>NT ${v.price}</del>
+              </div>
+              <div className="wei-book-price">NT$ {v.final_price}</div>
+            </div>
           </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$250</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-      <div className="wei-card position-relative wei-slick">
-        <div className="wei-card-icon">NEW</div>
-        <div className="wei-card-pic position-relative">
-          <div className="wei-book-pic">
-            <img
-              className="w-100"
-              src="/images/books/5ffd7ab5a282a.jpg"
-              alt=""
-            />
-          </div>
-          <div className="wei-heart-bg">
-            <FaHeart className="wei-heart" />
-          </div>
-        </div>
-        <div className="wei-book-text">
-          <p className="wei-book-title">
-            婚禮之途: 美學大師約翰．伯格在生命流動中見證永恆的小說
-          </p>
-          <p className="wei-book-author">約翰．伯格</p>
-          <div className="wei-book-price">$300</div>
-        </div>
-      </div>
-    </Slider>
+        ))}
+      </Slider>
+    </>
   )
+  return <>{productDisplay}</>
 }
+export default withRouter(ProductCarousel)

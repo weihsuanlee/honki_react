@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+
+	<title>Amigo CDN (Content Delivery Network) - AmigoCDN</title>
+	<meta name="description" content="AmigoCDN is a global Content Delivery Network service that delivers web applications and streaming media with low latency and high transfer speeds.">
+	<meta name="author" content="Cougar Huang">
+	<meta name="keywords" content="AmigoCDN,Amigo,AWS,Azure,Google,Hybrid,Hybrid-Cloud-CDN,CDN,Content,Distribution,Delivery,Network,cdn, google cloud cdn, google,GCP, external origin">
+	<meta property="og:url" content="https://www.amigocdn.com">
+	<meta property="og:title" content="Amigo CDN (Content Delivery Network) - AmigoCDN">
+	<meta property="og:description" content="AmigoCDN is a global Content Delivery Network service that delivers web applications and streaming media with low latency and high transfer speeds.">
+	<meta property="og:image" content="https://www.amigocdn.com/img/LOGO_600.jpg">
+	<meta property="og:type" content="website">
+	<meta name="thumbnail" content="https://www.amigocdn.com/img/LOGO_600.jpg">
+	<meta name="google-site-verification" content="9Tvh31yvfjzA-mXNQ0LrGBRrZlvYlhjAeYKdo6FX_Vw" />
+	<link rel="icon" href="img/color.ico">
+	<link rel="canonical" href="https://www.amigocdn.com/">
+	<link rel="alternate" href="https://www.amigocdn.com/" hreflang="x-default" />
+	<link rel="alternate" href="https://www.amigocdn.com/" hreflang="en" />
+	<link rel="alternate" href="https://www.amigocdn.com/" hreflang="en-us" />
+	<link rel="alternate" href="https://www.amigocdn.com/zh-tw/" hreflang="zh" />
+	<link rel="alternate" href="https://www.amigocdn.com/zh-tw/" hreflang="zh-tw" />
+	<link rel="alternate" href="https://www.amigocdn.com/zh-cn/" hreflang="zh-cn" />
+	<!--<link rel="amphtml" href="https://www.amigocdn.com/document.htmslff">	-->
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom fonts for this template -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	 rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+	 rel='stylesheet' type='text/css'>
+
+	<!-- Plugin CSS -->
+	<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/creative.min.css?t=201811ps09" rel="stylesheet">
+
+	<script type="application/ld+json">
+	{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"name": "www.amigocdn.com",
+	"url": "https://www.amigocdn.com/",
+	"email":"service@amigocdn.com",
+	"description":"AmigoCDN is a global Content Delivery Network service that delivers web applications and streaming media with low latency and high transfer speeds.",
+	"logo":" https://www.amigocdn.com/img/LOGO_1200x630.jpg",
+	"contactPoint" : [
+    {
+      "@type" : "ContactPoint",
+      "telephone" : "+886-2-8501-5055",
+			"contactType" : "customer service",
+			"areaServed" : ["CN","TW","HK"],
+      "availableLanguage" : ["English","Chineses"]
+    } , {
+      "@type" : "ContactPoint",
+      "telephone" : "+886-2-8501-5055",
+			"contactType" : "customer support",
+			"areaServed" : ["CN","TW","HK"],
+      "availableLanguage" : ["English","Chineses"]
+    } , {
+      "@type" : "ContactPoint",
+      "telephone" : "+886-2-8501-5055",
+			"contactType" : "bill payment",
+			"areaServed" : ["CN","TW","HK"],
+      "availableLanguage" : ["English","Chineses"]
+    } ],
+	"member": [
+		{
+		  "@type": "Organization",
+			"member": {
+			  "@type": "Person",
+			  "name": "Cougar Huang"
+			}
+		},
+		{
+		  "@type": "Organization",
+			"member": {
+			  "@type": "Person",
+			  "name": "Kevin Chen"
+			}
+		},
+		{
+		  "@type": "Organization",
+			"member": {
+			  "@type": "Person",
+			  "name": "Sam Yao"
+			}
+		}
+	  ],
+	"sameAs": [
+		  "https://www.amigocdn.com/",
+		  "https://amigocdn.com/",
+		  "https://www.linkedin.com/company/amigocdn/"
+		]
+	}
+    
+	</script>
+	
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125181678-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-125181678-1');
+	</script>
+
+
+
+
+
+</head>
+
+<body id="CDN">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#CDN"><img src="img/logo.png" alt="AmigoCDN logo"> AmigoCDN</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+			 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#features">Features</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#Pricing">Pricing</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="./GettingStarted.html#Getting-Started">Getting Started</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="./CDN-Overview.html#What-is-a-CDN">What is a CDN?</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="./FAQs.html#FAQs">FAQs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger mr-4" href="#contact">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-in js-scroll-trigger" href="https://console.amigocdn.com/login">Log In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link nav-in js-scroll-trigger mr-2" href="https://console.amigocdn.com/register">Sign Up</a>
+					</li>
+
+					<li class="nav-item">
+						<div class="dropdown show">
+							<a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+							 aria-haspopup="true" aria-expanded="false">
+								🌎
+							</a>
+
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<a class="dropdown-item" href="https://www.amigocdn.com">English</a>
+								<a class="dropdown-item" href="https://www.amigocdn.com/zh-tw">繁體中文</a>
+								<a class="dropdown-item" href="https://www.amigocdn.com/zh-cn">简体中文</a>
+
+							</div>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="masthead text-center text-white d-flex">
+		<div class="container my-auto">
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<h1 class="text-uppercase">
+						<strong>Expert of CDN services</strong>
+					</h1>
+					<hr>
+				</div>
+				<div class="col-lg-8 mx-auto">
+					<p class="text-faded mb-5">AmigoCDN, supports multiple original data sources, like public cloud, IDC, or your own
+						On-premises servers.</p>
+					<a class="btn btn-primary btn-xl js-scroll-trigger" href="#features">Find Out More</a>
+					<!--<
+					<a class="btn btn-new btn-x0 " href="https://console.amigocdn.com/register">Sign up</a>-->
+				</div>
+				
+				<div class="col-lg-10 mx-auto">
+					<hr class="my-4">
+					<a href="https://play.google.com/store/apps/details?id=com.nextlink.amigoapp" target="_blank"><img src="./img/android.png" alt="Android"></a>
+					<a href="https://apps.apple.com/tw/app/amigo-cdn/id1470363182" target="_blank"><img src="./img/ios.png" alt="iOS"></a>	
+					
+					<!--<img src="./img/ios.png" alt="iOS">-->					
+				</div>
+				
+
+			<!--
+		   <div class="col-lg-10 mx-auto">
+				<hr class="my-4">
+				
+                
+				<img src="./img/gcp-partner1.png" alt="google cloud premium partner">
+									
+           </div>-->
+		   
+			</div>
+
+		</div>
+
+	</header>
+
+	<section id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">CDN Comparison</h2>
+					<hr class="my-4">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center mtable">
+					<div class="mt-12 mx-auto">
+						<table class="table table-bordered" id="tb_size" width="100%" style="table-layout:fixed">
+							<thead>
+								<tr>
+									<th colspan="2" rowspan="1"></th>
+									<th colspan="1" rowspan="1" class="bg-primary text-white">AmigoCDN</th>
+									<th colspan="1" rowspan="1" class="bg-primary text-white">Google Cloud CDN</th>
+									<th colspan="1" rowspan="1" class="bg-primary text-white">AWS Cloudfront</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+								<tr>
+									<td colspan="2" rowspan="1">
+										Cache egress &lt; 10 TB plan (per GB)(Asia Pacific)	
+									</td>
+									<td class="text-danger"><b>$0.06</b>  <i class="fa fa-check-circle text-primary mb-3 sr-icons"></i></td>
+									<td>$0.09</td>
+									<td>$0.14</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" rowspan="1">Cache egress &lt; 10 TB plan (per GB)(America)</td>
+									<td class="text-danger"><b>$0.06</b>  <i class="fa fa-check-circle text-primary mb-3 sr-icons"></i></td>
+									<td>$0.08</td>
+									<td>$0.085</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										HTTPS requests (per 10,000 requests)
+									</td>
+									<td>$0.0075</td>
+									<td>$0.0075</td>
+									<td>$0.01</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">cache fill / transfer Out to Origin (per GB)</td>
+									<td>$0.06</td>
+									<td>$0.06</td>
+									<td>$0.06</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">Network performance</td>
+									<td>Google Network <i class="fa fa-check-circle text-primary mb-3 sr-icons"></i></td>
+									<td>Google Network <i class="fa fa-check-circle text-primary mb-3 sr-icons"></i></td>
+									<td>Public Internet</td>
+								</tr>
+								
+								
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-primary" id="features">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading text-white">CDN Features</h2>
+				</div>
+
+			</div>
+		</div>
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box  mx-auto">
+						<i class="fa fa-4x fa-wifi text-primary"></i>
+						<h3 class="mb-3 text-white">Anycast</h3>
+						<p class="text-white mb-0 ">Serve all your content from a single IP address with low latency worldwide.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box  mx-auto">
+						<i class="fa fa-4x fa-paper-plane text-primary"></i>
+						<h3 class="mb-3 text-white">HTTP/2</h3>
+						<p class="text-white mb-0">Supports the new, more efficient HTTP/2 protocol in addition to HTTP/1.0 and HTTP/1.1.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box  mx-auto">
+						<i class="fa fa-4x fa-asl-interpreting text-primary"></i>
+						<h3 class="mb-3 text-white">HTTPS</h3>
+						<p class="text-white mb-0">Provide your own SSL/TLS certificate to secure your content using a domain name of
+							your choice.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box  mx-auto">
+						<i class="fa fa-4x fa-money text-primary "></i>
+						<h3 class="mb-3 text-white">Invalidation</h3>
+						<p class="text-white mb-0">Take down cached content in minutes. </p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mx-auto">
+						<i class="fa fa-4x fa-money text-primary "></i>
+						<h3 class="mb-3 text-white">Logging</h3>
+						<p class="text-white mb-0">Logging to give you detailed information about each cache hit and miss. </p>
+					</div>
+				</div>
+				<!--
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mx-auto">
+						<i class="fa fa-4x fa-money text-primary "></i>
+						<h3 class="mb-3 text-white">Origins</h3>
+						<p class="text-white mb-0">Serves content originating from Compute Engine VMs and Cloud Storage buckets. You can
+							even mix and match multiple origins behind a single domain. External origin servers are supported.</p>
+					</div>
+				</div>
+				-->
+				<div class="col-lg-3 col-md-6 text-center">
+						<div class="service-box mx-auto">
+							<i class="fa fa-4x fa-money text-primary "></i>
+							<h3 class="mb-3 text-white">WAF</h3>
+							<p class="text-white mb-0">Protects web applications from attacks by filtering traffic with AmigoCDN rulesets. (e.g. Defend your website against SQL injection, XSS javascript, real-time POST actions and automated attacks.)</p>
+						</div>
+					</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mx-auto">
+						<i class="fa fa-4x fa-money text-primary "></i>
+						<h3 class="mb-3 text-white">Compression</h3>
+						<p class="text-white mb-0">Compression reduces ~70% of file size of text-based objects (HTML, CSS, JS, etc),
+							resulting in faster loading and reduced CDN costs.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 text-center">
+					<div class="service-box mx-auto">
+						<i class="fa fa-4x fa-money text-primary "></i>
+						<h3 class="mb-3 text-white">CORS</h3>
+						<p class="text-white mb-0">Allows resources when files (e.g. fonts or JavaScript) are loaded from another domain
+							(e.g. a CDN) other than the website.</p>
+					</div>
+				</div>
+
+
+			</div>
+			<hr>
+			<div class="footnote text-white" id="footnote-1">
+				<sup class="footnote text-white">*</sup>AmigoCDN, Content-Delivery-Network, supports multiple original data
+				sources, like public cloud, IDC, or your own On-premises servers. For example, you can specify:
+			</div>
+			<div class="footnote text-warning" id="footnote-1">
+				<sup class="footnote text-white">a.</sup>Amazon S3 bucket.
+			</div>
+			<div class="footnote text-warning" id="footnote-1">
+				<sup class="footnote text-white">b.</sup>Google Cloud Storage.
+			</div>
+			<div class="footnote text-warning" id="footnote-1">
+				<sup class="footnote text-white">c.</sup> MediaStore container.
+			</div>
+			<div class="footnote text-warning" id="footnote-1">
+				<sup class="footnote text-white">d.</sup> Custom origin (Amazon EC2 instance, Google Compute Engine or your own
+				HTTP web server) as original data sources.
+			</div>
+		</div>
+
+
+	</section>
+	<section id="Pricing">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">CDN Pricing overview</h2>
+					<hr class="my-4">
+
+				</div>
+				<div class="col-lg-8 mx-auto text-center">
+
+
+					<p class="mb-5">Cache fill and cache egress charges apply to cacheable content. On cache hits, you pay for cache
+						egress bandwidth. On cache misses, you additionally pay for cache fill bandwidth. These charges replace the
+						network egress charges that apply when serving directly from Compute Engine or Cloud Storage. For non-cacheable
+						content, <a href="#Network egress">Network Internet Egress</a> rates apply instead.</p>
+				</div>
+
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center">
+					<div class="mt-12 mx-auto">
+						<table class="table" id="tb_size">
+							<thead>
+								<tr>
+									<th scope="col">Item</th>
+									<th scope="col">Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Cache egress</td>
+									<td>$0.02 - $0.20 per GB</td>
+								</tr>
+								<tr>
+									<td>Cache fill</td>
+									<td>$0.04 - $0.15 per GB</td>
+								</tr>
+								<tr>
+									<td>HTTP/HTTPS cache lookup requests</td>
+									<td>$0.0075 per 10,000 requests</td>
+								</tr>
+								<tr>
+									<td>Cache invalidation</td>
+									<td>$0.005 per invalidation</td>
+								</tr>
+								<tr>
+									<td>Network Internet Egress</td>
+									<td>$0.08 - $0.23 per GB</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-primary" id="CDN Cache egress">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading text-white">Cache egress pricing table</h2>
+					<hr class="my-4">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center">
+					<div class="mt-12 mx-auto">
+						<table class="table" id="tb_size">
+							<thead>
+								<tr>
+									<th colspan="1" rowspan="1" class="text-white">Destination</th>
+									<th colspan="4" rowspan="1" class="text-white">Price (per GB) by monthly usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="1" rowspan="1">&nbsp;</th>
+									<th class="text-white">First 10 TB</th>
+									<th class="text-white">Next 140 TB</th>
+									<th class="text-white">Next 850 TB</th>
+									<th class="text-white">&gt; 1000 TB</th>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">
+										Asia Pacific<sup>1</sup>
+									</td>
+									<td class="text-white">$0.06(per GB)</td>
+									<td class="text-white">$0.05(per GB)</td>
+									<td class="text-white">$0.04(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">Oceania</td>
+									<td class="text-white">$0.11(per GB)</td>
+									<td class="text-white">$0.09(per GB)</td>
+									<td class="text-white">$0.08(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">
+										China<sup>2,3</sup>
+									</td>
+									<td class="text-white">$0.20(per GB)</td>
+									<td class="text-white">$0.17(per GB)</td>
+									<td class="text-white">$0.16(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">Europe</td>
+									<td class="text-white">$0.06(per GB)</td>
+									<td class="text-white">$0.05(per GB)
+									</td>
+									<td class="text-white">$0.025(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">North America</td>
+									<td class="text-white">$0.06(per GB)</td>
+									<td class="text-white">$0.05(per GB)</td>
+									<td class="text-white">$0.025(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">South America</td>
+									<td class="text-white">$0.06(per GB)</td>
+									<td class="text-white">$0.05(per GB)</td>
+									<td class="text-white">$0.04(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+								<tr>
+									<td colspan="1" rowspan="1" class="text-white">All other destinations</td>
+									<td class="text-white">$0.06(per GB)</td>
+									<td class="text-white">$0.05(per GB)</td>
+									<td class="text-white">$0.04(per GB)</td>
+									<td class="text-white"><a href="mailto:service@amigocdn.com" class="text-warning">Contact Us</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<div class="footnote text-dark" id="footnote-1">
+				<sup class="footnote text-white">1</sup> Excluding Australia and China but including Hong Kong.
+			</div>
+			<div class="footnote text-dark" id="footnote-2">
+				<sup class="footnote text-white">2</sup> Excluding Hong Kong.
+			</div>
+			<div class="footnote text-dark" id="footnote-3">
+				<sup class="footnote text-white">3</sup> Traffic destined for mainland China is served from Google locations
+				outside of mainland China. Performance and reliability may be lower than for
+				traffic served from in-country locations.
+			</div>
+		</div>
+	</section>
+
+	<section  id="Network egress">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading"> Network Internet Egress pricing table</h2>
+					<hr class="my-4">
+					<div class="col-lg-8 mx-auto text-center">
+
+
+						<p class="mb-5">Network (Egress) Worldwide Destinations (excluding China & Australia,but including Hong Kong)</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center mtable">
+					<div class="mt-12 mx-auto">
+						<table class="table" id="tb_size">
+							<thead>
+								<tr>
+									<th colspan="2" rowspan="1">Data Source</th>
+									<th colspan="5" rowspan="1">Price (per GB) by monthly usage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="2" rowspan="1">&nbsp;</th>
+									<th>0-1 TB</th>
+									<th>1-10 TB</th>
+									<th>&gt; 10 TB</th>
+									<th>Network (Egress) China </th>
+									<th>Network (Egress) Australia </th>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										Taiwan
+									</td>
+									<td>$0.12</td>
+									<td>$0.11</td>
+									<td>$0.08</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+
+								<tr>
+									<td colspan="2" rowspan="1">Singapore</td>
+									<td>$0.14</td>
+									<td>$0.13</td>
+									<td>$0.09</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										Oregon
+									</td>
+									<td>$0.12</td>
+									<td>$0.11</td>
+									<td>$0.08</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">Tokyo</td>
+									<td>$0.14</td>
+									<td>$0.14</td>
+									<td>$0.12</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										Belgium
+									</td>
+									<td>$0.12</td>
+									<td>$0.11</td>
+									<td>$0.08</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										Northern Virginia
+									</td>
+									<td>$0.12</td>
+									<td>$0.11</td>
+									<td>$0.08</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+								<tr>
+									<td colspan="2" rowspan="1">
+										São Paulo
+									</td>
+									<td>$0.12</td>
+									<td>$0.11</td>
+									<td>$0.08</td>
+									<td>$0.20-$0.23</td>
+									<td>$0.15-$0.19</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section class="bg-primary"  id="Cache fill">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center text-white">
+					<h2 class="section-heading"> Cache fill pricing tables</h2>
+					<hr class="my-4">
+					<div class="col-lg-8 mx-auto text-center text-white" >
+
+
+						<p class="mb-5 ">Cache fill charges vary based on source and destination. Source is the region of the origin server or, in the case of cache-to-cache cache fill, the region of the source cache. Destination is a geographic area determined by client IP address.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center mtable">
+					<div class="mt-12 mx-auto">
+						<table class="table" id="tb_size">
+							<thead>
+								<tr>
+									<th rowspan="1" class="text-white">Intra-region cache fill</th>
+									<th rowspan="1" class="text-white">Price (per GB)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td rowspan="1" class="text-white">
+										Asia Pacific(Including Hong Kong)
+									</td>
+									<td class="text-white">$0.06</td>
+								</tr>
+								<tr>
+									<td rowspan="1" class="text-white">
+										Europe
+									</td>
+									<td class="text-white">$0.05</td>
+								</tr>
+								<tr>
+									<td rowspan="1" class="text-white">
+										North America(Including Hawaii)
+									</td>
+									<td class="text-white">$0.04</td>
+								</tr>
+								<tr>
+									<td rowspan="1" class="text-white">
+										Oceania
+									</td>
+									<td class="text-white">$0.06</td>
+								</tr>
+								<tr>
+									<td rowspan="1" class="text-white">
+										South America
+									</td>
+									<td class="text-white">$0.06</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</br>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center mtable">
+					<div class="mt-12 mx-auto">
+						<table class="table" id="tb_size">
+							<thead>
+								<tr>
+									<th rowspan="1" class="text-white">Inter-region cache fill</th>
+									<th rowspan="1" class="text-white">Price (per GB)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td rowspan="1" class="text-white">
+										To/from Oceania
+									</td>
+									<td class="text-white">$0.15</td>
+								</tr>
+								<tr>
+									<td rowspan="1" class="text-white">
+										All other
+									</td>
+									<td class="text-white">	$0.08</td>
+								</tr>
+								
+								
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	
+
+
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="section-heading">Let's Get In Touch!</h2>
+					<hr class="my-4">
+					<p class="mb-5">Ready to start your next project with us? That's great! Send us an email and we will get back to
+						you as soon as possible!</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+					<p class="mb-5">
+						<a href="mailto:service@amigocdn.com">service@amigocdn.com</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
+
+
+					<p class="h6">AmigoCDN © All right Reversed.</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="js/creative.min.js"></script>
+	
+	
+	<!-- firebase-->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAih2rCKZ21WZQeXAFFEXrK8JcyOu0r3oU",
+    authDomain: "microfusion-cdn.firebaseapp.com",
+    databaseURL: "https://microfusion-cdn.firebaseio.com",
+    projectId: "microfusion-cdn",
+    storageBucket: "",
+    messagingSenderId: "537005193500",
+    appId: "1:537005193500:web:a3aa46cd55ee984b"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</body>
+
+</html>
