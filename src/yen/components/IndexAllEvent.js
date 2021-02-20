@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 import moment from 'moment'
 
@@ -7,7 +7,16 @@ import '../styles/yen-index.scss'
 import SvgLadybug from './svg/SvgLadybug'
 import SvgSlide from './svg/SvgSlide'
 
+// 分頁
+import ActPagination from './ActPagination'
+
 function IndexAllEvent(props) {
+  // console.log('eventCard.props:', props)
+  // 頁數
+  const { totalPages, page, setPage, queryPage, setQueryPage } = props
+
+  // const mounted = useRef(null)
+
   // console.log('IndexAllEvent props', props.eventLists)
   const classNumList = [
     '講座',
@@ -30,7 +39,6 @@ function IndexAllEvent(props) {
             <div className="yen-event-card" key={index}>
               <div className="yen-new-card-img">
                 <img src={pic} alt="" />
-                {console.log(pic)}
               </div>
               <div className="yen-new-card-tag d-flex">
                 <div className="yen-event-card-tagl">
@@ -93,38 +101,13 @@ function IndexAllEvent(props) {
           <div className="yen-event-wrap">{eventCard}</div>
         </div>
         <div className="yen-pages">
-          <ul className="pagination">
-            <li className="page-item page-left disabled">
-              <a
-                className="page-link"
-                href="#pagination"
-                tabIndex="-1"
-                aria-disabled="true"
-              >
-                ←
-              </a>
-            </li>
-            <li className="page-item page-num page-start active">
-              <a className="page-link" href="#pagination">
-                1
-              </a>
-            </li>
-            <li className="page-item page-num">
-              <a className="page-link" href="#pagination">
-                2
-              </a>
-            </li>
-            <li className="page-item page-num page-end">
-              <a className="page-link" href="#pagination">
-                3
-              </a>
-            </li>
-            <li className="page-item page-right">
-              <a className="page-link" href="#pagination" aria-disabled="true">
-                →
-              </a>
-            </li>
-          </ul>
+          <ActPagination
+            totalPages={totalPages}
+            page={page}
+            setPage={setPage}
+            queryPage={queryPage}
+            setQueryPage={setQueryPage}
+          />
         </div>
         <div className="yen-slide">
           <SvgSlide />
