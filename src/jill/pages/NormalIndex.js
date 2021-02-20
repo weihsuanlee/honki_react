@@ -68,6 +68,8 @@ function NormalIndex() {
 
   return (
     <>
+      {/* 測試成功 但一次只能傳一筆 想傳所有，是否用map */}
+      {/* <MyChangeBooks name="jill" myrows={mybook_rows[0]} /> */}
       <MyChangeBooks name="jill" myrows={mybook_rows} />
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
