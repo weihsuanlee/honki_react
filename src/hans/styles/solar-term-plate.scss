@@ -132,7 +132,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   height: 200%;
   border-radius: 50%;
   background: var(--honki-black);
-  opacity: 90%;
+  opacity: 100%;
 }
 
 .slice:hover .slice-contents {
@@ -148,9 +148,6 @@ https://codepen.io/ant1mas/pen/MeJjaK
 /* media 變化 start */
 
 @media only screen and (max-width: 1440px) {
-  .osb-book-col {
-    width: unset;
-  }
 }
 
 @keyframes fadein {
