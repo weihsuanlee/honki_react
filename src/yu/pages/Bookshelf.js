@@ -1,5 +1,6 @@
 import '../styles/members-bookshelf.scss'
 import { Link } from 'react-router-dom'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 function Bookshelf() {
   return (
@@ -28,9 +29,9 @@ function Bookshelf() {
       {/* <!-- <div className="yu-wood"><img src="../../images/members/wood.png" alt="" /></div> --> */}
 
       {/* <!-- 標題 --> */}
-      <div className="container my-5">
-        <div className="row d-flex justify-content-between">
-          <div className="yu-book-general-bookshelf col-8 ">
+      <Container className="my-5">
+        <Row className="d-flex justify-content-between">
+          <Col className="yu-book-general-bookshelf col-8 ">
             {/* <!-- 每本書的設定 --> */}
             {/* <!-- book1 --> */}
             <div className="yu-books yu-book-1 text-center">
@@ -158,7 +159,7 @@ function Bookshelf() {
               src="http://localhost:3000/images/yu/general-bookshelf.png"
               alt=""
             />
-          </div>
+          </Col>
           <div className="col-4">
             <div>
               <h5 className="yu-book-member-menu-title">會員中心</h5>
@@ -217,8 +218,8 @@ function Bookshelf() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </>
   )
 }
