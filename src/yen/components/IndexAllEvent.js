@@ -15,8 +15,6 @@ function IndexAllEvent(props) {
   // 頁數
   const { totalPages, page, setPage, queryPage, setQueryPage } = props
 
-  // const mounted = useRef(null)
-
   // console.log('IndexAllEvent props', props.eventLists)
   const classNumList = [
     '講座',
@@ -35,8 +33,15 @@ function IndexAllEvent(props) {
             'http://localhost:3000/images/yen/event/' +
             value.act_name +
             '/0.jpg'
+
           return (
-            <div className="yen-event-card" key={index}>
+            <div
+              className="yen-event-card"
+              key={index}
+              onClick={() => {
+                props.history.push('/activity/event/' + value.act_sid)
+              }}
+            >
               <div className="yen-new-card-img">
                 <img src={pic} alt="" />
               </div>

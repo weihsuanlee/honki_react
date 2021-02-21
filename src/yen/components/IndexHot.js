@@ -1,16 +1,17 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import moment from 'moment'
-import $ from 'jquery'
+// import $ from 'jquery'
 
 // svg-icon
 import '../styles/yen-index.scss'
 import SvgCircle from './svg/SvgCircle'
 import SvgLadybug from './svg/SvgLadybug'
 import SvgRun from './svg/SvgRun'
+import ActEvent from '../pages/ActEvent'
 
 function IndexHot(props) {
-  console.log(props)
+  const { eventList } = props
+  // console.log(props)
   const hoverCard = (
     <>
       {props.hotLists.length !== 0 &&
@@ -19,19 +20,58 @@ function IndexHot(props) {
             'http://localhost:3000/images/yen/event/' +
             value.act_name +
             '/0.jpg'
+
+          const slider = document.querySelector('.items')
+          let isDown = false
+          let startX
+          let scrollLeft
+
+          slider.addEventListener('mousedown', (e) => {
+            isDown = true
+            slider.classList.add('active')
+            startX = e.pageX - slider.offsetLeft
+            scrollLeft = slider.scrollLeft
+          })
+
+          slider.addEventListener('mouseleave', () => {
+            isDown = false
+            slider.classList.remove('active')
+          })
+
+          slider.addEventListener('mouseup', () => {
+            isDown = false
+            slider.classList.remove('active')
+          })
+
+          slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return //stop the fn running
+            e.preventDefault()
+            const x = e.pageX - slider.offsetLeft
+            const walk = x - startX
+            slider.scrollLeft = scrollLeft - walk
+          })
+
+          // eslint-disable-next-line no-lone-blocks
+          {
+            /* TODO: 連接到商品頁 */
+          }
+          function cardClick() {
+            console.log(value.act_sid)
+          }
+
           return (
             <div
-              className="yen-hot-cards yen-hot-cards-s yen-hover-box"
+              className="yen-hot-cards-s yen-hover-box item"
               key={index}
+              onClick={() => {
+                cardClick()
+              }}
             >
               <div className="yen-hot-cover-box d-flex">
                 <div className="yen-hot-cover">
                   <img className="yen-hot-cards-img" src={pic} alt="" />
                   <div className="yen-hot-cover-text d-none">
-                    <h5>{value.act_name}</h5>
-                    <br />
-                    <h6>{moment(value.act_time).format('YYYY-MM-DD')}</h6>
-                    <h6>{value.event_city}</h6>
+                    <ActEvent />
                   </div>
                 </div>
               </div>
@@ -51,7 +91,7 @@ function IndexHot(props) {
             </div>
             <span className="yen-title-text">熱門活動</span>
           </div>
-          <div className="yen-hot-card-box">
+          <div className="yen-hot-card-box items">
             {/* <div className="yen-hot-cards-s yen-hover-box">
               <div className="yen-hot-cover-box d-flex"> */}
             {hoverCard}

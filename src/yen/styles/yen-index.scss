@@ -231,6 +231,27 @@ body {
   position: relative;
 }
 
+.yen-hot-card-box::-webkit-scrollbar {
+  display: none;
+}
+
+.items {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  font-size: 0;
+}
+
+.items.active {
+  cursor: grabbing;
+}
+
 .yen-hot-card-box:hover .yen-hover-box {
   filter: blur(3px);
   opacity: 0.5;
