@@ -31,7 +31,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
   // 圓盤位置
   // transform: translate(0px, 0px);
   // transform: translate(-81px, -265px);
-  transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  transform: translate(0, -173px) rotate(15deg);
 }
 
 /* .solar-term-plate-v2:hover {
@@ -131,7 +132,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   height: 200%;
   border-radius: 50%;
   background: var(--honki-black);
-  opacity: 50%;
+  opacity: 90%;
 }
 
 .slice:hover .slice-contents {
@@ -161,16 +162,19 @@ https://codepen.io/ant1mas/pen/MeJjaK
   }
 }
 
+// 旋轉，圓盤位置
 @keyframes rotation {
   from {
     // transform: translate(0px, 0px) rotate(0deg);
     // transform: translate(-81px, -265px) rotate(0deg);
-    transform: translate(-70px, -173px) rotate(15deg);
+    // transform: translate(-70px, -173px) rotate(15deg);
+    transform: translate(0, -173px) rotate(15deg);
   }
   to {
     // transform: translate(0px, 0px) rotate(359deg);
     // transform: translate(-81px, -265px) rotate(359deg);
-    transform: translate(-70px, -173px) rotate(374deg);
+    // transform: translate(-70px, -173px) rotate(374deg);
+    transform: translate(0, -173px) rotate(374deg);
   }
 }
 
