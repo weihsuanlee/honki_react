@@ -128,7 +128,7 @@ function ActEvent(props) {
   })
 
   const eventid = props.match.params.sid
-  console.log(props)
+  // console.log(props)
   const [actName, setName] = useState('')
   const [actTime, setActTime] = useState('')
   const [actLocation, setActLocation] = useState('')
@@ -226,7 +226,7 @@ function ActEvent(props) {
         </div>
       </div>
 
-      {/* https://github.com/reactjs/react-tabs */}
+      {/*Tab套件：https://github.com/reactjs/react-tabs */}
       <div className="yen-event-body-box">
         <div className="yen-event-des-box">
           <Tabs className="yen-event-tags-box">
