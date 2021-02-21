@@ -4,9 +4,17 @@ import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
+import { Container, Row, Col, Modal, Button } from 'react-bootstrap'
+
 function Login() {
+  // const [show, setShow] = useState(false)
+  // const handleClose = () => setShow(false)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
   const login = async function (email, password) {
     const url = 'http://localhost:3333/member/login'
     const request = new Request(url, {
@@ -23,8 +31,16 @@ function Login() {
     const response = await fetch(request)
     const data = await response.json()
     console.log(data)
+    // localStorage setitem
+
+    // let userLogin = 'userLogin'
     if (data.success) {
-      window.location.href = '/menu'
+      localStorage.setItem('userLogin', JSON.stringify(data))
+      console.log(JSON.parse(localStorage.getItem('userLogin')))
+      toMenu()
+    } else {
+      localStorage.removeItem('userLogin')
+      setShow(true)
     }
   }
 
@@ -38,6 +54,10 @@ function Login() {
   //       info.innerHTML = txt
   //     })
   // }
+
+  function toMenu() {
+    window.location.href = '/menu'
+  }
 
   return (
     <>
@@ -138,14 +158,29 @@ function Login() {
               <div className="form-group button-group">
                 <div className="formItems row d-flex justify-content-center">
                   <div className="yu-login-send">
-                    <button
+                    <Button
                       className="btn-md-dark form-button form-control"
                       onClick={() => {
                         login(email, password)
                       }}
                     >
                       送出
-                    </button>
+                    </Button>
+
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Honki</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>帳號或密碼錯誤</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          關閉
+                        </Button>
+                        {/* <Button variant="primary" onClick={handleClose}>
+                          Save Changes
+                        </Button> */}
+                      </Modal.Footer>
+                    </Modal>
                   </div>
                 </div>
               </div>
