@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
+import moment from 'moment'
+import $ from 'jquery'
 
 // svg-icon
 import '../styles/yen-index.scss'
@@ -7,34 +9,37 @@ import SvgCircle from './svg/SvgCircle'
 import SvgLadybug from './svg/SvgLadybug'
 import SvgRun from './svg/SvgRun'
 
-function IndexHot() {
-  const [hotLists, setHotLists] = useState([])
-
-  async function getHotEventFromServer() {
-    // 開啟載入指示
-
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:3333/activity/hot'
-
-    // header的資料格式
-    const request = new Request(url, {
-      method: 'GET',
-      header: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(data)
-    setHotLists(data)
-    // console.log(data)
-  }
-
-  useEffect(() => {
-    getHotEventFromServer()
-  }, [])
+function IndexHot(props) {
+  console.log(props)
+  const hoverCard = (
+    <>
+      {props.hotLists.length !== 0 &&
+        props.hotLists.rows.map((value, index) => {
+          const pic =
+            'http://localhost:3000/images/yen/event/' +
+            value.act_name +
+            '/0.jpg'
+          return (
+            <div
+              className="yen-hot-cards yen-hot-cards-s yen-hover-box"
+              key={index}
+            >
+              <div className="yen-hot-cover-box d-flex">
+                <div className="yen-hot-cover">
+                  <img className="yen-hot-cards-img" src={pic} alt="" />
+                  <div className="yen-hot-cover-text d-none">
+                    <h5>{value.act_name}</h5>
+                    <br />
+                    <h6>{moment(value.act_time).format('YYYY-MM-DD')}</h6>
+                    <h6>{value.event_city}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+    </>
+  )
 
   return (
     <>
@@ -47,30 +52,38 @@ function IndexHot() {
             <span className="yen-title-text">熱門活動</span>
           </div>
           <div className="yen-hot-card-box">
-            <div className="yen-hot-cards-s yen-hover-box yen-hot-bgimg1">
-              <div className="yen-hot-cover-box d-flex">
-                <div className="yen-hot-cover">
+            {/* <div className="yen-hot-cards-s yen-hover-box">
+              <div className="yen-hot-cover-box d-flex"> */}
+            {hoverCard}
+            {/* <div className="yen-hot-cover">
+                  <img
+                    className="yen-hot-cards-img"
+                    src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
+                    alt=""
+                  />
                   <div className="yen-hot-cover-text">
-                    <h5>隨心香氛自由書寫課。 台中場</h5>
+                    <h5>title</h5>
                     <br />
                     <br />
                     <p>成立花蓮運行保存傳奇實。</p>
                     <p>成立花蓮運行保存傳奇實。</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="yen-hot-cards-l yen-hover-box yen-hot-bgimg2"></div>
-            <div className="yen-hot-cards-s yen-hover-box yen-hot-bgimg3"></div>
-            <div className="yen-hot-cards-l yen-hover-box yen-hot-bgimg4"></div>
-            <div className="yen-hot-cards-s yen-hover-box yen-hot-bgimg5"></div>
-            <div className="yen-hot-cards-l yen-hover-box yen-hot-bgimg6"></div>
+                </div> */}
+            {/* </div>
+            </div> */}
+
+            {/* <div className="yen-hot-cards-l yen-hover-box"></div>
+            <div className="yen-hot-cards-s yen-hover-box"></div>
+            <div className="yen-hot-cards-l yen-hover-box"></div>
+            <div className="yen-hot-cards-s yen-hover-box"></div>
+            <div className="yen-hot-cards-l yen-hover-box"></div> */}
+
             <div className="yen-hot-ladybug">
               <SvgLadybug />
             </div>
-            <div className="yen-hot-run">
-              <SvgRun />
-            </div>
+          </div>
+          <div className="yen-hot-run">
+            <SvgRun />
           </div>
         </div>
       </div>

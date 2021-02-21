@@ -227,7 +227,7 @@ body {
   margin-top: 2%;
   width: 100%;
   /* background: #ccc; */
-  overflow-x: visible;
+  overflow-x: scroll;
   position: relative;
 }
 
@@ -246,15 +246,23 @@ body {
   /* background: #7ba23e; */
 }
 
+.yen-hot-cards-img {
+  width: 100%;
+  height: 100%;
+  background: cover;
+  background-position: center;
+}
+
 .yen-hot-cards-s {
   margin-top: 2rem;
   margin-bottom: 2rem;
   background: #adc;
-  padding: 15rem;
+  padding: 15rem 24rem;
   height: 80%;
   z-index: 10;
   transition: 0.2s all;
   position: relative;
+  overflow: hidden;
 }
 
 .yen-hot-cards-l {
@@ -265,39 +273,24 @@ body {
   transition: 0.2s all;
 }
 
-.yen-hot-bgimg1 {
-  background-image: url('http://localhost:3000/images/yen/hot/hot-1.jpg');
-}
-
-.yen-hot-bgimg2 {
-  background-image: url('http://localhost:3000/images/yen/hot/hot-2.jpg');
-}
-
-.yen-hot-bgimg3 {
-  background-image: url('http://localhost:3000/images/yen/hot/hot-3.jpg');
-}
-
-.yen-hot-bgimg4 {
-  background-image: url('http://localhost:3000/images/yen/hot/hot-4.jpg');
-}
-
-.yen-hot-bgimg5 {
-  background-image: url('http://localhost:3000/images/yen/hot/hot-5.jpg');
-}
-
 .yen-hot-cover-box {
+  display: none;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
+  background-color: #7ba23e;
+  z-index: 5;
 }
 
 .yen-hot-cover {
   width: 100%;
   height: 100%;
-  opacity: 0.8;
-  background-color: #7ba23e;
+  overflow: hidden;
+  // opacity: 0.4;
+  // background-color: #7ba23e;
 }
 
 .yen-hot-cover-text {
@@ -305,6 +298,7 @@ body {
   left: 10%;
   top: 40%;
   color: #fff;
+  z-index: 25;
 }
 
 .yen-hot-ladybug {
@@ -318,9 +312,9 @@ body {
 
 .yen-hot-run {
   position: absolute;
-  top: -13%;
+  top: 118%;
   right: 33%;
-  z-index: 30;
+  z-index: 90;
   width: 8%;
   transform: rotate(0.05turn);
 }
