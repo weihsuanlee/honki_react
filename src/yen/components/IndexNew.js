@@ -1,3 +1,7 @@
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import moment from 'moment'
+
 import '../styles/yen-index.scss'
 import SvgCircle from './svg/SvgCircle'
 import SvgLadybug from './svg/SvgLadybug'
@@ -10,7 +14,68 @@ import SvgBgCircleFull from './svg/SvgBgCircleFull'
 import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
-function IndexNew() {
+function IndexNew(props) {
+  const classNumList = [
+    '講座',
+    '讀書會',
+    '戶外探索',
+    '休閒活動',
+    '活動地區',
+    '節氣推薦',
+  ]
+
+  const cityCard = (
+    <>
+      {props.newLists.length !== 0 &&
+        props.newLists.rows.map((value, index) => {
+          const pic =
+            'http://localhost:3000/images/yen/event/' +
+            value.act_name +
+            '/0.jpg'
+
+          return (
+            <div className="yen-new-card">
+              <div className="yen-new-card-img">
+                <img src={pic} alt="" />
+              </div>
+              <div className="yen-new-card-tag d-flex">
+                <div className="yen-new-card-tagl">
+                  <span>{moment(value.act_time).format('YYYY-MM-DD')}</span>
+                </div>
+                <div className="yen-new-card-tagr">
+                  <span>{classNumList[parseInt(value.act_class_sid) - 1]}</span>
+                </div>
+              </div>
+              <div className="yen-new-card-des">
+                <div className="yen-new-card-title">
+                  <span>{value.act_name}</span>
+                </div>
+                <div className="yen-new-card-bottom">
+                  <div className="yen-new-card-location">
+                    <i className="fas fa-map-marker-alt"></i>
+                    <span>{value.event_city}</span>
+                  </div>
+                  <div className="yen-new-card-price">
+                    <div className="yen-new-card-nt">
+                      <span>NT</span>
+                    </div>
+                    <div className="yen-new-card-money">
+                      <span>{value.act_price}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="yen-new-tag-box">
+                <span>NEW</span>
+              </div>
+              <div className="yen-new-ladybug">
+                <SvgLadybug />
+              </div>
+            </div>
+          )
+        })}
+    </>
+  )
   return (
     <>
       <div className="yen-new">
@@ -23,7 +88,8 @@ function IndexNew() {
 
         <div className="yen-new-box d-flex">
           <div className="yen-new-card-box">
-            <div className="yen-new-card">
+            {cityCard}
+            {/* <div className="yen-new-card">
               <div className="yen-new-card-img">
                 <img
                   src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
@@ -66,46 +132,7 @@ function IndexNew() {
               <div className="yen-new-ladybug">
                 <SvgLadybug />
               </div>
-            </div>
-            <div className="yen-new-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-new-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-new-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-new-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-new-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-new-card-price">
-                    <div className="yen-new-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-new-card-money">200</div>
-                  </div>
-                </div>
-              </div>
-              <div className="yen-new-tag-box">
-                <span>NEW</span>
-              </div>
-            </div>
+            </div> */}
           </div>
           <div className="yen-island-box">
             <div className="yen-island">
@@ -157,4 +184,4 @@ function IndexNew() {
   )
 }
 
-export default IndexNew
+export default withRouter(IndexNew)

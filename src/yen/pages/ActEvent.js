@@ -1,4 +1,8 @@
-// import { withRouter } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import moment from 'moment'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
 import '../styles/yen-event.scss'
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -6,9 +10,169 @@ import SvgCricket from '../components/svg/SvgCricket'
 import SvgSignUpLadybug from '../components/svg/SvgSignUpLadybug'
 
 function ActEvent(props) {
+  moment.locale('zh-tw', {
+    months: '一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月'.split(
+      '_'
+    ),
+    monthsShort: '1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月'.split(
+      '_'
+    ),
+    weekdays: '星期日_星期一_星期二_星期三_星期四_星期五_星期六'.split('_'),
+    weekdaysShort: '周日_周一_周二_周三_周四_周五_周六'.split('_'),
+    weekdaysMin: '日_一_二_三_四_五_六'.split('_'),
+    longDateFormat: {
+      LT: 'Ah點mm分',
+      LTS: 'Ah點m分s秒',
+      L: 'YYYY-MM-DD',
+      LL: 'YYYY年MMMD日',
+      LLL: 'YYYY年MMMD日Ah點mm分',
+      LLLL: 'YYYY年MMMD日ddddAh點mm分',
+      l: 'YYYY-MM-DD',
+      ll: 'YYYY年MMMD日',
+      lll: 'YYYY年MMMD日Ah點mm分',
+      llll: 'YYYY年MMMD日ddddAh點mm分',
+    },
+    meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
+    meridiemHour: function (h, meridiem) {
+      let hour = h
+      if (hour === 12) {
+        hour = 0
+      }
+      if (meridiem === '凌晨' || meridiem === '早上' || meridiem === '上午') {
+        return hour
+      } else if (meridiem === '下午' || meridiem === '晚上') {
+        return hour + 12
+      } else {
+        // '中午'
+        return hour >= 11 ? hour : hour + 12
+      }
+    },
+    meridiem: function (hour, minute, isLower) {
+      const hm = hour * 100 + minute
+      if (hm < 600) {
+        return '凌晨'
+      } else if (hm < 900) {
+        return '早上'
+      } else if (hm < 1130) {
+        return '上午'
+      } else if (hm < 1230) {
+        return '中午'
+      } else if (hm < 1800) {
+        return '下午'
+      } else {
+        return '晚上'
+      }
+    },
+    calendar: {
+      sameDay: function () {
+        return this.minutes() === 0 ? '[今天]Ah[點整]' : '[今天]LT'
+      },
+      nextDay: function () {
+        return this.minutes() === 0 ? '[明天]Ah[點整]' : '[明天]LT'
+      },
+      lastDay: function () {
+        return this.minutes() === 0 ? '[昨天]Ah[點整]' : '[昨天]LT'
+      },
+      nextWeek: function () {
+        let startOfWeek, prefix
+        startOfWeek = moment().startOf('week')
+        prefix = this.diff(startOfWeek, 'days') >= 7 ? '[下]' : '[本]'
+        return this.minutes() === 0 ? prefix + 'dddA點整' : prefix + 'dddAh點mm'
+      },
+      lastWeek: function () {
+        let startOfWeek, prefix
+        startOfWeek = moment().startOf('week')
+        prefix = this.unix() < startOfWeek.unix() ? '[上]' : '[本]'
+        return this.minutes() === 0
+          ? prefix + 'dddAh點整'
+          : prefix + 'dddAh點mm'
+      },
+      sameElse: 'LL',
+    },
+    ordinalParse: /\d{1,2}(日|月|周)/,
+    ordinal: function (number, period) {
+      switch (period) {
+        case 'd':
+        case 'D':
+        case 'DDD':
+          return number + '日'
+        case 'M':
+          return number + '月'
+        case 'w':
+        case 'W':
+          return number + '周'
+        default:
+          return number
+      }
+    },
+    relativeTime: {
+      future: '%s内',
+      past: '%s前',
+      s: '幾秒',
+      m: '1 分鐘',
+      mm: '%d 分鐘',
+      h: '1 小時',
+      hh: '%d 小時',
+      d: '1 天',
+      dd: '%d 天',
+      M: '1 個月',
+      MM: '%d 個月',
+      y: '1 年',
+      yy: '%d 年',
+    },
+    week: {
+      // GB/T 7408-1994《數據和交換格式·信息交換·日期和時間表示法》與ISO 8601：1988等效
+      dow: 1, // Monday is the first day of the week.
+      doy: 4, // The week that contains Jan 4th is the first week of the year.
+    },
+  })
+
+  const eventid = props.match.params.sid
+  console.log(props)
+  const [actName, setName] = useState('')
+  const [actTime, setActTime] = useState('')
+  const [actLocation, setActLocation] = useState('')
+  const [actPrice, setActPrice] = useState('')
+  const [actAbout, setActAbout] = useState('')
+  const [actTransportation, setActTransportation] = useState('')
+  const [actNotice, setActNotice] = useState('')
+  const [actCancel, setActCancel] = useState('')
+  const [actPic, setActPic] = useState('')
+
+  async function getEventDetailFromServer(eventid) {
+    const url = 'http://localhost:3333/activity/event/' + eventid
+
+    // header的資料格式
+    const request = new Request(url, {
+      method: 'GET',
+      header: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+
+    setName(data[0].act_name)
+    setActTime(data[0].act_time)
+    setActLocation(data[0].act_location)
+    setActPrice(data[0].act_price)
+    setActAbout(data[0].act_about)
+    setActTransportation(data[0].act_transportation)
+    setActNotice(data[0].act_notice)
+    setActCancel(data[0].act_cancel_or_change)
+    setActPic('http://localhost:3000/images/yen/event/' + actName + '/0.jpg')
+    console.log(actPic)
+  }
+
+  useEffect(() => {
+    getEventDetailFromServer(eventid)
+  }, [])
+
   return (
     <>
-      {/* <h2>{props.match.params.id}</h2> */}
       <div className="yen-event-header">
         <nav aria-label="breadcrumb" className="yen-event-breadcrumb">
           <ol className="breadcrumb">
@@ -19,35 +183,26 @@ function ActEvent(props) {
               活動講座
             </li>
             <li className="active" aria-current="page">
-              【聚說說書會
-              台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
+              {actName}
             </li>
           </ol>
         </nav>
         <div className="yen-event-header-box">
           <div className="yen-event-pic">
-            <img
-              src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-              alt=""
-            />
+            <img src={actPic} alt="" />
           </div>
           <div className="yen-event-des">
             <div className="yen-event-location-logo">
               <FaMapMarkerAlt className="fas fa-map-marker-alt" />
             </div>
             <div className="yen-event-subject">
-              <h5>
-                【聚說說書會
-                台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-              </h5>
+              <h5>{actName}</h5>
             </div>
             <div className="yen-event-date">
-              <span>活動時間：2021年01月24日 14:00 ~ 15:30</span>
+              <span>活動時間：{moment(actTime).format('lll')}</span>
             </div>
             <div className="yen-event-location">
-              <span>
-                活動地點：台北市中正區重慶南路二段51號B1 （信誼好好生活廣場）
-              </span>
+              <span>活動地點：{actLocation}</span>
             </div>
             <div className="yen-event-des-bottom">
               <div className="yen-event-des-price">
@@ -55,7 +210,7 @@ function ActEvent(props) {
                   <span>NT</span>
                 </div>
                 <div className="yen-event-money">
-                  <span>200</span>
+                  <span>{actPrice}</span>
                 </div>
               </div>
               <div className="yen-event-signup">
@@ -71,104 +226,47 @@ function ActEvent(props) {
         </div>
       </div>
 
+      {/* https://github.com/reactjs/react-tabs */}
       <div className="yen-event-body-box">
         <div className="yen-event-des-box">
-          <div className="yen-event-tag">
-            <div className="yen-event-tag-des">
-              <span>活動介紹</span>
+          <Tabs className="yen-event-tags-box">
+            <TabList className="yen-event-tag">
+              <Tab className="yen-event-tag-des">活動介紹</Tab>
+              <Tab className="yen-event-tag-trans">交通方式</Tab>
+              <Tab className="yen-event-tag-att">注意事項</Tab>
+              <Tab className="yen-event-tag-cancel">更改或取消辦法</Tab>
+            </TabList>
+
+            <div className="yen-event-box">
+              <div className="yen-event-text">
+                <TabPanel>
+                  <div className="yen-event-text-inside">{actAbout}</div>
+                </TabPanel>
+                <TabPanel>
+                  <div className="yen-event-text yen-event-trans">
+                    {actTransportation}
+                  </div>
+                </TabPanel>
+                <TabPanel>
+                  <div className="yen-event-text yen-event-att">
+                    {actNotice}
+                  </div>
+                </TabPanel>
+                <TabPanel>
+                  <div className="yen-event-text yen-event-cancel">
+                    {actCancel}
+                  </div>
+                </TabPanel>
+              </div>
             </div>
-            <div className="yen-event-tag-trans">
-              <span>交通方式</span>
+            <div className="yen-signup-ladybug">
+              <SvgSignUpLadybug />
             </div>
-            <div className="yen-event-tag-att">
-              <span>注意事項</span>
-            </div>
-            <div className="yen-event-tag-cancel">
-              <span>更改或取消辦法</span>
-            </div>
-          </div>
-          <div className="yen-event-box">
-            <div className="yen-event-text">
-              <span>
-                主講：林瑞昌 / 吉光旅遊總經理
-                <br />
-                <br />
-                超過20年的旅行和領隊經驗，造訪多達70幾個國家，足跡遍行亞洲、歐洲、美洲和非洲，甚至遠行到世界的盡頭南極…以達人的視角，
-                結合閱讀與旅行，讓「懂旅行x最會玩的島遊玩家」林瑞昌，帶領大小朋友，以實際旅遊經驗，來看見全新風貌的圖畫書，為親子之間的
-                日常增添更多樂趣！
-                <br />
-                <br />
-                ※ 歡迎喜愛圖畫書、渴望親子旅行，有著驛動之心的爸爸媽媽來報名※
-                <br />
-                <br />
-                1 出發前，如何做功課？
-                <br />
-                <br />
-                藉由真實遊法之旅，分享如何透過圖畫書等多元方式，幫助孩子在出發前，先認識旅遊當地的人文、氣候和景觀特色。也因為有了親子共
-                讀經驗，旅行過程中，又會帶來怎樣的驚喜與收穫呢？
-                <br />
-                <br />
-                2 現在，就跟著圖畫去旅行！
-                <br />
-                <br />
-                ⭐台南安平《劍獅出巡》｜劍獅故鄉 文旅起程
-                <br />
-                <br />
-                你知道台南安平的守護神是誰嗎？
-                <br />
-                <br />
-                各種臉的顏色，又分別代表什麼守護寓意呢？
-                <br />
-                <br />
-                在台南安平的巷弄中間蘊藏著歷史文化新舊交融的痕跡，牆上、屋瓦上有大大小小劍獅的身影。「劍獅」是傳統文物中驅邪避煞的鎮宅神
-                獸，有安家守護的寓意，也是台南在地的形象代表。
-                <br />
-                <br />
-                捕捉巷弄的街景光影、探尋文化的人文深度、感受歷史的寓意傳承，喜愛深度旅遊的大人小孩、文化青年們，不防帶上《劍獅出巡》和「
-                劍獅地圖」，來趟「按圖索驥」的尋覓之旅，一起來循跡訪古一下！
-                <br />
-                <br />
-                3 下一站，我們要前往哪裡呢？
-                <br />
-                <br />
-                ⭐台南七股《黑面琵鷺來過冬》｜琵鷺嬌客 國際寶藏
-                <br />
-                來場生態之旅，帶孩子一起認識國際級濕地─台南曾文溪口濕地吧！
-                <br />
-                <br />
-                ⭐台中東勢《小桃妹》｜客家風采 有情有味
-                <br />
-                多元文化教育，就從本土文化開始！以獨特的版畫畫風，描繪客家民間習俗和文化。
-                <br />
-                <br />
-                ⭐台灣環島之旅《寶島小遊記》｜島遊指南 入門幫手
-                <br />
-                結合了自然生態、人文地理和歷史文化，帶你全台玩透透，還可以邊讀邊玩大富翁哦！
-                <br />
-                <br />
-                ⭐城鎮溫度之旅《巴士到站了》｜生活風景 用心覺察
-                <br />
-                試著讓心慢下來，細心觀察沿途的風景與人，培養生活中的觀察力與感受力！
-                <br />
-                <br />
-                4 旅遊懶人包
-                <br />
-                <br />
-                懶人包大公開，想知道旅遊達人最推薦的私房景點嗎？那你絕不能錯過這場講座！不論是旅遊經驗豐富，或是準備第一次出遊的你，都能
-                收穫滿滿，輕鬆出遊，享受旅行帶來的樂趣！
-                <br />
-                <br />
-              </span>
-            </div>
-          </div>
-          <div className="yen-signup-ladybug">
-            <SvgSignUpLadybug />
-          </div>
+          </Tabs>
         </div>
       </div>
     </>
   )
 }
 
-// export default withRouter(ActEvent)
-export default ActEvent
+export default withRouter(ActEvent)

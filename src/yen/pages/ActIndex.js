@@ -33,10 +33,13 @@ function ActIndex(props) {
   //     // 和伺服器要資料
   //     const response = await fetch('http://localhost:3333' + url, {
   //       method: 'GET',
+  //       header: new Headers({
+  //         Accept: 'application/json',
+  //         'Content-Type': 'application/json',
+  //       }),
   //     })
   //     const data = await response.json()
   //     console.log('data page', response)
-  //     console.log('data', data)
   //     setEventLists(data.rows)
   //     setTotalPages(data.totalPages)
   //   }
@@ -93,7 +96,7 @@ function ActIndex(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     setHotLists(data)
     // console.log(data)
   }
@@ -102,11 +105,40 @@ function ActIndex(props) {
     getHotEventFromServer()
   }, [])
 
+  // 最新活動
+  const [newLists, setNewLists] = useState([])
+
+  async function getNewEventFromServer() {
+    // 開啟載入指示
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:3333/activity/new'
+
+    // header的資料格式
+    const request = new Request(url, {
+      method: 'GET',
+      header: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // console.log(data)
+    setNewLists(data)
+    // console.log(data)
+  }
+
+  useEffect(() => {
+    getNewEventFromServer()
+  }, [])
+
   return (
     <>
       <IndexHeader />
       <IndexHot hotLists={hotLists} hotAddClass={hotAddClass} />
-      <IndexNew />
+      <IndexNew newLists={newLists} />
       <IndexAllEvent
         eventLists={eventLists}
         totalPages={totalPages}
