@@ -8,16 +8,26 @@ import {
   FaBars,
   FaTimes,
 } from 'react-icons/fa'
-import { Accordion, Card, Button } from 'react-bootstrap'
+import { Accordion, Card, Button, NavDropdown } from 'react-bootstrap'
 
 // 要使用能有active css效果的NavLink元件
 // import { NavLink } from 'react-router-dom'
 
 // jquery
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import $ from 'jquery'
 
 function Navbar() {
+  const nav = useRef()
+  const notLogin = useRef()
+  const [name, setName] = useState('')
+  // const logout = useState(0)
+
+  function logout() {
+    localStorage.removeItem('userLogin')
+    window.location.href = '/login'
+  }
+
   useEffect(() => {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
@@ -39,6 +49,24 @@ function Navbar() {
         .find('.btn-link')
         .removeClass('active')
     })
+
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      nav.current.style = 'display:block;'
+      notLogin.current.style = 'display:none;'
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+      nav.current.style = 'display:none;'
+      notLogin.current.style = 'display:block;'
+    }
+
+    // logout = () => {
+    //   localStorage.removeItem('userLogin')
+    //   window.location.href = '/login'
+    // }
   }, [])
   return (
     <>
@@ -222,26 +250,40 @@ function Navbar() {
                 </div>
               </li>
               <li className="nav-item honki-nav-link-fa active">
-                <Link className="nav-link zero-padding" to="/member">
+                <Link
+                  ref={notLogin}
+                  id="yu-nav-not-login"
+                  className="nav-link zero-padding"
+                  to="/member"
+                >
                   <FaUserAlt
                     className="fas fa-user fa-lg"
                     style={{ fontSize: '24px' }}
                   />
                 </Link>
-                {/* 待處理：改成 Dropdown ，20210220 Hans */}
-                {/* 
-                  https://react-bootstrap.github.io/components/dropdowns/
-                 
-                <DropdownButton
-                  id="dropdown-item-button"
-                  title="Dropdown button"
+                <NavDropdown
+                  title="已登入"
+                  ref={nav}
+                  id="nav-dropdown yu-nav-dropdown"
                 >
-                  <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-                  <Dropdown.Item as="button">Action</Dropdown.Item>
-                  <Dropdown.Item as="button">Another action</Dropdown.Item>
-                  <Dropdown.Item as="button">Something else</Dropdown.Item>
-                </DropdownButton>
-                */}
+                  <NavDropdown.Item eventKey="4.1">
+                    {name}，你好
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item eventKey="4.2">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Item eventKey="4.3">
+                    Something else here
+                  </NavDropdown.Item> */}
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    eventKey="4.4"
+                    id="yu-logout"
+                    onClick={logout}
+                  >
+                    登出
+                  </NavDropdown.Item>
+                </NavDropdown>
               </li>
               <li className="nav-item honki-nav-link-fa active">
                 <Link className="nav-link zero-padding" to="/cart">
