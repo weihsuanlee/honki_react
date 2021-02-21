@@ -1,4 +1,4 @@
 個人Pages
 
-路由暫定: 
+路由: 
 /old-seasons
