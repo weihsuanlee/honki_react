@@ -6,7 +6,6 @@ function ProductBanner(props) {
   const {
     searchSelect,
     setSearchSelect,
-    setQueryString,
     search,
     setSearch,
     setSearchTitle,
@@ -15,7 +14,6 @@ function ProductBanner(props) {
   function searchButtonClick() {
     const queryString = `?${searchSelect}search=${search}`
     props.history.push(`/product${queryString}`)
-    setQueryString(queryString)
   }
   return (
     <>
@@ -64,6 +62,10 @@ function ProductBanner(props) {
                   onChange={(e) => {
                     setSearch(e.target.value)
                   }}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') searchButtonClick()
+                  }}
+                  searchButtonClick
                   placeholder="Search"
                 />
                 <Button

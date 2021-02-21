@@ -16,19 +16,32 @@ import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
-  // const [recentlyViewed, setRecentlyViewed] = useState([])
-
+  const [recentlyViewed, setRecentlyViewed] = useState([])
   // useEffect(() => {
   //   const recent = localStorage.getItem('recentlyViewed_sid')
-  //     ? [localStorage.getItem('recentlyViewed_sid')]
+  //     ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
   //     : []
-  //   let idNow = +props.match.params.sid
+  //   let idNow = props.match.params.sid
   //   if (recent.indexOf(idNow) === -1) {
   //     recent.push(idNow)
   //   }
-  //   localStorage.setItem('recentlyViewed_sid', recent)
-  //   setRecentlyViewed(localStorage.getItem('recentlyViewed_sid'))
+  //   localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+  //   setRecentlyViewed(recent)
   // }, [props.match.params.sid])
+  // 傳送 recentlyViewed
+  // const sendRecentlyViewed = async () => {
+  //   const response = await fetch('http://localhost:3333/product/history', {
+  //     method: 'post',
+  //     body: JSON.stringify(recentlyViewed),
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     }),
+  //   })
+  //   const data = await response.json()
+  //   console.log(data)
+  //   setProductHistory(data.history)
+  // }
 
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
@@ -69,6 +82,7 @@ function ProductDetail(props) {
 
   useEffect(() => {
     getProductDetail()
+    // sendRecentlyViewed()
   }, [props.match.params.sid])
 
   const productDetailDisplay = (
@@ -183,10 +197,14 @@ function ProductDetail(props) {
                 <div class="panel-title">內容簡介</div>
                 <p>{productDetail.book_overview}</p>
               </Tab>
-              <Tab eventKey="authorIntro" title="作者介紹">
-                <div class="panel-title">作者介紹</div>
-                <p>{productDetail.author_intro}</p>
-              </Tab>
+              {productDetail.author_intro ? (
+                <Tab eventKey="authorIntro" title="作者介紹">
+                  <div class="panel-title">作者介紹</div>
+                  <p>{productDetail.author_intro}</p>
+                </Tab>
+              ) : (
+                ''
+              )}
               {productDetail.list ? (
                 <Tab eventKey="bookList" title="書籍目錄">
                   <div class="panel-title">書籍目錄</div>
@@ -211,18 +229,22 @@ function ProductDetail(props) {
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
-              <Card>
-                <Card.Header>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="11">
-                    作者介紹
-                  </Accordion.Toggle>
-                </Card.Header>
-                <Accordion.Collapse eventKey="11">
-                  <Card.Body>
-                    <p>{productDetail.author_intro}</p>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
+              {productDetail.author_intro ? (
+                <Card>
+                  <Card.Header>
+                    <Accordion.Toggle as={Button} variant="link" eventKey="11">
+                      作者介紹
+                    </Accordion.Toggle>
+                  </Card.Header>
+                  <Accordion.Collapse eventKey="11">
+                    <Card.Body>
+                      <p>{productDetail.author_intro}</p>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              ) : (
+                ''
+              )}
               {productDetail.list ? (
                 <Card>
                   <Card.Header>
@@ -262,7 +284,6 @@ function ProductDetail(props) {
             <ProductHistoryCarousel
               productHistory={productHistory}
               setProductHistory={setProductHistory}
-              // recentlyViewed={recentlyViewed}
             />
           </div>
         </div>

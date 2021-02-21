@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 function ProductPagination(props) {
   let searchParams = new URLSearchParams(props.location.search)
-  const { totalPages, page, setPage, setQueryString } = props
+  const { totalPages, page, setPage } = props
   const pagePrev = page - 1 ? page - 1 : 1
   const pageNext = page + 1 < totalPages ? page + 1 : totalPages
 
@@ -17,9 +17,9 @@ function ProductPagination(props) {
       pathname: props.match.url,
       search: '?' + searchParams.toString(),
     }
-    setQueryString(queryString)
+    // setQueryString(queryString)
     props.history.push(queryString)
-    console.log(queryString)
+    // console.log(queryString)
   }
 
   let active = page
