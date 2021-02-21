@@ -6,7 +6,7 @@ import RangeSlider from './RangeSlider'
 // import { useState } from 'react'
 
 function PriceFilterPop(props) {
-  const { setQueryString, setSliderValues, avgPrice } = props
+  const { setSliderValues, avgPrice } = props
   function applyPriceFilter(sliderValues) {
     setSliderValues(sliderValues)
     let searchParams = new URLSearchParams(props.location.search)
@@ -16,7 +16,7 @@ function PriceFilterPop(props) {
       pathname: props.match.url,
       search: '?' + searchParams.toString(),
     }
-    setQueryString(queryString)
+    // setQueryString(queryString)
     props.history.push(queryString)
   }
   function clearPriceFilter() {
@@ -28,7 +28,7 @@ function PriceFilterPop(props) {
       search: '?' + searchParams.toString(),
     }
     // setSliderValues([0, 0])
-    setQueryString(queryString)
+    // setQueryString(queryString)
     props.history.push(queryString)
   }
   const popover = (

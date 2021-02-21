@@ -6,10 +6,13 @@ import Slider from 'react-slick'
 import { withRouter } from 'react-router-dom'
 
 function ProductHistoryCarousel(props) {
+  const { productHistory, setProductHistory, recentlyViewed } = props
+  // useEffect(() => {}, [productHistory])
+
   const settings = {
     arrows: true,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -19,7 +22,6 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {
@@ -38,16 +40,6 @@ function ProductHistoryCarousel(props) {
       },
     ],
   }
-  const { productHistory, setProductHistory, recentlyViewed } = props
-  // useEffect(() => {
-  //   const recentArray=[]
-  //   recentArray.push(recentlyViewed)
-  //   const display = productHistory.filter((v, i) => {
-  //     return v.sid.includes(15)
-  //   })
-  //   setProductHistory(display)
-  //   console.log(display)
-  // }, [])
 
   return (
     <>

@@ -79,6 +79,50 @@
   background-color: var(--honki-yellow);
 }
 
+
+
+.yu-edit-input {
+  display: none;
+}
+
+.yu-edit-label {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #707070;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 2px 2px 15px #707070;
+  }
+
+  & > img {
+    width: 85%;
+    object-fit: contain;
+  }
+}
+
+.yu-edit-label-bg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #707070;
+  margin-left: 10px;
+
+  &:hover {
+    box-shadow: 2px 2px 15px #707070;
+  }
+
+}
+
+
 .yu-edit-face,
 .yu-edit-hair,
 .yu-edit-cloth,

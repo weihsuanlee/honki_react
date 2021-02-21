@@ -29,6 +29,9 @@
 @media only screen and (max-width: 1920px) {
 }
 
+@media only screen and (max-width: 1800px) {
+}
+
 @media only screen and (max-width: 1440px) {
 }
 
@@ -47,7 +50,12 @@
   }
 }
 
-/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 1024px) {
+  .solar-term-plate-filler {
+    height: calc(40vh);
+  }
+}
+
 @media only screen and (max-width: 992px) {
 }
 

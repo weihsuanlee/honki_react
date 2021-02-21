@@ -1,6 +1,38 @@
+// fade in and fade out
+
 .fadein-on-start {
   animation: fadein 2s;
 }
+
+.fadeIn {
+  opacity: 1;
+  transition: 2s;
+}
+
+.fadeOut {
+  // opacity: 0;
+  display: none;
+  transition: 2s;
+}
+
+// Book cards area
+
+/*
+.osb-book-col-outer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.osb-book-col-grad {
+  position: absolute;
+
+  flex-direction: column;
+
+  height: 100%;
+  width: calc(13vw);
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0), black);
+}
+*/
 
 .osb-book-col {
   width: 720px;
@@ -22,7 +54,7 @@
 
 .old-season-container {
   // height: 900px;
-  margin-bottom: 80px;
+  margin-bottom: 135px;
   overflow-x: hidden;
 }
 

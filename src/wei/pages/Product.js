@@ -15,13 +15,12 @@ function Product(props) {
   let searchParams = new URLSearchParams(props.location.search)
   let url = props.match.url
 
-  console.log(props)
+  // console.log(props)
   // 書籍商品
   const [books, setBooks] = useState([])
   // 分類選單 Display
   const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別
-  const [category, setCategory] = useState('')
+
   // 篩選搜尋
   const [search, setSearch] = useState('')
   const [searchSelect, setSearchSelect] = useState('title_')
@@ -33,8 +32,10 @@ function Product(props) {
   // 分頁 pagination
   const [totalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
+  // 篩選類別
+  // const [category, setCategory] = useState('')
   // query string
-  const [queryString, setQueryString] = useState('')
+  // const [queryString, setQueryString] = useState('')
   // 列表切換
   const [cardList, setCardList] = useState(false)
   // spinner
@@ -70,7 +71,6 @@ function Product(props) {
       pathname: url,
       search: '?' + searchParams.toString(),
     }
-    setQueryString(queryString)
     props.history.push(queryString)
   }
   // 模擬componentDidMount
@@ -80,7 +80,7 @@ function Product(props) {
 
   // 模擬componentDidUpdate
   useEffect(() => {
-    console.log(props)
+    // console.log(props)
     async function filterProduct() {
       // 先開啟spinner
       setIsLoading(true)
@@ -106,7 +106,7 @@ function Product(props) {
     }
     filterProduct()
     window.scrollBy(0, 0.75 * window.innerHeight)
-  }, [category, queryString, props.location])
+  }, [props.location])
 
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -138,9 +138,6 @@ function Product(props) {
               className="wei-category"
               key={i}
               to={{ pathname: `/product/${v.eng_name}` }}
-              onClick={() => {
-                setCategory(v.eng_name)
-              }}
             >
               <p>{v.name}</p>
             </NavLink>
@@ -175,8 +172,6 @@ function Product(props) {
       <ProductBanner
         searchSelect={searchSelect}
         setSearchSelect={setSearchSelect}
-        queryString={queryString}
-        setQueryString={setQueryString}
         search={search}
         setSearch={setSearch}
         searchTitle={searchTitle}
@@ -191,7 +186,6 @@ function Product(props) {
             <div className="wei-top-buttons d-flex">
               <PriceFilterPop
                 avgPrice={avgPrice}
-                setQueryString={setQueryString}
                 setSliderValues={setSliderValues}
                 sliderValues={sliderValues}
               />
@@ -260,8 +254,6 @@ function Product(props) {
             </div>
           </div>
         </div>
-        {/* <Switch>
-          <Route path={`${props.match.path}/:category?`}> */}
         <div className="row justify-content-center">
           <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
           <div className="col-11 col-lg-10 col-xl-9">
@@ -288,16 +280,12 @@ function Product(props) {
                 totalPages={totalPages}
                 page={page}
                 setPage={setPage}
-                queryString={queryString}
-                setQueryString={setQueryString}
               />
             ) : (
               ''
             )}
           </div>
         </div>
-        {/* </Route>
-        </Switch> */}
       </div>
     </>
   )
