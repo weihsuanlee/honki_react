@@ -14,6 +14,11 @@ function NormalAdd(props) {
   const [book_condition, setBook_condition] = useState('')
   const [written_or_not, setWritten_or_not] = useState('')
 
+  //preloading file
+  const [preloading, setPreloading] = useState(false)
+
+  const [BC_pic1File, setBC_pic1File] = useState('')
+
   async function addUserToSever() {
     // 開啟載入指示
     setDataLoading(true)
@@ -47,6 +52,36 @@ function NormalAdd(props) {
       alert('儲存完成')
       props.history.push('/')
     }, 500)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const formdata = new FormData(e.target)
+
+    formdata.append('c_sid', props.secondhand_normalchange.c_sid)
+    const url = 'http://localhost:3333/normal-index/picture-upload'
+
+    const request = new Request(url, {
+      method: 'POST',
+      body: formdata,
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('data:', data)
+    // handleClose();
+
+    props.BC_pic1(props.secondhand_normalchange.c_sid)
+    // getMember(props.member.sid);
+  }
+
+  const handleFileChange = (event) => {
+    setPreloading(true)
+    if (event.target.files[0]) {
+      setBC_pic1File(event.target.files[0])
+    }
+    setTimeout(() => {
+      setPreloading(false)
+    }, 5000)
   }
 
   // 一開始就會開始載入資料
@@ -89,7 +124,7 @@ function NormalAdd(props) {
           </ol>
         </nav>
         <div className="jill-myaddform row">
-          <form>
+          <form onSubmit={handleSubmit}>
             {/* <!-- 比例 --> */}
             <div className=" form-width-height">
               {/* <!-- 表單標題 --> */}
@@ -156,6 +191,7 @@ function NormalAdd(props) {
                       setBook_condition(event.target.value)
                     }}
                   >
+                    {/* 發現bug，一定要去選才寫得進去 */}
                     <option>1成新</option>
                     <option>3成新</option>
                     <option selected>5成新</option>
@@ -167,7 +203,7 @@ function NormalAdd(props) {
               {/* <!-- 上傳檔案 --> */}
               <div className="form-group">
                 <label className="BC_pic_title">書況圖片</label>
-                <label className="jill-upload-btn" for="BC_pic">
+                <label className="jill-upload-btn" for="BC_pic1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="84"
@@ -212,9 +248,11 @@ function NormalAdd(props) {
                     multiple
                     style={{ display: 'none' }}
                     name="BC_pic1"
-                    value={BC_pic1}
+                    required={true}
                     onChange={(event) => {
-                      setBC_pic1(event.target.value)
+                      if (event.target.files[0].name) {
+                        handleFileChange(event)
+                      }
                     }}
                   />
                 </label>
@@ -236,7 +274,7 @@ function NormalAdd(props) {
                         type="radio"
                         id="inlineRadio1"
                         name="written_or_not"
-                        value={written_or_not}
+                        value="有塗改"
                         onChange={(event) => {
                           setWritten_or_not(event.target.value)
                         }}
@@ -251,7 +289,7 @@ function NormalAdd(props) {
                         type="radio"
                         id="inlineRadio2"
                         name="written_or_not"
-                        value={written_or_not}
+                        value="無塗改"
                         onChange={(event) => {
                           setWritten_or_not(event.target.value)
                         }}
