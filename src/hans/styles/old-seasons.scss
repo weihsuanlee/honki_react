@@ -1,6 +1,21 @@
+// fade in and fade out
+
 .fadein-on-start {
   animation: fadein 2s;
 }
+
+.fadeIn {
+  opacity: 1;
+  transition: 2s;
+}
+
+.fadeOut {
+  // opacity: 0;
+  display: none;
+  transition: 2s;
+}
+
+// Book cards area
 
 .osb-book-col {
   width: 720px;

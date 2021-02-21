@@ -21,6 +21,7 @@ function OldSeasons() {
 
           <div className="col-xl-6">
             <div className="row justify-content-center osb-book-col fadein-on-start">
+              {/* 過往節氣選書卡片 */}
               <OldSeasonBookCard />
               <OldSeasonBookCard />
               <OldSeasonBookCard />
