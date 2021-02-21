@@ -20,7 +20,7 @@ function OldSeasons() {
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">
-            <div className="osb-book-col-grad"></div>
+            {/* <div className="osb-book-col-grad"></div> */}
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片 */}
               <OldSeasonBookCard />

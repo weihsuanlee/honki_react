@@ -1,0 +1,44 @@
+// 縮小的圓盤
+
+.solar-term-plate-v2-small {
+  overflow: hidden;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 420px;
+  height: 420px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  list-style: none;
+
+  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-size: 100% 100%;
+
+  /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
+
+  // 圓盤位置
+  transform: translate(0px, 0px);
+  // transform: translate(-81px, -265px);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(0, -173px) rotate(15deg);
+}
+
+@keyframes rotation {
+  from {
+    transform: translate(0px, 0px) rotate(0deg);
+    // transform: translate(-81px, -265px) rotate(0deg);
+    // transform: translate(-70px, -173px) rotate(15deg);
+    // transform: translate(0, -173px) rotate(15deg);
+  }
+  to {
+    transform: translate(0px, 0px) rotate(359deg);
+    // transform: translate(-81px, -265px) rotate(359deg);
+    // transform: translate(-70px, -173px) rotate(374deg);
+    // transform: translate(0, -173px) rotate(374deg);
+  }
+}
+
+.rotate {
+  animation: rotation 120s infinite linear;
+  animation-delay: 2s;
+}
