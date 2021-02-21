@@ -1,3 +1,6 @@
+// import style
+import '../styles/old-season-book-card.scss'
+
 function OldSeasonBookCard() {
   return (
     <>

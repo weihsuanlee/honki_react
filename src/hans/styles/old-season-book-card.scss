@@ -1,12 +1,49 @@
 .book-card {
-  animation: fadein 2s;
+  width: 220px;
+  height: 330px;
+  /* border: 1px dashed black; */
+  /* margin: 16px 0; */
+
+  margin: 10px 0.5rem;
+
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.book-card > div {
+  flex: 1;
+}
+
+.book-base {
+  width: 218px;
+  height: 248px;
+  border-radius: 15px;
+  background-color: var(--honki-white);
+  padding: 10% 10% 10% 10%;
+}
+
+.book-img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.book-description {
+  margin-top: 20px;
+  padding: 0 0.5rem;
+  position: relative;
+}
+
+.book-name {
+  font-size: 14px;
+}
+
+.book-solar-term-year {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+}
+
+.book-card {
+  animation: fadein 2s;
 }
