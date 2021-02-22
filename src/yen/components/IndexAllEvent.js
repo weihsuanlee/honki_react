@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import moment from 'moment'
 
 // 引用css與svg
@@ -24,10 +24,10 @@ function IndexAllEvent(props) {
     setQueryClass,
   } = props
 
+  // TODO: page沒有連動到篩選更改
   function classButtonClick(changeClass) {
     console.log('class', changeClass)
     setQueryClass(changeClass)
-    console.log('queryClass', queryClass)
   }
 
   // console.log('IndexAllEvent props', props.eventLists)
@@ -99,7 +99,7 @@ function IndexAllEvent(props) {
         <nav aria-label="breadcrumb" className="yen-breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-honki">
-              <a href="#">首頁</a>
+              <Link to="/">首頁</Link>
             </li>
             <li className="active" aria-current="page">
               活動講座
@@ -175,6 +175,8 @@ function IndexAllEvent(props) {
             setPage={setPage}
             queryPage={queryPage}
             setQueryPage={setQueryPage}
+            queryClass={queryClass}
+            setQueryClass={setQueryClass}
           />
         </div>
         <div className="yen-slide">

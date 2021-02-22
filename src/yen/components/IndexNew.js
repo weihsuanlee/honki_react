@@ -15,6 +15,12 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
+  // 如果切換分頁就隱藏這個區塊
+  if (props.location.search !== '') {
+    // console.log('clear', props)
+    return <></>
+  }
+
   // 取得篩選state
   const { setQuerySelect } = props
 
@@ -37,7 +43,7 @@ function IndexNew(props) {
   // 從資料庫取得資料後顯示的卡片
   const cityCard = (
     <>
-      {props.newLists.length !== 0 &&
+      {props.newLists.rows &&
         props.newLists.rows.map((value, index) => {
           const pic =
             'http://localhost:3000/images/yen/event/' +
