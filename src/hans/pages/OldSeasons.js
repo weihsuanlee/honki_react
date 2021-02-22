@@ -15,7 +15,7 @@ function OldSeasons() {
 
   // let solarTermList = []
   let currentSolarTerm = 3
-  let solarTermClicked = 10
+  let solarTermClicked = false
 
   // 模擬componentDidMount
   useEffect(() => {
@@ -47,13 +47,13 @@ function OldSeasons() {
       <div className="container-fluid w-100 old-season-container">
         <div className="row justify-content-center">
           <div className="col">
-            <SolarTermPlate />
+            <SolarTermPlate solarTermToShow={solarTermToShow} />
             <OldSeasonPageTitle />
             目前的節氣：{currentSolarTerm}
             <br />
             <button
               onClick={() => {
-                setTargetSolarTerm(solarTermClicked)
+                // solarTermClicked = !solarTermClicked
               }}
             >
               點擊目標節氣書本
