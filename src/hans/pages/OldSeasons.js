@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // import components
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
@@ -12,53 +12,30 @@ function OldSeasons() {
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   // const [solarTermsListed, setSolarTermsListed] = useState([])
 
-  let solarTermList = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-  ]
-
+  let solarTermList = []
   let currentSolarTerm = 3
   let solarTermClicked = 10
 
-  console.log(solarTermList[1])
+  console.log(solarTermList[0])
 
-  /*
+  // 模擬componentDidMount
+  useEffect(() => {
+    getDataFromServer()
+  }, [])
+
+  // 和伺服器要資料
   const getDataFromServer = async () => {
-    // 和伺服器要資料
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
     })
     const data = await response.json()
     console.log(data)
 
-    // 2秒後關閉spinner
+    // 2秒後在 console 顯示 time out
     setTimeout(() => {
-      setIsLoading(false)
+      console.log('time out')
     }, 2000)
   }
-  */
 
   return (
     <>
