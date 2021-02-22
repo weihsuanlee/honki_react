@@ -10,13 +10,11 @@ import '../styles/old-seasons.scss'
 
 function OldSeasons() {
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
-  // const [solarTermsListed, setSolarTermsListed] = useState([])
+  const [solarTermsListed, setSolarTermsListed] = useState('')
 
-  let solarTermList = []
+  // let solarTermList = []
   let currentSolarTerm = 3
   let solarTermClicked = 10
-
-  console.log(solarTermList[0])
 
   // 模擬componentDidMount
   useEffect(() => {
@@ -30,11 +28,16 @@ function OldSeasons() {
     })
     const data = await response.json()
     console.log(data)
+    console.log(data['solar_term_list'][1])
+
+    console.log('test', solarTermsListed)
+
+    // setSolarTermsListed(data)
 
     // 2秒後在 console 顯示 time out
-    setTimeout(() => {
-      console.log('time out')
-    }, 2000)
+    // setTimeout(() => {
+    //   console.log('time out')
+    // }, 2000)
   }
 
   return (
@@ -55,6 +58,8 @@ function OldSeasons() {
             </button>
             <br />
             要顯示的節氣：{targetSolarTerm}
+            <br />
+            {/* 節氣清單：{solarTermsListed[1]['year']} */}
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">
