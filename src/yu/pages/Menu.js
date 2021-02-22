@@ -132,27 +132,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">我的心得</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">我的留言</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">回覆查詢</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">我的書單</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links"></div>
                           </Link>
                         </li>
                       </ul>
@@ -171,27 +171,12 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">一般交換</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">隨機交換</div>
                           </Link>
                         </li>
                       </ul>
@@ -210,27 +195,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">我的訂單</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">購物紀錄</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">退貨查詢</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">出貨狀態</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">下次購買清單</div>
                           </Link>
                         </li>
                       </ul>
@@ -249,27 +234,22 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">優惠使用紀錄</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">折價券</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">購物金</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">帳戶餘額</div>
                           </Link>
                         </li>
                       </ul>
@@ -288,27 +268,27 @@ function Menu() {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">活動講座</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">讀書會</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">戶外探索</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">休閒活動</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">XXX</div>
+                            <div className="yu-menu-links">節氣推薦</div>
                           </Link>
                         </li>
                       </ul>
@@ -318,41 +298,19 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-2" title="購物紀錄">
                 <div className="panel-title">購物紀錄</div>
-                <p>
-                  特色三、日本歷史專業團隊 ╳ 日語專業團隊，打造日語中高級閱讀力
-                  融入N3~N1字彙及句型，藉由閱讀故事、聆聽音檔，培養中高級文章理解力、奠定日語表現根基。
-                  「Nippon所藏」系列介紹： 專為中高級（N3~N1）日語學習者打造，EZ
-                  Japan日語嚴選講座。 閱讀日本，或語言，或文化，或古典，或時尚。
-                  用一雙眼，追逐日本的瞬息萬變、領略日本的傳承與創新。
-                  「Nippon所藏」為你獻上日本的薈萃珍藏。
-                </p>
+                <p>購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄</p>
               </Tab>
               <Tab eventKey="yu-menu-3" title="我的收藏">
                 <div className="panel-title">我的收藏</div>
-                <p>
-                  特色三、日本歷史專業團隊 ╳ 日語專業團隊，打造日語中高級閱讀力
-                  融入N3~N1字彙及句型，藉由閱讀故事、聆聽音檔，培養中高級文章理解力、奠定日語表現根基。
-                  「Nippon所藏」系列介紹： 專為中高級（N3~N1）日語學習者打造，EZ
-                  Japan日語嚴選講座。 閱讀日本，或語言，或文化，或古典，或時尚。
-                  用一雙眼，追逐日本的瞬息萬變、領略日本的傳承與創新。
-                  「Nippon所藏」為你獻上日本的薈萃珍藏。
-                </p>
+                <p>我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏</p>
               </Tab>
               <Tab eventKey="yu-menu-4" title="專屬優惠">
                 <div className="panel-title">專屬優惠</div>
-                <p>
-                  用一雙眼，追逐日本的瞬息萬變、領略日本的傳承與創新。
-                  「Nippon所藏」為你獻上日本的薈萃珍藏。
-                </p>
+                <p>專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠</p>
               </Tab>
               <Tab eventKey="yu-menu-5" title="二手交換">
                 <div className="panel-title">二手交換</div>
-                <p>
-                  林潔珏、游翔皓、EZ Japan編輯部 游翔皓
-                  <br />
-                  日本關西學院大學日本語教育碩士。目前主要任教於文化大學推廣教育部，教授日文。內容有「初˙中級日本語」、「日語能力檢定試驗」、「日語中上級讀解」、「日本歷史」等課程。合著有『經典日劇100話：Nippon所藏8』、『日本歷史名人：Nippon所藏12』，並翻譯許多日語學習及考試用書。
-                  著有《這個動作、那個情境、日語怎麼說？桃太郎的實用動詞組句，教你日語好到花瘋(附音檔)》同時也是人氣粉專「桃太郎的花瘋日文」版主。
-                </p>
+                <p>二手交換二手交換二手交換二手交換二手交換二手交換二手交換</p>
               </Tab>
               <Tab
                 className="yen-signup-showbox"
