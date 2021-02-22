@@ -1,6 +1,7 @@
 import '../styles/members-register.scss'
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
+import { Modal, Button } from 'react-bootstrap'
 
 function Register() {
   const [name, setName] = useState('')
@@ -10,10 +11,13 @@ function Register() {
   const [address, setAddress] = useState('')
   const [birthday, setBirthday] = useState('')
   const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
+
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
 
   const register = async function () {
     const url = 'http://localhost:3333/member/register'
-
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -30,12 +34,23 @@ function Register() {
         'Content-Type': 'application/json',
       }),
     })
-    try {
-      const response = await fetch(request)
-      const data = await response.json()
 
-      console.log(data)
-    } catch (error) {}
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+
+    if (data.success) {
+      localStorage.setItem('userLogin', JSON.stringify(data))
+      console.log(JSON.parse(localStorage.getItem('userLogin')))
+      toMenu()
+    } else {
+      localStorage.removeItem('userLogin')
+      setShow(true)
+    }
+  }
+
+  function toMenu() {
+    window.location.href = '/menu'
   }
 
   return (
@@ -214,9 +229,9 @@ function Register() {
                   className="form-control formInput col-4"
                   id="password"
                   name="password"
-                  value={password}
+                  value={password2}
                   onChange={(e) => {
-                    setPassword(e.target.value)
+                    setPassword2(e.target.value)
                   }}
                 />
               </div>
@@ -241,24 +256,22 @@ function Register() {
             <div className="form-group button-group">
               <div className="formItems row d-flex justify-content-center">
                 <div className="yu-register-send">
-                  <Link to="/menu">
-                    <button
-                      className="btn-md-dark form-button form-control"
-                      onClick={() => {
-                        register(
-                          name,
-                          nickname,
-                          email,
-                          mobile,
-                          address,
-                          birthday,
-                          password
-                        )
-                      }}
-                    >
-                      送出
-                    </button>
-                  </Link>
+                  <Button
+                    className="btn-md-dark form-button form-control"
+                    onClick={() => {
+                      register(
+                        name,
+                        nickname,
+                        email,
+                        mobile,
+                        address,
+                        birthday,
+                        password
+                      )
+                    }}
+                  >
+                    送出
+                  </Button>
                 </div>
               </div>
             </div>
