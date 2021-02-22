@@ -9,7 +9,7 @@ function ProductCarousel(props) {
   const settings = {
     arrows: true,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -19,7 +19,6 @@ function ProductCarousel(props) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
         },
       },
       {

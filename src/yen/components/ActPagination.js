@@ -53,7 +53,7 @@ function ActPagination(props) {
         >
           ←
         </Pagination.Prev>
-        {page - 4 > 0 ? <Pagination.Ellipsis /> : ''}
+        {page - 5 > 0 ? <Pagination.Ellipsis /> : ''}
         {items}
         {page + 3 < totalPages ? <Pagination.Ellipsis /> : ''}
 
