@@ -17,18 +17,6 @@ import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
   const [recentlyViewed, setRecentlyViewed] = useState([])
-  useEffect(() => {
-    const recent = localStorage.getItem('recentlyViewed_sid')
-      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
-      : []
-    let idNow = +props.match.params.sid
-    if (recent.indexOf(idNow) === -1) {
-      recent.unshift(idNow)
-    }
-    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-    setRecentlyViewed(recent)
-  }, [props.match.params.sid])
-
   // 傳送 recentlyViewed
   const sendRecentlyViewed = async () => {
     const response = await fetch('http://localhost:3333/product/history', {
@@ -62,7 +50,6 @@ function ProductDetail(props) {
     // console.log(data)
     setProductDetail(data.detail[0])
     setProductRelated(data.related)
-    setProductHistory(data.history)
 
     let discountState = ''
     if (data.detail[0].discount.toString().length === 4) {
@@ -74,14 +61,29 @@ function ProductDetail(props) {
     }
     setDiscountDisplay(discountState)
   }
-  // didMount  執行伺服器抓資料
+
+  // didMount
   useEffect(() => {
     getProductDetail()
   }, [])
 
+  // didUpdate
   useEffect(() => {
-    getProductDetail()
+    // 寫入localstorage
+    const recent = localStorage.getItem('recentlyViewed_sid')
+      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
+      : []
+    let idNow = +props.match.params.sid
+    if (recent.indexOf(idNow) === -1) {
+      recent.unshift(idNow)
+    }
+    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+    // 並記錄 recentlyViewed state
+    setRecentlyViewed(recent)
+    // 執行傳送 localstorage to node
     sendRecentlyViewed()
+    // get 資料
+    getProductDetail()
   }, [props.match.params.sid])
 
   const productDetailDisplay = (
@@ -283,6 +285,7 @@ function ProductDetail(props) {
             <ProductHistoryCarousel
               productHistory={productHistory}
               setProductHistory={setProductHistory}
+              getProductDetail={getProductDetail}
             />
           </div>
         </div>
