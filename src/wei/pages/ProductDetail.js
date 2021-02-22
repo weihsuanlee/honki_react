@@ -12,16 +12,16 @@ import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import ReadTrialModal from '../components/ReadTrialModal'
+import SharePop from '../components/SharePop'
 import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
-  const [recentlyViewed, setRecentlyViewed] = useState([])
   // 傳送 recentlyViewed
-  const sendRecentlyViewed = async () => {
+  const sendRecentlyViewed = async (recent) => {
     const response = await fetch('http://localhost:3333/product/history', {
       method: 'post',
-      body: JSON.stringify(recentlyViewed),
+      body: JSON.stringify(recent),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -38,7 +38,6 @@ function ProductDetail(props) {
   const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
 
-  // console.log(props.match.params.sid)
   const sid = props.match.params.sid
 
   // 伺服器抓資料async
@@ -78,10 +77,8 @@ function ProductDetail(props) {
       recent.unshift(idNow)
     }
     localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-    // 並記錄 recentlyViewed state
-    setRecentlyViewed(recent)
     // 執行傳送 localstorage to node
-    sendRecentlyViewed()
+    sendRecentlyViewed(recent)
     // get 資料
     getProductDetail()
   }, [props.match.params.sid])
@@ -94,9 +91,7 @@ function ProductDetail(props) {
             <button className="wei-detail-icon wei-detail-heart mb-2">
               <FaHeart className="wei-detail-heart-icon" />
             </button>
-            <button className="wei-detail-icon wei-detail-share">
-              <FaShare className="wei-detail-share-icon" />
-            </button>
+            <SharePop productDetail={productDetail} />
           </div>
           <div className="col-12">
             <MultiLevelBreadCrumb class="breadcrumb wei-breadcrumb" />

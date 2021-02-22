@@ -90,6 +90,14 @@
   input {
     border: 1px solid white;
     outline: none;
+    height: 100%;
+    width: 100%;
+  }
+  .wei-suggestions {
+    background: white;
+    list-style: none;
+    padding: 4px;
+    text-align: center;
   }
   .wei-search-btn.btn.btn-primary,
   .wei-search-btn.btn.btn-primary:active,
@@ -889,6 +897,29 @@ ol.wei-breadcrumb {
     background-color: rgb(114, 108, 106);
   }
 }
+.wei-pop.wei-detail-icon.btn.btn-primary {
+  &:active,
+  &:hover,
+  &:focus,
+  .active {
+    background-color: white;
+    outline: none;
+    border: 1px solid var(--honki-black);
+    box-shadow: none;
+  }
+}
+.wei-share-pop {
+  padding: 24px;
+  width: 100px;
+  text-align: center;
+  .popover-body {
+    padding: 0px;
+  }
+  .wei-copied {
+    display: none;
+  }
+}
+
 // carousel slick
 .wei-slick {
   padding-left: 1rem;
