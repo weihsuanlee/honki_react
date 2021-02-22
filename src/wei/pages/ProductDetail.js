@@ -17,18 +17,6 @@ import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
   const [recentlyViewed, setRecentlyViewed] = useState([])
-  useEffect(() => {
-    const recent = localStorage.getItem('recentlyViewed_sid')
-      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
-      : []
-    let idNow = +props.match.params.sid
-    if (recent.indexOf(idNow) === -1) {
-      recent.unshift(idNow)
-    }
-    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-    setRecentlyViewed(recent)
-  }, [props.match.params.sid])
-
   // 傳送 recentlyViewed
   const sendRecentlyViewed = async () => {
     const response = await fetch('http://localhost:3333/product/history', {
@@ -49,6 +37,34 @@ function ProductDetail(props) {
   const [productRelated, setProductRelated] = useState([])
   const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
+  //aw-購物車按鈕
+  const [mycart, setMycart] = useState([])
+  const [show, setShow] = useState(false)
+  const [productName, setProductName] = useState('')
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+  const updateCartToLocalStorage = (item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.id === item.id)
+    // found: index! == -1
+    if (index > -1) {
+      //currentCart[index].amount++
+      setProductName('這個商品已經加過了')
+      handleShow()
+      return
+    } else {
+      currentCart.push(item)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+    setProductName('產品：' + item.name + '已成功加入購物車')
+    handleShow()
+    console.log(item.name)
+  }
 
   // console.log(props.match.params.sid)
   const sid = props.match.params.sid
@@ -62,7 +78,6 @@ function ProductDetail(props) {
     // console.log(data)
     setProductDetail(data.detail[0])
     setProductRelated(data.related)
-    setProductHistory(data.history)
 
     let discountState = ''
     if (data.detail[0].discount.toString().length === 4) {
@@ -74,14 +89,29 @@ function ProductDetail(props) {
     }
     setDiscountDisplay(discountState)
   }
-  // didMount  執行伺服器抓資料
+
+  // didMount
   useEffect(() => {
     getProductDetail()
   }, [])
 
+  // didUpdate
   useEffect(() => {
-    getProductDetail()
+    // 寫入localstorage
+    const recent = localStorage.getItem('recentlyViewed_sid')
+      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
+      : []
+    let idNow = +props.match.params.sid
+    if (recent.indexOf(idNow) === -1) {
+      recent.unshift(idNow)
+    }
+    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+    // 並記錄 recentlyViewed state
+    setRecentlyViewed(recent)
+    // 執行傳送 localstorage to node
     sendRecentlyViewed()
+    // get 資料
+    getProductDetail()
   }, [props.match.params.sid])
 
   const productDetailDisplay = (
@@ -183,7 +213,18 @@ function ProductDetail(props) {
                 <del>NT ${productDetail.price}</del>
               </h6>
             </div>
-            <button className="btn-lg wei-add-to-cart">
+            <button
+              className="btn-lg wei-add-to-cart"
+              // aw-購物車按鈕
+              onClick={() =>
+                updateCartToLocalStorage({
+                  ISBN: productDetail.ISBN,
+                  price: productDetail.final_price,
+                  amount: 1,
+                  book_id: productDetail.book_pics,
+                })
+              }
+            >
               <FaShoppingCart className="mr-5" />
               放入購物車
             </button>
@@ -283,6 +324,7 @@ function ProductDetail(props) {
             <ProductHistoryCarousel
               productHistory={productHistory}
               setProductHistory={setProductHistory}
+              getProductDetail={getProductDetail}
             />
           </div>
         </div>
