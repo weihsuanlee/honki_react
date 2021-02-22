@@ -1,13 +1,16 @@
+// 套件
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 
+// 引用/分頁
 import '../styles/yen-event.scss'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import SvgCricket from '../components/svg/SvgCricket'
 import SvgSignUpLadybug from '../components/svg/SvgSignUpLadybug'
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
 function ActEvent(props) {
   moment.locale('zh-tw', {
@@ -179,12 +182,12 @@ function ActEvent(props) {
     <>
       <div className="yen-event-header">
         <nav aria-label="breadcrumb" className="yen-event-breadcrumb">
-          <ol className="breadcrumb">
+          <ol className="breadcrumb yen-breadcrumb-index">
             <li className="breadcrumb-honki">
-              <a href="#">首頁</a>
+              <Link to="/">首頁</Link>
             </li>
-            <li className="active" aria-current="page">
-              活動講座
+            <li className="breadcrumb-honki" aria-current="page">
+              <Link to="/activity">活動講座</Link>
             </li>
             <li className="active" aria-current="page">
               {actName}
