@@ -17,39 +17,38 @@ import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
   const [recentlyViewed, setRecentlyViewed] = useState([])
-  // useEffect(() => {
-  //   const recent = localStorage.getItem('recentlyViewed_sid')
-  //     ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
-  //     : []
-  //   let idNow = props.match.params.sid
-  //   if (recent.indexOf(idNow) === -1) {
-  //     recent.push(idNow)
-  //   }
-  //   localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-  //   setRecentlyViewed(recent)
-  // }, [props.match.params.sid])
+  useEffect(() => {
+    const recent = localStorage.getItem('recentlyViewed_sid')
+      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
+      : []
+    let idNow = +props.match.params.sid
+    if (recent.indexOf(idNow) === -1) {
+      recent.unshift(idNow)
+    }
+    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+    setRecentlyViewed(recent)
+  }, [props.match.params.sid])
+
   // 傳送 recentlyViewed
-  // const sendRecentlyViewed = async () => {
-  //   const response = await fetch('http://localhost:3333/product/history', {
-  //     method: 'post',
-  //     body: JSON.stringify(recentlyViewed),
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     }),
-  //   })
-  //   const data = await response.json()
-  //   console.log(data)
-  //   setProductHistory(data.history)
-  // }
+  const sendRecentlyViewed = async () => {
+    const response = await fetch('http://localhost:3333/product/history', {
+      method: 'post',
+      body: JSON.stringify(recentlyViewed),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const data = await response.json()
+    setProductHistory(data.history)
+    console.log(data)
+  }
 
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
   const [productRelated, setProductRelated] = useState([])
   const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
-  // const [productDetailDisplay, setProductDetailDisplay] = useState([])
-  console.log(props)
 
   // console.log(props.match.params.sid)
   const sid = props.match.params.sid
@@ -82,7 +81,7 @@ function ProductDetail(props) {
 
   useEffect(() => {
     getProductDetail()
-    // sendRecentlyViewed()
+    sendRecentlyViewed()
   }, [props.match.params.sid])
 
   const productDetailDisplay = (
