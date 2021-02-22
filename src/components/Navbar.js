@@ -28,6 +28,10 @@ function Navbar() {
     window.location.href = '/login'
   }
 
+  function member() {
+    window.location.href = '/menu'
+  }
+
   useEffect(() => {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
@@ -269,10 +273,14 @@ function Navbar() {
                   <NavDropdown.Item eventKey="4.1">
                     {name}，你好
                   </NavDropdown.Item>
-                  {/* <NavDropdown.Item eventKey="4.2">
-                    Another action
+                  <NavDropdown.Item
+                    eventKey="4.2"
+                    id="yu-member"
+                    onClick={member}
+                  >
+                    會員專區
                   </NavDropdown.Item>
-                  <NavDropdown.Item eventKey="4.3">
+                  {/* <NavDropdown.Item eventKey="4.3">
                     Something else here
                   </NavDropdown.Item> */}
                   <NavDropdown.Divider />

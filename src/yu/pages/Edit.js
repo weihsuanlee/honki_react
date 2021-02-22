@@ -23,7 +23,7 @@ function Edit() {
             <Link to="/menu">會員中心</Link>
           </li>
           <li className="breadcrumb-honki active" aria-current="page">
-            個人資料修改
+            編輯修改
           </li>
         </ol>
       </nav>
