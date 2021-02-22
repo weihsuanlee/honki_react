@@ -152,7 +152,7 @@ function Menu() {
                         </li>
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links"></div>
+                            <div className="yu-menu-links">過往收藏</div>
                           </Link>
                         </li>
                       </ul>
@@ -177,6 +177,21 @@ function Menu() {
                         <li>
                           <Link to="/">
                             <div className="yu-menu-links">隨機交換</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/">
+                            <div className="yu-menu-links">印製卡片</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/">
+                            <div className="yu-menu-links">上傳書籍</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/">
+                            <div className="yu-menu-links">交換狀況</div>
                           </Link>
                         </li>
                       </ul>
@@ -250,6 +265,11 @@ function Menu() {
                         <li>
                           <Link to="/">
                             <div className="yu-menu-links">帳戶餘額</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/">
+                            <div className="yu-menu-links">到期日查詢</div>
                           </Link>
                         </li>
                       </ul>
