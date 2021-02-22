@@ -12,6 +12,7 @@ import ActPagination from './ActPagination'
 
 function IndexAllEvent(props) {
   // console.log('eventCard.props:', props)
+
   // 頁數
   const { totalPages, page, setPage, queryPage, setQueryPage } = props
 
@@ -27,7 +28,7 @@ function IndexAllEvent(props) {
 
   const eventCard = (
     <>
-      {props.eventLists.length !== 0 &&
+      {props.eventLists.rows &&
         props.eventLists.rows.map((value, index) => {
           const pic =
             'http://localhost:3000/images/yen/event/' +

@@ -149,7 +149,7 @@
 .yen-event-tag-des {
   width: 20%;
   height: 100%;
-  background: #fff;
+  background: #ffebbb;
   border-radius: 8px 8px 0 0;
   margin-right: 1%;
   box-shadow: 3px -2px 1px #ffb400;
@@ -189,6 +189,10 @@
   box-shadow: 3px -2px 1px #ffb400;
   padding: 2.5% 3%;
   text-align: center;
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
 }
 
 .yen-event-box {

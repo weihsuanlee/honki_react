@@ -12,28 +12,16 @@ import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import React from 'react'
 import ReadTrialModal from '../components/ReadTrialModal'
+import SharePop from '../components/SharePop'
 import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
 function ProductDetail(props) {
-  const [recentlyViewed, setRecentlyViewed] = useState([])
-  useEffect(() => {
-    const recent = localStorage.getItem('recentlyViewed_sid')
-      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
-      : []
-    let idNow = +props.match.params.sid
-    if (recent.indexOf(idNow) === -1) {
-      recent.unshift(idNow)
-    }
-    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
-    setRecentlyViewed(recent)
-  }, [props.match.params.sid])
-
   // 傳送 recentlyViewed
-  const sendRecentlyViewed = async () => {
+  const sendRecentlyViewed = async (recent) => {
     const response = await fetch('http://localhost:3333/product/history', {
       method: 'post',
-      body: JSON.stringify(recentlyViewed),
+      body: JSON.stringify(recent),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -49,8 +37,37 @@ function ProductDetail(props) {
   const [productRelated, setProductRelated] = useState([])
   const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
+  //aw-購物車按鈕
+  const [mycart, setMycart] = useState([])
+  const [show, setShow] = useState(false)
+  const [productName, setProductName] = useState('')
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
-  // console.log(props.match.params.sid)
+  const updateCartToLocalStorage = (item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.book_sid === item.book_sid)
+    // found: index! == -1
+    if (index > -1) {
+      //currentCart[index].amount++
+      setProductName('這個商品已經加過了')
+      handleShow()
+      console.log(index)
+      console.log(item)
+      currentCart.push(item)
+      console.log(currentCart)
+      return
+    } else {
+      currentCart.push(item)
+      localStorage.setItem('cart', JSON.stringify(currentCart))
+    }
+    // 設定資料
+    setMycart(currentCart)
+    setProductName('產品：' + item.name + '已成功加入購物車')
+    handleShow()
+  }
+
   const sid = props.match.params.sid
 
   // 伺服器抓資料async
@@ -62,7 +79,6 @@ function ProductDetail(props) {
     // console.log(data)
     setProductDetail(data.detail[0])
     setProductRelated(data.related)
-    setProductHistory(data.history)
 
     let discountState = ''
     if (data.detail[0].discount.toString().length === 4) {
@@ -74,14 +90,27 @@ function ProductDetail(props) {
     }
     setDiscountDisplay(discountState)
   }
-  // didMount  執行伺服器抓資料
+
+  // didMount
   useEffect(() => {
     getProductDetail()
   }, [])
 
+  // didUpdate
   useEffect(() => {
+    // 寫入localstorage
+    const recent = localStorage.getItem('recentlyViewed_sid')
+      ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
+      : []
+    let idNow = +props.match.params.sid
+    if (recent.indexOf(idNow) === -1) {
+      recent.unshift(idNow)
+    }
+    localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
+    // 執行傳送 localstorage to node
+    sendRecentlyViewed(recent)
+    // get 資料
     getProductDetail()
-    sendRecentlyViewed()
   }, [props.match.params.sid])
 
   const productDetailDisplay = (
@@ -92,9 +121,7 @@ function ProductDetail(props) {
             <button className="wei-detail-icon wei-detail-heart mb-2">
               <FaHeart className="wei-detail-heart-icon" />
             </button>
-            <button className="wei-detail-icon wei-detail-share">
-              <FaShare className="wei-detail-share-icon" />
-            </button>
+            <SharePop productDetail={productDetail} />
           </div>
           <div className="col-12">
             <MultiLevelBreadCrumb class="breadcrumb wei-breadcrumb" />
@@ -183,7 +210,20 @@ function ProductDetail(props) {
                 <del>NT ${productDetail.price}</del>
               </h6>
             </div>
-            <button className="btn-lg wei-add-to-cart">
+            <button
+              className="btn-lg wei-add-to-cart"
+              // aw-購物車按鈕
+              onClick={() =>
+                updateCartToLocalStorage({
+                  ISBN: productDetail.ISBN,
+                  price: productDetail.final_price,
+                  amount: 1,
+                  book_id: productDetail.book_pics,
+                  book_sid: productDetail.sid,
+                  bookname: productDetail.title,
+                })
+              }
+            >
               <FaShoppingCart className="mr-5" />
               放入購物車
             </button>
@@ -283,6 +323,7 @@ function ProductDetail(props) {
             <ProductHistoryCarousel
               productHistory={productHistory}
               setProductHistory={setProductHistory}
+              getProductDetail={getProductDetail}
             />
           </div>
         </div>
