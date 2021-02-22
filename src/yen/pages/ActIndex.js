@@ -14,6 +14,11 @@ function ActIndex(props) {
   const [totalPages, setTotalPages] = useState('')
   // 每頁
   const [page, setPage] = useState(1)
+  // 熱門活動
+  const [hotLists, setHotLists] = useState([])
+  const [hotAddClass, setHotAddClass] = useState('')
+  // 最新活動
+  const [newLists, setNewLists] = useState([])
   // query string page
   const [queryPage, setQueryPage] = useState('')
   // query string select
@@ -72,9 +77,6 @@ function ActIndex(props) {
   }, [])
 
   // 熱門活動
-  const [hotLists, setHotLists] = useState([])
-  const [hotAddClass, setHotAddClass] = useState('')
-
   async function getHotEventFromServer() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity/hot'
@@ -97,11 +99,33 @@ function ActIndex(props) {
 
   useEffect(() => {
     getHotEventFromServer()
-  }, [queryPage])
+  }, [])
+
+  // 最新活動篩選
+  useEffect(() => {
+    let pathName = '/activity/new'
+    // let pageSelect = props.location.search
+    // console.log(pathName + pageSelect)
+
+    async function newSelectPages() {
+      const url = pathName + querySelect
+
+      // 和伺服器要資料
+      const response = await fetch('http://localhost:3333' + url, {
+        method: 'GET',
+        header: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
+      const data = await response.json()
+      console.log('new data page', response, data)
+      setNewLists(data)
+    }
+    newSelectPages()
+  }, [querySelect])
 
   // 最新活動
-  const [newLists, setNewLists] = useState([])
-
   async function getNewEventFromServer() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity/new'
@@ -119,7 +143,7 @@ function ActIndex(props) {
     const data = await response.json()
     // console.log(data)
     setNewLists(data)
-    console.log(data)
+    // console.log(data)
   }
 
   useEffect(() => {
