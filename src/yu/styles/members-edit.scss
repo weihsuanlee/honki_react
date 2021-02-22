@@ -37,6 +37,15 @@
   z-index: 100;
 }
 
+.yu-edit-member-photo-acc img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 120px;
+  top: 200px;
+  z-index: 100;
+}
+
 .yu-edit-member-photo-cloth img {
   width: 120px;
   height: 120px;
@@ -79,8 +88,6 @@
   background-color: var(--honki-yellow);
 }
 
-
-
 .yu-edit-input {
   display: none;
 }
@@ -119,9 +126,7 @@
   &:hover {
     box-shadow: 2px 2px 15px #707070;
   }
-
 }
-
 
 .yu-edit-face,
 .yu-edit-hair,

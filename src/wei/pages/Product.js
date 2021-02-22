@@ -176,6 +176,7 @@ function Product(props) {
         setSearch={setSearch}
         searchTitle={searchTitle}
         setSearchTitle={setSearchTitle}
+        books={books}
       />
       <div className="container-fluid my-5">
         <div className="row justify-content-between align-items-center wei-breadcrumb-section">

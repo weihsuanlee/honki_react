@@ -6,8 +6,8 @@ import Slider from 'react-slick'
 import { withRouter } from 'react-router-dom'
 
 function ProductHistoryCarousel(props) {
-  const { productHistory, setProductHistory, recentlyViewed } = props
-  // useEffect(() => {}, [productHistory])
+  const { productHistory } = props
+  // const { productHistory, getProductDetail } = props
 
   const settings = {
     arrows: true,

@@ -1,8 +1,12 @@
 import '../styles/members-edit.scss'
 import { Tabs, Tab } from 'react-bootstrap'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import { SVG_FACES } from '../constants'
+import { SVG_HAIR } from '../constants'
+import { SVG_CLOTH } from '../constants'
+import { SVG_ACC } from '../constants'
+import { SVG_TERMS } from '../constants'
 import EditTab1 from '../components/EditTab1'
 import EditTab2 from '../components/EditTab2'
 import EditTab3 from '../components/EditTab3'
@@ -10,6 +14,10 @@ import EditTab4 from '../components/EditTab4'
 
 function Edit() {
   const [curFace, setCurFace] = useState(0)
+  const [curHair, setCurHair] = useState(0)
+  const [curCloth, setCurCloth] = useState(0)
+  const [curAcc, setCurAcc] = useState(0)
+  const [curTerms, setCurTerms] = useState(0)
 
   return (
     <>
@@ -23,7 +31,7 @@ function Edit() {
             <Link to="/menu">會員中心</Link>
           </li>
           <li className="breadcrumb-honki active" aria-current="page">
-            個人資料修改
+            編輯修改
           </li>
         </ol>
       </nav>
@@ -41,17 +49,11 @@ function Edit() {
             </div>
             <div className="yu-edit-member-photo-bg">
               {/* <!-- 個人頭貼-bg --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
-                alt=""
-              />
+              <img src={SVG_TERMS[curTerms]} alt="" />
             </div>
             <div className="yu-edit-member-photo-hair">
               {/* <!-- 個人頭貼-hair --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
-                alt=""
-              />
+              <img src={SVG_HAIR[curHair]} alt="" />
             </div>
             <div className="yu-edit-member-photo-face">
               {/* <!-- 個人頭貼-face --> */}
@@ -59,12 +61,12 @@ function Edit() {
             </div>
             <div className="yu-edit-member-photo-cloth">
               {/* <!-- 個人頭貼-cloth --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
-                alt=""
-              />
+              <img src={SVG_CLOTH[curCloth]} alt="" />
             </div>
-
+            <div className="yu-edit-member-photo-acc">
+              {/* <!-- 個人頭貼-cloth --> */}
+              <img src={SVG_ACC[curAcc]} alt="" />
+            </div>
             <div>
               {/* <!-- 會員等級 --> */}
               <div className="yu-edit-general-member">一般會員</div>
@@ -89,6 +91,18 @@ function Edit() {
                     onChangeFace={(value) => {
                       setCurFace(value)
                     }}
+                    onChangeHair={(value) => {
+                      setCurHair(value)
+                    }}
+                    onChangeCloth={(value) => {
+                      setCurCloth(value)
+                    }}
+                    onChangeAcc={(value) => {
+                      setCurAcc(value)
+                    }}
+                    onChangeTerms={(value) => {
+                      setCurTerms(value)
+                    }}
                   />
                 </Tab>
                 <Tab eventKey="yu-edit-4" title="刪除帳號">
@@ -102,4 +116,4 @@ function Edit() {
     </>
   )
 }
-export default withRouter(Edit)
+export default Edit
