@@ -49,6 +49,34 @@ function ProductDetail(props) {
   const [productRelated, setProductRelated] = useState([])
   const [productHistory, setProductHistory] = useState([])
   const [discountDisplay, setDiscountDisplay] = useState('')
+  //aw-購物車按鈕
+  const [mycart, setMycart] = useState([])
+  const [show, setShow] = useState(false)
+  const [productName, setProductName] = useState('')
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+  const updateCartToLocalStorage = (item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.id === item.id)
+    // found: index! == -1
+    if (index > -1) {
+      //currentCart[index].amount++
+      setProductName('這個商品已經加過了')
+      handleShow()
+      return
+    } else {
+      currentCart.push(item)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+    setProductName('產品：' + item.name + '已成功加入購物車')
+    handleShow()
+    console.log(item.name)
+  }
 
   // console.log(props.match.params.sid)
   const sid = props.match.params.sid
@@ -183,7 +211,18 @@ function ProductDetail(props) {
                 <del>NT ${productDetail.price}</del>
               </h6>
             </div>
-            <button className="btn-lg wei-add-to-cart">
+            <button
+              className="btn-lg wei-add-to-cart"
+              // aw-購物車按鈕
+              onClick={() =>
+                updateCartToLocalStorage({
+                  ISBN: productDetail.ISBN,
+                  price: productDetail.final_price,
+                  // amount: 1,
+                  book_id: productDetail.book_pics,
+                })
+              }
+            >
               <FaShoppingCart className="mr-5" />
               放入購物車
             </button>

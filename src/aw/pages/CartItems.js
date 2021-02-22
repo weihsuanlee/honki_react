@@ -6,117 +6,117 @@ import { withRouter, NavLink } from 'react-router-dom'
 // import ListSpinner from '../components/ListSpinner'
 // import MyPopOver from '../components/MyPopOver'
 import { useEffect, useState } from 'react'
-
+import Select from 'react-select'
+import options from './options'
 function CartItems(props) {
-  // 書籍商品狀態
-  const [books, setBooks] = useState([])
-  // 分類選單 Display
-  const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別狀態
-  const [category, setCategory] = useState('')
-  // 模擬componentDidUpdate
-  useEffect(() => {
-    filterProduct()
-  }, [category])
-  const [isLoading, setIsLoading] = useState(true)
-  const getDataFromServer = async () => {
-    // 先開啟spinner
-    setIsLoading(true)
+  const [mycart, setMycart] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+  const [mycartDisplay, setMycartDisplay] = useState([])
+  //select into localStorage
+  const SELECT_VALUE_KEY = 'MySelectValue'
 
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/cart', {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data)
-    setBooks(data.rows)
-    setCategoriesDisplay(data.c_rows)
+  function MySelect() {
+    const [selected, setSelected] = useState([])
+    const handleChange = (s) => {
+      localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(s))
+      setSelected(s)
+    }
 
-    // 2秒後關閉spinner
-    // setTimeout(() => {
-    //   setIsLoading(false)
-    // }, 2000)
+    useEffect(() => {
+      const lastSelected = JSON.parse(
+        localStorage.getItem(SELECT_VALUE_KEY) ?? '[]'
+      )
+      setSelected(lastSelected)
+    }, [])
   }
-  const categoriesDisplay = (
-    <div className="wei-categories">
-      <h6 className="wei-categories-title">書籍分類</h6>
-      <ul>
-        {categoryDisplay.map((v, i) => (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="wei-category"
-              to={{
-                search: '?category=' + v.category_sid,
-              }}
-              key={i}
-              onClick={() => {
-                setCategory(`category=${v.category_sid}`)
-              }}
-            >
-              <p>{v.name}</p>
-            </NavLink>
-          </>
-        ))}
-      </ul>
-    </div>
-  )
+  //
 
-  async function filterProduct() {
-    // 先開啟spinner
-    setIsLoading(true)
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/product?' + category, {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data, 'data1')
-    setBooks(data.rows)
+  function getCartFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
 
-    // 1.5秒後關閉spinner
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
+    const newCart = localStorage.getItem('cart') || '[]'
+
+    console.log(JSON.parse(newCart))
+
+    setMycart(JSON.parse(newCart))
   }
-  // const spinner = <ListSpinner show="true" />
-  const bookCardDisplay = (
-    <>
-      {books.map((v, i) => (
-        <div
-          onClick={() => {
-            props.history.push('/products/' + v.sid)
-          }}
-          className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
-          key={i}
-        >
-          <div className="wei-card-icon">NEW</div>
-          <div className="wei-card-pic position-relative">
-            <div className="wei-book-pic">
-              <img
-                className="w-100"
-                src={`http://localhost:3000/images/books/` + v.book_pics}
-                alt=""
-              />
-            </div>
-            <div className="wei-heart-bg">
-              <FaHeart className="wei-heart" />
-            </div>
-          </div>
-          <div className="wei-book-text">
-            <p className="wei-book-title">{v.title}</p>
-            <p className="wei-book-author">{v.author}</p>
-            <div className="wei-book-price">NT$ {v.final_price}</div>
-          </div>
-        </div>
-      ))}
-    </>
-  )
-  // 模擬componentDidMount
+
   useEffect(() => {
-    getDataFromServer()
+    getCartFromLocalStorage()
   }, [])
 
-  // console.log(props)
+  // 每次mycart資料有改變，1秒後關閉載入指示
+  // componentDidUpdate
+  useEffect(() => {
+    setTimeout(() => setDataLoading(false), 1000)
+
+    // mycartDisplay運算
+    let newMycartDisplay = []
+
+    //尋找mycartDisplay
+    for (let i = 0; i < mycart.length; i++) {
+      //尋找mycartDisplay中有沒有此mycart[i].id
+      //有找到會返回陣列成員的索引值
+      //沒找到會返回-1
+      const index = newMycartDisplay.findIndex(
+        (value) => value.id === mycart[i].id
+      )
+      //有的話就數量+1
+      if (index !== -1) {
+        //每次只有加1個數量
+        //newMycartDisplay[index].amount++
+        //假設是加數量的
+        newMycartDisplay[index].amount += mycart[i].amount
+      } else {
+        //沒有的話就把項目加入，數量為1
+        const newItem = { ...mycart[i] }
+        newMycartDisplay = [...newMycartDisplay, newItem]
+      }
+    }
+
+    console.log(newMycartDisplay)
+    setMycartDisplay(newMycartDisplay)
+  }, [mycart])
+
+  // 更新購物車中的商品數量
+  const updateCartToLocalStorage = (item, isAdded = true) => {
+    console.log(item, isAdded)
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.id === item.id)
+
+    console.log('index', index)
+    // found: index! == -1
+    if (index > -1) {
+      isAdded ? currentCart[index].amount++ : currentCart[index].amount--
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+  }
+
+  // 計算總價用的函式
+  const sum = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    return total
+  }
+
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
 
   return (
     <>
@@ -505,6 +505,10 @@ function CartItems(props) {
                             <select
                               class="aw-select-sm form-control formInput  col-7 "
                               id="exampleFormControlSelect1"
+                              value={selected}
+                              onChange={handleChange}
+                              options={options}
+                              isMulti
                             >
                               <option value="">1</option>
                               <option value="">2</option>
