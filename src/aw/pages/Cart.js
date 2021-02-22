@@ -1,10 +1,6 @@
 import '../styles/cartStyle.scss'
-import { FaTimesCircle, FaAngleLeft, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
-// import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-// import ProductBanner from '../components/ProductBanner'
-// import ListSpinner from '../components/ListSpinner'
-// import MyPopOver from '../components/MyPopOver'
+import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import { withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function Cart(props) {
@@ -59,7 +55,7 @@ function Cart(props) {
     setMycartDisplay(newMycartDisplay)
   }, [mycart])
 
-  // 刪除項目
+  // 刪除單一項目
   const updateCartRemove = (index) => {
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
     console.log(currentCart[index])
@@ -77,22 +73,12 @@ function Cart(props) {
     // 設定資料
     setMycart(a)
   }
+  //清除全部
   const updateCartRemoveAll = (item) => {
     console.log(item)
-
     localStorage.removeItem('cart')
-
     // 設定資料
     setMycart([])
-  }
-
-  // 計算總價用的函式
-  const sum = (items) => {
-    let total = 0
-    for (let i = 0; i < items.length; i++) {
-      total += items[i].amount * items[i].price
-    }
-    return total
   }
 
   const loading = (
@@ -157,7 +143,6 @@ function Cart(props) {
                   <div class=" col-2 d-flex justify-content-center align-items-center aw-p-0">
                     <button
                       class="btn-sm-dark aw-btn-sm-dark "
-                      // key={item.id}
                       onClick={() => updateCartRemoveAll()}
                     >
                       清空
