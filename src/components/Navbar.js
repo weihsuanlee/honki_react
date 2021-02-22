@@ -270,7 +270,7 @@ function Navbar() {
                   ref={nav}
                   id="nav-dropdown yu-nav-dropdown"
                 >
-                  <NavDropdown.Item eventKey="4.1">
+                  <NavDropdown.Item eventKey="4.1" disabled>
                     {name}，你好
                   </NavDropdown.Item>
                   <NavDropdown.Item
