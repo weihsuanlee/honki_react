@@ -140,6 +140,8 @@ function ActEvent(props) {
   const [actPic, setActPic] = useState('')
 
   async function getEventDetailFromServer(eventid) {
+    if (!eventid) return
+
     const url = 'http://localhost:3333/activity/event/' + eventid
 
     // header的資料格式
@@ -153,7 +155,7 @@ function ActEvent(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
 
     setName(data[0].act_name)
     setActTime(data[0].act_time)
@@ -163,7 +165,9 @@ function ActEvent(props) {
     setActTransportation(data[0].act_transportation)
     setActNotice(data[0].act_notice)
     setActCancel(data[0].act_cancel_or_change)
-    setActPic('http://localhost:3000/images/yen/event/' + actName + '/0.jpg')
+    setActPic(
+      'http://localhost:3000/images/yen/event/' + data[0].act_name + '/0.jpg'
+    )
     console.log(actPic)
   }
 
