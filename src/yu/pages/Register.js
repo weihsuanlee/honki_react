@@ -2,7 +2,8 @@ import '../styles/members-register.scss'
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
-function Register() {
+function Register(props) {
+  
   const [name, setName] = useState('')
   const [nickname, setNickname] = useState('')
   const [email, setEmail] = useState('')

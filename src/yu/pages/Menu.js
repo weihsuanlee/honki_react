@@ -8,11 +8,24 @@ import {
   FaChild,
 } from 'react-icons/fa'
 import { Tabs, Tab } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { SVG_FACES } from '../constants'
+import { SVG_HAIR } from '../constants'
+import { SVG_CLOTH } from '../constants'
+import { SVG_ACC } from '../constants'
+import { SVG_TERMS } from '../constants'
 import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
 import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
 
 function Menu() {
+  const [avatar, setAvatar] = useState([1, 1, 1, 1, 1])
+
+  useEffect(() => {
+    setAvatar(localStorage.getItem('avatar', [1, 1, 1, 1, 1]))
+    // console.log(localStorage.getItem('avatar'))
+  }, [])
+
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -38,31 +51,23 @@ function Menu() {
           <div className="yu-menu-member-photo">
             <div className="yu-menu-member-photo-bg">
               {/* <!-- 個人頭貼-bg --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
-                alt=""
-              />
+              <img src={SVG_TERMS[avatar[4]]} alt="" />
             </div>
             <div className="yu-menu-member-photo-hair">
               {/* <!-- 個人頭貼-hair --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
-                alt=""
-              />
+              <img src={SVG_HAIR[avatar[1]]} alt="" />
             </div>
             <div className="yu-menu-member-photo-face">
               {/* <!-- 個人頭貼-face --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
-                alt=""
-              />
+              <img src={SVG_FACES[avatar[0]]} alt="" />
             </div>
             <div className="yu-menu-member-photo-cloth">
               {/* <!-- 個人頭貼-cloth --> */}
-              <img
-                src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
-                alt=""
-              />
+              <img src={SVG_CLOTH[avatar[2]]} alt="" />
+            </div>
+            <div className="yu-menu-member-photo-acc">
+              {/* <!-- 個人頭貼-acc --> */}
+              <img src={SVG_ACC[avatar[3]]} alt="" />
             </div>
           </div>
           <div className="yu-menu-general">

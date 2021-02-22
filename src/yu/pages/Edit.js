@@ -1,7 +1,7 @@
 import '../styles/members-edit.scss'
 import { Tabs, Tab } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SVG_FACES } from '../constants'
 import { SVG_HAIR } from '../constants'
 import { SVG_CLOTH } from '../constants'
@@ -18,6 +18,18 @@ function Edit() {
   const [curCloth, setCurCloth] = useState(0)
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
+
+  useEffect(() => {
+    const avatar = [
+      JSON.parse(curFace),
+      JSON.parse(curHair),
+      JSON.parse(curCloth),
+      JSON.parse(curAcc),
+      JSON.parse(curTerms),
+    ]
+    console.log(avatar)
+    localStorage.setItem('avatar', avatar)
+  }, [curFace, curHair, curCloth, curAcc, curTerms])
 
   return (
     <>
@@ -42,6 +54,7 @@ function Edit() {
       <div className="container my-5">
         <div className="row d-flex justify-content-between">
           {/* 左欄 */}
+
           <div className="col-3">
             {/* <!-- 標題 --> */}
             <div className="yu-edit-member-menu">
@@ -64,7 +77,7 @@ function Edit() {
               <img src={SVG_CLOTH[curCloth]} alt="" />
             </div>
             <div className="yu-edit-member-photo-acc">
-              {/* <!-- 個人頭貼-cloth --> */}
+              {/* <!-- 個人頭貼-acc --> */}
               <img src={SVG_ACC[curAcc]} alt="" />
             </div>
             <div>
@@ -73,6 +86,7 @@ function Edit() {
               {/* <!-- 歡迎詞 --> */}
               <div className="yu-edit-greeting">哈囉，歡迎回來</div>
             </div>
+
             {/* <!-- 右欄 --> */}
           </div>
           {/* 右欄 */}
