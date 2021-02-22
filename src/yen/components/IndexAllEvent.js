@@ -14,7 +14,21 @@ function IndexAllEvent(props) {
   // console.log('eventCard.props:', props)
 
   // 頁數
-  const { totalPages, page, setPage, queryPage, setQueryPage } = props
+  const {
+    totalPages,
+    page,
+    setPage,
+    queryPage,
+    setQueryPage,
+    queryClass,
+    setQueryClass,
+  } = props
+
+  function classButtonClick(changeClass) {
+    console.log('class', changeClass)
+    setQueryClass(changeClass)
+    console.log('queryClass', queryClass)
+  }
 
   // console.log('IndexAllEvent props', props.eventLists)
   const classNumList = [
@@ -93,12 +107,60 @@ function IndexAllEvent(props) {
           </ol>
         </nav>
         <div className="yen-select">
-          <button className="btn-md-light yen-select-btn">講座</button>
-          <button className="btn-md-light yen-select-btn">讀書會</button>
-          <button className="btn-md-light yen-select-btn">戶外探索</button>
-          <button className="btn-md-light yen-select-btn">休閒活動</button>
-          <button className="btn-md-light yen-select-btn">活動地區</button>
-          <button className="btn-md-light yen-select-btn">節氣推薦</button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=talk'
+              classButtonClick(changeClass)
+            }}
+          >
+            講座
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=book_club'
+              classButtonClick(changeClass)
+            }}
+          >
+            讀書會
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=outdoor'
+              classButtonClick(changeClass)
+            }}
+          >
+            戶外探索
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=hang_out'
+              classButtonClick(changeClass)
+            }}
+          >
+            休閒活動
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=area'
+              classButtonClick(changeClass)
+            }}
+          >
+            活動地區
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const changeClass = '?changeClass=recommend'
+              classButtonClick(changeClass)
+            }}
+          >
+            節氣推薦
+          </button>
           <div className="yen-event-ladybug">
             <SvgLadybug />
           </div>
