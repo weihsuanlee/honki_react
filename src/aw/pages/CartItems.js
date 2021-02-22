@@ -6,8 +6,8 @@ import { withRouter, NavLink } from 'react-router-dom'
 // import ListSpinner from '../components/ListSpinner'
 // import MyPopOver from '../components/MyPopOver'
 import { useEffect, useState } from 'react'
-import Select from 'react-select'
-import options from './options'
+// import Select from 'react-select'
+// import options from './options'
 function CartItems(props) {
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
@@ -505,9 +505,9 @@ function CartItems(props) {
                             <select
                               class="aw-select-sm form-control formInput  col-7 "
                               id="exampleFormControlSelect1"
-                              value={selected}
-                              onChange={handleChange}
-                              options={options}
+                              // value={selected}
+                              // onChange={handleChange}
+                              // options={options}
                               isMulti
                             >
                               <option value="">1</option>
