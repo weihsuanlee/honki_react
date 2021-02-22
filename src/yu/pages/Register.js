@@ -1,5 +1,4 @@
 import '../styles/members-register.scss'
-import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
@@ -42,10 +41,10 @@ function Register() {
     if (data.success) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
+      setShow(true)
       toMenu()
     } else {
       localStorage.removeItem('userLogin')
-      setShow(true)
     }
   }
 
@@ -272,6 +271,21 @@ function Register() {
                   >
                     送出
                   </Button>
+
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Honki</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>註冊成功，歡迎你加入我們!</Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        關閉
+                      </Button>
+                      {/* <Button variant="primary" onClick={handleClose}>
+                          Save Changes
+                        </Button> */}
+                    </Modal.Footer>
+                  </Modal>
                 </div>
               </div>
             </div>
