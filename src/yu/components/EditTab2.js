@@ -2,6 +2,7 @@ import { useRef } from 'react'
 
 function EditTab2() {
   const divRef = useRef()
+  
   return (
     <>
       <div ref={divRef} className="panel-title">

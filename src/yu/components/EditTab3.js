@@ -1,4 +1,3 @@
-// import { useRef } from 'react'
 import { SVG_FACES } from '../constants'
 
 const COLUMN_NUM = 4
