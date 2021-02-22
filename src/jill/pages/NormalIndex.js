@@ -18,10 +18,15 @@ function NormalIndex() {
   const [memberData, setMemberData] = useState([])
   // 撈我的交換單(編號15)
   const [mybook_rows, setMybook_rows] = useState([])
+  // 測試useEffect
+  // const [myrows, setMyrows] = useState([])
 
-  // 分頁 pagination
+  // 分頁 pagination(尚未完成)
   const [totalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
+
+  // 卸載
+  const [show, setShow] = useState(true)
 
   const getDataFromServer = async () => {
     // 先開起載入指示器
@@ -61,16 +66,35 @@ function NormalIndex() {
       // setIsLoading(false)
     }, 3000)
   }
-  // 模擬componentDidMout
+  // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
   }, [])
 
+  // 測試函式型元件模擬componentDidMount跟componentDidUpload
+  // 必須要有相依性對應
+  // 意即要諄對哪個狀態或傳入props做更新才呼叫
+  // []寫在陣列裡的狀態有改變再呼叫
+  useEffect(() => {
+    // const subscription = props.value.subscribe()
+    // return () => {
+    //   subscription.unsubscribe()
+    // }
+    console.log('Func componentDidMount')
+    console.log('mybook_rows有值變化:')
+  }, [mybook_rows.book_name])
+
   return (
     <>
-      {/* 測試成功 但一次只能傳一筆 想傳所有，是否用map */}
-      {/* <MyChangeBooks myrows={mybook_rows[0]} /> */}
-      <MyChangeBooks myrows={mybook_rows} />
+      {/* 測試類別型元件卸載畫面 */}
+      {show && <h1>來啊來啊</h1>}
+      <button
+        onClick={() => {
+          setShow(!show)
+        }}
+      >
+        {show ? '你不敢按' : '拜託幫我按一下'}
+      </button>
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
         <nav aria-label="breadcrumb">
@@ -94,56 +118,8 @@ function NormalIndex() {
           <div className="jill-myNchange-area">
             <h4 className="jill-myNchange-title">我的交換單</h4>
 
-            <div className="jill-myNchangelist">
-              <div className="form-group ">
-                <div className="formItems row d-flex">
-                  <select
-                    className="form-control formInput col-7"
-                    id="exampleFormControlSelect1"
-                  >
-                    {/* 到時候要撈資料庫，member_sid_o是登入的人session */}
+            <MyChangeBooks myrows={mybook_rows} />
 
-                    {mybook_rows.map((m) => (
-                      <option>{m.book_name}</option>
-                    ))}
-                  </select>
-                  <Link to="./NormalInsert">
-                    <button className="btn-md-dark jill-myNchange-add-btn">
-                      新增
-                    </button>
-                  </Link>
-                </div>
-              </div>
-
-              <div className="jill-myNchange-display d-flex">
-                {/* 蜜蜂svg */}
-                <NormalBee />
-                <img
-                  src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                  alt=""
-                />
-
-                <ul className="">
-                  <div className="jill-underline"></div>
-                  <li>9789869507776</li>
-                  <div className="jill-underline"></div>
-                  <li>
-                    外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生
-                  </li>
-                  <div className="jill-underline"></div>
-                  <li>5成新</li>
-                  <div className="jill-underline"></div>
-                  <li>無塗改</li>
-                  <div className="jill-underline"></div>
-                  <li>鄭瑪莉</li>
-                </ul>
-              </div>
-              <Link to="./NormalEdit">
-                <button className="btn-md-dark jill-normal-seemyList">
-                  查看
-                </button>
-              </Link>
-            </div>
             {/* 我的交換單右邊區塊 */}
             <div className="jill-mystatus">
               {/* 我想跟別人換 */}

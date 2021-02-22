@@ -11,7 +11,7 @@ function NormalAdd(props) {
   const [ISBN, setISBN] = useState('')
   const [book_name, setBook_name] = useState('')
   const [BC_pic1, setBC_pic1] = useState('')
-  const [book_condition, setBook_condition] = useState('')
+  const [book_condition, setBook_condition] = useState('5成新')
   const [written_or_not, setWritten_or_not] = useState('')
 
   //preloading file
