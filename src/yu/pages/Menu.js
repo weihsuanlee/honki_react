@@ -74,12 +74,12 @@ function Menu() {
         </div>
       </div>
 
-      {/* <!-- 會員總表收合選單 --> */}
+      {/* <!-- 會員專區收合選單 --> */}
       <div className="container-fluid my-5">
         <div className="row d-flex justify-content-center">
           <div className="holder d-none d-lg-block mx-auto yu-menu-panels">
             <Tabs defaultActiveKey="yu-menu-1" id="uncontrolled-tab-example">
-              <Tab eventKey="yu-menu-1" title="會員總表">
+              <Tab eventKey="yu-menu-1" title="會員專區">
                 <div className="yu-menu-col-2">
                   {/* <!-- 我的帳戶 --> */}
                   <div>
