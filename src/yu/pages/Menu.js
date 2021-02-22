@@ -19,11 +19,18 @@ import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
 import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
 
 function Menu() {
-  const [avatar, setAvatar] = useState([1, 1, 1, 1, 1])
+  const [curFace, setCurFace] = useState(0)
+  const [curHair, setCurHair] = useState(0)
+  const [curCloth, setCurCloth] = useState(0)
+  const [curAcc, setCurAcc] = useState(0)
+  const [curTerms, setCurTerms] = useState(0)
 
   useEffect(() => {
-    setAvatar(localStorage.getItem('avatar', [1, 1, 1, 1, 1]))
-    // console.log(localStorage.getItem('avatar'))
+    setCurFace(localStorage.getItem('curFace', JSON.parse(curFace)))
+    setCurHair(localStorage.getItem('curHair', JSON.parse(curHair)))
+    setCurCloth(localStorage.getItem('curCloth', JSON.parse(curCloth)))
+    setCurAcc(localStorage.getItem('curAcc', JSON.parse(curAcc)))
+    setCurTerms(localStorage.getItem('curTerms', JSON.parse(curTerms)))
   }, [])
 
   return (
@@ -51,23 +58,23 @@ function Menu() {
           <div className="yu-menu-member-photo">
             <div className="yu-menu-member-photo-bg">
               {/* <!-- 個人頭貼-bg --> */}
-              <img src={SVG_TERMS[avatar[4]]} alt="" />
+              <img src={SVG_TERMS[curTerms]} alt="" />
             </div>
             <div className="yu-menu-member-photo-hair">
               {/* <!-- 個人頭貼-hair --> */}
-              <img src={SVG_HAIR[avatar[1]]} alt="" />
+              <img src={SVG_HAIR[curHair]} alt="" />
             </div>
             <div className="yu-menu-member-photo-face">
               {/* <!-- 個人頭貼-face --> */}
-              <img src={SVG_FACES[avatar[0]]} alt="" />
+              <img src={SVG_FACES[curFace]} alt="" />
             </div>
             <div className="yu-menu-member-photo-cloth">
               {/* <!-- 個人頭貼-cloth --> */}
-              <img src={SVG_CLOTH[avatar[2]]} alt="" />
+              <img src={SVG_CLOTH[curCloth]} alt="" />
             </div>
             <div className="yu-menu-member-photo-acc">
               {/* <!-- 個人頭貼-acc --> */}
-              <img src={SVG_ACC[avatar[3]]} alt="" />
+              <img src={SVG_ACC[curAcc]} alt="" />
             </div>
           </div>
           <div className="yu-menu-general">

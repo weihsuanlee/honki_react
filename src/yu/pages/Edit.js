@@ -13,23 +13,31 @@ import EditTab3 from '../components/EditTab3'
 import EditTab4 from '../components/EditTab4'
 
 function Edit() {
-  const [curFace, setCurFace] = useState(0)
-  const [curHair, setCurHair] = useState(0)
-  const [curCloth, setCurCloth] = useState(0)
-  const [curAcc, setCurAcc] = useState(0)
-  const [curTerms, setCurTerms] = useState(0)
+  const [curFace, setCurFace] = useState(localStorage.getItem('curFace', 0))
+  const [curHair, setCurHair] = useState(localStorage.getItem('curHair', 0))
+  const [curCloth, setCurCloth] = useState(localStorage.getItem('curCloth', 0))
+  const [curAcc, setCurAcc] = useState(localStorage.getItem('curAcc', 0))
+  const [curTerms, setCurTerms] = useState(localStorage.getItem('curTerms', 0))
 
   useEffect(() => {
-    const avatar = [
-      JSON.parse(curFace),
-      JSON.parse(curHair),
-      JSON.parse(curCloth),
-      JSON.parse(curAcc),
-      JSON.parse(curTerms),
-    ]
-    console.log(avatar)
-    localStorage.setItem('avatar', avatar)
-  }, [curFace, curHair, curCloth, curAcc, curTerms])
+    localStorage.setItem('curFace', JSON.parse(curFace))
+  }, [curFace])
+
+  useEffect(() => {
+    localStorage.setItem('curHair', JSON.parse(curHair))
+  }, [curHair])
+
+  useEffect(() => {
+    localStorage.setItem('curCloth', JSON.parse(curCloth))
+  }, [curCloth])
+
+  useEffect(() => {
+    localStorage.setItem('curAcc', JSON.parse(curAcc))
+  }, [curAcc])
+
+  useEffect(() => {
+    localStorage.setItem('curTerms', JSON.parse(curTerms))
+  }, [curTerms])
 
   return (
     <>
