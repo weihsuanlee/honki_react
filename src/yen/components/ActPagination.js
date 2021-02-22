@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 function ActPagination(props) {
   let urlPage = new URLSearchParams(props.location.search)
   const { totalPages, page, setPage, setQueryPage } = props
-  const pagePrev = page - 1 ? page - 1 : 1
+  const pagePrev = page - 1 > 0 ? page - 1 : 1
   const pageNext = page + 1 < totalPages ? page + 1 : totalPages
 
   function pageButtonClick(newPage) {

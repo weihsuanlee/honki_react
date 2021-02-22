@@ -28,7 +28,9 @@ function ActIndex(props) {
 
   // 活動篩選
   useEffect(() => {
-    let pathName = '/activity'
+    let pathName = props.location.pathname
+    // console.log('props', props)
+    // console.log('queryClass', queryClass)
 
     async function newClassPages() {
       const url = pathName + queryClass
@@ -143,7 +145,7 @@ function ActIndex(props) {
         }),
       })
       const data = await response.json()
-      console.log('new data page', response, data)
+      // console.log('new data page', response, data)
       setNewLists(data)
     }
     newSelectPages()

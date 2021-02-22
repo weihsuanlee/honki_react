@@ -11,10 +11,17 @@ import ActEvent from '../pages/ActEvent'
 
 function IndexHot(props) {
   // let urlPage = props.location.search
-  // console.log(urlPage)
+  // console.log('IndexHot', props)
+
+  // 如果切換分頁就隱藏這個區塊
+  // TODO: 切換分頁隱藏區塊有成功，但重新要連回/activity頁面會噴undefined
+  if (props.location.search !== '') {
+    console.log('clear', props)
+    return <></>
+  }
   const hoverCard = (
     <>
-      {props.hotLists.length !== 0 &&
+      {props.hotLists.rows &&
         props.hotLists.rows.map((value, index) => {
           const pic =
             'http://localhost:3000/images/yen/event/' +
@@ -73,7 +80,6 @@ function IndexHot(props) {
     </>
   )
 
-  // if (){}
   return (
     <>
       <div className="yen-overflow-box">
@@ -86,30 +92,30 @@ function IndexHot(props) {
           </div>
           <div className="yen-hot-card-box items">
             {/* <div className="yen-hot-cards-s yen-hover-box">
-                <div className="yen-hot-cover-box d-flex"> */}
+                  <div className="yen-hot-cover-box d-flex"> */}
             {hoverCard}
             {/* <div className="yen-hot-cover">
-                    <img
-                      className="yen-hot-cards-img"
-                      src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
-                      alt=""
-                    />
-                    <div className="yen-hot-cover-text">
-                      <h5>title</h5>
-                      <br />
-                      <br />
-                      <p>成立花蓮運行保存傳奇實。</p>
-                      <p>成立花蓮運行保存傳奇實。</p>
-                    </div>
-                  </div> */}
+                      <img
+                        className="yen-hot-cards-img"
+                        src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
+                        alt=""
+                      />
+                      <div className="yen-hot-cover-text">
+                        <h5>title</h5>
+                        <br />
+                        <br />
+                        <p>成立花蓮運行保存傳奇實。</p>
+                        <p>成立花蓮運行保存傳奇實。</p>
+                      </div>
+                    </div> */}
             {/* </div>
-              </div> */}
+                </div> */}
 
             {/* <div className="yen-hot-cards-l yen-hover-box"></div>
-              <div className="yen-hot-cards-s yen-hover-box"></div>
-              <div className="yen-hot-cards-l yen-hover-box"></div>
-              <div className="yen-hot-cards-s yen-hover-box"></div>
-              <div className="yen-hot-cards-l yen-hover-box"></div> */}
+                <div className="yen-hot-cards-s yen-hover-box"></div>
+                <div className="yen-hot-cards-l yen-hover-box"></div>
+                <div className="yen-hot-cards-s yen-hover-box"></div>
+                <div className="yen-hot-cards-l yen-hover-box"></div> */}
 
             <div className="yen-hot-ladybug">
               <SvgLadybug />
