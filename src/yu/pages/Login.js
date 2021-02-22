@@ -2,9 +2,9 @@ import '../styles/members-login.scss'
 import { FaLine, FaFacebookSquare } from 'react-icons/fa'
 import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { Container, Row, Col, Modal, Button } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 
 function Login() {
   // const [show, setShow] = useState(false)
