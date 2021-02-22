@@ -15,6 +15,7 @@ function Login() {
 
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
+
   const login = async function (email, password) {
     const url = 'http://localhost:3333/member/login'
     const request = new Request(url, {
@@ -31,8 +32,8 @@ function Login() {
     const response = await fetch(request)
     const data = await response.json()
     console.log(data)
-    // localStorage setitem
 
+    // localStorage setitem
     // let userLogin = 'userLogin'
     if (data.success) {
       localStorage.setItem('userLogin', JSON.stringify(data))

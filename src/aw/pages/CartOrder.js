@@ -42,15 +42,29 @@ function CartOrder(props) {
   useEffect(() => {
     getDataFromServer()
   }, [])
+  //轉換千分位
+  function toCurrency(num) {
+    var parts = num.toString().split('.')
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    return parts.join('.')
+  }
+
   // 計算總價用的函式
-  // const sum = (items) => {
-  //   let total = 0
-  //   for (let i = 0; i < items.length; i++) {
-  //     total += items[i].amount * items[i].price
-  //   }
-  //   return total
-  // }
-  //
+  const sumQuantity = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].quantity
+    }
+    return total
+  }
+  const sumAmount = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].quantity * items[i].price
+    }
+    return total
+  }
+
   return (
     <>
       <div class="container-fluid">
@@ -80,10 +94,9 @@ function CartOrder(props) {
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item ">
-                    {' '}
                     <img
                       class="aw-ladybirdfinal"
-                      src="/images/cart/ladybird.svg"
+                      src="http://localhost:3000/images/aw/ladybird.svg"
                       alt=""
                     />
                   </div>
@@ -109,7 +122,6 @@ function CartOrder(props) {
                   </div>
 
                   <div class="d-flex justify-content-end aw-composition">
-                    {' '}
                     <img src="/images/cart/composition-24.svg" alt="" />
                   </div>
                   <div class="col-3"></div>
@@ -162,7 +174,10 @@ function CartOrder(props) {
                                 <img
                                   key={index}
                                   class="w-100"
-                                  src={'/images/books/' + value.book_id}
+                                  src={
+                                    'http://localhost:3000/images/books/' +
+                                    value.book_id
+                                  }
                                   // "/images/cart/cartpic1.png"
                                   alt=""
                                 />
@@ -174,148 +189,55 @@ function CartOrder(props) {
                           </div>
                           <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
                             <div class="col-sm d-flex justify-content-center aw-p-9">
-                              <p class="aw-book-title">{value.price}元</p>
+                              <p class="aw-book-title">
+                                $ {toCurrency(value.price)}元
+                              </p>
                             </div>
                             <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
                               <div class="aw-items-amount">
-                                {value.quantity}
+                                {toCurrency(value.quantity)}
                               </div>
                             </div>
                             <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
                               <p class="aw-book-title">
-                                (+{value.quantity}*+{value.price})元
+                                $ {toCurrency(value.quantity * value.price)}元
                               </p>
                             </div>
                           </div>
                         </div>
                       ))}
-                      {/* <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="/images/cart/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="/images/cart/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="/images/cart/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div> */}
                     </div>
                   </div>
                   <div class="aw-countArea aw-pr-42">
                     <div class="d-flex justify-content-end p-0">
                       <div class="row aw-row aw-count pt-2">
-                        <h5> 共 </h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 16</h5>
+                        <div class="text-right">
+                          <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>{' '}
+                          <h5>折扣</h5>
                         </div>
-                        <h5> 本 </h5>
+                        <div class="aw-count-num d-flex justify-content-end">
+                          {/* 計算加總本數 */}
+                          <div class="text-right">
+                            <h5> {toCurrency(sumQuantity(orderData))}</h5>
+                            <h5>$ {toCurrency(sumAmount(orderData))}</h5>
+                            <h5> 60</h5>
+                            <h5> -60</h5>
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <h5>本</h5>
+                          <h5>元</h5>
+                          <h5>元</h5>
+                          <h5>元</h5>
+                        </div>
                       </div>
                     </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>小計</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 1,661</h5>
-                        </div>
-                        <h5>元</h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>運費</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 60</h5>
-                        </div>
-                        <h5> 元 </h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>折扣</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> -60</h5>
-                        </div>
-                        <h5>元</h5>
-                      </div>
-                    </div>
+
                     <div class="d-flex justify-content-end p-0 aw-borderTop">
                       <div class="row aw-row aw-count pb-5">
                         <h5>總計</h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5>3,416</h5>
+                          <h5>$ {toCurrency(sumAmount(orderData))}</h5>
                         </div>
                         <h5>元</h5>
                       </div>

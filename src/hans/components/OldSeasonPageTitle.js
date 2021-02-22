@@ -6,7 +6,6 @@ function OldSeasonPageTitle() {
     <>
       <div className="row solar-term-plate-filler"></div>
       <br />
-
       <div className="row justify-content-start">
         <div className="title-bg">
           <h3 className="title">一個節氣，選一本書</h3>
