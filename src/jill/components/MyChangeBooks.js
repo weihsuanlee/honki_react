@@ -6,7 +6,7 @@ import NormalBee from './../components/NormalBee'
 class MyChangeBooks extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { value: '預設資料', ISBN: 'ISBN777' }
+    this.state = { value: '預設資料', ISBN: 'ISBN預設值' }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -17,10 +17,16 @@ class MyChangeBooks extends React.Component {
     // 下面的5要怎麼抓到變數
     // this.setState({ ISBN: myrows[5].ISBN })
 
+    // 拷貝一個新的，展開成陣列
+    const newMyrows = [...myrows]
+
+    // 不行，ISBN變成Undefined
+    // const index = newMyrows.findIndex((item) => item.ISBN === ISBN)
+
     // 還要研究!!只能變一次值的寫法，而且只抓到第一筆的資料(編號15會員第一筆)
     myrows.map((m, i) => this.setState({ ISBN: myrows[i].ISBN }))
 
-    console.log()
+    console.log(newMyrows)
   }
 
   handleSubmit(event) {
@@ -39,11 +45,11 @@ class MyChangeBooks extends React.Component {
   // 卸載
   componentWillUnmount() {
     console.log('componentWillUnmount')
-    document
-      .getElementById('clickme')
-      .removeEventListener('click', function () {
-        alert('再見')
-      })
+    // document
+    //   .getElementById('clickme')
+    //   .removeEventListener('click', function () {
+    //     alert('再見')
+    //   })
   }
   // 已經更新(從父母元件接收到props或setState才會觸發)
   componentDidUpdate() {
