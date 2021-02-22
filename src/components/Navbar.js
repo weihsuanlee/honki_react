@@ -278,7 +278,7 @@ function Navbar() {
                     id="yu-member"
                     onClick={member}
                   >
-                    會員中心
+                    會員專區
                   </NavDropdown.Item>
                   {/* <NavDropdown.Item eventKey="4.3">
                     Something else here
