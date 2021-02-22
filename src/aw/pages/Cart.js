@@ -40,7 +40,7 @@ function Cart(props) {
       //有找到會返回陣列成員的索引值
       //沒找到會返回-1
       const index = newMycartDisplay.findIndex(
-        (value) => value.id === mycart[i].id
+        (value) => value.book_sid === mycart[i].book_sid
       )
       //有的話就數量+1
       if (index !== -1) {
@@ -55,28 +55,35 @@ function Cart(props) {
       }
     }
 
-    console.log(newMycartDisplay)
+    // console.log(newMycartDisplay)
     setMycartDisplay(newMycartDisplay)
   }, [mycart])
 
-  // 更新購物車中的商品數量
-  const updateCartToLocalStorage = (item, isAdded = true) => {
-    console.log(item, isAdded)
+  // 刪除項目
+  const updateCartRemove = (index) => {
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    console.log(currentCart[index])
 
-    // find if the product in the localstorage with its id
-    const index = currentCart.findIndex((v) => v.id === item.id)
+    const a = currentCart.filter((v, i) => {
+      console.log(v)
+      if (index !== i) {
+        return v
+      }
+    })
+    console.log(a)
 
-    console.log('index', index)
-    // found: index! == -1
-    if (index > -1) {
-      isAdded ? currentCart[index].amount++ : currentCart[index].amount--
-    }
-
-    localStorage.setItem('cart', JSON.stringify(currentCart))
+    localStorage.setItem('cart', JSON.stringify(a))
 
     // 設定資料
-    setMycart(currentCart)
+    setMycart(a)
+  }
+  const updateCartRemoveAll = (item) => {
+    console.log(item)
+
+    localStorage.removeItem('cart')
+
+    // 設定資料
+    setMycart([])
   }
 
   // 計算總價用的函式
@@ -139,26 +146,33 @@ function Cart(props) {
               <div class="col-4"></div>
 
               <div class="aw-cartContent col-6">
-                {mycartDisplay.map((item, index) => {
-                  return (
-                    <>
-                      <div class="aw-cart-page1-subtitle row  ">
-                        <div class=" col-3">
-                          <h6 class="mr-0"></h6>
-                        </div>
-                        <div class=" col-7 d-flex justify-content-center align-items-center aw-p-9">
-                          <h6 class=" m-0 ">商品明細</h6>
-                        </div>
+                <div class="aw-cart-page1-subtitle row  ">
+                  <div class=" col-3">
+                    <h6 class="mr-0"></h6>
+                  </div>
+                  <div class=" col-7 d-flex justify-content-center align-items-center aw-p-9">
+                    <h6 class=" m-0 ">商品明細</h6>
+                  </div>
 
-                        <div class=" col-2 d-flex justify-content-center align-items-center aw-p-0">
-                          <button class="btn-sm-dark aw-btn-sm-dark ">
-                            清空
-                          </button>
-                        </div>
-                      </div>
-                      <div class="aw-productAreaPadding " key={item.id}>
-                        <div class="aw-productArea">
-                          <div class="row aw-card d-flex align-items-center ">
+                  <div class=" col-2 d-flex justify-content-center align-items-center aw-p-0">
+                    <button
+                      class="btn-sm-dark aw-btn-sm-dark "
+                      // key={item.id}
+                      onClick={() => updateCartRemoveAll()}
+                    >
+                      清空
+                    </button>
+                  </div>
+                </div>
+                <div class="aw-productAreaPadding ">
+                  <div class="aw-productArea">
+                    {mycartDisplay.map((item, index) => {
+                      return (
+                        <>
+                          <div
+                            class="row aw-card d-flex align-items-center "
+                            key={item.id}
+                          >
                             <div class="col-3 aw-card-pic">
                               <div class="aw-book-pic">
                                 <img
@@ -172,38 +186,37 @@ function Cart(props) {
                               </div>
                             </div>
                             <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9">
-                              <p class="aw-book-title">{item.name}</p>
+                              <p class="aw-book-title">{item.bookname}</p>
                             </div>
                             <div class="col-2 aw-book-price  d-flex justify-content-center aw-p-0">
                               <FaTimesCircle
                                 className="fas fa-times-circle aw-delete-cross"
-                                onClick={() =>
-                                  updateCartToLocalStorage(item, false)
-                                }
+                                onClick={() => updateCartRemove(index)}
                               />
                             </div>
                           </div>
-                        </div>
-                      </div>
+                        </>
+                      )
+                    })}
+                  </div>
+                </div>
 
-                      <div class="row justify-content-between aw-stepBtn">
-                        <div class="aw-preStep d-flex align-items-center">
-                          <a class="aw-a" href="#">
-                            <div class="row aw-row">
-                              <FaAngleLeft className="fas fa-angle-left mr-2" />
-                              <h6> 繼續購物</h6>
-                            </div>
-                          </a>
-                        </div>
-                        <div class="aw-nextStep  d-flex align-items-center">
-                          <a href="./CartItems" class="aw-a">
-                            <button class="btn-lg aw-btn-lg">下一步</button>
-                          </a>
-                        </div>
+                <div class="row justify-content-between aw-stepBtn">
+                  <div class="aw-preStep d-flex align-items-center">
+                    <a class="aw-a" href="#">
+                      <div class="row aw-row">
+                        <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
+                        <h6> 繼續購物</h6>
                       </div>
-                    </>
-                  )
-                })}
+                    </a>
+                  </div>
+                  <div class="aw-nextStep  d-flex align-items-center">
+                    <a href="./CartItems" class="aw-a">
+                      <button class="btn-lg aw-btn-lg">下一步</button>
+                    </a>
+                  </div>
+                </div>
+
                 <div class="col-2"> </div>
               </div>
               <div class="col-2"> </div>

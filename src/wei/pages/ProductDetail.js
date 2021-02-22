@@ -43,27 +43,29 @@ function ProductDetail(props) {
   const [productName, setProductName] = useState('')
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
   const updateCartToLocalStorage = (item) => {
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
     // find if the product in the localstorage with its id
-    const index = currentCart.findIndex((v) => v.id === item.id)
+    const index = currentCart.findIndex((v) => v.book_sid === item.book_sid)
     // found: index! == -1
     if (index > -1) {
       //currentCart[index].amount++
       setProductName('這個商品已經加過了')
       handleShow()
+      console.log(index)
+      console.log(item)
+      currentCart.push(item)
+      console.log(currentCart)
       return
     } else {
       currentCart.push(item)
+      localStorage.setItem('cart', JSON.stringify(currentCart))
     }
-
-    localStorage.setItem('cart', JSON.stringify(currentCart))
-
     // 設定資料
     setMycart(currentCart)
     setProductName('產品：' + item.name + '已成功加入購物車')
     handleShow()
-    console.log(item.name)
   }
 
   // console.log(props.match.params.sid)
@@ -222,6 +224,8 @@ function ProductDetail(props) {
                   price: productDetail.final_price,
                   amount: 1,
                   book_id: productDetail.book_pics,
+                  book_sid: productDetail.sid,
+                  bookname: productDetail.title,
                 })
               }
             >

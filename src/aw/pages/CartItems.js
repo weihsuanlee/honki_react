@@ -12,6 +12,11 @@ function CartItems(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   //select into localStorage
+  const [selectAmount, setSelectAmount] = useState()
+  //select into localStorage
+  // useEffect(() => {
+  //   localStorage.setItem('cart', selectAmount ? selectAmount : '')
+  // }, [selectAmount])
 
   //
 
@@ -19,7 +24,7 @@ function CartItems(props) {
     // 開啟載入的指示圖示
     setDataLoading(true)
 
-    const newCart = localStorage.getItem('cart') || '[]'
+    const newCart = localStorage.getItem('cart')
 
     console.log(JSON.parse(newCart))
 
@@ -221,10 +226,13 @@ function CartItems(props) {
                             <select
                               class="aw-select-sm form-control formInput  col-7 "
                               id="exampleFormControlSelect1"
+                              onChange={(e) =>
+                                setSelectAmount({ amount: e.target.value })
+                              }
                             >
-                              <option value="">1</option>
-                              <option value="">2</option>
-                              <option value="">3</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
                               <option value="">4</option>
                               <option value="">5</option>
                               <option value="">6</option>

@@ -97,8 +97,9 @@
   /* border-radius: 0.75rem; */
 }
 .aw-delete-cross:hover {
-  box-shadow: 0 0 0 0.2rem rgb(232 48 21 / 33%);
-  border-color: rgb(232 48 21);
+  color: rgb(114, 108, 106);
+  // box-shadow: 0 0 0 0.2rem rgb(232 48 21 / 33%);
+  // border-color: rgb(232 48 21);
 }
 .aw-cart-page1-subtitle {
   margin: 8px 42px 12px 10px;
@@ -316,4 +317,7 @@
 }
 .aw-ladybirdfinal {
   transform: translate(250%, -180%);
+}
+.aw-mt2 {
+  margin-top: 2px;
 }
