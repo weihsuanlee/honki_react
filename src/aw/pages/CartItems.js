@@ -1,48 +1,40 @@
 import '../styles/cartStyle.scss'
-import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
-// import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-// import ProductBanner from '../components/ProductBanner'
-// import ListSpinner from '../components/ListSpinner'
-// import MyPopOver from '../components/MyPopOver'
+import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import { withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartItems(props) {
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
+
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
-  //select into localStorage
-  // useEffect(() => {
-  //   localStorage.setItem('cart', selectAmount ? selectAmount : '')
-  // }, [selectAmount])
-
-  //
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
-
     const newCart = localStorage.getItem('cart')
-
     console.log(JSON.parse(newCart))
-
     setMycart(JSON.parse(newCart))
   }
-
   useEffect(() => {
     getCartFromLocalStorage()
   }, [])
+
+  //轉換千分位
+  function toCurrency(num) {
+    var parts = num.toString().split('.')
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    return parts.join('.')
+  }
 
   // 每次mycart資料有改變，1秒後關閉載入指示
   // componentDidUpdate
   useEffect(() => {
     setTimeout(() => setDataLoading(false), 1000)
-
     // mycartDisplay運算
     let newMycartDisplay = []
-
     //尋找mycartDisplay
     for (let i = 0; i < mycart.length; i++) {
       //尋找mycartDisplay中有沒有此mycart[i].id
@@ -63,7 +55,6 @@ function CartItems(props) {
         newMycartDisplay = [...newMycartDisplay, newItem]
       }
     }
-
     console.log(newMycartDisplay)
     setMycartDisplay(newMycartDisplay)
   }, [mycart])
@@ -72,24 +63,37 @@ function CartItems(props) {
   const updateCartToLocalStorage = (item, isAdded = true) => {
     console.log(item, isAdded)
     const currentCart = JSON.parse(localStorage.getItem('cart')) || []
-
+    console.log('index', currentCart)
     // find if the product in the localstorage with its id
-    const index = currentCart.findIndex((v) => v.id === item.id)
-
+    const index = currentCart.findIndex((v) => v.book_id === item.book_id)
     console.log('index', index)
     // found: index! == -1
     if (index > -1) {
       isAdded ? currentCart[index].amount++ : currentCart[index].amount--
     }
-
     localStorage.setItem('cart', JSON.stringify(currentCart))
-
     // 設定資料
     setMycart(currentCart)
   }
 
+  //清除購物車
+  const updateCartRemoveAll = (item) => {
+    console.log(item)
+    localStorage.removeItem('cart')
+    // 設定資料
+    setMycart([])
+  }
+
   // 計算總價用的函式
-  const sum = (items) => {
+  const sumQuantity = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount
+    }
+    return total
+  }
+  // 計算總量的函式
+  const sumAmount = (items) => {
     let total = 0
     for (let i = 0; i < items.length; i++) {
       total += items[i].amount * items[i].price
@@ -192,555 +196,77 @@ function CartItems(props) {
                         <h6 class="m-0 ">小計</h6>
                       </div>
                       <div class="col-sm text-center align-items-center aw-p-0 ">
-                        <button class="btn-sm-dark aw-btn-sm-dark">
-                          <span>清空</span>
+                        <button
+                          class="btn-sm-dark aw-btn-sm-dark "
+                          onClick={() => updateCartRemoveAll()}
+                        >
+                          清空
                         </button>
                       </div>
                     </div>
                   </div>
                   <div class="aw-productAreaPadding">
                     <div class="aw-productArea">
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-5 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-5 aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">
-                              種日子的人
-                              申請年輕，原始碼取得方案當地品種以便幾乎天天，比賽上面版權書庫幾個全部文化，上一頁考察給我像是上漲土地其它檢查歐洲楠雅幸福能不能訪問，呵呵就是手機鈴聲舉行電信職業資料細胞出租，中文平方米含有模式發行也能我都還在他們決定一大我對不需要，歌詞透露研究，確定書。
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-7 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
-                            <select
-                              class="aw-select-sm form-control formInput  col-7 "
-                              id="exampleFormControlSelect1"
-                              onChange={(e) =>
-                                setSelectAmount({ amount: e.target.value })
-                              }
+                      {mycart.map((item, index) => {
+                        return (
+                          <>
+                            <div
+                              class="row aw-card d-flex align-items-center "
+                              key={item.id}
                             >
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="">4</option>
-                              <option value="">5</option>
-                              <option value="">6</option>
-                              <option value="">7</option>
-                              <option value="">8</option>
-                              <option value="">9</option>
-                              <option value="">10</option>
-                              <option value="">11</option>
-                              <option value="">12</option>
-                              <option value="">13</option>
-                              <option value="">14</option>
-                              <option value="">15</option>
-                              <option value="">16</option>
-                              <option value="">17</option>
-                              <option value="">18</option>
-                              <option value="">19</option>
-                              <option value="">20</option>
-                              <option value="">21</option>
-                              <option value="">22</option>
-                              <option value="">23</option>
-                              <option value="">24</option>
-                              <option value="">25</option>
-                              <option value="">26</option>
-                              <option value="">27</option>
-                              <option value="">28</option>
-                              <option value="">29</option>
-                              <option value="">30</option>
-                              <option value="">31</option>
-                              <option value="">32</option>
-                              <option value="">33</option>
-                              <option value="">34</option>
-                              <option value="">35</option>
-                              <option value="">36</option>
-                              <option value="">37</option>
-                              <option value="">38</option>
-                              <option value="">39</option>
-                              <option value="">40</option>
-                              <option value="">41</option>
-                              <option value="">42</option>
-                              <option value="">43</option>
-                              <option value="">44</option>
-                              <option value="">45</option>
-                              <option value="">46</option>
-                              <option value="">47</option>
-                              <option value="">48</option>
-                              <option value="">49</option>
-                              <option value="">50</option>
-                              <option value="">51</option>
-                              <option value="">52</option>
-                              <option value="">53</option>
-                              <option value="">54</option>
-                              <option value="">55</option>
-                              <option value="">56</option>
-                              <option value="">57</option>
-                              <option value="">58</option>
-                              <option value="">59</option>
-                              <option value="">60</option>
-                              <option value="">61</option>
-                              <option value="">62</option>
-                              <option value="">63</option>
-                              <option value="">64</option>
-                              <option value="">65</option>
-                              <option value="">66</option>
-                              <option value="">67</option>
-                              <option value="">68</option>
-                              <option value="">69</option>
-                              <option value="">70</option>
-                              <option value="">71</option>
-                              <option value="">72</option>
-                              <option value="">73</option>
-                              <option value="">74</option>
-                              <option value="">75</option>
-                              <option value="">76</option>
-                              <option value="">77</option>
-                              <option value="">78</option>
-                              <option value="">79</option>
-                              <option value="">80</option>
-                              <option value="">81</option>
-                              <option value="">82</option>
-                              <option value="">83</option>
-                              <option value="">84</option>
-                              <option value="">85</option>
-                              <option value="">86</option>
-                              <option value="">87</option>
-                              <option value="">88</option>
-                              <option value="">89</option>
-                              <option value="">90</option>
-                              <option value="">91</option>
-                              <option value="">92</option>
-                              <option value="">93</option>
-                              <option value="">94</option>
-                              <option value="">95</option>
-                              <option value="">96</option>
-                              <option value="">97</option>
-                              <option value="">98</option>
-                              <option value="">99</option>
-                            </select>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm aw-book-price  d-flex justify-content-center aw-p-0 aw-btn-sm-dark">
-                            <i class="fas fa-times-circle aw-delete-cross"></i>
-                          </div>
-                        </div>
-                      </div>
+                              <div class="col-5 row aw-row  align-items-center aw-p-0 ">
+                                <div class="col-5 aw-card-pic aw-p-9 ">
+                                  <div class="aw-book-pic">
+                                    <img
+                                      class="w-100"
+                                      src={
+                                        'http://localhost:3000/images/books/' +
+                                        item.book_id
+                                      }
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9 ">
+                                  <p class="aw-book-title">{item.bookname}</p>
+                                </div>
+                              </div>
 
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-5 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-5 aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic2.png"
-                                alt=""
-                              />
+                              <div class="col-7 row aw-row  align-items-center justify-content-center aw-p-0">
+                                <div class="col-sm d-flex justify-content-center aw-p-9">
+                                  <p class="aw-book-title">$ {item.price}元</p>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
+                                  <button
+                                    onClick={() => {
+                                      if (item.amount === 1) return
+                                      updateCartToLocalStorage(item, false)
+                                    }}
+                                  >
+                                    -
+                                  </button>
+                                  {item.amount}
+                                  <button
+                                    onClick={() =>
+                                      updateCartToLocalStorage(item, true)
+                                    }
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                  <p class="aw-book-title">
+                                    $ {toCurrency(item.amount * item.price)}元
+                                  </p>
+                                </div>
+                                <div class="col-sm aw-book-price  d-flex justify-content-center aw-p-0 aw-btn-sm-dark">
+                                  <i class="fas fa-times-circle aw-delete-cross"></i>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">山林製造</p>
-                          </div>
-                        </div>
-                        <div class="col-7 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
-                            <select
-                              class="aw-select-sm form-control formInput  col-7 "
-                              id="exampleFormControlSelect1"
-                            >
-                              <option value="">1</option>
-                              <option value="">2</option>
-                              <option value="">3</option>
-                              <option value="">4</option>
-                              <option value="">5</option>
-                              <option value="">6</option>
-                              <option value="">7</option>
-                              <option value="">8</option>
-                              <option value="">9</option>
-                              <option value="">10</option>
-                              <option value="">11</option>
-                              <option value="">12</option>
-                              <option value="">13</option>
-                              <option value="">14</option>
-                              <option value="">15</option>
-                              <option value="">16</option>
-                              <option value="">17</option>
-                              <option value="">18</option>
-                              <option value="">19</option>
-                              <option value="">20</option>
-                              <option value="">21</option>
-                              <option value="">22</option>
-                              <option value="">23</option>
-                              <option value="">24</option>
-                              <option value="">25</option>
-                              <option value="">26</option>
-                              <option value="">27</option>
-                              <option value="">28</option>
-                              <option value="">29</option>
-                              <option value="">30</option>
-                              <option value="">31</option>
-                              <option value="">32</option>
-                              <option value="">33</option>
-                              <option value="">34</option>
-                              <option value="">35</option>
-                              <option value="">36</option>
-                              <option value="">37</option>
-                              <option value="">38</option>
-                              <option value="">39</option>
-                              <option value="">40</option>
-                              <option value="">41</option>
-                              <option value="">42</option>
-                              <option value="">43</option>
-                              <option value="">44</option>
-                              <option value="">45</option>
-                              <option value="">46</option>
-                              <option value="">47</option>
-                              <option value="">48</option>
-                              <option value="">49</option>
-                              <option value="">50</option>
-                              <option value="">51</option>
-                              <option value="">52</option>
-                              <option value="">53</option>
-                              <option value="">54</option>
-                              <option value="">55</option>
-                              <option value="">56</option>
-                              <option value="">57</option>
-                              <option value="">58</option>
-                              <option value="">59</option>
-                              <option value="">60</option>
-                              <option value="">61</option>
-                              <option value="">62</option>
-                              <option value="">63</option>
-                              <option value="">64</option>
-                              <option value="">65</option>
-                              <option value="">66</option>
-                              <option value="">67</option>
-                              <option value="">68</option>
-                              <option value="">69</option>
-                              <option value="">70</option>
-                              <option value="">71</option>
-                              <option value="">72</option>
-                              <option value="">73</option>
-                              <option value="">74</option>
-                              <option value="">75</option>
-                              <option value="">76</option>
-                              <option value="">77</option>
-                              <option value="">78</option>
-                              <option value="">79</option>
-                              <option value="">80</option>
-                              <option value="">81</option>
-                              <option value="">82</option>
-                              <option value="">83</option>
-                              <option value="">84</option>
-                              <option value="">85</option>
-                              <option value="">86</option>
-                              <option value="">87</option>
-                              <option value="">88</option>
-                              <option value="">89</option>
-                              <option value="">90</option>
-                              <option value="">91</option>
-                              <option value="">92</option>
-                              <option value="">93</option>
-                              <option value="">94</option>
-                              <option value="">95</option>
-                              <option value="">96</option>
-                              <option value="">97</option>
-                              <option value="">98</option>
-                              <option value="">99</option>
-                            </select>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm aw-book-price  d-flex justify-content-center aw-p-0 aw-btn-sm-dark">
-                            <i class="fas fa-times-circle aw-delete-cross"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-5 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-5 aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic3.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">閃電崩盤</p>
-                          </div>
-                        </div>
-                        <div class="col-7 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
-                            <select
-                              class="aw-select-sm form-control formInput  col-7 "
-                              id="exampleFormControlSelect1"
-                            >
-                              <option value="">1</option>
-                              <option value="">2</option>
-                              <option value="">3</option>
-                              <option value="">4</option>
-                              <option value="">5</option>
-                              <option value="">6</option>
-                              <option value="">7</option>
-                              <option value="">8</option>
-                              <option value="">9</option>
-                              <option value="">10</option>
-                              <option value="">11</option>
-                              <option value="">12</option>
-                              <option value="">13</option>
-                              <option value="">14</option>
-                              <option value="">15</option>
-                              <option value="">16</option>
-                              <option value="">17</option>
-                              <option value="">18</option>
-                              <option value="">19</option>
-                              <option value="">20</option>
-                              <option value="">21</option>
-                              <option value="">22</option>
-                              <option value="">23</option>
-                              <option value="">24</option>
-                              <option value="">25</option>
-                              <option value="">26</option>
-                              <option value="">27</option>
-                              <option value="">28</option>
-                              <option value="">29</option>
-                              <option value="">30</option>
-                              <option value="">31</option>
-                              <option value="">32</option>
-                              <option value="">33</option>
-                              <option value="">34</option>
-                              <option value="">35</option>
-                              <option value="">36</option>
-                              <option value="">37</option>
-                              <option value="">38</option>
-                              <option value="">39</option>
-                              <option value="">40</option>
-                              <option value="">41</option>
-                              <option value="">42</option>
-                              <option value="">43</option>
-                              <option value="">44</option>
-                              <option value="">45</option>
-                              <option value="">46</option>
-                              <option value="">47</option>
-                              <option value="">48</option>
-                              <option value="">49</option>
-                              <option value="">50</option>
-                              <option value="">51</option>
-                              <option value="">52</option>
-                              <option value="">53</option>
-                              <option value="">54</option>
-                              <option value="">55</option>
-                              <option value="">56</option>
-                              <option value="">57</option>
-                              <option value="">58</option>
-                              <option value="">59</option>
-                              <option value="">60</option>
-                              <option value="">61</option>
-                              <option value="">62</option>
-                              <option value="">63</option>
-                              <option value="">64</option>
-                              <option value="">65</option>
-                              <option value="">66</option>
-                              <option value="">67</option>
-                              <option value="">68</option>
-                              <option value="">69</option>
-                              <option value="">70</option>
-                              <option value="">71</option>
-                              <option value="">72</option>
-                              <option value="">73</option>
-                              <option value="">74</option>
-                              <option value="">75</option>
-                              <option value="">76</option>
-                              <option value="">77</option>
-                              <option value="">78</option>
-                              <option value="">79</option>
-                              <option value="">80</option>
-                              <option value="">81</option>
-                              <option value="">82</option>
-                              <option value="">83</option>
-                              <option value="">84</option>
-                              <option value="">85</option>
-                              <option value="">86</option>
-                              <option value="">87</option>
-                              <option value="">88</option>
-                              <option value="">89</option>
-                              <option value="">90</option>
-                              <option value="">91</option>
-                              <option value="">92</option>
-                              <option value="">93</option>
-                              <option value="">94</option>
-                              <option value="">95</option>
-                              <option value="">96</option>
-                              <option value="">97</option>
-                              <option value="">98</option>
-                              <option value="">99</option>
-                            </select>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm aw-book-price  d-flex justify-content-center aw-p-0 aw-btn-sm-dark">
-                            <i class="fas fa-times-circle aw-delete-cross"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-5 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-5 aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-7 aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-7 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
-                            <select
-                              class="aw-select-sm form-control formInput  col-7 "
-                              id="exampleFormControlSelect1"
-                            >
-                              <option value="">1</option>
-                              <option value="">2</option>
-                              <option value="">3</option>
-                              <option value="">4</option>
-                              <option value="">5</option>
-                              <option value="">6</option>
-                              <option value="">7</option>
-                              <option value="">8</option>
-                              <option value="">9</option>
-                              <option value="">10</option>
-                              <option value="">11</option>
-                              <option value="">12</option>
-                              <option value="">13</option>
-                              <option value="">14</option>
-                              <option value="">15</option>
-                              <option value="">16</option>
-                              <option value="">17</option>
-                              <option value="">18</option>
-                              <option value="">19</option>
-                              <option value="">20</option>
-                              <option value="">21</option>
-                              <option value="">22</option>
-                              <option value="">23</option>
-                              <option value="">24</option>
-                              <option value="">25</option>
-                              <option value="">26</option>
-                              <option value="">27</option>
-                              <option value="">28</option>
-                              <option value="">29</option>
-                              <option value="">30</option>
-                              <option value="">31</option>
-                              <option value="">32</option>
-                              <option value="">33</option>
-                              <option value="">34</option>
-                              <option value="">35</option>
-                              <option value="">36</option>
-                              <option value="">37</option>
-                              <option value="">38</option>
-                              <option value="">39</option>
-                              <option value="">40</option>
-                              <option value="">41</option>
-                              <option value="">42</option>
-                              <option value="">43</option>
-                              <option value="">44</option>
-                              <option value="">45</option>
-                              <option value="">46</option>
-                              <option value="">47</option>
-                              <option value="">48</option>
-                              <option value="">49</option>
-                              <option value="">50</option>
-                              <option value="">51</option>
-                              <option value="">52</option>
-                              <option value="">53</option>
-                              <option value="">54</option>
-                              <option value="">55</option>
-                              <option value="">56</option>
-                              <option value="">57</option>
-                              <option value="">58</option>
-                              <option value="">59</option>
-                              <option value="">60</option>
-                              <option value="">61</option>
-                              <option value="">62</option>
-                              <option value="">63</option>
-                              <option value="">64</option>
-                              <option value="">65</option>
-                              <option value="">66</option>
-                              <option value="">67</option>
-                              <option value="">68</option>
-                              <option value="">69</option>
-                              <option value="">70</option>
-                              <option value="">71</option>
-                              <option value="">72</option>
-                              <option value="">73</option>
-                              <option value="">74</option>
-                              <option value="">75</option>
-                              <option value="">76</option>
-                              <option value="">77</option>
-                              <option value="">78</option>
-                              <option value="">79</option>
-                              <option value="">80</option>
-                              <option value="">81</option>
-                              <option value="">82</option>
-                              <option value="">83</option>
-                              <option value="">84</option>
-                              <option value="">85</option>
-                              <option value="">86</option>
-                              <option value="">87</option>
-                              <option value="">88</option>
-                              <option value="">89</option>
-                              <option value="">90</option>
-                              <option value="">91</option>
-                              <option value="">92</option>
-                              <option value="">93</option>
-                              <option value="">94</option>
-                              <option value="">95</option>
-                              <option value="">96</option>
-                              <option value="">97</option>
-                              <option value="">98</option>
-                              <option value="">99</option>
-                            </select>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">1106元</p>
-                          </div>
-                          <div class="col-sm aw-book-price  d-flex justify-content-center aw-p-0 aw-btn-sm-dark">
-                            <i class="fas fa-times-circle aw-delete-cross"></i>
-                          </div>
-                        </div>
-                      </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   <div class="aw-countArea">
@@ -748,7 +274,7 @@ function CartItems(props) {
                       <div class="row aw-row aw-count ">
                         <h5> 共 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 16</h5>
+                          <h5> {toCurrency(sumQuantity(mycart))}</h5>
                         </div>
                         <h5> 本 </h5>
                       </div>
@@ -758,7 +284,7 @@ function CartItems(props) {
                       <div class="row aw-row aw-count ">
                         <h5> 小計 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 1,661</h5>
+                          <h5> {toCurrency(sumAmount(mycart))}</h5>
                         </div>
                         <h5> 元 </h5>
                       </div>
@@ -769,7 +295,7 @@ function CartItems(props) {
                     <div class="aw-preStep  d-flex align-items-center">
                       <a class="aw-a" href="./Cart">
                         <div class="row aw-row">
-                          <i class="fas fa-angle-left mr-2"></i>
+                          <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                           <h6> 回上一頁</h6>
                         </div>
                       </a>

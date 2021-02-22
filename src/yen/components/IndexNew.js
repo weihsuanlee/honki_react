@@ -15,8 +15,9 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
-  const urlSelect = props.location
-  console.log(urlSelect)
+  const { querySelect, setQuerySelect } = props
+  // let urlSelect = querySelect
+  console.log('querySelect', querySelect)
   const classNumList = [
     '講座',
     '讀書會',
@@ -25,6 +26,12 @@ function IndexNew(props) {
     '活動地區',
     '節氣推薦',
   ]
+
+  function areaButtonClick(area) {
+    console.log('area', area)
+    setQuerySelect(area)
+    // console.log('urlSelect', querySelect)
+  }
 
   const cityCard = (
     <>
@@ -100,16 +107,40 @@ function IndexNew(props) {
             <div className="yen-island">
               <SvgTaiwan />
             </div>
-            <div className="yen-north-area">
+            <div
+              className="yen-north-area"
+              onClick={() => {
+                const area = '?changeCity=north'
+                areaButtonClick(area)
+              }}
+            >
               <SvgNorth />
             </div>
-            <div className="yen-medium-area">
+            <div
+              className="yen-medium-area"
+              onClick={() => {
+                const area = '?changeCity=medium'
+                areaButtonClick(area)
+              }}
+            >
               <SvgMedium />
             </div>
-            <div className="yen-south-area">
+            <div
+              className="yen-south-area"
+              onClick={() => {
+                const area = '?changeCity=south'
+                areaButtonClick(area)
+              }}
+            >
               <SvgSouth />
             </div>
-            <div className="yen-east-area">
+            <div
+              className="yen-east-area"
+              onClick={() => {
+                const area = '?changeCity=east'
+                areaButtonClick(area)
+              }}
+            >
               <SvgEast />
             </div>
           </div>

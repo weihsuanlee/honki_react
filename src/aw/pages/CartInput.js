@@ -1,126 +1,118 @@
 import '../styles/cartStyle.scss'
-import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
-// import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-// import ProductBanner from '../components/ProductBanner'
-// import ListSpinner from '../components/ListSpinner'
-// import MyPopOver from '../components/MyPopOver'
+import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import { withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartInput(props) {
-  // 書籍商品狀態
-  const [books, setBooks] = useState([])
-  // 分類選單 Display
-  const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別狀態
-  const [category, setCategory] = useState('')
-  // 模擬componentDidUpdate
-  useEffect(() => {
-    filterProduct()
-  }, [category])
-  const [isLoading, setIsLoading] = useState(true)
-  const getDataFromServer = async () => {
-    // 先開啟spinner
-    setIsLoading(true)
+  const [mycart, setMycart] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+  const [mycartDisplay, setMycartDisplay] = useState([])
 
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/cart', {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data)
-    setBooks(data.rows)
-    setCategoriesDisplay(data.c_rows)
+  //select into localStorage
+  const [selectAmount, setSelectAmount] = useState()
 
-    // 2秒後關閉spinner
-    // setTimeout(() => {
-    //   setIsLoading(false)
-    // }, 2000)
+  function getCartFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
+    const newCart = localStorage.getItem('cart')
+    console.log(JSON.parse(newCart))
+    setMycart(JSON.parse(newCart))
   }
-  const categoriesDisplay = (
-    <div className="wei-categories">
-      <h6 className="wei-categories-title">書籍分類</h6>
-      <ul>
-        {categoryDisplay.map((v, i) => (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="wei-category"
-              to={{
-                search: '?category=' + v.category_sid,
-              }}
-              key={i}
-              onClick={() => {
-                setCategory(`category=${v.category_sid}`)
-              }}
-            >
-              <p>{v.name}</p>
-            </NavLink>
-          </>
-        ))}
-      </ul>
-    </div>
-  )
-
-  async function filterProduct() {
-    // 先開啟spinner
-    setIsLoading(true)
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/product?' + category, {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data, 'data1')
-    setBooks(data.rows)
-
-    // 1.5秒後關閉spinner
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
-  }
-  // const spinner = <ListSpinner show="true" />
-  const bookCardDisplay = (
-    <>
-      {books.map((v, i) => (
-        <div
-          onClick={() => {
-            props.history.push('/products/' + v.sid)
-          }}
-          className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
-          key={i}
-        >
-          <div className="wei-card-icon">NEW</div>
-          <div className="wei-card-pic position-relative">
-            <div className="wei-book-pic">
-              <img
-                className="w-100"
-                src={`http://localhost:3000/images/books/` + v.book_pics}
-                alt=""
-              />
-            </div>
-            <div className="wei-heart-bg">
-              <FaHeart className="wei-heart" />
-            </div>
-          </div>
-          <div className="wei-book-text">
-            <p className="wei-book-title">{v.title}</p>
-            <p className="wei-book-author">{v.author}</p>
-            <div className="wei-book-price">NT$ {v.final_price}</div>
-          </div>
-        </div>
-      ))}
-    </>
-  )
-  // 模擬componentDidMount
   useEffect(() => {
-    getDataFromServer()
+    getCartFromLocalStorage()
   }, [])
 
-  // console.log(props)
+  //轉換千分位
+  function toCurrency(num) {
+    var parts = num.toString().split('.')
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    return parts.join('.')
+  }
+
+  // 每次mycart資料有改變，1秒後關閉載入指示
+  // componentDidUpdate
+  useEffect(() => {
+    setTimeout(() => setDataLoading(false), 1000)
+    // mycartDisplay運算
+    let newMycartDisplay = []
+    //尋找mycartDisplay
+    for (let i = 0; i < mycart.length; i++) {
+      //尋找mycartDisplay中有沒有此mycart[i].id
+      //有找到會返回陣列成員的索引值
+      //沒找到會返回-1
+      const index = newMycartDisplay.findIndex(
+        (value) => value.id === mycart[i].id
+      )
+      //有的話就數量+1
+      if (index !== -1) {
+        //每次只有加1個數量
+        //newMycartDisplay[index].amount++
+        //假設是加數量的
+        newMycartDisplay[index].amount += mycart[i].amount
+      } else {
+        //沒有的話就把項目加入，數量為1
+        const newItem = { ...mycart[i] }
+        newMycartDisplay = [...newMycartDisplay, newItem]
+      }
+    }
+    console.log(newMycartDisplay)
+    setMycartDisplay(newMycartDisplay)
+  }, [mycart])
+
+  // 更新購物車中的商品數量
+  const updateCartToLocalStorage = (item, isAdded = true) => {
+    console.log(item, isAdded)
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    console.log('index', currentCart)
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.book_id === item.book_id)
+    console.log('index', index)
+    // found: index! == -1
+    if (index > -1) {
+      isAdded ? currentCart[index].amount++ : currentCart[index].amount--
+    }
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+    // 設定資料
+    setMycart(currentCart)
+  }
+
+  //清除購物車
+  const updateCartRemoveAll = (item) => {
+    console.log(item)
+    localStorage.removeItem('cart')
+    // 設定資料
+    setMycart([])
+  }
+
+  // 計算總價用的函式
+  const sumQuantity = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount
+    }
+    return total
+  }
+  // 計算總量的函式
+  const sumAmount = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    return total
+  }
+
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
 
   return (
     <>
-      {' '}
       <div class="container-fluid">
         <div class="aw-progress-bar">
           <div class="row aw-row">
@@ -206,117 +198,46 @@ function CartInput(props) {
                   </div>
                   <div class="aw-productAreaPadding">
                     <div class="aw-productArea">
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
+                      {mycart.map((item, index) => {
+                        return (
+                          <>
+                            <div class="row aw-card d-flex align-items-center ">
+                              <div class="col-6 row aw-row  align-items-center aw-p-0 ">
+                                <div class="col-sm aw-card-pic aw-p-9 ">
+                                  <div class="aw-book-pic">
+                                    <img
+                                      class="w-100"
+                                      src={
+                                        'http://localhost:3000/images/books/' +
+                                        item.book_id
+                                      }
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
+                                  <p class="aw-book-title">{item.bookname}</p>
+                                </div>
+                              </div>
+                              <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
+                                <div class="col-sm d-flex justify-content-center aw-p-9">
+                                  <p class="aw-book-title">$ {item.price}元</p>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                  <div class="aw-items-amount">
+                                    {item.amount}
+                                  </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                  <p class="aw-book-title">
+                                    $ {toCurrency(item.amount * item.price)}元
+                                  </p>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="/images/cart/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="/images/cart/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   <div class="aw-countArea aw-pr-42">
@@ -324,7 +245,7 @@ function CartInput(props) {
                       <div class="row aw-row aw-count ">
                         <h5> 共 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 16</h5>
+                          <h5> {toCurrency(sumQuantity(mycart))}</h5>
                         </div>
                         <h5> 本 </h5>
                       </div>
@@ -333,7 +254,7 @@ function CartInput(props) {
                       <div class="row aw-row aw-count ">
                         <h5> 小計 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 1,661</h5>
+                          <h5> {toCurrency(sumAmount(mycart))}</h5>
                         </div>
                         <h5> 元 </h5>
                       </div>
@@ -404,7 +325,7 @@ function CartInput(props) {
                   </div>
                   <div class="row aw-row d-flex justify-content-end aw-pr-42">
                     <div class=" text-right aw-p-9">
-                      <h5>總計 3,416元</h5>
+                      <h5>總計 {toCurrency(sumAmount(mycart))}元</h5>
                     </div>
                   </div>
                   <div class="aw-pt-20 row aw-row d-flex justify-content-between aw-pr-42">
@@ -613,7 +534,7 @@ function CartInput(props) {
                     <div class="aw-preStep  d-flex align-items-center">
                       <a class="aw-a" href="./CartItems">
                         <div class="row aw-row">
-                          <i class="fas fa-angle-left mr-2"></i>
+                          <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                           <h6> 回上一頁</h6>
                         </div>
                       </a>
