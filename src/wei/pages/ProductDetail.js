@@ -220,7 +220,7 @@ function ProductDetail(props) {
                 updateCartToLocalStorage({
                   ISBN: productDetail.ISBN,
                   price: productDetail.final_price,
-                  // amount: 1,
+                  amount: 1,
                   book_id: productDetail.book_pics,
                 })
               }

@@ -6,29 +6,13 @@ import { withRouter, NavLink } from 'react-router-dom'
 // import ListSpinner from '../components/ListSpinner'
 // import MyPopOver from '../components/MyPopOver'
 import { useEffect, useState } from 'react'
-// import Select from 'react-select'
-// import options from './options'
+
 function CartItems(props) {
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   //select into localStorage
-  const SELECT_VALUE_KEY = 'MySelectValue'
 
-  function MySelect() {
-    const [selected, setSelected] = useState([])
-    const handleChange = (s) => {
-      localStorage.setItem(SELECT_VALUE_KEY, JSON.stringify(s))
-      setSelected(s)
-    }
-
-    useEffect(() => {
-      const lastSelected = JSON.parse(
-        localStorage.getItem(SELECT_VALUE_KEY) ?? '[]'
-      )
-      setSelected(lastSelected)
-    }, [])
-  }
   //
 
   function getCartFromLocalStorage() {
@@ -505,10 +489,6 @@ function CartItems(props) {
                             <select
                               class="aw-select-sm form-control formInput  col-7 "
                               id="exampleFormControlSelect1"
-                              // value={selected}
-                              // onChange={handleChange}
-                              // options={options}
-                              isMulti
                             >
                               <option value="">1</option>
                               <option value="">2</option>
