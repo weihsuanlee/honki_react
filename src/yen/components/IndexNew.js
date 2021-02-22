@@ -15,6 +15,8 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
+  const urlSelect = props.location
+  console.log(urlSelect)
   const classNumList = [
     '講座',
     '讀書會',
@@ -34,7 +36,12 @@ function IndexNew(props) {
             '/0.jpg'
 
           return (
-            <div className="yen-new-card">
+            <div
+              className="yen-new-card"
+              onClick={() => {
+                props.history.push('/activity/event/' + value.act_sid)
+              }}
+            >
               <div className="yen-new-card-img">
                 <img src={pic} alt="" />
               </div>
@@ -76,6 +83,7 @@ function IndexNew(props) {
         })}
     </>
   )
+
   return (
     <>
       <div className="yen-new">
@@ -87,53 +95,7 @@ function IndexNew(props) {
         </div>
 
         <div className="yen-new-box d-flex">
-          <div className="yen-new-card-box">
-            {cityCard}
-            {/* <div className="yen-new-card">
-              <div className="yen-new-card-img">
-                <img
-                  src="http://localhost:3000/images/yen/hot/hot-4-w.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="yen-new-card-tag d-flex">
-                <div className="yen-new-card-tagl">
-                  <span>2021.03.05</span>
-                </div>
-                <div className="yen-new-card-tagr">
-                  <span>讀書會</span>
-                </div>
-              </div>
-              <div className="yen-new-card-des">
-                <div className="yen-new-card-title">
-                  <span>
-                    【聚說說書會
-                    台北場】在藏身之處，活得燦爛如初：一個不良少年走向斜槓青年的生命故事
-                  </span>
-                </div>
-                <div className="yen-new-card-bottom">
-                  <div className="yen-new-card-location">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>台北市</span>
-                  </div>
-                  <div className="yen-new-card-price">
-                    <div className="yen-new-card-nt">
-                      <span>NT</span>
-                    </div>
-                    <div className="yen-new-card-money">
-                      <span>200</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="yen-new-tag-box">
-                <span>NEW</span>
-              </div>
-              <div className="yen-new-ladybug">
-                <SvgLadybug />
-              </div>
-            </div> */}
-          </div>
+          <div className="yen-new-card-box">{cityCard}</div>
           <div className="yen-island-box">
             <div className="yen-island">
               <SvgTaiwan />

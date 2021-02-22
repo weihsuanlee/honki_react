@@ -10,8 +10,8 @@ import SvgRun from './svg/SvgRun'
 import ActEvent from '../pages/ActEvent'
 
 function IndexHot(props) {
-  const { eventList } = props
-  // console.log(props)
+  // let urlPage = props.location.search
+  // console.log(urlPage)
   const hoverCard = (
     <>
       {props.hotLists.length !== 0 &&
@@ -51,20 +51,12 @@ function IndexHot(props) {
             slider.scrollLeft = scrollLeft - walk
           })
 
-          // eslint-disable-next-line no-lone-blocks
-          {
-            /* TODO: 連接到商品頁 */
-          }
-          function cardClick() {
-            console.log(value.act_sid)
-          }
-
           return (
             <div
               className="yen-hot-cards-s yen-hover-box item"
               key={index}
               onClick={() => {
-                cardClick()
+                props.history.push('/activity/event/' + value.act_sid)
               }}
             >
               <div className="yen-hot-cover-box d-flex">
@@ -81,6 +73,7 @@ function IndexHot(props) {
     </>
   )
 
+  // if (){}
   return (
     <>
       <div className="yen-overflow-box">
@@ -93,30 +86,30 @@ function IndexHot(props) {
           </div>
           <div className="yen-hot-card-box items">
             {/* <div className="yen-hot-cards-s yen-hover-box">
-              <div className="yen-hot-cover-box d-flex"> */}
+                <div className="yen-hot-cover-box d-flex"> */}
             {hoverCard}
             {/* <div className="yen-hot-cover">
-                  <img
-                    className="yen-hot-cards-img"
-                    src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
-                    alt=""
-                  />
-                  <div className="yen-hot-cover-text">
-                    <h5>title</h5>
-                    <br />
-                    <br />
-                    <p>成立花蓮運行保存傳奇實。</p>
-                    <p>成立花蓮運行保存傳奇實。</p>
-                  </div>
-                </div> */}
+                    <img
+                      className="yen-hot-cards-img"
+                      src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
+                      alt=""
+                    />
+                    <div className="yen-hot-cover-text">
+                      <h5>title</h5>
+                      <br />
+                      <br />
+                      <p>成立花蓮運行保存傳奇實。</p>
+                      <p>成立花蓮運行保存傳奇實。</p>
+                    </div>
+                  </div> */}
             {/* </div>
-            </div> */}
+              </div> */}
 
             {/* <div className="yen-hot-cards-l yen-hover-box"></div>
-            <div className="yen-hot-cards-s yen-hover-box"></div>
-            <div className="yen-hot-cards-l yen-hover-box"></div>
-            <div className="yen-hot-cards-s yen-hover-box"></div>
-            <div className="yen-hot-cards-l yen-hover-box"></div> */}
+              <div className="yen-hot-cards-s yen-hover-box"></div>
+              <div className="yen-hot-cards-l yen-hover-box"></div>
+              <div className="yen-hot-cards-s yen-hover-box"></div>
+              <div className="yen-hot-cards-l yen-hover-box"></div> */}
 
             <div className="yen-hot-ladybug">
               <SvgLadybug />

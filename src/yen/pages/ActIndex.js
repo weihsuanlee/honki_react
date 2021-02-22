@@ -8,50 +8,45 @@ import IndexHot from '../components/IndexHot'
 import IndexNew from '../components/IndexNew'
 
 function ActIndex(props) {
+  // 總活動列表
   const [eventLists, setEventLists] = useState([])
-
   // 總頁數
   const [totalPages, setTotalPages] = useState('')
-
   // 每頁
   const [page, setPage] = useState(1)
-
   // query string page
   const [queryPage, setQueryPage] = useState('')
+  // query string select
+  const [querySelect, setQuerySelect] = useState('')
 
-  // query string
-  // let searchParams = new URLSearchParams(props.location.search)
+  // 換頁
+  useEffect(() => {
+    // console.log(props)
+    let pathName = props.location.pathname
+    let pageNow = props.location.search
 
-  // TODO: 分頁有抓到data但沒有辦法map
-  // useEffect(() => {
-  //   console.log(props)
-  //   let pathName = props.location.pathname
-  //   let pageNow = props.location.search
-
-  //   async function newPages() {
-  //     const url = pathName + pageNow
-  //     // 和伺服器要資料
-  //     const response = await fetch('http://localhost:3333' + url, {
-  //       method: 'GET',
-  //       header: new Headers({
-  //         Accept: 'application/json',
-  //         'Content-Type': 'application/json',
-  //       }),
-  //     })
-  //     const data = await response.json()
-  //     console.log('data page', response)
-  //     setEventLists(data.rows)
-  //     setTotalPages(data.totalPages)
-  //   }
-  //   newPages()
-  // }, [queryPage])
-
-  // window.scrollBy(0, 100 * window.innerHeight)
+    async function newPages() {
+      const url = pathName + pageNow
+      // 和伺服器要資料
+      const response = await fetch('http://localhost:3333' + url, {
+        method: 'GET',
+        header: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
+      const data = await response.json()
+      // console.log('data page', response, data)
+      //setEventLists(data.rows)
+      setEventLists(data)
+      setTotalPages(data.totalPages)
+    }
+    // window.scrollY()
+    newPages()
+  }, [queryPage])
 
   // 所有活動
   async function getAllEventFromServer() {
-    // 開啟載入指示
-
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity'
 
@@ -79,9 +74,8 @@ function ActIndex(props) {
   // 熱門活動
   const [hotLists, setHotLists] = useState([])
   const [hotAddClass, setHotAddClass] = useState('')
-  async function getHotEventFromServer() {
-    // 開啟載入指示
 
+  async function getHotEventFromServer() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity/hot'
 
@@ -103,14 +97,12 @@ function ActIndex(props) {
 
   useEffect(() => {
     getHotEventFromServer()
-  }, [])
+  }, [queryPage])
 
   // 最新活動
   const [newLists, setNewLists] = useState([])
 
   async function getNewEventFromServer() {
-    // 開啟載入指示
-
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity/new'
 
@@ -127,7 +119,7 @@ function ActIndex(props) {
     const data = await response.json()
     // console.log(data)
     setNewLists(data)
-    // console.log(data)
+    console.log(data)
   }
 
   useEffect(() => {
@@ -137,8 +129,16 @@ function ActIndex(props) {
   return (
     <>
       <IndexHeader />
-      <IndexHot hotLists={hotLists} hotAddClass={hotAddClass} />
-      <IndexNew newLists={newLists} />
+      <IndexHot
+        hotLists={hotLists}
+        hotAddClass={hotAddClass}
+        queryPage={queryPage}
+      />
+      <IndexNew
+        newLists={newLists}
+        setQuerySelect={setQuerySelect}
+        querySelect={querySelect}
+      />
       <IndexAllEvent
         eventLists={eventLists}
         totalPages={totalPages}
