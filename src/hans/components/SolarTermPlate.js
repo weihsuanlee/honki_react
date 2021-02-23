@@ -18,6 +18,7 @@ function SolarTermPlate(props) {
   // 參考： https://stackoverflow.com/questions/3336101/css3-animation-on-transform-rotate-way-to-fetch-current-deg-of-the-rotating-el
   // Parameter element should be a DOM Element object.
   // Returns the rotation of the element in degrees.
+  /*
   function getRotationDegrees(element) {
     // get the computed style object for the element
     let style = window.getComputedStyle(element)
@@ -38,6 +39,21 @@ function SolarTermPlate(props) {
     // instead of having values from -180 to 180, get 0 to 360
     if (deg < 0) deg += 360
     return deg
+  }
+  */
+
+  const handlePlateToggle = () => {
+    solarTermClicked = !solarTermClicked
+
+    setSolarPlateSize(
+      solarTermClicked
+        ? 'solar-term-plate-v2-small'
+        : 'solar-term-plate-v2 rotate'
+    )
+    setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
+    setRedCenterText(solarTermClicked ? solarTermToShow : '')
+
+    console.log('clicked!')
   }
 
   return (
@@ -86,21 +102,7 @@ function SolarTermPlate(props) {
           <li>
             <div
               className={redCenterSize}
-              onClick={() => {
-                solarTermClicked = !solarTermClicked
-
-                setSolarPlateSize(
-                  solarTermClicked
-                    ? 'solar-term-plate-v2-small'
-                    : 'solar-term-plate-v2 rotate'
-                )
-                setRedCenterSize(
-                  solarTermClicked ? 'red-center-small' : 'red-center'
-                )
-                setRedCenterText(solarTermClicked ? solarTermToShow : '')
-
-                console.log('clicked!')
-              }}
+              // onClick={}
             >
               <div className="red-center-text">{redCenterText}</div>
             </div>
