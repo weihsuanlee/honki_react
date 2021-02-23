@@ -1,0 +1,32 @@
+.solar-term-plate-filler {
+  height: calc(51vh);
+}
+
+/* media 變化 start */
+@media only screen and (max-width: 1920px) {
+}
+
+@media only screen and (max-width: 1800px) {
+}
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 1024px) {
+  .solar-term-plate-filler {
+    height: calc(40vh);
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .solar-term-plate-filler {
+    // height: calc(20vh);
+    height: calc(20vh);
+  }
+}
+
+@media only screen and (max-width: 360px) {
+}
