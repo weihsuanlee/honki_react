@@ -125,7 +125,7 @@ function App() {
                 <Route path="/PeopleWantChange">
                   <PeopleWantChange />
                 </Route>
-                <Route path="/SendIWantChange">
+                <Route path="/SendIWantChange/:c_sid?">
                   <SendIWantChange />
                 </Route>
                 <Route path="/NormalSuccess">

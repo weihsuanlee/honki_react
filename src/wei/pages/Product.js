@@ -32,10 +32,6 @@ function Product(props) {
   // 分頁 pagination
   const [totalPages, setTotalPages] = useState('')
   const [page, setPage] = useState(1)
-  // 篩選類別
-  // const [category, setCategory] = useState('')
-  // query string
-  // const [queryString, setQueryString] = useState('')
   // 列表切換
   const [cardList, setCardList] = useState(false)
   // spinner

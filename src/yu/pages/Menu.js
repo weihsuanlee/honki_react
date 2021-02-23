@@ -15,8 +15,10 @@ import { SVG_HAIR } from '../constants'
 import { SVG_CLOTH } from '../constants'
 import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
+
 import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
 import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
+import FavoriteList from '../../wei/components/FavoriteList'
 
 function Menu() {
   const [curFace, setCurFace] = useState(0)
@@ -26,11 +28,11 @@ function Menu() {
   const [curTerms, setCurTerms] = useState(0)
 
   useEffect(() => {
-    setCurFace(localStorage.getItem('curFace', JSON.parse(curFace)))
-    setCurHair(localStorage.getItem('curHair', JSON.parse(curHair)))
-    setCurCloth(localStorage.getItem('curCloth', JSON.parse(curCloth)))
-    setCurAcc(localStorage.getItem('curAcc', JSON.parse(curAcc)))
-    setCurTerms(localStorage.getItem('curTerms', JSON.parse(curTerms)))
+    setCurFace(localStorage.getItem('curFace') || 0)
+    setCurHair(localStorage.getItem('curHair') || 0)
+    setCurCloth(localStorage.getItem('curCloth') || 0)
+    setCurAcc(localStorage.getItem('curAcc') || 0)
+    setCurTerms(localStorage.getItem('curTerms') || 0)
   }, [])
 
   return (
@@ -104,22 +106,22 @@ function Menu() {
                     <div>
                       <ul className="yu-menu-account-2">
                         <li>
-                          <Link to="/edit">
+                          <Link to="/edit?page=1">
                             <div className="yu-menu-links">個人資料修改</div>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=2">
                             <div className="yu-menu-links">修改密碼</div>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=3">
                             <div className="yu-menu-links">修改節氣頭貼</div>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=4">
                             <div className="yu-menu-links">刪除帳號</div>
                           </Link>
                         </li>
@@ -334,7 +336,7 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-3" title="我的收藏">
                 <div className="panel-title">我的收藏</div>
-                <p>我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏</p>
+                <FavoriteList />
               </Tab>
               <Tab eventKey="yu-menu-4" title="專屬優惠">
                 <div className="panel-title">專屬優惠</div>
