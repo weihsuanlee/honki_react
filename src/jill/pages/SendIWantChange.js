@@ -1,5 +1,12 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+// import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+} from 'react-router-dom'
 // import { FaTimes } from 'react-icons/fa'
 
 // 二手書scss
@@ -8,7 +15,31 @@ import '../styles/used-books.scss'
 // 二手書svg
 import ReadingImg from '../components/ReadingImg'
 
-function SendIWantChange() {
+function SendIWantChange(props) {
+  const c_sid = props.match.params.c_sid
+  console.log(props)
+
+  // 伺服器抓資料async
+  const getProductDetail = async () => {
+    const response = await fetch(
+      'http://localhost:3333/normal-index/used-book-detail/' + c_sid,
+      {
+        method: 'get',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'appliaction/json',
+        }),
+      }
+    )
+    const data = await response.json()
+    console.log(data)
+  }
+
+  // 一開始就會開始載入資料
+  useEffect(() => {
+    getProductDetail()
+  }, [])
+
   return (
     <>
       <div class="container my-5">
@@ -47,11 +78,9 @@ function SendIWantChange() {
               <div class="form-group ">
                 <div class="formItems row d-flex">
                   <label class="inputText col-5" for="exampleFormControlInput1">
-                    書名
+                    {data.book_name}
                   </label>
-                  <p>
-                    外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生
-                  </p>
+                  <p>{}</p>
                 </div>
               </div>
               {/* <!-- select --> */}
@@ -132,4 +161,4 @@ function SendIWantChange() {
   )
 }
 
-export default SendIWantChange
+export default withRouter(SendIWantChange)

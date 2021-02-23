@@ -87,13 +87,13 @@ function NormalIndex() {
   return (
     <>
       {/* 測試類別型元件卸載畫面 */}
-      {show && <h1>來啊來啊</h1>}
+      {show && <h5>來來來</h5>}
       <button
         onClick={() => {
           setShow(!show)
         }}
       >
-        {show ? '你不敢按' : '拜託幫我按一下'}
+        {show ? '不要按' : '拜託幫我按一下'}
       </button>
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
@@ -286,246 +286,13 @@ function NormalIndex() {
                     <li>{m[index].nickname}</li>
                   ))}
                 </ul>
-                <Link to="./SendIWantChange">
+                <Link to={'./SendIWantChange/' + item.c_sid}>
                   <button className="btn-md-dark jill-want-btn">
                     我想交換
                   </button>
                 </Link>
               </div>
             ))}
-
-            {/* <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div>
-            <div className="jill-mycard d-flex jill-other-card">
-              <img
-                src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                alt=""
-              />
-              <ul>
-                <div className="jill-underline"></div>
-                <li>9789869507776</li>
-                <div className="jill-underline"></div>
-                <li>外科醫生</li>
-                <div className="jill-underline"></div>
-                <li>5成新</li>
-                <div className="jill-underline"></div>
-                <li>無塗改</li>
-                <div className="jill-underline"></div>
-                <li>鄭瑪莉</li>
-              </ul>
-              <Link to="./SendIWantChange">
-                <button className="btn-md-dark jill-want-btn">我想交換</button>
-              </Link>
-            </div> */}
           </div>
 
           {/* 頁數選項 */}
