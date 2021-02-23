@@ -13,7 +13,7 @@ function ActIndex(props) {
   // 總頁數
   const [totalPages, setTotalPages] = useState('')
   // 每頁
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(null)
   // 熱門活動
   const [hotLists, setHotLists] = useState([])
   const [hotAddClass, setHotAddClass] = useState('')
@@ -25,6 +25,20 @@ function ActIndex(props) {
   const [querySelect, setQuerySelect] = useState('')
   // query string class
   const [queryClass, setQueryClass] = useState('')
+
+  useEffect(() => {
+    //http://localhost:3000/activity?page=2
+    if (!props.location.search) return
+
+    let urlPage = new URLSearchParams(props.location.search)
+    const defaultPage = urlPage.get('page')
+    setPage(defaultPage)
+    const queryPage = {
+      pathname: props.match.url,
+      search: '?' + urlPage.toString(),
+    }
+    setQueryPage(queryPage)
+  }, [])
 
   // 活動篩選
   useEffect(() => {
@@ -58,6 +72,7 @@ function ActIndex(props) {
 
     async function newPages() {
       const url = pathName + pageNow
+      console.log(url)
       // 和伺服器要資料
       const response = await fetch('http://localhost:3333' + url, {
         method: 'GET',
@@ -78,6 +93,11 @@ function ActIndex(props) {
 
   // 所有活動
   async function getAllEventFromServer() {
+    let urlPage = new URLSearchParams(props.location.search)
+    const defaultPage = urlPage.get('page')
+
+    if (defaultPage) return
+
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/activity'
 
