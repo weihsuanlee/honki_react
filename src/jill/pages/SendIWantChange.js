@@ -78,7 +78,7 @@ function SendIWantChange(props) {
               <div class="form-group ">
                 <div class="formItems row d-flex">
                   <label class="inputText col-5" for="exampleFormControlInput1">
-                    {data.book_name}
+                    書名
                   </label>
                   <p>{}</p>
                 </div>
