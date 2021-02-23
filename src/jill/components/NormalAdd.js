@@ -23,7 +23,13 @@ function NormalAdd(props) {
     // 開啟載入指示
     setDataLoading(true)
 
-    const newData = { ISBN, book_name, BC_pic1, book_condition, written_or_not }
+    const newData = {
+      ISBN,
+      book_name,
+      BC_pic1File,
+      book_condition,
+      written_or_not,
+    }
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:3333/normal-index/add'
@@ -70,8 +76,9 @@ function NormalAdd(props) {
     console.log('data:', data)
     // handleClose();
 
-    props.BC_pic1(props.secondhand_normalchange.c_sid)
+    // data.BC_pic1(secondhand_normalchange.c_sid)
     // getMember(props.member.sid);
+    console.log('formdata' + formdata)
   }
 
   const handleFileChange = (event) => {

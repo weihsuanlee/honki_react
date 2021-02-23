@@ -17,6 +17,13 @@ import ReadingImg from '../components/ReadingImg'
 
 function SendIWantChange(props) {
   const c_sid = props.match.params.c_sid
+
+  // 為了撈出data物件，要用useState定義每個欄位的值，再用set來接
+  const [ISBN, setISBN] = useState('')
+  const [book_name, setBook_name] = useState('')
+  const [book_condition, setBook_condition] = useState('')
+  const [written_or_not, setWritten_or_not] = useState('')
+
   console.log(props)
 
   // 伺服器抓資料async
@@ -33,6 +40,10 @@ function SendIWantChange(props) {
     )
     const data = await response.json()
     console.log(data)
+    setBook_name(data.book_name)
+    setISBN(data.ISBN)
+    setBook_condition(data.book_condition)
+    setWritten_or_not(data.written_or_not)
   }
 
   // 一開始就會開始載入資料
@@ -71,7 +82,7 @@ function SendIWantChange(props) {
                   <label class="inputText col-5" for="exampleFormControlInput1">
                     ISBN
                   </label>
-                  <p>9789869507776</p>
+                  <p>{ISBN}</p>
                 </div>
               </div>
               {/* <!-- 一般input --> */}
@@ -80,7 +91,7 @@ function SendIWantChange(props) {
                   <label class="inputText col-5" for="exampleFormControlInput1">
                     書名
                   </label>
-                  <p>{}</p>
+                  <p>{book_name}</p>
                 </div>
               </div>
               {/* <!-- select --> */}
@@ -92,7 +103,7 @@ function SendIWantChange(props) {
                   >
                     書況
                   </label>
-                  <p>5成新</p>
+                  <p>{book_condition}</p>
                 </div>
               </div>
               {/* <!-- 上傳檔案 --> */}
