@@ -17,6 +17,7 @@ import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
 import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
 import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
+import FavoriteList from '../../wei/components/FavoriteList'
 
 function Menu() {
   const [curFace, setCurFace] = useState(0)
@@ -104,12 +105,12 @@ function Menu() {
                     <div>
                       <ul className="yu-menu-account-2">
                         <li>
-                          <Link to="/edit">
+                          <Link to="/edit?page=1">
                             <div className="yu-menu-links">個人資料修改</div>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=2">
                             <div className="yu-menu-links">修改密碼</div>
                           </Link>
                         </li>
@@ -334,7 +335,7 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-3" title="我的收藏">
                 <div className="panel-title">我的收藏</div>
-                <p>我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏我的收藏</p>
+                <FavoriteList />
               </Tab>
               <Tab eventKey="yu-menu-4" title="專屬優惠">
                 <div className="panel-title">專屬優惠</div>
