@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 // import $ from 'jquery'
 
@@ -10,15 +10,47 @@ import SvgRun from './svg/SvgRun'
 import ActEvent from '../pages/ActEvent'
 
 function IndexHot(props) {
+  useEffect(() => {
+    const slider = document.querySelector('.items')
+    let isDown = false
+    let startX
+    let scrollLeft
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true
+      slider.classList.add('active')
+      startX = e.pageX - slider.offsetLeft
+      scrollLeft = slider.scrollLeft
+    })
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false
+      slider.classList.remove('active')
+    })
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false
+      slider.classList.remove('active')
+    })
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return //stop the fn running
+      e.preventDefault()
+      const x = e.pageX - slider.offsetLeft
+      const walk = x - startX
+      slider.scrollLeft = scrollLeft - walk
+    })
+  }, [])
   // let urlPage = props.location.search
   // console.log('IndexHot', props)
 
   // 如果切換分頁就隱藏這個區塊
-  // TODO: 切換分頁隱藏區塊有成功，但重新要連回/activity頁面會噴undefined
-  if (props.location.search !== '') {
-    console.log('clear', props)
-    return <></>
-  }
+  // TODO: 切換分頁隱藏區塊有成功，但從nav重新要連回/activity頁面會噴undefined
+  // if (props.location.search !== '') {
+  //   console.log('clear', props)
+  //   return <></>
+  // }
+
   const hoverCard = (
     <>
       {props.hotLists.rows &&
@@ -28,7 +60,8 @@ function IndexHot(props) {
             value.act_name +
             '/0.jpg'
 
-          const slider = document.querySelector('.items')
+          {
+            /* const slider = document.querySelector('.items')
           let isDown = false
           let startX
           let scrollLeft
@@ -56,7 +89,8 @@ function IndexHot(props) {
             const x = e.pageX - slider.offsetLeft
             const walk = x - startX
             slider.scrollLeft = scrollLeft - walk
-          })
+          }) */
+          }
 
           return (
             <div
@@ -82,7 +116,10 @@ function IndexHot(props) {
 
   return (
     <>
-      <div className="yen-overflow-box">
+      <div
+        className="yen-overflow-box"
+        style={{ display: props.location.search ? 'none' : 'block' }}
+      >
         <div className="yen-hot">
           <div className="yen-title-box d-flex">
             <div className="yen-circle">
