@@ -11,13 +11,20 @@ import EditTab1 from '../components/EditTab1'
 import EditTab2 from '../components/EditTab2'
 import EditTab3 from '../components/EditTab3'
 import EditTab4 from '../components/EditTab4'
+import { withRouter } from 'react-router-dom'
 
-function Edit() {
-  const [curFace, setCurFace] = useState(localStorage.getItem('curFace', 0))
-  const [curHair, setCurHair] = useState(localStorage.getItem('curHair', 0))
-  const [curCloth, setCurCloth] = useState(localStorage.getItem('curCloth', 0))
-  const [curAcc, setCurAcc] = useState(localStorage.getItem('curAcc', 0))
-  const [curTerms, setCurTerms] = useState(localStorage.getItem('curTerms', 0))
+function Edit(props) {
+  let searchParams = new URLSearchParams(props.location.search)
+
+  const [curFace, setCurFace] = useState(localStorage.getItem('curFace') || 0)
+  const [curHair, setCurHair] = useState(localStorage.getItem('curHair') || 0)
+  const [curCloth, setCurCloth] = useState(
+    localStorage.getItem('curCloth') || 0
+  )
+  const [curAcc, setCurAcc] = useState(localStorage.getItem('curAcc') || 0)
+  const [curTerms, setCurTerms] = useState(
+    localStorage.getItem('curTerms') || 0
+  )
 
   useEffect(() => {
     localStorage.setItem('curFace', JSON.parse(curFace))
@@ -101,7 +108,10 @@ function Edit() {
           <div className="col-9 yu-edit-tab">
             {/* <!-- 會員總表收合選單 --> */}
             <div className="holder d-none d-lg-block mx-auto yu-edit-panels">
-              <Tabs defaultActiveKey="yu-edit-1" id="uncontrolled-tab-example">
+              <Tabs
+                defaultActiveKey={`yu-edit-` + searchParams.get('page')}
+                id="uncontrolled-tab-example"
+              >
                 <Tab eventKey="yu-edit-1" title="修改個人資料">
                   <EditTab1 />
                 </Tab>
@@ -138,4 +148,4 @@ function Edit() {
     </>
   )
 }
-export default Edit
+export default withRouter(Edit)

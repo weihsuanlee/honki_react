@@ -1,8 +1,28 @@
 import '../styles/members-bookshelf.scss'
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
+import { SVG_FACES } from '../constants'
+import { SVG_HAIR } from '../constants'
+import { SVG_CLOTH } from '../constants'
+import { SVG_ACC } from '../constants'
+import { SVG_TERMS } from '../constants'
+import { Container, Row, Col } from 'react-bootstrap'
 
 function Bookshelf() {
+  const [curFace, setCurFace] = useState(0)
+  const [curHair, setCurHair] = useState(0)
+  const [curCloth, setCurCloth] = useState(0)
+  const [curAcc, setCurAcc] = useState(0)
+  const [curTerms, setCurTerms] = useState(0)
+
+  useEffect(() => {
+    setCurFace(localStorage.getItem('curFace') || 0)
+    setCurHair(localStorage.getItem('curHair') || 0)
+    setCurCloth(localStorage.getItem('curCloth') || 0)
+    setCurAcc(localStorage.getItem('curAcc') || 0)
+    setCurTerms(localStorage.getItem('curTerms') || 0)
+  }, [])
+
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -24,7 +44,7 @@ function Bookshelf() {
         <p>?</p>
       </div>
       <div className="yu-book-buyitnow">
-        <p>馬上購買</p>
+        <Link to="/product">馬上購買</Link>
       </div>
       {/* <!-- <div className="yu-wood"><img src="../../images/members/wood.png" alt="" /></div> --> */}
 
@@ -167,31 +187,23 @@ function Bookshelf() {
               <div className="mx-auto">
                 <div className="yu-book-member-photo-bg">
                   {/* <!-- 個人頭貼-bg --> */}
-                  <img
-                    src="http://localhost:3000/images/yu/peepsphotos/24terms/term1.jpg"
-                    alt=""
-                  />
+                  <img src={SVG_TERMS[curTerms]} alt="" />
                 </div>
                 <div className="yu-book-member-photo-hair">
                   {/* <!-- 個人頭貼-hair --> */}
-                  <img
-                    src="http://localhost:3000/images/yu/peepsphotos/hair/4Medium Bangs 3.svg"
-                    alt=""
-                  />
+                  <img src={SVG_HAIR[curHair]} alt="" />
                 </div>
                 <div className="yu-book-member-photo-face">
                   {/* <!-- 個人頭貼-face --> */}
-                  <img
-                    src="http://localhost:3000/images/yu/peepsphotos/face/Smile.svg"
-                    alt=""
-                  />
+                  <img src={SVG_FACES[curFace]} alt="" />
                 </div>
                 <div className="yu-book-member-photo-cloth">
                   {/* <!-- 個人頭貼-cloth --> */}
-                  <img
-                    src="http://localhost:3000/images/yu/peepsphotos/cloth/Tee 1.svg"
-                    alt=""
-                  />
+                  <img src={SVG_CLOTH[curCloth]} alt="" />
+                </div>
+                <div className="yu-book-member-photo-acc">
+                  {/* <!-- 個人頭貼-acc --> */}
+                  <img src={SVG_ACC[curAcc]} alt="" />
                 </div>
               </div>
               {/* <!-- 會員等級 --> */}

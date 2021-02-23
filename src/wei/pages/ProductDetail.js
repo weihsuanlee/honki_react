@@ -1,11 +1,5 @@
 import '../styles/product.scss'
-import {
-  FaHeart,
-  FaShoppingCart,
-  FaShare,
-  FaStar,
-  FaBookOpen,
-} from 'react-icons/fa'
+import { FaShoppingCart, FaStar, FaBookOpen } from 'react-icons/fa'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import { withRouter } from 'react-router-dom'
 import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
@@ -13,6 +7,7 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import ReadTrialModal from '../components/ReadTrialModal'
 import SharePop from '../components/SharePop'
+import Favorite from '../components/Favorite'
 import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
 
@@ -69,6 +64,7 @@ function ProductDetail(props) {
   }
 
   const sid = props.match.params.sid
+  const userId = localStorage.getItem('userId')
 
   // 伺服器抓資料async
   const getProductDetail = async () => {
@@ -102,9 +98,9 @@ function ProductDetail(props) {
     const recent = localStorage.getItem('recentlyViewed_sid')
       ? JSON.parse(localStorage.getItem('recentlyViewed_sid'))
       : []
-    let idNow = +props.match.params.sid
-    if (recent.indexOf(idNow) === -1) {
-      recent.unshift(idNow)
+    let bookId = +props.match.params.sid
+    if (recent.indexOf(bookId) === -1) {
+      recent.unshift(bookId)
     }
     localStorage.setItem('recentlyViewed_sid', JSON.stringify(recent))
     // 執行傳送 localstorage to node
@@ -118,9 +114,11 @@ function ProductDetail(props) {
       <div className="container-fluid wei-bg-white">
         <div className="row position-relative">
           <div className="wei-detail-icons d-flex flex-column">
-            <button className="wei-detail-icon wei-detail-heart mb-2">
-              <FaHeart className="wei-detail-heart-icon" />
-            </button>
+            <Favorite
+              bookId={sid}
+              userId={userId}
+              productDetail={productDetail}
+            />
             <SharePop productDetail={productDetail} />
           </div>
           <div className="col-12">

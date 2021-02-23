@@ -174,7 +174,7 @@ function Login() {
                       <Modal.Header closeButton>
                         <Modal.Title>Honki</Modal.Title>
                       </Modal.Header>
-                      <Modal.Body>帳號或密碼錯誤</Modal.Body>
+                      <Modal.Body>咦...帳號或密碼好像錯了哦</Modal.Body>
                       <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                           關閉
