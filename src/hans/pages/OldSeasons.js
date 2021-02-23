@@ -9,15 +9,23 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 // import style
 import '../styles/old-seasons.scss'
 
-function OldSeasons() {
+function OldSeasons(props) {
   // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
 
+  // 處理轉盤大小
+  const [solarPlateSize, setSolarPlateSize] = useState(
+    'solar-term-plate-v2 rotate'
+  )
+  const [redCenterSize, setRedCenterSize] = useState('red-center')
+  const [redCenterText, setRedCenterText] = useState('fadeOut')
+
+  const [solarTermClicked, setSolarTermClicked] = useState(true)
+
   // let solarTermList = []
   let currentSolarTerm = 3
-  // let solarTermClicked = false
 
   // 模擬componentDidMount
   useEffect(() => {
@@ -35,13 +43,22 @@ function OldSeasons() {
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
 
-    // setSolarTermsListed(data)
-
-    // 2秒後在 console 顯示 time out
-    // setTimeout(() => {
-    //   console.log('time out')
-    // }, 2000)
     return data
+  }
+
+  function handlePlateToggle() {
+    setSolarPlateSize(
+      solarTermClicked
+        ? 'solar-term-plate-v2-small'
+        : 'solar-term-plate-v2 rotate'
+    )
+    setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
+    setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
+
+    setSolarTermClicked(!solarTermClicked)
+
+    console.log('clicked!')
+    console.log(solarTermClicked)
   }
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
@@ -51,7 +68,12 @@ function OldSeasons() {
       <div className="container-fluid w-100 old-season-container">
         <div className="row justify-content-center">
           <div className="col">
-            <SolarTermPlate solarTermToShow={solarTermToShow} />
+            <SolarTermPlate
+              solarTermToShow={solarTermToShow}
+              solarPlateSize={solarPlateSize}
+              redCenterSize={redCenterSize}
+              redCenterText={redCenterText}
+            />
             <div className={'hans-bread-crumb ' + checkBreadCrumShow}>
               <MultiLevelBreadCrumb />
             </div>
@@ -61,6 +83,7 @@ function OldSeasons() {
             <button
               onClick={() => {
                 setShowBreadCrumb(!showBreadCrumb)
+                handlePlateToggle()
               }}
             >
               點擊目標節氣書本

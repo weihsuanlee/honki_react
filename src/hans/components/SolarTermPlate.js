@@ -1,18 +1,15 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 // import style
 import '../styles/solar-term-plate.scss'
 
 function SolarTermPlate(props) {
-  const [solarPlateSize, setSolarPlateSize] = useState(
-    'solar-term-plate-v2 rotate'
-  )
-  const [redCenterSize, setRedCenterSize] = useState('red-center')
-  const [redCenterText, setRedCenterText] = useState('')
-
-  const { solarTermToShow } = props
-
-  let solarTermClicked = false
+  const {
+    solarTermToShow,
+    solarPlateSize,
+    redCenterSize,
+    redCenterText,
+  } = props
 
   // 取得目前的旋轉角度
   // 參考： https://stackoverflow.com/questions/3336101/css3-animation-on-transform-rotate-way-to-fetch-current-deg-of-the-rotating-el
@@ -41,20 +38,6 @@ function SolarTermPlate(props) {
     return deg
   }
   */
-
-  const handlePlateToggle = () => {
-    solarTermClicked = !solarTermClicked
-
-    setSolarPlateSize(
-      solarTermClicked
-        ? 'solar-term-plate-v2-small'
-        : 'solar-term-plate-v2 rotate'
-    )
-    setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
-    setRedCenterText(solarTermClicked ? solarTermToShow : '')
-
-    console.log('clicked!')
-  }
 
   return (
     <>
@@ -104,7 +87,9 @@ function SolarTermPlate(props) {
               className={redCenterSize}
               // onClick={}
             >
-              <div className="red-center-text">{redCenterText}</div>
+              <div className={'red-center-text ' + redCenterText}>
+                {solarTermToShow}
+              </div>
             </div>
           </li>
         </ul>
