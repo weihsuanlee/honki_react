@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-// import $ from 'jquery'
 
-// svg-icon
+// components
 import '../styles/yen-index.scss'
 import SvgCircle from './svg/SvgCircle'
 import SvgLadybug from './svg/SvgLadybug'
@@ -58,10 +57,10 @@ function IndexHot(props) {
             <div
               className="yen-hot-cards-s yen-hover-box item"
               key={index}
-              onClick={() => {
+              onDoubleClick={() => {
                 setTimeout(() => {
                   props.history.push('/activity/event/' + value.act_sid)
-                }, 1500)
+                }, 1000)
               }}
             >
               <div className="yen-hot-cover-box d-flex">
@@ -92,32 +91,7 @@ function IndexHot(props) {
             <span className="yen-title-text">熱門活動</span>
           </div>
           <div className="yen-hot-card-box items">
-            {/* <div className="yen-hot-cards-s yen-hover-box">
-                  <div className="yen-hot-cover-box d-flex"> */}
             {hoverCard}
-            {/* <div className="yen-hot-cover">
-                      <img
-                        className="yen-hot-cards-img"
-                        src="http://localhost:3000/images/yen/event/隨心  香氛自由書寫課。內在靜觀 l 台北場/0.jpg"
-                        alt=""
-                      />
-                      <div className="yen-hot-cover-text">
-                        <h5>title</h5>
-                        <br />
-                        <br />
-                        <p>成立花蓮運行保存傳奇實。</p>
-                        <p>成立花蓮運行保存傳奇實。</p>
-                      </div>
-                    </div> */}
-            {/* </div>
-                </div> */}
-
-            {/* <div className="yen-hot-cards-l yen-hover-box"></div>
-                <div className="yen-hot-cards-s yen-hover-box"></div>
-                <div className="yen-hot-cards-l yen-hover-box"></div>
-                <div className="yen-hot-cards-s yen-hover-box"></div>
-                <div className="yen-hot-cards-l yen-hover-box"></div> */}
-
             <div className="yen-hot-ladybug">
               <SvgLadybug />
             </div>
