@@ -50,16 +50,16 @@ function Bookshelf() {
 
       {/* <!-- 標題 --> */}
       <Container className="my-5">
-        <Row className="d-flex justify-content-between">
+        <Row className="d-flex justify-content-between yu-booksss">
           <Col className="yu-book-general-bookshelf col-8 ">
             {/* <!-- 每本書的設定 --> */}
             {/* <!-- book1 --> */}
-            <div className="yu-books yu-book-1 text-center">
+            <div className="yu-books yu-book-1 text-center animate__animated animate__slideInUp">
               <span className="yu-dots">•</span>
               <p>立春</p>
             </div>
             {/* <!-- book2 --> */}
-            <div className="yu-books yu-book-2 text-center">
+            <div className="yu-books yu-book-2 text-center animate__animated animate__slideInUp">
               <span className="yu-dots">•</span>
               <p>雨水</p>
             </div>
@@ -209,7 +209,7 @@ function Bookshelf() {
               {/* <!-- 會員等級 --> */}
               <div className="yu-book-member-info d-flex justify-content-center mt-3">
                 <div className="yu-book-general-member mr-3">一般會員</div>
-                <div className="yu-general-member-name">凱莉</div>
+                <div className="yu-general-member-name">name</div>
               </div>
             </div>
             <div className="yu-new-book text-center">
