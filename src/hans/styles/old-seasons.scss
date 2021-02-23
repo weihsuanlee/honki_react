@@ -19,6 +19,14 @@
   transition: 2s;
 }
 
+.displayOn {
+  display: block;
+}
+
+.displayOff {
+  display: none;
+}
+
 // Book cards area
 
 /*
@@ -80,6 +88,10 @@
 @media only screen and (max-width: 992px) {
   .old-season-container {
     margin-top: -80px;
+  }
+
+  .hans-bread-crumb {
+    display: none;
   }
 }
 

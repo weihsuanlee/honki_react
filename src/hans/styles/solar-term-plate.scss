@@ -30,6 +30,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   // transform: translate(-70px, -173px) rotate(15deg);
   // transform: translate(0, -173px) rotate(15deg);
   transform: translate(0, -173px);
+  // transform: translate(0, 152px);
 
   transition: 2s ease;
 }
@@ -74,6 +75,33 @@ https://codepen.io/ant1mas/pen/MeJjaK
 
 /* solar-term-plate 特定節氣瀏覽狀態（較小） 的各種設定 start */
 
+.solar-term-plate-v2-small-trans {
+  overflow: hidden;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 425px;
+  height: 425px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  list-style: none;
+
+  // background: var(--honki-black);
+  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-size: 100% 100%;
+
+  /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
+
+  // 圓盤位置
+  // transform: translate(0px, 0px);
+  // transform: translate(-81px, -265px);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(0, 192px) rotate(15deg);
+  transform: translate(0, -173px);
+
+  transition: 2s ease;
+}
+
 .solar-term-plate-v2-small {
   overflow: hidden;
   position: absolute;
@@ -109,8 +137,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
 /* 中心紅圓塊 start */
 
 .red-center-small {
-  width: 337px;
-  height: 337px;
+  width: 357px;
+  height: 357px;
   border-radius: 50%;
   border: 20px solid var(--honki-paper);
 
@@ -125,7 +153,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
 
   overflow: hidden;
 
-  transform: translate(44px, 44px);
+  transform: translate(34px, 34px);
 
   transition: 2s ease;
 }
@@ -197,7 +225,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   height: 200%;
   border-radius: 50%;
   // background: var(--honki-black);
-  // opacity: 100%;
+  // opacity: 85%;
 }
 
 // .slice:hover .slice-contents {
@@ -232,14 +260,16 @@ https://codepen.io/ant1mas/pen/MeJjaK
     // transform: translate(-81px, -265px) rotate(0deg);
     // transform: translate(-70px, -173px) rotate(15deg);
     // transform: translate(0, -173px) rotate(15deg);
-    // transform: translate(0, -173px) rotate(0deg);
+    transform: translate(0, -173px) rotate(0deg);
+    // transform: translate(0, 152px) rotate(0deg);
   }
   to {
     // transform: translate(0px, 0px) rotate(359deg);
     // transform: translate(-81px, -265px) rotate(359deg);
     // transform: translate(-70px, -173px) rotate(374deg);
     // transform: translate(0, -173px) rotate(374deg);
-    // transform: translate(0, -173px) rotate(359deg);
+    transform: translate(0, -173px) rotate(359deg);
+    // transform: translate(0, 152px) rotate(359deg);
   }
 }
 

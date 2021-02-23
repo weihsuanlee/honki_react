@@ -5,15 +5,19 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 import SolarTermPlate from '../components/SolarTermPlate'
 import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
+import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 
 // import style
 import '../styles/old-seasons.scss'
+import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
   // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
+  const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState('displayOff')
+  const [displayTitle, setDisplayTitle] = useState('displayOn')
 
   // 處理轉盤大小
   const [solarPlateSize, setSolarPlateSize] = useState(
@@ -47,6 +51,7 @@ function OldSeasons(props) {
   }
 
   function handlePlateToggle() {
+    // 設定圓盤狀態
     setSolarPlateSize(
       solarTermClicked
         ? 'solar-term-plate-v2-small'
@@ -54,6 +59,10 @@ function OldSeasons(props) {
     )
     setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
     setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
+
+    // 設定節氣說明狀態與頁面標題
+    setDisplaySolarTermInfo(solarTermClicked ? 'displayOn' : 'displayOff')
+    setDisplayTitle(solarTermClicked ? 'displayOff' : 'displayOn')
 
     setSolarTermClicked(!solarTermClicked)
 
@@ -77,17 +86,15 @@ function OldSeasons(props) {
             <div className={'hans-bread-crumb ' + checkBreadCrumShow}>
               <MultiLevelBreadCrumb />
             </div>
-            <OldSeasonPageTitle />
-            目前的節氣：{currentSolarTerm}
+            <div className="row solar-term-plate-filler"></div>
             <br />
-            <button
-              onClick={() => {
-                setShowBreadCrumb(!showBreadCrumb)
-                handlePlateToggle()
-              }}
-            >
-              點擊目標節氣書本
-            </button>
+            <div className={displayTitle}>
+              <OldSeasonPageTitle />
+            </div>
+            <div className={displaySolarTermInfo}>
+              <SelectedSolarTermInfo />
+            </div>
+            目前的節氣：{currentSolarTerm}
             <br />
             {/* 目標節氣書本： {targetSolarTerm} */}
             <br />
@@ -106,6 +113,15 @@ function OldSeasons(props) {
               <OldSeasonBookCard />
               <OldSeasonBookCard />
               <OldSeasonBookCard />
+              <button
+                onClick={() => {
+                  setShowBreadCrumb(!showBreadCrumb)
+                  handlePlateToggle()
+                }}
+              >
+                點擊目標節氣書本
+              </button>
+              <br />
             </div>
           </div>
         </div>

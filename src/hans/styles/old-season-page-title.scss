@@ -1,7 +1,3 @@
-.solar-term-plate-filler {
-  height: calc(51vh);
-}
-
 .title-pointer {
   transform: translate(calc(18vw), 0rem);
 }
@@ -51,9 +47,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .solar-term-plate-filler {
-    height: calc(40vh);
-  }
 }
 
 @media only screen and (max-width: 992px) {
