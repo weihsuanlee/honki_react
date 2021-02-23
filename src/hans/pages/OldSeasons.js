@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 // import components
+import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 import SolarTermPlate from '../components/SolarTermPlate'
 import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
@@ -9,13 +10,14 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import '../styles/old-seasons.scss'
 
 function OldSeasons() {
-  const [targetSolarTerm, setTargetSolarTerm] = useState(0)
+  // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
+  const [showBreadCrumb, setShowBreadCrumb] = useState(false)
 
   // let solarTermList = []
   let currentSolarTerm = 3
-  let solarTermClicked = false
+  // let solarTermClicked = false
 
   // 模擬componentDidMount
   useEffect(() => {
@@ -42,24 +44,29 @@ function OldSeasons() {
     return data
   }
 
+  let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
+
   return (
     <>
       <div className="container-fluid w-100 old-season-container">
         <div className="row justify-content-center">
           <div className="col">
             <SolarTermPlate solarTermToShow={solarTermToShow} />
+            <div className={'hans-bread-crumb ' + checkBreadCrumShow}>
+              <MultiLevelBreadCrumb />
+            </div>
             <OldSeasonPageTitle />
             目前的節氣：{currentSolarTerm}
             <br />
             <button
               onClick={() => {
-                // solarTermClicked = !solarTermClicked
+                setShowBreadCrumb(!showBreadCrumb)
               }}
             >
               點擊目標節氣書本
             </button>
             <br />
-            目標節氣書本： {targetSolarTerm}
+            {/* 目標節氣書本： {targetSolarTerm} */}
             <br />
             節氣：{solarTermToShow}
             <br />
