@@ -4,9 +4,7 @@ import { useState } from 'react'
 import '../styles/solar-term-plate.scss'
 
 function SolarTermPlate(props) {
-  const [solarPlateSize, setSolarPlateSize] = useState(
-    'solar-term-plate-v2 rotate'
-  )
+  const [solarPlateSize, setSolarPlateSize] = useState('solar-term-plate-v2')
   const [redCenterSize, setRedCenterSize] = useState('red-center')
   const [redCenterText, setRedCenterText] = useState('')
 
