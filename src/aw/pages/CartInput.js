@@ -4,13 +4,54 @@ import { withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartInput(props) {
+  const userid = props.match.params.userid
+
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
+  const [userDataIsExist, setUserDataIsExist] = useState(true)
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
 
+  async function getUserFromServer(userid) {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:3333/users/edit/' + userid
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+    // 設定資料
+
+    // 如果從伺服器回傳的資料沒有id值
+    if (!data.id) {
+      setUserDataIsExist(false)
+      return
+    }
+
+    setName(data.name)
+    setEmail(data.email)
+    setUsername(data.username)
+    setPassword(data.password)
+  }
+
+  //載入localStorage
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
@@ -76,15 +117,7 @@ function CartInput(props) {
     setMycart(currentCart)
   }
 
-  //清除購物車
-  const updateCartRemoveAll = (item) => {
-    console.log(item)
-    localStorage.removeItem('cart')
-    // 設定資料
-    setMycart([])
-  }
-
-  // 計算總價用的函式
+  // 計算總量的函式
   const sumQuantity = (items) => {
     let total = 0
     for (let i = 0; i < items.length; i++) {
@@ -92,7 +125,6 @@ function CartInput(props) {
     }
     return total
   }
-  // 計算總量的函式
   const sumAmount = (items) => {
     let total = 0
     for (let i = 0; i < items.length; i++) {
@@ -111,7 +143,7 @@ function CartInput(props) {
     </>
   )
 
-  return (
+  const display = (
     <>
       <div class="container-fluid">
         <div class="aw-progress-bar">
@@ -280,10 +312,13 @@ function CartInput(props) {
                               <select
                                 class="form-control formInput  col-7"
                                 id="exampleFormControlSelect1"
+                                onChange={() =>
+                                  updateCartToLocalStorage(mycart, true)
+                                }
                               >
-                                <option>請選擇</option>
-                                <option>超商取貨</option>
-                                <option>宅配</option>
+                                <option value="0">請選擇</option>
+                                <option value="超商取貨">超商取貨</option>
+                                <option value="宅配">宅配</option>
                               </select>
                             </div>
                           </div>
@@ -390,6 +425,10 @@ function CartInput(props) {
                               type="text"
                               class="form-control formInput col-7 "
                               placeholder="ex:吳阿民"
+                              value={name}
+                              onChange={(event) => {
+                                setName(event.target.value)
+                              }}
                             />{' '}
                           </div>
                         </div>
@@ -412,6 +451,10 @@ function CartInput(props) {
                               type="email"
                               class="form-control formInput col-7"
                               placeholder="example@hotmail.com"
+                              value={email}
+                              onChange={(event) => {
+                                setEmail(event.target.value)
+                              }}
                             />
                           </div>
                         </div>
@@ -542,7 +585,14 @@ function CartInput(props) {
                     <div class="aw-nextStep  d-flex align-items-center">
                       {' '}
                       <a href="./CartConfirm" class="aw-a">
-                        <button class="btn-lg aw-btn-lg">下一步</button>
+                        <button
+                          class="btn-lg aw-btn-lg"
+                          onClick={() => {
+                            updateCartToLocalStorage(false)
+                          }}
+                        >
+                          下一步
+                        </button>
                       </a>
                     </div>
                   </div>
@@ -558,6 +608,7 @@ function CartInput(props) {
       </div>
     </>
   )
+  return dataLoading ? loading : display
 }
 
 export default withRouter(CartInput)

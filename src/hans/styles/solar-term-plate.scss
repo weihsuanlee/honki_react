@@ -18,6 +18,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   border-radius: 50%;
   list-style: none;
 
+  // background: var(--honki-black);
   background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
   background-size: 100% 100%;
 
@@ -30,7 +31,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   // transform: translate(0, -173px) rotate(15deg);
   transform: translate(0, -173px);
 
-  transition: 2s;
+  transition: 2s ease;
 }
 
 /* .solar-term-plate-v2:hover {
@@ -54,12 +55,13 @@ https://codepen.io/ant1mas/pen/MeJjaK
   overflow: hidden;
 
   transform: translate(40%, 40%);
-  transition: 2s;
+  transition: 2s ease;
 }
 
 .red-center-text {
   text-align: center;
   font-size: 83px;
+  font-weight: 500;
   color: var(--honki-white);
 }
 
@@ -67,6 +69,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
 /* solar-term-plate 瀏覽狀態（較大） 的各種設定 start */
 
 /* solar-term-plate 特定節氣瀏覽狀態（較小） 的各種設定 start */
+
 .solar-term-plate-v2-small {
   overflow: hidden;
   position: absolute;
@@ -78,6 +81,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   border-radius: 50%;
   list-style: none;
 
+  // background: var(--honki-black);
   background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
   background-size: 100% 100%;
 
@@ -88,9 +92,9 @@ https://codepen.io/ant1mas/pen/MeJjaK
   // transform: translate(-81px, -265px);
   // transform: translate(-70px, -173px) rotate(15deg);
   // transform: translate(0, 192px) rotate(15deg);
-  transform: translate(0, 192px);
+  transform: translate(0, 152px);
 
-  transition: 2s;
+  transition: 2s ease;
 }
 
 /* .solar-term-plate-v2:hover {
@@ -119,7 +123,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
 
   transform: translate(44px, 44px);
 
-  transition: 2s;
+  transition: 2s ease;
 }
 
 /* 中心紅圓塊 end */
@@ -188,14 +192,14 @@ https://codepen.io/ant1mas/pen/MeJjaK
   width: 200%;
   height: 200%;
   border-radius: 50%;
-  background: var(--honki-black);
-  opacity: 100%;
+  // background: var(--honki-black);
+  // opacity: 100%;
 }
 
-.slice:hover .slice-contents {
-  background-color: transparent;
-  transition: 1s;
-}
+// .slice:hover .slice-contents {
+//   background-color: transparent;
+//   transition: 1s;
+// }
 
 /* .red-center-bg-color:hover {
   background-color: transparent;
@@ -217,18 +221,21 @@ https://codepen.io/ant1mas/pen/MeJjaK
 }
 
 // 旋轉，圓盤位置
+
 @keyframes rotation {
   from {
     // transform: translate(0px, 0px) rotate(0deg);
     // transform: translate(-81px, -265px) rotate(0deg);
     // transform: translate(-70px, -173px) rotate(15deg);
     // transform: translate(0, -173px) rotate(15deg);
+    // transform: translate(0, -173px) rotate(0deg);
   }
   to {
     // transform: translate(0px, 0px) rotate(359deg);
     // transform: translate(-81px, -265px) rotate(359deg);
     // transform: translate(-70px, -173px) rotate(374deg);
     // transform: translate(0, -173px) rotate(374deg);
+    // transform: translate(0, -173px) rotate(359deg);
   }
 }
 
