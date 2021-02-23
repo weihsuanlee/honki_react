@@ -5,6 +5,7 @@ import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 import SolarTermPlate from '../components/SolarTermPlate'
 import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
+import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 
 // import style
 import '../styles/old-seasons.scss'
@@ -78,6 +79,7 @@ function OldSeasons(props) {
               <MultiLevelBreadCrumb />
             </div>
             <OldSeasonPageTitle />
+            {/* <SelectedSolarTermInfo /> */}
             目前的節氣：{currentSolarTerm}
             <br />
             <button

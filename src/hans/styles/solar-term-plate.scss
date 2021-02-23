@@ -196,8 +196,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
   width: 200%;
   height: 200%;
   border-radius: 50%;
-  background: var(--honki-black);
-  opacity: 85%;
+  // background: var(--honki-black);
+  // opacity: 85%;
 }
 
 // .slice:hover .slice-contents {
@@ -232,14 +232,14 @@ https://codepen.io/ant1mas/pen/MeJjaK
     // transform: translate(-81px, -265px) rotate(0deg);
     // transform: translate(-70px, -173px) rotate(15deg);
     // transform: translate(0, -173px) rotate(15deg);
-    // transform: translate(0, -173px) rotate(0deg);
+    transform: translate(0, -173px) rotate(0deg);
   }
   to {
     // transform: translate(0px, 0px) rotate(359deg);
     // transform: translate(-81px, -265px) rotate(359deg);
     // transform: translate(-70px, -173px) rotate(374deg);
     // transform: translate(0, -173px) rotate(374deg);
-    // transform: translate(0, -173px) rotate(359deg);
+    transform: translate(0, -173px) rotate(359deg);
   }
 }
 
