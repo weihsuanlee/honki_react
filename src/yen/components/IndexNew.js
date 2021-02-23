@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import moment from 'moment'
 
+// components
 import '../styles/yen-index.scss'
 import SvgCircle from './svg/SvgCircle'
 import SvgLadybug from './svg/SvgLadybug'
@@ -15,11 +16,11 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
-  // 如果切換分頁就隱藏這個區塊
-  if (props.location.search !== '') {
-    // console.log('clear', props)
-    return <></>
-  }
+  // // 如果切換分頁就隱藏這個區塊
+  // if (props.location.search !== '') {
+  //   // console.log('clear', props)
+  //   return <></>
+  // }
 
   // 取得篩選state
   const { setQuerySelect } = props
@@ -101,7 +102,10 @@ function IndexNew(props) {
 
   return (
     <>
-      <div className="yen-new">
+      <div
+        className="yen-new"
+        style={{ display: props.location.search ? 'none' : 'block' }}
+      >
         <div className="yen-title-box d-flex">
           <div className="yen-circle">
             <SvgCircle />
