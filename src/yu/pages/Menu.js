@@ -116,12 +116,12 @@ function Menu() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=3">
                             <div className="yu-menu-links">修改節氣頭貼</div>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/edit?page=4">
                             <div className="yu-menu-links">刪除帳號</div>
                           </Link>
                         </li>

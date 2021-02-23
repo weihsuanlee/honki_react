@@ -13,7 +13,9 @@ import EditTab3 from '../components/EditTab3'
 import EditTab4 from '../components/EditTab4'
 import { withRouter } from 'react-router-dom'
 
-function Edit() {
+function Edit(props) {
+  let searchParams = new URLSearchParams(props.location.search)
+
   const [curFace, setCurFace] = useState(localStorage.getItem('curFace') || 0)
   const [curHair, setCurHair] = useState(localStorage.getItem('curHair') || 0)
   const [curCloth, setCurCloth] = useState(

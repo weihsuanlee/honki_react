@@ -25,7 +25,7 @@ function FavoriteList(props) {
     const data = await response.json()
     if (data.success) {
       setFavorites(data.rows)
-      console.log(data, 'get favorite list')
+      // console.log(data, 'get favorite list')
     } else {
       alert('Failed to get favorite list')
     }
