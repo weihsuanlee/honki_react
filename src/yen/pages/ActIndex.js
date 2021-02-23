@@ -23,6 +23,32 @@ function ActIndex(props) {
   const [queryPage, setQueryPage] = useState('')
   // query string select
   const [querySelect, setQuerySelect] = useState('')
+  // query string class
+  const [queryClass, setQueryClass] = useState('')
+
+  // 活動篩選
+  useEffect(() => {
+    let pathName = props.location.pathname
+    // console.log('props', props)
+    // console.log('queryClass', queryClass)
+
+    async function newClassPages() {
+      const url = pathName + queryClass
+
+      // 和伺服器要資料
+      const response = await fetch('http://localhost:3333' + url, {
+        method: 'GET',
+        header: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
+      const data = await response.json()
+      // console.log('new data page', response, data)
+      setEventLists(data)
+    }
+    newClassPages()
+  }, [queryClass])
 
   // 換頁
   useEffect(() => {
@@ -119,7 +145,7 @@ function ActIndex(props) {
         }),
       })
       const data = await response.json()
-      console.log('new data page', response, data)
+      // console.log('new data page', response, data)
       setNewLists(data)
     }
     newSelectPages()
@@ -171,6 +197,8 @@ function ActIndex(props) {
         queryPage={queryPage}
         setQueryPage={setQueryPage}
         setEventLists={setEventLists}
+        setQueryClass={setQueryClass}
+        queryClass={queryClass}
       />
     </>
   )

@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
 function Register(props) {
-  
   const [name, setName] = useState('')
   const [nickname, setNickname] = useState('')
   const [email, setEmail] = useState('')
@@ -41,16 +40,18 @@ function Register(props) {
 
     if (data.success) {
       localStorage.setItem('userLogin', JSON.stringify(data))
+      localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
       setShow(true)
       toMenu()
     } else {
       localStorage.removeItem('userLogin')
+      localStorage.removeItem('userId')
     }
   }
 
   function toMenu() {
-    window.location.href = '/menu'
+    window.setTimeout(() => (window.location.href = '/menu'), 2000)
   }
 
   return (

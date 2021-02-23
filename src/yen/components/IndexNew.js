@@ -15,9 +15,22 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
-  const { querySelect, setQuerySelect } = props
-  // let urlSelect = querySelect
-  console.log('querySelect', querySelect)
+  // 如果切換分頁就隱藏這個區塊
+  if (props.location.search !== '') {
+    // console.log('clear', props)
+    return <></>
+  }
+
+  // 取得篩選state
+  const { setQuerySelect } = props
+
+  // 點擊後設定選擇地區
+  function areaButtonClick(area) {
+    console.log('area', area)
+    setQuerySelect(area)
+  }
+
+  // 將資料庫的活動分類數字轉字串
   const classNumList = [
     '講座',
     '讀書會',
@@ -27,15 +40,10 @@ function IndexNew(props) {
     '節氣推薦',
   ]
 
-  function areaButtonClick(area) {
-    console.log('area', area)
-    setQuerySelect(area)
-    // console.log('urlSelect', querySelect)
-  }
-
+  // 從資料庫取得資料後顯示的卡片
   const cityCard = (
     <>
-      {props.newLists.length !== 0 &&
+      {props.newLists.rows &&
         props.newLists.rows.map((value, index) => {
           const pic =
             'http://localhost:3000/images/yen/event/' +

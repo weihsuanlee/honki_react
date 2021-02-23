@@ -40,10 +40,12 @@ function Login() {
     // let userLogin = 'userLogin'
     if (data.success) {
       localStorage.setItem('userLogin', JSON.stringify(data))
+      localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
       toMenu()
     } else {
       localStorage.removeItem('userLogin')
+      localStorage.removeItem('userId')
       setShow(true)
     }
   }
