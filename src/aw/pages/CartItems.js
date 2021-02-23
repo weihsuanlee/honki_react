@@ -111,7 +111,7 @@ function CartItems(props) {
     </>
   )
 
-  return (
+  const display = (
     <>
       <div class="container-fluid">
         <div class="aw-progress-bar">
@@ -318,6 +318,7 @@ function CartItems(props) {
       </div>
     </>
   )
+  return dataLoading ? loading : display
 }
 
 export default withRouter(CartItems)
