@@ -6,14 +6,19 @@ import NormalBee from './../components/NormalBee'
 class MyChangeBooks extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { value: '預設資料', ISBN: 'ISBN預設值' }
+    this.state = {
+      book_name: '預設資料',
+      ISBN: 'ISBN預設值',
+      book_condition: '全新',
+      written_or_not: '有無塗改',
+    }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   // 這塊會執行componentDidUpdate的作用(因為setState)
   handleChange(event) {
     const { myrows } = this.props
-    this.setState({ value: event.target.value })
+    // this.setState({ value: event.target.value })
     // 下面的5要怎麼抓到變數
     // this.setState({ ISBN: myrows[5].ISBN })
 
@@ -21,10 +26,32 @@ class MyChangeBooks extends React.Component {
     const newMyrows = [...myrows]
 
     // 不行，ISBN變成Undefined
-    // const index = newMyrows.findIndex((item) => item.ISBN === ISBN)
+    const index = newMyrows.findIndex(
+      (item) => item.ISBN === event.target.value
+    )
 
+    this.setState(myrows[index])
+
+    console.log(myrows)
     // 還要研究!!只能變一次值的寫法，而且只抓到第一筆的資料(編號15會員第一筆)
-    myrows.map((m, i) => this.setState({ ISBN: myrows[i].ISBN }))
+    // for (let i = 0; i < myrows.length; i++) {
+    //   myrows.map((m, i) =>
+    //     this.setState({
+    //       ISBN: myrows[i].ISBN,
+    //       book_condition: myrows[i].book_condition,
+    //       written_or_not: myrows[i].written_or_not,
+    //       nickname: myrows[i].nickname,
+    //     })
+    //   )
+    // }
+    // myrows.map((m, i) => this.setState({ ISBN: myrows[i].ISBN }))
+    // myrows.map((m, i) =>
+    //   this.setState({ book_condition: myrows[i].book_condition })
+    // )
+    // myrows.map((m, i) =>
+    //   this.setState({ written_or_not: myrows[i].written_or_not })
+    // )
+    // myrows.map((m, i) => this.setState({ nickname: myrows[i].nickname }))
 
     console.log(newMyrows)
   }
@@ -90,7 +117,9 @@ class MyChangeBooks extends React.Component {
               >
                 {/* 成功的寫法在NormalIndex只能撈一筆的時候的寫法，myrows={mybook_rows} */}
                 {myrows.map((m, i) => (
-                  <option key={i}>{m.book_name}</option>
+                  <option key={i} value={m.ISBN}>
+                    {m.book_name}
+                  </option>
                 ))}
               </select>
               <Link to="./NormalInsert">
@@ -113,13 +142,13 @@ class MyChangeBooks extends React.Component {
               <div className="jill-underline"></div>
               <li>{this.state.ISBN}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.value}</li>
+              <li>{this.state.book_name}</li>
               <div className="jill-underline"></div>
-              <li>5成新</li>
+              <li>{this.state.book_condition}</li>
               <div className="jill-underline"></div>
-              <li>無塗改</li>
-              <div className="jill-underline"></div>
-              <li>鄭瑪莉</li>
+              <li>{this.state.written_or_not}</li>
+              {/* <div className="jill-underline"></div>
+              <li>{this.state.nickname}</li> */}
             </ul>
           </div>
           <Link to="./NormalEdit">

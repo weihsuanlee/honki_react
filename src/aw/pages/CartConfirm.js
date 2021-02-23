@@ -8,6 +8,7 @@ import { withRouter, NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartConfirm(props) {
+  const [dataLoading, setDataLoading] = useState(false)
   // 書籍商品狀態
   const [books, setBooks] = useState([])
   // 分類選單 Display
@@ -37,6 +38,15 @@ function CartConfirm(props) {
     //   setIsLoading(false)
     // }, 2000)
   }
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
   const categoriesDisplay = (
     <div className="wei-categories">
       <h6 className="wei-categories-title">書籍分類</h6>
@@ -118,7 +128,7 @@ function CartConfirm(props) {
 
   // console.log(props)
 
-  return (
+  const display = (
     <>
       <div class="container-fluid">
         <div class="aw-progress-bar">
@@ -581,6 +591,7 @@ function CartConfirm(props) {
       </div>
     </>
   )
+  return dataLoading ? loading : display
 }
 
 export default withRouter(CartConfirm)
