@@ -2,14 +2,13 @@
 
 // import style
 import '../styles/solar-term-plate.scss'
-import '../styles/old-seasons.scss'
 
 function SolarTermPlate(props) {
   const {
     solarTermToShow,
     solarPlateSize,
     redCenterSize,
-    redCenterBgImg,
+    redCenterText,
   } = props
 
   // 取得目前的旋轉角度
@@ -56,43 +55,99 @@ function SolarTermPlate(props) {
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
           <li className="slice">
             <div className="slice-contents"></div>
           </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
+          <li className="slice">
+            <div className="slice-contents"></div>
+          </li>
+
           <li>
             <div
               className={redCenterSize}
-              // style={{
-              //   backgroundPosition: 'center',
-              //   backgroundSize: 'cover',
-              //   backgroundRepeat: 'no-repeat',
-              // }}
+              // onClick={}
             >
-              <img src={redCenterBgImg} alt="" className="img-full fadeIn" />
+              <div className={'red-center-text ' + redCenterText}>
+                {solarTermToShow}
+              </div>
             </div>
           </li>
         </ul>

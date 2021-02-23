@@ -1,9 +1,19 @@
 .hans-st-info {
   width: 412px;
   height: 241px;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 
   border-radius: 10px;
   background-color: var(--honki-white);
 
-  transform: translate(0, 0);
+  transform: translate(0, -25vh);
+}
+
+.red-center-text {
+  text-align: center;
+  font-size: 83px;
+  font-weight: 500;
+  color: var(--honki-white);
 }

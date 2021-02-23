@@ -15,9 +15,14 @@ function OldSeasons(props) {
   // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
+  const [solarTermImgs, setSolarTermImgs] = useState([])
+  const [solarTermImgToShow, setSolarTermImgToShow] = useState('')
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
-  const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState('displayOff')
+
   const [displayTitle, setDisplayTitle] = useState('displayOn')
+  const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState(
+    'd-flex justify-content-center  fadeOut'
+  )
 
   // 處理轉盤大小
   const [solarPlateSize, setSolarPlateSize] = useState(
@@ -25,11 +30,11 @@ function OldSeasons(props) {
   )
   const [redCenterSize, setRedCenterSize] = useState('red-center')
   const [redCenterText, setRedCenterText] = useState('fadeOut')
+  const [redCenterBgImg, setRedCenterBgImg] = useState('')
 
   const [solarTermClicked, setSolarTermClicked] = useState(true)
 
-  // let solarTermList = []
-  let currentSolarTerm = 3
+  let currentSolarTerm = 3 - 1
 
   // 模擬componentDidMount
   useEffect(() => {
@@ -37,6 +42,9 @@ function OldSeasons(props) {
   }, [])
 
   // 和伺服器要資料
+
+  const solarTermId = Array.from(Array(24).keys())
+
   const getDataFromServer = async (e) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
@@ -46,23 +54,40 @@ function OldSeasons(props) {
     console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
+    setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
+
+    console.log(solarTermId)
+    setSolarTermImgs(
+      solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
+    )
+    console.log(solarTermImgs)
 
     return data
   }
 
   function handlePlateToggle() {
     // 設定圓盤狀態
+
+    setRedCenterBgImg(
+      'http://localhost:3000/images/hans/solar-terms-circle/' +
+        solarTermImgToShow
+    )
+
     setSolarPlateSize(
       solarTermClicked
-        ? 'solar-term-plate-v2-small'
+        ? 'solar-term-plate-v2-small rotate'
         : 'solar-term-plate-v2 rotate'
     )
     setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
     setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
 
     // 設定節氣說明狀態與頁面標題
-    setDisplaySolarTermInfo(solarTermClicked ? 'displayOn' : 'displayOff')
-    setDisplayTitle(solarTermClicked ? 'displayOff' : 'displayOn')
+    setDisplayTitle(solarTermClicked ? 'fadeOut' : 'fadeIn')
+    setDisplaySolarTermInfo(
+      solarTermClicked
+        ? 'd-flex justify-content-center fadeIn'
+        : 'd-flex justify-content-center  fadeOut'
+    )
 
     setSolarTermClicked(!solarTermClicked)
 
@@ -78,10 +103,9 @@ function OldSeasons(props) {
         <div className="row justify-content-center">
           <div className="col">
             <SolarTermPlate
-              solarTermToShow={solarTermToShow}
               solarPlateSize={solarPlateSize}
               redCenterSize={redCenterSize}
-              redCenterText={redCenterText}
+              redCenterBgImg={redCenterBgImg}
             />
             <div className={'hans-bread-crumb ' + checkBreadCrumShow}>
               <MultiLevelBreadCrumb />
@@ -92,7 +116,11 @@ function OldSeasons(props) {
               <OldSeasonPageTitle />
             </div>
             <div className={displaySolarTermInfo}>
-              <SelectedSolarTermInfo />
+              <SelectedSolarTermInfo
+                solarTermToShow={solarTermToShow}
+                redCenterText={redCenterText}
+                solarTermDesc={solarTermDesc}
+              />
             </div>
             目前的節氣：{currentSolarTerm}
             <br />
@@ -100,7 +128,6 @@ function OldSeasons(props) {
             <br />
             節氣：{solarTermToShow}
             <br />
-            描述：{solarTermDesc}
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">

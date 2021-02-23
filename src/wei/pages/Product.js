@@ -155,7 +155,7 @@ function Product(props) {
         <div className="mx-auto" style={{ width: '30%' }}>
           <img
             src="http://localhost:3000/images/wei/clumsy.svg"
-            className="w-100"
+            className="w-100 img-full"
             alt=""
           />
         </div>
