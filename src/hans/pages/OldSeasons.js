@@ -48,8 +48,10 @@ function OldSeasons() {
       <div className="container-fluid w-100 old-season-container">
         <div className="row justify-content-center">
           <div className="col">
-            <MultiLevelBreadCrumb />
             <SolarTermPlate solarTermToShow={solarTermToShow} />
+            <div className="hans-bread-crumb">
+              <MultiLevelBreadCrumb />
+            </div>
             <OldSeasonPageTitle />
             目前的節氣：{currentSolarTerm}
             <br />
