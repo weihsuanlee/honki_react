@@ -1,7 +1,30 @@
 import { useRef } from 'react'
+import { useState } from 'react'
+import { Button } from 'react-bootstrap'
 
 function EditTab2() {
   const divRef = useRef()
+  const [newPassword, setNewpassword] = useState('')
+  const [newPassword2, setNewpassword2] = useState('')
+  const sid = localStorage.getItem('userId')
+
+  const editPassword = async function (newPassword, sid) {
+    const url = 'http://localhost:3333/member/editlist'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        password: newPassword,
+        sid: sid,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+  }
   return (
     <>
       <div ref={divRef} className="panel-title">
@@ -41,8 +64,12 @@ function EditTab2() {
               type="password"
               required
               className="form-control formInput col-6"
-              id="password"
-              name="password"
+              id="newPassword"
+              name="newPassword"
+              value={newPassword}
+              onChange={(e) => {
+                setNewpassword(e.target.value)
+              }}
             />
           </div>
         </div>
@@ -59,8 +86,12 @@ function EditTab2() {
               type="password"
               required
               className="form-control formInput col-6"
-              id="password"
-              name="password"
+              id="newPassword2"
+              name="newPassword2"
+              value={newPassword2}
+              onChange={(e) => {
+                setNewpassword2(e.target.value)
+              }}
             />
           </div>
         </div>
@@ -68,12 +99,14 @@ function EditTab2() {
         {/* <!-- 按鈕 --> */}
         <div className="form-group button-group">
           <div className="formItems row d-flex justify-content-center">
-            <button
-              type="button"
+            <Button
               className="btn-md-dark form-button form-control col-3"
+              onClick={() => {
+                editPassword(newPassword, sid)
+              }}
             >
               確認修改
-            </button>
+            </Button>
           </div>
         </div>
       </div>

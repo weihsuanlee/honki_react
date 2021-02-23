@@ -13,11 +13,15 @@ import EditTab3 from '../components/EditTab3'
 import EditTab4 from '../components/EditTab4'
 
 function Edit() {
-  const [curFace, setCurFace] = useState(localStorage.getItem('curFace', 0))
-  const [curHair, setCurHair] = useState(localStorage.getItem('curHair', 0))
-  const [curCloth, setCurCloth] = useState(localStorage.getItem('curCloth', 0))
-  const [curAcc, setCurAcc] = useState(localStorage.getItem('curAcc', 0))
-  const [curTerms, setCurTerms] = useState(localStorage.getItem('curTerms', 0))
+  const [curFace, setCurFace] = useState(localStorage.getItem('curFace') || 0)
+  const [curHair, setCurHair] = useState(localStorage.getItem('curHair') || 0)
+  const [curCloth, setCurCloth] = useState(
+    localStorage.getItem('curCloth') || 0
+  )
+  const [curAcc, setCurAcc] = useState(localStorage.getItem('curAcc') || 0)
+  const [curTerms, setCurTerms] = useState(
+    localStorage.getItem('curTerms') || 0
+  )
 
   useEffect(() => {
     localStorage.setItem('curFace', JSON.parse(curFace))

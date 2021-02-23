@@ -15,6 +15,7 @@ import { SVG_HAIR } from '../constants'
 import { SVG_CLOTH } from '../constants'
 import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
+
 import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
 import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
 
@@ -26,11 +27,11 @@ function Menu() {
   const [curTerms, setCurTerms] = useState(0)
 
   useEffect(() => {
-    setCurFace(localStorage.getItem('curFace', JSON.parse(curFace)))
-    setCurHair(localStorage.getItem('curHair', JSON.parse(curHair)))
-    setCurCloth(localStorage.getItem('curCloth', JSON.parse(curCloth)))
-    setCurAcc(localStorage.getItem('curAcc', JSON.parse(curAcc)))
-    setCurTerms(localStorage.getItem('curTerms', JSON.parse(curTerms)))
+    setCurFace(localStorage.getItem('curFace') || 0)
+    setCurHair(localStorage.getItem('curHair') || 0)
+    setCurCloth(localStorage.getItem('curCloth') || 0)
+    setCurAcc(localStorage.getItem('curAcc') || 0)
+    setCurTerms(localStorage.getItem('curTerms') || 0)
   }, [])
 
   return (
