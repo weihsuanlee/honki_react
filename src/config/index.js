@@ -20,6 +20,7 @@ export const pathnameList = [
   '/product/travel',
   '/product/foreign',
   '/products/:sid?',
+  '/old-seasons',
 ]
 
 export const pathnameTextList = [
@@ -39,4 +40,5 @@ export const pathnameTextList = [
   '/所有商品/旅遊',
   '/所有商品/外文書',
   '/商品資訊',
+  '/過往節氣',
 ]
