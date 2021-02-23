@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ReactDOM from 'react-dom'
 
 // import style
 import '../styles/solar-term-plate.scss'
@@ -62,10 +63,11 @@ function SolarTermPlate(props) {
               className={redCenterSize}
               onClick={() => {
                 solarTermClicked = !solarTermClicked
+
                 setSolarPlateSize(
                   solarTermClicked
                     ? 'solar-term-plate-v2-small'
-                    : 'solar-term-plate-v2 rotate'
+                    : 'solar-term-plate-v2'
                 )
                 setRedCenterSize(
                   solarTermClicked ? 'red-center-small' : 'red-center'
