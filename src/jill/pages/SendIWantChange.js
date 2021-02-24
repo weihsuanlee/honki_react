@@ -46,10 +46,30 @@ function SendIWantChange(props) {
     setWritten_or_not(data.written_or_not)
   }
 
-  // 一開始就會開始載入資料
-  useEffect(() => {
-    getProductDetail()
-  }, [])
+  // 寫入iwant表單
+  // const sendiwant = async () => {
+  //   const response = await fetch(
+  //     'http://localhost:3333/normal-index/used-book-detail/' + c_sid,
+  //     {
+  //       method: 'get',
+  //       headers: new Headers({
+  //         Accept: 'application/json',
+  //         'Content-Type': 'appliaction/json',
+  //       }),
+  //     }
+  //   )
+  //   const data = await response.json()
+  //   console.log(data)
+  //   setBook_name(data.book_name)
+  //   setISBN(data.ISBN)
+  //   setBook_condition(data.book_condition)
+  //   setWritten_or_not(data.written_or_not)
+  // }
+
+  // // 一開始就會開始載入資料
+  // useEffect(() => {
+  //   getProductDetail()
+  // }, [])
 
   return (
     <>
