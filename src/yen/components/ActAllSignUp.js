@@ -12,6 +12,27 @@ import ActCalendar from './ActCalendar'
 function ActEvent(props) {
   const [orderLists, setOrderLists] = useState([])
 
+  async function getOrderDetailFromServer() {
+    const url = 'http://localhost:3333/member/actorder'
+
+    // header的資料格式
+    const request = new Request(url, {
+      method: 'GET',
+      header: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log('order data', data)
+  }
+
+  useEffect(() => {
+    getOrderDetailFromServer()
+  }, [])
+
   return (
     <>
       <div className="yen-signup-showbox">
@@ -45,28 +66,6 @@ function ActEvent(props) {
                     <i className="fas fa-heart-broken"></i>
                     取消報名
                   </button>
-                </div>
-              </div>
-            </div>
-            <div className="yen-signup-select-li">
-              <div className="yen-signup-select-li-box">
-                <div className="yen-signup-num">報名單號：202101010012345</div>
-                <div className="yen-signup-sub">
-                  天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                </div>
-                <div className="yen-signup-time yen-signup-time-pt">
-                  活動時間：2021年01月24日 14:00 ~ 15:30
-                </div>
-              </div>
-            </div>
-            <div className="yen-signup-select-li">
-              <div className="yen-signup-select-li-box">
-                <div className="yen-signup-num">報名單號：202101010012345</div>
-                <div className="yen-signup-sub">
-                  天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                </div>
-                <div className="yen-signup-time yen-signup-time-pt">
-                  活動時間：2021年01月24日 14:00 ~ 15:30
                 </div>
               </div>
             </div>
