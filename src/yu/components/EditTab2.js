@@ -9,7 +9,7 @@ function EditTab2() {
   const sid = localStorage.getItem('userId')
 
   const editPassword = async function (newPassword, sid) {
-    const url = 'http://localhost:3333/member/editlist'
+    const url = 'http://localhost:3333/member/editnewpassword'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -44,10 +44,10 @@ function EditTab2() {
             </label>
             <input
               type="password"
-              required
               className="form-control formInput col-6"
               id="password"
               name="password"
+              required
             />
           </div>
         </div>

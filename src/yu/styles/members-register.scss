@@ -38,3 +38,32 @@
 .yu-login-send {
   color: var(--honki-white);
 }
+
+.yu-login-invalid-feedback-name {
+  position: absolute;
+  left: 63%;
+  top: 21.5%;
+  width: 10%;
+}
+
+.yu-login-invalid-feedback-email {
+  position: absolute;
+  left: 63%;
+  top: 34.3%;
+  width: 10%;
+}
+
+.yu-login-invalid-feedback-mobile {
+  position: absolute;
+  left: 63%;
+  bottom: 56.7%;
+  width: 10%;
+}
+
+.yu-login-invalid-feedback-password {
+  position: absolute;
+  left: 63%;
+  bottom: 37.5%;
+  width: 10%;
+  padding-left: -15px;
+}

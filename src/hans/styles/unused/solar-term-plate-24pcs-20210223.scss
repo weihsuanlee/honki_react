@@ -1,0 +1,316 @@
+/* 
+12 等份圓盤
+
+參考資料：
+https://stackoverflow.com/questions/14184494/segments-in-a-circle-using-css3/14185845 
+https://codepen.io/ant1mas/pen/MeJjaK
+*/
+
+/* solar-term-plate 瀏覽狀態（較大） 的各種設定 start */
+.solar-term-plate-v2 {
+  overflow: hidden;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 715px;
+  height: 715px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  list-style: none;
+
+  // background: var(--honki-black);
+  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-size: 100% 100%;
+
+  /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
+
+  // 圓盤位置
+  // transform: translate(0px, 0px);
+  // transform: translate(-81px, -265px);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(0, -173px) rotate(15deg);
+  transform: translate(0, -173px);
+  // transform: translate(0, 152px);
+
+  transition: 2s ease;
+}
+
+/* .solar-term-plate-v2:hover {
+  transform: translate(-500px, -300px) rotate(30deg) skewY(0deg);
+  transition: 0.5s;
+} */
+
+/* 中心紅圓塊 start */
+
+.red-center {
+  width: 395px;
+  height: 395px;
+  border-radius: 50%;
+  border: 23px solid var(--honki-paper);
+
+  background-color: var(--honki-red);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* background-image: url(images/earth-2336011_640_468x468.jpg);
+  background-size: 100% 100%; */
+
+  overflow: hidden;
+
+  transform: translate(40%, 40%);
+  transition: 2s ease;
+}
+
+.red-center-text {
+  text-align: center;
+  font-size: 83px;
+  font-weight: 500;
+  color: var(--honki-white);
+}
+
+/* 中心紅圓塊 end */
+/* solar-term-plate 瀏覽狀態（較大） 的各種設定 start */
+
+/* solar-term-plate 特定節氣瀏覽狀態（較小） 的各種設定 start */
+
+.solar-term-plate-v2-small-trans {
+  overflow: hidden;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 425px;
+  height: 425px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  list-style: none;
+
+  // background: var(--honki-black);
+  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-size: 100% 100%;
+
+  /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
+
+  // 圓盤位置
+  // transform: translate(0px, 0px);
+  // transform: translate(-81px, -265px);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(0, 192px) rotate(15deg);
+  transform: translate(0, -173px);
+
+  transition: 2s ease;
+}
+
+.solar-term-plate-v2-small {
+  overflow: hidden;
+  position: absolute;
+  margin: 1em auto;
+  padding: 0;
+  width: 425px;
+  height: 425px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  list-style: none;
+
+  // background: var(--honki-black);
+  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-size: 100% 100%;
+
+  /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
+
+  // 圓盤位置
+  // transform: translate(0px, 0px);
+  // transform: translate(-81px, -265px);
+  // transform: translate(-70px, -173px) rotate(15deg);
+  // transform: translate(0, 192px) rotate(15deg);
+  transform: translate(0, 152px);
+
+  transition: 2s ease;
+}
+
+/* .solar-term-plate-v2:hover {
+  transform: translate(-500px, -300px) rotate(30deg) skewY(0deg);
+  transition: 0.5s;
+} */
+
+/* 中心紅圓塊 start */
+
+.red-center-small {
+  width: 357px;
+  height: 357px;
+  border-radius: 50%;
+  border: 20px solid var(--honki-paper);
+
+  background-color: var(--honki-red);
+
+  /* background-image: url(images/earth-2336011_640_468x468.jpg);
+  background-size: 100% 100%; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  transform: translate(34px, 34px);
+
+  transition: 2s ease;
+}
+
+/* 中心紅圓塊 end */
+/* solar-term-plate 特定節氣瀏覽狀態（較小） 的各種設定 end */
+
+.slice {
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border: 5px solid var(--honki-paper);
+
+  margin-top: -5000px;
+  margin-left: -5000px;
+
+  width: 5000px;
+  height: 5000px;
+  transform-origin: 100% 100%;
+}
+
+.slice:nth-child(1) {
+  opacity: 0;
+  display: block;
+  transform: rotate(0deg) skewY(75deg);
+}
+.slice:nth-child(2) {
+  transform: rotate(15deg) skewY(75deg);
+}
+.slice:nth-child(3) {
+  transform: rotate(30deg) skewY(75deg);
+}
+.slice:nth-child(4) {
+  transform: rotate(45deg) skewY(75deg);
+}
+.slice:nth-child(5) {
+  transform: rotate(60deg) skewY(75deg);
+}
+.slice:nth-child(6) {
+  transform: rotate(75deg) skewY(75deg);
+}
+.slice:nth-child(7) {
+  transform: rotate(90deg) skewY(75deg);
+}
+.slice:nth-child(8) {
+  transform: rotate(105deg) skewY(75deg);
+}
+.slice:nth-child(9) {
+  transform: rotate(120deg) skewY(75deg);
+}
+.slice:nth-child(10) {
+  transform: rotate(135deg) skewY(75deg);
+}
+.slice:nth-child(11) {
+  transform: rotate(150deg) skewY(75deg);
+}
+.slice:nth-child(12) {
+  transform: rotate(165deg) skewY(75deg);
+}
+.slice:nth-child(13) {
+  transform: rotate(180deg) skewY(75deg);
+}
+.slice:nth-child(14) {
+  transform: rotate(195deg) skewY(75deg);
+}
+.slice:nth-child(15) {
+  transform: rotate(210deg) skewY(75deg);
+}
+.slice:nth-child(16) {
+  transform: rotate(225deg) skewY(75deg);
+}
+.slice:nth-child(17) {
+  transform: rotate(240deg) skewY(75deg);
+}
+.slice:nth-child(18) {
+  transform: rotate(255deg) skewY(75deg);
+}
+.slice:nth-child(19) {
+  transform: rotate(270deg) skewY(75deg);
+}
+.slice:nth-child(20) {
+  transform: rotate(285deg) skewY(75deg);
+}
+.slice:nth-child(21) {
+  transform: rotate(300deg) skewY(75deg);
+}
+.slice:nth-child(22) {
+  transform: rotate(315deg) skewY(75deg);
+}
+.slice:nth-child(23) {
+  transform: rotate(330deg) skewY(75deg);
+}
+.slice:nth-child(24) {
+  transform: rotate(345deg) skewY(75deg);
+}
+.slice:nth-child(25) {
+  transform: rotate(360deg) skewY(75deg);
+}
+
+.slice-contents {
+  position: absolute;
+  // left: -100%;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: var(--honki-black);
+  opacity: 85%;
+}
+
+// .slice:hover .slice-contents {
+//   background-color: transparent;
+//   transition: 1s;
+// }
+
+/* .red-center-bg-color:hover {
+  background-color: transparent;
+  transition: 1s;
+} */
+
+/* media 變化 start */
+
+@media only screen and (max-width: 1440px) {
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// 旋轉，圓盤位置
+
+@keyframes rotation {
+  from {
+    // transform: translate(0px, 0px) rotate(0deg);
+    // transform: translate(-81px, -265px) rotate(0deg);
+    // transform: translate(-70px, -173px) rotate(15deg);
+    // transform: translate(0, -173px) rotate(15deg);
+    transform: translate(0, -173px) rotate(0deg);
+    // transform: translate(0, 152px) rotate(0deg);
+  }
+  to {
+    // transform: translate(0px, 0px) rotate(359deg);
+    // transform: translate(-81px, -265px) rotate(359deg);
+    // transform: translate(-70px, -173px) rotate(374deg);
+    // transform: translate(0, -173px) rotate(374deg);
+    transform: translate(0, -173px) rotate(359deg);
+    // transform: translate(0, 152px) rotate(359deg);
+  }
+}
+
+.rotate {
+  animation: rotation 120s infinite linear;
+  animation-delay: 2s;
+}

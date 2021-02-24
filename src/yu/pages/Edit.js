@@ -26,6 +26,8 @@ function Edit(props) {
     localStorage.getItem('curTerms') || 0
   )
 
+  const [name, setName] = useState('')
+
   useEffect(() => {
     localStorage.setItem('curFace', JSON.parse(curFace))
   }, [curFace])
@@ -45,6 +47,17 @@ function Edit(props) {
   useEffect(() => {
     localStorage.setItem('curTerms', JSON.parse(curTerms))
   }, [curTerms])
+
+  useEffect(() => {
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+    }
+  }, [])
 
   return (
     <>
@@ -99,7 +112,11 @@ function Edit(props) {
               {/* <!-- 會員等級 --> */}
               <div className="yu-edit-general-member">一般會員</div>
               {/* <!-- 歡迎詞 --> */}
-              <div className="yu-edit-greeting">哈囉，歡迎回來</div>
+              <div className="yu-edit-greeting">
+                <span>哈囉 </span>
+                <span className="yu-edit-member-name">{name}</span>
+                <span>，歡迎回來</span>
+              </div>
             </div>
 
             {/* <!-- 右欄 --> */}

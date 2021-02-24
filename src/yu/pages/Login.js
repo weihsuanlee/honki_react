@@ -92,8 +92,8 @@ function Login() {
                 {/* <!-- 信箱input --> */}
                 <div className="form-group">
                   <div className="formItems row d-flex justify-content-center">
-                    <label className="inputText col-3 mt-5">
-                      <h6>帳號(電子信箱)</h6>
+                    <label className="inputText col-2 mt-5">
+                      <h6>帳號</h6>
                     </label>
                     <input
                       type="email"
@@ -111,7 +111,7 @@ function Login() {
                 <div className="form-group">
                   <div className="formItems row d-flex justify-content-center">
                     <label
-                      className="inputText col-3"
+                      className="inputText col-2"
                       for="exampleFormControlTextarea1"
                     >
                       <h6>密碼</h6>

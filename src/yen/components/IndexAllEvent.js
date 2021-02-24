@@ -2,12 +2,10 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import moment from 'moment'
 
-// 引用css與svg
+// components
 import '../styles/yen-index.scss'
 import SvgLadybug from './svg/SvgLadybug'
 import SvgSlide from './svg/SvgSlide'
-
-// 分頁
 import ActPagination from './ActPagination'
 
 function IndexAllEvent(props) {

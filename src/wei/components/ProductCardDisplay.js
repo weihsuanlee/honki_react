@@ -1,18 +1,73 @@
 import { FaHeart, FaStar } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
+import { useState } from 'react'
 
 function ProductCardDisplay(props) {
   const { books } = props
+  const [Favorited, setFavorited] = useState(false)
+  const userId = localStorage.getItem('userId')
+
+  const onClickFavorite = (bookId) => {
+    // if (user.userData && !user.userData.isAuth) {
+    //   return alert('Please Log in first')
+    // }
+
+    if (Favorited) {
+      // 已經是愛心
+      const removeFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/removeFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          setFavorited(!Favorited)
+          console.log(data, 'remove from Favorite')
+        } else {
+          alert('Failed to remove from Favorite')
+        }
+      }
+      removeFavorite()
+    } else {
+      // 如果不是愛心
+      const addFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/addFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          setFavorited(!Favorited)
+          console.log(data, 'Add to Favorite')
+        } else {
+          alert('Failed to add to Favorite')
+        }
+      }
+      addFavorite()
+    }
+  }
   return (
     <>
       {books.map((v, i) => (
-        <div
-          onClick={() => {
-            props.history.push('/products/' + v.sid)
-          }}
-          className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
-          key={i}
-        >
+        <div className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card" key={i}>
           <div
             className={
               `wei-card-icon ` +
@@ -23,7 +78,12 @@ function ProductCardDisplay(props) {
             {v.tag}
           </div>
           <div className="wei-card-pic position-relative">
-            <div className="wei-book-pic">
+            <div
+              className="wei-book-pic"
+              onClick={() => {
+                props.history.push('/products/' + v.sid)
+              }}
+            >
               <img
                 className="w-100"
                 src={`http://localhost:3000/images/books/` + v.book_pics}
@@ -31,7 +91,12 @@ function ProductCardDisplay(props) {
               />
             </div>
             <div className="wei-heart-bg">
-              <FaHeart className="wei-heart" />
+              <FaHeart
+                className={`wei-heart ` + (Favorited ? 'wei-coral' : '')}
+                onClick={() => {
+                  onClickFavorite(v.sid)
+                }}
+              />
             </div>
           </div>
           <div className="wei-book-text">

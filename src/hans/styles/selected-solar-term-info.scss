@@ -1,9 +1,32 @@
 .hans-st-info {
   width: 412px;
   height: 241px;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 
   border-radius: 10px;
   background-color: var(--honki-white);
 
-  transform: translate(0, 0);
+  transform: translate(0, -120px);
+}
+
+/* media 變化 start */
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 992px) {
+  .hans-st-info {
+    width: unset;
+    height: unset;
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
 }

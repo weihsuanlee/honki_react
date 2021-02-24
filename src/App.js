@@ -12,8 +12,8 @@ import Edit from './yu/pages/Edit'
 import Bookshelf from './yu/pages/Bookshelf'
 import ActIndex from './yen/pages/ActIndex'
 import ActEvent from './yen/pages/ActEvent'
-import ActAllSignUp from './yen/pages/ActAllSignUp'
-import ActCheckSignUp from './yen/pages/ActCheckSignUp'
+// import ActAllSignUp from './yen/pages/ActAllSignUp'
+// import ActCheckSignUp from './yen/pages/ActCheckSignUp'
 import OldSeasons from './hans/pages/OldSeasons'
 import UsedBooksIndex from './jill/pages/UsedBooksIndex'
 import NormalIndex from './jill/pages/NormalIndex'
@@ -95,12 +95,12 @@ function App() {
                 <Route path="/activity">
                   <ActIndex />
                 </Route>
-                <Route path="/allsignup">
+                {/* <Route path="/allsignup">
                   <ActAllSignUp />
                 </Route>
                 <Route path="/checksignup">
                   <ActCheckSignUp />
-                </Route>
+                </Route> */}
                 <Route path="/old-seasons">
                   <OldSeasons />
                 </Route>

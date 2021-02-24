@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-// 各區
+// components
 import IndexAllEvent from '../components/IndexAllEvent'
 import IndexHeader from '../components/IndexHeader'
 import IndexHot from '../components/IndexHot'
@@ -26,8 +26,9 @@ function ActIndex(props) {
   // query string class
   const [queryClass, setQueryClass] = useState('')
 
+  // 換頁會恢復到第一頁的修正
   useEffect(() => {
-    //http://localhost:3000/activity?page=2
+    // http://localhost:3000/activity?page=2
     if (!props.location.search) return
 
     let urlPage = new URLSearchParams(props.location.search)

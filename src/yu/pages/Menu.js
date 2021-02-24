@@ -16,9 +16,10 @@ import { SVG_CLOTH } from '../constants'
 import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
 
-import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
-import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
+// import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
+// import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
 import FavoriteList from '../../wei/components/FavoriteList'
+import ActAllSignUp from '../../yen/components/ActAllSignUp'
 
 function Menu() {
   const [curFace, setCurFace] = useState(0)
@@ -27,12 +28,25 @@ function Menu() {
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
 
+  const [name, setName] = useState('')
+
   useEffect(() => {
     setCurFace(localStorage.getItem('curFace') || 0)
     setCurHair(localStorage.getItem('curHair') || 0)
     setCurCloth(localStorage.getItem('curCloth') || 0)
     setCurAcc(localStorage.getItem('curAcc') || 0)
     setCurTerms(localStorage.getItem('curTerms') || 0)
+  }, [])
+
+  useEffect(() => {
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+    }
   }, [])
 
   return (
@@ -83,7 +97,14 @@ function Menu() {
             {/* <!-- 會員等級 --> */}
             <div className="yu-menu-general-member">一般會員</div>
             {/* <!-- 歡迎詞 --> */}
-            <div className="yu-menu-greeting">哈囉，歡迎回來</div>
+            <div className="yu-menu-greeting">
+              <span>哈囉，</span>
+              <span className="yu-menu-member-name">{name}</span>
+              <br />
+              <div className="yu-menu-member-welcome">
+                <span>歡迎回來</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -332,7 +353,7 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-2" title="購物紀錄">
                 <div className="panel-title">購物紀錄</div>
-                <p>購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄</p>
+                <p>購物紀錄</p>
               </Tab>
               <Tab eventKey="yu-menu-3" title="我的收藏">
                 <div className="panel-title">我的收藏</div>
@@ -340,209 +361,18 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-4" title="專屬優惠">
                 <div className="panel-title">專屬優惠</div>
-                <p>專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠</p>
+                <p>專屬優惠</p>
               </Tab>
               <Tab eventKey="yu-menu-5" title="二手交換">
                 <div className="panel-title">二手交換</div>
-                <p>二手交換二手交換二手交換二手交換二手交換二手交換二手交換</p>
+                <p>二手交換</p>
               </Tab>
               <Tab
                 className="yen-signup-showbox"
                 eventKey="yu-menu-6"
                 title="參與活動"
               >
-                <div className="yen-signup-showbox">
-                  <div className="yen-signup-showbox-bg">
-                    <div className="yen-signup-moon-box">
-                      <div className="yen-signup-moon">
-                        <div className="yen-signup-moon-month"></div>
-                        <div className="yen-signup-moon-text">
-                          三<br />月
-                        </div>
-                        <div className="yen-yellow-bug">
-                          <SvgYellowBug />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="yen-signup-calendar-box">
-                      <div className="yen-signup-calendar-day-box">
-                        <div className="yen-signup-calendar-day">
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">1</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">2</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">3</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">4</span>
-                          </div>
-                          <div className="yen-signup-calendar-date yen-signup-date-bg2">
-                            <span className="yen-signup-calendar-text">5</span>
-                            <div className="yen-signup-date">已報名</div>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">6</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">7</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">8</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">9</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">10</span>
-                          </div>
-                        </div>
-                        <div className="yen-signup-calendar-day">
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">11</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">12</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">13</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">14</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">15</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">16</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">17</span>
-                          </div>
-                          <div className="yen-signup-calendar-date yen-signup-date-bg1">
-                            <span className="yen-signup-calendar-text">18</span>
-                            <div className="yen-signup-date">已報名</div>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">19</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">20</span>
-                          </div>
-                        </div>
-                        <div className="yen-signup-calendar-day">
-                          <div className="yen-signup-calendar-date yen-signup-calendar-slide">
-                            <span className="yen-signup-calendar-text">21</span>
-                            <span className="yen-signup-calendar-dete-l">
-                              31
-                            </span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">22</span>
-                          </div>
-                          <div className="yen-signup-calendar-date yen-signup-date-bg1">
-                            <span className="yen-signup-calendar-text">23</span>
-                            <div className="yen-signup-date">已報名</div>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">24</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">25</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">26</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">27</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">28</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">29</span>
-                          </div>
-                          <div className="yen-signup-calendar-date">
-                            <span className="yen-signup-calendar-text">30</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="yen-signup-arrow-box">
-                        <div className="yen-signup-arrow-right">
-                          <SvgArrowRight />
-                        </div>
-                        <div className="yen-signup-arrow-left">
-                          <SvgArrowRight />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="yen-signup-list">
-                      <div className="yen-signup-select-box">
-                        <div className="yen-signup-act-img">
-                          <img
-                            src="http://localhost:3000/images/yen/hot/hot-2-w.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="yen-signup-act-des">
-                          <div className="yen-signup-num">
-                            報名單號：202101010012345
-                          </div>
-                          <div className="yen-signup-sub">
-                            天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                          </div>
-                          <div className="yen-signup-time">
-                            活動時間：2021年01月24日 14:00 ~ 15:30
-                          </div>
-                          <div className="yen-signup-location">
-                            活動地點：台北市中正區重慶南路二段51號B1
-                            （信誼好好生活廣場）
-                          </div>
-                          <div className="yen-signup-btn">
-                            <button className="btn-md-dark yen-signup-check">
-                              <i className="fas fa-edit"></i>
-                              查看報名
-                            </button>
-                            <button className="btn-md-dark yen-signup-cancel">
-                              <i className="fas fa-heart-broken"></i>
-                              取消報名
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="yen-signup-select-li">
-                        <div className="yen-signup-select-li-box">
-                          <div className="yen-signup-num">
-                            報名單號：202101010012345
-                          </div>
-                          <div className="yen-signup-sub">
-                            天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                          </div>
-                          <div className="yen-signup-time yen-signup-time-pt">
-                            活動時間：2021年01月24日 14:00 ~ 15:30
-                          </div>
-                        </div>
-                      </div>
-                      <div className="yen-signup-select-li">
-                        <div className="yen-signup-select-li-box">
-                          <div className="yen-signup-num">
-                            報名單號：202101010012345
-                          </div>
-                          <div className="yen-signup-sub">
-                            天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                          </div>
-                          <div className="yen-signup-time yen-signup-time-pt">
-                            活動時間：2021年01月24日 14:00 ~ 15:30
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <ActAllSignUp />
               </Tab>
             </Tabs>
           </div>

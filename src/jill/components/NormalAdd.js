@@ -7,17 +7,19 @@ import DancingImg from '../components/DancingImg'
 
 function NormalAdd(props) {
   const [dataLoading, setDataLoading] = useState(false)
-
+  let jillForm = document.getElementById('form-jill')
   const [ISBN, setISBN] = useState('')
   const [book_name, setBook_name] = useState('')
   const [BC_pic1, setBC_pic1] = useState('')
   const [book_condition, setBook_condition] = useState('5成新')
   const [written_or_not, setWritten_or_not] = useState('')
+  // 抓登入者localstorage的userid
+  const userId = localStorage.getItem('userId')
 
   //preloading file
   const [preloading, setPreloading] = useState(false)
 
-  const [BC_pic1File, setBC_pic1File] = useState('')
+  // const [BC_pic1File, setBC_pic1File] = useState([])
 
   async function addUserToSever() {
     // 開啟載入指示
@@ -26,7 +28,7 @@ function NormalAdd(props) {
     const newData = {
       ISBN,
       book_name,
-      BC_pic1File,
+      BC_pic1,
       book_condition,
       written_or_not,
     }
@@ -60,11 +62,12 @@ function NormalAdd(props) {
     }, 500)
   }
 
+  // 真正的新增上傳功能
   const handleSubmit = async (e) => {
     e.preventDefault()
     const formdata = new FormData(e.target)
+    formdata.append('userId', userId)
 
-    formdata.append('c_sid', props.secondhand_normalchange.c_sid)
     const url = 'http://localhost:3333/normal-index/picture-upload'
 
     const request = new Request(url, {
@@ -78,14 +81,23 @@ function NormalAdd(props) {
 
     // data.BC_pic1(secondhand_normalchange.c_sid)
     // getMember(props.member.sid);
-    console.log('formdata' + formdata)
+    console.log(formdata)
+
+    // addUserToSever()
+    //直接在一段x秒關掉指示器
+    setTimeout(() => {
+      setDataLoading(false)
+      alert('儲存完成')
+      props.history.push('/NormalIndex')
+    }, 500)
   }
 
   const handleFileChange = (event) => {
+    console.log(event)
     setPreloading(true)
-    if (event.target.files[0]) {
-      setBC_pic1File(event.target.files[0])
-    }
+    // if (event.target.files[0]) {
+    setBC_pic1(event.target.files[0])
+    // }
     setTimeout(() => {
       setPreloading(false)
     }, 5000)
@@ -131,7 +143,7 @@ function NormalAdd(props) {
           </ol>
         </nav>
         <div className="jill-myaddform row">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} name="form-jill" id="form-jill">
             {/* <!-- 比例 --> */}
             <div className=" form-width-height">
               {/* <!-- 表單標題 --> */}
@@ -254,12 +266,11 @@ function NormalAdd(props) {
                     accept="image/*"
                     multiple
                     style={{ display: 'none' }}
+                    // name="BC_pic1"
                     name="BC_pic1"
                     required={true}
                     onChange={(event) => {
-                      if (event.target.files[0].name) {
-                        handleFileChange(event)
-                      }
+                      handleFileChange(event)
                     }}
                   />
                 </label>
@@ -310,9 +321,10 @@ function NormalAdd(props) {
               </div>
             </div>
             <button
-              onClick={() => {
-                addUserToSever()
-              }}
+              type="submit"
+              // onClick={() => {
+              //   addUserToSever()
+              // }}
               className="btn-md-dark jill-addform-btn"
             >
               新增

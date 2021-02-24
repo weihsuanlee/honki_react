@@ -1,10 +1,12 @@
 // import style
 import '../styles/selected-solar-term-info.scss'
 
-function SelectedSolarTermInfo() {
+function SelectedSolarTermInfo(props) {
+  const { solarTermDesc, solarTermToShow, redCenterText } = props
+
   return (
     <>
-      <div className="hans-st-info"></div>
+      <div className="hans-st-info">{solarTermDesc}</div>
     </>
   )
 }

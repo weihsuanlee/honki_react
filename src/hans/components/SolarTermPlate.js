@@ -2,13 +2,14 @@
 
 // import style
 import '../styles/solar-term-plate.scss'
+import '../styles/old-seasons.scss'
 
 function SolarTermPlate(props) {
   const {
     solarTermToShow,
     solarPlateSize,
     redCenterSize,
-    redCenterText,
+    redCenterBgImg,
   } = props
 
   // 取得目前的旋轉角度
@@ -85,11 +86,13 @@ function SolarTermPlate(props) {
           <li>
             <div
               className={redCenterSize}
-              // onClick={}
+              // style={{
+              //   backgroundPosition: 'center',
+              //   backgroundSize: 'cover',
+              //   backgroundRepeat: 'no-repeat',
+              // }}
             >
-              <div className={'red-center-text ' + redCenterText}>
-                {solarTermToShow}
-              </div>
+              <img src={redCenterBgImg} alt="" className="img-full fadeIn" />
             </div>
           </li>
         </ul>

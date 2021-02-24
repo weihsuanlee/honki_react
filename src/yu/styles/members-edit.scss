@@ -75,7 +75,16 @@
 }
 
 .yu-edit-greeting {
-  margin: 20px 0 0 70px;
+  margin: 20px 0 20px 0;
+  text-align: center;
+}
+
+.yu-edit-member-name {
+  background-color: rgb(209, 193, 181);
+  color: var(--honki-theme);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0 5px 0 5px;
 }
 
 /* 會員總表收合選單 */
