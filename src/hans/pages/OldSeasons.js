@@ -35,8 +35,6 @@ function OldSeasons(props) {
 
   const [solarTermClicked, setSolarTermClicked] = useState(true)
 
-  let currentSolarTerm = 3 - 1
-
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer(currentSolarTerm)
@@ -46,22 +44,69 @@ function OldSeasons(props) {
 
   const solarTermId = Array.from(Array(24).keys())
 
+  // 產生要列出的節氣選書，寫法可能要再調整一下
+  const getSolarTermsToList = (firstOnList) => {
+    // firstOnList = currentSolarTerm
+
+    let solarTermsToList = Array.from(Array(6).keys())
+    console.log(solarTermsToList)
+
+    solarTermsToList = solarTermsToList.map((e) => firstOnList - e)
+    console.log(solarTermsToList)
+
+    return solarTermsToList
+  }
+
+  // 把日期轉換成 YYYY-MM-DD 格式
+  // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
+  //
+  function formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear()
+
+    if (month.length < 2) month = '0' + month
+    if (day.length < 2) day = '0' + day
+
+    return [year, month, day].join('-')
+  }
+
+  /*
+  console.log(formatDate('Sun May 11,2014'))
+
+  // 把日期轉為 Unix Timestamp 來比較大小
+  console.log(
+    new Date(formatDate('Sun May 11,2014')).getTime() >
+      new Date('2020-01-01').getTime()
+  )
+  */
+
+  // let currentDate = formatDate(new Date())
+  let currentSolarTerm = 3 - 1
+  let currentStDate = '2021-03-05'
+
+  console.log(currentStDate)
+
   const getDataFromServer = async (e) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
 
-    console.log(solarTermId)
+    // console.log(solarTermId)
     setSolarTermImgs(
       solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
     )
     console.log(solarTermImgs)
+    console.log(solarTermImgs[1])
+
+    getSolarTermsToList(e)
 
     return data
   }
@@ -92,32 +137,11 @@ function OldSeasons(props) {
 
     setSolarTermClicked(!solarTermClicked)
 
+    setShowBreadCrumb(!showBreadCrumb)
+
     // console.log('clicked!')
     // console.log(solarTermClicked)
   }
-
-  // 把日期轉換成 YYYY-MM-DD 格式
-  // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
-  //
-  function formatDate(date) {
-    var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear()
-
-    if (month.length < 2) month = '0' + month
-    if (day.length < 2) day = '0' + day
-
-    return [year, month, day].join('-')
-  }
-
-  console.log(formatDate('Sun May 11,2014'))
-
-  // 把日期轉為 Unix Timestamp 來比較大小
-  console.log(
-    new Date(formatDate('Sun May 11,2014')).getTime() >
-      new Date('2020-01-01').getTime()
-  )
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
 
@@ -155,20 +179,19 @@ function OldSeasons(props) {
             <div className="osb-book-col-grad"></div>
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片 */}
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <OldSeasonBookCard />
-              <button
+              <OldSeasonBookCard
+                handlePlateToggle={handlePlateToggle}
+                getSolarTermsToList={getSolarTermsToList}
+              />
+
+              {/* <button
                 onClick={() => {
-                  setShowBreadCrumb(!showBreadCrumb)
                   handlePlateToggle()
                 }}
               >
                 點擊目標節氣書本
-              </button>
+              </button> */}
+
               <br />
             </div>
           </div>
