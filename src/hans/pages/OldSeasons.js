@@ -92,8 +92,8 @@ function OldSeasons(props) {
 
     setSolarTermClicked(!solarTermClicked)
 
-    console.log('clicked!')
-    console.log(solarTermClicked)
+    // console.log('clicked!')
+    // console.log(solarTermClicked)
   }
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
@@ -116,15 +116,15 @@ function OldSeasons(props) {
             <div className={'red-center-text ' + redCenterText}>
               <SolarTermToShow solarTermToShow={solarTermToShow} />
             </div>
-            <div className={displayTitle}>
-              <OldSeasonPageTitle />
-            </div>
             <div className={displaySolarTermInfo}>
               <SelectedSolarTermInfo
                 solarTermToShow={solarTermToShow}
                 redCenterText={redCenterText}
                 solarTermDesc={solarTermDesc}
               />
+            </div>
+            <div className={displayTitle}>
+              <OldSeasonPageTitle />
             </div>
           </div>
 
