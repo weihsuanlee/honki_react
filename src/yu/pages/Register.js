@@ -148,12 +148,14 @@ function Register(props) {
                   )} `}
                   id="inputName"
                   name="name"
-                  placeholder="必填"
+                  placeholder=""
                   onChange={onChangeForField('name')}
                   required
                 />
                 {/* <div class="valid-feedback"></div> */}
-                <div class="invalid-feedback">姓名要記得填哦</div>
+                <div className="invalid-feedback yu-login-invalid-feedback-name">
+                  姓名要記得填哦
+                </div>
               </div>
             </div>
             {/* <!-- 暱稱input --> */}
@@ -190,7 +192,9 @@ function Register(props) {
                   required
                 />
                 {/* <div class="valid-feedback">email正確</div> */}
-                <div class="invalid-feedback">email格式錯囉</div>
+                <div className="invalid-feedback yu-login-invalid-feedback-email">
+                  email格式錯囉
+                </div>
               </div>
             </div>
             {/* <!-- 手機input --> */}
@@ -204,11 +208,15 @@ function Register(props) {
                   className={`formInput col-4 form-control ${fieldValidCSS(
                     'mobile'
                   )} `}
-                  placeholder="請輸入09xx-xxx-xxx"
+                  placeholder="請輸入09xx-xxx-xxx格式"
                   id="inputMobile"
                   name="mobile"
                   onChange={onChangeForField('mobile')}
                 />
+                {/* <div class="valid-feedback">手機格式正確</div> */}
+                <div className="invalid-feedback yu-login-invalid-feedback-mobile">
+                  手機格式填錯囉
+                </div>
               </div>
             </div>
             {/* <!-- 地址input --> */}
@@ -222,7 +230,6 @@ function Register(props) {
                   id="inputName"
                   name="address"
                   placeholder=""
-                  rows="1"
                   onChange={onChangeForField('address')}
                 />
               </div>
@@ -262,7 +269,9 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div class="invalid-feedback">密碼長度為6-24位數</div>
+                <div className="invalid-feedback yu-login-invalid-feedback-password">
+                  密碼長度需為6-24位數
+                </div>
               </div>
             </div>
             {/* <!-- 密碼確認input--> */}
@@ -284,10 +293,16 @@ function Register(props) {
                   onChange={onChangeForField('password2')}
                   required
                   minLength="6"
+                  maxLength="24"
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div class="invalid-feedback">密碼不一樣哦</div>
+                <div className="invalid-feedback yu-register-invalid-feedback">
+                  密碼長度為6-24位數
+                </div>
+                <div className="invalid-feedback yu-register-invalid-feedback">
+                  密碼不一樣哦
+                </div>
               </div>
             </div>
             {/* <!-- checkbox --> */}

@@ -353,7 +353,7 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-2" title="購物紀錄">
                 <div className="panel-title">購物紀錄</div>
-                <p>購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄購物紀錄</p>
+                <p>購物紀錄</p>
               </Tab>
               <Tab eventKey="yu-menu-3" title="我的收藏">
                 <div className="panel-title">我的收藏</div>
@@ -361,11 +361,11 @@ function Menu() {
               </Tab>
               <Tab eventKey="yu-menu-4" title="專屬優惠">
                 <div className="panel-title">專屬優惠</div>
-                <p>專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠專屬優惠</p>
+                <p>專屬優惠</p>
               </Tab>
               <Tab eventKey="yu-menu-5" title="二手交換">
                 <div className="panel-title">二手交換</div>
-                <p>二手交換二手交換二手交換二手交換二手交換二手交換二手交換</p>
+                <p>二手交換</p>
               </Tab>
               <Tab
                 className="yen-signup-showbox"
