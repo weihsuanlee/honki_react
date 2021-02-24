@@ -86,14 +86,14 @@ function OldSeasons(props) {
   let currentSolarTerm = 3 - 1
   let currentStDate = '2021-03-05'
 
-  console.log(currentStDate)
+  // console.log(currentStDate)
 
   const getDataFromServer = async (e) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
     })
     const data = await response.json()
-    // console.log(data)
+    console.log(data)
     console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
