@@ -1,0 +1,269 @@
+:root {
+	--main-color: #e83015;
+	--sub-color: #fdf3db;
+	--sub-color-op: rgba(253, 243, 219, .8);
+	--word-color: #1c1b1b;
+	--word-color-sub: #ffffff;
+	--startle-color: #7ba23e;
+	--startle-hover: #a8dd57;
+	--top10-bgc: #ececec;
+	--top10-bgc-op: rgba(236, 236, 236, .8);
+	--footer-color: #f3eee7;
+	--h2--: 58px;
+	--h3--: 47px;
+	--h6--: 19px;
+	--h5--: 23px;
+	--content--: 16px;
+	--scontent--: 14px;
+	--rainingcolor--: #284177;
+}
+// .test_nav {
+// 	height: 80px;
+// 	width: 100%;
+// 	background-color: var(--main-color);
+// }
+
+// .chia-1024mainbookbox {
+// 	display: flex;
+// 	justify-content: center;
+// 	max-width: 1400px;
+// 	border: solid 1px var(--word-color);
+// }
+
+.chia_main {
+	max-width: 100%;
+	height: 800px;
+	// background-color: #fff;
+	// background-image: url('../image/bg-paper.svg') repeat;
+}
+.chia_main_book {
+	cursor: url('../image/decoration/bee.svg') auto;
+	background: url('../image/bg-paper.svg') repeat;
+}
+
+.test_nav {
+	height: 80px;
+	width: 100%;
+	background-color: var(--main-color);
+}
+// .chia_mainbook {
+// 	max-width: 1400px;
+// }
+.chia_recbook {
+	position: relative;
+	overflow: hidden;
+	// width: 99%;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+.chia_recbook:before {
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	width: 20px;
+	left: 0;
+	// background: linear-gradient(90deg, #1c1b1b, transparent);
+}
+.chia_recbook:after {
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	width: 20px;
+	right: 0;
+	// background: linear-gradient(-90deg, #1c1b1b, transparent);
+}
+.chia_header {
+	text-align: center;
+	margin: 36px auto;
+}
+.chia_header p {
+	font-size: var(--h6--);
+	font-weight: 700;
+}
+.chia_bookitems {
+	padding: 0;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	margin-bottom: 0;
+}
+.chia_bookitems.active {
+	cursor: grab;
+}
+.chia_item {
+	list-style: none;
+	display: inline-block;
+	// margin-left: 20px;
+	user-select: none;
+}
+// .chia_item:last-child {
+// 	margin-right: 20px;
+// }
+.chia_book {
+	width: 350px;
+	height: 479px;
+	border: var(--startle-color) 1px solid;
+	/* border: var(--rainingcolor--) 1px solid; */
+	overflow: hidden;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	margin-right: 24px;
+	margin-left: 24px;
+	transition: 1.5s;
+}
+.chia_book:hover {
+	transform: scale(.9);
+}
+.chia_bookup_modal {
+	width: 350px;
+	height: 479px;
+	// border: var(--startle-color) 1px solid;
+	/* border: var(--rainingcolor--) 1px solid; */
+	overflow: hidden;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	// margin-right: 16px;
+	// margin-left: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.chia_bookup {
+	width: 350px;
+	height: 390px;
+	background-color: #fff;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: var(--startle-color) 1px solid;
+	/* border-bottom: var(--rainingcolor--) 1px solid; */
+}
+.chia_bookdown {
+	width: 350px;
+	height: 90px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	transition: .5s;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+}
+.chia_bookdown:hover {
+	background-color: var(--startle-hover);
+	/* background-color: var(--rainingcolor--); */
+}
+.chia_booktitle {
+	font-size: var(--h5--);
+	font-weight: 700;
+	color: var(--main-color);
+}
+.chia_caption {
+	font-size: var(--content--);
+	font-weight: 700;
+	line-height: 2;
+}
+
+.chia_courage {
+	color: var(--main-color);
+}
+/*Modal part*/
+.chia_modal_bookdown {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal {
+	top: 5rem;
+}
+
+.modal-content {
+	position: absolute;
+	top: 30%;
+	// left: 10%;
+	width: 800px !important;
+	height: 70%;
+	background-color: var(--sub-color);
+	border-radius: 4px;
+	padding: 5%;
+}
+.modal-header {
+	display: flex;
+	padding: 2%;
+	justify-content: space-between;
+}
+.modal-body {
+	padding: 2%;
+	display: flex;
+	position: relative;
+}
+#chia_modal {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.chia_modal {
+	display: flex;
+}
+.chia_modal_title {
+	font-size: 24px;
+}
+.chia_bookcontent {
+	width: 350px;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 11;
+	-moz-webkit: line clamp 11;
+	-ms-webkit: line clamp 11;
+	-o-webkit: line clamp 11;
+	-webkit-box-orient: vertical;
+	font-size: var(--content--);
+	line-height: 2;
+	text-align: justify;
+}
+.chiamodalbtn {
+	border: none;
+	background-color: transparent;
+}
+
+.chiamodalbtn:focus {
+	outline: none;
+}
+.chia_purchasebotton {
+	padding: 1%;
+	position: absolute;
+	bottom: 5%;
+	right: 2%;
+	border: 1px solid var(--word-color);
+	border-radius: 4px;
+}
+.purchase {
+	color: var(--word-color);
+}
+// .purchase:hover {
+// 	color: var(--word-color-sub);
+// }
+.chia_purchasebotton:focus {
+	outline: none;
+	background-color: transparent;
+}
+.chia_purchasebotton:hover {
+	background-color: var(--word-color);
+}
+.chia_purchasebotton:hover .purchase {
+	color: var(--word-color-sub);
+}

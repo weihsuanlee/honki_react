@@ -1,18 +1,48 @@
 import { FaHeart, FaStar } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function ProductCardDisplay(props) {
   const { books } = props
-  const [Favorited, setFavorited] = useState(false)
-  const userId = localStorage.getItem('userId')
+  const [favorites, setFavorites] = useState([])
 
+  const userId = localStorage.getItem('userId')
+  useEffect(() => {
+    fetchFavoriteList()
+  }, [])
+
+  const fetchFavoriteList = async () => {
+    const url = 'http://localhost:3333/product/favorite/favoriteList'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        userId: userId,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    if (data.success) {
+      let favs = []
+      data.rows.map((favorite, index) => {
+        return favs.push(favorite.sid)
+      })
+      setFavorites(favs)
+      console.log(favs)
+      // console.log(data, 'get favorite list')
+    } else {
+      alert('Failed to get favorite list')
+    }
+  }
   const onClickFavorite = (bookId) => {
     // if (user.userData && !user.userData.isAuth) {
     //   return alert('Please Log in first')
     // }
 
-    if (Favorited) {
+    if (favorites.indexOf(bookId) > -1) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url = 'http://localhost:3333/product/favorite/removeFavorite'
@@ -30,7 +60,7 @@ function ProductCardDisplay(props) {
         const response = await fetch(request)
         const data = await response.json()
         if (data.success) {
-          setFavorited(!Favorited)
+          fetchFavoriteList()
           console.log(data, 'remove from Favorite')
         } else {
           alert('Failed to remove from Favorite')
@@ -55,7 +85,7 @@ function ProductCardDisplay(props) {
         const response = await fetch(request)
         const data = await response.json()
         if (data.success) {
-          setFavorited(!Favorited)
+          fetchFavoriteList()
           console.log(data, 'Add to Favorite')
         } else {
           alert('Failed to add to Favorite')
@@ -92,7 +122,10 @@ function ProductCardDisplay(props) {
             </div>
             <div className="wei-heart-bg">
               <FaHeart
-                className={`wei-heart ` + (Favorited ? 'wei-coral' : '')}
+                className={
+                  `wei-heart ` +
+                  (favorites.indexOf(v.sid) > -1 ? 'wei-coral' : '')
+                }
                 onClick={() => {
                   onClickFavorite(v.sid)
                 }}
