@@ -91,6 +91,7 @@ function ProductDetail(props) {
   useEffect(() => {
     getProductDetail()
   }, [])
+ 
 
   // didUpdate
   useEffect(() => {
