@@ -108,7 +108,7 @@ function ChiaReviewWrite() {
             <div class="contentborder-r  d-flex justify-content-center align-items-center">
               <form
                 action=""
-                className="contentborder-l d-flex justify-content-center"
+                className="contentborder-l d-flex justify-content-center chia_form"
                 method="javascript:"
               >
                 <div class="form-box d-flex flex-column">
