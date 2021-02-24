@@ -262,7 +262,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div class="invalid-feedback">密碼長度請大於6位數</div>
+                <div class="invalid-feedback">密碼長度為6-24位數</div>
               </div>
             </div>
             {/* <!-- 密碼確認input--> */}
@@ -287,7 +287,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div class="invalid-feedback">密碼不一樣</div>
+                <div class="invalid-feedback">密碼不一樣哦</div>
               </div>
             </div>
             {/* <!-- checkbox --> */}
