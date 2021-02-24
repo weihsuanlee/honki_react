@@ -4,9 +4,6 @@ import { FaHeart } from 'react-icons/fa'
 function Favorite(props) {
   const bookId = props.bookId
   const userId = props.userId
-  const bookTitle = props.productDetail.title
-  const bookAuthor = props.productDetail.author
-  const bookPublication = props.productDetail.publication
 
   const [Favorited, setFavorited] = useState(false)
 
@@ -24,9 +21,6 @@ function Favorite(props) {
           body: JSON.stringify({
             bookId: bookId,
             userId: userId,
-            bookTitle: bookTitle,
-            bookAuthor: bookAuthor,
-            bookPublication: bookPublication,
           }),
           headers: new Headers({
             Accept: 'application/json',
@@ -52,9 +46,6 @@ function Favorite(props) {
           body: JSON.stringify({
             bookId: bookId,
             userId: userId,
-            bookTitle: bookTitle,
-            bookAuthor: bookAuthor,
-            bookPublication: bookPublication,
           }),
           headers: new Headers({
             Accept: 'application/json',
@@ -73,39 +64,6 @@ function Favorite(props) {
       addFavorite()
     }
   }
-
-  //   useEffect(() => {
-  //     // axios.post('/api/favorite/favoriteNumber', variables).then((response) => {
-  //     //   if (response.data.success) {
-  //     //     setFavoriteNumber(response.data.subscribeNumber)
-  //     //   } else {
-  //     //     alert('Failed to get Favorite Number')
-  //     //   }
-  //     // })
-  //     const showFavorited = async () => {
-  //       const response = await fetch(
-  //         'http://localhost:3333/product/favorite/favorited',
-  //         {
-  //           method: 'post',
-  //           body: variables,
-  //         }
-  //       )
-  //       const data = await response.json()
-  //       if (data.success) {
-  //         setFavorited(data.subcribed)
-  //         console.log(data, 'Add to Favorite')
-  //       } else {
-  //         alert('Failed to get Favorite Information')
-  //       }
-  //     }
-  //     // axios.post('/api/favorite/favorited', variables).then((response) => {
-  //     //   if (response.data.success) {
-  //     //     setFavorited(response.data.subcribed)
-  //     //   } else {
-  //     //     alert('Failed to get Favorite Information')
-  //     //   }
-  //     // })
-  //   }, [])
 
   return (
     <>

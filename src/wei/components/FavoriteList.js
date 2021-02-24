@@ -1,5 +1,7 @@
 import '../styles/product.scss'
 import { useEffect, useState } from 'react'
+import { FaTimesCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 function FavoriteList(props) {
   const [favorites, setFavorites] = useState([])
@@ -8,7 +10,25 @@ function FavoriteList(props) {
   useEffect(() => {
     fetchFavoriteList()
   }, [])
-
+  const noResults = (
+    <>
+      <div className="mx-auto mt-5">
+        <h6 className="text-center mt-5">你的收藏書櫃 空空如也</h6>
+        <div className="d-flex justify-content-center mb-5 mt-3">
+          <Link to="/product" className="btn btn-md-dark wei-link">
+            去書城逛逛
+          </Link>
+        </div>
+        <div className="mx-auto" style={{ width: '30%' }}>
+          <img
+            src="http://localhost:3000/images/wei/unboxing.svg"
+            className="w-100 img-full"
+            alt=""
+          />
+        </div>
+      </div>
+    </>
+  )
   const fetchFavoriteList = async () => {
     const url = 'http://localhost:3333/product/favorite/favoriteList'
     const request = new Request(url, {
@@ -31,28 +51,35 @@ function FavoriteList(props) {
     }
     fetchFavoriteList()
   }
-
-  //   const onClickDelete = (movieId, userFrom) => {
-  //     const variables = {
-  //       movieId: movieId,
-  //       userFrom: userFrom,
-  //     }
-
-  //     axios
-  //       .post('/api/favorite/removeFromFavorite', variables)
-  //       .then((response) => {
-  //         if (response.data.success) {
-  //           fetchFavoriteList()
-  //         } else {
-  //           alert('Failed to Remove From Favorite')
-  //         }
-  //       })
-  //   }
+  const removeFavorite = async (bookId, userId) => {
+    const url = 'http://localhost:3333/product/favorite/removeFavorite'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        bookId: bookId,
+        userId: userId,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    if (data.success) {
+      fetchFavoriteList()
+    } else {
+      alert('Failed to remove from Favorite')
+    }
+  }
 
   const renderCards = favorites.map((favorite, index) => {
     return (
       <>
-        <div className="wei-card-list position-relative w-100" key={index}>
+        <div
+          className="wei-card-list position-relative w-100 wei-card-list-favorite"
+          key={index}
+        >
           <div
             className="wei-card-list-pic d-flex my-auto"
             onClick={() => {
@@ -90,20 +117,20 @@ function FavoriteList(props) {
               </div>
             </div>
           </div>
+          <button
+            className="wei-delete-btn"
+            onClick={() => {
+              removeFavorite(favorite.sid, userId)
+            }}
+          >
+            <FaTimesCircle />
+          </button>
         </div>
       </>
     )
   })
-  // const renderCards = favorites.map((favorite, index) => {
-  //   return (
-  //     <tr key={index}>
-  //       <td>{favorite.title}</td>
-  //       <td>{favorite.author}</td>
-  //       <td>{favorite.publication}</td>
-  //     </tr>
-  //   )
-  // })
-  return <>{renderCards}</>
+
+  return <>{favorites.length > 0 ? renderCards : noResults}</>
 }
 
 export default FavoriteList
