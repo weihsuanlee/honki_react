@@ -8,12 +8,25 @@
   border-radius: 10px;
   background-color: var(--honki-white);
 
-  transform: translate(0, -25vh);
+  transform: translate(0, -190px);
 }
 
-.red-center-text {
-  text-align: center;
-  font-size: 83px;
-  font-weight: 500;
-  color: var(--honki-white);
+/* media 變化 start */
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 992px) {
+  .hans-st-info {
+    width: unset;
+    height: unset;
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
 }

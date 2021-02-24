@@ -1,5 +1,6 @@
 .solar-term-plate-filler {
-  height: calc(51vh);
+  // height: calc(35vh);
+  height: 320px;
 }
 
 /* media 變化 start */
@@ -17,14 +18,15 @@
 
 @media only screen and (max-width: 1024px) {
   .solar-term-plate-filler {
-    height: calc(40vh);
+    // height: calc(40vh);
   }
 }
 
 @media only screen and (max-width: 992px) {
   .solar-term-plate-filler {
     // height: calc(20vh);
-    height: calc(20vh);
+    // height: calc(20vh);
+    // height: 450px;
   }
 }
 

@@ -6,9 +6,6 @@ function SelectedSolarTermInfo(props) {
 
   return (
     <>
-      <div className={'red-center-text ' + redCenterText}>
-        {solarTermToShow}
-      </div>
       <div className="hans-st-info">{solarTermDesc}</div>
     </>
   )
