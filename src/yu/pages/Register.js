@@ -44,7 +44,7 @@ function Register(props) {
       newErrors.push('name')
     }
 
-    //檢查email(要有@要有@)
+    //檢查email(要有@)
     const re = /\S+@\S+\.\S+/
     if (!re.test(inputs.email.toLowerCase())) {
       newErrors.push('email')
@@ -204,7 +204,7 @@ function Register(props) {
                   className={`formInput col-4 form-control ${fieldValidCSS(
                     'mobile'
                   )} `}
-                  placeholder="09xx-xxx-xxx"
+                  placeholder="請輸入09xx-xxx-xxx"
                   id="inputMobile"
                   name="mobile"
                   onChange={onChangeForField('mobile')}
@@ -217,16 +217,14 @@ function Register(props) {
                 <label className="inputText col-1" htmlFor="inputAddress">
                   地址
                 </label>
-                <textarea
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'address'
-                  )} `}
+                <input
+                  className={`formInput col-4 form-control`}
                   id="inputName"
                   name="address"
-                  placeholder="台北市中正區重慶南路一段122號"
+                  placeholder=""
                   rows="1"
                   onChange={onChangeForField('address')}
-                ></textarea>
+                />
               </div>
             </div>
             {/* <!-- 生日input --> */}
@@ -237,9 +235,7 @@ function Register(props) {
                 </label>
                 <input
                   type="date"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'birthday'
-                  )} `}
+                  className={`formInput col-4 form-control`}
                   id="inputBirthday"
                   name="birthday"
                   onChange={onChangeForField('birthday')}
