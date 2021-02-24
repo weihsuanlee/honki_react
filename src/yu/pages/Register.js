@@ -3,30 +3,91 @@ import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 
 function Register(props) {
-  const [name, setName] = useState('')
-  const [nickname, setNickname] = useState('')
-  const [email, setEmail] = useState('')
-  const [mobile, setMobile] = useState('')
-  const [address, setAddress] = useState('')
-  const [birthday, setBirthday] = useState('')
-  const [password, setPassword] = useState('')
-  const [password2, setPassword2] = useState('')
+  const [inputs, setInputs] = useState({
+    name: '',
+    nickname: '',
+    email: '',
+    mobile: '',
+    address: '',
+    birthday: '',
+    password: '',
+    password2: '',
+  })
+  // 切換開始作檢查的旗標
+  const [startToChecked, setStartToChecked] = useState(false)
+  // 錯誤陣列，記錄有錯誤的欄位名稱
+  const [errors, setErrors] = useState([])
+
+  const onChangeForField = (fieldName) => (event) => {
+    setInputs((state) => ({ ...state, [fieldName]: event.target.value }))
+  }
+
+  // const [name, setName] = useState('')
+  // const [nickname, setNickname] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [mobile, setMobile] = useState('')
+  // const [address, setAddress] = useState('')
+  // const [birthday, setBirthday] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [password2, setPassword2] = useState('')
 
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
+  // 按了提交按鈕用的
+  const handleSubmit = (e) => {
+    //開啟開始觸發檢查的旗標
+    setStartToChecked(true)
+
+    //檢查帳號
+    const newErrors = []
+    if (inputs.name.trim().length < 1) {
+      newErrors.push('name')
+    }
+
+    //檢查email(要有@要有@)
+    const re = /\S+@\S+\.\S+/
+    if (!re.test(inputs.email.toLowerCase())) {
+      newErrors.push('email')
+    }
+
+    //檢查密碼(6-24位英數字)
+    const password = /[A-Za-z0-9]{6,24}/
+    if (!password.test(inputs.password.toLowerCase())) {
+      newErrors.push('password')
+    }
+
+    //檢查手機格式
+    const mobile = /09\d{2}-?\d{3}-?\d{3}/
+    if (!mobile.test(inputs.mobile)) {
+      newErrors.push('mobile')
+    }
+
+    if (inputs.password !== inputs.password2) {
+      newErrors.push('passworddifference')
+    }
+
+    setErrors(newErrors)
+  }
+
+  // 切換合法不合法的css與提示字詞
+  const fieldValidCSS = (fieldName) => {
+    if (!startToChecked) return ''
+
+    return errors.includes(fieldName) ? 'is-invalid' : ''
+  }
 
   const register = async function () {
     const url = 'http://localhost:3333/member/register'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
-        name: name,
-        nickname: nickname,
-        email: email,
-        mobile: mobile,
-        address: address,
-        birthday: birthday,
-        password: password,
+        name: inputs.name,
+        nickname: inputs.nickname,
+        email: inputs.email,
+        mobile: inputs.mobile,
+        address: inputs.address,
+        birthday: inputs.birthday,
+        password: inputs.password,
       }),
       headers: new Headers({
         Accept: 'application/json',
@@ -77,118 +138,111 @@ function Register(props) {
             {/* <!-- 姓名input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlInput1"
-                >
+                <label className="inputText col-1" htmlFor="inputName">
                   姓名
                 </label>
                 <input
                   type="text"
-                  className="form-control formInput col-4"
-                  placeholder=""
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value)
-                  }}
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'name'
+                  )} `}
+                  id="inputName"
+                  name="name"
+                  placeholder="必填"
+                  onChange={onChangeForField('name')}
+                  required
                 />
+                {/* <div class="valid-feedback"></div> */}
+                <div class="invalid-feedback">姓名要記得填哦</div>
               </div>
             </div>
             {/* <!-- 暱稱input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlInput1"
-                >
+                <label className="inputText col-1" htmlFor="inputName">
                   暱稱
                 </label>
                 <input
                   type="text"
-                  className="form-control formInput col-4"
+                  className={`formInput col-4 form-control`}
+                  id="inputName"
+                  name="nickname"
                   placeholder=""
-                  value={nickname}
-                  onChange={(e) => {
-                    setNickname(e.target.value)
-                  }}
+                  onChange={onChangeForField('nickname')}
                 />
               </div>
             </div>
             {/* <!-- 信箱input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1">電子信箱</label>
+                <label className="inputText col-1" htmlFor="inputEmail">
+                  電子信箱
+                </label>
                 <input
                   type="email"
-                  required
-                  className="form-control formInput col-4"
+                  name="email"
+                  id="inputEmail"
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'email'
+                  )} `}
                   placeholder="honkibooks@mail.com"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value)
-                  }}
+                  onChange={onChangeForField('email')}
+                  required
                 />
+                {/* <div class="valid-feedback">email正確</div> */}
+                <div class="invalid-feedback">email格式錯囉</div>
               </div>
             </div>
             {/* <!-- 手機input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlInput1"
-                >
+                <label className="inputText col-1" htmlFor="inputMobile">
                   手機
                 </label>
                 <input
                   type="text"
-                  className="form-control formInput col-4"
-                  placeholder=""
-                  value={mobile}
-                  onChange={(e) => {
-                    setMobile(e.target.value)
-                  }}
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'mobile'
+                  )} `}
+                  placeholder="09xx-xxx-xxx"
+                  id="inputMobile"
+                  name="mobile"
+                  onChange={onChangeForField('mobile')}
                 />
               </div>
             </div>
             {/* <!-- 地址input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlTextarea1"
-                >
+                <label className="inputText col-1" htmlFor="inputAddress">
                   地址
                 </label>
                 <textarea
-                  className="form-control col-4"
-                  id="exampleFormControlTextarea1"
-                  placeholder="ex:100台北市中正區重慶南路一段122號"
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'address'
+                  )} `}
+                  id="inputName"
+                  name="address"
+                  placeholder="台北市中正區重慶南路一段122號"
                   rows="1"
-                  value={address}
-                  onChange={(e) => {
-                    setAddress(e.target.value)
-                  }}
+                  onChange={onChangeForField('address')}
                 ></textarea>
               </div>
             </div>
             {/* <!-- 生日input --> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlTextarea1"
-                >
+                <label className="inputText col-1" htmlFor="inputBirthday">
                   生日
                 </label>
                 <input
                   type="date"
-                  className="form-control formInput col-4"
-                  id="birthday"
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'birthday'
+                  )} `}
+                  id="inputBirthday"
                   name="birthday"
-                  value={birthday}
-                  onChange={(e) => {
-                    setBirthday(e.target.value)
-                  }}
+                  onChange={onChangeForField('birthday')}
                 />
               </div>
             </div>
@@ -196,23 +250,23 @@ function Register(props) {
             {/* <!-- 密碼input--> */}
             <div className="form-group">
               <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  for="exampleFormControlTextarea1"
-                >
+                <label className="inputText col-1" htmlFor="inputPassword">
                   密碼
                 </label>
                 <input
                   type="password"
-                  required
-                  className="form-control formInput col-4"
-                  id="password"
                   name="password"
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value)
-                  }}
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'password'
+                  )} `}
+                  id="inputPasswordConfirm"
+                  onChange={onChangeForField('password')}
+                  required
+                  minLength="6"
                 />
+                {/* 提示語 */}
+                {/* <div class="valid-feedback">密碼ok</div> */}
+                <div class="invalid-feedback">密碼長度請大於6位數</div>
               </div>
             </div>
             {/* <!-- 密碼確認input--> */}
@@ -220,21 +274,24 @@ function Register(props) {
               <div className="formItems row d-flex justify-content-center">
                 <label
                   className="inputText col-1"
-                  for="exampleFormControlTextarea1"
+                  htmlFor="inputPasswordConfirm"
                 >
                   確認密碼
                 </label>
                 <input
                   type="password"
+                  name="password2"
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'passworddifference'
+                  )} `}
+                  id="inputPasswordConfirm"
+                  onChange={onChangeForField('password2')}
                   required
-                  className="form-control formInput col-4"
-                  id="password"
-                  name="password"
-                  value={password2}
-                  onChange={(e) => {
-                    setPassword2(e.target.value)
-                  }}
+                  minLength="6"
                 />
+                {/* 提示語 */}
+                {/* <div class="valid-feedback">密碼ok</div> */}
+                <div class="invalid-feedback">密碼不一樣</div>
               </div>
             </div>
             {/* <!-- checkbox --> */}
@@ -260,14 +317,15 @@ function Register(props) {
                   <Button
                     className="btn-md-dark form-button form-control"
                     onClick={() => {
+                      handleSubmit()
                       register(
-                        name,
-                        nickname,
-                        email,
-                        mobile,
-                        address,
-                        birthday,
-                        password
+                        inputs.name,
+                        inputs.nickname,
+                        inputs.email,
+                        inputs.mobile,
+                        inputs.address,
+                        inputs.birthday,
+                        inputs.password
                       )
                     }}
                   >
