@@ -1,0 +1,98 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.chia_changeable {
+	height: 800px;
+	// background: url('../image/Hero_3.jpg') no-repeat;
+	// background-size: cover;
+	// background-attachment: fixed;
+	width: 100%;
+}
+.chia_herowordA {
+	height: 800px;
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+}
+.chia_ofcourse,
+.chia_stillhave,
+.chia_letyouchoose {
+	font-size: var(--h3--);
+	font-weight: 700;
+	margin-top: 8px;
+}
+.chia_ofcourse span {
+	background-color: var(--word-color-sub);
+}
+.chia_stillhave span {
+	background-color: var(--word-color-sub);
+}
+.chia_letyouchoose span {
+	background-color: var(--word-color-sub);
+}
+
+.chia_wrap {
+	width: 100%;
+	height: 800px;
+	overflow: hidden;
+	position: relative;
+}
+.chia_box {
+	height: 4000px;
+	top: 0px;
+	position: absolute;
+}
+.chia_box li {
+	height: 800px;
+	overflow: hidden;
+}
+.chia_box li img {
+	height: 100%;
+	width: 100%;
+}
+.chia_slidedot {
+	position: absolute;
+	bottom: 2%;
+	left: 1%;
+}
+.chia_slidedot li {
+	width: 10px;
+	height: 10px;
+	border: solid 2px var(--word-color-sub);
+	border-radius: 50%;
+	margin-top: 5px;
+}
+
+/*v3*/
+.chia_springterm {
+	height: 40%;
+	// width: 40%;
+	background: url('../image/Hero_3.jpg') no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.chia_bookstoreword {
+	height: 20%;
+	background: transparent;
+	font-size: 47px;
+	font-weight: 700;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.chia_bookstore {
+	height: 40%;
+	// width: 40%;
+	background: url('../image/Hero_3.jpg') no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.chia_changpaji {
+	padding: 0 !important;
+}
+/* v4 */
+// .chia {
+// 	background: url('../image/Hero_3.jpg') no-repeat;
+// 	background-size: cover;
+// 	background-attachment: fixed;
+// }

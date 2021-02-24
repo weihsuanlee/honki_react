@@ -2,7 +2,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // pages
-import Home from './chia/pages/Home'
+import HonkiIndex from './chia/Page/HonkiIndex'
+import Home from './chia/Page/Mainbook'
+import Review from './chia/Page/Chiareviewlist'
+
 import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
@@ -56,6 +59,8 @@ function App() {
               value={{ style: { transform: 'translateY(-2px)' } }}
             >
               <Switch>
+                <Route path="/" exact component={HonkiIndex} />
+                <Route path="/bookstoreindex" component={Home} />
                 <Route path="/member">
                   <Login />
                 </Route>
@@ -105,7 +110,7 @@ function App() {
                   <OldSeasons />
                 </Route>
                 <Route path="/reviews">
-                  <Home />
+                  <Review />
                 </Route>
                 <Route path="/used-books">
                   <UsedBooksIndex />

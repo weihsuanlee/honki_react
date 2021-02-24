@@ -1,0 +1,240 @@
+.top {
+	position: absolute;
+	right: 0px;
+	padding-right: 94px;
+	top: -18%;
+}
+
+.circle {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: var(--word-color);
+	text-align: center;
+	color: var(--word-color-sub);
+	font-size: 25px;
+	margin: 0;
+}
+.circle .fa-caret-up {
+	font-size: 36px;
+	margin: 0;
+	padding: 0;
+}
+
+/* review section*/
+.reviewsection {
+	height: 910px;
+	background: url('../image/bg-paper.svg') repeat;
+	position: relative;
+}
+.reviewsection:before {
+	// content: url('./image/circledot/circleedit.svg');
+	position: absolute;
+	left: 38%;
+	top: 1%;
+}
+
+.reviewtitle {
+	position: relative;
+}
+
+.chia_writereview {
+	position: absolute;
+	right: 1.5%;
+	top: 75%;
+	font-size: var(--content--);
+	font-weight: 700;
+}
+.chia_write {
+	color: var(--word-color);
+}
+.chia_write:hover {
+	color: var(--word-color);
+}
+.reviewheader {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 36px auto;
+}
+
+/*review search*/
+.reviewsearchsection {
+	/* border: 1px solid var(--word-color); */
+	height: 515px;
+	width: 325px;
+}
+.botan {
+	width: 215px;
+	height: 40px;
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.botannobgc {
+	width: 215px;
+	height: 40px;
+	color: var(--word-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 16px;
+	border: 1px solid var(--word-color);
+	font-size: var(--content--);
+	font-weight: 700;
+}
+.search {
+	width: 215px;
+	height: 40px;
+	border: 1px solid var(--word-color);
+	margin-bottom: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--word-color-sub);
+	overflow: hidden;
+}
+.searchbox {
+	font-size: var(--content--);
+	font-weight: 700;
+}
+.searchbody,
+.searchmemberid {
+	width: 163px;
+	height: 40px;
+	border-radius: 0px;
+	border: none;
+}
+.searchbody :focus {
+	border: none;
+}
+.solarbar {
+	/* width: 215px; */
+	margin-bottom: 16px;
+	position: relative;
+}
+.searchbtn {
+	font-size: 24px;
+	width: 52px;
+	height: 40px;
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	border: none;
+}
+.memberidbtn {
+	font-size: 16px;
+	width: 52px;
+	height: 40px;
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	border: none;
+}
+.solarbar {
+	margin-bottom: 16px;
+}
+.solarname {
+	width: 163px;
+	height: 40px;
+	border: solid 1px var(--word-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--word-color);
+	font-size: var(--content--);
+	font-weight: 700;
+}
+.solarmargin {
+	margin-bottom: 0;
+}
+
+.try {
+	height: 200px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+/* review body*/
+.reviewbody {
+	width: 100%;
+	height: 70%;
+	/* border: solid 1px var(--word-color); */
+}
+table {
+	width: 55%;
+}
+thead {
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	margin-bottom: 16px;
+	border-top: 1px solid var(--word-color) !important;
+	border-bottom: 1px solid var(--word-color) !important;
+	font-size: var(--content--);
+}
+tbody::before {
+	content: "-";
+	display: block;
+	line-height: 1em;
+	color: transparent;
+}
+
+.reviewtd {
+	border: 1px solid var(--word-color);
+	border-top: 1px solid var(--word-color) !important;
+	height: 60px;
+	font-size: var(--content--);
+}
+.reviewtd p {
+	margin-top: .4rem;
+}
+// .chia_title {
+// 	width: 380px;
+// }
+
+// .chia_content {
+// 	width: 380px;
+// }
+.chia_content a {
+	color: var(--word-color);
+}
+.reviewtd .content {
+	margin-bottom: 0;
+}
+
+/* Pagenation */
+.pagenumber {
+	margin-top: 36px;
+}
+.chia_page-item {
+	font-size: 25px;
+}
+.page-item {
+	font-size: 25px;
+}
+.pagination {
+	height: 56px;
+}
+
+.page-item {
+	width: 56px;
+	height: 56px;
+	line-height: 2.5;
+}
+.chia_custompage {
+	border: none;
+	margin-right: 16px;
+	margin-left: 16px;
+	color: var(--word-color);
+}
+.chia_custompage:hover {
+	color: var(--word-color);
+	text-decoration: none;
+}
+.chiareview_active {
+	background-color: rgba(232, 48, 21, .33);
+	border-radius: 50%;
+}
+.chia_searchmemberbar {
+	width: 213px;
+}

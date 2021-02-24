@@ -1,0 +1,173 @@
+:root {
+	--main-color: #e83015;
+	--sub-color: #fdf3db;
+	--sub-color-op: rgba(253, 243, 219, .8);
+	--word-color: #1c1b1b;
+	--word-color-sub: #ffffff;
+	--startle-color: #7ba23e;
+	--startle-hover: #a8dd57;
+	--top10-bgc: #ececec;
+	--top10-bgc-op: rgba(236, 236, 236, .8);
+	--footer-color: #f3eee7;
+	--h2--: 58px;
+	--h3--: 47px;
+	--h6--: 19px;
+	--h5--: 23px;
+	--content--: 16px;
+	--scontent--: 14px;
+	--rainingcolor--: #284177;
+}
+
+.chia_reviewwrite {
+	/* height: 800px; */
+	background: url('../image/bg-paper.svg') repeat;
+	position: relative;
+	overflow: hidden;
+}
+.chia_reviewwrite::before {
+	// content: url('../image/circledot/hugecircle.svg');
+	position: absolute;
+	left: -4%;
+	top: 10%;
+}
+.chia_reviewwrite::after {
+	// content: url('../image/circledot/bigsizecircle.svg');
+	position: absolute;
+	right: -25%;
+	bottom: 35%;
+}
+.bread {
+	/* border: solid 1px var(--word-color); */
+	height: 100px;
+	position: relative;
+}
+.breadbox {
+	position: absolute;
+	bottom: 0;
+	left: 72px;
+	font-size: 19px;
+}
+.breadbox a {
+	color: var(--word-color);
+}
+.nest {
+	margin-left: 21px;
+	margin-right: 21px;
+}
+
+/* content body */
+.contentbox {
+	margin-top: 48px;
+	margin-bottom: 204px;
+}
+.contentborder-r {
+	width: 816px;
+	height: 600px;
+	border: var(--word-color) 1px solid;
+	position: relative;
+}
+.contentborder-l {
+	width: 816px;
+	height: 600px;
+	border: var(--word-color) 1px solid;
+	position: absolute;
+	top: -15px;
+	left: 15px;
+	padding-top: 47px;
+}
+form {
+	width: 29%;
+}
+.form-group {
+	font-size: var(--content--);
+	font-weight: 700;
+}
+.e-review {
+	position: absolute;
+}
+.form-box {
+	width: 548px;
+	height: 500px;
+	/* border: var(--word-color) 1px solid; */
+}
+.e-titile-i {
+	width: 540px;
+}
+.category {
+	width: 240px;
+	height: 36px;
+	border: solid 1px var(--word-color);
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	overflow: hidden;
+}
+.categorysolar,
+.categoryranking {
+	width: 55px;
+	height: 36px;
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	text-align: center;
+	line-height: 2;
+	border: none;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	font-size: var(--content--);
+}
+.solarselect,
+.rankingselect {
+	width: 188px;
+	height: 36px;
+	font-size: var(--content--);
+}
+select {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	// background: url(./image/select-btn.png) no-repeat 100%;
+	text-align-last: center;
+	padding-right: 29px;
+	border: none;
+}
+
+select::-ms-expand {
+	display: none;
+}
+textarea {
+	margin-top: 20px;
+}
+.reviewtbtn {
+	width: 100px;
+	height: 60px;
+	background-color: var(--word-color);
+	color: var(--word-color-sub);
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	text-align: center;
+	margin-top: 24px;
+}
+.chia_reviewarea {
+	margin-top: 1rem;
+}
+.scrollable-element {
+	scrollbar-color: var(--top10-bgc-op);
+}
+/*width*/
+.solarselect::-webkit-scrollbar {
+	width: 15px;
+}
+
+/* Track */
+.solarselect::-webkit-scrollbar-track {
+	background: var(--top10-bgc-op);
+}
+
+/*Handle*/
+.solarselect::-webkit-scrollbar-thumb {
+	background: var(--word-color);
+	border: 3px solid transparent;
+	background-clip: content-box;
+}

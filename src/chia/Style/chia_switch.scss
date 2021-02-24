@@ -1,0 +1,76 @@
+.chia_toptenswitch {
+	display: flex;
+	flex-direction: column;
+	width: 48px;
+	height: 40px;
+}
+
+.chia_switchlabel {
+	display: flex;
+	justify-content: space-around;
+	font-size: var(--scontent--);
+	font-weight: 700;
+}
+
+.chia_switch {
+	position: relative;
+	display: inline-block;
+	width: 35px;
+	height: 10px;
+}
+
+.chia_switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.chia_slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 1px;
+	background-color: #1c1b1b;
+	/*word-color*/
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.chia_slider:before {
+	position: absolute;
+	content: "";
+	top: -1px;
+	height: 11px;
+	width: 11px;
+	left: 1px;
+	bottom: 0;
+	background-color: #e83015;
+	/*--main-color*/
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .chia_slider {
+	background-color: #1c1b1b;
+}
+
+input:focus + .chia_slider {
+	box-shadow: 0 0 1px#1c1b1b;
+}
+
+input:checked + .chia_slider:before {
+	-webkit-transform: translateX(22px);
+	-ms-transform: translateX(22px);
+	transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.chia_slider.round {
+	border-radius: 34px;
+}
+
+.chia_slider.round:before {
+	border-radius: 50%;
+}

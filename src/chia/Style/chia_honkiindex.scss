@@ -1,0 +1,83 @@
+.chia_hero-image {
+	height: 1080px;
+	background: url('../image/Hero_1.jpg') no-repeat;
+	/*gif 檔回來前暫時圖*/
+	background-size: contain;
+	margin: 0;
+	padding: 0;
+}
+.chia_logo {
+	width: 72px;
+	height: 55px;
+}
+.container-fluid {
+	height: 100%;
+	position: relative;
+}
+.chia_heroword {
+	/* height: 800px; */
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	right: 3%;
+	top: 35%;
+}
+.chia_solar-box {
+	position: relative;
+}
+.chia_solar_term {
+	font-size: var(--h2--);
+	font-weight: 700;
+}
+.chia_solar_term span {
+	background-color: var(--word-color-sub);
+}
+.chia_solar_term_1 {
+	font-size: var(--h2--);
+	position: absolute;
+	right: 0;
+	top: -1rem;
+}
+.chia_solar_term_2 {
+	background-color: var(--word-color-sub);
+}
+.chia_solar_term_3,
+.chia_solar_term_4 {
+	font-size: var(--h6--);
+	background-color: var(--word-color-sub);
+	position: absolute;
+	right: 0;
+	letter-spacing: 8px;
+	font-weight: 700;
+}
+.chia_solar_term_4 {
+	margin-top: 1rem;
+}
+
+.chia_satler {
+	color: var(--main-color);
+}
+.arrowbtn {
+	width: 30px;
+	height: 71px;
+	background-color: var(--word-color);
+}
+.chia_index_button {
+	border: 1px solid var(--word-color-sub);
+	font-size: 24px;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	bottom: 5%;
+	left: 47.5%;
+	text-align: center;
+	padding: 1.5%;
+	transition: 1.5s;
+}
+.chia_index_button:hover {
+	transform: scale(1.2);
+}
+.chia_index_enter {
+	color: var(--word-color-sub);
+	line-height: 1.5;
+}
