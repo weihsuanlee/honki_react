@@ -96,6 +96,27 @@ function OldSeasons(props) {
     // console.log(solarTermClicked)
   }
 
+  // 把日期轉換成 YYYY-MM-DD 格式
+  function formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear()
+
+    if (month.length < 2) month = '0' + month
+    if (day.length < 2) day = '0' + day
+
+    return [year, month, day].join('-')
+  }
+
+  console.log(formatDate('Sun May 11,2014'))
+
+  // 把日期轉為 Unix Timestamp 來比較大小
+  console.log(
+    new Date(formatDate('Sun May 11,2014')).getTime() >
+      new Date('2020-01-01').getTime()
+  )
+
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
 
   return (
