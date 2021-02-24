@@ -1,6 +1,7 @@
 import '../styles/members-register.scss'
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
+import moment from 'moment'
 
 function Register(props) {
   const [inputs, setInputs] = useState({
@@ -38,8 +39,8 @@ function Register(props) {
     //開啟開始觸發檢查的旗標
     setStartToChecked(true)
 
-    //檢查帳號
     const newErrors = []
+    //檢查帳號
     if (inputs.name.trim().length < 1) {
       newErrors.push('name')
     }
@@ -56,17 +57,28 @@ function Register(props) {
       newErrors.push('password')
     }
 
+    //檢查日期格式
+    const DATE_FORMAT = 'YYYY-MM-DD'
+    const checkDate = moment(inputs.birthday, DATE_FORMAT).format(DATE_FORMAT)
+    if (checkDate !== inputs.birthday) {
+      newErrors.push('birthday')
+    }
+
     //檢查手機格式
     const mobile = /09\d{2}-?\d{3}-?\d{3}/
     if (!mobile.test(inputs.mobile)) {
       newErrors.push('mobile')
     }
 
+    //兩次密碼輸入不一樣
     if (inputs.password !== inputs.password2) {
       newErrors.push('passworddifference')
     }
 
     setErrors(newErrors)
+    if (newErrors === []) {
+      register()
+    }
   }
 
   // 切換合法不合法的css與提示字詞
@@ -242,11 +254,21 @@ function Register(props) {
                 </label>
                 <input
                   type="date"
-                  className={`formInput col-4 form-control`}
+                  className={`formInput col-4 form-control ${fieldValidCSS(
+                    'birthday'
+                  )} `}
                   id="inputBirthday"
                   name="birthday"
-                  onChange={onChangeForField('birthday')}
+                  onChange={(e) => {
+                    onChangeForField('birthday')(e)
+                    console.log(e.target.value)
+                  }}
                 />
+                {/* 提示語 */}
+                {/* <div class="valid-feedback">生日格式ok</div> */}
+                <div className="invalid-feedback yu-login-invalid-feedback-birthday">
+                  生日格式有誤
+                </div>
               </div>
             </div>
 
@@ -298,9 +320,6 @@ function Register(props) {
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
                 <div className="invalid-feedback yu-register-invalid-feedback">
-                  密碼長度為6-24位數
-                </div>
-                <div className="invalid-feedback yu-register-invalid-feedback">
                   密碼不一樣哦
                 </div>
               </div>
@@ -329,15 +348,6 @@ function Register(props) {
                     className="btn-md-dark form-button form-control"
                     onClick={() => {
                       handleSubmit()
-                      register(
-                        inputs.name,
-                        inputs.nickname,
-                        inputs.email,
-                        inputs.mobile,
-                        inputs.address,
-                        inputs.birthday,
-                        inputs.password
-                      )
                     }}
                   >
                     送出
