@@ -97,6 +97,8 @@ function OldSeasons(props) {
   }
 
   // 把日期轉換成 YYYY-MM-DD 格式
+  // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
+  //
   function formatDate(date) {
     var d = new Date(date),
       month = '' + (d.getMonth() + 1),
