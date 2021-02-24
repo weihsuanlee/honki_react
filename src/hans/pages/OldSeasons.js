@@ -6,6 +6,7 @@ import OldSeasonBookCard from '../components/OldSeasonBookCard'
 import SolarTermPlate from '../components/SolarTermPlate'
 import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
+import SolarTermToShow from '../components/SolarTermToShow'
 
 // import style
 import '../styles/old-seasons.scss'
@@ -91,8 +92,8 @@ function OldSeasons(props) {
 
     setSolarTermClicked(!solarTermClicked)
 
-    console.log('clicked!')
-    console.log(solarTermClicked)
+    // console.log('clicked!')
+    // console.log(solarTermClicked)
   }
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
@@ -112,8 +113,8 @@ function OldSeasons(props) {
             </div>
             <div className="row solar-term-plate-filler"></div>
             <br />
-            <div className={displayTitle}>
-              <OldSeasonPageTitle />
+            <div className={'red-center-text ' + redCenterText}>
+              <SolarTermToShow solarTermToShow={solarTermToShow} />
             </div>
             <div className={displaySolarTermInfo}>
               <SelectedSolarTermInfo
@@ -122,12 +123,9 @@ function OldSeasons(props) {
                 solarTermDesc={solarTermDesc}
               />
             </div>
-            目前的節氣：{currentSolarTerm}
-            <br />
-            {/* 目標節氣書本： {targetSolarTerm} */}
-            <br />
-            節氣：{solarTermToShow}
-            <br />
+            <div className={displayTitle}>
+              <OldSeasonPageTitle />
+            </div>
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">

@@ -145,7 +145,7 @@ function SendIWantChange(props) {
                   </label>
                   <div class="col-7">
                     <div class="form-check form-check-inline radio-item">
-                      <p>無塗改</p>
+                      <p>{written_or_not}</p>
                     </div>
                   </div>
                 </div>

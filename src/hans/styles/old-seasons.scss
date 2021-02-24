@@ -66,8 +66,16 @@
 
 .old-season-container {
   // height: 900px;
-  margin-bottom: 135px;
+  // margin-bottom: 135px;
   overflow-x: hidden;
+}
+
+.red-center-text {
+  text-align: center;
+  font-size: 83px;
+  font-weight: 500;
+
+  transform: translate(0, -160px);
 }
 
 /* media 變化 start */

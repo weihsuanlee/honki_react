@@ -1,9 +1,9 @@
 import '../styles/yen-check.scss'
-import SvgCircle from '../components/svg/SvgCircle'
-import SvgYellowBug from '../components/svg/SvgYellowBug'
-import SvgArrowRight from '../components/svg/SvgArrowRight'
-import SvgPencil from '../components/svg/SvgPencil'
-import SvgCheckFormArrow from '../components/svg/SvgCheckFormArrow'
+import SvgCircle from './svg/SvgCircle'
+import SvgYellowBug from './svg/SvgYellowBug'
+import SvgArrowRight from './svg/SvgArrowRight'
+import SvgPencil from './svg/SvgPencil'
+import SvgCheckFormArrow from './svg/SvgCheckFormArrow'
 
 function ActCheckSignUp() {
   return (
