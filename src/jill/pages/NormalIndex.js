@@ -178,7 +178,13 @@ function NormalIndex() {
                     <li>鄭瑪莉</li>
                   </ul>
                   <Link to="./IWantChange">
-                    <button className="btn-md-dark jill-card-btn-status2">
+                    {/* 先不要按 */}
+                    <button
+                      // onClick={() => {
+                      //   props.history.push('/activity/event/' + value.act_sid)
+                      // }}
+                      className="btn-md-dark jill-card-btn-status2"
+                    >
                       查看
                     </button>
                   </Link>
