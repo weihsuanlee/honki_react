@@ -1,146 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import moment from 'moment'
-import $ from 'jquery'
+// import moment from 'moment'
+// import $ from 'jquery'
 
 import '../styles/yen-allsignup.scss'
 // import SvgCircle from './svg/SvgCircle'
 import SvgYellowBug from './svg/SvgYellowBug'
 import SvgArrowRight from './svg/SvgArrowRight'
+import ActCalendar from './ActCalendar'
 
-function ActEvent() {
+function ActEvent(props) {
   const [orderLists, setOrderLists] = useState([])
-  // $('#calendar').fullCalendar()
 
   return (
     <>
       <div className="yen-signup-showbox">
         <div className="yen-signup-showbox-bg">
-          <div className="yen-signup-moon-box">
-            <div className="yen-signup-moon">
-              <div className="yen-signup-moon-month"></div>
-              <div className="yen-signup-moon-text">
-                三<br />月
-              </div>
-              <div className="yen-yellow-bug">
-                <SvgYellowBug />
-              </div>
-            </div>
-          </div>
-
-          <div className="yen-signup-calendar-box">
-            <div id="calender" className="yen-signup-calendar-day-box">
-              <div className="yen-signup-calendar-day">
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">1</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">2</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">3</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">4</span>
-                </div>
-                <div className="yen-signup-calendar-date yen-signup-date-bg2">
-                  <span className="yen-signup-calendar-text">5</span>
-                  <div className="yen-signup-date">已報名</div>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">6</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">7</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">8</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">9</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">10</span>
-                </div>
-              </div>
-              <div className="yen-signup-calendar-day">
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">11</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">12</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">13</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">14</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">15</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">16</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">17</span>
-                </div>
-                <div className="yen-signup-calendar-date yen-signup-date-bg1">
-                  <span className="yen-signup-calendar-text">18</span>
-                  <div className="yen-signup-date">已報名</div>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">19</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">20</span>
-                </div>
-              </div>
-              <div className="yen-signup-calendar-day">
-                <div className="yen-signup-calendar-date yen-signup-calendar-slide">
-                  <span className="yen-signup-calendar-text">21</span>
-                  <span className="yen-signup-calendar-dete-l">31</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">22</span>
-                </div>
-                <div className="yen-signup-calendar-date yen-signup-date-bg1">
-                  <span className="yen-signup-calendar-text">23</span>
-                  <div className="yen-signup-date">已報名</div>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">24</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">25</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">26</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">27</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">28</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">29</span>
-                </div>
-                <div className="yen-signup-calendar-date">
-                  <span className="yen-signup-calendar-text">30</span>
-                </div>
-              </div>
-            </div>
-            <div className="yen-signup-arrow-box">
-              <div className="yen-signup-arrow-right">
-                <SvgArrowRight />
-              </div>
-              <div className="yen-signup-arrow-left">
-                <SvgArrowRight />
-              </div>
-            </div>
-          </div>
-
+          <ActCalendar />
           <div className="yen-signup-list">
             <div className="yen-signup-select-box">
               <div className="yen-signup-act-img">

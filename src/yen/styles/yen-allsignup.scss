@@ -112,9 +112,14 @@
   border-radius: 5px;
 }
 
+.yen-calendar {
+  width: 100%;
+  height: 49%;
+}
+
 .yen-signup-moon-box {
   width: 100%;
-  height: 15%;
+  height: 32%;
   padding-top: 4%;
   /* background: #afa; */
   animation: fadein 2s ease-in;
@@ -163,8 +168,9 @@
 
 .yen-signup-calendar-box {
   width: 100%;
-  height: 30%;
-  /* background-color: #ffc; */
+  height: 50%;
+  // background-color: #ffc;
+  margin-top: 12%;
   position: relative;
   animation: fadein 2s ease-in;
 }
@@ -178,22 +184,26 @@
   padding-top: 11%;
   position: relative;
   z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .yen-signup-calendar-day {
-  width: 100%;
-  height: 32%;
+  width: 90%;
+  height: 28%;
+  margin: 0 5%;
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 
 .yen-signup-calendar-date {
   width: 9.5%;
-  height: 75%;
+  height: 80%;
   border: 1px solid #000;
-  margin: 0 0.5%;
+  margin: 0.5% 0.5% 0.5% 1.05%;
   cursor: pointer;
-  /* padding: 1% 0 0 6.7%; */
+  padding: 0.5% 0 0 6.7%;
 }
 
 .yen-signup-date-bg1 {
@@ -235,13 +245,12 @@
 }
 
 .yen-signup-arrow-box {
-  width: 95%;
-  height: 100%;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 53%;
-  left: 2.5%;
+  top: 44%;
+  left: 1%;
   z-index: 0;
 }
 
