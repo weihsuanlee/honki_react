@@ -1,9 +1,11 @@
-import '../styles/yen-allsignup.scss'
-import SvgCircle from '../components/svg/SvgCircle'
-import SvgYellowBug from '../components/svg/SvgYellowBug'
-import SvgArrowRight from '../components/svg/SvgArrowRight'
+import '../styles/yen-check.scss'
+import SvgCircle from './svg/SvgCircle'
+import SvgYellowBug from './svg/SvgYellowBug'
+import SvgArrowRight from './svg/SvgArrowRight'
+import SvgPencil from './svg/SvgPencil'
+import SvgCheckFormArrow from './svg/SvgCheckFormArrow'
 
-function ActEvent() {
+function ActCheckSignUp() {
   return (
     <>
       <div className="yen-signup-header">
@@ -17,6 +19,9 @@ function ActEvent() {
             </li>
             <li className="active" aria-current="page">
               參與活動
+            </li>
+            <li className="active" aria-current="page">
+              報名單號：202101010012345
             </li>
           </ol>
         </nav>
@@ -192,63 +197,147 @@ function ActEvent() {
                 </div>
               </div>
 
-              <div className="yen-signup-list">
-                <div className="yen-signup-select-box">
-                  <div className="yen-signup-act-img">
-                    <img
-                      src="http://localhost:3000/images/yen/hot/hot-2-w.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="yen-signup-act-des">
-                    <div className="yen-signup-num">
-                      報名單號：202101010012345
+              <div className="yen-check-list">
+                <div className="yen-signup-check-box">
+                  <div className="yen-signup-check-bg">
+                    <div className="yen-signup-check-num">
+                      <h5>報名單號：202101010012345</h5>
+                      <div className="yen-signup-check-pencil">
+                        <SvgPencil />
+                      </div>
                     </div>
-                    <div className="yen-signup-sub">
-                      天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                    </div>
-                    <div className="yen-signup-time">
-                      活動時間：2021年01月24日 14:00 ~ 15:30
-                    </div>
-                    <div className="yen-signup-location">
-                      活動地點：台北市中正區重慶南路二段51號B1
-                      （信誼好好生活廣場）
-                    </div>
-                    <div className="yen-signup-btn">
-                      <button className="btn-md-dark yen-signup-check">
-                        <i className="fas fa-edit"></i>
-                        &ensp;查看報名
-                      </button>
-                      <button className="btn-md-dark yen-signup-cancel">
-                        <i className="fas fa-heart-broken"></i>
-                        &ensp;取消報名
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="yen-signup-select-li">
-                  <div className="yen-signup-select-li-box">
-                    <div className="yen-signup-num">
-                      報名單號：202101010012345
-                    </div>
-                    <div className="yen-signup-sub">
-                      天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                    </div>
-                    <div className="yen-signup-time yen-signup-time-pt">
-                      活動時間：2021年01月24日 14:00 ~ 15:30
-                    </div>
-                  </div>
-                </div>
-                <div className="yen-signup-select-li">
-                  <div className="yen-signup-select-li-box">
-                    <div className="yen-signup-num">
-                      報名單號：202101010012345
-                    </div>
-                    <div className="yen-signup-sub">
-                      天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
-                    </div>
-                    <div className="yen-signup-time yen-signup-time-pt">
-                      活動時間：2021年01月24日 14:00 ~ 15:30
+                    <div className="yen-signup-check-form">
+                      <div className="yen-check-form-list">
+                        <div className="yen-check-form-title">
+                          <span>活動名稱</span>
+                          <div className="yen-check-form-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>
+                            天地人學堂：如何獨立出版自己的書？獨立出版社實戰入門班：從出版流程、申請ISBN書號、編輯排版、封面設計、印書到鋪貨實戰課
+                          </span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>活動時間</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>2021年01月24日 14:00 ~ 15:30</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>費用</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>200元</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>姓名</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>王小明</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>連絡電話</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>0912-345-678</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>電子信箱</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>abc123@gmail.com</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>出生年月日</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>2000年01月01日</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>身分證字號</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>A123456789</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>性別</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>男</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>飲食習慣</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>葷</span>
+                        </div>
+                      </div>
+                      <div className="yen-check-form-list-box">
+                        <div className="yen-check-form-li-title">
+                          <span>身體狀況</span>
+                          <div className="yen-check-form-li-arrow">
+                            <SvgCheckFormArrow />
+                          </div>
+                        </div>
+                        <div className="yen-check-form-title-des">
+                          <span>無特殊疾病</span>
+                        </div>
+                      </div>
+                      <div className="yen-back-btn">
+                        <button className="btn-rounded-dark">回上頁</button>
+                      </div>
+                      <div className="yen-check-cancel-btn">
+                        <button className="btn-rounded-light yen-check-cancel-btn-bg ">
+                          取消報名
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -261,4 +350,4 @@ function ActEvent() {
   )
 }
 
-export default ActEvent
+export default ActCheckSignUp
