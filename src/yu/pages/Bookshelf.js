@@ -15,12 +15,23 @@ function Bookshelf() {
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
 
+  const [name, setName] = useState('')
+
   useEffect(() => {
     setCurFace(localStorage.getItem('curFace') || 0)
     setCurHair(localStorage.getItem('curHair') || 0)
     setCurCloth(localStorage.getItem('curCloth') || 0)
     setCurAcc(localStorage.getItem('curAcc') || 0)
     setCurTerms(localStorage.getItem('curTerms') || 0)
+
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+    }
   }, [])
 
   return (
@@ -40,12 +51,7 @@ function Bookshelf() {
       </nav>
       {/* <!-- 紅圓點 --> */}
       <div className="yu-book-redpoint"></div>
-      <div className="yu-book-question">
-        <p>?</p>
-      </div>
-      <div className="yu-book-buyitnow">
-        <Link to="/product">馬上購買</Link>
-      </div>
+
       {/* <!-- <div className="yu-wood"><img src="../../images/members/wood.png" alt="" /></div> --> */}
 
       {/* <!-- 標題 --> */}
@@ -54,12 +60,21 @@ function Bookshelf() {
           <Col className="yu-book-general-bookshelf col-8 ">
             {/* <!-- 每本書的設定 --> */}
             {/* <!-- book1 --> */}
-            <div className="yu-books yu-book-1 text-center animate__animated animate__slideInUp">
+            <div>
+              <div className="yu-book-question">
+                <p>?</p>
+              </div>
+              <div className="yu-book-buyitnow">
+                <Link to="/product">馬上購買</Link>
+              </div>
+            </div>
+
+            <div className="yu-books yu-book-1 text-center">
               <span className="yu-dots">•</span>
               <p>立春</p>
             </div>
             {/* <!-- book2 --> */}
-            <div className="yu-books yu-book-2 text-center animate__animated animate__slideInUp">
+            <div className="yu-books yu-book-2 text-center">
               <span className="yu-dots">•</span>
               <p>雨水</p>
             </div>
@@ -209,7 +224,7 @@ function Bookshelf() {
               {/* <!-- 會員等級 --> */}
               <div className="yu-book-member-info d-flex justify-content-center mt-3">
                 <div className="yu-book-general-member mr-3">一般會員</div>
-                <div className="yu-general-member-name">name</div>
+                <div className="yu-book-general-member-name">{name}</div>
               </div>
             </div>
             <div className="yu-new-book text-center">

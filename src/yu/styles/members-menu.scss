@@ -80,8 +80,8 @@
 
 .yu-menu-general {
   position: absolute;
-  right: 10%;
-  top: 24%;
+  right: 12%;
+  top: 23%;
 }
 
 .yu-menu-general-member {
@@ -94,7 +94,20 @@
 }
 
 .yu-menu-greeting {
-  margin-left: 0;
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+
+.yu-menu-member-name {
+  background-color: rgb(209, 193, 181);
+  color: var(--honki-theme);
+  border-radius: 4px;
+  text-align: center;
+  padding: 0 5px 0 5px;
+}
+
+.yu-menu-member-welcome {
+  margin: 10px 0 10px 0;
 }
 
 /* 表單背景色 */

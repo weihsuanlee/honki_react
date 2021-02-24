@@ -27,12 +27,25 @@ function Menu() {
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
 
+  const [name, setName] = useState('')
+
   useEffect(() => {
     setCurFace(localStorage.getItem('curFace') || 0)
     setCurHair(localStorage.getItem('curHair') || 0)
     setCurCloth(localStorage.getItem('curCloth') || 0)
     setCurAcc(localStorage.getItem('curAcc') || 0)
     setCurTerms(localStorage.getItem('curTerms') || 0)
+  }, [])
+
+  useEffect(() => {
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+    }
   }, [])
 
   return (
@@ -83,7 +96,14 @@ function Menu() {
             {/* <!-- 會員等級 --> */}
             <div className="yu-menu-general-member">一般會員</div>
             {/* <!-- 歡迎詞 --> */}
-            <div className="yu-menu-greeting">哈囉，歡迎回來</div>
+            <div className="yu-menu-greeting">
+              <span>哈囉，</span>
+              <span className="yu-menu-member-name">{name}</span>
+              <br />
+              <div className="yu-menu-member-welcome">
+                <span>歡迎回來</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
