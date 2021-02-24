@@ -10,7 +10,7 @@ import SvgArrowRight from './svg/SvgArrowRight'
 
 function ActEvent() {
   const [orderLists, setOrderLists] = useState([])
-  $('#calendar').fullCalendar()
+  // $('#calendar').fullCalendar()
 
   return (
     <>
