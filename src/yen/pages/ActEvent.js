@@ -3,14 +3,12 @@ import React, { useState, useEffect } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import moment from 'moment'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import 'react-tabs/style/react-tabs.css'
 
 // 引用/分頁
 import '../styles/yen-event.scss'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import SvgCricket from '../components/svg/SvgCricket'
 import SvgSignUpLadybug from '../components/svg/SvgSignUpLadybug'
-import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 
 function ActEvent(props) {
   moment.locale('zh-tw', {
