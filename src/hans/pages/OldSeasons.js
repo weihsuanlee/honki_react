@@ -40,8 +40,10 @@ function OldSeasons(props) {
     getDataFromServer(currentSolarTerm)
   }, [])
 
-  // 和伺服器要資料
+  // let searchParams = new URLSearchParams(props.location.search)
+  // let url = props.match.url
 
+  // 和伺服器要資料
   const solarTermId = Array.from(Array(24).keys())
 
   // 產生要列出的節氣選書，寫法可能要再調整一下

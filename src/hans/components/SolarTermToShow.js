@@ -6,7 +6,7 @@ function SolarTermToShow(props) {
 
   return (
     <>
-      <span className="white-bg">{solarTermToShow}</span>
+      <span className="hans-st-name-bg">{solarTermToShow}</span>
     </>
   )
 }
