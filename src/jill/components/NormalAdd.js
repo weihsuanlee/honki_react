@@ -13,6 +13,8 @@ function NormalAdd(props) {
   const [BC_pic1, setBC_pic1] = useState('')
   const [book_condition, setBook_condition] = useState('5成新')
   const [written_or_not, setWritten_or_not] = useState('')
+  // 抓登入者localstorage的userid
+  const userId = localStorage.getItem('userId')
 
   //preloading file
   const [preloading, setPreloading] = useState(false)
@@ -60,10 +62,11 @@ function NormalAdd(props) {
     }, 500)
   }
 
+  // 真正的新增上傳功能
   const handleSubmit = async (e) => {
     e.preventDefault()
     const formdata = new FormData(e.target)
-    formdata.append('c_sid', 123)
+    formdata.append('userId', userId)
 
     const url = 'http://localhost:3333/normal-index/picture-upload'
 
@@ -80,7 +83,13 @@ function NormalAdd(props) {
     // getMember(props.member.sid);
     console.log(formdata)
 
-    addUserToSever()
+    // addUserToSever()
+    //直接在一段x秒關掉指示器
+    setTimeout(() => {
+      setDataLoading(false)
+      alert('儲存完成')
+      props.history.push('/NormalIndex')
+    }, 500)
   }
 
   const handleFileChange = (event) => {

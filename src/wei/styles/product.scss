@@ -254,7 +254,9 @@ ol.wei-breadcrumb {
   right: 3%;
   opacity: 1;
 }
-
+.wei-heart.wei-coral {
+  color: coral;
+}
 .wei-book-pic img {
   height: 168px;
   object-fit: contain;
@@ -943,4 +945,26 @@ ol.wei-breadcrumb {
   .slick-next {
     right: -32px;
   }
+}
+// favorite list
+.wei-card-list-favorite:hover {
+  .wei-card-list-pic {
+    background: none;
+  }
+  .wei-card-list-pic img {
+    transform: scale(1.1);
+  }
+}
+.wei-card-list-favorite .wei-card-list-pic {
+  background: white;
+}
+.wei-delete-btn {
+  background: #faf5e9;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.wei-link:hover {
+  color: white;
 }

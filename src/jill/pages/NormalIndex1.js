@@ -18,7 +18,6 @@ function NormalIndex() {
   const [memberData, setMemberData] = useState([])
   // 撈我的交換單(編號15)
   const [mybook_rows, setMybook_rows] = useState([])
-  const [mybook_rows1, setMybook_rows1] = useState([])
   // 測試useEffect
   // const [myrows, setMyrows] = useState([])
 
@@ -60,7 +59,6 @@ function NormalIndex() {
     // }
 
     setMybook_rows(data.mybook_rows[0])
-    setMybook_rows1(data.mybook_rows[1])
 
     console.log(data)
     // 3秒後關閉指示器
@@ -119,7 +117,145 @@ function NormalIndex() {
         <div className="jill-mylist-area">
           <div className="jill-myNchange-area">
             <h4 className="jill-myNchange-title">我的交換單</h4>
-            <MyChangeBooks myrows={mybook_rows} myrows1={mybook_rows1} />
+
+            <MyChangeBooks myrows={mybook_rows} />
+
+            {/* 我的交換單右邊區塊 */}
+            <div className="jill-mystatus">
+              {/* 我想跟別人換 */}
+              <h5> 我想跟別人換</h5>
+              <div className="jill-IwantChangeList d-flex">
+                <div className="slider-aria d-flex">
+                  <div className="slider jill-Iwant-slider-L">
+                    <Link to="#">
+                      <FaChevronLeft className="fas fa-chevron-left" />
+                    </Link>
+                  </div>
+                  <div className="slider jill-Iwant-slider-R">
+                    <Link to="#">
+                      <FaChevronRight className="fas fa-chevron-right" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="jill-mycard d-flex">
+                  <img
+                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                    alt=""
+                  />
+                  <ul>
+                    <div className="jill-underline"></div>
+                    <li>9789869507776</li>
+                    <div className="jill-underline"></div>
+                    <li>外科醫生</li>
+                    <div className="jill-underline"></div>
+                    <li>5成新</li>
+                    <div className="jill-underline"></div>
+                    <li>無塗改</li>
+                    <div className="jill-underline"></div>
+                    <li>鄭瑪莉</li>
+                  </ul>
+                  <Link to="./IWantChange">
+                    <button className="btn-md-dark jill-card-btn-status">
+                      查看
+                    </button>
+                  </Link>
+                </div>
+                <div className="jill-mycard d-flex">
+                  <img
+                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                    alt=""
+                  />
+                  <ul>
+                    <div className="jill-underline"></div>
+                    <li>9789869507776</li>
+                    <div className="jill-underline"></div>
+                    <li>外科醫生</li>
+                    <div className="jill-underline"></div>
+                    <li>5成新</li>
+                    <div className="jill-underline"></div>
+                    <li>無塗改</li>
+                    <div className="jill-underline"></div>
+                    <li>鄭瑪莉</li>
+                  </ul>
+                  <Link to="./IWantChange">
+                    {/* 先不要按 */}
+                    <button
+                      // onClick={() => {
+                      //   props.history.push('/activity/event/' + value.act_sid)
+                      // }}
+                      className="btn-md-dark jill-card-btn-status2"
+                    >
+                      查看
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              {/* 別人想跟我換 */}
+              <h5 className="jill-PeoplewantChange-title"> 別人想跟我換</h5>
+              <div className="jill-PeoplewantChangeList  d-flex">
+                <div className="slider-aria d-flex">
+                  <div className="slider jill-Peoplewant-slider-L">
+                    <Link to="#">
+                      <FaChevronLeft className="fas fa-chevron-left" />
+                    </Link>
+                  </div>
+                  <div className="slider jill-Peoplewant-slider-R">
+                    <Link to="#">
+                      <FaChevronRight className="fas fa-chevron-right" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="jill-mycard d-flex">
+                  <img
+                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                    alt=""
+                  />
+                  <ul>
+                    <div className="jill-underline"></div>
+                    <li>9789869507776</li>
+                    <div className="jill-underline"></div>
+                    <li>
+                      外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生
+                    </li>
+                    <div className="jill-underline"></div>
+                    <li>5成新</li>
+                    <div className="jill-underline"></div>
+                    <li>無塗改</li>
+                    <div className="jill-underline"></div>
+                    <li>鄭瑪莉</li>
+                  </ul>
+                  <Link to="./PeopleWantChange">
+                    <button className="btn-md-dark jill-card-btn-status3">
+                      查看
+                    </button>
+                  </Link>
+                </div>
+
+                <div className="jill-mycard d-flex">
+                  <img
+                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                    alt=""
+                  />
+                  <ul>
+                    <div className="jill-underline"></div>
+                    <li>9789869507776</li>
+                    <div className="jill-underline"></div>
+                    <li>外科醫生</li>
+                    <div className="jill-underline"></div>
+                    <li>5成新</li>
+                    <div className="jill-underline"></div>
+                    <li>無塗改</li>
+                    <div className="jill-underline"></div>
+                    <li>鄭瑪莉</li>
+                  </ul>
+                  <Link to="./PeopleWantChange">
+                    <button className="btn-md-dark jill-card-btn-status4">
+                      查看
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
