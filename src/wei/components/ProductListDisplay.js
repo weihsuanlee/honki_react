@@ -1,8 +1,99 @@
 import { FaHeart, FaStar } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 function ProductListDisplay(props) {
   const { books } = props
+  const [favoritesList, setFavoritesList] = useState([])
+  const userId = localStorage.getItem('userId')
+  useEffect(() => {
+    fetchFavoriteList()
+  }, [])
+
+  const fetchFavoriteList = async () => {
+    const url = 'http://localhost:3333/product/favorite/favoriteList'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        userId: userId,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    if (data.success) {
+      let favs = []
+      data.rows.map((favorite, index) => {
+        return favs.push(favorite.sid)
+      })
+      setFavoritesList(favs)
+      console.log(favs)
+      // console.log(data, 'get favorite list')
+    } else {
+      alert('Failed to get favorite list')
+    }
+  }
+  const onClickFavorite = (bookId) => {
+    // 如果會員沒登入就按收藏 先掰
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+    }
+
+    if (favoritesList.indexOf(bookId) > -1) {
+      // 已經是愛心
+      const removeFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/removeFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          fetchFavoriteList()
+          console.log(data, 'remove from Favorite')
+        } else {
+          alert('Failed to remove from Favorite')
+        }
+      }
+      removeFavorite()
+    } else {
+      // 如果不是愛心
+      const addFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/addFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          fetchFavoriteList()
+          console.log(data, 'Add to Favorite')
+        } else {
+          alert('Failed to add to Favorite')
+        }
+      }
+      addFavorite()
+    }
+  }
   return (
     <>
       {books.map((v, i) => (
@@ -16,21 +107,27 @@ function ProductListDisplay(props) {
           >
             {v.tag}
           </div>
-          <div
-            className="wei-card-list-pic d-flex my-auto"
-            onClick={() => {
-              props.history.push('/products/' + v.sid)
-            }}
-          >
+          <div className="wei-card-list-pic d-flex my-auto">
             <div className="wei-list-book-pic my-auto mx-auto">
               <img
                 className="w-100"
                 src={`http://localhost:3000/images/books/` + v.book_pics}
                 alt=""
+                onClick={() => {
+                  props.history.push('/products/' + v.sid)
+                }}
               />
             </div>
             <div className="wei-list-heart-bg">
-              <FaHeart className="fas fa-heart wei-list-heart" />
+              <FaHeart
+                className={
+                  `wei-list-heart ` +
+                  (favoritesList.indexOf(v.sid) > -1 ? 'wei-coral' : '')
+                }
+                onClick={() => {
+                  onClickFavorite(v.sid)
+                }}
+              />
             </div>
           </div>
           <div className="wei-card-list-text">

@@ -207,9 +207,7 @@ ol.wei-breadcrumb {
     flex-direction: column;
     margin-top: 0;
   }
-  .wei-button-group .btn-rounded-dark {
-    // margin-right: 12px;
-  }
+
 }
 @media (max-width: 430px) {
   .wei-button-group .btn-rounded-dark {
@@ -514,6 +512,9 @@ ol.wei-breadcrumb {
   font-size: 14px;
   color: grey;
   cursor: pointer;
+}
+.wei-list-heart.wei-coral {
+  color: coral;
 }
 /* skeleton */
 .wei-skeleton {

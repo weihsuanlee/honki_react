@@ -1,5 +1,5 @@
 import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { FaShare, FaTwitterSquare, FaCopy, FaCheckCircle } from 'react-icons/fa'
 
 function SharePop(props) {
@@ -15,7 +15,10 @@ function SharePop(props) {
       <Popover.Content style={{ fontSize: '24px' }}>
         <div
           onClick={() => {
-            window.location.href = `https://twitter.com/intent/tweet?url=http://localhost:3000/products/${productDetail.sid}%0A&hashtags=HONKI,本気&text=Check%20out%20this%20book!📗📕📘%0A%27${productDetail.title}%27%0A推薦這本書👍👍%0A%0A`
+            window.open(
+              `https://twitter.com/intent/tweet?url=http://localhost:3000/products/${productDetail.sid}%0A&hashtags=HONKI,本気&text=Check%20out%20this%20book!📗📕📘%0A%27${productDetail.title}%27%0A推薦這本書👍👍%0A%0A`,
+              '_blank'
+            )
           }}
           style={{ cursor: 'pointer' }}
         >

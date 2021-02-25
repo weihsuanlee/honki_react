@@ -2,6 +2,7 @@ import '../styles/product.scss'
 import { useEffect, useState } from 'react'
 import { FaTimesCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 function FavoriteList(props) {
   const [favorites, setFavorites] = useState([])
@@ -132,4 +133,4 @@ function FavoriteList(props) {
   return <>{favorites.length > 0 ? renderCards : noResults}</>
 }
 
-export default FavoriteList
+export default withRouter(FavoriteList)
