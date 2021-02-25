@@ -1,14 +1,73 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FaHeart, FaStar } from 'react-icons/fa'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import { withRouter } from 'react-router-dom'
 
 function ProductHistoryCarousel(props) {
-  const { productHistory } = props
-  // const { productHistory, getProductDetail } = props
+  const { productHistory, favorites, fetchFavoriteList } = props
+  const userId = localStorage.getItem('userId')
 
+  const onClickFavorite = (bookId) => {
+    // 如果會員沒登入就按收藏 先掰
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+      return
+    }
+
+    if (favorites.indexOf(bookId) > -1) {
+      // 已經是愛心
+      const removeFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/removeFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          fetchFavoriteList()
+          console.log(data, 'remove from Favorite')
+        } else {
+          alert('Failed to remove from Favorite')
+        }
+      }
+      removeFavorite()
+    } else {
+      // 如果不是愛心
+      const addFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/addFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: bookId,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          fetchFavoriteList()
+          console.log(data, 'Add to Favorite')
+        } else {
+          alert('Failed to add to Favorite')
+        }
+      }
+      addFavorite()
+    }
+  }
   const settings = {
     arrows: true,
     dots: false,
@@ -45,13 +104,7 @@ function ProductHistoryCarousel(props) {
     <>
       <Slider {...settings}>
         {productHistory.map((v, i) => (
-          <div
-            className="wei-card position-relative wei-slick"
-            key={i}
-            onClick={() => {
-              props.history.push('/products/' + v.sid)
-            }}
-          >
+          <div className="wei-card position-relative wei-slick" key={i}>
             <div
               className={
                 `wei-card-icon ` +
@@ -62,7 +115,12 @@ function ProductHistoryCarousel(props) {
               {v.tag}
             </div>
             <div className="wei-card-pic position-relative">
-              <div className="wei-book-pic">
+              <div
+                className="wei-book-pic"
+                onClick={() => {
+                  props.history.push('/products/' + v.sid)
+                }}
+              >
                 <img
                   className="w-100"
                   src={`http://localhost:3000/images/books/` + v.book_pics}
@@ -70,7 +128,15 @@ function ProductHistoryCarousel(props) {
                 />
               </div>
               <div className="wei-heart-bg">
-                <FaHeart className="wei-heart" />
+                <FaHeart
+                  className={
+                    `wei-heart ` +
+                    (favorites.indexOf(v.sid) > -1 ? 'wei-coral' : '')
+                  }
+                  onClick={() => {
+                    onClickFavorite(v.sid)
+                  }}
+                />
               </div>
             </div>
             <div className="wei-book-text">
