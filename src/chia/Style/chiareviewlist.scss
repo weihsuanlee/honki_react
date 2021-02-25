@@ -22,19 +22,19 @@
 }
 
 /* review section*/
-.reviewsection {
+.chia_reviewsection {
 	height: 910px;
 	background: url('../image/bg-paper.svg') repeat;
 	position: relative;
 }
-.reviewsection:before {
+.chia_reviewsection:before {
 	// content: url('./image/circledot/circleedit.svg');
 	position: absolute;
 	left: 38%;
 	top: 1%;
 }
 
-.reviewtitle {
+.chia_reviewtitle {
 	position: relative;
 }
 
@@ -51,19 +51,19 @@
 .chia_write:hover {
 	color: var(--word-color);
 }
-.reviewheader {
+.chia_reviewheader {
 	font-size: 24px;
 	font-weight: 700;
-	margin: 36px auto;
+	margin: 72px auto;
 }
 
 /*review search*/
-.reviewsearchsection {
+.chia_reviewsearchsection {
 	/* border: 1px solid var(--word-color); */
 	height: 515px;
 	width: 325px;
 }
-.botan {
+.chia_botan {
 	width: 215px;
 	height: 40px;
 	background-color: var(--word-color);
@@ -73,7 +73,7 @@
 	align-items: center;
 	margin-bottom: 16px;
 }
-.botannobgc {
+.chia_botannobgc {
 	width: 215px;
 	height: 40px;
 	color: var(--word-color);
@@ -85,7 +85,7 @@
 	font-size: var(--content--);
 	font-weight: 700;
 }
-.search {
+.chia_search {
 	width: 215px;
 	height: 40px;
 	border: 1px solid var(--word-color);
@@ -96,26 +96,26 @@
 	color: var(--word-color-sub);
 	overflow: hidden;
 }
-.searchbox {
+.chia_searchbox {
 	font-size: var(--content--);
 	font-weight: 700;
 }
-.searchbody,
-.searchmemberid {
+.chia_searchbody,
+.chia_searchmemberid {
 	width: 163px;
 	height: 40px;
 	border-radius: 0px;
 	border: none;
 }
-.searchbody :focus {
+.chia_searchbody :focus {
 	border: none;
 }
-.solarbar {
+.chia_solarbar {
 	/* width: 215px; */
 	margin-bottom: 16px;
 	position: relative;
 }
-.searchbtn {
+.chia_searchbtn {
 	font-size: 24px;
 	width: 52px;
 	height: 40px;
@@ -123,7 +123,7 @@
 	color: var(--word-color-sub);
 	border: none;
 }
-.memberidbtn {
+.chia_memberidbtn {
 	font-size: 16px;
 	width: 52px;
 	height: 40px;
@@ -131,10 +131,10 @@
 	color: var(--word-color-sub);
 	border: none;
 }
-.solarbar {
+.chia_solarbar {
 	margin-bottom: 16px;
 }
-.solarname {
+.chia_solarname {
 	width: 163px;
 	height: 40px;
 	border: solid 1px var(--word-color);
@@ -145,26 +145,26 @@
 	font-size: var(--content--);
 	font-weight: 700;
 }
-.solarmargin {
+.chia_solarmargin {
 	margin-bottom: 0;
 }
 
-.try {
+.chia_try {
 	height: 200px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
 /* review body*/
-.reviewbody {
+.chia_reviewbody {
 	width: 100%;
 	height: 70%;
 	/* border: solid 1px var(--word-color); */
 }
-table {
-	width: 55%;
-}
-thead {
+// .chia_table {
+// 	width: 55%;
+// }
+.chia_reviewtablehead {
 	background-color: var(--word-color);
 	color: var(--word-color-sub);
 	margin-bottom: 16px;
@@ -172,21 +172,22 @@ thead {
 	border-bottom: 1px solid var(--word-color) !important;
 	font-size: var(--content--);
 }
-tbody::before {
+.chia_reviewtablebody::before {
 	content: "-";
 	display: block;
 	line-height: 1em;
 	color: transparent;
 }
 
-.reviewtd {
+.chia_reviewtd {
 	border: 1px solid var(--word-color);
 	border-top: 1px solid var(--word-color) !important;
 	height: 60px;
 	font-size: var(--content--);
 }
-.reviewtd p {
-	margin-top: .4rem;
+.chia_reviewtd p {
+	// margin-top: .4rem;
+	margin-bottom: 0;
 }
 // .chia_title {
 // 	width: 380px;
@@ -197,8 +198,9 @@ tbody::before {
 // }
 .chia_content a {
 	color: var(--word-color);
+	margin: 0;
 }
-.reviewtd .content {
+.chia_reviewtd .content {
 	margin-bottom: 0;
 }
 

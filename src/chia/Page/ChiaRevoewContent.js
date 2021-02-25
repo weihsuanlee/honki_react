@@ -99,7 +99,7 @@ function ChiaReviewContent(props) {
         </div>
 
         <div classname="container">
-          <div className="chia_contentbox d-flex justify-content-center">
+          <div className="chia_contentbox_c d-flex justify-content-center">
             <div className="chia_contentborder-r  d-flex justify-content-center align-items-center">
               <div className="chia_contentborder-l d-flex justify-content-center">
                 <div className="chia_contentheader">

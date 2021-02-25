@@ -14,17 +14,17 @@ function Chiareviewlist() {
       <Switch>
         <Route path="/reviews/content/:sid?" component={ReviewContent} />
         <Route path="/reviews/edit" component={ReviewWrite} />
-        <div className="reviewsection">
+        <div className="chia_reviewsection">
           <div className="container ">
-            <div className="reviewtitle row">
-              <div className="reviewheader">讀者感言</div>
+            <div className="chia_reviewtitle row">
+              <div className="chia_reviewheader">讀者感言</div>
               <div className="chia_writereview">
                 <Link to="/reviews/edit" className="chia_write">
                   撰寫留言
                 </Link>
               </div>
             </div>
-            <div className="reviewmainsection d-flex row">
+            <div className="chia_reviewmainsection d-flex row">
               <Reviewlistbody path="/reviews/content" />
             </div>
           </div>

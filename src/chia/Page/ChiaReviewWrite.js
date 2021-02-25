@@ -77,7 +77,7 @@ function ChiaReviewWrite() {
   const selectbar = (
     <>
       {solarterm.map((v, i) => (
-        <option className="chia_solarselect" value={v}>
+        <option className="chia_solarselect" value={v} key={i}>
           {v}
         </option>
       ))}
@@ -104,16 +104,16 @@ function ChiaReviewWrite() {
         </div>
 
         <div class="container">
-          <div class="contentbox d-flex justify-content-center">
-            <div class="contentborder-r  d-flex justify-content-center align-items-center">
+          <div class="chia_contentbox d-flex justify-content-center">
+            <div class="chia_contentborder-r  d-flex justify-content-center align-items-center">
               <form
                 action=""
-                className="contentborder-l d-flex justify-content-center chia_form"
+                className="chia_contentborder-l d-flex justify-content-center chia_form"
                 method="javascript:"
               >
                 <div class="form-box d-flex flex-column">
                   <div class="form-group .e-m">
-                    <label for="" class="member">
+                    <label for="" className="chia_member">
                       會員名稱
                     </label>
                     <br />
@@ -125,8 +125,8 @@ function ChiaReviewWrite() {
                       }}
                     />
                   </div>
-                  <div class="form-group .e-m">
-                    <label for="" class="e-title">
+                  <div className="form-group .e-m">
+                    <label for="" className="chia_e-title">
                       標題
                     </label>
                     <br />
@@ -139,16 +139,24 @@ function ChiaReviewWrite() {
                       }}
                     />
                   </div>
-                  <div className="selectionbar d-flex justify-content-between">
-                    <div className="category d-flex">
-                      <label className="categorysolar">節氣</label>
-                      <select name="" id="" className="solarselect ">
+                  <div className="chia_selectionbar d-flex justify-content-between">
+                    <div className="chia_category d-flex">
+                      <label className="chia_categorysolar">節氣</label>
+                      <select
+                        name=""
+                        id=""
+                        className="chia_solarselect chia_select"
+                      >
                         {selectbar}
                       </select>
                     </div>
-                    <div className="category d-flex">
-                      <label className="categoryranking">評分</label>
-                      <select name="" id="" className="rankingselect">
+                    <div className="chia_category d-flex">
+                      <label className="chia_categoryranking">評分</label>
+                      <select
+                        name=""
+                        id=""
+                        className="chia_rankingselect chia_select"
+                      >
                         <option className="chiaranking" value="5">
                           5&#9733;
                         </option>
@@ -179,7 +187,7 @@ function ChiaReviewWrite() {
                     }}
                   ></textarea>
                   <button
-                    class="reviewtbtn mx-auto"
+                    className="chia_reviewtbtn mx-auto"
                     onClick={() => {
                       addReview()
                     }}
