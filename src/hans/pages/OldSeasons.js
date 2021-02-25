@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withRouter, NavLink } from 'react-router-dom'
 
 // import components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -91,7 +92,7 @@ function OldSeasons(props) {
     // )
 
     let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-      stId - e > 0 ? stId - e : stId - e + 24
+      stId - e > 0 ? stId - e : stId - e + 23
     )
     // console.log(solarTermsToList)
 
@@ -130,13 +131,13 @@ function OldSeasons(props) {
       method: 'get',
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     setSolarTermData(data)
-    console.log(data['solar_term_list'])
-    console.log(data['solar_term_list'][e])
+    // console.log(data['solar_term_list'])
+    // console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
-    setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
+    // setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
     setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
 
     console.log(solarTermId)
@@ -149,19 +150,20 @@ function OldSeasons(props) {
     return data
   }
 
-  function handlePlateToggle() {
-    // 設定圓盤狀態
+  function handlePlateToggle(id) {
+    setSolarTermToShow(solarTermData['solar_term_list'][id]['solar_term'])
+    setSolarTermDesc(solarTermData['solar_term_list'][id]['st_desc'])
+    let stImg = solarTermData['solar_term_list'][id]['st_img']
 
+    // 設定圓盤狀態
     setRedCenterImg(
       solarTermClicked
         ? [
-            'http://localhost:3000/images/hans/solar-terms-circle/' +
-              solarTermImgToShow,
+            'http://localhost:3000/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeIn',
           ]
         : [
-            'http://localhost:3000/images/hans/solar-terms-circle/' +
-              solarTermImgToShow,
+            'http://localhost:3000/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeOut',
           ]
     )
@@ -227,18 +229,19 @@ function OldSeasons(props) {
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片 */}
 
-              <OldSeasonBookCard
+              {/* <OldSeasonBookCard
                 targetSolarTerm={targetSolarTerm}
                 solarTermToShowList={solarTermToShowList}
                 handlePlateToggle={handlePlateToggle}
                 getSolarTermsToList={getSolarTermsToList}
-              />
+              /> */}
 
-              {/* <OldSeasonBookCardList
+              <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
                 getSolarTermsToList={getSolarTermsToList}
+                solarTermData={solarTermData}
                 solarTermToShowList={solarTermToShowList}
-              /> */}
+              />
             </div>
           </div>
         </div>
@@ -247,4 +250,4 @@ function OldSeasons(props) {
   )
 }
 
-export default OldSeasons
+export default withRouter(OldSeasons)
