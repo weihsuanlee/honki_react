@@ -29,6 +29,9 @@ function Login() {
         'Content-Type': 'application/json',
       }),
     })
+
+    //等伺服器response再走下一步
+    //從json剖析回js的data
     const response = await fetch(request)
     const data = await response.json()
     console.log(data)
