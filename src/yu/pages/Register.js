@@ -70,7 +70,7 @@ function Register(props) {
       newErrors.push('mobile')
     }
 
-    //兩次密碼輸入不一樣
+    //檢查兩次密碼輸入不一樣
     if (inputs.password !== inputs.password2) {
       newErrors.push('passworddifference')
     }
