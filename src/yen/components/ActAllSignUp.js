@@ -144,7 +144,7 @@ function ActAllSignUp(props) {
 
   function checkDetailBtnClick() {
     checkDetail ? setCheckDetail(false) : setCheckDetail(true)
-    setBackToOrder(true)
+    setBackToOrder(false)
     console.log('checkDetail 1', checkDetail)
     console.log('backToOrder 1', backToOrder)
   }
@@ -371,7 +371,7 @@ function ActAllSignUp(props) {
           </div>
           <div
             className="yen-check-list"
-            style={{ display: backToOrder === true ? 'block' : 'none' }}
+            style={{ display: backToOrder === false ? 'block' : 'none' }}
           >
             {orderDetailCard}
           </div>
