@@ -5,7 +5,7 @@ import OldSeasonBookCard from '../components/OldSeasonBookCard'
 function OldSeasonBookCardList(props) {
   const { handlePlateToggle, getSolarTermsToList, solarTermsToShowList } = props
 
-  console.log(solarTermsToShowList)
+  console.log('test', solarTermsToShowList)
 
   return (
     <>

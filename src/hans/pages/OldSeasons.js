@@ -7,6 +7,7 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 import SolarTermToShow from '../components/SolarTermToShow'
 import OldSeasonBookCardList from '../components/OldSeasonBookCardList'
+import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 // import style
 import '../styles/old-seasons.scss'
@@ -46,14 +47,16 @@ function OldSeasons(props) {
     console.log(initialSolarTermID)
 
     let solarTermsToList = getSolarTermsToList(initialSolarTermID)
-    console.log(solarTermsToList)
-    setSolarTermToShowList(solarTermsToList)
 
     getDataFromServer(initialSolarTermID)
+
+    // console.log(solarTermToShowList)
+    // console.log(solarTermImgs)
   }, [])
 
   // 用月份列表來估算節氣的區間
   const solarTermId2 = Array.from(Array(12).keys()).map((e) => e * 2)
+  const solarTermId = Array.from(Array(24).keys())
 
   // let currentDate = formatDate(new Date())
   let currentSolarTerm = '2020-12-25'
@@ -127,12 +130,19 @@ function OldSeasons(props) {
     const data = await response.json()
     console.log(data)
     setSolarTermData(data)
+    console.log(data['solar_term_list'])
     console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
     console.log(solarTermImgToShow)
-    setSolarTermImgs()
+    setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
+
+    setSolarTermImgs(
+      solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
+    )
+    console.log(solarTermImgs)
+    console.log(solarTermImgs[1])
 
     return data
   }
@@ -214,6 +224,13 @@ function OldSeasons(props) {
             <div className="osb-book-col-grad"></div>
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片 */}
+
+              <OldSeasonBookCard
+                // solarTermOfThisCard={e}
+                handlePlateToggle={handlePlateToggle}
+                getSolarTermsToList={getSolarTermsToList}
+              />
+
               {/* <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
                 getSolarTermsToList={getSolarTermsToList}
