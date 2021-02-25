@@ -49,7 +49,6 @@ function FavoriteList(props) {
     } else {
       alert('Failed to get favorite list')
     }
-    fetchFavoriteList()
   }
   const removeFavorite = async (bookId, userId) => {
     const url = 'http://localhost:3333/product/favorite/removeFavorite'

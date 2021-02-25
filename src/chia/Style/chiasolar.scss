@@ -1,0 +1,76 @@
+.pastsolar {
+	height: 1200px;
+	position: relative;
+	background: url('../image/bg-paper.svg') repeat;
+	overflow: hidden;
+}
+.pastsolar::before {
+	// content: url('./image/circledot/circleedit.svg');
+	position: absolute;
+	left: 39%;
+}
+.pastslheader {
+	font-size: var(--h6--);
+	font-weight: 700;
+	margin: 36px auto;
+}
+.one {
+	width: 170px;
+	height: 185px;
+	/* border: var(--word-color) 1px solid; */
+	margin: 16px 16px;
+	// animation-name: bunnyshaking;
+	// animation-duration: 5s;
+	// animation-iteration-count: infinite;
+}
+// .one:hover {
+// 	transform: scale(1.1);
+// }
+
+// @keyframes bunnyshaking {
+// 	25% {
+// 		transform: rotate(15deg);
+// 	}
+// 	50% {
+// 		transform: rotate(-15deg);
+// 	}
+// 	75% {
+// 		transform: rotate(15deg);
+// 	}
+// 	100% {
+// 		transform: rotate(-15deg);
+// 	}
+// }
+.oneimg {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	transition: .5s;
+	// box-shadow: 0px 2px 5px var(--word-color);
+}
+.oneimg img {
+	width: 100%;
+	height: 100%;
+}
+// .one:hover .oneimg {
+// 	transform: scale(.9);
+// 	box-shadow: 0px 0px 0px transparent;
+// 	// border: 1px solid var(--word-color);
+// }
+// .one:hover img {
+// 	transform: scale(1.1);
+// }
+.one:hover .oneimg {
+	box-shadow: 0px 2px 5px var(--word-color);
+	transform: scale(1.1);
+	// border: 1px solid var(--word-color);
+}
+.one:hover img {
+	transform: scale(1.1);
+}
+.oneword {
+	font-weight: 700;
+	margin-top: 13px;
+	color: var(--word-color);
+}

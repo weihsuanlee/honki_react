@@ -22,7 +22,7 @@ function IndexAllEvent(props) {
     setQueryClass,
   } = props
 
-  // TODO: page沒有連動到篩選更改
+  // 篩選按鈕
   function classButtonClick(changeClass) {
     console.log('class', changeClass)
     setQueryClass(changeClass)
