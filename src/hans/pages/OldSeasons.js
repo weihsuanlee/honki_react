@@ -25,24 +25,43 @@ function OldSeasons(props) {
     'd-flex justify-content-center  fadeOut'
   )
 
-  // 處理轉盤大小
+  // 處理轉盤大小與轉盤中心圖片變化
   const [solarPlateSize, setSolarPlateSize] = useState(
     'solar-term-plate-v2 rotate'
   )
   const [redCenterSize, setRedCenterSize] = useState('red-center')
   const [redCenterText, setRedCenterText] = useState('fadeOut')
-  const [redCenterBgImg, setRedCenterBgImg] = useState('')
+  const [redCenterImg, setRedCenterImg] = useState([])
 
   const [solarTermClicked, setSolarTermClicked] = useState(true)
 
   // 模擬componentDidMount
   useEffect(() => {
-    getDataFromServer(currentSolarTerm)
+    let dateNow = currentStDate()
+    console.log(
+      'Month: ',
+      dateNow.getMonth() + 1,
+      '\n',
+      'Day: ',
+      dateNow.getDate()
+    )
+
+    let initialSolarTermID =
+      solarTermId2[dateNow.getMonth()] + (dateNow.getDate() > 15 ? 1 : -1)
+    console.log(initialSolarTermID)
+
+    getDataFromServer(initialSolarTermID)
   }, [])
 
-  // 和伺服器要資料
+  // 確認目前的時間與節氣
+  const solarTermId2 = Array.from(Array(12).keys()).map((e) => e * 2)
 
-  const solarTermId = Array.from(Array(24).keys())
+  const solarTermIdAll = Array.from(Array(24).keys())
+  // let currentDate = formatDate(new Date())
+  let currentSolarTerm = 3 - 1
+  const currentStDate = () => new Date()
+
+  // 和伺服器要資料
 
   // 產生要列出的節氣選書，寫法可能要再調整一下
   const getSolarTermsToList = (firstOnList) => {
@@ -61,7 +80,7 @@ function OldSeasons(props) {
   // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
   //
   function formatDate(date) {
-    var d = new Date(date),
+    let d = new Date(date),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
       year = d.getFullYear()
@@ -82,12 +101,6 @@ function OldSeasons(props) {
   )
   */
 
-  // let currentDate = formatDate(new Date())
-  let currentSolarTerm = 3 - 1
-  let currentStDate = '2021-03-05'
-
-  // console.log(currentStDate)
-
   const getDataFromServer = async (e) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
@@ -99,9 +112,9 @@ function OldSeasons(props) {
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
 
-    // console.log(solarTermId)
+    console.log(solarTermId2)
     setSolarTermImgs(
-      solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
+      solarTermIdAll.map((e) => data['solar_term_list'][e]['st_img'])
     )
     console.log(solarTermImgs)
     console.log(solarTermImgs[1])
@@ -114,9 +127,18 @@ function OldSeasons(props) {
   function handlePlateToggle() {
     // 設定圓盤狀態
 
-    setRedCenterBgImg(
-      'http://localhost:3000/images/hans/solar-terms-circle/' +
-        solarTermImgToShow
+    setRedCenterImg(
+      solarTermClicked
+        ? [
+            'http://localhost:3000/images/hans/solar-terms-circle/' +
+              solarTermImgToShow,
+            'img-full fadeIn',
+          ]
+        : [
+            'http://localhost:3000/images/hans/solar-terms-circle/' +
+              solarTermImgToShow,
+            'img-full fadeOut',
+          ]
     )
 
     setSolarPlateSize(
@@ -153,7 +175,7 @@ function OldSeasons(props) {
             <SolarTermPlate
               solarPlateSize={solarPlateSize}
               redCenterSize={redCenterSize}
-              redCenterBgImg={redCenterBgImg}
+              redCenterImg={redCenterImg}
             />
             <div className={'hans-bread-crumb ' + checkBreadCrumShow}>
               <MultiLevelBreadCrumb />

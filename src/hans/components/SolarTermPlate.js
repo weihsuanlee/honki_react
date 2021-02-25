@@ -5,12 +5,7 @@ import '../styles/solar-term-plate.scss'
 import '../styles/old-seasons.scss'
 
 function SolarTermPlate(props) {
-  const {
-    solarTermToShow,
-    solarPlateSize,
-    redCenterSize,
-    redCenterBgImg,
-  } = props
+  const { solarTermToShow, solarPlateSize, redCenterSize, redCenterImg } = props
 
   // 取得目前的旋轉角度
   // 參考： https://stackoverflow.com/questions/3336101/css3-animation-on-transform-rotate-way-to-fetch-current-deg-of-the-rotating-el
@@ -92,7 +87,7 @@ function SolarTermPlate(props) {
               //   backgroundRepeat: 'no-repeat',
               // }}
             >
-              <img src={redCenterBgImg} alt="" className="img-full fadeIn" />
+              <img src={redCenterImg[0]} alt="" className={redCenterImg[1]} />
             </div>
           </li>
         </ul>
