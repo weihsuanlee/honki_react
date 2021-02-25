@@ -16,8 +16,6 @@ import { SVG_CLOTH } from '../constants'
 import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
 
-// import SvgYellowBug from '../../yen/components/svg/SvgYellowBug'
-// import SvgArrowRight from '../../yen/components/svg/SvgArrowRight'
 import FavoriteList from '../../wei/components/FavoriteList'
 import ActAllSignUp from '../../yen/components/ActAllSignUp'
 
@@ -29,7 +27,7 @@ function Menu(props) {
   const [curTerms, setCurTerms] = useState(0)
 
   // 活動訂單state
-  const [orderLists, setOrderLists] = useState([])
+  // const [orderLists, setOrderLists] = useState([])
 
   const [name, setName] = useState('')
 
@@ -375,10 +373,11 @@ function Menu(props) {
                 eventKey="yu-menu-6"
                 title="參與活動"
               >
-                <ActAllSignUp
+                {/* <ActAllSignUp
                   orderLists={orderLists}
                   setOrderLists={setOrderLists}
-                />
+                /> */}
+                <ActAllSignUp />
               </Tab>
             </Tabs>
           </div>
