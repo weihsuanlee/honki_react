@@ -7,6 +7,7 @@ function OldSeasonBookCard(props) {
   const {
     solarTermToShowList,
     solarTermToShow,
+    solarTermName,
     handlePlateToggle,
     getSolarTermsToList,
   } = props
@@ -32,7 +33,7 @@ function OldSeasonBookCard(props) {
         <div className="book-description">
           {/* <!-- 書名 28 字以內 --> */}
           <div className="book-name">書卡範例：書名（最多 28 字）</div>
-          <div className="book-solar-term-year">節氣{solarTermToShow} 年份</div>
+          <div className="book-solar-term-year">{solarTermName} 年份</div>
         </div>
       </div>
       {/* <!-- book card end --> */}

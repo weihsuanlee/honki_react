@@ -16,6 +16,7 @@ import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
   const [solarTermData, setSolarTermData] = useState({})
+  const [solarTermNameList, setSolarTermNameList] = useState([])
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermToShowList, setSolarTermToShowList] = useState([])
@@ -136,6 +137,11 @@ function OldSeasons(props) {
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
+    setSolarTermNameList(
+      Array.from(Array(24).keys()).map(
+        (e) => data['solar_term_list'][e]['solar_term']
+      )
+    )
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     // setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
     setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
@@ -239,7 +245,7 @@ function OldSeasons(props) {
               <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
                 getSolarTermsToList={getSolarTermsToList}
-                solarTermData={solarTermData}
+                solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
               />
             </div>
