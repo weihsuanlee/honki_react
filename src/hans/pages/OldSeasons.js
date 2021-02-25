@@ -15,7 +15,7 @@ import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
   const [solarTermData, setSolarTermData] = useState({})
-  // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
+  const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermToShowList, setSolarTermToShowList] = useState([])
   const [solarTermDesc, setSolarTermDesc] = useState('')
@@ -45,12 +45,14 @@ function OldSeasons(props) {
 
     let initialSolarTermID = convertSolarTermID(initialDate)
     console.log(initialSolarTermID)
+    setTargetSolarTerm(initialSolarTermID)
+    console.log(targetSolarTerm)
 
-    let solarTermsToList = getSolarTermsToList(initialSolarTermID)
+    // let solarTermsToList = getSolarTermsToList(initialSolarTermID)
+    setSolarTermToShowList(getSolarTermsToList(initialSolarTermID))
 
     getDataFromServer(initialSolarTermID)
 
-    // console.log(solarTermToShowList)
     // console.log(solarTermImgs)
   }, [])
 
@@ -135,14 +137,14 @@ function OldSeasons(props) {
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
-    console.log(solarTermImgToShow)
     setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
 
-    setSolarTermImgs(
-      solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
-    )
-    console.log(solarTermImgs)
-    console.log(solarTermImgs[1])
+    console.log(solarTermId)
+    console.log(solarTermId2)
+
+    let imgArray = solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
+    console.log(imgArray)
+    setSolarTermImgs(imgArray)
 
     return data
   }
@@ -226,7 +228,8 @@ function OldSeasons(props) {
               {/* 過往節氣選書卡片 */}
 
               <OldSeasonBookCard
-                // solarTermOfThisCard={e}
+                targetSolarTerm={targetSolarTerm}
+                solarTermToShowList={solarTermToShowList}
                 handlePlateToggle={handlePlateToggle}
                 getSolarTermsToList={getSolarTermsToList}
               />
