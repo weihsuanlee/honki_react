@@ -35,32 +35,40 @@
   font-size: 14px;
 }
 
-.yu-login-send {
+.yu-register-send {
   color: var(--honki-white);
 }
 
-.yu-login-invalid-feedback-name {
+.yu-register-invalid-feedback-name {
   position: absolute;
   left: 63%;
   top: 21.5%;
   width: 10%;
 }
 
-.yu-login-invalid-feedback-email {
+.yu-register-invalid-feedback-email {
   position: absolute;
   left: 63%;
   top: 34.3%;
   width: 10%;
 }
 
-.yu-login-invalid-feedback-mobile {
+.yu-register-invalid-feedback-mobile {
   position: absolute;
   left: 63%;
   bottom: 56.7%;
   width: 10%;
 }
 
-.yu-login-invalid-feedback-password {
+.yu-register-invalid-feedback-password {
+  position: absolute;
+  left: 63%;
+  bottom: 37.5%;
+  width: 10%;
+  padding-left: -15px;
+}
+
+.yu-register-invalid-feedback-password2 {
   position: absolute;
   left: 63%;
   bottom: 37.5%;

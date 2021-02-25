@@ -1,5 +1,5 @@
 import '../styles/members-register.scss'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment'
 
@@ -76,7 +76,7 @@ function Register(props) {
     }
 
     setErrors(newErrors)
-    if (newErrors === []) {
+    if (newErrors.length === 0) {
       register()
     }
   }
@@ -165,7 +165,7 @@ function Register(props) {
                   required
                 />
                 {/* <div class="valid-feedback"></div> */}
-                <div className="invalid-feedback yu-login-invalid-feedback-name">
+                <div className="invalid-feedback yu-register-invalid-feedback-name">
                   姓名要記得填哦
                 </div>
               </div>
@@ -204,7 +204,7 @@ function Register(props) {
                   required
                 />
                 {/* <div class="valid-feedback">email正確</div> */}
-                <div className="invalid-feedback yu-login-invalid-feedback-email">
+                <div className="invalid-feedback yu-register-invalid-feedback-email">
                   email格式錯囉
                 </div>
               </div>
@@ -226,7 +226,7 @@ function Register(props) {
                   onChange={onChangeForField('mobile')}
                 />
                 {/* <div class="valid-feedback">手機格式正確</div> */}
-                <div className="invalid-feedback yu-login-invalid-feedback-mobile">
+                <div className="invalid-feedback yu-register-invalid-feedback-mobile">
                   手機格式填錯囉
                 </div>
               </div>
@@ -292,7 +292,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div className="invalid-feedback yu-login-invalid-feedback-password">
+                <div className="invalid-feedback yu-register-invalid-feedback-password">
                   密碼長度需為6-24位數
                 </div>
               </div>
@@ -320,7 +320,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback">
+                <div className="invalid-feedback yu-register-invalid-feedback-password2">
                   密碼不一樣哦
                 </div>
               </div>
