@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { withRouter, Link, Switch, Route } from 'react-router-dom'
 import '../Style/chia_reviewcontent.scss'
 import $ from 'jquery'
+import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
+import { FaThumbsUp } from 'react-icons/fa'
 
 import ChiaComment from '../Component/ChiaComment'
 
@@ -47,15 +49,15 @@ function ChiaReviewContent(props) {
     return v.sid === isNum
   })
 
-  newContent.map((v, i) => {
-    console.log(v)
-  })
+  // newContent.map((v, i) => {
+  //   console.log(v)
+  // })
 
   const Content = (
     <>
       {newContent.map((v, i) => (
         <div
-          className="chia_contentbody scrollable-element"
+          className="chia_contentbody chia_scrollable-element"
           key={i}
           onMouseEnter={() => setIsTransform(true)}
         >
@@ -99,12 +101,15 @@ function ChiaReviewContent(props) {
         </div>
 
         <div classname="container">
-          <div className="chia_contentbox d-flex justify-content-center">
+          <div className="chia_contentbox_c d-flex justify-content-center">
             <div className="chia_contentborder-r  d-flex justify-content-center align-items-center">
               <div className="chia_contentborder-l d-flex justify-content-center">
                 <div className="chia_contentheader">
                   {ContentTop}
                   {Content}
+                </div>
+                <div className="chia_thumbup">
+                  <FaThumbsUp />
                 </div>
               </div>
             </div>

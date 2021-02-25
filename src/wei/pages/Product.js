@@ -36,6 +36,8 @@ function Product(props) {
   const [cardList, setCardList] = useState(false)
   // spinner
   const [isLoading, setIsLoading] = useState(true)
+  // 設定navbar搜尋欄 顯示
+  const { navSearchShow, setNavSearchShow } = props
 
   // sorts 排序條件按鈕事件處理
   //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
@@ -72,6 +74,15 @@ function Product(props) {
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
+    setNavSearchShow(false)
+  }, [])
+
+  // 模擬出componentWillUnmount
+  useEffect(() => {
+    return () => {
+      console.log('component will unmount')
+      setNavSearchShow(true)
+    }
   }, [])
 
   // 模擬componentDidUpdate
@@ -98,11 +109,12 @@ function Product(props) {
       // 1.5秒後關閉spinner
       setTimeout(() => {
         setIsLoading(false)
-      }, 1500)
+      }, 1000)
     }
     filterProduct()
+    console.log(props)
     window.scrollBy(0, 0.75 * window.innerHeight)
-  }, [props.location])
+  }, [props.location.pathname, props.location.search])
 
   const getDataFromServer = async () => {
     // 先開啟spinner
@@ -121,7 +133,7 @@ function Product(props) {
     // 2秒後關閉spinner
     setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 1500)
   }
   const categoriesDisplay = (
     <div className="wei-categories">

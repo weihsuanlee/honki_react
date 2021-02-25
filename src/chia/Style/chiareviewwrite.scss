@@ -36,37 +36,37 @@
 	right: -25%;
 	bottom: 35%;
 }
-.bread {
-	/* border: solid 1px var(--word-color); */
-	height: 100px;
-	position: relative;
-}
-.breadbox {
-	position: absolute;
-	bottom: 0;
-	left: 72px;
-	font-size: 19px;
-}
-.breadbox a {
-	color: var(--word-color);
-}
-.nest {
-	margin-left: 21px;
-	margin-right: 21px;
-}
+// .bread {
+// 	/* border: solid 1px var(--word-color); */
+// 	height: 100px;
+// 	position: relative;
+// }
+// .breadbox {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 72px;
+// 	font-size: 19px;
+// }
+// .breadbox a {
+// 	color: var(--word-color);
+// }
+// .nest {
+// 	margin-left: 21px;
+// 	margin-right: 21px;
+// }
 
 /* content body */
-.contentbox {
+.chia_contentbox {
 	margin-top: 48px;
 	margin-bottom: 204px;
 }
-.contentborder-r {
+.chia_contentborder-r {
 	width: 816px;
 	height: 600px;
 	border: var(--word-color) 1px solid;
 	position: relative;
 }
-.contentborder-l {
+.chia_contentborder-l {
 	width: 816px;
 	height: 600px;
 	border: var(--word-color) 1px solid;
@@ -74,26 +74,27 @@
 	top: -15px;
 	left: 15px;
 	padding-top: 47px;
+	padding-bottom: 32px;
 }
 .chia_form {
 	width: 816px;
 }
-.form-group {
+.chia_form_g {
 	font-size: var(--content--);
 	font-weight: 700;
 }
-.e-review {
+.chia_e-review {
 	position: absolute;
 }
-.form-box {
+.chia_form-box {
 	width: 548px;
 	height: 500px;
 	/* border: var(--word-color) 1px solid; */
 }
-.e-titile-i {
+.chia_e-titile-i {
 	width: 540px;
 }
-.category {
+.chia_category {
 	width: 240px;
 	height: 36px;
 	border: solid 1px var(--word-color);
@@ -103,8 +104,8 @@
 	border-bottom-right-radius: 4px;
 	overflow: hidden;
 }
-.categorysolar,
-.categoryranking {
+.chia_categorysolar,
+.chia_categoryranking {
 	width: 55px;
 	height: 36px;
 	background-color: var(--word-color);
@@ -116,13 +117,13 @@
 	border-bottom-left-radius: 4px;
 	font-size: var(--content--);
 }
-.solarselect,
-.rankingselect {
+.chia_solarselect,
+.chia_rankingselect {
 	width: 188px;
 	height: 36px;
 	font-size: var(--content--);
 }
-select {
+.chia_select {
 	appearance: none;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -132,13 +133,14 @@ select {
 	border: none;
 }
 
-select::-ms-expand {
+.chia_select::-ms-expand {
 	display: none;
 }
-textarea {
+.chia_reviewarea {
 	margin-top: 20px;
 }
-.reviewtbtn {
+
+.chia_reviewtbtn {
 	width: 100px;
 	height: 60px;
 	background-color: var(--word-color);
@@ -152,21 +154,21 @@ textarea {
 .chia_reviewarea {
 	margin-top: 1rem;
 }
-.scrollable-element {
+.chia_scrollable-element {
 	scrollbar-color: var(--top10-bgc-op);
 }
 /*width*/
-.solarselect::-webkit-scrollbar {
+.chia_solarselect::-webkit-scrollbar {
 	width: 15px;
 }
 
 /* Track */
-.solarselect::-webkit-scrollbar-track {
+.chia_solarselect::-webkit-scrollbar-track {
 	background: var(--top10-bgc-op);
 }
 
 /*Handle*/
-.solarselect::-webkit-scrollbar-thumb {
+.chia_solarselect::-webkit-scrollbar-thumb {
 	background: var(--word-color);
 	border: 3px solid transparent;
 	background-clip: content-box;

@@ -127,13 +127,16 @@ function ActAllSignUp(props) {
   })
   const userId = localStorage.getItem('userId')
   console.log('userId', userId)
-  const [orderLists, setOrderLists] = useState([])
+  // const [orderLists, setOrderLists] = useState([])
+  const { orderLists, setOrderLists } = props
   const [orderDetail, setOrderDetail] = useState('')
+  // const [allActTime, setAllActTime] = useState([])
 
   function orderDetailButtonClick(orderNumber) {
     console.log('orderNumber', orderNumber)
     setOrderDetail(orderNumber)
     console.log('orderDetail', orderDetail)
+    props.history.push('/menu/eventorder/' + orderDetail)
   }
 
   // 查看訂單
@@ -141,134 +144,134 @@ function ActAllSignUp(props) {
   // 載入會員訂單
   // useEffect(() => {
   //   postOrderDetailFromServer()
-  // const orderDetailCard = (
-  //   <>
-  //     {orderLists.rows &&
-  //       orderLists.rows.map((value, index) => {
-  //         return (
-  //           <div className="yen-check-list">
-  //             <div className="yen-signup-check-box">
-  //               <div className="yen-signup-check-bg">
-  //                 <div className="yen-signup-check-num">
-  //                   <h5>報名單號：{value.order_number}</h5>
-  //                   <div className="yen-signup-check-pencil">
-  //                     <SvgPencil />
+  //   const orderDetailCard = (
+  //     <>
+  //       {orderLists.rows &&
+  //         orderLists.rows.map((value, index) => {
+  //           return (
+  //             <div className="yen-check-list">
+  //               <div className="yen-signup-check-box">
+  //                 <div className="yen-signup-check-bg">
+  //                   <div className="yen-signup-check-num">
+  //                     <h5>報名單號：{value.order_number}</h5>
+  //                     <div className="yen-signup-check-pencil">
+  //                       <SvgPencil />
+  //                     </div>
   //                   </div>
-  //                 </div>
-  //                 <div className="yen-signup-check-form">
-  //                   <div className="yen-check-form-list">
-  //                     <div className="yen-check-form-title">
-  //                       <span>活動名稱</span>
-  //                       <div className="yen-check-form-arrow">
-  //                         <SvgCheckFormArrow />
+  //                   <div className="yen-signup-check-form">
+  //                     <div className="yen-check-form-list">
+  //                       <div className="yen-check-form-title">
+  //                         <span>活動名稱</span>
+  //                         <div className="yen-check-form-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.bookname}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.bookname}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>活動時間</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>活動時間</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{moment(value.act_time).format('lll')}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{moment(value.act_time).format('lll')}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>費用</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>費用</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.price}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.price}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>姓名</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>姓名</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.name}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.name}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>連絡電話</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>連絡電話</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.mobile}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.mobile}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>電子信箱</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>電子信箱</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.email}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.email}</span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>出生年月日</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>出生年月日</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>
+  //                           {moment(value.birthday).format('YYYY-MM-DD')}
+  //                         </span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>
-  //                         {moment(value.birthday).format('YYYY-MM-DD')}
-  //                       </span>
-  //                     </div>
-  //                   </div>
-  //                   <div className="yen-check-form-list-box">
-  //                     <div className="yen-check-form-li-title">
-  //                       <span>性別</span>
-  //                       <div className="yen-check-form-li-arrow">
-  //                         <SvgCheckFormArrow />
+  //                     <div className="yen-check-form-list-box">
+  //                       <div className="yen-check-form-li-title">
+  //                         <span>性別</span>
+  //                         <div className="yen-check-form-li-arrow">
+  //                           <SvgCheckFormArrow />
+  //                         </div>
+  //                       </div>
+  //                       <div className="yen-check-form-title-des">
+  //                         <span>{value.gender}</span>
   //                       </div>
   //                     </div>
-  //                     <div className="yen-check-form-title-des">
-  //                       <span>{value.gender}</span>
+  //                     <div className="yen-back-btn">
+  //                       <button
+  //                         className="btn-rounded-dark"
+  //                         onClick={() => {
+  //                           props.history.goBack()
+  //                         }}
+  //                       >
+  //                         回上頁
+  //                       </button>
   //                     </div>
-  //                   </div>
-  //                   <div className="yen-back-btn">
-  //                     <button
-  //                       className="btn-rounded-dark"
-  //                       onClick={() => {
-  //                         props.history.goBack()
-  //                       }}
-  //                     >
-  //                       回上頁
-  //                     </button>
-  //                   </div>
-  //                   <div className="yen-check-cancel-btn">
-  //                     <button className="btn-rounded-light yen-check-cancel-btn-bg ">
-  //                       取消報名
-  //                     </button>
+  //                     <div className="yen-check-cancel-btn">
+  //                       <button className="btn-rounded-light yen-check-cancel-btn-bg ">
+  //                         取消報名
+  //                       </button>
+  //                     </div>
   //                   </div>
   //                 </div>
   //               </div>
   //             </div>
-  //           </div>
-  //         )
-  //       })}
-  //   </>
-  // )
+  //           )
+  //         })}
+  //     </>
+  //   )
   // }, [orderDetail])
 
   async function postOrderDetailFromServer() {
@@ -301,7 +304,6 @@ function ActAllSignUp(props) {
             'http://localhost:3000/images/yen/event/' +
             value.bookname +
             '/0.jpg'
-
           const orderNumberBtn = value.order_number
           return (
             <div className="yen-signup-select-box" key={index}>
@@ -324,7 +326,7 @@ function ActAllSignUp(props) {
                     className="btn-md-dark yen-signup-check"
                     onClick={() => {
                       orderDetailButtonClick(orderNumberBtn)
-                      console.log('Click', orderNumberBtn)
+                      // console.log('Click', orderNumberBtn)
                     }}
                   >
                     <i className="fas fa-edit"></i>
@@ -350,8 +352,9 @@ function ActAllSignUp(props) {
     <>
       <div className="yen-signup-showbox">
         <div className="yen-signup-showbox-bg">
-          <ActCalendar />
+          <ActCalendar orderLists={orderLists} />
           <div className="yen-signup-list">{orderCard}</div>
+          {/* <div className="yen-check-list">{orderDetailCard}</div> */}
         </div>
       </div>
       {/* <div className="yen-signup-header">

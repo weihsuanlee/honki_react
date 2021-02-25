@@ -17,11 +17,12 @@ import { Accordion, Card, Button, NavDropdown } from 'react-bootstrap'
 import { useEffect, useRef, useState } from 'react'
 import $ from 'jquery'
 
-function Navbar() {
+function Navbar(props) {
   const nav = useRef()
   const notLogin = useRef()
   const [name, setName] = useState('')
   // const logout = useState(0)
+  const { navSearchShow } = props
 
   function logout() {
     localStorage.removeItem('userLogin')
@@ -80,7 +81,7 @@ function Navbar() {
         <div className="container col-12" style={{ padding: '0 16px' }}>
           <Link
             className="navbar-brand"
-            to="/"
+            to="/bookstoreindex"
             style={{ paddingLeft: '8px', paddingRight: '18px' }}
           >
             {/* <!-- LOGO SVG --> */}
@@ -209,51 +210,55 @@ function Navbar() {
             <ul className="navbar-nav">
               <li className="nav-item my-auto" style={{ padding: '0 28px' }}>
                 {/* <!-- 搜尋欄(大)，桌面版 navbar 用 --> */}
-                <div className="search-box">
-                  <form className="d-flex search-bar">
-                    <div className="select-list" id="nav-search-cat-select">
-                      <div className="select-btn selected" value="bookstore">
-                        <div className="select-text">
-                          書城 
-                          <FaCaretDown className="fas fa-caret-down" />
+                {navSearchShow ? (
+                  <div className="search-box">
+                    <form className="d-flex search-bar">
+                      <div className="select-list" id="nav-search-cat-select">
+                        <div className="select-btn selected" value="bookstore">
+                          <div className="select-text">
+                            書城 
+                            <FaCaretDown className="fas fa-caret-down" />
+                          </div>
+                        </div>
+                        <div className="select-box d-none">
+                          <div
+                            className="select-btn used-books"
+                            name="usedBooks"
+                            value="usedBooks"
+                          >
+                            <div className="used-books-text">二手書</div>
+                          </div>
+                          <div
+                            className="select-btn bookstore"
+                            name="bookstore"
+                            value="bookstore"
+                          >
+                            <div className="bookstore-text">書城</div>
+                          </div>
                         </div>
                       </div>
-                      <div className="select-box d-none">
-                        <div
-                          className="select-btn used-books"
-                          name="usedBooks"
-                          value="usedBooks"
-                        >
-                          <div className="used-books-text">二手書</div>
-                        </div>
-                        <div
-                          className="select-btn bookstore"
-                          name="bookstore"
-                          value="bookstore"
-                        >
-                          <div className="bookstore-text">書城</div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <input
-                      className="search-input"
-                      id="search-input"
-                      placeholder="搜尋"
-                    />
-
-                    <button
-                      type="submit"
-                      className="btn btn-dark search-submit"
-                      id="search-submit"
-                    >
-                      <FaSearch
-                        className="fas fa-search"
-                        style={{ transform: 'translateY(-2px)' }}
+                      <input
+                        className="search-input"
+                        id="search-input"
+                        placeholder="搜尋"
                       />
-                    </button>
-                  </form>
-                </div>
+
+                      <button
+                        type="submit"
+                        className="btn btn-dark search-submit"
+                        id="search-submit"
+                      >
+                        <FaSearch
+                          className="fas fa-search"
+                          style={{ transform: 'translateY(-2px)' }}
+                        />
+                      </button>
+                    </form>
+                  </div>
+                ) : (
+                  ''
+                )}
               </li>
               <li className="nav-item honki-nav-link-fa active">
                 <Link
@@ -309,7 +314,7 @@ function Navbar() {
       </nav>
       {/* <!-- 桌機版 navbar  end --> */}
       <nav className="navbar navbar-mobile d-lg-none fixed-top">
-        <Link className="navbar-brand wei-nav-brand" to="/">
+        <Link className="navbar-brand wei-nav-brand" to="/bookstoreindex">
           {/* <!-- LOGO SVG --> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"

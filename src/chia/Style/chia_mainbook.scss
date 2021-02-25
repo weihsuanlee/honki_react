@@ -35,17 +35,18 @@
 	height: 800px;
 	// background-color: #fff;
 	// background-image: url('../image/bg-paper.svg') repeat;
+	position: relative;
 }
 .chia_main_book {
 	cursor: url('../image/decoration/bee.svg') auto;
-	background: url('../image/bg-paper.svg') repeat;
+	background: url('../image/bg-paper.svg') repeat, #fff;
 }
 
-.test_nav {
-	height: 80px;
-	width: 100%;
-	background-color: var(--main-color);
-}
+// .test_nav {
+// 	height: 80px;
+// 	width: 100%;
+// 	background-color: var(--main-color);
+// }
 // .chia_mainbook {
 // 	max-width: 1400px;
 // }
@@ -187,40 +188,56 @@
 	justify-content: center;
 	align-items: center;
 }
-.modal {
-	top: 5rem;
-}
+// .modal {
+// 	top: 5rem;
+// }
 
-.modal-content {
-	position: absolute;
-	top: 30%;
-	// left: 10%;
-	width: 800px !important;
-	height: 70%;
-	background-color: var(--sub-color);
-	border-radius: 4px;
-	padding: 5%;
-}
-.modal-header {
-	display: flex;
-	padding: 2%;
-	justify-content: space-between;
-}
-.modal-body {
-	padding: 2%;
-	display: flex;
-	position: relative;
-}
+// .modal-content {
+// 	position: absolute;
+// 	top: 30%;
+// 	// left: 10%;
+// 	// width: 800px !important;
+// 	height: 70%;
+// 	background-color: var(--sub-color);
+// 	border-radius: 4px;
+// 	padding: 5%;
+// }
+// .modal-header {
+// 	display: flex;
+// 	padding: 2%;
+// 	justify-content: space-between;
+// }
+// .modal-body {
+// 	padding: 2%;
+// 	display: flex;
+// 	position: relative;
+// }
 #chia_modal {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.chia_modal_body {
+	padding: 2%;
+	display: flex;
+	position: relative;
+	background-color: var(--sub-color);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 .chia_modal {
 	display: flex;
 }
 .chia_modal_title {
 	font-size: 24px;
+}
+.chia_modal_header {
+	display: flex;
+	padding: 2%;
+	justify-content: space-between;
 }
 .chia_bookcontent {
 	width: 350px;
@@ -251,7 +268,7 @@
 	border: 1px solid var(--word-color);
 	border-radius: 4px;
 }
-.purchase {
+.chia_purchase {
 	color: var(--word-color);
 }
 // .purchase:hover {
@@ -267,3 +284,5 @@
 .chia_purchasebotton:hover .purchase {
 	color: var(--word-color-sub);
 }
+
+//handmade modal

@@ -4,7 +4,14 @@ import { useState } from 'react'
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
-  const { handlePlateToggle, getSolarTermsToList } = props
+  const {
+    solarTermToShowList,
+    solarTermToShow,
+    handlePlateToggle,
+    getSolarTermsToList,
+  } = props
+
+  // console.log('card', solarTermToShowList)
 
   return (
     <>
@@ -12,8 +19,7 @@ function OldSeasonBookCard(props) {
       <div
         className="book-card"
         onClick={() => {
-          handlePlateToggle()
-          getSolarTermsToList(28)
+          handlePlateToggle(solarTermToShow)
         }}
       >
         <div className="book-base">
@@ -26,7 +32,7 @@ function OldSeasonBookCard(props) {
         <div className="book-description">
           {/* <!-- 書名 28 字以內 --> */}
           <div className="book-name">書卡範例：書名（最多 28 字）</div>
-          <div className="book-solar-term-year">節氣 年份</div>
+          <div className="book-solar-term-year">節氣{solarTermToShow} 年份</div>
         </div>
       </div>
       {/* <!-- book card end --> */}

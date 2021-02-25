@@ -56,7 +56,7 @@ function MultiLevelBreadCrumb(props) {
             <Link to="/">首頁</Link>
           </li>
           {formatText(findPathnameIndex(location.pathname))}
-          {formatText(findPathnameIndex(match.path))}
+          {/* {formatText(findPathnameIndex(match.path))} */}
         </ol>
       </nav>
     </>

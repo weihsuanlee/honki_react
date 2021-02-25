@@ -1,9 +1,11 @@
-.review {
+.chia_review {
 	height: 800px;
 	position: relative;
 	overflow: hidden;
+	background: url('../image/bg-paper.svg'), repeat, #fff;
+	// background-color: #fff;
 }
-.review::before {
+.chia_review::before {
 	// content: url('./image/circledot/circleedit.svg');
 	position: absolute;
 	right: 39%;
@@ -18,7 +20,9 @@
 	// animation-iteration-count: infinite;
 	// animation-timing-function: ease-in;
 }
-
+.chia_reviewtitle {
+	height: 170px;
+}
 // @keyframes circlemove {
 // 	25% {
 // 		transform: skew(-2deg);
@@ -33,7 +37,7 @@
 // 		transform: translateX(-40px);
 // 	}
 // }
-.review::after {
+.chia_review::after {
 	// content: url('./image/circledot/circlerightside.svg');
 	position: absolute;
 	right: -5%;
@@ -48,21 +52,21 @@
 	top: 50%;
 }
 
-.reviewheader {
+.chia_reviewheader {
 	font-size: var(--h6--);
 	font-weight: 700;
 	margin: 36px auto;
 }
-.reviewbox {
+.chia_reviewbox {
 	margin: 14px 50px 100px 50px;
 }
-.reviewborder-b {
+.chia_reviewborder-b {
 	width: 315px;
 	height: 573px;
 	border: solid 2px var(--word-color);
 	position: relative;
 }
-.reviewborder-i {
+.chia_reviewborder-i {
 	width: 315px;
 	height: 573px;
 	border: solid 2px var(--word-color);
@@ -70,23 +74,23 @@
 	top: -15px;
 	right: -15px;
 }
-.reviewtop {
+.chia_reviewtop {
 	width: 315px;
 	height: 350px;
 }
-.reviewimg {
+.chia_reviewimg {
 	height: 272px;
 	width: 204px;
 }
-.reviewimg img {
+.chia_reviewimg img {
 	width: 100%;
 	height: 100%;
 }
-.reviewbottom {
+.chia_reviewbottom {
 	width: 300px;
 	height: 195px;
 }
-.reviewcontent {
+.chia_reviewcontent_box {
 	width: 232px;
 	position: absolute;
 	left: 32px;
@@ -101,14 +105,18 @@
 	font-size: var(--content--);
 }
 
-.strim {
+.chia_strim {
 	width: 100%;
 }
-.reviewlink a {
+.chia_reviewlink a {
 	color: var(--word-color);
 	font-weight: 700;
 }
-.reviewlink {
+.chia_reviewlink:hover a {
+	color: var(--word-color);
+	font-weight: 700;
+}
+.chia_reviewlink {
 	position: absolute;
 	bottom: 52px;
 	right: 34px;

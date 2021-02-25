@@ -1,8 +1,14 @@
 // 套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { useState } from 'react'
 
 // pages
 // import Home from './chia/pages/Home'
+//chia section
+import HonkiIndex from './chia/Page/HonkiIndex'
+import Home from './chia/Page/Mainbook'
+import Review from './chia/Page/Chiareviewlist'
+//
 import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
 import Login from './yu/pages/Login'
@@ -45,17 +51,20 @@ import BackToTop from './components/BackToTop'
 import { IconContext } from 'react-icons'
 
 function App() {
+  const [navSearchShow, setNavSearchShow] = useState(true)
   return (
     <Router>
       <>
         <BackToTop />
-        <Navbar />
+        <Navbar navSearchShow={navSearchShow} />
         <MainContent>
           <ScrollToTop>
             <IconContext.Provider
               value={{ style: { transform: 'translateY(-2px)' } }}
             >
               <Switch>
+                <Route path="/" exact component={HonkiIndex} />
+                <Route path="/bookstoreindex" component={Home} />
                 <Route path="/member">
                   <Login />
                 </Route>
@@ -104,9 +113,9 @@ function App() {
                 <Route path="/old-seasons">
                   <OldSeasons />
                 </Route>
-                {/* <Route path="/reviews">
-                  <Home />
-                </Route> */}
+                <Route path="/reviews">
+                  <Review />
+                </Route>
                 <Route path="/used-books">
                   <UsedBooksIndex />
                 </Route>
@@ -150,7 +159,10 @@ function App() {
                   <ProductDetail />
                 </Route>
                 <Route path="/product/:category?">
-                  <Product />
+                  <Product
+                    navSearchShow={navSearchShow}
+                    setNavSearchShow={setNavSearchShow}
+                  />
                 </Route>
 
                 {/* <Route exact path="/">
