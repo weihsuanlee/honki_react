@@ -18,61 +18,61 @@ import { useEffect, useRef, useState } from 'react'
 import $ from 'jquery'
 
 function Navbar() {
-  // const nav = useRef()
-  // const notLogin = useRef()
-  // const [name, setName] = useState('')
-  // // const logout = useState(0)
+  const nav = useRef()
+  const notLogin = useRef()
+  const [name, setName] = useState('')
+  // const logout = useState(0)
 
-  // function logout() {
-  //   localStorage.removeItem('userLogin')
-  //   localStorage.removeItem('userId')
-  //   window.location.href = '/login'
-  // }
+  function logout() {
+    localStorage.removeItem('userLogin')
+    localStorage.removeItem('userId')
+    window.location.href = '/login'
+  }
 
-  // function member() {
-  //   window.location.href = '/menu'
-  // }
+  function member() {
+    window.location.href = '/menu'
+  }
 
-  // useEffect(() => {
-  //   // 使用jq的動態需要改寫
-  //   $('.nav-burger').on('click', function () {
-  //     $('.wrapper').toggleClass('active')
-  //     $(this).toggleClass('active')
-  //     $(this).siblings().toggleClass('d-none')
-  //     $('body').toggleClass('active')
-  //     $('.menu-close-icon').toggleClass('d-none')
-  //     $('.nav-burger-icon').toggleClass('d-none')
-  //   })
-  //   $('.menu-open a').on('click', function () {
-  //     $('.nav-burger').trigger('click')
-  //   })
-  //   $('.menu-open .btn-link').on('click', function () {
-  //     $(this).toggleClass('active')
-  //     $(this)
-  //       .closest('.card')
-  //       .siblings()
-  //       .find('.btn-link')
-  //       .removeClass('active')
-  //   })
+  useEffect(() => {
+    // 使用jq的動態需要改寫
+    $('.nav-burger').on('click', function () {
+      $('.wrapper').toggleClass('active')
+      $(this).toggleClass('active')
+      $(this).siblings().toggleClass('d-none')
+      $('body').toggleClass('active')
+      $('.menu-close-icon').toggleClass('d-none')
+      $('.nav-burger-icon').toggleClass('d-none')
+    })
+    $('.menu-open a').on('click', function () {
+      $('.nav-burger').trigger('click')
+    })
+    $('.menu-open .btn-link').on('click', function () {
+      $(this).toggleClass('active')
+      $(this)
+        .closest('.card')
+        .siblings()
+        .find('.btn-link')
+        .removeClass('active')
+    })
 
-  //   let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-  //   console.log(userLogin)
-  //   if (userLogin) {
-  //     //已登入
-  //     nav.current.style = 'display:block;'
-  //     notLogin.current.style = 'display:none;'
-  //     setName(userLogin.body.name)
-  //   } else {
-  //     //未登入
-  //     nav.current.style = 'display:none;'
-  //     notLogin.current.style = 'display:block;'
-  //   }
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    console.log(userLogin)
+    if (userLogin) {
+      //已登入
+      nav.current.style = 'display:block;'
+      notLogin.current.style = 'display:none;'
+      setName(userLogin.body.name)
+    } else {
+      //未登入
+      nav.current.style = 'display:none;'
+      notLogin.current.style = 'display:block;'
+    }
 
-  // logout = () => {
-  //   localStorage.removeItem('userLogin')
-  //   window.location.href = '/login'
-  // }
-  // }, [])
+    // logout = () => {
+    //   localStorage.removeItem('userLogin')
+    //   window.location.href = '/login'
+    // }
+  }, [])
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-md navbar-dark honki-nav disable-honki-red-on-992">
@@ -256,7 +256,7 @@ function Navbar() {
               </li>
               <li className="nav-item honki-nav-link-fa active">
                 <Link
-                  // ref={notLogin}
+                  ref={notLogin}
                   id="yu-nav-not-login"
                   className="nav-link zero-padding"
                   to="/member"
@@ -268,16 +268,16 @@ function Navbar() {
                 </Link>
                 <NavDropdown
                   title="已登入"
-                  // ref={nav}
+                  ref={nav}
                   id="nav-dropdown yu-nav-dropdown"
                 >
                   <NavDropdown.Item eventKey="4.1">
-                    {/* {name}，你好 */}
+                    {name}，你好
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     eventKey="4.2"
                     id="yu-member"
-                    // onClick={member}
+                    onClick={member}
                   >
                     會員專區
                   </NavDropdown.Item>
@@ -288,7 +288,7 @@ function Navbar() {
                   <NavDropdown.Item
                     eventKey="4.4"
                     id="yu-logout"
-                    // onClick={logout}
+                    onClick={logout}
                   >
                     登出
                   </NavDropdown.Item>
