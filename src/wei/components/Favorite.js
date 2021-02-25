@@ -42,9 +42,10 @@ function Favorite(props) {
     }
   }
   const onClickFavorite = () => {
-    // if (user.userData && !user.userData.isAuth) {
-    //   return alert('Please Log in first')
-    // }
+    // 如果會員沒登入就按收藏 先掰
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+    }
 
     if (favorited) {
       // 已經是愛心

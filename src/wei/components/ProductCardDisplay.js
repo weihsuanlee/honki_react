@@ -38,9 +38,10 @@ function ProductCardDisplay(props) {
     }
   }
   const onClickFavorite = (bookId) => {
-    // if (user.userData && !user.userData.isAuth) {
-    //   return alert('Please Log in first')
-    // }
+    // 如果會員沒登入就按收藏 先掰
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+    }
 
     if (favorites.indexOf(bookId) > -1) {
       // 已經是愛心

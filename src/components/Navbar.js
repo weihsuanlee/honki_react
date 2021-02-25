@@ -26,6 +26,7 @@ function Navbar() {
   function logout() {
     localStorage.removeItem('userLogin')
     localStorage.removeItem('userId')
+    localStorage.removeItem('recentlyViewed_sid')
     window.location.href = '/login'
   }
 
