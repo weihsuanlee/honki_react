@@ -136,7 +136,7 @@ function ActAllSignUp(props) {
     console.log('orderNumber', orderNumber)
     setOrderDetail(orderNumber)
     console.log('orderDetail', orderDetail)
-    props.history.push('/menu/eventorder/' + orderDetail)
+    // props.history.push('/menu/eventorder/' + orderDetail)
   }
 
   // 查看訂單
