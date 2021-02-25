@@ -144,9 +144,16 @@ function ActAllSignUp(props) {
 
   function checkDetailBtnClick() {
     checkDetail ? setCheckDetail(false) : setCheckDetail(true)
-    backToOrder ? setBackToOrder(true) : setBackToOrder(false)
-    console.log('checkDetail', checkDetail)
-    console.log('backToOrder', backToOrder)
+    setBackToOrder(true)
+    console.log('checkDetail 1', checkDetail)
+    console.log('backToOrder 1', backToOrder)
+  }
+
+  function backToOrderBtnClick() {
+    backToOrder ? setBackToOrder(false) : setBackToOrder(true)
+    setCheckDetail(false)
+    console.log('checkDetail 2', checkDetail)
+    console.log('backToOrder 2', backToOrder)
   }
 
   async function postOrderDetailFromServer() {
@@ -328,7 +335,7 @@ function ActAllSignUp(props) {
                     <button
                       className="btn-rounded-dark"
                       onClick={() => {
-                        checkDetailBtnClick()
+                        backToOrderBtnClick()
                       }}
                     >
                       回上頁
