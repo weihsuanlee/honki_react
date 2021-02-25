@@ -10,7 +10,7 @@ function OldSeasonBookCardList(props) {
     handlePlateToggle,
     getSolarTermsToList,
     solarTermClicked,
-    stClickedId,
+    newTargetToggle,
   } = props
 
   console.log(solarTermToShowList)
@@ -26,7 +26,7 @@ function OldSeasonBookCardList(props) {
             handlePlateToggle={handlePlateToggle}
             getSolarTermsToList={getSolarTermsToList}
             solarTermClicked={solarTermClicked}
-            stClickedId={stClickedId}
+            newTargetToggle={newTargetToggle}
           />
         )
       })}

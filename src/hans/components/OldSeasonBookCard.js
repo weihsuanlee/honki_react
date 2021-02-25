@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import { Component } from 'react'
+// import { Component } from 'react'
 
 // import style
 import '../styles/old-season-book-card.scss'
@@ -9,6 +9,7 @@ function OldSeasonBookCard(props) {
     solarTermToShow,
     solarTermName,
     handlePlateToggle,
+    newTargetToggle,
     // solarTermClicked,
     stClickedId,
   } = props
@@ -21,17 +22,13 @@ function OldSeasonBookCard(props) {
       <div
         className="book-card"
         onClick={() => {
-          handlePlateToggle(solarTermToShow)
-          /*
-          if (stClickedId !== -1 && stClickedId !== solarTermToShow) {
-            setTimeout(() => {
-              handlePlateToggle(stClickedId)
-            }, 3000)
-            handlePlateToggle(solarTermToShow)
+          // handlePlateToggle(solarTermToShow)
+
+          if (stClickedId !== -1 || stClickedId !== solarTermToShow) {
+            newTargetToggle(solarTermToShow)
           } else {
-            handlePlateToggle(solarTermToShow)
+            // handlePlateToggle(solarTermToShow)
           }
-          */
         }}
       >
         <div className="book-base">

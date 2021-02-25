@@ -200,6 +200,28 @@ function OldSeasons(props) {
     // console.log(solarTermClicked)
   }
 
+  function newTargetToggle(id) {
+    // setSolarTermClicked(!solarTermClicked)
+    setTimeout(() => {
+      setSolarPlateSize(
+        solarTermClicked
+          ? 'solar-term-plate-v2-small rotate'
+          : 'solar-term-plate-v2 rotate'
+      )
+      setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
+      setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
+
+      // 設定節氣說明狀態與頁面標題
+      setDisplayTitle(solarTermClicked ? 'fadeOut' : 'fadeIn')
+
+      setSolarTermClicked(!solarTermClicked)
+
+      setSolarTermClicked(!solarTermClicked)
+    }, 3000)
+
+    handlePlateToggle(id)
+  }
+
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
 
   return (
@@ -246,6 +268,7 @@ function OldSeasons(props) {
 
               <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
+                newTargetToggle={newTargetToggle}
                 getSolarTermsToList={getSolarTermsToList}
                 solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
