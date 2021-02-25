@@ -5,15 +5,17 @@
 	background-size: contain;
 	margin: 0;
 	padding: 0;
+
+	position: relative;
 }
 .chia_logo {
 	width: 72px;
 	height: 55px;
 }
-.container-fluid {
-	height: 100%;
-	position: relative;
-}
+// .container-fluid {
+// 	height: 100%;
+// 	position: relative;
+// }
 .chia_heroword {
 	/* height: 800px; */
 	position: absolute;
@@ -57,11 +59,11 @@
 .chia_satler {
 	color: var(--main-color);
 }
-.arrowbtn {
-	width: 30px;
-	height: 71px;
-	background-color: var(--word-color);
-}
+// .arrowbtn {
+// 	width: 30px;
+// 	height: 71px;
+// 	background-color: var(--word-color);
+// }
 .chia_index_button {
 	border: 1px solid var(--word-color-sub);
 	font-size: 24px;

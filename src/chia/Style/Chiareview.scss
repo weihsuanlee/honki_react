@@ -20,7 +20,9 @@
 	// animation-iteration-count: infinite;
 	// animation-timing-function: ease-in;
 }
-
+.chia_reviewtitle {
+	height: 170px;
+}
 // @keyframes circlemove {
 // 	25% {
 // 		transform: skew(-2deg);
@@ -107,6 +109,10 @@
 	width: 100%;
 }
 .chia_reviewlink a {
+	color: var(--word-color);
+	font-weight: 700;
+}
+.chia_reviewlink:hover a {
 	color: var(--word-color);
 	font-weight: 700;
 }
