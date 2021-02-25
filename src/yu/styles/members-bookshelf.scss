@@ -113,7 +113,7 @@
 
 @for $i from 1 through 24 {
   .yu-book-#{$i} {
-    transition: 0.5s;
+    transition: 0.4s;
   }
 }
 .yu-book-2::before {
@@ -518,4 +518,9 @@
   position: absolute;
   left: 10%;
   bottom: 10%;
+}
+
+.yu-book-body-vip {
+  transition: 1s;
+  
 }
