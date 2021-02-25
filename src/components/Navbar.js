@@ -309,7 +309,7 @@ function Navbar() {
       </nav>
       {/* <!-- 桌機版 navbar  end --> */}
       <nav className="navbar navbar-mobile d-lg-none fixed-top">
-        <Link className="navbar-brand wei-nav-brand" to="/">
+        <Link className="navbar-brand wei-nav-brand" to="/bookstoreindex">
           {/* <!-- LOGO SVG --> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
