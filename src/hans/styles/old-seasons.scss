@@ -5,6 +5,18 @@
 
 // fade in and fade out
 
+.hans-z-index-up1 {
+  z-index: 1;
+}
+
+.hans-z-index-up2 {
+  z-index: 2;
+}
+
+.hans-z-index-down1 {
+  z-index: -1;
+}
+
 .fadein-on-start {
   animation: fadein 2s;
 }

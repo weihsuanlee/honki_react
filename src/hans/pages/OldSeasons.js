@@ -24,6 +24,7 @@ function OldSeasons(props) {
   const [solarTermImgs, setSolarTermImgs] = useState([])
   const [solarTermImgToShow, setSolarTermImgToShow] = useState('')
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
+  const [stClickedId, setStClickedId] = useState(-1)
 
   const [displayTitle, setDisplayTitle] = useState('displayOn')
   const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState(
@@ -93,7 +94,7 @@ function OldSeasons(props) {
     // )
 
     let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-      stId - e > 0 ? stId - e : stId - e + 23
+      stId - e >= 0 ? stId - e : stId - e + 24
     )
     // console.log(solarTermsToList)
 
@@ -157,6 +158,7 @@ function OldSeasons(props) {
   }
 
   function handlePlateToggle(id) {
+    setStClickedId(id)
     setSolarTermToShow(solarTermData['solar_term_list'][id]['solar_term'])
     setSolarTermDesc(solarTermData['solar_term_list'][id]['st_desc'])
     let stImg = solarTermData['solar_term_list'][id]['st_img']
@@ -187,7 +189,7 @@ function OldSeasons(props) {
     setDisplaySolarTermInfo(
       solarTermClicked
         ? 'd-flex justify-content-center fadeIn'
-        : 'd-flex justify-content-center  fadeOut'
+        : 'd-flex justify-content-center fadeOut'
     )
 
     setSolarTermClicked(!solarTermClicked)
@@ -247,6 +249,8 @@ function OldSeasons(props) {
                 getSolarTermsToList={getSolarTermsToList}
                 solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
+                solarTermClicked={solarTermClicked}
+                stClickedId={stClickedId}
               />
             </div>
           </div>

@@ -1,15 +1,16 @@
-import { useState } from 'react'
+// import { useState } from 'react'
+import { Component } from 'react'
 
 // import style
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
   const {
-    solarTermToShowList,
     solarTermToShow,
     solarTermName,
     handlePlateToggle,
-    getSolarTermsToList,
+    // solarTermClicked,
+    stClickedId,
   } = props
 
   // console.log('card', solarTermToShowList)
@@ -21,6 +22,16 @@ function OldSeasonBookCard(props) {
         className="book-card"
         onClick={() => {
           handlePlateToggle(solarTermToShow)
+          /*
+          if (stClickedId !== -1 && stClickedId !== solarTermToShow) {
+            setTimeout(() => {
+              handlePlateToggle(stClickedId)
+            }, 3000)
+            handlePlateToggle(solarTermToShow)
+          } else {
+            handlePlateToggle(solarTermToShow)
+          }
+          */
         }}
       >
         <div className="book-base">

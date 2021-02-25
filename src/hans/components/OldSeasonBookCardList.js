@@ -9,6 +9,8 @@ function OldSeasonBookCardList(props) {
     solarTermToShowList,
     handlePlateToggle,
     getSolarTermsToList,
+    solarTermClicked,
+    stClickedId,
   } = props
 
   console.log(solarTermToShowList)
@@ -23,6 +25,8 @@ function OldSeasonBookCardList(props) {
             solarTermName={solarTermNameList[e]}
             handlePlateToggle={handlePlateToggle}
             getSolarTermsToList={getSolarTermsToList}
+            solarTermClicked={solarTermClicked}
+            stClickedId={stClickedId}
           />
         )
       })}
