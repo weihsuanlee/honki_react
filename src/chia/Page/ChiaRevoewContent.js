@@ -108,6 +108,9 @@ function ChiaReviewContent(props) {
                   {ContentTop}
                   {Content}
                 </div>
+                <div className="chia_thumbup">
+                  <FaThumbsUp />
+                </div>
               </div>
             </div>
           </div>
