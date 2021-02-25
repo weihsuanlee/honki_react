@@ -39,8 +39,8 @@ function Register(props) {
     //開啟開始觸發檢查的旗標
     setStartToChecked(true)
 
-    const newErrors = []
     //檢查帳號
+    const newErrors = []
     if (inputs.name.trim().length < 1) {
       newErrors.push('name')
     }
