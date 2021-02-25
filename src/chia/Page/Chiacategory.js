@@ -28,9 +28,9 @@ function Chiacategory() {
   // },[isAble])
   return (
     <>
-      <div class="bookcategory">
-        <div class="container">
-          <div class="categoryrow row">
+      <div className="chia_bookcategory">
+        <div className="container">
+          <div className="categoryrow row">
             <div className="chia_category_circle">
               <img src={chiaCategorycircle} />
             </div>
@@ -38,15 +38,15 @@ function Chiacategory() {
               <p>書籍分類</p>
             </div>
           </div>
-          <div class="row justify-content-center chia_category">
+          <div className="row justify-content-center chia_category_beta">
             <div
-              class="chia_categorybutton d-flex flex-wrap justify-content-center chia-1024category"
+              className="chia_categorybutton d-flex flex-wrap justify-content-center chia-1024category"
               data-aos="fade-left"
               data-aos-easing="ease-in-out"
               data-aos-mirror="true"
             >
               <div className="chia_categorybox">
-                <button className="bbtn life">生活風格</button>
+                <button className="chia_bbtn life">生活風格</button>
                 <div className="chia_categoryblock d-none ">
                   <ul className="list-unstyled chia_category_detail">
                     <li>
@@ -77,7 +77,7 @@ function Chiacategory() {
                 </div>
               </div>
               <div className="chia_categorybox">
-                <button className="bbtn novel">文學小說</button>
+                <button className="chia_bbtn novel">文學小說</button>
                 <div className="chia_categoryblock d-none ">
                   <ul className="list-unstyled chia_category_detail">
                     <li>
@@ -114,7 +114,7 @@ function Chiacategory() {
                 </div>
               </div>
               <div className="chia_categorybox">
-                <button className="bbtn business">商業理財</button>
+                <button className="chia_bbtn business">商業理財</button>
                 <div className="chia_categoryblock d-none ">
                   <ul className="list-unstyled chia_category_detail">
                     <li>
@@ -151,7 +151,7 @@ function Chiacategory() {
                 </div>
               </div>
               <div className="chia_categorybox">
-                <button className="bbtn artdesign">藝術設計</button>
+                <button className="chia_bbtn artdesign">藝術設計</button>
                 <div className="chia_categoryblock d-none ">
                   <ul className="list-unstyled chia_category_detail">
                     <li>
@@ -187,14 +187,14 @@ function Chiacategory() {
                   </ul>
                 </div>
               </div>
-              <button className="bbtn psychology">心靈勵志</button>
-              <button className="bbtn comic">輕小說/漫畫</button>
-              <button className="bbtn language">語言考試</button>
-              <button className="bbtn childeducation">親子教養</button>
-              <button className="bbtn travel">旅遊</button>
-              <button className="bbtn food">飲食</button>
-              <button className="bbtn childbook">童書</button>
-              <button className="bbtn foreignbook">外文書</button>
+              <button className="chia_bbtn psychology">心靈勵志</button>
+              <button className="chia_bbtn comic">輕小說/漫畫</button>
+              <button className="chia_bbtn language">語言考試</button>
+              <button className="chia_bbtn childeducation">親子教養</button>
+              <button className="chia_bbtn travel">旅遊</button>
+              <button className="chia_bbtn food">飲食</button>
+              <button className="chia_bbtn childbook">童書</button>
+              <button className="chia_bbtn foreignbook">外文書</button>
             </div>
           </div>
         </div>

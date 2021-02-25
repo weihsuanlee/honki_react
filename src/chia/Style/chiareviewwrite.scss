@@ -36,24 +36,24 @@
 	right: -25%;
 	bottom: 35%;
 }
-.bread {
-	/* border: solid 1px var(--word-color); */
-	height: 100px;
-	position: relative;
-}
-.breadbox {
-	position: absolute;
-	bottom: 0;
-	left: 72px;
-	font-size: 19px;
-}
-.breadbox a {
-	color: var(--word-color);
-}
-.nest {
-	margin-left: 21px;
-	margin-right: 21px;
-}
+// .bread {
+// 	/* border: solid 1px var(--word-color); */
+// 	height: 100px;
+// 	position: relative;
+// }
+// .breadbox {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 72px;
+// 	font-size: 19px;
+// }
+// .breadbox a {
+// 	color: var(--word-color);
+// }
+// .nest {
+// 	margin-left: 21px;
+// 	margin-right: 21px;
+// }
 
 /* content body */
 .chia_contentbox {
@@ -79,7 +79,7 @@
 .chia_form {
 	width: 816px;
 }
-.form-group {
+.chia_form_g {
 	font-size: var(--content--);
 	font-weight: 700;
 }

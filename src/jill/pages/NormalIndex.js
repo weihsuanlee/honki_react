@@ -119,138 +119,12 @@ function NormalIndex() {
             <h4 className="jill-myNchange-title">我的交換單</h4>
 
             <MyChangeBooks myrows={mybook_rows} />
-
-            {/* 我的交換單右邊區塊 */}
-            <div className="jill-mystatus">
-              {/* 我想跟別人換 */}
-              <h5> 我想跟別人換</h5>
-              <div className="jill-IwantChangeList d-flex">
-                <div className="slider-aria d-flex">
-                  <div className="slider jill-Iwant-slider-L">
-                    <Link to="#">
-                      <FaChevronLeft className="fas fa-chevron-left" />
-                    </Link>
-                  </div>
-                  <div className="slider jill-Iwant-slider-R">
-                    <Link to="#">
-                      <FaChevronRight className="fas fa-chevron-right" />
-                    </Link>
-                  </div>
-                </div>
-                <div className="jill-mycard d-flex">
-                  <img
-                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                    alt=""
-                  />
-                  <ul>
-                    <div className="jill-underline"></div>
-                    <li>9789869507776</li>
-                    <div className="jill-underline"></div>
-                    <li>外科醫生</li>
-                    <div className="jill-underline"></div>
-                    <li>5成新</li>
-                    <div className="jill-underline"></div>
-                    <li>無塗改</li>
-                    <div className="jill-underline"></div>
-                    <li>鄭瑪莉</li>
-                  </ul>
-                  <Link to="./IWantChange">
-                    <button className="btn-md-dark jill-card-btn-status">
-                      查看
-                    </button>
-                  </Link>
-                </div>
-                <div className="jill-mycard d-flex">
-                  <img
-                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                    alt=""
-                  />
-                  <ul>
-                    <div className="jill-underline"></div>
-                    <li>9789869507776</li>
-                    <div className="jill-underline"></div>
-                    <li>外科醫生</li>
-                    <div className="jill-underline"></div>
-                    <li>5成新</li>
-                    <div className="jill-underline"></div>
-                    <li>無塗改</li>
-                    <div className="jill-underline"></div>
-                    <li>鄭瑪莉</li>
-                  </ul>
-                  <Link to="./IWantChange">
-                    <button className="btn-md-dark jill-card-btn-status2">
-                      查看
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              {/* 別人想跟我換 */}
-              <h5 className="jill-PeoplewantChange-title"> 別人想跟我換</h5>
-              <div className="jill-PeoplewantChangeList  d-flex">
-                <div className="slider-aria d-flex">
-                  <div className="slider jill-Peoplewant-slider-L">
-                    <Link to="#">
-                      <FaChevronLeft className="fas fa-chevron-left" />
-                    </Link>
-                  </div>
-                  <div className="slider jill-Peoplewant-slider-R">
-                    <Link to="#">
-                      <FaChevronRight className="fas fa-chevron-right" />
-                    </Link>
-                  </div>
-                </div>
-                <div className="jill-mycard d-flex">
-                  <img
-                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                    alt=""
-                  />
-                  <ul>
-                    <div className="jill-underline"></div>
-                    <li>9789869507776</li>
-                    <div className="jill-underline"></div>
-                    <li>
-                      外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生外科醫生
-                    </li>
-                    <div className="jill-underline"></div>
-                    <li>5成新</li>
-                    <div className="jill-underline"></div>
-                    <li>無塗改</li>
-                    <div className="jill-underline"></div>
-                    <li>鄭瑪莉</li>
-                  </ul>
-                  <Link to="./PeopleWantChange">
-                    <button className="btn-md-dark jill-card-btn-status3">
-                      查看
-                    </button>
-                  </Link>
-                </div>
-
-                <div className="jill-mycard d-flex">
-                  <img
-                    src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
-                    alt=""
-                  />
-                  <ul>
-                    <div className="jill-underline"></div>
-                    <li>9789869507776</li>
-                    <div className="jill-underline"></div>
-                    <li>外科醫生</li>
-                    <div className="jill-underline"></div>
-                    <li>5成新</li>
-                    <div className="jill-underline"></div>
-                    <li>無塗改</li>
-                    <div className="jill-underline"></div>
-                    <li>鄭瑪莉</li>
-                  </ul>
-                  <Link to="./PeopleWantChange">
-                    <button className="btn-md-dark jill-card-btn-status4">
-                      查看
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
+          <Link to={'/RandomSuccess/'}>
+            <button className="btn-md-dark jill-want-btn jill-random-btn">
+              隨機交換
+            </button>
+          </Link>
         </div>
 
         {/* 其他人在換什麼 */}
@@ -286,10 +160,8 @@ function NormalIndex() {
                     <li>{m[index].nickname}</li>
                   ))}
                 </ul>
-                <Link to={'./SendIWantChange/' + item.c_sid}>
-                  <button className="btn-md-dark jill-want-btn">
-                    我想交換
-                  </button>
+                <Link to={'/SendIWantChange/' + item.c_sid}>
+                  <button className="btn-md-dark jill-want-btn">查看</button>
                 </Link>
               </div>
             ))}

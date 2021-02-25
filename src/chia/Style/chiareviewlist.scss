@@ -1,30 +1,7 @@
-.top {
-	position: absolute;
-	right: 0px;
-	padding-right: 94px;
-	top: -18%;
-}
-
-.circle {
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	background-color: var(--word-color);
-	text-align: center;
-	color: var(--word-color-sub);
-	font-size: 25px;
-	margin: 0;
-}
-.circle .fa-caret-up {
-	font-size: 36px;
-	margin: 0;
-	padding: 0;
-}
-
 /* review section*/
 .chia_reviewsection {
 	height: 910px;
-	background: url('../image/bg-paper.svg') repeat;
+	background: url('../image/bg-paper.svg') repeat, #fff;
 	position: relative;
 }
 .chia_reviewsection:before {
@@ -205,20 +182,18 @@
 }
 
 /* Pagenation */
-.pagenumber {
+.chia_pagenumber {
 	margin-top: 36px;
 }
 .chia_page-item {
 	font-size: 25px;
 }
-.page-item {
-	font-size: 25px;
-}
-.pagination {
+
+.chia_pagination {
 	height: 56px;
 }
 
-.page-item {
+.chia_page-item_a {
 	width: 56px;
 	height: 56px;
 	line-height: 2.5;

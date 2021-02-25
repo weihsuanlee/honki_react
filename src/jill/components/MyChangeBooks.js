@@ -11,10 +11,13 @@ class MyChangeBooks extends React.Component {
     super(props)
     this.state = {
       book_name: '預設資料',
-      ISBN: 'ISBN預設值',
+      ISBN: 'this.props',
       book_condition: '全新',
       written_or_not: '有無塗改',
     }
+    console.log('this.proppppp ', this.props)
+    const { myrows } = this.props
+    this.setState(myrows[0])
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -70,6 +73,9 @@ class MyChangeBooks extends React.Component {
     // document.getElementById('clickme').addEventListener('click', function () {
     //   alert('你按到我了')
     // })
+
+    const { myrows } = this.props
+    this.setState(this.props[0])
   }
 
   // 卸載
@@ -137,21 +143,24 @@ class MyChangeBooks extends React.Component {
             {/* 蜜蜂svg */}
             <NormalBee />
             <img
-              src={`http://localhost:3000/images/books/` + this.state.book_pics}
+              src={
+                myrows.length > 0 &&
+                `http://localhost:3000/images/books/` + myrows[0].book_pics
+              }
               alt=""
             />
 
             <ul className="">
               <div className="jill-underline"></div>
-              <li>{this.state.ISBN}</li>
+              <li>{myrows.length > 0 && myrows[0].ISBN}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.book_name}</li>
+              <li>{myrows.length > 0 && myrows[0].book_name}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.book_condition}</li>
+              <li>{myrows.length > 0 && myrows[0].book_condition}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.written_or_not}</li>
+              <li>{myrows.length > 0 && myrows[0].written_or_not}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.nickname}</li>
+              <li>{myrows.length > 0 && myrows[0].nickname}</li>
             </ul>
           </div>
           <Link to="./NormalEdit">

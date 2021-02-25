@@ -19,7 +19,7 @@
 }
 .chia_reviewcontent {
 	/* height: 800px; */
-	background: url('../image/bg-paper.svg') repeat;
+	background: url('../image/bg-paper.svg') repeat, #fff;
 	position: relative;
 }
 .chia_reviewcontent::before {
@@ -28,24 +28,24 @@
 	right: -5%;
 	top: 3%;
 }
-.bread {
-	/* border: solid 1px var(--word-color); */
-	height: 100px;
-	position: relative;
-}
-.breadbox {
-	position: absolute;
-	bottom: 0;
-	left: 72px;
-	font-size: 19px;
-}
-.breadbox a {
-	color: var(--word-color);
-}
-.nest {
-	margin-left: 21px;
-	margin-right: 21px;
-}
+// .bread {
+// 	/* border: solid 1px var(--word-color); */
+// 	height: 100px;
+// 	position: relative;
+// }
+// .breadbox {
+// 	position: absolute;
+// 	bottom: 0;
+// 	left: 72px;
+// 	font-size: 19px;
+// }
+// .breadbox a {
+// 	color: var(--word-color);
+// }
+// .nest {
+// 	margin-left: 21px;
+// 	margin-right: 21px;
+// }
 
 /* content body */
 .chia_contentbox_c {
@@ -125,7 +125,7 @@
 	white-space: pre-wrap;
 	/* white-space:pre-wrap is the method to keep the paragraph maintain the space and go to next line directly.*/
 }
-.scrollable-element {
+.chia_scrollable-element {
 	scrollbar-color: var(--main-color) var(--word-color);
 }
 /*width*/
@@ -190,7 +190,8 @@
 	font-size: var(--content--);
 }
 .chia_membername {
-	height: 58px;
+	margin-bottom: 29px;
+	margin-top: 29px;
 	display: flex;
 	align-items: center;
 	font-size: 12px;
@@ -230,4 +231,12 @@
 	border-radius: 4px;
 	font-size: 12px;
 	text-align: center;
+}
+.chia_withoutlogin p {
+	margin-bottom: 0;
+}
+.chia_thumbup {
+	position: absolute;
+	top: 2.5%;
+	right: 12.5%;
 }
