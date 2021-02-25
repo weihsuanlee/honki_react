@@ -266,7 +266,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">生日格式ok</div> */}
-                <div className="invalid-feedback yu-login-invalid-feedback-birthday">
+                <div className="invalid-feedback yu-register-invalid-feedback-birthday">
                   生日格式有誤
                 </div>
               </div>
@@ -320,7 +320,7 @@ function Register(props) {
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-password2">
+                <div className="invalid-feedback yu-register-invalid-feedback-passworddifference">
                   密碼不一樣哦
                 </div>
               </div>
