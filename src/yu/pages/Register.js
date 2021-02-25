@@ -288,6 +288,7 @@ function Register(props) {
                   onChange={onChangeForField('password')}
                   required
                   minLength="6"
+                  maxLength="24"
                 />
                 {/* 提示語 */}
                 {/* <div class="valid-feedback">密碼ok</div> */}
