@@ -14,6 +14,9 @@ class ActCalendar extends Component {
       currentYear: '',
       dayList: [],
     }
+    const { orderLists } = props
+    console.log('props', props)
+    console.log('order data', orderLists)
 
     this.initCalendar = this.initCalendar.bind(this)
     this.renderBody = this.renderBody.bind(this)

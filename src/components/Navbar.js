@@ -81,7 +81,7 @@ function Navbar(props) {
         <div className="container col-12" style={{ padding: '0 16px' }}>
           <Link
             className="navbar-brand"
-            to="/"
+            to="/bookstoreindex"
             style={{ paddingLeft: '8px', paddingRight: '18px' }}
           >
             {/* <!-- LOGO SVG --> */}

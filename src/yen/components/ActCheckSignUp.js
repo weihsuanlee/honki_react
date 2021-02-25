@@ -1,13 +1,11 @@
 import '../styles/yen-check.scss'
 import SvgPencil from './svg/SvgPencil'
 import SvgCheckFormArrow from './svg/SvgCheckFormArrow'
-import ActCalendar from './ActCalendar'
 
-function ActCheckSignUp() {
+function ActCheckSignUp(props) {
   return (
     <>
       <div className="yen-signup-header">
-        <ActCalendar />
         <div className="yen-check-list">
           <div className="yen-signup-check-box">
             <div className="yen-signup-check-bg">

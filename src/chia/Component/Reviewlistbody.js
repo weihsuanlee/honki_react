@@ -102,8 +102,9 @@ function Reviewlistbody(props) {
           <div className="chia_search">
             <input
               type="text"
-              className="chia_searchbody"
+              className="chia_searchbody text-center"
               name="chia_searchbody"
+              placeholder="輸入節氣或是書名"
               onChange={(e) => {
                 setSearch(e.target.value)
                 setIsSearch('search')
@@ -163,7 +164,7 @@ function Reviewlistbody(props) {
             </button>
           </div>
 
-          <div className="chia_ranking chia_botannobgc">評分</div>
+          <div className="chia_rankings chia_botannobgc">評分</div>
           <div className="chia_good chia_botannobgc">人氣</div>
           <div className="chia_date chia_botannobgc">日期</div>
         </div>
@@ -180,9 +181,9 @@ function Reviewlistbody(props) {
 
   const PageNum = (
     <>
-      <div className="pagenumber d-flex justify-content-center">
+      <div className="chia_pagenumber d-flex justify-content-center">
         <nav aria-label="Page navigation example">
-          <ul className="pagination text-center  d-flex align-items-center ">
+          <ul className=" pagination chia_pagination text-center  d-flex align-items-center ">
             <li className="chia_page-item">
               <Link
                 className="chia_custompage"
@@ -201,7 +202,7 @@ function Reviewlistbody(props) {
               </Link>
             </li>
             {pageitems.map((v) => (
-              <li className="page-item ">
+              <li className="chia_page-item ">
                 <Link
                   className="chia_custompage"
                   to={

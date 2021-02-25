@@ -112,7 +112,7 @@ function ChiaReviewWrite() {
                 method="javascript:"
               >
                 <div class="form-box d-flex flex-column">
-                  <div class="form-group .e-m">
+                  <div class="form-group .e-m chia_form_g">
                     <label for="" className="chia_member">
                       會員名稱
                     </label>
@@ -125,7 +125,7 @@ function ChiaReviewWrite() {
                       }}
                     />
                   </div>
-                  <div className="form-group .e-m">
+                  <div className="form-group .e-m chia_form_g">
                     <label for="" className="chia_e-title">
                       標題
                     </label>

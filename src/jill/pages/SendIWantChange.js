@@ -23,8 +23,9 @@ function SendIWantChange(props) {
   const [book_name, setBook_name] = useState('')
   const [book_condition, setBook_condition] = useState('')
   const [written_or_not, setWritten_or_not] = useState('')
+  const [pics, setPics] = useState('')
 
-  console.log(props)
+  console.log('props', props)
 
   // 伺服器抓資料async
   const getProductDetail = async () => {
@@ -44,6 +45,8 @@ function SendIWantChange(props) {
     setISBN(data.ISBN)
     setBook_condition(data.book_condition)
     setWritten_or_not(data.written_or_not)
+    setPics(JSON.parse(data.BC_pic1))
+    console.log('BC_pic1', JSON.parse(data.BC_pic1))
   }
 
   // 寫入iwant表單
@@ -67,9 +70,9 @@ function SendIWantChange(props) {
   // }
 
   // // 一開始就會開始載入資料
-  // useEffect(() => {
-  //   getProductDetail()
-  // }, [])
+  useEffect(() => {
+    getProductDetail()
+  }, [])
 
   return (
     <>
@@ -130,27 +133,19 @@ function SendIWantChange(props) {
               <div class="form-group">
                 <label class="BC_pic_title">書況圖片</label>
                 {/* <!-- 圖片預覽區(希望可做刪除功能) --> */}
+
                 <div class="jill-upload-pics-area row">
-                  <div class="jill-upload-pics">
-                    <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne1.jpg"
-                      alt=""
-                    />
-                  </div>
-
-                  <div class="jill-upload-pics">
-                    <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne2.jpg"
-                      alt=""
-                    />
-                  </div>
-
-                  <div class="jill-upload-pics">
-                    <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne3.jpg"
-                      alt=""
-                    />
-                  </div>
+                  {pics.length > 0 &&
+                    pics.map((v, i) => {
+                      return (
+                        <div class="jill-upload-pics">
+                          <img
+                            src={`http://localhost:3333/img/` + pics[i]}
+                            alt=""
+                          />
+                        </div>
+                      )
+                    })}
                 </div>
               </div>
 
@@ -177,7 +172,7 @@ function SendIWantChange(props) {
             <div class="d-flex jill-center-btn">
               <Link to="#"></Link>
               <button class="btn-md-dark jill-addform-btn">發送請求</button>
-              <Link to="./NormalIndex">
+              <Link to="/NormalIndex">
                 <button class="btn-md-dark jill-addform-btn">關閉</button>
               </Link>
             </div>

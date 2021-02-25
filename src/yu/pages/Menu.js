@@ -21,12 +21,15 @@ import { SVG_TERMS } from '../constants'
 import FavoriteList from '../../wei/components/FavoriteList'
 import ActAllSignUp from '../../yen/components/ActAllSignUp'
 
-function Menu() {
+function Menu(props) {
   const [curFace, setCurFace] = useState(0)
   const [curHair, setCurHair] = useState(0)
   const [curCloth, setCurCloth] = useState(0)
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
+
+  // 活動訂單state
+  const [orderLists, setOrderLists] = useState([])
 
   const [name, setName] = useState('')
 
@@ -372,7 +375,10 @@ function Menu() {
                 eventKey="yu-menu-6"
                 title="參與活動"
               >
-                <ActAllSignUp />
+                <ActAllSignUp
+                  orderLists={orderLists}
+                  setOrderLists={setOrderLists}
+                />
               </Tab>
             </Tabs>
           </div>

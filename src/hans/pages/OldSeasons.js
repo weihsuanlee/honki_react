@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withRouter, NavLink } from 'react-router-dom'
 
 // import components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -15,7 +16,8 @@ import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
   const [solarTermData, setSolarTermData] = useState({})
-  // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
+  const [solarTermNameList, setSolarTermNameList] = useState([])
+  const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermToShowList, setSolarTermToShowList] = useState([])
   const [solarTermDesc, setSolarTermDesc] = useState('')
@@ -45,12 +47,14 @@ function OldSeasons(props) {
 
     let initialSolarTermID = convertSolarTermID(initialDate)
     console.log(initialSolarTermID)
+    setTargetSolarTerm(initialSolarTermID)
+    console.log(targetSolarTerm)
 
-    let solarTermsToList = getSolarTermsToList(initialSolarTermID)
+    // let solarTermsToList = getSolarTermsToList(initialSolarTermID)
+    setSolarTermToShowList(getSolarTermsToList(initialSolarTermID))
 
     getDataFromServer(initialSolarTermID)
 
-    // console.log(solarTermToShowList)
     // console.log(solarTermImgs)
   }, [])
 
@@ -89,7 +93,7 @@ function OldSeasons(props) {
     // )
 
     let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-      stId - e > 0 ? stId - e : stId - e + 24
+      stId - e > 0 ? stId - e : stId - e + 23
     )
     // console.log(solarTermsToList)
 
@@ -128,38 +132,44 @@ function OldSeasons(props) {
       method: 'get',
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     setSolarTermData(data)
-    console.log(data['solar_term_list'])
-    console.log(data['solar_term_list'][e])
+    // console.log(data['solar_term_list'])
+    // console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
+    setSolarTermNameList(
+      Array.from(Array(24).keys()).map(
+        (e) => data['solar_term_list'][e]['solar_term']
+      )
+    )
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
-    setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
-    console.log(solarTermImgToShow)
+    // setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
     setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
 
-    setSolarTermImgs(
-      solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
-    )
-    console.log(solarTermImgs)
-    console.log(solarTermImgs[1])
+    console.log(solarTermId)
+    console.log(solarTermId2)
+
+    let imgArray = solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
+    console.log(imgArray)
+    setSolarTermImgs(imgArray)
 
     return data
   }
 
-  function handlePlateToggle() {
-    // 設定圓盤狀態
+  function handlePlateToggle(id) {
+    setSolarTermToShow(solarTermData['solar_term_list'][id]['solar_term'])
+    setSolarTermDesc(solarTermData['solar_term_list'][id]['st_desc'])
+    let stImg = solarTermData['solar_term_list'][id]['st_img']
 
+    // 設定圓盤狀態
     setRedCenterImg(
       solarTermClicked
         ? [
-            'http://localhost:3000/images/hans/solar-terms-circle/' +
-              solarTermImgToShow,
+            'http://localhost:3000/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeIn',
           ]
         : [
-            'http://localhost:3000/images/hans/solar-terms-circle/' +
-              solarTermImgToShow,
+            'http://localhost:3000/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeOut',
           ]
     )
@@ -225,17 +235,19 @@ function OldSeasons(props) {
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片 */}
 
-              <OldSeasonBookCard
-                // solarTermOfThisCard={e}
-                handlePlateToggle={handlePlateToggle}
-                getSolarTermsToList={getSolarTermsToList}
-              />
-
-              {/* <OldSeasonBookCardList
-                handlePlateToggle={handlePlateToggle}
-                getSolarTermsToList={getSolarTermsToList}
+              {/* <OldSeasonBookCard
+                targetSolarTerm={targetSolarTerm}
                 solarTermToShowList={solarTermToShowList}
+                handlePlateToggle={handlePlateToggle}
+                getSolarTermsToList={getSolarTermsToList}
               /> */}
+
+              <OldSeasonBookCardList
+                handlePlateToggle={handlePlateToggle}
+                getSolarTermsToList={getSolarTermsToList}
+                solarTermNameList={solarTermNameList}
+                solarTermToShowList={solarTermToShowList}
+              />
             </div>
           </div>
         </div>
@@ -244,4 +256,4 @@ function OldSeasons(props) {
   )
 }
 
-export default OldSeasons
+export default withRouter(OldSeasons)

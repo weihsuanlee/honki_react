@@ -1,23 +1,31 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
-  const { handlePlateToggle, getSolarTermsToList, solarTermsToShowList } = props
+  const {
+    solarTermData,
+    solarTermNameList,
+    solarTermToShowList,
+    handlePlateToggle,
+    getSolarTermsToList,
+  } = props
 
-  console.log('test', solarTermsToShowList)
+  console.log(solarTermToShowList)
 
   return (
     <>
-      {/* {solarTermsToShowList.map((e) => {
+      {solarTermToShowList.map((e) => {
         return (
           <OldSeasonBookCard
-            solarTermOfThisCard={e}
+            solarTermToShowList={solarTermToShowList}
+            solarTermToShow={e}
+            solarTermName={solarTermNameList[e]}
             handlePlateToggle={handlePlateToggle}
             getSolarTermsToList={getSolarTermsToList}
           />
         )
-      })} */}
+      })}
     </>
   )
 }
