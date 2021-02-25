@@ -13,6 +13,9 @@ import '../styles/old-seasons.scss'
 import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
+  let searchParams = new URLSearchParams(props.location.search)
+  let url = props.match.url
+
   // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
@@ -39,9 +42,6 @@ function OldSeasons(props) {
   useEffect(() => {
     getDataFromServer(currentSolarTerm)
   }, [])
-
-  // let searchParams = new URLSearchParams(props.location.search)
-  // let url = props.match.url
 
   // 和伺服器要資料
   const solarTermId = Array.from(Array(24).keys())
