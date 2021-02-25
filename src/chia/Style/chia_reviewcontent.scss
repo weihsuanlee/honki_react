@@ -48,7 +48,7 @@
 }
 
 /* content body */
-.chia_contentbox {
+.chia_contentbox_c {
 	margin-top: 48px;
 }
 .chia_contentborder-r {
@@ -68,7 +68,7 @@
 .chia_contentheader {
 	width: 548px;
 	height: 85px;
-	margin-top: 46px;
+	// margin-top: 46px;
 }
 .chia_r-content {
 	width: 100%;
@@ -113,8 +113,8 @@
 	border: solid 1px var(--word-color);
 	position: absolute;
 	overflow-y: scroll;
-	top: 29%;
-	left: 16.5%;
+	top: 30%;
+	left: 17%;
 	font-size: var(--content--);
 }
 

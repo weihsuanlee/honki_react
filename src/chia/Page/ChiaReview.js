@@ -14,14 +14,14 @@ function ChiaReview() {
 
   return (
     <>
-      <div className="review">
+      <div className="chia_review">
         <div className="container-fluid">
-          <div className="reviewtitle row">
+          <div className="chia_reviewtitle row">
             <div className="chia_reviewcircle" data-aos="fade-left">
               <img src={chiaReviewcircle} />
             </div>
 
-            <div className="reviewheader" data-aos="fade-left">
+            <div className="chia_reviewheader" data-aos="fade-left">
               <p>精選心得</p>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
-  const { handlePlateToggle, getSolarTermsToList } = props
+  const { handlePlateToggle } = props
 
   return (
     <>
@@ -13,7 +13,6 @@ function OldSeasonBookCard(props) {
         className="book-card"
         onClick={() => {
           handlePlateToggle()
-          getSolarTermsToList(28)
         }}
       >
         <div className="book-base">

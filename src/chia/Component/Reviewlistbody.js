@@ -29,11 +29,14 @@ function Reviewlistbody(props) {
 
   useEffect(() => {
     if (isturon) {
-      $('.searchmember').removeClass('d-none')
-      $('.memberid').css({ backgroundColor: '#1c1b1b', color: '#fff' })
+      $('.chia_searchmember').removeClass('d-none')
+      $('.chia_memberid').css({ backgroundColor: '#1c1b1b', color: '#fff' })
     } else {
-      $('.searchmember').addClass('d-none')
-      $('.memberid').css({ backgroundColor: 'transparent', color: '#1c1b1b' })
+      $('.chia_searchmember').addClass('d-none')
+      $('.chia_memberid').css({
+        backgroundColor: 'transparent',
+        color: '#1c1b1b',
+      })
     }
 
     async function searchProduct() {
@@ -93,14 +96,14 @@ function Reviewlistbody(props) {
 
   const Searchbar = (
     <>
-      <div className="reviewsearchsection col-4">
-        <div className="searchbox">
-          <div className="btntitle botan">篩選 | 搜尋</div>
-          <div className="search">
+      <div className="chia_reviewsearchsection col-4">
+        <div className="chia_searchbox">
+          <div className="chia_btntitle chia_botan">篩選 | 搜尋</div>
+          <div className="chia_search">
             <input
               type="text"
-              className="searchbody"
-              name="searchbody"
+              className="chia_searchbody"
+              name="chia_searchbody"
               onChange={(e) => {
                 setSearch(e.target.value)
                 setIsSearch('search')
@@ -114,7 +117,7 @@ function Reviewlistbody(props) {
               }}
             />
             <button
-              className="searchbtn"
+              className="chia_searchbtn"
               onClick={() => {
                 searchItem()
               }}
@@ -123,7 +126,7 @@ function Reviewlistbody(props) {
             </button>
           </div>
           <div
-            className="memberid botannobgc"
+            className="chia_memberid chia_botannobgc"
             onClick={() => {
               {
                 !isturon ? setIsturnon(true) : setIsturnon(false)
@@ -132,10 +135,10 @@ function Reviewlistbody(props) {
           >
             會員名稱
           </div>
-          <div className="search searchmember d-none">
+          <div className="chia_search chia_searchmember d-none">
             <input
               type="text"
-              className="searchmemberid text-center"
+              className="chia_searchmemberid text-center"
               id="searchmemberid"
               name="searchmemberid"
               placeholder="請輸入會員名稱"
@@ -151,7 +154,7 @@ function Reviewlistbody(props) {
               }}
             />
             <button
-              className="searchbtn memberidbtn"
+              className="chia_searchbtn chia_memberidbtn"
               onClick={() => {
                 searchItem()
               }}
@@ -160,9 +163,9 @@ function Reviewlistbody(props) {
             </button>
           </div>
 
-          <div className="chia_ranking botannobgc">評分</div>
-          <div className="chia_good botannobgc">人氣</div>
-          <div className="chia_date botannobgc">日期</div>
+          <div className="chia_ranking chia_botannobgc">評分</div>
+          <div className="chia_good chia_botannobgc">人氣</div>
+          <div className="chia_date chia_botannobgc">日期</div>
         </div>
       </div>
     </>
@@ -246,10 +249,10 @@ function Reviewlistbody(props) {
 
   const List = (
     <>
-      <div className="reviewbody col-8">
-        <div className="reviewtable">
-          <table className="table">
-            <thead className="reviewtablehead">
+      <div className="chia_reviewbody col-8">
+        <div className="chia_reviewtable">
+          <table className="chia_table table">
+            <thead className="chia_reviewtablehead">
               <tr className="mx-auto">
                 <th scope="col">會員名稱</th>
                 <th scope="col">分類</th>
@@ -262,32 +265,35 @@ function Reviewlistbody(props) {
               </tr>
             </thead>
 
-            <tbody className="reviewtablebody">
+            <tbody className="chia_reviewtablebody">
               {currentList.map((v, i) => (
-                <tr className="reviewtr" key={i}>
-                  <td scope="col" className="reviewtd">
-                    <p class="content ">{v.review_nickname}</p>
+                <tr className="chia_reviewtr" key={i}>
+                  <td scope="col" className="chia_reviewtd">
+                    <p className="chia_content ">{v.review_nickname}</p>
                   </td>
-                  <td scope="col" className="reviewtd">
-                    <p class="content">{v.category}</p>
+                  <td scope="col" className="chia_reviewtd">
+                    <p className="chia_content">{v.category}</p>
                   </td>
-                  <td className="chia_title reviewtd chia_content" scope="col">
+                  <td
+                    className="chia_title chia_reviewtd chia_content"
+                    scope="col"
+                  >
                     <Switch>
-                      <p className="content">
+                      <p className="chia_content">
                         <NavLink to={`${props.path}/${v.sid}`}>
                           {v.booktitle}
                         </NavLink>
                       </p>
                     </Switch>
                   </td>
-                  <td scope="col" className="reviewtd">
-                    <p className="content">{v.ranking}&#9733;</p>
+                  <td scope="col" className="chia_reviewtd">
+                    <p className="chia_content">{v.ranking}&#9733;</p>
                   </td>
-                  <td scope="col" className="reviewtd">
-                    <p className="content">30</p>
+                  <td scope="col" className="chia_reviewtd">
+                    <p className="chia_content">30</p>
                   </td>
-                  <td scope="col" className="reviewtd">
-                    <p className="content">{v.creatdate}</p>
+                  <td scope="col" className="chia_reviewtd">
+                    <p className="chia_content">{v.creatdate}</p>
                   </td>
                 </tr>
               ))}
