@@ -1,40 +1,30 @@
-.activity {
+.chia_activity {
 	height: 800px;
-	background: url('../image/bg-paper.svg') repeat;
+	// background: url('../image/bg-paper.svg') repeat, #fff;
 	position: relative;
+	background-color: #fff;
 	// overflow-y: hidden;
 }
 /*1920px need to amend*/
-.activity::before {
-	// content: url('./image/circledot/hugecircle.svg');
-	position: absolute;
-	left: 30%;
-	top: -5%;
-}
+
 .chia_accircle {
 	position: absolute;
 	left: 30%;
 	top: -5%;
 }
 
-.activity::after {
-	// content: url('./image/circledot/bigsizecircle.svg');
-	position: absolute;
-	left: -5%;
-	top: 60%;
-}
 .chia_accirclebig {
 	position: absolute;
 	right: -5%;
 	top: 60%;
 }
 
-.eventheader {
+.chia_eventheader {
 	font-size: var(--h6--);
 	font-weight: 700;
 	margin: 36px auto;
 }
-.eventbox {
+.chia_eventbox {
 	max-width: 1140px;
 }
 .chia_eventitem {
@@ -65,18 +55,18 @@
 // 		transform: translateY(-10px);
 // 	}
 // }
-.eventimg {
+.chia_eventimg {
 	width: 290px;
 	height: 190px;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	overflow: hidden;
 }
-.eventimg img {
+.chia_eventimg img {
 	width: 100%;
 	/* height: 100%; */
 }
-.eventdate {
+.chia_eventdate {
 	width: 208px;
 	height: 44px;
 	background-color: var(--word-color);
@@ -86,7 +76,7 @@
 	align-items: center;
 	font-size: 15px;
 }
-.eventtype {
+.chia_eventtype {
 	width: 82px;
 	height: 44px;
 	background-color: var(--main-color);
@@ -95,7 +85,7 @@
 	justify-content: center;
 	align-items: center;
 }
-.eventcontent {
+.chia_eventcontent {
 	/* margin-left: 5%; */
 	width: 250px;
 	height: 120px;
@@ -104,17 +94,17 @@
 	position: relative;
 	padding: 20px;
 }
-.e-content {
+.chia_e-content {
 	position: absolute;
 	left: 15%;
 	font-size: var(--content--);
 }
-.e-link a {
+.chia_e-link a {
 	font-size: 12px;
 	color: var(--word-color);
 	font-weight: 700;
 }
-.e-link {
+.chia_e-link {
 	position: absolute;
 	bottom: 0;
 	right: 0;
