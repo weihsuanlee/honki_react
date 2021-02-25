@@ -11,7 +11,7 @@ class MyChangeBooks extends React.Component {
     super(props)
     this.state = {
       book_name: '預設資料',
-      ISBN: 'ISBN預設值',
+      ISBN: 'this.props',
       book_condition: '全新',
       written_or_not: '有無塗改',
     }
@@ -20,6 +20,7 @@ class MyChangeBooks extends React.Component {
   }
   // 這塊會執行componentDidUpdate的作用(因為setState)
   handleChange(event) {
+    console.log('this.proppppp ', this.props)
     const { myrows } = this.props
     // this.setState({ value: event.target.value })
     // 下面的5要怎麼抓到變數
@@ -70,6 +71,18 @@ class MyChangeBooks extends React.Component {
     // document.getElementById('clickme').addEventListener('click', function () {
     //   alert('你按到我了')
     // })
+
+    const { myrows } = this.props
+    // this.setState({ value: event.target.value })
+    // 下面的5要怎麼抓到變數
+    // this.setState({ ISBN: myrows[5].ISBN })
+
+    // 拷貝一個新的，展開成陣列
+    const newMyrows = [...myrows]
+
+    // 不行，ISBN變成Undefined
+
+    this.setState(myrows[0])
   }
 
   // 卸載
