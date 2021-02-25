@@ -11,6 +11,7 @@ function ProductListDisplay(props) {
   }, [])
 
   const fetchFavoriteList = async () => {
+    if (!userId) return
     const url = 'http://localhost:3333/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
@@ -40,6 +41,7 @@ function ProductListDisplay(props) {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
       window.location.href = 'http://localhost:3000/member'
+      return
     }
 
     if (favoritesList.indexOf(bookId) > -1) {

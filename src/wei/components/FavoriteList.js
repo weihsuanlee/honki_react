@@ -31,6 +31,7 @@ function FavoriteList(props) {
     </>
   )
   const fetchFavoriteList = async () => {
+    if (!userId) return
     const url = 'http://localhost:3333/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
