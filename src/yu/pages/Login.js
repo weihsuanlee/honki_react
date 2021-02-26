@@ -10,6 +10,7 @@ import { Modal, Button } from 'react-bootstrap'
 function Login(props) {
   // const [show, setShow] = useState(false)
   // const handleClose = () => setShow(false)
+  console.log(props)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -43,8 +44,13 @@ function Login(props) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      // toMenu()
-      props.history.goBack()
+      // 如果上一頁是購物車結帳來的登入跳回繼續結帳
+      if (props.location.state == 'CartItems') {
+        props.history.goBack()
+      } else {
+        // 其他跳轉回會員menu
+        toMenu()
+      }
     } else {
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')

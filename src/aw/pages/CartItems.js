@@ -81,7 +81,8 @@ function CartItems(props) {
     // 如果會員沒登入就按收藏 先掰
     console.log('梅登入就掰', userId)
     if (!userId) {
-      window.location.href = 'http://localhost:3000/member'
+      props.history.push('/member', 'CartItems')
+      // window.location.href = 'http://localhost:3000/member'
     } else {
       window.location.href = 'http://localhost:3000/CartInput'
     }
