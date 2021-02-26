@@ -1,6 +1,7 @@
 import '../styles/cartStyle.scss'
 import {} from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
+import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
 // import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 // import ProductBanner from '../components/ProductBanner'
 // import ListSpinner from '../components/ListSpinner'
@@ -244,7 +245,88 @@ function CartOrder(props) {
                     </div>
                   </div>
                 </div>
-
+                <Accordion defaultActiveKey="10">
+                  <Card>
+                    <div class="aw-cartLine d-flex align-items-center justify-content-between pl-5 pr-5">
+                      <Card.Header>
+                        <Accordion.Toggle
+                          as={Button}
+                          variant="link"
+                          eventKey="10"
+                        >
+                          <h5 class="m-0">本次購物清單</h5>
+                          <i class="fas fa-chevron-up"></i>
+                          <i class="fas fa-chevron-down d-none"></i>
+                        </Accordion.Toggle>
+                      </Card.Header>
+                    </div>
+                    <Accordion.Collapse eventKey="10">
+                      <Card.Body>
+                        {orderData.map((value, index) => (
+                          <div class="row aw-card d-flex align-items-center ">
+                            <div class="col-6 row aw-row  align-items-center aw-p-0 ">
+                              <div class="col-sm aw-card-pic aw-p-9 ">
+                                <div class="aw-book-pic">
+                                  <img
+                                    key={index}
+                                    class="w-100"
+                                    src={
+                                      'http://localhost:3000/images/books/' +
+                                      value.book_id
+                                    }
+                                    // "/images/cart/cartpic1.png"
+                                    alt=""
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
+                                <p class="aw-book-title">{value.bookname}</p>
+                              </div>
+                            </div>
+                            <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
+                              <div class="col-sm d-flex justify-content-center aw-p-9">
+                                <p class="aw-book-title">
+                                  $ {toCurrency(value.price)}元
+                                </p>
+                              </div>
+                              <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                <div class="aw-items-amount">
+                                  {toCurrency(value.quantity)}
+                                </div>
+                              </div>
+                              <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                <p class="aw-book-title">
+                                  $ {toCurrency(value.quantity * value.price)}元
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                  <Card>
+                    <Card.Header>
+                      <Accordion.Toggle>作者介紹</Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="11">
+                      <Card.Body>
+                        <p></p>
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                  <Card>
+                    <Card.Header>
+                      <Accordion.Toggle>書籍目錄</Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse>
+                      <Card.Body>
+                        <p></p>
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                  ) : ( '' )}
+                </Accordion>
                 <div class="aw-cartLine d-flex align-items-center justify-content-between pl-5 pr-5">
                   <h5 class="m-0">本次購物清單</h5>
                   <i class="fas fa-chevron-up"></i>
@@ -430,7 +512,9 @@ function CartOrder(props) {
                 </div>
 
                 <div class="row justify-content-center aw-stepBtn pr-0">
-                  <button class="btn-md-dark">回首頁</button>
+                  <a class="aw-a" href="http://localhost:3000/bookstoreindex">
+                    <button class="btn-md-dark">回首頁</button>
+                  </a>
                 </div>
               </div>
               <div class="col-1"> </div>
