@@ -233,6 +233,7 @@ function ActAllSignUp(props) {
     <>
       {orderLists.rows &&
         orderLists.rows.map((value, index) => {
+          if (value.order_number !== orderDetail) return
           return (
             <div className="yen-signup-check-box">
               <div className="yen-signup-check-bg">
@@ -338,12 +339,12 @@ function ActAllSignUp(props) {
                         backToOrderBtnClick()
                       }}
                     >
-                      回上頁
+                      &larr; &ensp;回上頁
                     </button>
                   </div>
                   <div className="yen-check-cancel-btn">
                     <button className="btn-rounded-light yen-check-cancel-btn-bg ">
-                      取消報名
+                      &times; &ensp;取消報名
                     </button>
                   </div>
                 </div>
@@ -362,7 +363,7 @@ function ActAllSignUp(props) {
     <>
       <div className="yen-signup-showbox">
         <div className="yen-signup-showbox-bg">
-          {/* <ActCalendar orderLists={orderLists} /> */}
+          <ActCalendar orderLists={orderLists} />
           <div
             className="yen-signup-list"
             style={{ display: checkDetail === true ? 'none' : 'block' }}
