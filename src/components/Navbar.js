@@ -1,11 +1,6 @@
 import '../styles/navbar.scss'
-<<<<<<< HEAD
-import { Link } from 'react-router-dom'
-=======
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
->>>>>>> dec3802d497f7c5a3a5b3957a4e00c2b4782b3fb
 import {
   FaCaretDown,
   FaSearch,
