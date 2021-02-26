@@ -114,14 +114,13 @@ function NormalIndex() {
         <div className="jill-mylist-area">
           <div className="jill-myNchange-area">
             <h4 className="jill-myNchange-title">我的交換單</h4>
-
+            <Link to={'/RandomSuccess/'}>
+              <button className="btn-md-dark jill-want-btn jill-random-btn">
+                隨機交換
+              </button>
+            </Link>
             <MyChangeBooks myrows={mybook_rows} />
           </div>
-          <Link to={'/RandomSuccess/'}>
-            <button className="btn-md-dark jill-want-btn jill-random-btn">
-              隨機交換
-            </button>
-          </Link>
         </div>
 
         {/* 其他人在換什麼 */}

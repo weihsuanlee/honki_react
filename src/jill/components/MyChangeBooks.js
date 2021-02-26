@@ -63,16 +63,37 @@ class MyChangeBooks extends React.Component {
     console.log(newMyrows)
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value)
+  handleSubmit = (event) => {
+    alert('A name was submitted: ' + this.state.c_sid)
     event.preventDefault()
+    // let history = this.props.history
+    fetch('http://localhost:3333/normal-index/random/' + this.state.c_sid, {
+      method: 'POST',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    }).then((response) => response.json())
+    // this.props.form.validateFields((errors, values) => {
+    //   if (!errors) {
+    //     console.log('Received values of form: ', values)
+    //     history.push('/')
+    //   }
+    // })
+
+    window.location.href =
+      `http://localhost:3000/RandomSuccess/` + this.state.c_sid
   }
 
-  // 與JS或JQ整合要在這邊，執行順序是class，再來render然後才是這區塊
+  // 與JS或JQ整合要在這邊，執行順序是class，再來render然後才是這區塊，這邊可以fetch
   componentDidMount() {
     console.log('componentDidMount')
     // document.getElementById('clickme').addEventListener('click', function () {
     //   alert('你按到我了')
+
+    // .then((booksList) => {
+    //   this.setState({ books: booksList })
+
     // })
 
     const { myrows } = this.props
@@ -149,8 +170,16 @@ class MyChangeBooks extends React.Component {
                 </button>
               </Link>
               <Link to="./NormalInsert">
-                <button className="btn-md-dark jill-normal-seemyList">
-                  新增
+                <button className="btn-md-dark jill-fix-btn-add">新增</button>
+              </Link>
+
+              <Link to={'/RandomSuccess/' + this.state.c_sid}>
+                <button
+                  type="submit"
+                  className="btn-md-dark jill-want-btn jill-random-btn"
+                  onClick={this.handleSubmit}
+                >
+                  隨機交換
                 </button>
               </Link>
             </div>
@@ -183,12 +212,10 @@ class MyChangeBooks extends React.Component {
             ''
           )}
         </div>
-
         {/* 要讓它後執行，或給預設值 ，要怎麼抓到myrows的索引值*/}
         {/* <p onChange={this.handleChange}>您的ISBN是：{myrows[5].ISBN}</p> */}
-
-        {/* <button id="clickme">按我</button> */}
-        {/* <input type="submit" value="Submit" /> */}
+        {/* <button id="clickme">按我</button>
+        <input type="submit" value="Submit" /> */}
       </form>
     )
   }

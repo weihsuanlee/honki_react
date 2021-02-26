@@ -1,5 +1,12 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+// import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+} from 'react-router-dom'
 import { FaTimes, FaFeatherAlt } from 'react-icons/fa'
 // 二手書scss
 import '../styles/used-books.scss'
@@ -8,7 +15,7 @@ import '../styles/used-books.scss'
 // import ChangeBooksIcon1 from '../components/ChangeBooksIcon1'
 // import ChangeBooksIcon2 from '../components/ChangeBooksIcon2'
 
-function RandomSuccess() {
+function RandomSuccess(props) {
   return (
     <>
       <div className="container-fluid my-5">
@@ -73,4 +80,4 @@ function RandomSuccess() {
   )
 }
 
-export default RandomSuccess
+export default withRouter(RandomSuccess)
