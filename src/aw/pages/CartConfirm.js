@@ -19,7 +19,7 @@ function CartConfirm(props) {
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
-    const newCart = localStorage.getItem('cart')
+    const newCart = localStorage.getItem('cart5566')
     console.log(JSON.parse(newCart))
     setMycart(JSON.parse(newCart))
   }
@@ -80,7 +80,7 @@ function CartConfirm(props) {
   // 更新購物車中的商品數量
   const updateCartToLocalStorage = (item, isAdded = true) => {
     console.log(item, isAdded)
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('cart5566')) || []
     console.log('index', currentCart)
     // find if the product in the localstorage with its id
     const index = currentCart.findIndex((v) => v.book_id === item.book_id)
@@ -89,7 +89,7 @@ function CartConfirm(props) {
     if (index > -1) {
       isAdded ? currentCart[index].amount++ : currentCart[index].amount--
     }
-    localStorage.setItem('cart', JSON.stringify(currentCart))
+    localStorage.setItem('cart5566', JSON.stringify(currentCart))
     // 設定資料
     setMycart(currentCart)
   }

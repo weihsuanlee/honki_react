@@ -10,12 +10,12 @@ class MyChangeBooks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      c_sid: '110',
-      book_name: '這裡是書名',
-      ISBN: '這裡是ISBN',
-      book_condition: '有幾成新',
-      written_or_not: '有無塗改',
-      nickname: '持有者',
+      c_sid: '',
+      // book_name: '這裡是書名',
+      // ISBN: '這裡是ISBN',
+      // book_condition: '有幾成新',
+      // written_or_not: '有無塗改',
+      // nickname: '持有者',
       // book_pics: '我是圖片',
     }
     this.handleChange = this.handleChange.bind(this)
@@ -124,7 +124,6 @@ class MyChangeBooks extends React.Component {
         </label>
         <p>您選擇的是：{this.state.value}</p>
         <p>您選擇的是：{this.state.ISBN}</p> */}
-
         <div className="jill-myNchangelist">
           <div className="form-group ">
             <div className="formItems row d-flex">
@@ -134,6 +133,9 @@ class MyChangeBooks extends React.Component {
                 className="form-control formInput col-7"
                 id="exampleFormControlSelect1"
               >
+                <option selected="true" disabled>
+                  請選擇
+                </option>
                 {/* 成功的寫法在NormalIndex只能撈一筆的時候的寫法，myrows={mybook_rows} */}
                 {myrows.map((m, i) => (
                   <option key={i} value={m.ISBN}>
@@ -141,38 +143,45 @@ class MyChangeBooks extends React.Component {
                   </option>
                 ))}
               </select>
-              <Link to="./NormalInsert">
+              <Link to={'/NormalEdit/' + this.state.c_sid}>
                 <button className="btn-md-dark jill-myNchange-add-btn">
+                  查看
+                </button>
+              </Link>
+              <Link to="./NormalInsert">
+                <button className="btn-md-dark jill-normal-seemyList">
                   新增
                 </button>
               </Link>
             </div>
           </div>
+          {this.state.c_sid ? (
+            <div className="jill-myNchange-display d-flex">
+              {/* 蜜蜂svg */}
+              <NormalBee />
+              <img
+                src={
+                  `http://localhost:3000/images/books/` + this.state.book_pics
+                }
+                alt=""
+              />
 
-          <div className="jill-myNchange-display d-flex">
-            {/* 蜜蜂svg */}
-            <NormalBee />
-            <img
-              src={`http://localhost:3000/images/books/` + this.state.book_pics}
-              alt=""
-            />
-
-            <ul className="">
-              <div className="jill-underline"></div>
-              <li>{this.state.ISBN}</li>
-              <div className="jill-underline"></div>
-              <li>{this.state.book_name}</li>
-              <div className="jill-underline"></div>
-              <li>{this.state.book_condition}</li>
-              <div className="jill-underline"></div>
-              <li>{this.state.written_or_not}</li>
-              <div className="jill-underline"></div>
-              <li>{this.state.nickname}</li>
-            </ul>
-          </div>
-          <Link to={'/NormalEdit/' + this.state.c_sid}>
-            <button className="btn-md-dark jill-normal-seemyList">查看</button>
-          </Link>
+              <ul className="">
+                <div className="jill-underline"></div>
+                <li>{this.state.ISBN}</li>
+                <div className="jill-underline"></div>
+                <li>{this.state.book_name}</li>
+                <div className="jill-underline"></div>
+                <li>{this.state.book_condition}</li>
+                <div className="jill-underline"></div>
+                <li>{this.state.written_or_not}</li>
+                <div className="jill-underline"></div>
+                <li>{this.state.nickname}</li>
+              </ul>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
 
         {/* 要讓它後執行，或給預設值 ，要怎麼抓到myrows的索引值*/}
