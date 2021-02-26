@@ -242,7 +242,7 @@ ol.wei-breadcrumb {
   opacity: 0;
 }
 .wei-card:hover .wei-card-pic {
-  background: url('http://localhost:3000/images/bg_noise.png');
+  background: transparent;
 }
 .wei-card:hover .wei-card-pic img {
   transform: scale(1.2);
@@ -502,7 +502,7 @@ ol.wei-breadcrumb {
   opacity: 0;
 }
 .wei-card-list .wei-card-list-pic:hover {
-  background: url('http://localhost:3000/images/bg_noise.png');
+  background: transparent;
 }
 .wei-card-list:hover .wei-card-list-pic img {
   transform: scale(1.2);

@@ -113,7 +113,11 @@ function Product(props) {
     }
     filterProduct()
     console.log(props)
-    window.scrollBy(0, 0.75 * window.innerHeight)
+    if ((props.match.url === '/product') & !props.location.search) {
+      window.scrollBy(0, 0)
+    } else {
+      window.scrollBy(0, 0.75 * window.innerHeight)
+    }
   }, [props.location])
 
   const getDataFromServer = async () => {
