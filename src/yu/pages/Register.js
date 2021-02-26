@@ -147,202 +147,203 @@ function Register(props) {
                 alt=""
               />
             </div>
-            {/* <!-- 姓名input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputName">
-                  姓名
-                </label>
-                <input
-                  type="text"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'name'
-                  )} `}
-                  id="inputName"
-                  name="name"
-                  placeholder=""
-                  onChange={onChangeForField('name')}
-                  required
-                />
-                {/* <div class="valid-feedback"></div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-name">
-                  姓名要記得填哦
+            <div>
+              {/* <!-- 姓名input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputName">
+                    姓名
+                  </label>
+                  <input
+                    type="text"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'name'
+                    )} `}
+                    id="inputName"
+                    name="name"
+                    placeholder=""
+                    onChange={onChangeForField('name')}
+                    required
+                  />
+                  {/* <div class="valid-feedback"></div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-name">
+                    姓名要記得填哦
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <!-- 暱稱input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputName">
-                  暱稱
-                </label>
-                <input
-                  type="text"
-                  className={`formInput col-4 form-control`}
-                  id="inputName"
-                  name="nickname"
-                  placeholder=""
-                  onChange={onChangeForField('nickname')}
-                />
-              </div>
-            </div>
-            {/* <!-- 信箱input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputEmail">
-                  電子信箱
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="inputEmail"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'email'
-                  )} `}
-                  placeholder="honkibooks@mail.com"
-                  onChange={onChangeForField('email')}
-                  required
-                />
-                {/* <div class="valid-feedback">email正確</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-email">
-                  email格式錯囉
+              {/* <!-- 暱稱input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputName">
+                    暱稱
+                  </label>
+                  <input
+                    type="text"
+                    className={`formInput col-4 form-control`}
+                    id="inputName"
+                    name="nickname"
+                    placeholder=""
+                    onChange={onChangeForField('nickname')}
+                  />
                 </div>
               </div>
-            </div>
-            {/* <!-- 手機input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputMobile">
-                  手機
-                </label>
-                <input
-                  type="text"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'mobile'
-                  )} `}
-                  placeholder="請輸入09xx-xxx-xxx格式"
-                  id="inputMobile"
-                  name="mobile"
-                  onChange={onChangeForField('mobile')}
-                />
-                {/* <div class="valid-feedback">手機格式正確</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-mobile">
-                  手機格式填錯囉
+              {/* <!-- 信箱input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputEmail">
+                    電子信箱
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="inputEmail"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'email'
+                    )} `}
+                    placeholder="honkibooks@mail.com"
+                    onChange={onChangeForField('email')}
+                    required
+                  />
+                  {/* <div class="valid-feedback">email正確</div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-email">
+                    email格式錯囉
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <!-- 地址input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputAddress">
-                  地址
-                </label>
-                <input
-                  className={`formInput col-4 form-control`}
-                  id="inputName"
-                  name="address"
-                  placeholder=""
-                  onChange={onChangeForField('address')}
-                />
-              </div>
-            </div>
-            {/* <!-- 生日input --> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputBirthday">
-                  生日
-                </label>
-                <input
-                  type="date"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'birthday'
-                  )} `}
-                  id="inputBirthday"
-                  name="birthday"
-                  onChange={(e) => {
-                    onChangeForField('birthday')(e)
-                    console.log(e.target.value)
-                  }}
-                />
-                {/* 提示語 */}
-                {/* <div class="valid-feedback">生日格式ok</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-birthday">
-                  生日格式有誤
+              {/* <!-- 手機input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputMobile">
+                    手機
+                  </label>
+                  <input
+                    type="text"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'mobile'
+                    )} `}
+                    placeholder="請輸入09xx-xxx-xxx格式"
+                    id="inputMobile"
+                    name="mobile"
+                    onChange={onChangeForField('mobile')}
+                  />
+                  {/* <div class="valid-feedback">手機格式正確</div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-mobile">
+                    手機格式填錯囉
+                  </div>
                 </div>
               </div>
-            </div>
+              {/* <!-- 地址input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputAddress">
+                    地址
+                  </label>
+                  <input
+                    className={`formInput col-4 form-control`}
+                    id="inputName"
+                    name="address"
+                    placeholder=""
+                    onChange={onChangeForField('address')}
+                  />
+                </div>
+              </div>
+              {/* <!-- 生日input --> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputBirthday">
+                    生日
+                  </label>
+                  <input
+                    type="date"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'birthday'
+                    )} `}
+                    id="inputBirthday"
+                    name="birthday"
+                    onChange={(e) => {
+                      onChangeForField('birthday')(e)
+                      console.log(e.target.value)
+                    }}
+                  />
+                  {/* 提示語 */}
+                  {/* <div class="valid-feedback">生日格式ok</div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-birthday">
+                    生日格式有誤
+                  </div>
+                </div>
+              </div>
+              {/* <!-- 密碼input--> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label className="inputText col-1" htmlFor="inputPassword">
+                    密碼
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'password'
+                    )} `}
+                    id="inputPasswordConfirm"
+                    onChange={onChangeForField('password')}
+                    required
+                    minLength="6"
+                    maxLength="24"
+                  />
+                  {/* 提示語 */}
+                  {/* <div class="valid-feedback">密碼ok</div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-password">
+                    密碼為6-24位數
+                  </div>
+                </div>
+              </div>
+              {/* <!-- 密碼確認input--> */}
+              <div className="form-group">
+                <div className="formItems row justify-content-center position-relative">
+                  <label
+                    className="inputText col-1"
+                    htmlFor="inputPasswordConfirm"
+                  >
+                    確認密碼
+                  </label>
+                  <input
+                    type="password"
+                    name="password2"
+                    className={`formInput col-4 form-control ${fieldValidCSS(
+                      'passworddifference'
+                    )} `}
+                    id="inputPasswordConfirm"
+                    onChange={onChangeForField('password2')}
+                    required
+                    minLength="6"
+                    maxLength="24"
+                  />
+                  {/* 提示語 */}
+                  {/* <div class="valid-feedback">密碼ok</div> */}
+                  <div className="invalid-feedback yu-register-invalid-feedback-passworddifference">
+                    密碼不一樣哦
+                  </div>
+                </div>
+              </div>
+              {/* <!-- checkbox --> */}
+              <div className="form-group form-check d-flex justify-content-center">
+                <div>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="yu-saveaccountandpassword"
+                  />
+                  <label
+                    className="form-check-label yu-register-save"
+                    for="yu-saveaccountandpassword"
+                  >
+                    <p>我接受服務條款及隱私政策</p>
+                  </label>
+                </div>
+              </div>
+              {/* <!-- 按鈕 --> */}
+              <div className="form-group button-group"></div>
 
-            {/* <!-- 密碼input--> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label className="inputText col-1" htmlFor="inputPassword">
-                  密碼
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'password'
-                  )} `}
-                  id="inputPasswordConfirm"
-                  onChange={onChangeForField('password')}
-                  required
-                  minLength="6"
-                  maxLength="24"
-                />
-                {/* 提示語 */}
-                {/* <div class="valid-feedback">密碼ok</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-password">
-                  密碼長度需為6-24位數
-                </div>
-              </div>
-            </div>
-            {/* <!-- 密碼確認input--> */}
-            <div className="form-group">
-              <div className="formItems row d-flex justify-content-center">
-                <label
-                  className="inputText col-1"
-                  htmlFor="inputPasswordConfirm"
-                >
-                  確認密碼
-                </label>
-                <input
-                  type="password"
-                  name="password2"
-                  className={`formInput col-4 form-control ${fieldValidCSS(
-                    'passworddifference'
-                  )} `}
-                  id="inputPasswordConfirm"
-                  onChange={onChangeForField('password2')}
-                  required
-                  minLength="6"
-                  maxLength="24"
-                />
-                {/* 提示語 */}
-                {/* <div class="valid-feedback">密碼ok</div> */}
-                <div className="invalid-feedback yu-register-invalid-feedback-passworddifference">
-                  密碼不一樣哦
-                </div>
-              </div>
-            </div>
-            {/* <!-- checkbox --> */}
-            <div className="form-group form-check d-flex justify-content-center">
-              <div>
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="yu-saveaccountandpassword"
-                />
-                <label
-                  className="form-check-label yu-register-save"
-                  for="yu-saveaccountandpassword"
-                >
-                  <p>我接受服務條款及隱私政策</p>
-                </label>
-              </div>
-            </div>
-            {/* <!-- 按鈕 --> */}
-            <div className="form-group button-group">
               <div className="formItems row d-flex justify-content-center">
                 <div className="yu-register-send">
                   <Button
@@ -358,7 +359,7 @@ function Register(props) {
                     <Modal.Header closeButton>
                       <Modal.Title>Honki</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className="yu-register-success">
+                    <Modal.Body className="yu-register-success my-4">
                       註冊成功，歡迎你加入我們!
                     </Modal.Body>
                     <Modal.Footer>

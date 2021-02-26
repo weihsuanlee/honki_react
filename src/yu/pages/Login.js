@@ -181,7 +181,7 @@ function Login() {
                       <Modal.Header closeButton>
                         <Modal.Title>Honki</Modal.Title>
                       </Modal.Header>
-                      <Modal.Body className="yu-login-error">
+                      <Modal.Body className="yu-login-error my-4">
                         咦...帳號或密碼好像錯了哦
                       </Modal.Body>
                       <Modal.Footer>

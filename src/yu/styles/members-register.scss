@@ -40,49 +40,65 @@
 }
 
 .yu-register-success {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .yu-register-invalid-feedback-name {
   position: absolute;
-  left: 63%;
-  top: 21.5%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
+  font-size: 14px;
+  margin: 0;
 }
 
 .yu-register-invalid-feedback-email {
   position: absolute;
-  left: 63%;
-  top: 34.3%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
+  font-size: 14px;
+  margin: 0;
 }
 
 .yu-register-invalid-feedback-mobile {
   position: absolute;
-  left: 63%;
-  bottom: 57%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
+  font-size: 14px;
+  margin: 0;
 }
 
 .yu-register-invalid-feedback-birthday {
   position: absolute;
-  left: 63%;
-  bottom: 44%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
+  font-size: 14px;
+  margin: 0;
 }
 
 .yu-register-invalid-feedback-password {
   position: absolute;
-  left: 63%;
-  bottom: 37.5%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
-  padding-left: -15px;
+  font-size: 14px;
+  margin: 0;
 }
 
 .yu-register-invalid-feedback-passworddifference {
   position: absolute;
-  left: 63%;
-  bottom: 31.1%;
+  right: 17%;
+  transform: translateY(-50%);
+  top: 50%;
   width: 10%;
-  padding-left: -15px;
+  font-size: 14px;
+  margin: 0;
 }
