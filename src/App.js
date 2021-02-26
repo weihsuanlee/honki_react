@@ -150,7 +150,7 @@ function App() {
                 <Route path="/RandomEdit">
                   <RandomEdit />
                 </Route>
-                <Route path="/RandomSuccess">
+                <Route path="/RandomSuccess/:c_sid?">
                   <RandomSuccess />
                 </Route>
                 <Route path="/RandSuccessStatus">
