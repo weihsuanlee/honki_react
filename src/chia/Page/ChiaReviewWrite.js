@@ -39,10 +39,10 @@ function ChiaReviewWrite() {
   ]
 
   useEffect(() => {
-    $('.rankingselect').on('change', function () {
+    $('.chia_rankingselect').on('change', function () {
       setReviewRanking(this.value)
     })
-    $('.solarselect ').on('change', function () {
+    $('.chia_solarselect ').on('change', function () {
       setReviewCategory(this.value)
     })
   }, [])
