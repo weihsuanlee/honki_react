@@ -44,7 +44,7 @@ function ProductDetail(props) {
   const handleShow = () => setShow(true)
 
   const updateCartToLocalStorage = (item) => {
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('cart5566')) || []
     // find if the product in the localstorage with its id
     const index = currentCart.findIndex((v) => v.book_sid === item.book_sid)
     // found: index! == -1
@@ -59,7 +59,7 @@ function ProductDetail(props) {
       return
     } else {
       currentCart.push(item)
-      localStorage.setItem('cart', JSON.stringify(currentCart))
+      localStorage.setItem('cart5566', JSON.stringify(currentCart))
     }
     // 設定資料
     setMycart(currentCart)

@@ -12,7 +12,7 @@ function Cart(props) {
     // 開啟載入的指示圖示
     setDataLoading(true)
 
-    const newCart = localStorage.getItem('cart') || '[]'
+    const newCart = localStorage.getItem('cart5566') || '[]'
 
     console.log(JSON.parse(newCart))
 
@@ -57,7 +57,7 @@ function Cart(props) {
 
   // 刪除單一項目
   const updateCartRemove = (index) => {
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('cart5566')) || []
     console.log(currentCart[index])
 
     const a = currentCart.filter((v, i) => {
@@ -68,7 +68,7 @@ function Cart(props) {
     })
     console.log(a)
 
-    localStorage.setItem('cart', JSON.stringify(a))
+    localStorage.setItem('cart5566', JSON.stringify(a))
 
     // 設定資料
     setMycart(a)
@@ -76,7 +76,7 @@ function Cart(props) {
   //清除全部
   const updateCartRemoveAll = (item) => {
     console.log(item)
-    localStorage.removeItem('cart')
+    localStorage.removeItem('cart5566')
     // 設定資料
     setMycart([])
   }
@@ -188,7 +188,7 @@ function Cart(props) {
 
                 <div class="row justify-content-between aw-stepBtn">
                   <div class="aw-preStep d-flex align-items-center">
-                    <a class="aw-a" href="#">
+                    <a class="aw-a" href="http://localhost:3000/product">
                       <div class="row aw-row">
                         <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                         <h6> 繼續購物</h6>
