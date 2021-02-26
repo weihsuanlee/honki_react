@@ -129,12 +129,15 @@ function ActAllSignUp(props) {
   const userId = localStorage.getItem('userId')
   console.log('userId', userId)
   const [orderLists, setOrderLists] = useState([])
-  // const { orderLists, setOrderLists } = props
   const [orderDetail, setOrderDetail] = useState('')
-  // const [allActTime, setAllActTime] = useState([])
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
-  // let checkDetail = false
+  const [deleteOrder, setDeleteOrder] = useState('')
+
+  function deleteButtonClick(deleteOrderNum) {
+    console.log('deleteOrderNum', deleteOrderNum)
+    setDeleteOrder(deleteOrderNum)
+  }
 
   function orderDetailButtonClick(orderNumber) {
     console.log('orderNumber', orderNumber)
@@ -179,7 +182,6 @@ function ActAllSignUp(props) {
     console.log('orderLists', orderLists.rows)
   }
 
-  // TODO: 如果此user沒有訂購紀錄會噴錯誤
   const orderCard = (
     <>
       {orderLists.rows &&
@@ -189,6 +191,8 @@ function ActAllSignUp(props) {
             value.bookname +
             '/0.jpg'
           const orderNumberBtn = value.order_number
+          const deleteOrderNum = value.order_sid
+
           return (
             <div className="yen-signup-select-box" key={index}>
               <div className="yen-signup-act-img">
@@ -217,7 +221,12 @@ function ActAllSignUp(props) {
                     <i className="fas fa-edit"></i>
                     查看報名
                   </button>
-                  <button className="btn-md-dark yen-signup-cancel">
+                  <button
+                    className="btn-md-dark yen-signup-cancel"
+                    onClick={() => {
+                      deleteButtonClick(deleteOrderNum)
+                    }}
+                  >
                     <i className="fas fa-heart-broken"></i>
                     取消報名
                   </button>
