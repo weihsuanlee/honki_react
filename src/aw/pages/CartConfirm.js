@@ -8,35 +8,107 @@ import { withRouter, NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartConfirm(props) {
+  const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
-  // 書籍商品狀態
-  const [books, setBooks] = useState([])
-  // 分類選單 Display
-  const [categoryDisplay, setCategoriesDisplay] = useState([])
-  // 篩選類別狀態
-  const [category, setCategory] = useState('')
-  // 模擬componentDidUpdate
+  const [mycartDisplay, setMycartDisplay] = useState([])
+  const [inputerms, setInputerms] = useState([])
+
+  //select into localStorage
+  const [selectAmount, setSelectAmount] = useState()
+
+  function getCartFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
+    const newCart = localStorage.getItem('cart')
+    console.log(JSON.parse(newCart))
+    setMycart(JSON.parse(newCart))
+  }
+  function getInputFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
+    const newInput = localStorage.getItem('inputTerms')
+    console.log(JSON.parse(newInput))
+    setInputerms(JSON.parse(newInput))
+  }
+
+  useEffect(
+    () => {
+      getCartFromLocalStorage()
+      getInputFromLocalStorage()
+    },
+    [],
+    []
+  )
+
+  //轉換千分位
+  function toCurrency(num) {
+    var parts = num.toString().split('.')
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    return parts.join('.')
+  }
+
+  // 每次mycart資料有改變，1秒後關閉載入指示
+  // componentDidUpdate
   useEffect(() => {
-    filterProduct()
-  }, [category])
-  const [isLoading, setIsLoading] = useState(true)
-  const getDataFromServer = async () => {
-    // 先開啟spinner
-    setIsLoading(true)
+    setTimeout(() => setDataLoading(false), 1000)
+    // mycartDisplay運算
+    let newMycartDisplay = []
+    //尋找mycartDisplay
+    for (let i = 0; i < mycart.length; i++) {
+      //尋找mycartDisplay中有沒有此mycart[i].id
+      //有找到會返回陣列成員的索引值
+      //沒找到會返回-1
+      const index = newMycartDisplay.findIndex(
+        (value) => value.id === mycart[i].id
+      )
+      //有的話就數量+1
+      if (index !== -1) {
+        //每次只有加1個數量
+        //newMycartDisplay[index].amount++
+        //假設是加數量的
+        newMycartDisplay[index].amount += mycart[i].amount
+      } else {
+        //沒有的話就把項目加入，數量為1
+        const newItem = { ...mycart[i] }
+        newMycartDisplay = [...newMycartDisplay, newItem]
+      }
+    }
+    console.log(newMycartDisplay)
+    setMycartDisplay(newMycartDisplay)
+  }, [mycart])
 
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/cart', {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data)
-    setBooks(data.rows)
-    setCategoriesDisplay(data.c_rows)
+  // 更新購物車中的商品數量
+  const updateCartToLocalStorage = (item, isAdded = true) => {
+    console.log(item, isAdded)
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    console.log('index', currentCart)
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.book_id === item.book_id)
+    console.log('index', index)
+    // found: index! == -1
+    if (index > -1) {
+      isAdded ? currentCart[index].amount++ : currentCart[index].amount--
+    }
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+    // 設定資料
+    setMycart(currentCart)
+  }
 
-    // 2秒後關閉spinner
-    // setTimeout(() => {
-    //   setIsLoading(false)
-    // }, 2000)
+  // 計算總價用的函式
+  const sumQuantity = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount
+    }
+    return total
+  }
+  // 計算總量的函式
+  const sumAmount = (items) => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    return total
   }
   const loading = (
     <>
@@ -47,87 +119,6 @@ function CartConfirm(props) {
       </div>
     </>
   )
-  const categoriesDisplay = (
-    <div className="wei-categories">
-      <h6 className="wei-categories-title">書籍分類</h6>
-      <ul>
-        {categoryDisplay.map((v, i) => (
-          <>
-            <NavLink
-              activeClassName="active"
-              className="wei-category"
-              to={{
-                search: '?category=' + v.category_sid,
-              }}
-              key={i}
-              onClick={() => {
-                setCategory(`category=${v.category_sid}`)
-              }}
-            >
-              <p>{v.name}</p>
-            </NavLink>
-          </>
-        ))}
-      </ul>
-    </div>
-  )
-
-  async function filterProduct() {
-    // 先開啟spinner
-    setIsLoading(true)
-    // 和伺服器要資料
-    const response = await fetch('http://localhost:3333/product?' + category, {
-      method: 'get',
-    })
-    const data = await response.json()
-    console.log(data, 'data1')
-    setBooks(data.rows)
-
-    // 1.5秒後關閉spinner
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
-  }
-  // const spinner = <ListSpinner show="true" />
-  const bookCardDisplay = (
-    <>
-      {books.map((v, i) => (
-        <div
-          onClick={() => {
-            props.history.push('/products/' + v.sid)
-          }}
-          className="col-6 col-sm-6 col-md-4 col-lg-3 wei-card"
-          key={i}
-        >
-          <div className="wei-card-icon">NEW</div>
-          <div className="wei-card-pic position-relative">
-            <div className="wei-book-pic">
-              <img
-                className="w-100"
-                src={`http://localhost:3000/images/books/` + v.book_pics}
-                alt=""
-              />
-            </div>
-            <div className="wei-heart-bg">
-              <FaHeart className="wei-heart" />
-            </div>
-          </div>
-          <div className="wei-book-text">
-            <p className="wei-book-title">{v.title}</p>
-            <p className="wei-book-author">{v.author}</p>
-            <div className="wei-book-price">NT$ {v.final_price}</div>
-          </div>
-        </div>
-      ))}
-    </>
-  )
-  // 模擬componentDidMount
-  useEffect(() => {
-    getDataFromServer()
-  }, [])
-
-  // console.log(props)
-
   const display = (
     <>
       <div class="container-fluid">
@@ -216,125 +207,54 @@ function CartConfirm(props) {
                   </div>
                   <div class="aw-productAreaPadding">
                     <div class="aw-productArea">
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
+                      {mycart.map((item, index) => {
+                        return (
+                          <>
+                            <div class="row aw-card d-flex align-items-center ">
+                              <div class="col-6 row aw-row  align-items-center aw-p-0 ">
+                                <div class="col-sm aw-card-pic aw-p-9 ">
+                                  <div class="aw-book-pic">
+                                    <img
+                                      class="w-100"
+                                      src={
+                                        'http://localhost:3000/images/books/' +
+                                        item.book_id
+                                      }
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
+                                  <p class="aw-book-title">{item.bookname}</p>
+                                </div>
+                              </div>
+                              <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
+                                <div class="col-sm d-flex justify-content-center aw-p-9">
+                                  <p class="aw-book-title">$ {item.price}元</p>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                  <div class="aw-items-amount">
+                                    {item.amount}
+                                  </div>
+                                </div>
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                  <p class="aw-book-title">
+                                    $ {toCurrency(item.amount * item.price)}元
+                                  </p>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="row aw-card d-flex align-items-center ">
-                        <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                          <div class="col-sm aw-card-pic aw-p-9 ">
-                            <div class="aw-book-pic">
-                              <img
-                                class="w-100"
-                                src="http://localhost:3000/images/aw/cartpic1.png"
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                            <p class="aw-book-title">種日子的人</p>
-                          </div>
-                        </div>
-                        <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                          <div class="col-sm d-flex justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <div class="aw-items-amount">1</div>
-                          </div>
-                          <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                            <p class="aw-book-title">226元</p>
-                          </div>
-                        </div>
-                      </div>
+                          </>
+                        )
+                      })}
                     </div>
                   </div>
                   <div class="aw-countArea aw-pr-42">
-                    <div class="d-flex justify-content-end p-0">
+                    {/* <div class="d-flex justify-content-end p-0">
                       <div class="row aw-row aw-count pt-2">
                         <h5> 共 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 16</h5>
+                          <h5> {toCurrency(sumQuantity(mycart))}</h5>
                         </div>
                         <h5> 本 </h5>
                       </div>
@@ -343,7 +263,7 @@ function CartConfirm(props) {
                       <div class="row aw-row aw-count pt-2">
                         <h5>小計</h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 1,661</h5>
+                          <h5> {toCurrency(sumAmount(mycart))}</h5>
                         </div>
                         <h5>元</h5>
                       </div>
@@ -370,189 +290,238 @@ function CartConfirm(props) {
                       <div class="row aw-row aw-count pb-5">
                         <h5>總計</h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5>3,416</h5>
+                          <h5>{toCurrency(sumAmount(mycart))}元</h5>
                         </div>
                         <h5>元</h5>
+                      </div>
+                    </div> */}
+
+                    <div class="aw-countArea pr-0">
+                      <div class="d-flex justify-content-end p-0">
+                        <div class="row aw-row aw-count pt-2">
+                          <div class="text-right">
+                            <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>{' '}
+                            <h5>折扣</h5>
+                          </div>
+                          <div class="aw-count-num d-flex justify-content-end">
+                            {/* 計算加總本數 */}
+                            <div class="text-right">
+                              <h5> {toCurrency(sumQuantity(mycart))}</h5>
+                              <h5>$ {toCurrency(sumAmount(mycart))}</h5>
+                              <h5> 60</h5>
+                              <h5> -60</h5>
+                            </div>
+                          </div>
+                          <div class="text-right">
+                            <h5>本</h5>
+                            <h5>元</h5>
+                            <h5>元</h5>
+                            <h5>元</h5>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end p-0 aw-borderTop">
+                        <div class="row aw-row aw-count pb-5">
+                          <h5>總計</h5>
+                          <div class="aw-count-num d-flex justify-content-end">
+                            <h5>$ {toCurrency(sumAmount(mycart))}</h5>
+                          </div>
+                          <h5>元</h5>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="row aw-row ">
                     <div class="aw-ptpb-64 aw-border-lightYellow col-12">
-                      <div class=" form-width-height aw-form-width-height">
-                        <div class="form-tittle aw-mb-4">
-                          <h5>運費與折價</h5>
-                        </div>
-                        <div class="aw-btbb aw-mb-40 aw-ptpb-20">
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlSelect1"
-                              >
-                                運送方式
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">超商取貨</h6>
+                      {inputerms.map((item, index) => {
+                        return (
+                          <>
+                            <div class=" form-width-height aw-form-width-height">
+                              <div class="form-tittle aw-mb-4">
+                                <h5>運費與折價</h5>
+                              </div>
+                              <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlSelect1"
+                                    >
+                                      運送方式
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0"> {item.trans}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlSelect1"
+                                    >
+                                      選擇折價券
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.dis}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="form-tittle aw-mb-4">
+                                <h5>付款方式</h5>
+                              </div>
+
+                              <div class="aw-btbb aw-mb-40 aw-ptpb-20 aw-ptpb-20">
+                                <div class="form-group aw-mb-16  aw-mb-16">
+                                  <div class="formItems row d-flex ">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlSelect1"
+                                    >
+                                      選擇付款方式
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.payment}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16">
+                                  <div class="formItems row d-flex  ">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlSelect1"
+                                    >
+                                      發票資訊
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.invoice}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="form-tittle aw-mb-4">
+                                <h5>訂購人資訊</h5>
+                              </div>
+
+                              <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                <div class="form-group aw-mb-16">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlInput1"
+                                    >
+                                      姓名
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.userName}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label class="inputText col-4">
+                                      聯絡電話
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.userTel}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label class="inputText col-4">Email</label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.userMail}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="form-tittle aw-mb-4">
+                                <h5>收件人資訊</h5>
+                              </div>
+
+                              <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlInput1"
+                                    >
+                                      姓名
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.reciveName}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label class="inputText col-4">
+                                      聯絡電話
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.recivePhone}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label class="inputText col-4">Email</label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.reciveMail}</h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlTextarea1 align-items-center"
+                                    >
+                                      收件地址
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">
+                                        {item.recivePost +
+                                          item.reciveCountry +
+                                          item.reciveArea +
+                                          item.reciveAdress}
+                                      </h6>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group aw-mb-16 ">
+                                  <div class="formItems row d-flex">
+                                    <label
+                                      class="inputText col-4"
+                                      for="exampleFormControlSelect1"
+                                    >
+                                      配送時間
+                                    </label>
+                                    <div class="col-8">
+                                      <h6 class="m-0">{item.reciveTime}</h6>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlSelect1"
-                              >
-                                選擇折價券
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">11111</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-tittle aw-mb-4">
-                          <h5>付款方式</h5>
-                        </div>
-
-                        <div class="aw-btbb aw-mb-40 aw-ptpb-20 aw-ptpb-20">
-                          <div class="form-group aw-mb-16  aw-mb-16">
-                            <div class="formItems row d-flex ">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlSelect1"
-                              >
-                                選擇付款方式
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">貨到付款</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16">
-                            <div class="formItems row d-flex  ">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlSelect1"
-                              >
-                                發票資訊
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">捐贈</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-tittle aw-mb-4">
-                          <h5>訂購人資訊</h5>
-                        </div>
-
-                        <div class="aw-btbb aw-mb-40 aw-ptpb-20">
-                          <div class="form-group aw-mb-16">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlInput1"
-                              >
-                                姓名
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">吳亞瑟</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label class="inputText col-4">聯絡電話</label>
-                              <div class="col-8">
-                                <h6 class="m-0">0988999776</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label class="inputText col-4">Email</label>
-                              <div class="col-8">
-                                <h6 class="m-0">arthurwu315@hotmail.com</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-tittle aw-mb-4">
-                          <h5>收件人資訊</h5>
-                        </div>
-
-                        <div class="aw-btbb aw-mb-40 aw-ptpb-20">
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlInput1"
-                              >
-                                姓名
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">光頭葛格</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label class="inputText col-4">聯絡電話</label>
-                              <div class="col-8">
-                                <h6 class="m-0">0958585858</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label class="inputText col-4">Email</label>
-                              <div class="col-8">
-                                <h6 class="m-0">kindperson@gmail.com</h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlTextarea1 align-items-center"
-                              >
-                                收件地址
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">
-                                  100台北市中正區重慶南路一段122號
-                                </h6>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="form-group aw-mb-16 ">
-                            <div class="formItems row d-flex">
-                              <label
-                                class="inputText col-4"
-                                for="exampleFormControlSelect1"
-                              >
-                                配送時間
-                              </label>
-                              <div class="col-8">
-                                <h6 class="m-0">不限時</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                          </>
+                        )
+                      })}
                       <div class=" position-relative">
                         <div class="d-flex justify-content-center ">
                           <a class="aw-a" href="./CartOrder">
