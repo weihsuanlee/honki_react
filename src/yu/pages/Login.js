@@ -129,10 +129,9 @@ function Login(props) {
                       onChange={(e) => {
                         setPassword(e.target.value)
                       }}
-                      // onKeyPress={(e) => {
-                      //   if (e.key === 'Enter') sendButtonClick()
-                      // }}
-                      // sendButtonClick
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') login(email, password)
+                      }}
                     />
                   </div>
                 </div>
