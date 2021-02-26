@@ -329,16 +329,16 @@ function NormalAdd(props) {
             >
               新增
             </button>
+            <Link to="./NormalIndex">
+              <button className="btn-md-dark jill-addform-btn">取消</button>
+            </Link>
           </form>
           {/* <!-- 按鈕 --> */}
           <div className="form-group button-group jill-fix-btn">
             <div className="d-flex">
-              <Link to="#">
+              {/* <Link to="#">
                 <button className="btn-md-dark jill-addform-btn">新增</button>
-              </Link>
-              <Link to="./NormalIndex">
-                <button className="btn-md-dark jill-addform-btn">取消</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* <!-- 跳舞的人 --> */}

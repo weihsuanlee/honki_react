@@ -14,8 +14,7 @@ import MyChangeBooks from './../components/MyChangeBooks'
 
 function NormalIndex() {
   const [changeData, setChangeData] = useState([])
-  // 測試撈會員資料
-  const [memberData, setMemberData] = useState([])
+
   // 撈我的交換單(編號15)
   const [mybook_rows, setMybook_rows] = useState([])
   // 測試useEffect
@@ -49,8 +48,6 @@ function NormalIndex() {
     // 因為有好幾個項目，所以要.rows才可以只把rows叫出來
     setChangeData(data.rows)
 
-    // 測試撈會員資料
-    setMemberData(data.m_rows)
     // setTotalRows(data.TotalRows)
     // let TRows = { setTotalRows }
     // let x = 0
@@ -156,9 +153,8 @@ function NormalIndex() {
                   <div className="jill-underline"></div>
                   <li>{item.written_or_not}</li>
                   <div className="jill-underline"></div>
-                  {memberData.map((m) => (
-                    <li>{m[index].nickname}</li>
-                  ))}
+
+                  <li>{item.nickname}</li>
                 </ul>
                 <Link to={'/SendIWantChange/' + item.c_sid}>
                   <button className="btn-md-dark jill-want-btn">查看</button>
