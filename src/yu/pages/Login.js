@@ -3,10 +3,11 @@ import { FaLine, FaFacebookSquare } from 'react-icons/fa'
 import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { Modal, Button } from 'react-bootstrap'
 
-function Login() {
+function Login(props) {
   // const [show, setShow] = useState(false)
   // const handleClose = () => setShow(false)
 
@@ -42,7 +43,8 @@ function Login() {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      toMenu()
+      // toMenu()
+      props.history.goBack()
     } else {
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
@@ -245,4 +247,4 @@ function Login() {
 //     })
 // }
 
-export default Login
+export default withRouter(Login)
