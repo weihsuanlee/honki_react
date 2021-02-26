@@ -18,7 +18,7 @@ function CartOrder(props) {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://localhost:3333/cart/order_detail/8', {
+    const response = await fetch('http://localhost:3333/cart/order_detail/7', {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',

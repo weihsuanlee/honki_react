@@ -76,6 +76,16 @@ function CartItems(props) {
     setMycart(currentCart)
   }
 
+  const userId = localStorage.getItem('userId')
+  const onClickFavorite = () => {
+    // 如果會員沒登入就按收藏 先掰
+    console.log('梅登入就掰', userId)
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+    } else {
+      window.location.href = 'http://localhost:3000/CartInput'
+    }
+  }
   //清除購物車
   const updateCartRemoveAll = (item) => {
     console.log(item)
@@ -301,10 +311,14 @@ function CartItems(props) {
                       </a>
                     </div>
                     <div class="aw-nextStep  d-flex align-items-center">
-                      <a class="aw-a" href="./CartInput">
-                        {' '}
-                        <button class="btn-lg aw-btn-lg">下一步</button>
-                      </a>
+                      <button
+                        class="btn-lg aw-btn-lg"
+                        onClick={() => {
+                          onClickFavorite()
+                        }}
+                      >
+                        下一步
+                      </button>
                     </div>
                   </div>
                   <div class="col-2"> </div>

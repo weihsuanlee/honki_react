@@ -2,56 +2,36 @@ import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { countries, townships, postcodes } from './townships'
 
 function CartInput(props) {
-  const userid = props.match.params.userid
-
   const [mycart, setMycart] = useState([])
+  const [mycart1, setMycart1] = useState([])
+  const [obj1, setObj1] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  const [userDataIsExist, setUserDataIsExist] = useState(true)
+  const [seletedOption1, setSeletedOption1] = useState('')
+  const [seletedOption2, setSeletedOption2] = useState('')
+  const [seletedOption3, setSeletedOption3] = useState('')
+  const [seletedOption4, setSeletedOption4] = useState('')
+  const [seletedOption5, setSeletedOption5] = useState('')
+  const [seletedOption6, setSeletedOption6] = useState('')
+  const [seletedOption7, setSeletedOption7] = useState('')
+  const [seletedOption8, setSeletedOption8] = useState('')
+  const [seletedOption9, setSeletedOption9] = useState('')
+  const [seletedOption10, setSeletedOption10] = useState('')
+  const [seletedOption11, setSeletedOption11] = useState('')
+  const [seletedOption12, setSeletedOption12] = useState('')
+  const [seletedOption13, setSeletedOption13] = useState('')
+  const [seletedOption14, setSeletedOption14] = useState('')
+  const [seletedOption15, setSeletedOption15] = useState('')
+  console.log(countries, townships, postcodes)
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
+  const [post, setPost] = useState()
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
 
-  async function getUserFromServer(userid) {
-    // 開啟載入指示
-    setDataLoading(true)
-
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:3333/users/edit/' + userid
-
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(data)
-    // 設定資料
-
-    // 如果從伺服器回傳的資料沒有id值
-    if (!data.id) {
-      setUserDataIsExist(false)
-      return
-    }
-
-    setName(data.name)
-    setEmail(data.email)
-    setUsername(data.username)
-    setPassword(data.password)
-  }
-
-  //載入localStorage
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
@@ -63,6 +43,149 @@ function CartInput(props) {
     getCartFromLocalStorage()
   }, [])
 
+  //input1
+  const Terms1 = (trans) => {
+    console.log(trans)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    console.log('index', currentCart)
+    currentCart[0].trans = trans
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption1(trans)
+  }
+  //input2
+  const Terms2 = (dis) => {
+    console.log(dis)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].dis = dis
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption2(dis)
+  }
+  //input3
+  const Terms3 = (payment) => {
+    console.log(payment)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].payment = payment
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption3(payment)
+  }
+  //input4
+  const Terms4 = (invoice) => {
+    console.log(invoice)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].invoice = invoice
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption4(invoice)
+  }
+  //input5
+  const Terms5 = (userName) => {
+    console.log(userName)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].userName = userName
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption5(userName)
+  }
+
+  //input6
+  const Terms6 = (userTel) => {
+    console.log(userTel)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].userTel = userTel
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption6(userTel)
+  }
+  //input7
+  const Terms7 = (userMail) => {
+    console.log(userMail)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].userMail = userMail
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption7(userMail)
+  }
+
+  //input8
+  const Terms8 = (reciveName) => {
+    console.log(reciveName)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveName = reciveName
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption8(reciveName)
+  }
+  //input9
+  const Terms9 = (recivePhone) => {
+    console.log(recivePhone)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].recivePhone = recivePhone
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption9(recivePhone)
+  }
+  //input10
+  const Terms10 = (reciveMail) => {
+    console.log(reciveMail)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveMail = reciveMail
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption10(reciveMail)
+  }
+
+  //input11 郵遞區號 縣市
+  const Terms11 = (reciveCountry) => {
+    console.log(reciveCountry)
+
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveCountry = countries[reciveCountry]
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption11(reciveCountry)
+    setCountry(reciveCountry)
+  }
+
+  //input12 郵遞區號 區
+  const Terms12 = (reciveArea) => {
+    console.log(reciveArea)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveArea = townships[country][reciveArea]
+    currentCart[0].recivePost = postcodes[country][township]
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption12(reciveArea)
+
+    setTownship(reciveArea)
+  }
+  //input13
+  const Terms13 = (recivePost) => {
+    console.log(recivePost)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveAdress = recivePost
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption13(recivePost)
+  }
+  //input14
+  const Terms14 = (reciveAdress) => {
+    console.log(reciveAdress)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveAdress = reciveAdress
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption14(reciveAdress)
+  }
+  //input15
+  const Terms15 = (reciveTime) => {
+    console.log(reciveTime)
+    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
+    currentCart[0].reciveTime = reciveTime
+    console.log('index', currentCart)
+    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
+    setSeletedOption15(reciveTime)
+  }
   //轉換千分位
   function toCurrency(num) {
     var parts = num.toString().split('.')
@@ -117,7 +240,7 @@ function CartInput(props) {
     setMycart(currentCart)
   }
 
-  // 計算總量的函式
+  // 計算總價用的函式
   const sumQuantity = (items) => {
     let total = 0
     for (let i = 0; i < items.length; i++) {
@@ -125,6 +248,7 @@ function CartInput(props) {
     }
     return total
   }
+  // 計算總量的函式
   const sumAmount = (items) => {
     let total = 0
     for (let i = 0; i < items.length; i++) {
@@ -142,7 +266,6 @@ function CartInput(props) {
       </div>
     </>
   )
-
   const display = (
     <>
       <div class="container-fluid">
@@ -312,9 +435,10 @@ function CartInput(props) {
                               <select
                                 class="form-control formInput  col-7"
                                 id="exampleFormControlSelect1"
-                                onChange={() =>
-                                  updateCartToLocalStorage(mycart, true)
-                                }
+                                value={seletedOption1}
+                                onChange={(e) => {
+                                  Terms1(e.target.value)
+                                }}
                               >
                                 <option value="0">請選擇</option>
                                 <option value="超商取貨">超商取貨</option>
@@ -334,15 +458,14 @@ function CartInput(props) {
                               <select
                                 class="form-control formInput  col-7"
                                 id="exampleFormControlSelect1"
+                                value={seletedOption2}
+                                onChange={(e) => {
+                                  Terms2(e.target.value)
+                                }}
                               >
-                                <option>請選擇</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
+                                <option value="0">請選擇</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
                               </select>
                             </div>
                           </div>
@@ -381,10 +504,14 @@ function CartInput(props) {
                             <select
                               class="form-control formInput  col-7"
                               id="exampleFormControlSelect1"
+                              value={seletedOption3}
+                              onChange={(e) => {
+                                Terms3(e.target.value)
+                              }}
                             >
-                              <option>請選擇</option>
-                              <option>貨到付款</option>
-                              <option>信用卡付款</option>
+                              <option value="select">請選擇</option>
+                              <option value="貨到付款">貨到付款</option>
+                              <option value="信用卡付款">信用卡付款</option>
                             </select>
                           </div>
                         </div>
@@ -400,6 +527,10 @@ function CartInput(props) {
                             <select
                               class="form-control formInput  col-7"
                               id="exampleFormControlSelect1"
+                              value={seletedOption4}
+                              onChange={(e) => {
+                                Terms4(e.target.value)
+                              }}
                             >
                               <option>請選擇</option>
                               <option>捐贈發票</option>
@@ -425,11 +556,11 @@ function CartInput(props) {
                               type="text"
                               class="form-control formInput col-7 "
                               placeholder="ex:吳阿民"
-                              value={name}
-                              onChange={(event) => {
-                                setName(event.target.value)
+                              value={seletedOption5}
+                              onChange={(e) => {
+                                Terms5(e.target.value)
                               }}
-                            />{' '}
+                            />
                           </div>
                         </div>
 
@@ -440,6 +571,10 @@ function CartInput(props) {
                               type="email"
                               class="form-control formInput col-7"
                               placeholder=""
+                              value={seletedOption6}
+                              onChange={(e) => {
+                                Terms6(e.target.value)
+                              }}
                             />
                           </div>
                         </div>
@@ -451,9 +586,9 @@ function CartInput(props) {
                               type="email"
                               class="form-control formInput col-7"
                               placeholder="example@hotmail.com"
-                              value={email}
-                              onChange={(event) => {
-                                setEmail(event.target.value)
+                              value={seletedOption7}
+                              onChange={(e) => {
+                                Terms7(e.target.value)
                               }}
                             />
                           </div>
@@ -475,6 +610,10 @@ function CartInput(props) {
                               type="text"
                               class="form-control formInput col-7 "
                               placeholder="ex:吳阿民"
+                              value={seletedOption8}
+                              onChange={(e) => {
+                                Terms8(e.target.value)
+                              }}
                             />
                           </div>
                         </div>
@@ -486,6 +625,10 @@ function CartInput(props) {
                               type="email"
                               class="form-control formInput col-7"
                               placeholder=""
+                              value={seletedOption9}
+                              onChange={(e) => {
+                                Terms9(e.target.value)
+                              }}
                             />
                           </div>
                         </div>
@@ -497,6 +640,10 @@ function CartInput(props) {
                               type="email"
                               class="form-control formInput col-7"
                               placeholder="example@hotmail.com"
+                              value={seletedOption10}
+                              onChange={(e) => {
+                                Terms10(e.target.value)
+                              }}
                             />
                           </div>
                         </div>
@@ -514,30 +661,53 @@ function CartInput(props) {
                                 <select
                                   class="form-control formInput  col-sm mr-1 mb-2"
                                   id="exampleFormControlSelect1"
+                                  // value={seletedOption11}
+                                  onChange={(e) => {
+                                    Terms11(e.target.value)
+                                    // setSeletedOption12(-1)
+                                  }}
                                 >
-                                  <option>縣市</option>
-                                  <option>台北市</option>
-                                  <option>基隆市</option>
-                                  <option>新北市</option>
+                                  <option value="-1">選擇縣市</option>
+                                  {countries.map((value, index) => (
+                                    <option key={index} value={index}>
+                                      {value}
+                                    </option>
+                                  ))}
                                 </select>
                                 <select
                                   class="form-control formInput  col-sm "
                                   id="exampleFormControlSelect1"
+                                  value={seletedOption12}
+                                  onChange={(e) => {
+                                    Terms12(e.target.value)
+                                  }}
                                 >
-                                  <option>區域</option>
-                                  <option>中正區</option>
-                                  <option>大安區</option>
-                                  <option>信義區</option>
+                                  <option value="-1">選擇區域</option>
+                                  {country > -1 &&
+                                    townships[country].map((value, index) => (
+                                      <option key={index} value={index}>
+                                        {value}
+                                      </option>
+                                    ))}
                                 </select>
                               </div>
                               <div class="row aw-p-0 aw-row">
                                 <div class="col-sm d-flex align-items-center mb-2">
                                   郵遞區號
                                 </div>
+
                                 <input
                                   type="text"
                                   class="form-control formInput col-sm  mb-2 ml-1"
                                   placeholder=""
+                                  onChange={(e) => {
+                                    Terms13(e.target.value)
+                                  }}
+                                  value={
+                                    country > -1 &&
+                                    township > -1 &&
+                                    postcodes[country][township]
+                                  }
                                 />
                               </div>
                               <textarea
@@ -545,6 +715,10 @@ function CartInput(props) {
                                 id="exampleFormControlTextarea1"
                                 placeholder="ex:重慶南路一段122號"
                                 rows="2 "
+                                value={seletedOption14}
+                                onChange={(e) => {
+                                  Terms14(e.target.value)
+                                }}
                               ></textarea>
                             </div>
                           </div>
@@ -561,10 +735,15 @@ function CartInput(props) {
                             <select
                               class="form-control formInput  col-7"
                               id="exampleFormControlSelect1"
+                              value={seletedOption15}
+                              onChange={(e) => {
+                                Terms15(e.target.value)
+                              }}
                             >
-                              <option>不限時</option>
-                              <option>白天</option>
-                              <option>晚上</option>
+                              <option value="0">請選擇</option>
+                              <option value="不限時">不限時</option>
+                              <option value="白天">白天</option>
+                              <option value="晚上">晚上</option>
                             </select>
                           </div>
                         </div>
@@ -583,7 +762,6 @@ function CartInput(props) {
                       </a>
                     </div>
                     <div class="aw-nextStep  d-flex align-items-center">
-                      {' '}
                       <a href="./CartConfirm" class="aw-a">
                         <button
                           class="btn-lg aw-btn-lg"

@@ -26,16 +26,32 @@
 }
 
 @media only screen and (max-width: 1800px) {
+  .title-bg {
+    transform: translate(45px, -200px);
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .title-bg {
+    transform: translate(20px, -200px);
+  }
 }
 
 @media only screen and (max-width: 1440px) {
+  .title-bg {
+    transform: translate(calc(100vw / 12), -200px);
+  }
+
+  .title-box {
+    width: 100vw / 2;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
   .title-bg {
     height: 2rem;
-    transform: translate(1rem, 0rem);
-    /* z-index: 2; */
+    // transform: translate(1rem, 0rem);
+    // transform: translate(20px, -200px);
   }
 
   .title {
@@ -50,6 +66,9 @@
 }
 
 @media only screen and (max-width: 992px) {
+  .title-bg {
+    transform: translate(0rem, 0rem);
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -62,6 +81,6 @@
     font-size: 1.5rem;
     text-align: center;
     /* z-index: 2; */
-    transform: translate(0rem, 0rem);
+    // transform: translate(0rem, 0rem);
   }
 }

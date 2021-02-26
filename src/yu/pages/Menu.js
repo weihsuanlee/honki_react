@@ -28,6 +28,7 @@ function Menu(props) {
 
   // 活動訂單state
   // const [orderLists, setOrderLists] = useState([])
+  const { vip, setVip } = props
 
   const [name, setName] = useState('')
 
@@ -96,7 +97,9 @@ function Menu(props) {
           </div>
           <div className="yu-menu-general">
             {/* <!-- 會員等級 --> */}
-            <div className="yu-menu-general-member">一般會員</div>
+            <div className={`yu-menu-general-member ` + (vip ? 'yu-red' : '')}>
+              {vip ? 'VIP會員' : '一般會員'}
+            </div>
             {/* <!-- 歡迎詞 --> */}
             <div className="yu-menu-greeting">
               <span>哈囉，</span>

@@ -8,7 +8,7 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 import SolarTermToShow from '../components/SolarTermToShow'
 import OldSeasonBookCardList from '../components/OldSeasonBookCardList'
-import OldSeasonBookCard from '../components/OldSeasonBookCard'
+// import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 // import style
 import '../styles/old-seasons.scss'
@@ -64,7 +64,7 @@ function OldSeasons(props) {
   const solarTermId = Array.from(Array(24).keys())
 
   // let currentDate = formatDate(new Date())
-  let currentSolarTerm = '2020-12-25'
+  // let currentSolarTerm = '2020-12-25'
   const currentStDate = () => new Date()
 
   // 把日期轉為節氣 ID

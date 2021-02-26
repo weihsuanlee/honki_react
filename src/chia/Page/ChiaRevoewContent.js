@@ -14,6 +14,7 @@ function ChiaReviewContent(props) {
   const [isData, setIsData] = useState([])
   const [isNum, setIsNum] = useState(Number(props.match.params.sid))
   const [isTransform, setIsTransform] = useState(false)
+  const [isLike, setIsLike] = useState('GOOD')
 
   console.log(isResult)
 
@@ -45,6 +46,8 @@ function ChiaReviewContent(props) {
     }
   }, [isTransform])
 
+  console.log(isLike)
+
   const newContent = isResult.filter((v) => {
     return v.sid === isNum
   })
@@ -52,6 +55,31 @@ function ChiaReviewContent(props) {
   // newContent.map((v, i) => {
   //   console.log(v)
   // })
+
+  async function addLikes() {
+    const newData = {
+      isLike,
+      isNum,
+    }
+
+    const url = 'http://localhost:3333/reviews/content/like'
+
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    console.log(JSON.stringify(newData))
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    console.log('This is the result', data)
+  }
 
   const Content = (
     <>
@@ -108,8 +136,14 @@ function ChiaReviewContent(props) {
                   {ContentTop}
                   {Content}
                 </div>
+
                 <div className="chia_thumbup">
-                  <FaThumbsUp />
+                  <FaThumbsUp
+                    onClick={() => {
+                      setIsLike('GOOD')
+                      addLikes()
+                    }}
+                  />
                 </div>
               </div>
             </div>

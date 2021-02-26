@@ -170,8 +170,8 @@ function SendIWantChange(props) {
           {/* <!-- 按鈕 --> */}
           <div class="form-group button-group jill-form-btn-group jill-fix-btn2">
             <div class="d-flex jill-center-btn">
-              <Link to="#"></Link>
-              <button class="btn-md-dark jill-addform-btn">發送請求</button>
+              {/* <Link to="#"></Link>
+              <button class="btn-md-dark jill-addform-btn">發送請求</button> */}
               <Link to="/NormalIndex">
                 <button class="btn-md-dark jill-addform-btn">關閉</button>
               </Link>

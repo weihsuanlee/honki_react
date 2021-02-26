@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { withRouter, Link, Switch, Route, NavLink } from 'react-router-dom'
+import { withRouter, Link, Switch, NavLink } from 'react-router-dom'
 import { BsArrowLeftShort, BsArrowRightShort, BsSearch } from 'react-icons/bs'
-import Pagenumber from '../Component/Pagenumber'
 import $ from 'jquery'
 
 function Reviewlistbody(props) {
   let searchParams = new URLSearchParams(props.location.search)
   let url = props.match.url
-  let pagekazo = Number(searchParams.get('page'))
+  // let pagekazo = Number(searchParams.get('page'))
   console.log(props)
   console.log(url)
   const [list, setList] = useState([])
@@ -23,8 +22,12 @@ function Reviewlistbody(props) {
   const [search, setSearch] = useState('')
   const [isSearch, setIsSearch] = useState('')
 
+  //likes part
+  const [likekazo, setLikeKazo] = useState([])
+
   useEffect(() => {
     fetchList()
+    fetchLike()
   }, [])
 
   useEffect(() => {
@@ -83,6 +86,25 @@ function Reviewlistbody(props) {
       setLoading(false)
     })
   }
+
+  const fetchLike = async () => {
+    const fetchURL = 'http://localhost:3333/reviews/content/likelike'
+    const res = await fetch(fetchURL)
+    res
+      .json()
+      .then((res) => {
+        setLikeKazo(res.t_rows)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  list.forEach((v, i) => {
+    v.like = likekazo.filter((s, i) => {
+      return s.likesid === v.sid
+    })
+  })
 
   //Get current Post
   const indexOfLastPost = currentPage * 6
@@ -165,7 +187,6 @@ function Reviewlistbody(props) {
           </div>
 
           <div className="chia_rankings chia_botannobgc">評分</div>
-          <div className="chia_good chia_botannobgc">人氣</div>
           <div className="chia_date chia_botannobgc">日期</div>
         </div>
       </div>
@@ -177,7 +198,7 @@ function Reviewlistbody(props) {
     pageitems.push(i)
   }
 
-  console.log(pageitems)
+  // console.log(pageitems)
 
   const PageNum = (
     <>
@@ -290,8 +311,9 @@ function Reviewlistbody(props) {
                   <td scope="col" className="chia_reviewtd">
                     <p className="chia_content">{v.ranking}&#9733;</p>
                   </td>
+
                   <td scope="col" className="chia_reviewtd">
-                    <p className="chia_content">30</p>
+                    <p className="chia_content">{v.like.length}</p>
                   </td>
                   <td scope="col" className="chia_reviewtd">
                     <p className="chia_content">{v.creatdate}</p>

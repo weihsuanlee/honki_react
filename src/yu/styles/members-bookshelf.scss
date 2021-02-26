@@ -488,9 +488,13 @@
   height: 30px;
   border-radius: 4px;
   text-align: center;
-  padding: 3px 5px 3px 5px;
+  line-height: 30px;
+  // padding: 3px 5px 3px 5px;
 }
-
+.yu-book-general-member.yu-red {
+  background: var(--honki-red);
+  color: var(--honki-white);
+}
 .yu-book-general-member-name {
   background-color: rgb(209, 193, 181);
   color: var(--honki-theme);
@@ -499,7 +503,7 @@
   padding: 3px 5px 3px 5px;
 }
 
-.yu-new-book {
+.yu-book-new-book {
   margin-top: 5rem;
   background-color: #d2bdaa4b;
   height: 360px;
@@ -509,8 +513,8 @@
   top: 350px;
   right: -50px;
 }
-.yu-new-book-pic {
-  width: 130px;
+.yu-book-new-book-pic {
+  width: 110px;
 }
 
 .yu-book-ladybug {
@@ -521,6 +525,5 @@
 }
 
 .yu-book-body-vip {
-  transition: 1s;
-  
+  transition: 3s;
 }
