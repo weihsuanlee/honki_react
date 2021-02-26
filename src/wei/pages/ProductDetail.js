@@ -26,6 +26,10 @@ function ProductDetail(props) {
     setProductHistory(data.history)
     console.log(data)
   }
+  // 此瀏覽單一商品收藏狀態
+  const [favorited, setFavorited] = useState(false)
+  // 全商品收藏狀態
+  const [favorites, setFavorites] = useState([])
 
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
@@ -90,8 +94,8 @@ function ProductDetail(props) {
   // didMount
   useEffect(() => {
     getProductDetail()
+    fetchFavoriteList()
   }, [])
- 
 
   // didUpdate
   useEffect(() => {
@@ -108,17 +112,111 @@ function ProductDetail(props) {
     sendRecentlyViewed(recent)
     // get 資料
     getProductDetail()
+    fetchFavoriteList()
   }, [props.match.params.sid])
 
+  const fetchFavoriteList = async () => {
+    if (!userId) return
+    const url = 'http://localhost:3333/product/favorite/favoriteList'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        userId: userId,
+      }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    if (data.success) {
+      let favs = []
+      data.rows.map((favorite, index) => {
+        return favs.push(favorite.sid)
+      })
+      setFavorites(favs)
+      console.log(favs, sid, favs.indexOf(+sid))
+
+      if (favs.indexOf(+sid) !== -1) {
+        setFavorited(true)
+      } else {
+        setFavorited(false)
+      }
+      // console.log(data, 'get favorite list')
+    } else {
+      alert('Failed to get favorite list')
+    }
+  }
+  // 點選愛心
+  const onClickFavorite = () => {
+    // 如果會員沒登入就按收藏 先掰
+    if (!userId) {
+      window.location.href = 'http://localhost:3000/member'
+      return
+    }
+
+    if (favorited) {
+      // 已經是愛心
+      const removeFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/removeFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: sid,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          setFavorited(!favorited)
+          console.log(data, 'remove from Favorite')
+        } else {
+          alert('Failed to remove from Favorite')
+        }
+      }
+      removeFavorite()
+    } else {
+      // 如果不是愛心
+      const addFavorite = async () => {
+        const url = 'http://localhost:3333/product/favorite/addFavorite'
+        const request = new Request(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            bookId: sid,
+            userId: userId,
+          }),
+          headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        })
+        const response = await fetch(request)
+        const data = await response.json()
+        if (data.success) {
+          setFavorited(!favorited)
+          console.log(data, 'Add to Favorite')
+        } else {
+          alert('Failed to add to Favorite')
+        }
+      }
+      addFavorite()
+    }
+  }
   const productDetailDisplay = (
     <>
       <div className="container-fluid wei-bg-white">
         <div className="row position-relative">
           <div className="wei-detail-icons d-flex flex-column">
             <Favorite
-              bookId={sid}
-              userId={userId}
-              productDetail={productDetail}
+              favorited={favorited}
+              setFavortied={setFavorited}
+              onClickFavorite={onClickFavorite}
             />
             <SharePop productDetail={productDetail} />
           </div>
@@ -313,7 +411,11 @@ function ProductDetail(props) {
         <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
         <div className="row justify-content-center">
           <div className="col-10">
-            <ProductCarousel productRelated={productRelated} />
+            <ProductCarousel
+              productRelated={productRelated}
+              favorites={favorites}
+              fetchFavoriteList={fetchFavoriteList}
+            />
           </div>
         </div>
         <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
@@ -321,8 +423,9 @@ function ProductDetail(props) {
           <div className="col-10">
             <ProductHistoryCarousel
               productHistory={productHistory}
-              setProductHistory={setProductHistory}
-              getProductDetail={getProductDetail}
+              productRelated={productRelated}
+              favorites={favorites}
+              fetchFavoriteList={fetchFavoriteList}
             />
           </div>
         </div>

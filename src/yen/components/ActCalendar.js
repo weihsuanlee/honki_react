@@ -13,11 +13,13 @@ class ActCalendar extends Component {
       currentMonth: '',
       currentYear: '',
       dayList: [],
+      orderLists: props,
     }
-    const { orderLists } = props
-    console.log('props', props)
-    console.log('order data', orderLists)
+    // const { orderLists } = props
+    // console.log('props', props)
+    // console.log('order data2', orderLists)
 
+    this.getDataFromServer = this.getDataFromServer.bind(this)
     this.initCalendar = this.initCalendar.bind(this)
     this.renderBody = this.renderBody.bind(this)
     this.preMonth = this.preMonth.bind(this)
@@ -36,6 +38,41 @@ class ActCalendar extends Component {
 
   componentDidMount() {
     this.initCalendar()
+    this.getDataFromServer()
+  }
+
+  componentWillUpdate() {
+    console.log('componentWillUpdate', this.props)
+  }
+
+  getDataFromServer() {
+    const userId = localStorage.getItem('userId')
+    const url = 'http://localhost:3333/member/actorder'
+
+    fetch(url, {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify({
+        userId: userId,
+      }), // data can be `string` or {object}!
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error('Error:', error))
+      .then((response) =>
+        console.log(
+          'Success:',
+          new Date(response.rows[0].act_time).toDateString()
+        )
+      )
+
+    // const response = await fetch(request)
+    // const data = await response.json()
+    // console.log('response', response)
+    // console.log('order data', data)
+    // setOrderLists(data)
   }
 
   // 取得目前dete的月份第一天的字串
@@ -77,7 +114,9 @@ class ActCalendar extends Component {
   }
 
   // 初始化日曆
-  initCalendar(currentDate) {
+  initCalendar(currentDate, activeDays) {
+    console.log('initCalendar props', this.props)
+    // 日曆部分
     let nowDate = currentDate ? currentDate : new Date()
     let nowMonthFirstDate = this.getMonthFirstDate(nowDate) // 取得當月的1號
     let nowWeek = new Date(nowMonthFirstDate).getDay()
@@ -98,7 +137,8 @@ class ActCalendar extends Component {
       }
       // new Date(str).toDateString() === new Date().toDateString()
       if (date.toDateString() === new Date().toDateString()) {
-        dayObject.className = 'today'
+        console.log('same day')
+        dayObject.className = 'yen-today'
       }
       newDateList.push(dayObject)
     }
@@ -130,7 +170,7 @@ class ActCalendar extends Component {
       <div className="yen-signup-calendar-day">
         {this.state.dayList.map((dayObject, index) => {
           return (
-            <div className="yen-signup-calendar-date">
+            <div className={`yen-signup-calendar-date ${dayObject.className}`}>
               <div key={index}>{dayObject.day}</div>
             </div>
           )

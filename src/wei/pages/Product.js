@@ -114,7 +114,7 @@ function Product(props) {
     filterProduct()
     console.log(props)
     window.scrollBy(0, 0.75 * window.innerHeight)
-  }, [props.location.pathname, props.location.search])
+  }, [props.location])
 
   const getDataFromServer = async () => {
     // 先開啟spinner

@@ -1,14 +1,17 @@
-import { useState } from 'react'
+// import { useState } from 'react'
+// import { Component } from 'react'
 
 // import style
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
   const {
-    solarTermToShowList,
     solarTermToShow,
+    solarTermName,
     handlePlateToggle,
-    getSolarTermsToList,
+    newTargetToggle,
+    // solarTermClicked,
+    stClickedId,
   } = props
 
   // console.log('card', solarTermToShowList)
@@ -19,7 +22,13 @@ function OldSeasonBookCard(props) {
       <div
         className="book-card"
         onClick={() => {
-          handlePlateToggle(solarTermToShow)
+          // handlePlateToggle(solarTermToShow)
+
+          if (stClickedId !== -1 || stClickedId !== solarTermToShow) {
+            newTargetToggle(solarTermToShow)
+          } else {
+            // handlePlateToggle(solarTermToShow)
+          }
         }}
       >
         <div className="book-base">
@@ -32,7 +41,7 @@ function OldSeasonBookCard(props) {
         <div className="book-description">
           {/* <!-- 書名 28 字以內 --> */}
           <div className="book-name">書卡範例：書名（最多 28 字）</div>
-          <div className="book-solar-term-year">節氣{solarTermToShow} 年份</div>
+          <div className="book-solar-term-year">{solarTermName} 年份</div>
         </div>
       </div>
       {/* <!-- book card end --> */}

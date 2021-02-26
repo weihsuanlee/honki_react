@@ -16,6 +16,7 @@ import '../styles/solar-term-plate-filler.scss'
 
 function OldSeasons(props) {
   const [solarTermData, setSolarTermData] = useState({})
+  const [solarTermNameList, setSolarTermNameList] = useState([])
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermToShowList, setSolarTermToShowList] = useState([])
@@ -23,6 +24,7 @@ function OldSeasons(props) {
   const [solarTermImgs, setSolarTermImgs] = useState([])
   const [solarTermImgToShow, setSolarTermImgToShow] = useState('')
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
+  const [stClickedId, setStClickedId] = useState(-1)
 
   const [displayTitle, setDisplayTitle] = useState('displayOn')
   const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState(
@@ -92,7 +94,7 @@ function OldSeasons(props) {
     // )
 
     let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-      stId - e > 0 ? stId - e : stId - e + 23
+      stId - e >= 0 ? stId - e : stId - e + 24
     )
     // console.log(solarTermsToList)
 
@@ -136,6 +138,11 @@ function OldSeasons(props) {
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][e])
     setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
+    setSolarTermNameList(
+      Array.from(Array(24).keys()).map(
+        (e) => data['solar_term_list'][e]['solar_term']
+      )
+    )
     setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
     // setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
     setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
@@ -151,6 +158,7 @@ function OldSeasons(props) {
   }
 
   function handlePlateToggle(id) {
+    setStClickedId(id)
     setSolarTermToShow(solarTermData['solar_term_list'][id]['solar_term'])
     setSolarTermDesc(solarTermData['solar_term_list'][id]['st_desc'])
     let stImg = solarTermData['solar_term_list'][id]['st_img']
@@ -181,7 +189,7 @@ function OldSeasons(props) {
     setDisplaySolarTermInfo(
       solarTermClicked
         ? 'd-flex justify-content-center fadeIn'
-        : 'd-flex justify-content-center  fadeOut'
+        : 'd-flex justify-content-center fadeOut'
     )
 
     setSolarTermClicked(!solarTermClicked)
@@ -190,6 +198,28 @@ function OldSeasons(props) {
 
     // console.log('clicked!')
     // console.log(solarTermClicked)
+  }
+
+  function newTargetToggle(id) {
+    // setSolarTermClicked(!solarTermClicked)
+    setTimeout(() => {
+      setSolarPlateSize(
+        solarTermClicked
+          ? 'solar-term-plate-v2-small rotate'
+          : 'solar-term-plate-v2 rotate'
+      )
+      setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
+      setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
+
+      // 設定節氣說明狀態與頁面標題
+      setDisplayTitle(solarTermClicked ? 'fadeOut' : 'fadeIn')
+
+      setSolarTermClicked(!solarTermClicked)
+
+      setSolarTermClicked(!solarTermClicked)
+    }, 3000)
+
+    handlePlateToggle(id)
   }
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
@@ -238,9 +268,12 @@ function OldSeasons(props) {
 
               <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
+                newTargetToggle={newTargetToggle}
                 getSolarTermsToList={getSolarTermsToList}
-                solarTermData={solarTermData}
+                solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
+                solarTermClicked={solarTermClicked}
+                stClickedId={stClickedId}
               />
             </div>
           </div>
