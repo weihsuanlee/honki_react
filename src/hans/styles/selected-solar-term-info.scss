@@ -11,6 +11,14 @@
   transform: translate(0, -120px);
 }
 
+.red-center-text {
+  text-align: center;
+  font-size: 83px;
+  font-weight: 500;
+
+  transform: translate(0, -160px);
+}
+
 /* media 變化 start */
 
 @media only screen and (max-width: 1440px) {
@@ -25,6 +33,13 @@
     width: unset;
     height: unset;
     padding-bottom: 1rem;
+    transform: translate(0, 0);
+    display: none;
+    // opacity: 0;
+  }
+
+  .red-center-text {
+    transform: translate(0, -40px);
   }
 }
 

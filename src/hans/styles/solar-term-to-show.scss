@@ -8,3 +8,23 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+/* media 變化 start */
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 992px) {
+  .hans-st-title-bg {
+    // display: none;
+    // opacity: 0;
+    // transform: translate(0, 0);
+  }
+}
+
+@media only screen and (max-width: 360px) {
+}
