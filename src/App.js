@@ -52,6 +52,7 @@ import { IconContext } from 'react-icons'
 
 function App() {
   const [navSearchShow, setNavSearchShow] = useState(true)
+  const [vip, setVip] = useState(false)
   return (
     <Router>
       <>
@@ -69,13 +70,13 @@ function App() {
                   <Login />
                 </Route>
                 <Route path="/bookshelf">
-                  <Bookshelf />
+                  <Bookshelf vip={vip} setVip={setVip} />
                 </Route>
                 <Route path="/edit">
                   <Edit />
                 </Route>
                 <Route path="/menu">
-                  <Menu />
+                  <Menu vip={vip} setVip={setVip} />
                 </Route>
                 <Route path="/login">
                   <Login />

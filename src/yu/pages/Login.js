@@ -127,6 +127,10 @@ function Login() {
                       onChange={(e) => {
                         setPassword(e.target.value)
                       }}
+                      // onKeyPress={(e) => {
+                      //   if (e.key === 'Enter') sendButtonClick()
+                      // }}
+                      // sendButtonClick
                     />
                   </div>
                 </div>
@@ -177,7 +181,9 @@ function Login() {
                       <Modal.Header closeButton>
                         <Modal.Title>Honki</Modal.Title>
                       </Modal.Header>
-                      <Modal.Body>咦...帳號或密碼好像錯了哦</Modal.Body>
+                      <Modal.Body className="yu-login-error">
+                        咦...帳號或密碼好像錯了哦
+                      </Modal.Body>
                       <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                           關閉

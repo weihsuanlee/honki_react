@@ -8,12 +8,13 @@ import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
 import { Container, Row, Col } from 'react-bootstrap'
 
-function Bookshelf() {
+function Bookshelf(props) {
   const [curFace, setCurFace] = useState(0)
   const [curHair, setCurHair] = useState(0)
   const [curCloth, setCurCloth] = useState(0)
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
+  const { vip, setVip } = props
 
   const [name, setName] = useState('')
 
@@ -39,7 +40,15 @@ function Bookshelf() {
     const buyItNow = document.querySelector('.yu-book-buyitnow')
     const drop = document.querySelector('#drop')
     const drop2 = document.querySelector('#drop2')
-    const bodyFotVip = document.querySelector('.yu-book-body-vip')
+    const newbook = document.querySelector('.yu-book-newbook')
+    const newbookshelf = document.querySelector('.yu-book-bookshelf')
+    const bodyForVip = document.querySelector('.yu-book-body-vip')
+    // const colorForVip = useList.querySelectorAll('.yu-book-vipcolor')
+    const colorForVip1 = document.querySelector('.yu-book-vipcolor1')
+    const colorForVip2 = document.querySelector('.yu-book-vipcolor2')
+    const colorForVip3 = document.querySelector('.yu-book-vipcolor3')
+    const colorForVip4 = document.querySelector('.yu-book-vipcolor4')
+    const colorForVip5 = document.querySelector('.yu-book-vipcolor5')
     // drop.addEventListener('dragenter', function () {
     //   drop.style.backgroundColor = '#faa'
     // })
@@ -52,11 +61,23 @@ function Bookshelf() {
     drop.addEventListener('drop', (event) => {
       const imgSrc = event.dataTransfer.getData('text')
       drop2.setAttribute('src', imgSrc)
+      newbook.setAttribute('src', '')
       question.style.display = 'none'
       buyItNow.style.display = 'none'
-      bodyFotVip.style.background = `url('http://localhost:3000/images/bg_noise.png') #484747`
-      console.log(imgSrc)
+      newbookshelf.setAttribute(
+        'src',
+        'http://localhost:3000/images/yu/vip-bookshelf.png'
+      )
+      bodyForVip.style.background = `url('http://localhost:3000/images/bg_noise.png') #484747`
+      // colorForVip.forEach(function(userItem){
+      //   style.color = '#fff'}
+      colorForVip1.style.color = '#fff'
+      colorForVip2.style.color = '#fff'
+      colorForVip3.style.color = '#fff'
+      colorForVip4.style.color = '#fff'
+      colorForVip5.style.color = '#fff'
       drop.style.backgroundColor = '#fff'
+      setVip(true)
     })
   }, [])
 
@@ -66,12 +87,19 @@ function Bookshelf() {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb yu-book-breadcrumb">
             <li className="breadcrumb-honki">
-              <Link to="/">首頁</Link>
+              <Link to="/" className="yu-book-vipcolor1">
+                首頁
+              </Link>
             </li>
             <li className="breadcrumb-honki">
-              <Link to="/menu">會員中心</Link>
+              <Link to="/menu" className="yu-book-vipcolor2">
+                會員中心
+              </Link>
             </li>
-            <li className="breadcrumb-honki active" aria-current="page">
+            <li
+              className="breadcrumb-honki active yu-book-vipcolor3"
+              aria-current="page"
+            >
               節氣書櫃
             </li>
           </ol>
@@ -221,14 +249,16 @@ function Bookshelf() {
               </div>
 
               <img
-                className="w-100"
+                className="yu-book-bookshelf w-100"
                 src="http://localhost:3000/images/yu/general-bookshelf.png"
                 alt=""
               />
             </Col>
             <div className="col-4">
               <div>
-                <h5 className="yu-book-member-menu-title">會員中心</h5>
+                <h5 className="yu-book-member-menu-title yu-book-vipcolor4">
+                  會員中心
+                </h5>
                 {/* <!-- 個人頭貼 --> */}
                 <div className="mx-auto">
                   <div className="yu-book-member-photo-bg">
@@ -254,16 +284,22 @@ function Bookshelf() {
                 </div>
                 {/* <!-- 會員等級 --> */}
                 <div className="yu-book-member-info d-flex justify-content-center mt-3">
-                  <div className="yu-book-general-member mr-3">一般會員</div>
+                  <div
+                    className={
+                      `yu-book-general-member mr-3 ` + (vip ? 'yu-red' : '')
+                    }
+                  >
+                    {vip ? 'VIP會員' : '一般會員'}
+                  </div>
                   <div className="yu-book-general-member-name">{name}</div>
                 </div>
               </div>
-              <div className="yu-new-book text-center">
-                <p>新購買的二十四節氣書籍</p>
-                <div className="yu-new-book-pic mx-auto" draggable="true">
+              <div className="yu-book-new-book text-center">
+                <p className="yu-book-vipcolor5">新購買的二十四節氣書籍</p>
+                <div className="yu-book-new-book-pic mx-auto" draggable="true">
                   <img
                     src="http://localhost:3000/images/books/9789863984740.jpg"
-                    className="w-100"
+                    className="yu-book-newbook w-100"
                     alt=""
                   />
                 </div>

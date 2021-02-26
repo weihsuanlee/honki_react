@@ -1,5 +1,7 @@
 import '../styles/navbar.scss'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+
 import {
   FaCaretDown,
   FaSearch,
@@ -32,7 +34,7 @@ function Navbar(props) {
   }
 
   function member() {
-    window.location.href = '/menu'
+    props.history.push('/menu')
   }
 
   useEffect(() => {
@@ -645,4 +647,4 @@ function Navbar(props) {
     </>
   )
 }
-export default Navbar
+export default withRouter(Navbar)

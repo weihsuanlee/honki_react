@@ -358,7 +358,9 @@ function Register(props) {
                     <Modal.Header closeButton>
                       <Modal.Title>Honki</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>註冊成功，歡迎你加入我們!</Modal.Body>
+                    <Modal.Body className="yu-register-success">
+                      註冊成功，歡迎你加入我們!
+                    </Modal.Body>
                     <Modal.Footer>
                       <Button variant="secondary" onClick={handleClose}>
                         關閉
