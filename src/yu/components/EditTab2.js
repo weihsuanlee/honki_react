@@ -27,7 +27,7 @@ function EditTab2() {
   }
   return (
     <>
-      <div ref={divRef} className="panel-title">
+      <div ref={divRef} className="panel-title yu-edit-password-title">
         修改密碼
       </div>
       {/* <!-- 收合選單-2修改密碼 --> */}

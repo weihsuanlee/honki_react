@@ -137,6 +137,10 @@
   }
 }
 
+.yu-edit-photo-title {
+  color: var(--honki-theme);
+}
+
 .yu-edit-face,
 .yu-edit-hair,
 .yu-edit-cloth,
@@ -175,6 +179,10 @@
 .yu-edit-photo-acc img {
   width: 90%;
   object-fit: contain;
+}
+
+.yu-edit-password-title {
+  color: var(--honki-theme);
 }
 
 // 收合選單-4刪除帳號

@@ -31,7 +31,7 @@ function EditTab3(props) {
   return (
     <>
       <div style={{ maxHeight: '500px', overflow: 'scroll' }}>
-        <div className="panel-title">修改節氣頭貼</div>
+        <div className="panel-title yu-edit-photo-title">修改節氣頭貼</div>
         {/* <!-- 收合選單-3修改節氣頭貼 --> */}
         <div className="panel" id="three-panel">
           {/* <!-- 頭貼選單-選擇表情 --> */}
