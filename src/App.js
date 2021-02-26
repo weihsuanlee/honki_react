@@ -126,7 +126,7 @@ function App() {
                 <Route path="/NormalInsert">
                   <NormalInsert />
                 </Route>
-                <Route path="/NormalEdit">
+                <Route path="/NormalEdit/:c_sid?">
                   <NormalEdit />
                 </Route>
                 <Route path="/IWantChange">

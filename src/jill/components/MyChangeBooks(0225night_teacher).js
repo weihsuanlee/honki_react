@@ -10,20 +10,19 @@ class MyChangeBooks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      c_sid: '110',
-      book_name: '這裡是書名',
-      ISBN: '這裡是ISBN',
-      book_condition: '有幾成新',
+      book_name: '預設資料',
+      ISBN: 'this.props',
+      book_condition: '全新',
       written_or_not: '有無塗改',
-      nickname: '持有者',
-      // book_pics: '我是圖片',
     }
+    console.log('this.proppppp ', this.props)
+    const { myrows } = this.props
+    this.setState(myrows[0])
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   // 這塊會執行componentDidUpdate的作用(因為setState)
   handleChange(event) {
-    console.log('this.proppppp ', this.props)
     const { myrows } = this.props
     // this.setState({ value: event.target.value })
     // 下面的5要怎麼抓到變數
@@ -76,16 +75,7 @@ class MyChangeBooks extends React.Component {
     // })
 
     const { myrows } = this.props
-    // this.setState({ value: event.target.value })
-    // 下面的5要怎麼抓到變數
-    // this.setState({ ISBN: myrows[5].ISBN })
-
-    // 拷貝一個新的，展開成陣列
-    const newMyrows = [...myrows]
-
-    // 不行，ISBN變成Undefined
-
-    this.setState(myrows[0])
+    this.setState(this.props[0])
   }
 
   // 卸載
@@ -153,24 +143,27 @@ class MyChangeBooks extends React.Component {
             {/* 蜜蜂svg */}
             <NormalBee />
             <img
-              src={`http://localhost:3000/images/books/` + this.state.book_pics}
+              src={
+                myrows.length > 0 &&
+                `http://localhost:3000/images/books/` + myrows[0].book_pics
+              }
               alt=""
             />
 
             <ul className="">
               <div className="jill-underline"></div>
-              <li>{this.state.ISBN}</li>
+              <li>{myrows.length > 0 && myrows[0].ISBN}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.book_name}</li>
+              <li>{myrows.length > 0 && myrows[0].book_name}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.book_condition}</li>
+              <li>{myrows.length > 0 && myrows[0].book_condition}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.written_or_not}</li>
+              <li>{myrows.length > 0 && myrows[0].written_or_not}</li>
               <div className="jill-underline"></div>
-              <li>{this.state.nickname}</li>
+              <li>{myrows.length > 0 && myrows[0].nickname}</li>
             </ul>
           </div>
-          <Link to={'/NormalEdit/' + this.state.c_sid}>
+          <Link to="./NormalEdit">
             <button className="btn-md-dark jill-normal-seemyList">查看</button>
           </Link>
         </div>

@@ -9,9 +9,9 @@ function OldSeasonBookCard(props) {
     solarTermToShow,
     solarTermName,
     handlePlateToggle,
-    newTargetToggle,
+    // newTargetToggle,
     // solarTermClicked,
-    stClickedId,
+    // stClickedId,
   } = props
 
   // console.log('card', solarTermToShowList)
@@ -22,13 +22,14 @@ function OldSeasonBookCard(props) {
       <div
         className="book-card"
         onClick={() => {
-          // handlePlateToggle(solarTermToShow)
-
+          handlePlateToggle(solarTermToShow)
+          /*
           if (stClickedId !== -1 || stClickedId !== solarTermToShow) {
             newTargetToggle(solarTermToShow)
           } else {
-            // handlePlateToggle(solarTermToShow)
+            handlePlateToggle(solarTermToShow)
           }
+          */
         }}
       >
         <div className="book-base">

@@ -14,13 +14,13 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .solar-term-plate-filler {
+    // height: calc(40vh);
+    // height: 0;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-  .solar-term-plate-filler {
-    // height: calc(40vh);
-    height: 0;
-  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -28,7 +28,14 @@
     // height: calc(20vh);
     // height: calc(20vh);
     // height: 450px;
+    // height: 160px;
   }
+}
+
+@media only screen and (max-width: 992px) {
+  // .solar-term-plate-filler {
+  //   height: 0px;
+  // }
 }
 
 @media only screen and (max-width: 360px) {
