@@ -1,5 +1,5 @@
 import '../styles/navbar.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   FaCaretDown,
   FaSearch,
@@ -50,6 +50,9 @@ function Navbar(props) {
     })
     $('.menu-open .btn-link').on('click', function () {
       $(this).toggleClass('active')
+      if ($('#navProduct').hasClass('active')) {
+        $(this).css('color:blue')
+      }
       $(this)
         .closest('.card')
         .siblings()
@@ -396,7 +399,7 @@ function Navbar(props) {
           </svg>
         </Link>
         <div className="nav-mobile-right d-flex">
-          <Link to="/member" className="nav-mobile-link">
+          <div className="nav-mobile-link" style={{ cursor: 'pointer' }}>
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
@@ -408,8 +411,8 @@ function Navbar(props) {
               </g>
             </svg>
             <FaUserAlt className="fas fa-user nav-mobile-icons" />
-          </Link>
-          <Link to="/cart" className="nav-mobile-link">
+          </div>
+          <div className="nav-mobile-link" style={{ cursor: 'pointer' }}>
             <svg x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
@@ -421,7 +424,7 @@ function Navbar(props) {
               </g>
             </svg>
             <FaShoppingCart className="fas fa-shopping-cart nav-mobile-icons" />
-          </Link>
+          </div>
           <div className="nav-mobile-link nav-burger">
             <svg x="0px" y="0px" viewBox="0 0 117 111">
               <g>
@@ -493,7 +496,7 @@ function Navbar(props) {
             <Card.Header>
               <Accordion.Toggle
                 as={Link}
-                to="/"
+                to="/bookstoreindex"
                 variant="link"
                 className="menu-home btn btn-link"
               >
@@ -503,12 +506,22 @@ function Navbar(props) {
           </Card>
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                id="navProduct"
+              >
                 所有商品
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
+                <p className="menu-subtitle mb-0">
+                  <Link to="/product" className="menu-subtitle">
+                    <p>全部書籍</p>
+                  </Link>
+                </p>
                 <p className="menu-subtitle">書籍分類</p>
                 <ul>
                   <li>
@@ -619,8 +632,9 @@ function Navbar(props) {
             <Accordion.Collapse eventKey="3">
               <Card.Body>
                 <ul className="menu-subtitle">
-                  <li>一般交換</li>
-                  <li>隨機交換</li>
+                  <li>所有心得</li>
+                  <li>我的心得</li>
+                  <li>我的留言</li>
                 </ul>
               </Card.Body>
             </Accordion.Collapse>
@@ -634,8 +648,7 @@ function Navbar(props) {
             <Accordion.Collapse eventKey="4">
               <Card.Body>
                 <ul className="menu-subtitle">
-                  <li>一般交換</li>
-                  <li>隨機交換</li>
+                  <li>節氣選書</li>
                 </ul>
               </Card.Body>
             </Accordion.Collapse>
