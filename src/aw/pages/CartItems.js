@@ -76,8 +76,8 @@ function CartItems(props) {
     // 設定資料
     setMycart(currentCart)
     // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    // let cartNumNow = localStorage.getItem('cart5566') || 0
+    // setCartNum(JSON.parse(cartNumNow).length)
   }
 
   const userId = localStorage.getItem('userId')
