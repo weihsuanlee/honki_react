@@ -13,6 +13,9 @@ function CartOrder(props) {
   // const [orderDisplay, setOrderDisplay] = useState([])
   const [orderData, setOrderData] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
+  // 更動購物車數量
+  const { setCartNum } = props
+  setCartNum(0)
 
   const getDataFromServer = async () => {
     // 先開起載入指示器
@@ -325,7 +328,6 @@ function CartOrder(props) {
                       </Card.Body>
                     </Accordion.Collapse>
                   </Card>
-                  ) : ( '' )}
                 </Accordion>
                 <div class="aw-cartLine d-flex align-items-center justify-content-between pl-5 pr-5">
                   <h5 class="m-0">本次購物清單</h5>

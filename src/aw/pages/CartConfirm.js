@@ -12,9 +12,10 @@ function CartConfirm(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   const [inputerms, setInputerms] = useState([])
-
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
+  // 更動購物車數量
+  const { setCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -100,6 +101,7 @@ function CartConfirm(props) {
     for (let i = 0; i < items.length; i++) {
       total += items[i].amount
     }
+    setCartNum(total)
     return total
   }
   // 計算總量的函式
@@ -540,12 +542,12 @@ function CartConfirm(props) {
 
                   <div class="row justify-content-between aw-stepBtn">
                     <div class="aw-preStep  d-flex align-items-center">
-                      <a class="aw-a" href="./CartInput">
+                      <Link class="aw-a" to="/CartInput">
                         <div class="row aw-row">
                           <i class="fas fa-angle-left mr-2"></i>
                           <h6> 回上一頁</h6>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                     <div class="aw-nextStep  d-flex align-items-center"> </div>
                   </div>

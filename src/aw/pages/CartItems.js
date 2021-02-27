@@ -108,6 +108,7 @@ function CartItems(props) {
     for (let i = 0; i < items.length; i++) {
       total += items[i].amount
     }
+    setCartNum(total)
     return total
   }
   // 計算總量的函式
