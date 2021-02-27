@@ -95,7 +95,7 @@ function Cart(props) {
           <main className="d-flex justify-content-center align-items-center w-100 aw-cart-empty">
             <div className="empty-cart-display ">
               <h4>您的購物車是空的，快去挑選商品！</h4>
-              <Link to="/product">
+              <Link to="/product" class="d-flex justify-content-end mr-2">
                 <h5>繼續購物</h5>
               </Link>
             </div>
