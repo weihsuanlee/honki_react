@@ -1,6 +1,6 @@
 import '../styles/cartStyle.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 // import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 // import ProductBanner from '../components/ProductBanner'
 // import ListSpinner from '../components/ListSpinner'
@@ -524,9 +524,9 @@ function CartConfirm(props) {
                       })}
                       <div class=" position-relative">
                         <div class="d-flex justify-content-center ">
-                          <a class="aw-a" href="./CartOrder">
+                          <Link class="aw-a" to="/CartOrder">
                             <button class="btn-md-dark w-100">確認訂單</button>
-                          </a>
+                          </Link>
                         </div>
                         <div class="d-flex justify-content-start position-absolute aw-icecream">
                           <img

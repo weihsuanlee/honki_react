@@ -1,6 +1,6 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { countries, townships, postcodes } from './townships'
 
@@ -31,6 +31,8 @@ function CartInput(props) {
   const [post, setPost] = useState()
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
+  // 更動購物車數量
+  const { setCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -238,6 +240,9 @@ function CartInput(props) {
     localStorage.setItem('cart5566', JSON.stringify(currentCart))
     // 設定資料
     setMycart(currentCart)
+    // 更新購物車數量
+    let cartNumNow = localStorage.getItem('cart5566') || 0
+    setCartNum(JSON.parse(cartNumNow).length)
   }
 
   // 計算總價用的函式
@@ -754,15 +759,15 @@ function CartInput(props) {
 
                   <div class="row justify-content-between aw-stepBtn">
                     <div class="aw-preStep  d-flex align-items-center">
-                      <a class="aw-a" href="./CartItems">
+                      <Link class="aw-a" to="/CartItems">
                         <div class="row aw-row">
                           <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                           <h6> 回上一頁</h6>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                     <div class="aw-nextStep  d-flex align-items-center">
-                      <a href="./CartConfirm" class="aw-a">
+                      <Link to="/CartConfirm" class="aw-a">
                         <button
                           class="btn-lg aw-btn-lg"
                           onClick={() => {
@@ -771,7 +776,7 @@ function CartInput(props) {
                         >
                           下一步
                         </button>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div class="col-2"> </div>

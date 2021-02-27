@@ -1,13 +1,14 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function CartItems(props) {
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
-
+  // 更動購物車數量
+  const { setCartNum } = props
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
 
@@ -74,6 +75,9 @@ function CartItems(props) {
     localStorage.setItem('cart5566', JSON.stringify(currentCart))
     // 設定資料
     setMycart(currentCart)
+    // 更新購物車數量
+    let cartNumNow = localStorage.getItem('cart5566') || 0
+    setCartNum(JSON.parse(cartNumNow).length)
   }
 
   const userId = localStorage.getItem('userId')
@@ -84,7 +88,7 @@ function CartItems(props) {
       props.history.push('/member', 'CartItems')
       // window.location.href = 'http://localhost:3000/member'
     } else {
-      window.location.href = 'http://localhost:3000/CartInput'
+      props.history.push('/CartInput')
     }
   }
   //清除購物車
@@ -93,6 +97,9 @@ function CartItems(props) {
     localStorage.removeItem('cart5566')
     // 設定資料
     setMycart([])
+    // 更新購物車數量
+    let cartNumNow = localStorage.getItem('cart5566') || 0
+    setCartNum(JSON.parse(cartNumNow).length)
   }
 
   // 計算總價用的函式
@@ -304,12 +311,12 @@ function CartItems(props) {
 
                   <div class="row justify-content-between aw-stepBtn">
                     <div class="aw-preStep  d-flex align-items-center">
-                      <a class="aw-a" href="./Cart">
+                      <Link class="aw-a" to="/Cart">
                         <div class="row aw-row">
                           <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                           <h6> 回上一頁</h6>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                     <div class="aw-nextStep  d-flex align-items-center">
                       <button
