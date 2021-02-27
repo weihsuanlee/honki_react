@@ -1,10 +1,6 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
-<<<<<<< HEAD
 import { withRouter, Link } from 'react-router-dom'
-=======
-import { Link, withRouter } from 'react-router-dom'
->>>>>>> c5f657b25b218a1145f0bb99f31cf1ffe7ac7f59
 import { useEffect, useState } from 'react'
 
 function Cart(props) {
