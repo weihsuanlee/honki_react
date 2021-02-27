@@ -52,8 +52,12 @@ import { IconContext } from 'react-icons'
 
 function App() {
   useEffect(() => {
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    let cartItems = JSON.parse(localStorage.getItem('cart5566')) || 0
+    let total = 0
+    for (let i = 0; i < cartItems.length; i++) {
+      total += cartItems[i].amount
+    }
+    setCartNum(total)
   }, [])
   const [navSearchShow, setNavSearchShow] = useState(true)
   // 購物車數量狀態紀錄
