@@ -8,7 +8,7 @@ function Cart(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   // 更動購物車數量
-  const { setCartNum } = props
+  const { cartNum, setCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -74,9 +74,13 @@ function Cart(props) {
 
     // 設定資料
     setMycart(a)
+
     // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    let total = 0
+    for (let i = 0; i < a.length; i++) {
+      total += a[i].amount
+    }
+    setCartNum(total)
   }
   //清除全部
   const updateCartRemoveAll = (item) => {
@@ -95,7 +99,7 @@ function Cart(props) {
           <main className="d-flex justify-content-center align-items-center w-100 aw-cart-empty">
             <div className="empty-cart-display ">
               <h4>您的購物車是空的，快去挑選商品！</h4>
-              <Link to="/product">
+              <Link to="/product" class="d-flex justify-content-end mr-2">
                 <h5>繼續購物</h5>
               </Link>
             </div>
