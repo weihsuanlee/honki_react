@@ -1,6 +1,6 @@
 // 套件
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // pages
 // import Home from './chia/pages/Home'
@@ -51,6 +51,14 @@ import BackToTop from './components/BackToTop'
 import { IconContext } from 'react-icons'
 
 function App() {
+  useEffect(() => {
+    let cartItems = JSON.parse(localStorage.getItem('cart5566')) || 0
+    let total = 0
+    for (let i = 0; i < cartItems.length; i++) {
+      total += cartItems[i].amount
+    }
+    setCartNum(total)
+  }, [])
   const [navSearchShow, setNavSearchShow] = useState(true)
   // 購物車數量狀態紀錄
   const [cartNum, setCartNum] = useState(0)
@@ -87,19 +95,19 @@ function App() {
                   <Register />
                 </Route>
                 <Route path="/cart">
-                  <Cart setCartNum={setCartNum} />
+                  <Cart cartNum={cartNum} setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartItems">
-                  <CartItems setCartNum={setCartNum} />
+                  <CartItems cartNum={cartNum} setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartInput">
-                  <CartInput setCartNum={setCartNum} />
+                  <CartInput cartNum={cartNum} setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartConfirm">
-                  <CartConfirm setCartNum={setCartNum} />
+                  <CartConfirm cartNum={cartNum} setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartOrder">
-                  <CartOrder setCartNum={setCartNum} />
+                  <CartOrder cartNum={cartNum} setCartNum={setCartNum} />
                 </Route>
                 <Route path="/activity/event/:sid">
                   <ActEvent />

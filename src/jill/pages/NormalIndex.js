@@ -97,7 +97,7 @@ function NormalIndex() {
               <Link to="./used-books">二手交換</Link>
             </li>
             <li className="breadcrumb-honki active" aria-current="page">
-              一般交換
+              隨機交換
             </li>
           </ol>
         </nav>
@@ -108,11 +108,6 @@ function NormalIndex() {
         <div className="jill-mylist-area">
           <div className="jill-myNchange-area">
             <h4 className="jill-myNchange-title">我的交換單</h4>
-            <Link to={'/RandomSuccess/'}>
-              <button className="btn-md-dark jill-want-btn jill-random-btn">
-                隨機交換
-              </button>
-            </Link>
             <MyChangeBooks myrows={mybook_rows} />
           </div>
         </div>

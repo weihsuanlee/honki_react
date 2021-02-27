@@ -9,7 +9,16 @@
 .jill-random-btn {
   // position: absolute;
   // left: 1000px;
-  margin-left: 600px;
+  margin-left: 1000px;
+  margin-top: -130px;
+  // transition: 0.5s;
+}
+
+.jill-random-btn:hover {
+  // position: absolute;
+  // left: 1000px;
+  margin-left: 1000px;
+  background-color: red;
 }
 
 .jill-index-title {
@@ -29,12 +38,12 @@
   /* margin-top: -500px;
   margin-left: 330px; */
   margin-top: -45%;
-  margin-left: 30%;
+  margin-left: 41%;
 }
 
 .jill-modebtn {
   margin-top: -30%;
-  margin-left: 30%;
+  margin-left: 39.8%;
   z-index: 99;
   width: 1200px;
 }
@@ -482,7 +491,8 @@
 /* 其他人在換什麼 */
 
 .jill-otherbooks-area-title {
-  margin-top: 400px;
+  // margin-top: 400px;
+  margin-top: 200px;
   text-align: center;
 }
 
@@ -546,6 +556,7 @@
 
 .jill-center-btn {
   width: 700px;
+  // width: 1500px;
 }
 
 .jill-fix-btn {
@@ -1071,6 +1082,7 @@
   /* 修正我想跟別人換-查看 頁面按鈕從Form抓出來後的走位 */
   margin-top: 0px;
   margin-left: 28%;
+  margin-left: 45%;
 }
 
 /* 修正走位看書的人 */
