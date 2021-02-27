@@ -93,13 +93,13 @@ function App() {
                   <CartItems setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartInput">
-                  <CartInput />
+                  <CartInput setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartConfirm">
-                  <CartConfirm />
+                  <CartConfirm setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartOrder">
-                  <CartOrder />
+                  <CartOrder setCartNum={setCartNum} />
                 </Route>
                 <Route path="/activity/event/:sid">
                   <ActEvent />
