@@ -1,9 +1,9 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
-  const [cardListLength, setCardListLength] = useState(6)
+  // const [cardListLength, setCardListLength] = useState(6)
 
   const {
     handlePlateToggle,
@@ -12,7 +12,6 @@ function OldSeasonBookCardList(props) {
     solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
-    firstCardSid,
   } = props
 
   // const solarTermToShowList = (stSid) => {
@@ -21,10 +20,14 @@ function OldSeasonBookCardList(props) {
   //   )
   // }
 
+  console.log('solarTermToShowList', solarTermBookToShowList)
+  console.log('stlbt', solarTermBookToShowList[1])
+
   let solarTermToShowList = [1, 2, 3, 4, 5, 6]
+  console.log(solarTermToShowList)
 
   // console.log(solarTermNameList)
-  // console.log(solarTermBookToShow)
+  console.log(solarTermBookToShow)
   //
   // console.log('title', solarTermBookToShow['title'])
   // console.log('book_pics', solarTermBookToShow['book_pics'])
@@ -33,7 +36,28 @@ function OldSeasonBookCardList(props) {
 
   return (
     <>
-      {solarTermToShowList.map((e) => {
+      <OldSeasonBookCard
+        handlePlateToggle={handlePlateToggle}
+        newTargetToggle={newTargetToggle}
+        // debug
+        // bookName={solarTermBookToShowList[27 - 1].title}
+        bookName={'test'}
+        // debug
+        // bookImg={solarTermBookToShowList[27 - 1].book_pics}
+        bookImg={''}
+        // debug
+        // solarTermToShow={solarTermBookToShowList[27 - 1].solar_term_id}
+        solarTermToShow={11}
+        // debug
+        solarTermName={11}
+        // debug
+        solarTermName={'test'}
+        // debug
+        // cardYear={solarTermBookToShowList[27 - 1].year.substring(0, 4)}
+        cardYear={2021}
+        solarTermClicked={solarTermClicked}
+      />
+      {/* {solarTermToShowList.map((e) => {
         return (
           <OldSeasonBookCard
             handlePlateToggle={handlePlateToggle}
@@ -48,7 +72,7 @@ function OldSeasonBookCardList(props) {
             solarTermClicked={solarTermClicked}
           />
         )
-      })}
+      })} */}
     </>
   )
 }

@@ -8,6 +8,7 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 import SolarTermToShow from '../components/SolarTermToShow'
 import OldSeasonBookCardList from '../components/OldSeasonBookCardList'
+import BookCardDebug from '../components/BookCardDebug'
 // import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 // import style
@@ -134,7 +135,7 @@ function OldSeasons(props) {
     // console.log(data['solar_term_list'][id])
     // console.log('stBooks:', data['solar_term_books'][initialSid])
     console.log('stBooks:', data['solar_term_books'][initialSid - 1])
-    console.log(data['solar_term_books'])
+    console.log('solarTermBookToShowList', data['solar_term_books'])
     setSolarTermBookToShowList(data['solar_term_books'])
 
     console.log(data['solar_term_books'][1]['title'])
@@ -149,7 +150,7 @@ function OldSeasons(props) {
     setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
 
     // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
-    console.log('test', data['current_solar_term_id'][0])
+    console.log('solarTermBookToShow', data['current_solar_term_id'][0])
     setSolarTermBookToShow(data['current_solar_term_id'][0])
 
     let stImgArray = solarTermId.map(
@@ -290,12 +291,16 @@ function OldSeasons(props) {
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
                 solarTermBookToShow={solarTermBookToShow}
-                solarTermBookToShowList={solarTermBookToShowList}
                 firstCardSid={firstCardSid}
                 solarTermNameList={solarTermNameList}
                 solarTermClicked={solarTermClicked}
                 stClickedId={stClickedId}
+                solarTermBookToShowList={solarTermBookToShowList}
               />
+
+              {/* <BookCardDebug
+                solarTermBookToShowList={solarTermBookToShowList}
+              /> */}
             </div>
           </div>
         </div>
