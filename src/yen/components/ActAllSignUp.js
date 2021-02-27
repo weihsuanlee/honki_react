@@ -185,6 +185,7 @@ function ActAllSignUp(props) {
 
     const response = await fetch(request)
     console.log('response', response)
+    backToOrderBtnClick()
   }
 
   useEffect(() => {
@@ -389,7 +390,6 @@ function ActAllSignUp(props) {
                       className="btn-rounded-light yen-check-cancel-btn-bg"
                       onClick={() => {
                         deleteButtonClick(deleteOrderNum)
-                        backToOrderBtnClick()
                       }}
                     >
                       &times; &ensp;取消報名
