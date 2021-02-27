@@ -289,7 +289,7 @@ function Navbar(props) {
                     id="yu-member"
                     onClick={member}
                   >
-                    會員專區
+                    會員中心
                   </NavDropdown.Item>
                   {/* <NavDropdown.Item eventKey="4.3">
                     Something else here
