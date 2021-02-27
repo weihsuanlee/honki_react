@@ -1,12 +1,14 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function Cart(props) {
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
+  // 更動購物車數量
+  const { setCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -72,6 +74,9 @@ function Cart(props) {
 
     // 設定資料
     setMycart(a)
+    // 更新購物車數量
+    let cartNumNow = localStorage.getItem('cart5566') || 0
+    setCartNum(JSON.parse(cartNumNow).length)
   }
   //清除全部
   const updateCartRemoveAll = (item) => {
@@ -79,6 +84,9 @@ function Cart(props) {
     localStorage.removeItem('cart5566')
     // 設定資料
     setMycart([])
+    // 更新購物車數量
+    let cartNumNow = localStorage.getItem('cart5566') || 0
+    setCartNum(JSON.parse(cartNumNow).length)
   }
 
   const loading = (
@@ -143,7 +151,9 @@ function Cart(props) {
                   <div class=" col-2 d-flex justify-content-center align-items-center aw-p-0">
                     <button
                       class="btn-sm-dark aw-btn-sm-dark "
-                      onClick={() => updateCartRemoveAll()}
+                      onClick={() => {
+                        updateCartRemoveAll()
+                      }}
                     >
                       清空
                     </button>
@@ -188,17 +198,17 @@ function Cart(props) {
 
                 <div class="row justify-content-between aw-stepBtn">
                   <div class="aw-preStep d-flex align-items-center">
-                    <a class="aw-a" href="http://localhost:3000/product">
+                    <Link class="aw-a" to="/product">
                       <div class="row aw-row">
                         <FaAngleLeft className="fas fa-angle-left mr-2  aw-mt2" />
                         <h6> 繼續購物</h6>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                   <div class="aw-nextStep  d-flex align-items-center">
-                    <a href="./CartItems" class="aw-a">
+                    <Link to="/CartItems" class="aw-a">
                       <button class="btn-lg aw-btn-lg">下一步</button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

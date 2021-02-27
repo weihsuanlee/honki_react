@@ -236,3 +236,18 @@ body.active {
     margin-left: 6px;
   }
 }
+
+// cart number 購物車數量
+.honki-cart-num {
+  position: absolute;
+  top: -9px;
+  right: 36px;
+  background-color: var(--honki-black);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 10px;
+}

@@ -52,12 +52,14 @@ import { IconContext } from 'react-icons'
 
 function App() {
   const [navSearchShow, setNavSearchShow] = useState(true)
+  // 購物車數量狀態紀錄
+  const [cartNum, setCartNum] = useState(0)
   const [vip, setVip] = useState(false)
   return (
     <Router>
       <>
         <BackToTop />
-        <Navbar navSearchShow={navSearchShow} />
+        <Navbar navSearchShow={navSearchShow} cartNum={cartNum} />
         <MainContent>
           <ScrollToTop>
             <IconContext.Provider
@@ -85,10 +87,10 @@ function App() {
                   <Register />
                 </Route>
                 <Route path="/cart">
-                  <Cart />
+                  <Cart setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartItems">
-                  <CartItems />
+                  <CartItems setCartNum={setCartNum} />
                 </Route>
                 <Route path="/CartInput">
                   <CartInput />
@@ -157,7 +159,7 @@ function App() {
                   <RandSuccessStatus />
                 </Route>
                 <Route path="/products/:sid?">
-                  <ProductDetail />
+                  <ProductDetail setCartNum={setCartNum} cartNum={cartNum} />
                 </Route>
                 <Route path="/product/:category?">
                   <Product
