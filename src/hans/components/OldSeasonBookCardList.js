@@ -5,6 +5,7 @@ import OldSeasonBookCard from '../components/OldSeasonBookCard'
 function OldSeasonBookCardList(props) {
   const {
     solarTermBookToShow,
+    solarTermBookToShowList,
     solarTermNameList,
     solarTermToShowList,
     handlePlateToggle,
@@ -16,9 +17,11 @@ function OldSeasonBookCardList(props) {
   // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
   // console.log(solarTermBookToShow)
-  console.log(solarTermBookToShow['title'])
-  console.log(solarTermBookToShow['book_pics'])
-  console.log(solarTermBookToShow['sid'])
+  //
+  // console.log('title', solarTermBookToShow['title'])
+  // console.log('book_pics', solarTermBookToShow['book_pics'])
+  // console.log('sid', solarTermBookToShow['sid'])
+  // console.log('year', solarTermBookToShow['year'])
 
   return (
     <>

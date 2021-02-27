@@ -28,7 +28,7 @@ function OldSeasons(props) {
 
   // 節氣書籍資料
   const [solarTermBookToShow, setSolarTermBookToShow] = useState({})
-  const [solarTermBookImg, setSolarTermBookImg] = useState('')
+  const [solarTermBookToShowList, setSolarTermBookToShowList] = useState([])
 
   // 麵包屑
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
@@ -157,14 +157,19 @@ function OldSeasons(props) {
 
     // let currentSolarTermId = data['current_solar_term_id']
     let initialStId = data['current_solar_term_id'][0]['solar_term_id']
-
-    // console.log(currentSolarTermId)
+    console.log('initialStId', initialStId)
+    let initialSid = data['current_solar_term_id'][0]['st_sid']
+    console.log('initialSid', initialSid)
 
     // console.log(data)
     setSolarTermData(data)
+
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][id])
-    // console.log(data['solar_term_books'])
+    // console.log('stBooks:', data['solar_term_books'][initialSid])
+    console.log('stBooks:', data['solar_term_books'][initialSid - 1])
+    setSolarTermBookToShowList(data['solar_term_books'])
+    console.log(data['solar_term_books'])
 
     // SolarTermToListRaw => 1
     setSolarTermToShowList(getSolarTermsToList(initialStId)[1])
@@ -331,6 +336,7 @@ function OldSeasons(props) {
                 newTargetToggle={newTargetToggle}
                 getSolarTermsToList={getSolarTermsToList}
                 solarTermBookToShow={solarTermBookToShow}
+                solarTermBookToShowList={solarTermBookToShowList}
                 solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
                 solarTermClicked={solarTermClicked}
