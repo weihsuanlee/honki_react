@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 // import components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -17,12 +17,20 @@ import '../styles/solar-term-plate-filler.scss'
 function OldSeasons(props) {
   const [solarTermData, setSolarTermData] = useState({})
   const [solarTermNameList, setSolarTermNameList] = useState([])
+
+  // 節氣說明
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermToShowList, setSolarTermToShowList] = useState([])
   const [solarTermDesc, setSolarTermDesc] = useState('')
   const [solarTermImgs, setSolarTermImgs] = useState([])
   const [solarTermImgToShow, setSolarTermImgToShow] = useState('')
+
+  // 節氣書籍資料
+  const [solarTermBookToShow, setSolarTermBookToShow] = useState({})
+  const [solarTermBookImg, setSolarTermBookImg] = useState('')
+
+  // 麵包屑
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
   const [stClickedId, setStClickedId] = useState(-1)
 
@@ -43,18 +51,25 @@ function OldSeasons(props) {
 
   // 模擬componentDidMount
   useEffect(() => {
-    let initialDate = currentStDate()
-    console.log(initialDate)
+    // let initialDate = currentStDate()
+    // console.log(initialDate)
+    // console.log(initialDate.getFullYear())
 
-    let initialSolarTermID = convertSolarTermID(initialDate)
-    console.log(initialSolarTermID)
-    setTargetSolarTerm(initialSolarTermID)
-    console.log(targetSolarTerm)
+    // let initialSolarTermId = convertSolarTermID(initialDate)
+    // console.log(initialSolarTermID)
 
-    // let solarTermsToList = getSolarTermsToList(initialSolarTermID)
-    setSolarTermToShowList(getSolarTermsToList(initialSolarTermID))
+    // setTargetSolarTerm(initialSolarTermId)
+    // console.log(targetSolarTerm)
 
-    getDataFromServer(initialSolarTermID)
+    // let solarTermsToList = getSolarTermsToList(initialSolarTermId)
+    // setSolarTermToShowList(getSolarTermsToList(initialSolarTermID))
+
+    // 從伺服器取出節氣清單與節氣選書清單資料
+    getInitialStDataFromServer()
+
+    // getStDataFromServer(initialSolarTermId)
+
+    // getStDataFromServer(inPutId)
 
     // console.log(solarTermImgs)
   }, [])
@@ -69,9 +84,13 @@ function OldSeasons(props) {
 
   // 把日期轉為節氣 ID
   const convertSolarTermID = (dateNow) => {
-    console.log(dateNow)
+    // console.log(dateNow)
+
     console.log(
       'date to convert: \n',
+      'Year: ',
+      dateNow.getFullYear(),
+      '\n',
       'Month: ',
       dateNow.getMonth() + 1,
       '\n',
@@ -93,12 +112,14 @@ function OldSeasons(props) {
     //   stId - e > 0 ? stId - e : stId - e + 24
     // )
 
+    let solarTermsToListRaw = Array.from(Array(6).keys()).map((e) => stId - e)
+
     let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
       stId - e >= 0 ? stId - e : stId - e + 24
     )
     // console.log(solarTermsToList)
 
-    return solarTermsToList
+    return [solarTermsToList, solarTermsToListRaw]
   }
 
   // 把日期轉換成 YYYY-MM-DD 格式
@@ -128,7 +149,53 @@ function OldSeasons(props) {
   */
 
   // 和伺服器要資料
-  const getDataFromServer = async (e) => {
+  const getInitialStDataFromServer = async () => {
+    const response = await fetch('http://localhost:3333/old-seasons', {
+      method: 'get',
+    })
+    const data = await response.json()
+
+    // let currentSolarTermId = data['current_solar_term_id']
+    let initialStId = data['current_solar_term_id'][0]['solar_term_id']
+
+    // console.log(currentSolarTermId)
+
+    // console.log(data)
+    setSolarTermData(data)
+    // console.log(data['solar_term_list'])
+    // console.log(data['solar_term_list'][id])
+    // console.log(data['solar_term_books'])
+
+    // SolarTermToListRaw => 1
+    setSolarTermToShowList(getSolarTermsToList(initialStId)[1])
+    // SolarTermToList =>
+    // setSolarTermToShowList(getSolarTermsToList(initialStId)[0])
+
+    setSolarTermDesc(data['solar_term_list'][initialStId]['st_desc'])
+    setSolarTermNameList(
+      Array.from(Array(24).keys()).map(
+        (e) => data['solar_term_list'][e]['solar_term']
+      )
+    )
+    setSolarTermToShow(data['solar_term_list'][initialStId]['solar_term'])
+    setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
+    // setSolarTermImgs(solarTermId.map((eid) => data['solar_term_list'][id]))
+
+    // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
+    console.log('test', data['current_solar_term_id'][0])
+    setSolarTermBookToShow(data['current_solar_term_id'][0])
+
+    let stImgArray = solarTermId.map(
+      (e) => data['solar_term_list'][e]['st_img']
+    )
+
+    // console.log(stImgArray)
+    setSolarTermImgs(stImgArray)
+
+    return data
+  }
+
+  const getStDataFromServer = async (id) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
     })
@@ -136,34 +203,52 @@ function OldSeasons(props) {
     // console.log(data)
     setSolarTermData(data)
     // console.log(data['solar_term_list'])
-    // console.log(data['solar_term_list'][e])
-    setSolarTermDesc(data['solar_term_list'][e]['st_desc'])
+    // console.log(data['solar_term_list'][id])
+    // console.log(data['solar_term_books'])
+
+    setSolarTermDesc(data['solar_term_list'][id]['st_desc'])
     setSolarTermNameList(
       Array.from(Array(24).keys()).map(
-        (e) => data['solar_term_list'][e]['solar_term']
+        (id) => data['solar_term_list'][id]['solar_term']
       )
     )
-    setSolarTermToShow(data['solar_term_list'][e]['solar_term'])
-    // setSolarTermImgToShow(data['solar_term_list'][e]['st_img'])
-    setSolarTermImgs(solarTermId.map((i) => data['solar_term_list'][i]))
+    setSolarTermToShow(data['solar_term_list'][id]['solar_term'])
+    setSolarTermImgToShow(data['solar_term_list'][id]['st_img'])
+    // setSolarTermImgs(solarTermId.map((eid) => data['solar_term_list'][id]))
 
-    console.log(solarTermId)
-    console.log(solarTermId2)
+    // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
+    console.log('test', data['current_solar_term_id'])
 
-    let imgArray = solarTermId.map((e) => data['solar_term_list'][e]['st_img'])
-    console.log(imgArray)
-    setSolarTermImgs(imgArray)
+    let stImgArray = solarTermId.map(
+      (id) => data['solar_term_list'][id]['st_img']
+    )
+    // console.log(stImgArray)
+    setSolarTermImgs(stImgArray)
 
     return data
   }
+
+  function handleCardClick(id) {}
 
   function handlePlateToggle(id) {
     setStClickedId(id)
     setSolarTermToShow(solarTermData['solar_term_list'][id]['solar_term'])
     setSolarTermDesc(solarTermData['solar_term_list'][id]['st_desc'])
+    // console.log(solarTermImgs)
+    // console.log(id)
+    // let stImg = solarTermImgs[id]
+    // console.log(stImg)
+    let stImg = solarTermData['solar_term_list'][id]['st_img']
+    // setSolarTermImgToShow(solarTermData['solar_term_list'][id]['st_img'])
+    // setSolarTermImgToShow(solarTermImgs[id])
+
+    newTargetToggle(id)
+  }
+
+  function newTargetToggle(id) {
+    // 設定圓盤圖片
     let stImg = solarTermData['solar_term_list'][id]['st_img']
 
-    // 設定圓盤狀態
     setRedCenterImg(
       solarTermClicked
         ? [
@@ -195,31 +280,6 @@ function OldSeasons(props) {
     setSolarTermClicked(!solarTermClicked)
 
     setShowBreadCrumb(!showBreadCrumb)
-
-    // console.log('clicked!')
-    // console.log(solarTermClicked)
-  }
-
-  function newTargetToggle(id) {
-    // setSolarTermClicked(!solarTermClicked)
-    setTimeout(() => {
-      setSolarPlateSize(
-        solarTermClicked
-          ? 'solar-term-plate-v2-small rotate'
-          : 'solar-term-plate-v2 rotate'
-      )
-      setRedCenterSize(solarTermClicked ? 'red-center-small' : 'red-center')
-      setRedCenterText(solarTermClicked ? 'fadeIn' : 'fadeOut')
-
-      // 設定節氣說明狀態與頁面標題
-      setDisplayTitle(solarTermClicked ? 'fadeOut' : 'fadeIn')
-
-      setSolarTermClicked(!solarTermClicked)
-
-      setSolarTermClicked(!solarTermClicked)
-    }, 3000)
-
-    handlePlateToggle(id)
   }
 
   let checkBreadCrumShow = showBreadCrumb ? 'fadeIn' : 'fadeOut'
@@ -270,6 +330,7 @@ function OldSeasons(props) {
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
                 getSolarTermsToList={getSolarTermsToList}
+                solarTermBookToShow={solarTermBookToShow}
                 solarTermNameList={solarTermNameList}
                 solarTermToShowList={solarTermToShowList}
                 solarTermClicked={solarTermClicked}

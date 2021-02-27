@@ -4,7 +4,7 @@ import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
   const {
-    solarTermData,
+    solarTermBookToShow,
     solarTermNameList,
     solarTermToShowList,
     handlePlateToggle,
@@ -13,20 +13,27 @@ function OldSeasonBookCardList(props) {
     newTargetToggle,
   } = props
 
-  console.log(solarTermToShowList)
+  // console.log(solarTermToShowList)
+  // console.log(solarTermNameList)
+  // console.log(solarTermBookToShow)
+  console.log(solarTermBookToShow['title'])
+  console.log(solarTermBookToShow['book_pics'])
+  console.log(solarTermBookToShow['sid'])
 
   return (
     <>
       {solarTermToShowList.map((e) => {
         return (
           <OldSeasonBookCard
+            bookName={solarTermBookToShow['title']}
+            bookImg={solarTermBookToShow['book_pics']}
+            handlePlateToggle={handlePlateToggle}
+            getSolarTermsToList={getSolarTermsToList}
+            newTargetToggle={newTargetToggle}
             solarTermToShowList={solarTermToShowList}
             solarTermToShow={e}
             solarTermName={solarTermNameList[e]}
-            handlePlateToggle={handlePlateToggle}
-            getSolarTermsToList={getSolarTermsToList}
             solarTermClicked={solarTermClicked}
-            newTargetToggle={newTargetToggle}
           />
         )
       })}
