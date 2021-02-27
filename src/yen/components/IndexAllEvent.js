@@ -108,6 +108,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=talk')
               const changeClass = '?changeClass=talk'
               classButtonClick(changeClass)
             }}
@@ -117,6 +118,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=book_club')
               const changeClass = '?changeClass=book_club'
               classButtonClick(changeClass)
             }}
@@ -126,6 +128,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=outdoor')
               const changeClass = '?changeClass=outdoor'
               classButtonClick(changeClass)
             }}
@@ -135,6 +138,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=hang_out')
               const changeClass = '?changeClass=hang_out'
               classButtonClick(changeClass)
             }}
@@ -144,6 +148,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=area')
               const changeClass = '?changeClass=area'
               classButtonClick(changeClass)
             }}
@@ -153,6 +158,7 @@ function IndexAllEvent(props) {
           <button
             className="btn-md-light yen-select-btn"
             onClick={() => {
+              props.history.push('/activity?changeClass=recommend')
               const changeClass = '?changeClass=recommend'
               classButtonClick(changeClass)
             }}
