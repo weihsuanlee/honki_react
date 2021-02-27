@@ -9,6 +9,7 @@ import '../styles/used-books.scss'
 // 二手書svg
 import NormalBee from './../components/NormalBee'
 import NormalButterfly from './../components/NormalButterfly'
+import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
 // 我的交換單選單選完重新渲染
 import MyChangeBooks from './../components/MyChangeBooks'
 
@@ -84,14 +85,7 @@ function NormalIndex() {
   return (
     <>
       {/* 測試類別型元件卸載畫面 */}
-      {show && <h5>來來來</h5>}
-      <button
-        onClick={() => {
-          setShow(!show)
-        }}
-      >
-        {show ? '不要按' : '拜託幫我按一下'}
-      </button>
+
       <div className="container-fluid my-5">
         {/* 麵包屑 */}
         <nav aria-label="breadcrumb">
