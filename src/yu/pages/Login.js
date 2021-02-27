@@ -4,6 +4,7 @@ import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { withRouter } from 'react-router-dom'
+// import Swal from 'sweetalert2'
 
 import { Modal, Button } from 'react-bootstrap'
 
@@ -57,17 +58,6 @@ function Login(props) {
       setShow(true)
     }
   }
-
-  // cros-session
-  // function sendAjax() {
-  //   fetch('http://localhost:3000/try-session', {
-  //     credentials: 'include',
-  //   })
-  //     .then((r) => r.text())
-  //     .then((txt) => {
-  //       info.innerHTML = txt
-  //     })
-  // }
 
   function toMenu() {
     window.location.href = '/menu'
@@ -226,30 +216,5 @@ function Login(props) {
     </>
   )
 }
-
-// const info = document.querySelector('#info')
-
-// function checkForm() {
-//   info.style.display = 'none'
-
-//   const fd = new FormData(document.form1)
-
-//   fetch('', {
-//     method: 'POST',
-//     body: fd,
-//   })
-//     .then((r) => r.json())
-//     .then((obj) => {
-//       console.log(obj)
-//       if (!obj.success) {
-//         info.classList.remove('alert-success')
-//         info.classList.add('alert-danger')
-//         info.innerHTML = '帳號或密碼錯誤'
-//         info.style.display = 'block'
-//       } else {
-//         location.href = '/member/login'
-//       }
-//     })
-// }
 
 export default withRouter(Login)
