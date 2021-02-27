@@ -136,7 +136,7 @@ function OldSeasons(props) {
     // console.log('stBooks:', data['solar_term_books'][initialSid])
     console.log('stBooks:', data['solar_term_books'][initialSid - 1])
     console.log('solarTermBookToShowList', data['solar_term_books'])
-    setSolarTermBookToShowList(data['solar_term_books'])
+    setSolarTermBookToShowList([...data['solar_term_books']])
 
     console.log(data['solar_term_books'][1]['title'])
 
