@@ -87,7 +87,7 @@ function SendIWantChange(props) {
               <Link to="used-books-index.html">二手交換</Link>
             </li>
             <li class="breadcrumb-honki active" aria-current="page">
-              一般交換
+              隨機交換
             </li>
           </ol>
         </nav>
@@ -97,7 +97,7 @@ function SendIWantChange(props) {
             <div class=" form-width-height">
               {/* <!-- 表單標題 --> */}
               <div class="form-tittle">
-                <h5>我想交換</h5>
+                <h5>二手書-查看</h5>
               </div>
               {/* <!-- 一般input --> */}
               <div class="form-group ">

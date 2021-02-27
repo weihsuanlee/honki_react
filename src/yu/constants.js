@@ -5,13 +5,13 @@ export const SVG_FACES = [
   '/images/yu/peepsphotos/face/Driven.svg',
   '/images/yu/peepsphotos/face/Explaining.svg',
   '/images/yu/peepsphotos/face/Old.svg',
-  '/images/yu/peepsphotos/face/Smile Teeth Gap.svg',
-  '/images/yu/peepsphotos/face/Awe.svg',
+  '/images/yu/peepsphotos/face/Blank.svg',
+  '/images/yu/peepsphotos/face/Eating Happy.svg',
 ]
 
 export const SVG_HAIR = [
   '/images/yu/peepsphotos/hair/1Bangs 2.svg',
-  '/images/yu/peepsphotos/hair/2Bun 2.svg',
+  '/images/yu/peepsphotos/hair/2Bun.svg',
   '/images/yu/peepsphotos/hair/3Long Bangs.svg',
   '/images/yu/peepsphotos/hair/4Medium Bangs 3.svg',
   '/images/yu/peepsphotos/hair/5hat-hip.svg',

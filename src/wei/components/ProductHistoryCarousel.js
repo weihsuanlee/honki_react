@@ -102,7 +102,7 @@ function ProductHistoryCarousel(props) {
 
   return (
     <>
-      <Slider {...settings}>
+      <Slider {...settings} className="wei-left-slick">
         {productHistory.map((v, i) => (
           <div className="wei-card position-relative wei-slick" key={i}>
             <div

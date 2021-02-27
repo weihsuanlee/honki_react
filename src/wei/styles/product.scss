@@ -951,6 +951,9 @@ ol.wei-breadcrumb {
     right: -32px;
   }
 }
+.wei-left-slick > .slick-list > .slick-track {
+  margin-left: 0;
+}
 // favorite list
 .wei-card-list-favorite:hover {
   .wei-card-list-pic {

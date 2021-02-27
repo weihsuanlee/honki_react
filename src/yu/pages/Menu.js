@@ -26,8 +26,6 @@ function Menu(props) {
   const [curAcc, setCurAcc] = useState(0)
   const [curTerms, setCurTerms] = useState(0)
 
-  // 活動訂單state
-  // const [orderLists, setOrderLists] = useState([])
   const { vip, setVip } = props
 
   const [name, setName] = useState('')

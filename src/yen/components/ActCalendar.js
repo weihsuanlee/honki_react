@@ -42,7 +42,7 @@ class ActCalendar extends Component {
   }
 
   componentWillUpdate() {
-    console.log('componentWillUpdate', this.props)
+    // console.log('componentWillUpdate', this.props)
   }
 
   getDataFromServer() {

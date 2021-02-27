@@ -4,12 +4,14 @@ import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { withRouter } from 'react-router-dom'
+// import Swal from 'sweetalert2'
 
 import { Modal, Button } from 'react-bootstrap'
 
 function Login(props) {
   // const [show, setShow] = useState(false)
   // const handleClose = () => setShow(false)
+  console.log(props)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -43,25 +45,19 @@ function Login(props) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      // toMenu()
-      props.history.goBack()
+      // 如果上一頁是購物車結帳來的登入跳回繼續結帳
+      if (props.location.state == 'CartItems') {
+        props.history.goBack()
+      } else {
+        // 其他跳轉回會員menu
+        toMenu()
+      }
     } else {
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
       setShow(true)
     }
   }
-
-  // cros-session
-  // function sendAjax() {
-  //   fetch('http://localhost:3000/try-session', {
-  //     credentials: 'include',
-  //   })
-  //     .then((r) => r.text())
-  //     .then((txt) => {
-  //       info.innerHTML = txt
-  //     })
-  // }
 
   function toMenu() {
     window.location.href = '/menu'
@@ -220,30 +216,5 @@ function Login(props) {
     </>
   )
 }
-
-// const info = document.querySelector('#info')
-
-// function checkForm() {
-//   info.style.display = 'none'
-
-//   const fd = new FormData(document.form1)
-
-//   fetch('', {
-//     method: 'POST',
-//     body: fd,
-//   })
-//     .then((r) => r.json())
-//     .then((obj) => {
-//       console.log(obj)
-//       if (!obj.success) {
-//         info.classList.remove('alert-success')
-//         info.classList.add('alert-danger')
-//         info.innerHTML = '帳號或密碼錯誤'
-//         info.style.display = 'block'
-//       } else {
-//         location.href = '/member/login'
-//       }
-//     })
-// }
 
 export default withRouter(Login)

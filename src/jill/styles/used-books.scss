@@ -9,7 +9,7 @@
 .jill-random-btn {
   // position: absolute;
   // left: 1000px;
-  margin-left: 500px;
+  margin-left: 600px;
 }
 
 .jill-index-title {
@@ -119,8 +119,10 @@
   /* height: 800px; */
 }
 
+/* 二手書交換 我的交換單區塊 */
 .jill-myNchange-area {
-  width: 20%;
+  // width: 20%;
+  width: 46%;
 }
 .jill-myNchange-title {
   text-align: center;
@@ -136,8 +138,17 @@
 }
 
 .jill-fix-btn-add {
-  margin-left: 220px;
-  margin-top: 20px;
+  // margin-left: 620px;
+  // margin-top: 0px;
+
+  position: absolute;
+  top: 67px;
+  left: 580px;
+  background-color: var(--honki-red);
+}
+
+.jill-fix-btn-add:hover {
+  background-color: var(--honki-red);
 }
 
 .jill-myNchange-display {
@@ -196,8 +207,8 @@
 /* 蜜蜂svg */
 .jill-myNchange-display svg {
   position: absolute;
-  left: 385px;
-  top: 110px;
+  left: 380px;
+  top: 120px;
 }
 
 .jill-mystatus {
@@ -917,9 +928,9 @@
 .jill-random-success-title-area {
   border: 1px solid var(--honki-red);
   height: 400px;
-  width: 1340px;
+  width: 1440px;
   margin-top: 150px;
-  margin-left: 120px;
+  margin-left: 240px;
 }
 
 .jill-gong-xi {
@@ -938,8 +949,8 @@
 
 .jill-random-success-btn {
   position: absolute;
-  top: 500px;
-  left: 1300px;
+  top: 480px;
+  left: 1500px;
 }
 
 .jill-rand-succ-download {
@@ -981,8 +992,11 @@
 }
 
 .jill-random-success-name {
-  margin-left: -230px;
-  margin-top: 100px;
+  // margin-left: -230px;
+  // margin-top: 100px;
+  margin-left: -303px;
+  margin-top: 60px;
+  font-weight: bolder !important;
 }
 
 @media only screen and (max-width: 1200px) {

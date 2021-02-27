@@ -23,7 +23,7 @@ function Navbar(props) {
   const notLogin = useRef()
   const [name, setName] = useState('')
   // const logout = useState(0)
-  const { navSearchShow } = props
+  const { navSearchShow, cartNum } = props
 
   function logout() {
     localStorage.removeItem('userLogin')
@@ -51,9 +51,6 @@ function Navbar(props) {
     })
     $('.menu-open .btn-link').on('click', function () {
       $(this).toggleClass('active')
-      if ($('#navProduct').hasClass('active')) {
-        $(this).css('color:blue')
-      }
       $(this)
         .closest('.card')
         .siblings()
@@ -289,7 +286,7 @@ function Navbar(props) {
                     id="yu-member"
                     onClick={member}
                   >
-                    會員專區
+                    會員中心
                   </NavDropdown.Item>
                   {/* <NavDropdown.Item eventKey="4.3">
                     Something else here
@@ -305,11 +302,21 @@ function Navbar(props) {
                 </NavDropdown>
               </li>
               <li className="nav-item honki-nav-link-fa active">
-                <Link className="nav-link zero-padding" to="/cart">
+                <Link
+                  className="nav-link zero-padding position-relative"
+                  to="/cart"
+                >
                   <FaShoppingCart
                     className="fas fa-shopping-cart fa-lg"
                     style={{ fontSize: '24px' }}
                   />
+                  {cartNum ? (
+                    <div className="honki-cart-num" id="cartNum">
+                      {cartNum}
+                    </div>
+                  ) : (
+                    ''
+                  )}
                 </Link>
               </li>
             </ul>

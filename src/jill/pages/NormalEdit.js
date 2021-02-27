@@ -76,7 +76,7 @@ function NormalEdit(props) {
             <div class=" form-width-height">
               {/* <!-- 表單標題 --> */}
               <div class="form-tittle">
-                <h5>我想交換</h5>
+                <h5>我的二手書</h5>
               </div>
               {/* <!-- 一般input --> */}
               <div class="form-group ">
