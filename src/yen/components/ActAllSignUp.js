@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
+import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment'
 // import $ from 'jquery'
 
@@ -127,14 +128,32 @@ function ActAllSignUp(props) {
     },
   })
   const userId = localStorage.getItem('userId')
-  console.log('userId', userId)
+  // console.log('userId', userId)
   const [orderLists, setOrderLists] = useState([])
-  // const { orderLists, setOrderLists } = props
   const [orderDetail, setOrderDetail] = useState('')
-  // const [allActTime, setAllActTime] = useState([])
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
-  // let checkDetail = false
+  const [deleteOrder, setDeleteOrder] = useState(null)
+  const [show, setShow] = useState(false)
+  const handleShow = () => setShow(true)
+  const handleClose = () => setShow(false)
+
+  function handleCloseClick(whichClose) {
+    console.log(whichClose)
+    if (whichClose === 'closeAlert') {
+      handleClose()
+    }
+    if (whichClose === 'deleteOrder') {
+      deleteOrderOnServer()
+      handleClose()
+    }
+  }
+
+  function deleteButtonClick(deleteOrderNum) {
+    console.log('deleteOrderNum', deleteOrderNum)
+    setDeleteOrder(deleteOrderNum)
+    handleShow()
+  }
 
   function orderDetailButtonClick(orderNumber) {
     console.log('orderNumber', orderNumber)
@@ -155,6 +174,22 @@ function ActAllSignUp(props) {
     console.log('checkDetail 2', checkDetail)
     console.log('backToOrder 2', backToOrder)
   }
+
+  async function deleteOrderOnServer() {
+    const url = 'http://localhost:3333/member/actorder/' + deleteOrder
+    console.log('url', url)
+    // header的資料格式
+    const request = new Request(url, {
+      method: 'DELETE',
+    })
+
+    const response = await fetch(request)
+    console.log('response', response)
+  }
+
+  useEffect(() => {
+    postOrderDetailFromServer()
+  }, [show, deleteOrder])
 
   async function postOrderDetailFromServer() {
     const url = 'http://localhost:3333/member/actorder'
@@ -179,7 +214,6 @@ function ActAllSignUp(props) {
     console.log('orderLists', orderLists.rows)
   }
 
-  // TODO: 如果此user沒有訂購紀錄會噴錯誤
   const orderCard = (
     <>
       {orderLists.rows &&
@@ -189,6 +223,8 @@ function ActAllSignUp(props) {
             value.bookname +
             '/0.jpg'
           const orderNumberBtn = value.order_number
+          const deleteOrderNum = value.order_sid
+
           return (
             <div className="yen-signup-select-box" key={index}>
               <div className="yen-signup-act-img">
@@ -217,7 +253,12 @@ function ActAllSignUp(props) {
                     <i className="fas fa-edit"></i>
                     查看報名
                   </button>
-                  <button className="btn-md-dark yen-signup-cancel">
+                  <button
+                    className="btn-md-dark yen-signup-cancel"
+                    onClick={() => {
+                      deleteButtonClick(deleteOrderNum)
+                    }}
+                  >
                     <i className="fas fa-heart-broken"></i>
                     取消報名
                   </button>
@@ -234,6 +275,7 @@ function ActAllSignUp(props) {
       {orderLists.rows &&
         orderLists.rows.map((value, index) => {
           if (value.order_number !== orderDetail) return
+          const deleteOrderNum = value.order_sid
           return (
             <div className="yen-signup-check-box">
               <div className="yen-signup-check-bg">
@@ -343,7 +385,13 @@ function ActAllSignUp(props) {
                     </button>
                   </div>
                   <div className="yen-check-cancel-btn">
-                    <button className="btn-rounded-light yen-check-cancel-btn-bg ">
+                    <button
+                      className="btn-rounded-light yen-check-cancel-btn-bg"
+                      onClick={() => {
+                        deleteButtonClick(deleteOrderNum)
+                        backToOrderBtnClick()
+                      }}
+                    >
                       &times; &ensp;取消報名
                     </button>
                   </div>
@@ -378,6 +426,43 @@ function ActAllSignUp(props) {
           </div>
         </div>
       </div>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header>
+          <Modal.Title>取消報名</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="yen-alert-body">
+          取消報名後就無法回復
+          <br />
+          請問您是否確認要取消報名？
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="outline-secondary"
+            className="yen-cancel"
+            onClick={() => {
+              const whichClose = 'closeAlert'
+              handleCloseClick(whichClose)
+            }}
+          >
+            關閉
+          </Button>
+          <Button
+            variant="outline-danger"
+            className="yen-delete"
+            onClick={() => {
+              const whichClose = 'deleteOrder'
+              handleCloseClick(whichClose)
+            }}
+          >
+            取消報名
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
