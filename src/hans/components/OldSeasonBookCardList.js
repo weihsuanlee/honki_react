@@ -1,20 +1,28 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
+  const [cardListLength, setCardListLength] = useState(6)
+
   const {
+    handlePlateToggle,
+    newTargetToggle,
+    solarTermClicked,
     solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
-    solarTermToShowList,
-    handlePlateToggle,
-    getSolarTermsToList,
-    solarTermClicked,
-    newTargetToggle,
+    firstCardSid,
   } = props
 
-  // console.log(solarTermToShowList)
+  // const solarTermToShowList = (stSid) => {
+  //   Array.from(Array(6).keys()).map((e) =>
+  //     stSid - e >= 0 ? stSid - e : stSid - e + 24
+  //   )
+  // }
+
+  let solarTermToShowList = [1, 2, 3, 4, 5, 6]
+
   // console.log(solarTermNameList)
   // console.log(solarTermBookToShow)
   //
@@ -28,14 +36,15 @@ function OldSeasonBookCardList(props) {
       {solarTermToShowList.map((e) => {
         return (
           <OldSeasonBookCard
-            bookName={solarTermBookToShow['title']}
-            bookImg={solarTermBookToShow['book_pics']}
             handlePlateToggle={handlePlateToggle}
-            getSolarTermsToList={getSolarTermsToList}
             newTargetToggle={newTargetToggle}
-            solarTermToShowList={solarTermToShowList}
-            solarTermToShow={e}
-            solarTermName={solarTermNameList[e]}
+            bookName={solarTermBookToShowList[27 - 1].title}
+            bookImg={solarTermBookToShowList[27 - 1].book_pics}
+            solarTermToShow={solarTermBookToShowList[27 - 1].solar_term_id}
+            solarTermName={
+              solarTermNameList[solarTermBookToShowList[27 - 1].solar_term_id]
+            }
+            cardYear={solarTermBookToShowList[27 - 1].year.substring(0, 4)}
             solarTermClicked={solarTermClicked}
           />
         )

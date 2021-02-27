@@ -21,12 +21,12 @@ function OldSeasons(props) {
   // 節氣說明
   const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
-  const [solarTermToShowList, setSolarTermToShowList] = useState([])
   const [solarTermDesc, setSolarTermDesc] = useState('')
   const [solarTermImgs, setSolarTermImgs] = useState([])
   const [solarTermImgToShow, setSolarTermImgToShow] = useState('')
 
   // 節氣書籍資料
+  const [firstCardSid, setFirstCardSid] = useState('')
   const [solarTermBookToShow, setSolarTermBookToShow] = useState({})
   const [solarTermBookToShowList, setSolarTermBookToShowList] = useState([])
 
@@ -51,27 +51,8 @@ function OldSeasons(props) {
 
   // 模擬componentDidMount
   useEffect(() => {
-    // let initialDate = currentStDate()
-    // console.log(initialDate)
-    // console.log(initialDate.getFullYear())
-
-    // let initialSolarTermId = convertSolarTermID(initialDate)
-    // console.log(initialSolarTermID)
-
-    // setTargetSolarTerm(initialSolarTermId)
-    // console.log(targetSolarTerm)
-
-    // let solarTermsToList = getSolarTermsToList(initialSolarTermId)
-    // setSolarTermToShowList(getSolarTermsToList(initialSolarTermID))
-
     // 從伺服器取出節氣清單與節氣選書清單資料
     getInitialStDataFromServer()
-
-    // getStDataFromServer(initialSolarTermId)
-
-    // getStDataFromServer(inPutId)
-
-    // console.log(solarTermImgs)
   }, [])
 
   // 用月份列表來估算節氣的區間
@@ -106,22 +87,6 @@ function OldSeasons(props) {
     return solarTermId
   }
 
-  // 產生要列出的節氣選書，傳回陣列
-  const getSolarTermsToList = (stId) => {
-    // let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-    //   stId - e > 0 ? stId - e : stId - e + 24
-    // )
-
-    let solarTermsToListRaw = Array.from(Array(6).keys()).map((e) => stId - e)
-
-    let solarTermsToList = Array.from(Array(6).keys()).map((e) =>
-      stId - e >= 0 ? stId - e : stId - e + 24
-    )
-    // console.log(solarTermsToList)
-
-    return [solarTermsToList, solarTermsToListRaw]
-  }
-
   // 把日期轉換成 YYYY-MM-DD 格式
   // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
   /*
@@ -148,7 +113,7 @@ function OldSeasons(props) {
   )
   */
 
-  // 和伺服器要資料
+  // 和伺服器要資料，初始節氣卡
   const getInitialStDataFromServer = async () => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
@@ -157,24 +122,22 @@ function OldSeasons(props) {
 
     // let currentSolarTermId = data['current_solar_term_id']
     let initialStId = data['current_solar_term_id'][0]['solar_term_id']
-    console.log('initialStId', initialStId)
+    // console.log('initialStId', initialStId)
     let initialSid = data['current_solar_term_id'][0]['st_sid']
-    console.log('initialSid', initialSid)
+    // console.log('initialSid', initialSid)
+    setFirstCardSid(initialSid)
 
-    // console.log(data)
+    console.log(data)
     setSolarTermData(data)
 
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][id])
     // console.log('stBooks:', data['solar_term_books'][initialSid])
     console.log('stBooks:', data['solar_term_books'][initialSid - 1])
-    setSolarTermBookToShowList(data['solar_term_books'])
     console.log(data['solar_term_books'])
+    setSolarTermBookToShowList(data['solar_term_books'])
 
-    // SolarTermToListRaw => 1
-    setSolarTermToShowList(getSolarTermsToList(initialStId)[1])
-    // SolarTermToList =>
-    // setSolarTermToShowList(getSolarTermsToList(initialStId)[0])
+    console.log(data['solar_term_books'][1]['title'])
 
     setSolarTermDesc(data['solar_term_list'][initialStId]['st_desc'])
     setSolarTermNameList(
@@ -184,7 +147,6 @@ function OldSeasons(props) {
     )
     setSolarTermToShow(data['solar_term_list'][initialStId]['solar_term'])
     setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
-    // setSolarTermImgs(solarTermId.map((eid) => data['solar_term_list'][id]))
 
     // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
     console.log('test', data['current_solar_term_id'][0])
@@ -322,23 +284,15 @@ function OldSeasons(props) {
           <div className="col-xl-6 osb-book-col-outer">
             <div className="osb-book-col-grad"></div>
             <div className="row justify-content-center osb-book-col fadein-on-start">
-              {/* 過往節氣選書卡片 */}
-
-              {/* <OldSeasonBookCard
-                targetSolarTerm={targetSolarTerm}
-                solarTermToShowList={solarTermToShowList}
-                handlePlateToggle={handlePlateToggle}
-                getSolarTermsToList={getSolarTermsToList}
-              /> */}
+              {/* 過往節氣選書卡片， 6 張卡片 */}
 
               <OldSeasonBookCardList
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
-                getSolarTermsToList={getSolarTermsToList}
                 solarTermBookToShow={solarTermBookToShow}
                 solarTermBookToShowList={solarTermBookToShowList}
+                firstCardSid={firstCardSid}
                 solarTermNameList={solarTermNameList}
-                solarTermToShowList={solarTermToShowList}
                 solarTermClicked={solarTermClicked}
                 stClickedId={stClickedId}
               />
