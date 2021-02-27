@@ -1,6 +1,6 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function Cart(props) {
@@ -80,7 +80,22 @@ function Cart(props) {
     // 設定資料
     setMycart([])
   }
-
+  const emptyCart = (
+    <>
+      <div className="cart-page noselect">
+        <div className="ru-cart-wrap mx-auto">
+          <main className="d-flex justify-content-center align-items-center w-100 aw-cart-empty">
+            <div className="empty-cart-display ">
+              <h4>您的購物車是空的，快去挑選商品！</h4>
+              <Link to="/product">
+                <h5>繼續購物</h5>
+              </Link>
+            </div>
+          </main>
+        </div>
+      </div>
+    </>
+  )
   const loading = (
     <>
       <div className="d-flex justify-content-center">
@@ -213,7 +228,15 @@ function Cart(props) {
     </>
   )
   // 以資料載入的指示狀態來切換要出現的畫面
-  return dataLoading ? loading : display
+
+  if (
+    !localStorage.getItem('cart5566') ||
+    JSON.parse(localStorage.getItem('cart5566')).length === 0
+  ) {
+    return emptyCart
+  } else {
+    return dataLoading ? loading : display
+  }
 }
 
 export default withRouter(Cart)
