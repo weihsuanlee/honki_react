@@ -196,6 +196,7 @@ function EditTab1() {
                 className="form-control formInput col-6"
                 id="password"
                 name="password"
+                placeholder="修改前請先輸入密碼"
                 onChange={(e) => {
                   setPassword(e.target.value)
                 }}

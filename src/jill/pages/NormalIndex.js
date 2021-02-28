@@ -16,7 +16,7 @@ import MyChangeBooks from './../components/MyChangeBooks'
 function NormalIndex() {
   const [changeData, setChangeData] = useState([])
 
-  // 撈我的交換單(編號15)
+  // 撈我的交換單
   const [mybook_rows, setMybook_rows] = useState([])
   // 測試useEffect
   // const [myrows, setMyrows] = useState([])
