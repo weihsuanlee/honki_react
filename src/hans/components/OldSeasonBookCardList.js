@@ -22,19 +22,19 @@ function OldSeasonBookCardList(props) {
   //   )
   // }
 
-  console.log(solarTermBookToShowList)
   console.log(firstCardSid)
-  let tempList = { ...solarTermBookToShowList[firstCardSid + 1] }
-  console.log(tempList)
 
   const bookList = (id) => {
     let tempList = { ...solarTermBookToShowList[id] }
     return tempList
   }
 
+  const getCardYear = (id) => String(bookList(id).year).substr(0, 4)
+
   console.log(solarTermNameList)
 
-  let solarTermToShowList = [26, 25, 24, 23, 22, 21]
+  // 因用 array, 所以 firstCardSid 要 -1 對應的節氣才是對的
+  let solarTermToShowList = [28, 27, 26, 25, 24, 23]
 
   // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
@@ -54,13 +54,9 @@ function OldSeasonBookCardList(props) {
             newTargetToggle={newTargetToggle}
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
-            solarTermToShow={bookList(e).solar_term_id}
-            solarTermName={
-              solarTermNameList[bookList(e).solar_term_id] +
-              'stId' +
-              bookList(e).solar_term_id
-            }
-            cardYear={bookList(e).year}
+            solarTermToShow={bookList(e).solar_term_id - 1}
+            solarTermName={solarTermNameList[bookList(e).solar_term_id - 1]}
+            cardYear={getCardYear(e)}
             solarTermClicked={solarTermClicked}
           />
         )

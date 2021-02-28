@@ -55,10 +55,10 @@ function OldSeasonBookCard(props) {
         </div>
         <div className="book-description">
           {/* <!-- 書名 28 字以內 --> */}
-          <div className="book-name">{bookName}</div>
           <div className="book-solar-term-year">
             {solarTermName} {cardYear}
           </div>
+          <div className="book-name">{bookName}</div>
         </div>
       </div>
       {/* <!-- book card end --> */}
