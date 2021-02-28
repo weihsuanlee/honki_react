@@ -163,6 +163,8 @@ function OldSeasons(props) {
     return data
   }
 
+  // 舊的 Toogle 處理 function
+  /*
   const getStDataFromServer = async (id) => {
     const response = await fetch('http://localhost:3333/old-seasons', {
       method: 'get',
@@ -195,6 +197,7 @@ function OldSeasons(props) {
 
     return data
   }
+  */
 
   function handleCardClick(id) {}
 

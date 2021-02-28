@@ -5,6 +5,7 @@ import { useState } from 'react'
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
+  const [cardStSid, setCardStSid] = useState(-1)
   const [cardClass, setCardClass] = useState('hans-book-card')
   const [elementFadeIn, setElementFadeIn] = useState('fadeOut')
   const [cardBaseClass, setCardBaseClass] = useState(
@@ -15,6 +16,7 @@ function OldSeasonBookCard(props) {
   )
 
   const {
+    cardStBookId,
     handlePlateToggle,
     newTargetToggle,
     solarTermToShow,
@@ -25,7 +27,6 @@ function OldSeasonBookCard(props) {
     solarTermClicked,
     stClickedId,
   } = props
-
   // console.log('card', solarTermToShowList)
 
   return (
@@ -37,7 +38,7 @@ function OldSeasonBookCard(props) {
           // console.log(solarTermClicked)
           if (solarTermClicked === true) {
             handlePlateToggle(solarTermToShow)
-            console.log(solarTermClicked)
+            console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
             setElementFadeIn('fadeIn')
             setSolarTermYearSelect('hans-card-solar-term-year2')
@@ -51,7 +52,7 @@ function OldSeasonBookCard(props) {
             // console.log('newTargetToggle + handlePlateToggle')
             setElementFadeIn('fadeOut')
             setSolarTermYearSelect('hans-card-solar-term-year')
-            console.log(solarTermToShow, ' 卡片確認 ')
+            console.log('收合卡片確認: ', solarTermToShow)
           }
 
           // 第二版動作

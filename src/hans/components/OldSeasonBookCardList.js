@@ -46,7 +46,6 @@ function OldSeasonBookCardList(props) {
   }
 
   let solarTermToShowList = getStToShowList(firstCardSid)
-  // console.log(solarTermToShowList)
 
   // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
@@ -63,6 +62,7 @@ function OldSeasonBookCardList(props) {
         return (
           <OldSeasonBookCard
             key={e}
+            cardStbookId={bookList(e)}
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
             bookName={bookList(e).title}
