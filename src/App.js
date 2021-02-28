@@ -51,13 +51,16 @@ import BackToTop from './components/BackToTop'
 import { IconContext } from 'react-icons'
 
 function App() {
-  useEffect(() => {
+  function updateCartNum() {
     let cartItems = JSON.parse(localStorage.getItem('cart5566')) || 0
     let total = 0
     for (let i = 0; i < cartItems.length; i++) {
       total += cartItems[i].amount
     }
     setCartNum(total)
+  }
+  useEffect(() => {
+    updateCartNum()
   }, [])
   const [navSearchShow, setNavSearchShow] = useState(true)
   // 購物車數量狀態紀錄
@@ -95,19 +98,19 @@ function App() {
                   <Register />
                 </Route>
                 <Route path="/cart">
-                  <Cart cartNum={cartNum} setCartNum={setCartNum} />
+                  <Cart updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/CartItems">
-                  <CartItems cartNum={cartNum} setCartNum={setCartNum} />
+                  <CartItems updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/CartInput">
-                  <CartInput cartNum={cartNum} setCartNum={setCartNum} />
+                  <CartInput updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/CartConfirm">
-                  <CartConfirm cartNum={cartNum} setCartNum={setCartNum} />
+                  <CartConfirm updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/CartOrder">
-                  <CartOrder cartNum={cartNum} setCartNum={setCartNum} />
+                  <CartOrder updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/activity/event/:sid">
                   <ActEvent />
@@ -167,7 +170,7 @@ function App() {
                   <RandSuccessStatus />
                 </Route>
                 <Route path="/products/:sid?">
-                  <ProductDetail setCartNum={setCartNum} cartNum={cartNum} />
+                  <ProductDetail updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/product/:category?">
                   <Product

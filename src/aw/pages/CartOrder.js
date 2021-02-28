@@ -15,9 +15,9 @@ function CartOrder(props) {
   // const [isLoading, setIsLoading] = useState(true)
 
   // 更動購物車數量 我先亂寫喔你可以再改 李之亂寫區
-  const { setCartNum } = props
-  setCartNum(0)
+  const { updateCartNum } = props
   localStorage.removeItem('cart5566')
+  updateCartNum()
   // 李之亂寫區
 
   const getDataFromServer = async () => {

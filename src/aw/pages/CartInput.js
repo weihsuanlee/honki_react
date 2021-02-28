@@ -32,7 +32,7 @@ function CartInput(props) {
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
   // 更動購物車數量
-  const { setCartNum } = props
+  const { updateCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -241,8 +241,7 @@ function CartInput(props) {
     // 設定資料
     setMycart(currentCart)
     // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    updateCartNum()
   }
 
   // 計算總價用的函式

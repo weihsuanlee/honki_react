@@ -8,7 +8,8 @@ function Cart(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   // 更動購物車數量
-  const { cartNum, setCartNum } = props
+  // const { cartNum, setCartNum } = props
+  const { updateCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -80,7 +81,7 @@ function Cart(props) {
     for (let i = 0; i < a.length; i++) {
       total += a[i].amount
     }
-    setCartNum(total)
+    updateCartNum()
   }
   //清除全部
   const updateCartRemoveAll = (item) => {
@@ -89,8 +90,7 @@ function Cart(props) {
     // 設定資料
     setMycart([])
     // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    updateCartNum()
   }
   const emptyCart = (
     <>

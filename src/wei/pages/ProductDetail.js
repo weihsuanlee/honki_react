@@ -42,7 +42,7 @@ function ProductDetail(props) {
   const [productName, setProductName] = useState('')
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-  const { cartNum, setCartNum } = props
+  const { updateCartNum } = props
   const updateCartToLocalStorage = (item) => {
     const currentCart = JSON.parse(localStorage.getItem('cart5566')) || []
     // find if the product in the localstorage with its id
@@ -60,12 +60,8 @@ function ProductDetail(props) {
     } else {
       currentCart.push(item)
       localStorage.setItem('cart5566', JSON.stringify(currentCart))
-      // 更新購物車數量 本來的數量+1 因為不重複
-      const cartNumNow = cartNum + 1
-      // ? cartNum + 1
-      // : JSON.parse(localStorage.getItem('cart5566')).length
-      // console.log(cartNumNow)
-      setCartNum(cartNumNow)
+      // 更新購物車數量 
+      updateCartNum()
     }
     // 設定資料
     setMycart(currentCart)
