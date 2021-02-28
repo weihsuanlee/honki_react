@@ -1,4 +1,8 @@
-.book-card {
+.hans-pointer {
+  cursor: pointer;
+}
+
+.hans-book-card {
   width: 220px;
   // height: 330px;
   height: 362px;
@@ -11,11 +15,11 @@
   flex-direction: column;
 }
 
-.book-card > div {
+.hans-book-card > div {
   flex: 1;
 }
 
-.book-base {
+.hans-book-base {
   width: 218px;
   height: 248px;
   border-radius: 15px;
@@ -23,7 +27,7 @@
   padding: 34px 10%;
 }
 
-.book-img {
+.hans-book-img {
   height: 100%;
   display: block;
   object-fit: contain;
@@ -33,17 +37,17 @@
   // margin-top: 10%;
 }
 
-.book-description {
+.hans-book-card-description {
   margin-top: 20px;
   padding: 0 0.5rem;
   position: relative;
 }
 
-.book-name {
+.hans-book-name {
   font-size: 14px;
 }
 
-.book-solar-term-year {
+.hans-card-solar-term-year {
   font-size: 12px;
   position: absolute;
   bottom: 0;

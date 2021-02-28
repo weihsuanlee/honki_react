@@ -23,7 +23,7 @@ function OldSeasonBookCard(props) {
     <>
       {/* <!-- book card start --> */}
       <div
-        className="book-card"
+        className="hans-book-card"
         onClick={() => {
           // console.log(solarTermClicked)
           if (solarTermClicked === true) {
@@ -46,19 +46,19 @@ function OldSeasonBookCard(props) {
           // handlePlateToggle(solarTermToShow)
         }}
       >
-        <div className="book-base">
+        <div className="hans-book-base hans-pointer">
           <img
-            className="book-img"
+            className="hans-book-img"
             src={'http://localhost:3000/images/books/' + bookImg}
             alt=""
           />
         </div>
-        <div className="book-description">
+        <div className="hans-book-card-description">
           {/* <!-- 書名 28 字以內 --> */}
-          <div className="book-solar-term-year">
+          <div className="hans-card-solar-term-year">
             {solarTermName} {cardYear}
           </div>
-          <div className="book-name">{bookName}</div>
+          <div className="hans-book-name">{bookName}</div>
         </div>
       </div>
       {/* <!-- book card end --> */}
