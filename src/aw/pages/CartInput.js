@@ -260,11 +260,26 @@ function CartInput(props) {
     }
     return total
   }
+  // 計算總量的函式
+  const sumAmount2 = (items) => {
+    let total = 0
+
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    if (seletedOption1 === '超商取貨') {
+      total += 60
+    }
+    if (seletedOption1 === '宅配') {
+      total += 120
+    }
+    return total
+  }
 
   const loading = (
     <>
       <div className="d-flex justify-content-center">
-      <div className="spinner-border aw-spinner" role="status">
+        <div className="spinner-border aw-spinner" role="status">
           <span className="sr-only aw-spinner">Loading...</span>
         </div>
       </div>
@@ -450,8 +465,7 @@ function CartInput(props) {
                               </select>
                             </div>
                           </div>
-
-                          <div class="form-group ">
+                          {/* <div class="form-group ">
                             <div class="formItems row d-flex">
                               <label
                                 class="inputText col-5"
@@ -472,22 +486,25 @@ function CartInput(props) {
                                 <option value="2">2</option>
                               </select>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </form>
                     </div>
                     <div class="aw-transport-fee col-2 ">
                       <div class="aw-transport-fee-items text-right">
-                        <h6>60元</h6>
+                        <h6>
+                          {seletedOption1 === '超商取貨' ? 60 + '元' : ''}
+                          {seletedOption1 === '宅配' ? 120 + '元' : ''}
+                        </h6>
                       </div>
-                      <div class="aw-transport-fee-items text-right">
+                      {/* <div class="aw-transport-fee-items text-right">
                         <h6>60元</h6>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div class="row aw-row d-flex justify-content-end aw-pr-42">
                     <div class=" text-right aw-p-9">
-                      <h5>總計 {toCurrency(sumAmount(mycart))}元</h5>
+                      <h5>總計 {toCurrency(sumAmount2(mycart))}元</h5>
                     </div>
                   </div>
                   <div class="aw-pt-20 row aw-row d-flex justify-content-between aw-pr-42">
