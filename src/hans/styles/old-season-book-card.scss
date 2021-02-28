@@ -16,48 +16,53 @@
 
   // debug-------------------------------
   // debug 用背景色
-  background-color: grey;
+  // background-color: grey;
   transition: 2s;
 }
 
 .hans-book-card2 {
   width: 100%;
-  height: 100vh;
-  margin: 10px 0.5rem 2rem 0.5rem;
+  height: 646px;
+  margin: 28px 0.5rem 2rem 0.5rem;
   border-radius: 10px;
 
-  display: flex;
+  // display: flex;
   flex-direction: column;
 
   // debug-------------------------------
   // debug 用背景色
-  // background-color: light-grey;
+  background-color: var(--honki-white);
+  // background-color: grey;
+  transform: translate(-94px);
   transition: 2s;
 }
 
 .hans-book-card2 > div {
-  flex: 1;
+  // flex: 1;
 }
 
 .hans-book-card > div {
-  flex: 1;
+  // flex: 1;
 }
 
 .hans-book-base {
+  display: flex;
   width: 218px;
   height: 248px;
   border-radius: 15px;
   background-color: var(--honki-white);
-  padding: 34px 10%;
+  // padding: 34px 10%;
+  align-items: center;
 }
 
 .hans-book-img {
   height: 180px;
-  display: block;
-  // object-fit: contain;
+  // display: block;
+  align-self: center;
+  object-fit: contain;
   -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
-  margin: 0 auto;
+  margin: auto auto;
   // margin-top: 10%;
 }
 
@@ -74,5 +79,17 @@
 .hans-card-solar-term-year {
   font-size: 12px;
   position: absolute;
-  bottom: 0;
+  // bottom: 0;
+  transform: translate(0, 70px);
+  transition: 2s;
+}
+
+.hans-card-solar-term-year2 {
+  font-size: 16px;
+  text-align: center;
+
+  position: absolute;
+  // bottom: 0;
+  transform: translate(0, 70px);
+  transition: 2s;
 }
