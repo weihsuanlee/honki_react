@@ -110,7 +110,10 @@ function App() {
                   <CartConfirm updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/CartOrder">
-                  <CartOrder updateCartNum={updateCartNum} />
+                  <CartOrder
+                    updateCartNum={updateCartNum}
+                    setCartNum={setCartNum}
+                  />
                 </Route>
                 <Route path="/activity/event/:sid">
                   <ActEvent />

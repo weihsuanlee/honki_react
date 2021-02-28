@@ -17,9 +17,12 @@ function CartOrder(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
-  // 更動購物車數量
-  const { setCartNum } = props
+
+  // 更動購物車數量 如果有清空localStorage cart5566的函式 可以直接把 updateCartNum()寫在裡面
+  const { setCartNum, updateCartNum } = props
+  // 呼叫 updateCartNum()之後也可以把setCartNum(0)這個直接刪掉
   setCartNum(0)
+
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
