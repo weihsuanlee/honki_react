@@ -6,8 +6,12 @@ import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
   const [cardClass, setCardClass] = useState('hans-book-card')
+  const [elementFadeIn, setElementFadeIn] = useState('fadeOut')
   const [cardBaseClass, setCardBaseClass] = useState(
     'hans-book-base hans-pointer'
+  )
+  const [solarTermYearSelect, setSolarTermYearSelect] = useState(
+    'hans-card-solar-term-year'
   )
 
   const {
@@ -35,14 +39,19 @@ function OldSeasonBookCard(props) {
             handlePlateToggle(solarTermToShow)
             console.log(solarTermClicked)
             setCardClass('hans-book-card2')
+            setElementFadeIn('fadeIn')
+            setSolarTermYearSelect('hans-card-solar-term-year2')
             // setCardBaseClass('hans-book-card2')
             // console.log('handlePlateToggle')
           } else {
             setCardClass('hans-book-card')
             // setCardBaseClass('hans-book-card2')
-            // newTargetToggle(solarTermToShow)
+            newTargetToggle(solarTermToShow)
             // handlePlateToggle(solarTermToShow)
             // console.log('newTargetToggle + handlePlateToggle')
+            setElementFadeIn('fadeOut')
+            setSolarTermYearSelect('hans-card-solar-term-year')
+            console.log(solarTermToShow, ' 卡片確認 ')
           }
 
           // 第二版動作
@@ -65,8 +74,9 @@ function OldSeasonBookCard(props) {
         </div>
         <div className="hans-book-card-description">
           {/* <!-- 書名 28 字以內 --> */}
-          <div className="hans-card-solar-term-year">
-            {solarTermName} {cardYear}
+          <div className={solarTermYearSelect}>
+            {solarTermName} {cardYear}{' '}
+            <span className={elementFadeIn}>選書</span>
           </div>
           <div className="hans-book-name">{bookName}</div>
         </div>
