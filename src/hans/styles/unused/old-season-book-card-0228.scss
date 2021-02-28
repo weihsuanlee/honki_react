@@ -13,30 +13,6 @@
 
   display: flex;
   flex-direction: column;
-
-  // debug-------------------------------
-  // debug 用背景色
-  background-color: grey;
-  transition: 2s;
-}
-
-.hans-book-card2 {
-  width: 100%;
-  height: 100vh;
-  margin: 10px 0.5rem 2rem 0.5rem;
-  border-radius: 10px;
-
-  display: flex;
-  flex-direction: column;
-
-  // debug-------------------------------
-  // debug 用背景色
-  // background-color: light-grey;
-  transition: 2s;
-}
-
-.hans-book-card2 > div {
-  flex: 1;
 }
 
 .hans-book-card > div {
@@ -52,9 +28,9 @@
 }
 
 .hans-book-img {
-  height: 180px;
+  height: 100%;
   display: block;
-  // object-fit: contain;
+  object-fit: contain;
   -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   margin: 0 auto;

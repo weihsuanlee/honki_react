@@ -1,15 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 // import { Component } from 'react'
 
 // import style
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
-  const [cardClass, setCardClass] = useState('hans-book-card')
-  const [cardBaseClass, setCardBaseClass] = useState(
-    'hans-book-base hans-pointer'
-  )
-
   const {
     handlePlateToggle,
     newTargetToggle,
@@ -28,19 +23,14 @@ function OldSeasonBookCard(props) {
     <>
       {/* <!-- book card start --> */}
       <div
-        className={cardClass}
+        className="hans-book-card"
         onClick={() => {
           // console.log(solarTermClicked)
           if (solarTermClicked === true) {
             handlePlateToggle(solarTermToShow)
-            console.log(solarTermClicked)
-            setCardClass('hans-book-card2')
-            // setCardBaseClass('hans-book-card2')
             // console.log('handlePlateToggle')
           } else {
-            setCardClass('hans-book-card')
-            // setCardBaseClass('hans-book-card2')
-            // newTargetToggle(solarTermToShow)
+            newTargetToggle(solarTermToShow)
             // handlePlateToggle(solarTermToShow)
             // console.log('newTargetToggle + handlePlateToggle')
           }
@@ -56,7 +46,7 @@ function OldSeasonBookCard(props) {
           // handlePlateToggle(solarTermToShow)
         }}
       >
-        <div className={cardBaseClass}>
+        <div className="hans-book-base hans-pointer">
           <img
             className="hans-book-img"
             src={'http://localhost:3000/images/books/' + bookImg}
