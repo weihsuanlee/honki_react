@@ -65,7 +65,7 @@ function Register(props) {
     }
 
     //檢查手機格式
-    const mobile = /09\d{2}-?\d{3}-?\d{3}/
+    const mobile = /^09\d{2}-\d{3}-\d{3}$/
     if (!mobile.test(inputs.mobile)) {
       newErrors.push('mobile')
     }

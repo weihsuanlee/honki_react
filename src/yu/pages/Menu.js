@@ -116,7 +116,7 @@ function Menu(props) {
         <div className="row d-flex justify-content-center">
           <div className="holder d-none d-lg-block mx-auto yu-menu-panels">
             <Tabs defaultActiveKey="yu-menu-1" id="uncontrolled-tab-example">
-              <Tab eventKey="yu-menu-1" title="會員專區">
+              <Tab eventKey="yu-menu-1" title="會員總表">
                 <div className="yu-menu-col-2">
                   {/* <!-- 我的帳戶 --> */}
                   <div>
