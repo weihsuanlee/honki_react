@@ -44,6 +44,7 @@ function OldSeasonBookCard(props) {
             setSolarTermYearSelect('hans-card-solar-term-year2')
             // setCardBaseClass('hans-book-card2')
             // console.log('handlePlateToggle')
+            console.log('打開卡片確認: ', solarTermToShow)
           } else {
             setCardClass('hans-book-card')
             // setCardBaseClass('hans-book-card2')
@@ -80,6 +81,7 @@ function OldSeasonBookCard(props) {
             <span className={elementFadeIn}>選書</span>
           </div>
           <div className="hans-book-name">{bookName}</div>
+          <div>{cardStBookId}</div>
         </div>
       </div>
       {/* <!-- book card end --> */}

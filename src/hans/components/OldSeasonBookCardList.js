@@ -28,6 +28,7 @@ function OldSeasonBookCardList(props) {
     let tempList = { ...solarTermBookToShowList[id] }
     return tempList
   }
+  // console.log(bookList(1).st_sid)
 
   const getCardYear = (id) => String(bookList(id).year).substr(0, 4)
 
@@ -62,9 +63,9 @@ function OldSeasonBookCardList(props) {
         return (
           <OldSeasonBookCard
             key={e}
-            cardStbookId={bookList(e)}
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
+            // cardStbookId={bookList(e).st_sid}
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
             solarTermToShow={bookList(e).solar_term_id - 1}
