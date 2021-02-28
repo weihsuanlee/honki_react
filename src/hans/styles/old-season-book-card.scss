@@ -20,12 +20,15 @@
   height: 248px;
   border-radius: 15px;
   background-color: var(--honki-white);
-  padding: 10% 10% 10% 10%;
+  padding: 34px 10%;
 }
 
 .book-img {
   height: 100%;
   display: block;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
   margin: 0 auto;
   // margin-top: 10%;
 }

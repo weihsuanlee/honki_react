@@ -25,14 +25,14 @@ function OldSeasonBookCard(props) {
       <div
         className="book-card"
         onClick={() => {
-          console.log(solarTermClicked)
+          // console.log(solarTermClicked)
           if (solarTermClicked === true) {
             handlePlateToggle(solarTermToShow)
-            console.log('handlePlateToggle')
+            // console.log('handlePlateToggle')
           } else {
             newTargetToggle(solarTermToShow)
             // handlePlateToggle(solarTermToShow)
-            console.log('newTargetToggle + handlePlateToggle')
+            // console.log('newTargetToggle + handlePlateToggle')
           }
 
           // 第二版動作

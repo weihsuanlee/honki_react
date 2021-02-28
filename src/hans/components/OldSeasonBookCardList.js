@@ -22,7 +22,7 @@ function OldSeasonBookCardList(props) {
   //   )
   // }
 
-  console.log(firstCardSid)
+  // console.log(firstCardSid)
 
   const bookList = (id) => {
     let tempList = { ...solarTermBookToShowList[id] }
