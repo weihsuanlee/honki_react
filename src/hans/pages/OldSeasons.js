@@ -29,7 +29,7 @@ function OldSeasons(props) {
   // 節氣書籍資料
   const [firstCardSid, setFirstCardSid] = useState('')
   const [solarTermBookToShow, setSolarTermBookToShow] = useState({})
-  const [solarTermBookToShowList, setSolarTermBookToShowList] = useState([])
+  const [solarTermBookToShowList, setSolarTermBookToShowList] = useState({})
 
   // 麵包屑
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
@@ -128,17 +128,17 @@ function OldSeasons(props) {
     // console.log('initialSid', initialSid)
     setFirstCardSid(initialSid)
 
-    console.log(data)
+    // console.log(data)
     setSolarTermData(data)
 
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][id])
     // console.log('stBooks:', data['solar_term_books'][initialSid])
     console.log('stBooks:', data['solar_term_books'][initialSid - 1])
-    console.log('solarTermBookToShowList', data['solar_term_books'])
-    setSolarTermBookToShowList([...data['solar_term_books']])
+    // console.log('solarTermBookToShowList', data['solar_term_books'])
+    setSolarTermBookToShowList(data['solar_term_books'])
 
-    console.log(data['solar_term_books'][1]['title'])
+    // console.log(data['solar_term_books'][1]['title'])
 
     setSolarTermDesc(data['solar_term_list'][initialStId]['st_desc'])
     setSolarTermNameList(
@@ -150,7 +150,7 @@ function OldSeasons(props) {
     setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
 
     // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
-    console.log('solarTermBookToShow', data['current_solar_term_id'][0])
+    // console.log('solarTermBookToShow', data['current_solar_term_id'][0])
     setSolarTermBookToShow(data['current_solar_term_id'][0])
 
     let stImgArray = solarTermId.map(
@@ -185,7 +185,7 @@ function OldSeasons(props) {
     // setSolarTermImgs(solarTermId.map((eid) => data['solar_term_list'][id]))
 
     // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
-    console.log('test', data['current_solar_term_id'])
+    // console.log('test', data['current_solar_term_id'])
 
     let stImgArray = solarTermId.map(
       (id) => data['solar_term_list'][id]['st_img']
@@ -288,6 +288,7 @@ function OldSeasons(props) {
               {/* 過往節氣選書卡片， 6 張卡片 */}
 
               <OldSeasonBookCardList
+                // getInitialStDataFromServer={getInitialStDataFromServer}
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
                 solarTermBookToShow={solarTermBookToShow}

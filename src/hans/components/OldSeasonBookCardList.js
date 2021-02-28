@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
@@ -6,9 +6,11 @@ function OldSeasonBookCardList(props) {
   // const [cardListLength, setCardListLength] = useState(6)
 
   const {
+    // getInitialStDataFromServer,
     handlePlateToggle,
     newTargetToggle,
     solarTermClicked,
+    firstCardSid,
     solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
@@ -20,11 +22,23 @@ function OldSeasonBookCardList(props) {
   //   )
   // }
 
-  let solarTermToShowList = [1, 2, 3, 4, 5, 6]
-  console.log(solarTermToShowList)
+  console.log(solarTermBookToShowList)
+  console.log(firstCardSid)
+  let tempList = { ...solarTermBookToShowList[firstCardSid + 1] }
+  console.log(tempList)
 
+  const bookList = (id) => {
+    let tempList = { ...solarTermBookToShowList[id] }
+    return tempList
+  }
+
+  console.log(solarTermNameList)
+
+  let solarTermToShowList = [26, 25, 24, 23, 22, 21]
+
+  // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
-  console.log(solarTermBookToShow)
+  // console.log(solarTermBookToShow)
   //
   // console.log('title', solarTermBookToShow['title'])
   // console.log('book_pics', solarTermBookToShow['book_pics'])
@@ -38,13 +52,15 @@ function OldSeasonBookCardList(props) {
           <OldSeasonBookCard
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
-            // bookName={solarTermBookToShowList[27 - 1].title}
-            // bookImg={solarTermBookToShowList[27 - 1].book_pics}
-            // solarTermToShow={solarTermBookToShowList[27 - 1].solar_term_id}
-            // solarTermName={
-            //   solarTermNameList[solarTermBookToShowList[27 - 1].solar_term_id]
-            // }
-            // cardYear={solarTermBookToShowList[27 - 1].year.substring(0, 4)}
+            bookName={bookList(e).title}
+            bookImg={bookList(e).book_pics}
+            solarTermToShow={bookList(e).solar_term_id}
+            solarTermName={
+              solarTermNameList[bookList(e).solar_term_id] +
+              'stId' +
+              bookList(e).solar_term_id
+            }
+            cardYear={bookList(e).year}
             solarTermClicked={solarTermClicked}
           />
         )
