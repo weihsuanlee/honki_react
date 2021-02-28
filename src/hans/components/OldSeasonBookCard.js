@@ -9,10 +9,9 @@ function OldSeasonBookCard(props) {
     handlePlateToggle,
     newTargetToggle,
     solarTermToShow,
-    solarTermBookToShow,
-    solarTermToShowList,
     bookName,
     bookImg,
+    cardYear,
     solarTermName,
     solarTermClicked,
     stClickedId,
@@ -57,7 +56,9 @@ function OldSeasonBookCard(props) {
         <div className="book-description">
           {/* <!-- 書名 28 字以內 --> */}
           <div className="book-name">{bookName}</div>
-          <div className="book-solar-term-year">{solarTermName} 年份</div>
+          <div className="book-solar-term-year">
+            {solarTermName} {cardYear}
+          </div>
         </div>
       </div>
       {/* <!-- book card end --> */}

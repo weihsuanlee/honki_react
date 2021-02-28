@@ -1,10 +1,11 @@
 .book-card {
   width: 220px;
-  height: 330px;
+  // height: 330px;
+  height: 362px;
   /* border: 1px dashed black; */
   /* margin: 16px 0; */
 
-  margin: 10px 0.5rem;
+  margin: 10px 0.5rem 2rem 0.5rem;
 
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@
   height: 100%;
   display: block;
   margin: 0 auto;
-  margin-top: 10%;
+  // margin-top: 10%;
 }
 
 .book-description {

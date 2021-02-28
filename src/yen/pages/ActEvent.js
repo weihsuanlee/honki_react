@@ -245,22 +245,28 @@ function ActEvent(props) {
             <div className="yen-event-box">
               <div className="yen-event-text">
                 <TabPanel>
-                  <div className="yen-event-text-inside">{actAbout}</div>
+                  <div
+                    className="yen-event-text-inside"
+                    dangerouslySetInnerHTML={{ __html: actAbout }}
+                  ></div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="yen-event-text yen-event-trans">
-                    {actTransportation}
-                  </div>
+                  <div
+                    className="yen-event-text yen-event-trans"
+                    dangerouslySetInnerHTML={{ __html: actTransportation }}
+                  ></div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="yen-event-text yen-event-att">
-                    {actNotice}
-                  </div>
+                  <div
+                    className="yen-event-text yen-event-att"
+                    dangerouslySetInnerHTML={{ __html: actNotice }}
+                  ></div>
                 </TabPanel>
                 <TabPanel>
-                  <div className="yen-event-text yen-event-cancel">
-                    {actCancel}
-                  </div>
+                  <div
+                    className="yen-event-text yen-event-cancel"
+                    dangerouslySetInnerHTML={{ __html: actCancel }}
+                  ></div>
                 </TabPanel>
               </div>
             </div>

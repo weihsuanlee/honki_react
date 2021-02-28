@@ -27,6 +27,26 @@ function ItemView(props) {
   )
 }
 
+function ItemView2(props) {
+  let index = `${props.prefix}${props.id}`
+  return (
+    <div>
+      <input
+        id={index}
+        type="radio"
+        className="yu-edit-input"
+        name={props.prefix}
+        value={props.id}
+        onChange={props.onChange}
+      />
+      <label htmlFor={index} className="yu-edit-label-2">
+        <img src={props.url} alt="" />
+      </label>
+    </div>
+  )
+}
+
+
 function EditTab3(props) {
   return (
     <>
@@ -73,7 +93,7 @@ function EditTab3(props) {
                   }).map((value, index) => {
                     let order = COLUMN_NUM * row + index
                     return (
-                      <ItemView
+                      <ItemView2
                         key={order}
                         id={order}
                         url={value}

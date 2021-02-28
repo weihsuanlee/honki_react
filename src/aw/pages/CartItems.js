@@ -8,7 +8,7 @@ function CartItems(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   // 更動購物車數量
-  const { setCartNum } = props
+  const { updateCartNum } = props
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
 
@@ -75,9 +75,6 @@ function CartItems(props) {
     localStorage.setItem('cart5566', JSON.stringify(currentCart))
     // 設定資料
     setMycart(currentCart)
-    // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
   }
 
   const userId = localStorage.getItem('userId')
@@ -98,8 +95,7 @@ function CartItems(props) {
     // 設定資料
     setMycart([])
     // 更新購物車數量
-    let cartNumNow = localStorage.getItem('cart5566') || 0
-    setCartNum(JSON.parse(cartNumNow).length)
+    updateCartNum()
   }
 
   // 計算總價用的函式
@@ -108,7 +104,8 @@ function CartItems(props) {
     for (let i = 0; i < items.length; i++) {
       total += items[i].amount
     }
-    setCartNum(total)
+    // 更新購物車數量
+    updateCartNum()
     return total
   }
   // 計算總量的函式

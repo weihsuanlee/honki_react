@@ -15,7 +15,7 @@ function CartConfirm(props) {
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
   // 更動購物車數量
-  const { setCartNum } = props
+  const { updateCartNum } = props
 
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
@@ -101,7 +101,8 @@ function CartConfirm(props) {
     for (let i = 0; i < items.length; i++) {
       total += items[i].amount
     }
-    setCartNum(total)
+    // 更新購物車數量
+    updateCartNum()
     return total
   }
   // 計算總量的函式

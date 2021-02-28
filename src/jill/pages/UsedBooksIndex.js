@@ -29,17 +29,17 @@ function UsedBooksIndex() {
         <div className="row">
           <div className="jill-changemode">
             {/* 一般交換圖片 */}
-            <ChangeBooksIcon1 />
+            {/* <ChangeBooksIcon1 /> */}
             {/* 隨機交換圖片 */}
             <ChangeBooksIcon2 />
           </div>
         </div>
         <div className="row">
           <div className="jill-modebtn">
-            <Link to="./NormalIndex">
+            {/* <Link to="./NormalIndex">
               <button className="btn-md-dark jill-normalbtn">一般交換</button>
-            </Link>
-            <Link to="./RandomIndex">
+            </Link> */}
+            <Link to="./NormalIndex">
               <button className="btn-md-dark jill-randombtn">隨機交換</button>
             </Link>
           </div>

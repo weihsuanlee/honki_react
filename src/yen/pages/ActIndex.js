@@ -43,15 +43,16 @@ function ActIndex(props) {
 
   // 活動篩選
   useEffect(() => {
-    let pathName = props.location.pathname
-    // console.log('props', props)
+    // let pathName = props.location.pathname
+    console.log('props', props)
     // console.log('queryClass', queryClass)
 
     async function newClassPages() {
-      const url = pathName + queryClass
+      // const url = pathName + queryClass
+      const url = props.location.search
 
       // 和伺服器要資料
-      const response = await fetch('http://localhost:3333' + url, {
+      const response = await fetch('http://localhost:3333/activity' + url, {
         method: 'GET',
         header: new Headers({
           Accept: 'application/json',
@@ -59,11 +60,11 @@ function ActIndex(props) {
         }),
       })
       const data = await response.json()
-      // console.log('new data page', response, data)
+      console.log('new data page', response, data)
       setEventLists(data)
     }
     newClassPages()
-  }, [queryClass])
+  }, [queryClass, queryPage])
 
   // 換頁
   useEffect(() => {
