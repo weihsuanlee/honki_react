@@ -31,10 +31,22 @@ function OldSeasonBookCardList(props) {
 
   const getCardYear = (id) => String(bookList(id).year).substr(0, 4)
 
-  console.log(solarTermNameList)
+  // console.log(solarTermNameList)
 
   // 因用 array, 所以 firstCardSid 要 -1 對應的節氣才是對的
-  let solarTermToShowList = [28, 27, 26, 25, 24, 23]
+
+  const getStToShowList = (stId) => {
+    let tempList = []
+
+    for (let i = 0; i < 6; i++) {
+      tempList.push(stId - i - 1)
+    }
+
+    return tempList
+  }
+
+  let solarTermToShowList = getStToShowList(firstCardSid)
+  // console.log(solarTermToShowList)
 
   // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
@@ -50,6 +62,7 @@ function OldSeasonBookCardList(props) {
       {solarTermToShowList.map((e) => {
         return (
           <OldSeasonBookCard
+            key={e}
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
             bookName={bookList(e).title}

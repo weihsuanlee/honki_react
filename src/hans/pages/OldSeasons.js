@@ -124,8 +124,8 @@ function OldSeasons(props) {
     // let currentSolarTermId = data['current_solar_term_id']
     let initialStId = data['current_solar_term_id'][0]['solar_term_id']
     // console.log('initialStId', initialStId)
-    let initialSid = data['current_solar_term_id'][0]['st_sid']
-    // console.log('initialSid', initialSid)
+    let initialSid = data['solar_term_books'].length - 1
+    console.log('initialSid', initialSid)
     setFirstCardSid(initialSid)
 
     // console.log(data)
@@ -134,7 +134,7 @@ function OldSeasons(props) {
     // console.log(data['solar_term_list'])
     // console.log(data['solar_term_list'][id])
     // console.log('stBooks:', data['solar_term_books'][initialSid])
-    console.log('stBooks:', data['solar_term_books'][initialSid - 1])
+    // console.log('stBooks:', data['solar_term_books'][initialSid - 1])
     // console.log('solarTermBookToShowList', data['solar_term_books'])
     setSolarTermBookToShowList(data['solar_term_books'])
 
