@@ -11,12 +11,38 @@ import { useEffect, useState } from 'react'
 function CartOrder(props) {
   //訂單結果
   // const [orderDisplay, setOrderDisplay] = useState([])
+  const [mycart, setMycart] = useState([])
+  const [inputerms, setInputerms] = useState([])
   const [orderData, setOrderData] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+  const [mycartDisplay, setMycartDisplay] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
   // 更動購物車數量
   const { setCartNum } = props
   setCartNum(0)
+  function getCartFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
+    const newCart = localStorage.getItem('cart5566')
+    console.log(JSON.parse(newCart))
+    setMycart(JSON.parse(newCart))
+  }
+  function getInputFromLocalStorage() {
+    // 開啟載入的指示圖示
+    setDataLoading(true)
+    const newInput = localStorage.getItem('inputTerms')
+    console.log(JSON.parse(newInput))
+    setInputerms(JSON.parse(newInput))
+  }
 
+  useEffect(
+    () => {
+      getCartFromLocalStorage()
+      getInputFromLocalStorage()
+    },
+    [],
+    []
+  )
   const getDataFromServer = async () => {
     // 先開起載入指示器
     // setIsLoading(true)
@@ -42,6 +68,35 @@ function CartOrder(props) {
       // setIsLoading(false)
     }, 2000)
   }
+
+  useEffect(() => {
+    setTimeout(() => setDataLoading(false), 1000)
+    // mycartDisplay運算
+    let newMycartDisplay = []
+    //尋找mycartDisplay
+    for (let i = 0; i < mycart.length; i++) {
+      //尋找mycartDisplay中有沒有此mycart[i].id
+      //有找到會返回陣列成員的索引值
+      //沒找到會返回-1
+      const index = newMycartDisplay.findIndex(
+        (value) => value.id === mycart[i].id
+      )
+      //有的話就數量+1
+      if (index !== -1) {
+        //每次只有加1個數量
+        //newMycartDisplay[index].amount++
+        //假設是加數量的
+        newMycartDisplay[index].amount += mycart[i].amount
+      } else {
+        //沒有的話就把項目加入，數量為1
+        const newItem = { ...mycart[i] }
+        newMycartDisplay = [...newMycartDisplay, newItem]
+      }
+    }
+    console.log(newMycartDisplay)
+    setMycartDisplay(newMycartDisplay)
+  }, [mycart])
+
   // 模擬componentDidMout
   useEffect(() => {
     getDataFromServer()
@@ -68,8 +123,16 @@ function CartOrder(props) {
     }
     return total
   }
-
-  return (
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border aw-spinner" role="status">
+          <span className="sr-only aw-spinner">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
+  const display = (
     <>
       <div class="container-fluid">
         <div class="aw-progress-bar">
@@ -248,9 +311,10 @@ function CartOrder(props) {
                     </div>
                   </div>
                 </div>
-                <Accordion defaultActiveKey="10">
-                  <Card>
-                    <div class="aw-cartLine d-flex align-items-center justify-content-between pl-5 pr-5">
+
+                <div className="holder-mobile d-lg-none wei-holder-mobile">
+                  <Accordion defaultActiveKey="10">
+                    <Card>
                       <Card.Header>
                         <Accordion.Toggle
                           as={Button}
@@ -262,73 +326,338 @@ function CartOrder(props) {
                           <i class="fas fa-chevron-down d-none"></i>
                         </Accordion.Toggle>
                       </Card.Header>
-                    </div>
-                    <Accordion.Collapse eventKey="10">
-                      <Card.Body>
-                        {orderData.map((value, index) => (
-                          <div class="row aw-card d-flex align-items-center ">
-                            <div class="col-6 row aw-row  align-items-center aw-p-0 ">
-                              <div class="col-sm aw-card-pic aw-p-9 ">
-                                <div class="aw-book-pic">
-                                  <img
-                                    key={index}
-                                    class="w-100"
-                                    src={
-                                      'http://localhost:3000/images/books/' +
-                                      value.book_id
-                                    }
-                                    // "/images/cart/cartpic1.png"
-                                    alt=""
-                                  />
+
+                      <Accordion.Collapse eventKey="10">
+                        <Card>
+                          <Card.Body>
+                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-3 pl-3">
+                              <div class="aw-cart-page1-subtitle row  ">
+                                <div class=" col-6 row aw-row  align-items-center aw-p-0">
+                                  <div class="col-sm"></div>
+                                  <div class=" col-sm d-flex justify-content-center align-items-center aw-p-9 ">
+                                    <h6 class="m-0 ">商品明細</h6>
+                                  </div>
+                                </div>
+                                <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
+                                  <div class="col-sm d-flex justify-content-center aw-p-9 ">
+                                    <h6 class="m-0 ">優惠價</h6>
+                                  </div>
+                                  <div class="col-sm d-flex justify-content-center aw-p-9">
+                                    <h6 class="m-0 ">數量</h6>
+                                  </div>
+                                  <div class="col-sm d-flex justify-content-center aw-p-9 ">
+                                    <h6 class="m-0 ">小計</h6>
+                                  </div>
                                 </div>
                               </div>
-                              <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
-                                <p class="aw-book-title">{value.bookname}</p>
+                              <div class="aw-productAreaPadding">
+                                <div class="aw-productArea">
+                                  {orderData.map((value, index) => (
+                                    <div class="row aw-card d-flex align-items-center ">
+                                      <div class="col-6 row aw-row  align-items-center aw-p-0 ">
+                                        <div class="col-sm aw-card-pic aw-p-9 ">
+                                          <div class="aw-book-pic">
+                                            <img
+                                              key={index}
+                                              class="w-100"
+                                              src={
+                                                'http://localhost:3000/images/books/' +
+                                                value.book_id
+                                              }
+                                              // "/images/cart/cartpic1.png"
+                                              alt=""
+                                            />
+                                          </div>
+                                        </div>
+                                        <div class="col-sm aw-book-text d-flex justify-content-center aw-p-9 ">
+                                          <p class="aw-book-title">
+                                            {value.bookname}
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
+                                        <div class="col-sm d-flex justify-content-center aw-p-9">
+                                          <p class="aw-book-title">
+                                            $ {toCurrency(value.price)}元
+                                          </p>
+                                        </div>
+                                        <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                          <div class="aw-items-amount">
+                                            {toCurrency(value.quantity)}
+                                          </div>
+                                        </div>
+                                        <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
+                                          <p class="aw-book-title">
+                                            ${' '}
+                                            {toCurrency(
+                                              value.quantity * value.price
+                                            )}
+                                            元
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div class="aw-countArea aw-pr-42">
+                                <div class="d-flex justify-content-end p-0">
+                                  <div class="row aw-row aw-count pt-2">
+                                    <div class="text-right">
+                                      <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>{' '}
+                                      <h5>折扣</h5>
+                                    </div>
+                                    <div class="aw-count-num d-flex justify-content-end">
+                                      {/* 計算加總本數 */}
+                                      <div class="text-right">
+                                        <h5>
+                                          {' '}
+                                          {toCurrency(sumQuantity(orderData))}
+                                        </h5>
+                                        <h5>
+                                          $ {toCurrency(sumAmount(orderData))}
+                                        </h5>
+                                        <h5> 60</h5>
+                                        <h5> -60</h5>
+                                      </div>
+                                    </div>
+                                    <div class="text-right">
+                                      <h5>本</h5>
+                                      <h5>元</h5>
+                                      <h5>元</h5>
+                                      <h5>元</h5>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end p-0 aw-borderTop">
+                                  <div class="row aw-row aw-count pb-5">
+                                    <h5>總計</h5>
+                                    <div class="aw-count-num d-flex justify-content-end">
+                                      <h5>
+                                        $ {toCurrency(sumAmount(orderData))}
+                                      </h5>
+                                    </div>
+                                    <h5>元</h5>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                            <div class="col-6 row aw-row  align-items-center justify-content-center aw-p-0">
-                              <div class="col-sm d-flex justify-content-center aw-p-9">
-                                <p class="aw-book-title">
-                                  $ {toCurrency(value.price)}元
-                                </p>
-                              </div>
-                              <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                                <div class="aw-items-amount">
-                                  {toCurrency(value.quantity)}
+                          </Card.Body>
+                        </Card>
+                      </Accordion.Collapse>
+                    </Card>
+                    <Card>
+                      <Card.Header>
+                        <Accordion.Toggle
+                          as={Button}
+                          variant="link"
+                          eventKey="11"
+                        >
+                          <h5 class="m-0">本次購物清單</h5>
+                          <i class="fas fa-chevron-up"></i>
+                          <i class="fas fa-chevron-down d-none"></i>
+                        </Accordion.Toggle>
+                      </Card.Header>
+
+                      <Accordion.Collapse eventKey="11">
+                        <Card.Body>
+                          <div class="row aw-row ">
+                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-3 pl-3">
+                              <div class=" form-width-height aw-form-width-height">
+                                <div class="form-tittle aw-mb-4">
+                                  <h5>運費與折價</h5>
                                 </div>
-                              </div>
-                              <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
-                                <p class="aw-book-title">
-                                  $ {toCurrency(value.quantity * value.price)}元
-                                </p>
+                                <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlSelect1"
+                                      >
+                                        運送方式
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">超商取貨</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlSelect1"
+                                      >
+                                        選擇折價券
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">11111</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-tittle aw-mb-4">
+                                  <h5>付款方式</h5>
+                                </div>
+
+                                <div class="aw-btbb aw-mb-40 aw-ptpb-20 aw-ptpb-20">
+                                  <div class="form-group aw-mb-16  aw-mb-16">
+                                    <div class="formItems row d-flex ">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlSelect1"
+                                      >
+                                        選擇付款方式
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">貨到付款</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16">
+                                    <div class="formItems row d-flex  ">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlSelect1"
+                                      >
+                                        發票資訊
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">捐贈</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-tittle aw-mb-4">
+                                  <h5>訂購人資訊</h5>
+                                </div>
+
+                                <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                  <div class="form-group aw-mb-16">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlInput1"
+                                      >
+                                        姓名
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">吳亞瑟</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label class="inputText col-4">
+                                        聯絡電話
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">0988999776</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label class="inputText col-4">
+                                        Email
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">
+                                          arthurwu315@hotmail.com
+                                        </h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-tittle aw-mb-4">
+                                  <h5>收件人資訊</h5>
+                                </div>
+
+                                <div class="aw-btbb aw-mb-40 aw-ptpb-20">
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlInput1"
+                                      >
+                                        姓名
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">光頭葛格</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label class="inputText col-4">
+                                        聯絡電話
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">0958585858</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label class="inputText col-4">
+                                        Email
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">
+                                          kindperson@gmail.com
+                                        </h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlTextarea1 align-items-center"
+                                      >
+                                        收件地址
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">
+                                          100台北市中正區重慶南路一段122號
+                                        </h6>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group aw-mb-16 ">
+                                    <div class="formItems row d-flex">
+                                      <label
+                                        class="inputText col-4"
+                                        for="exampleFormControlSelect1"
+                                      >
+                                        配送時間
+                                      </label>
+                                      <div class="col-8">
+                                        <h6 class="m-0">不限時</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        ))}
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                  <Card>
-                    <Card.Header>
-                      <Accordion.Toggle>作者介紹</Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="11">
-                      <Card.Body>
-                        <p></p>
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                  <Card>
-                    <Card.Header>
-                      <Accordion.Toggle>書籍目錄</Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse>
-                      <Card.Body>
-                        <p></p>
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                </Accordion>
+                        </Card.Body>
+                      </Accordion.Collapse>
+                    </Card>
+                  </Accordion>
+                </div>
+
                 <div class="aw-cartLine d-flex align-items-center justify-content-between pl-5 pr-5">
                   <h5 class="m-0">本次購物清單</h5>
                   <i class="fas fa-chevron-up"></i>
@@ -527,6 +856,7 @@ function CartOrder(props) {
       </div>
     </>
   )
+  return dataLoading ? loading : display
 }
 
 export default withRouter(CartOrder)

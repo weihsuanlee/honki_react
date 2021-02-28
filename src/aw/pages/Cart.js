@@ -107,8 +107,8 @@ function Cart(props) {
   const loading = (
     <>
       <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
+        <div className="spinner-border aw-spinner" role="status">
+          <span className="sr-only aw-spinner">Loading...</span>
         </div>
       </div>
     </>
