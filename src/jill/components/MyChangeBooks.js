@@ -5,13 +5,15 @@ import NormalBee from './../components/NormalBee'
 import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
 
 // 抓取登入的userId(還沒用)
-const userId = localStorage.getItem('userId')
+// const userId = localStorage.getItem('userId')
+// console.log(userId)
 
 class MyChangeBooks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       c_sid: '',
+
       // book_name: '這裡是書名',
       // ISBN: '這裡是ISBN',
       // book_condition: '有幾成新',
@@ -64,22 +66,40 @@ class MyChangeBooks extends React.Component {
     console.log(newMyrows)
   }
 
+  // userid傳不到後端
   handleSubmit = (event) => {
-    alert('A name was submitted: ' + this.state.c_sid)
+    const userId = localStorage.getItem('userId')
+    console.log(userId)
+    alert('A name was submitted: ' + userId)
     event.preventDefault()
+    // 送到後端的資料
+    // const data = { tweet: { body: this.state.userId } }
+
     // let history = this.props.history
     fetch('http://localhost:3333/normal-index/random/' + this.state.c_sid, {
-      method: 'POST',
+      method: 'POST', //PUT會連第一段SQL都跑不出來
+      body: JSON.stringify({
+        userId: userId,
+      }),
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'appliaction/json',
       }),
-    }).then((response) => response.json())
-    // this.props.form.validateFields((errors, values) => {
-    //   if (!errors) {
-    //     console.log('Received values of form: ', values)
-    //     history.push('/')
-    //   }
+    })
+      .then((response) => response.json())
+      .catch((error) => console.error('Error:', error))
+      .then((userId) => {
+        /*接到request data後要做的事情*/
+        console.log(userId)
+        //更新某一筆資料
+        // this.handleServerItemAdd(data)
+      })
+      // .then((response) => {
+      //   this.setState({ userId: response.userId })
+      // })
+      .catch((e) => {
+        /*發生錯誤時要做的事情*/
+      })
     // })
 
     window.location.href =

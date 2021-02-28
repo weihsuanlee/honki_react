@@ -124,9 +124,9 @@ function RandomSuccess(props) {
           </div>
         </div>
         <div className="jill-random-success-btn">
-          <button className="btn-md-dark jill-rand-succ-download">
+          {/* <button className="btn-md-dark jill-rand-succ-download">
             下載明信片
-          </button>
+          </button> */}
           <br />
           <Link to={'/SendIWantChange/' + Match_c_sid}>
             <button className="btn-md-dark jill-rand-succ-status">查看</button>
