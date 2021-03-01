@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter, Link, Switch, Route } from 'react-router-dom'
+import Chiareviewmodal from '../Component/Chiareviewmodal'
 import '../Style/chia_reviewcontent.scss'
 import $ from 'jquery'
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
@@ -8,6 +9,7 @@ import { FaThumbsUp } from 'react-icons/fa'
 import ChiaComment from '../Component/ChiaComment'
 
 function ChiaReviewContent(props) {
+  const [show, setShow] = useState(false)
   const [isReview, setIsreview] = useState('')
   const [isError, setIsError] = useState('')
   const [isResult, setIsResult] = useState([])
@@ -44,6 +46,9 @@ function ChiaReviewContent(props) {
         .css('trasnform', 'scale(1.1)')
         .css('transition', '.5s')
     }
+    $('.chia_contentborder-r').on('mouseenter', function () {
+      $(this).css('trasnform', 'scale(1.1)').css('transition', '.5s')
+    })
   }, [isTransform])
 
   console.log(isLike)
@@ -98,6 +103,13 @@ function ChiaReviewContent(props) {
     <>
       {newContent.map((v, i) => (
         <table className="chia_r-content">
+          <tr>
+            <div className="chia_pencil">
+              <Link onClick={setShow}>
+                <BsPencil />
+              </Link>
+            </div>
+          </tr>
           <tr className="chia_membercol">
             <td className="chia_m-title">會員名稱</td>
             <td className="chia_m-content" key={i}>
@@ -151,6 +163,18 @@ function ChiaReviewContent(props) {
         </div>
         <ChiaComment isNum={isNum} />
       </div>
+      {newContent.map((v, i) => (
+        <Chiareviewmodal
+          show={show}
+          onHide={() => setShow(false)}
+          isNum={isNum}
+          content={v.review}
+          category={v.category}
+          booktitle={v.booktitle}
+          nickname={v.review_nickname}
+          ranking={v.ranking}
+        />
+      ))}
     </>
   )
 }

@@ -39,7 +39,7 @@ function ChiaModal(props) {
           </div>
         </div>
         <div className="chia_purchasebotton">
-          <Link className="chia_purchase" to="#">
+          <Link className="chia_purchase" to={props.view}>
             View More...
           </Link>
         </div>

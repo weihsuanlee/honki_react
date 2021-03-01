@@ -129,14 +129,14 @@ function NormalIndex() {
         {/* 標題開始 */}
         <div className="container my-5">
           <h5 className="jill-otherbooks-area-title">
-            其他人在換什麼
+            看看裡面有什麼
             {/* 蝴蝶SVG */}
             <NormalButterfly />
           </h5>
           {/* 標題結束 */}
 
           {/* 其他二手書區域  */}
-          <div className="row">
+          <div className="row jill-other-row">
             {/* 測試 */}
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
@@ -165,42 +165,44 @@ function NormalIndex() {
           </div>
 
           {/* 頁數選項 */}
-          <ul className="jill-pagination pagination d-flex justify-content-center">
-            <li className="page-item page-left disabled">
-              <Link
-                className="page-link"
-                href="#pagination"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                ←
-              </Link>
-            </li>
-            <li className="page-item page-num page-start active">
-              <Link className="page-link" href="#pagination">
-                1
-              </Link>
-            </li>
-            <li className="page-item page-num">
-              <Link className="page-link" href="#pagination">
-                2
-              </Link>
-            </li>
-            <li className="page-item page-num page-end">
-              <Link className="page-link" href="#pagination">
-                3
-              </Link>
-            </li>
-            <li className="page-item page-right">
-              <Link
-                className="page-link"
-                href="#pagination"
-                aria-disabled="true"
-              >
-                →
-              </Link>
-            </li>
-          </ul>
+          <div className="jill-pagination">
+            <ul className="pagination d-flex justify-content-center">
+              <li className="page-item page-left disabled">
+                <Link
+                  className="page-link"
+                  href="#pagination"
+                  tabindex="-1"
+                  aria-disabled="true"
+                >
+                  ←
+                </Link>
+              </li>
+              <li className="page-item page-num page-start active">
+                <Link className="page-link" href="#pagination">
+                  1
+                </Link>
+              </li>
+              <li className="page-item page-num">
+                <Link className="page-link" href="#pagination">
+                  2
+                </Link>
+              </li>
+              <li className="page-item page-num page-end">
+                <Link className="page-link" href="#pagination">
+                  3
+                </Link>
+              </li>
+              <li className="page-item page-right">
+                <Link
+                  className="page-link"
+                  href="#pagination"
+                  aria-disabled="true"
+                >
+                  →
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>

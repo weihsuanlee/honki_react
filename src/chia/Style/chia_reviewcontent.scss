@@ -113,7 +113,7 @@
 	border: solid 1px var(--word-color);
 	position: absolute;
 	overflow-y: scroll;
-	top: 30%;
+	top: 33.5%;
 	left: 17%;
 	font-size: var(--content--);
 }
@@ -239,4 +239,40 @@
 	position: absolute;
 	top: 11.5%;
 	right: 16%;
+}
+.chia_content_header {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.chia_editarea {
+	height: 50px;
+	position: absolute;
+	top: 4.5%;
+	left: 30%;
+}
+
+.chia_pencil {
+	font-size: 20px;
+	transition: .5s;
+}
+
+.chia_pencil a {
+	color: var(--word-color);
+	transition: .5s;
+}
+
+.chia_pencil:hover {
+	transform: scale(1.1);
+}
+.chia_pencil:hover a {
+	color: var(--word-color);
+	transform: scale(1.1);
+}
+
+//review edit
+.chiaeditareastart {
+	padding: 1rem;
+}
+.chia_editrarea {
+	font-size: 16px;
 }
