@@ -70,7 +70,7 @@ function Chiareviewbox(props) {
                   <p>{BookContent}</p>
                 </div>
                 <div className="chia_reviewlink">
-                  <Link to="reviews/content/47">VIEW MORE...</Link>
+                  <Link to="#">VIEW MORE...</Link>
                 </div>
               </div>
             </div>

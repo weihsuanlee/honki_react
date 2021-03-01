@@ -137,9 +137,7 @@ function RecommendBook() {
 
   return (
     <>
-      {IndexIntro}
       <div className="chia_main_book">
-        <div className="chia_cursor"></div>
         <Container fluid className="chia_main d-flex flex-column">
           {/* <div className="test_nav"></div> */}
           <div className="chia_main_row row">

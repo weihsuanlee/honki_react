@@ -1,11 +1,11 @@
 .chia_hero-image {
-	height: 900px;
+	height: 1080px;
 	background: url('../image/Hero_1.jpg') no-repeat;
 	/*gif 檔回來前暫時圖*/
-	background-size: cover;
+	background-size: contain;
 	margin: 0;
 	padding: 0;
-	cursor: none;
+
 	position: relative;
 }
 .chia_mouse_scrolldown {
@@ -40,11 +40,44 @@
 	// font-size: var(--h2--);
 	font-size: 84px;
 	font-weight: 700;
-	// transform-style: preserve-3d;
-	// animation: moveforward 7s infinite linear;
-	// transform: rotateX(10deg) rotateZ(-5deg);
+}
+<<<<<<< HEAD
+
+=======
+.chia_solar_term span {
+	background-color: var(--word-color-sub);
+}
+.chia_solar_term_1 {
+	font-size: var(--h2--);
+	position: absolute;
+	right: 0;
+	top: -1rem;
+}
+.chia_solar_term_2 {
+	background-color: var(--word-color-sub);
+}
+.chia_solar_term_3,
+.chia_solar_term_4 {
+	font-size: var(--h6--);
+	background-color: var(--word-color-sub);
+	position: absolute;
+	right: 0;
+	letter-spacing: 8px;
+	font-weight: 700;
+}
+.chia_solar_term_4 {
+	margin-top: 1rem;
 }
 
+.chia_satler {
+	color: var(--main-color);
+}
+// .arrowbtn {
+// 	width: 30px;
+// 	height: 71px;
+// 	background-color: var(--word-color);
+// }
+>>>>>>> parent of 22fa270 (removed merge conflicts)
 .chia_index_button {
 	border: 1px solid var(--word-color-sub);
 	font-size: 24px;
@@ -64,6 +97,7 @@
 	color: var(--word-color-sub);
 	line-height: 1.5;
 }
+<<<<<<< HEAD
 .chia_index {
 	background-color: rgba(0, 0, 0, .45);
 	position: absolute;
@@ -190,3 +224,5 @@ $lm-anim-speed: 10s;
 		height: 30vh;
 	}
 }
+=======
+>>>>>>> parent of 22fa270 (removed merge conflicts)

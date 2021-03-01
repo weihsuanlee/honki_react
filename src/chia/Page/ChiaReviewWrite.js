@@ -2,19 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import '../Style/chiareviewwrite.scss'
 import $ from 'jquery'
-import MultiLevelBreadCrumb from '../Component/MultiLevelBreadCrumb'
 
 function ChiaReviewWrite() {
-  let commentaccount
-  let commentname
-  let nickname
-  if (localStorage.getItem('userLogin')) {
-    commentaccount = localStorage.getItem('userLogin')
-    commentname = JSON.parse(commentaccount)
-    nickname = commentname.body.nickname
-  }
   const [dataLoading, setLoading] = useState(false)
-  const [reviewnickname, setReviewNickname] = useState(nickname)
+  const [reviewnickname, setReviewNickname] = useState('')
   const [reviewcategory, setReviewCategory] = useState('')
   const [reviewbooktitle, setReviewBooktitle] = useState('')
   const [reviewRanking, setReviewRanking] = useState('')
@@ -103,7 +94,13 @@ function ChiaReviewWrite() {
     <>
       <div class="chia_reviewwrite">
         <div class="container-fluid">
-          <MultiLevelBreadCrumb />
+          <div class="bread row">
+            <div class="breadbox">
+              <Link to="#">首頁</Link>
+              <Link to="#">讀者感言</Link>
+              <Link to="#">撰寫心得</Link>
+            </div>
+          </div>
         </div>
 
         <div class="container">
@@ -126,7 +123,6 @@ function ChiaReviewWrite() {
                       onChange={(e) => {
                         setReviewNickname(e.target.value)
                       }}
-                      readOnly
                     />
                   </div>
                   <div className="form-group .e-m chia_form_g">
