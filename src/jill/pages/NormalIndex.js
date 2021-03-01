@@ -112,8 +112,8 @@ function NormalIndex() {
           </div>
         </div>
         <p className="jill-try-css">測試動畫</p>
-        <div class="slider_container">
-          <div>
+        <div className="jill-slider_container">
+          <div className="row">
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
