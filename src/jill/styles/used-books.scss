@@ -1,3 +1,7 @@
+// 把頁數推遠
+.jill-other-row {
+  margin-bottom: 60px;
+}
 .jill-random-dancing {
   position: absolute;
   top: 30px;
@@ -85,7 +89,7 @@
 // }
 /* 暫時推開footer */
 .jill-footer-mt {
-  margin-top: 300px;
+  margin-top: 500px;
 }
 
 /* 二手書交換 首頁(模式選擇) */
@@ -617,10 +621,6 @@
   .jill-want-btn {
     margin-top: 210px;
     margin-left: 5px;
-  }
-
-  .jill-pagination {
-    margin-top: 100px;
   }
 }
 
