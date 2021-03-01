@@ -111,7 +111,8 @@ function NormalIndex() {
             <MyChangeBooks myrows={mybook_rows} />
           </div>
         </div>
-        <p className="jill-try-css">測試動畫</p>
+        {/* <p className="jill-try-css">測試動畫</p> */}
+        {/* 往上飛的書動畫 */}
         <div className="jill-slider_container">
           <div className="row">
             {changeData.map((item, index) => (

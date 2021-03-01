@@ -76,13 +76,19 @@ function OldSeasonBookCardList(props) {
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
             getCardBookSid={getCardBookSid}
-            bookName={bookList(e).title}
-            bookImg={bookList(e).book_pics}
+            // 節氣圓盤要顯示的節氣
             solarTermToShow={bookList(e).solar_term_id - 1}
             solarTermName={solarTermNameList[bookList(e).solar_term_id - 1]}
-            cardYear={getCardYear(e)}
-            solarTermClicked={solarTermClicked}
+            // 節氣書卡資訊
             cardStBookId={e}
+            bookName={bookList(e).title}
+            bookImg={bookList(e).book_pics}
+            cardYear={getCardYear(e)}
+            whyThisBook={bookList(e).why_this_book}
+            thisYearHappened={bookList(e).this_year_happened}
+            relatedLink={bookList(e).related_link}
+            // 確認卡片點擊狀況
+            solarTermClicked={solarTermClicked}
           />
         )
       })}
