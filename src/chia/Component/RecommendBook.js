@@ -3,7 +3,12 @@ import { Container } from 'react-bootstrap'
 import '../Style/chia_mainbook.scss'
 import Book from '../Component/Book'
 import $ from 'jquery'
+// import Cursor from './Cursor'
 // import Bee from '../image/decoration/bee.svg'
+import HonkiHeroContext from '../Component/HonkHeroContext'
+import HonkiindexButton from '../Component/HonkiIndexButton'
+import HonkiVideo from '../image/honki.mp4'
+import HonkiHero from './HonkiHero'
 
 // import Navbar from '../Component/Navbar'
 import BookCover from '../image/Book/00Main.jpg'
@@ -49,11 +54,90 @@ function RecommendBook() {
       slider.addEventListener('mouseleave', end)
       slider.addEventListener('mouseup', end)
     })()
+
+    let cursor = $('.chia_cursor')
+
+    $(window).on('mousemove', function (e) {
+      cursor.css({
+        top: e.clientY - cursor.height() / 2,
+        left: e.clientX - cursor.width() / 2,
+      })
+    })
+    $(window).on('mouseleave', function () {
+      cursor.css({
+        opacity: '0',
+      })
+    })
+    $(window).on('mouseenter', function () {
+      cursor.css({
+        opacity: '1',
+      })
+    })
+    $(window).on('mousedown', function () {
+      cursor.css({
+        transform: 'scale(.2)',
+      })
+    })
+    $(window).on('mouseup', function () {
+      cursor.css({
+        transform: 'scale(1)',
+      })
+    })
+    // $('.chia_index').on('mouseenter', function () {
+    //   cursor.css({
+    //     backgroundColor: 'rgba(255,255,255)',
+    //     transform: 'scale(5.5)',
+    //     mixBlendMode: 'overlay',
+    //   })
+    // })
+    // $('.chia_index').on('mouseleave', function () {
+    //   cursor.css({
+    //     backgroundColor: '#e83015',
+    //     transform: 'scale(1)',
+    //     mixBlendMode: 'difference',
+    //   })
+    // })
   }, [])
+  const HONKI = (
+    <>
+      <div className="col-7 d-flex justify-content-center chia_honki align-items-center">
+        <h1 className="chia_honkititle">HONKI</h1>
+      </div>
+    </>
+  )
+
+  const IndexIntro = (
+    <>
+      <div className="chia_hero-image">
+        <div className="container-fluid">
+          {/* <HonkiLogo /> */}
+          {/* < className="chia_index">
+            {/* <video id="chia_myvideo" controls>
+              <source src={HonkiVideo} type="video/mp4" />
+            </video> */}
+          {/* <HonkiindexButton /> */}
+
+          {/* {HONKI} */}
+          <HonkiHeroContext
+            solar="24節氣"
+            slogan="帶你暢遊書中世界"
+            satler="現在是3月5日"
+            solarterm="驚蟄"
+            meaning="寓意"
+            context1="新生"
+            context2="自我突破"
+            context3="自我成長"
+          />
+        </div>
+      </div>
+    </>
+  )
 
   return (
     <>
+      {IndexIntro}
       <div className="chia_main_book">
+        <div className="chia_cursor"></div>
         <Container fluid className="chia_main d-flex flex-column">
           {/* <div className="test_nav"></div> */}
           <div className="chia_main_row row">

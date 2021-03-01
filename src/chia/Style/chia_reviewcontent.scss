@@ -177,6 +177,7 @@
 	height: 58px;
 	overflow: hidden;
 	border-radius: 50%;
+	position: relative;
 }
 
 .chia_advatar {
@@ -239,4 +240,8 @@
 	position: absolute;
 	top: 11.5%;
 	right: 16%;
+}
+.chia_content_header {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }

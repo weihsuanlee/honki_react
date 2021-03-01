@@ -40,9 +40,9 @@ function ChiaReviewContent(props) {
 
   useEffect(() => {
     if (isTransform) {
-      $('.chia_contentborder-r')
-        .css('trasnform', 'scale(1.1)')
-        .css('transition', '.5s')
+      $('.chia_contentborder-r').on('mouseenter', function () {
+        $(this).css('trasnform', 'scale(1.1)').css('transition', '.5s')
+      })
     }
   }, [isTransform])
 
@@ -119,12 +119,8 @@ function ChiaReviewContent(props) {
     <>
       <div className="chia_reviewcontent">
         <div className="container-fluid">
-          <div className="bread row">
-            <div className="breadbox">
-              <Link to="/">首頁</Link>
-              <Link to="/reviews">讀者感言</Link>
-              <Link to="#">蜜蜂與遠雷</Link>
-            </div>
+          <div className="chia_content_header">
+            {/* <Link to={window.history.back(-1)}>回到前頁</Link> */}
           </div>
         </div>
 

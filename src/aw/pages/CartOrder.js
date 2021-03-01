@@ -17,6 +17,7 @@ function CartOrder(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
+  //<<<<<<< Updated upstream
 
   // 更動購物車數量 如果有清空localStorage cart5566的函式 可以直接把 updateCartNum()寫在裡面
   const { setCartNum, updateCartNum } = props
@@ -45,6 +46,7 @@ function CartOrder(props) {
     [],
     []
   )
+
   const getDataFromServer = async () => {
     // 先開起載入指示器
     // setIsLoading(true)

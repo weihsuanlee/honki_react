@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 //component
 import HonkiHeroContext from '../Component/HonkHeroContext'
 import HonkiindexButton from '../Component/HonkiIndexButton'
+import HonkiVideo from '../image/honki.mp4'
 import HonkiLogo from '../Component/HonkiLogo'
+import $ from 'jquery'
 import '../Style/chia_honkiindex.scss'
 //page
 import Mainbook from './Mainbook'
@@ -16,7 +18,6 @@ function HonkiIndex(props) {
     <>
       <div className="chia_hero-image">
         <div className="container-fluid">
-          <HonkiLogo />
           <HonkiHeroContext
             solar="24節氣"
             slogan="帶你暢遊書中世界"
@@ -27,7 +28,12 @@ function HonkiIndex(props) {
             context2="自我突破"
             context3="自我成長"
           />
-          <HonkiindexButton />
+          <div className="chia_index">
+            {/* <video width="100%" height="900px" controls>
+              <source src={HonkiVideo} type="video/mp4" />
+            </video> */}
+            <HonkiindexButton />
+          </div>
         </div>
       </div>
     </>

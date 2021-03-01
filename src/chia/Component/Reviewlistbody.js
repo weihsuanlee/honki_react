@@ -25,6 +25,9 @@ function Reviewlistbody(props) {
   //likes part
   const [likekazo, setLikeKazo] = useState([])
 
+  //Effect part
+  const [isEffect, setIsEffect] = useState(false)
+
   useEffect(() => {
     fetchList()
     fetchLike()
@@ -39,6 +42,16 @@ function Reviewlistbody(props) {
       $('.chia_memberid').css({
         backgroundColor: 'transparent',
         color: '#1c1b1b',
+      })
+    }
+
+    if (isEffect) {
+      $('.chia_memberid').on('mouseenter', function () {
+        $(this).css({ transform: 'rotate(2.5deg)', transition: '.5s' })
+      })
+    } else {
+      $('.chia_memberid').on('mouseleave', function () {
+        $(this).css({ transform: 'rotate(0deg)', transition: '.5s' })
       })
     }
 
@@ -61,7 +74,15 @@ function Reviewlistbody(props) {
     }
     searchProduct()
     console.log(isturon)
-  }, [isturon, props.location, isactive, isSearch, search, currentPage])
+  }, [
+    isturon,
+    props.location,
+    isactive,
+    isSearch,
+    search,
+    currentPage,
+    isEffect,
+  ])
 
   function searchItem() {
     const queryString = `?${isSearch}=${search}`
@@ -154,6 +175,9 @@ function Reviewlistbody(props) {
               {
                 !isturon ? setIsturnon(true) : setIsturnon(false)
               }
+            }}
+            onMouseEnter={() => {
+              !isEffect ? setIsEffect(true) : setIsEffect(false)
             }}
           >
             會員名稱
