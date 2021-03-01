@@ -23,6 +23,9 @@ function OldSeasonBookCard(props) {
     bookName,
     bookImg,
     cardYear,
+    whyThisBook,
+    thisYearHappened,
+    relatedLink,
     solarTermName,
     solarTermClicked,
     stClickedId,
@@ -40,7 +43,7 @@ function OldSeasonBookCard(props) {
             setCardClass('hans-book-card2')
 
             setTimeout(() => setElementDisPlay('displayOn'), 1500)
-            setTimeout(() => setElementDisPlay('fadeIn'), 1510)
+            setTimeout(() => setElementDisPlay('fadeIn'), 1550)
             setSolarTermYearSelect('hans-card-solar-term-year2')
             setbookNameStyle('hans-book-name2')
             console.log('打開卡片，確認節氣編號: ', solarTermToShow)
@@ -62,8 +65,7 @@ function OldSeasonBookCard(props) {
             <div className={bookNameStyle}>{bookName}</div>
           </div>
           <div className={solarTermYearSelect}>
-            {solarTermName} {cardYear}{' '}
-            <span className={elementDisPlay}>選書</span>
+            {solarTermName} {cardYear} 選書
           </div>
         </div>
         <div
@@ -83,12 +85,12 @@ function OldSeasonBookCard(props) {
               }}
             />
           </div>
-          <div className="">時事回顧</div>
-          <div className="">（時事回顧文字，待串）</div>
-          <div className="">選書說明</div>
-          <div className="">（選書說明文字，待串）</div>
-          <div className="">延伸閱讀</div>
-          <div className="">（選書說明文字，待串）</div>
+          <div className="hans-osb-content-subtitle">時事回顧</div>
+          <div className="hans-osb-content">{thisYearHappened}</div>
+          <div className="hans-osb-content-subtitle">選書說明</div>
+          <div className="hans-osb-content">{whyThisBook}</div>
+          <div className="hans-osb-content-subtitle">延伸閱讀</div>
+          <div className="hans-osb-content">{relatedLink}</div>
         </div>
       </div>
       {/* <!-- book card end --> */}
