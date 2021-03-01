@@ -208,17 +208,12 @@ function Menu(props) {
                       <ul className="yu-menu-account-2">
                         <li>
                           <Link to="/">
-                            <div className="yu-menu-links">一般交換</div>
+                            <div className="yu-menu-links">交換規章</div>
                           </Link>
                         </li>
                         <li>
                           <Link to="/">
                             <div className="yu-menu-links">隨機交換</div>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/">
-                            <div className="yu-menu-links">印製卡片</div>
                           </Link>
                         </li>
                         <li>
@@ -229,6 +224,11 @@ function Menu(props) {
                         <li>
                           <Link to="/">
                             <div className="yu-menu-links">交換狀況</div>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/">
+                            <div className="yu-menu-links">撰寫評價</div>
                           </Link>
                         </li>
                       </ul>

@@ -4,6 +4,7 @@
 	// background-size: cover;
 	// background-attachment: fixed;
 	width: 100%;
+	position: relative;
 }
 .chia_changpaji {
 	height: 800px;
@@ -66,7 +67,7 @@
 /*v3*/
 
 .chia_springterm {
-	height: 40%;
+	height: 50%;
 	// width: 40%;
 	background: url('../image/Hero_3.jpg') no-repeat;
 	background-size: cover;
@@ -81,9 +82,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: absolute;
+	top: 40%;
+	left: 25%;
+	// transform-style: preserve-3d;
+	// transform: rotateZ(-5deg);
 }
 .chia_bookstore {
-	height: 40%;
+	height: 50%;
 	// width: 40%;
 	background: url('../image/Hero_3.jpg') no-repeat;
 	background-size: cover;
@@ -98,3 +104,37 @@
 // 	background-size: cover;
 // 	background-attachment: fixed;
 // }
+
+.chia_bookstoreword {
+	padding: 0;
+	margin: 0;
+}
+.chia_bookstoreword a {
+	color: var(--word-color);
+}
+.chia_a {
+	background-color: rgba(255, 255, 255, .5);
+	font-size: 64px;
+	padding: .5rem;
+	animation-name: thirty;
+	animation-duration: 1.5s;
+}
+// .chia_b {
+// 	animation-name: thirty;
+// 	animation-duration: 1.5s;
+// 	animation-iteration-count: infinite;
+// }
+@keyframes thirty {
+	25% {
+		transform: rotateY(90deg);
+	}
+	50% {
+		transform: rotateY(180deg);
+	}
+	75% {
+		transform: rotateY(270deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}

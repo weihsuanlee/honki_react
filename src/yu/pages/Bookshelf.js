@@ -80,11 +80,14 @@ function Bookshelf(props) {
       drop.style.backgroundColor = '#fff'
       setVip(true)
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your work has been saved',
+        title: '恭喜你成為我們的VIP!',
+        // text: 'Congratulations! We welcome you to your VIP membership.',
+        imageUrl: 'http://localhost:3000/images/yu/mushroom-2.gif',
+        imageWidth: 250,
+        imageHeight: 250,
+        imageAlt: 'logo',
         showConfirmButton: false,
-        timer: 1500,
+        timer: 9000,
       })
     })
   }, [])

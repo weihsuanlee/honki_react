@@ -84,7 +84,7 @@ function SendIWantChange(props) {
               <Link to="#">首頁</Link>
             </li>
             <li class="breadcrumb-honki">
-              <Link to="used-books-index.html">二手交換</Link>
+              <Link to="./used-books">二手交換</Link>
             </li>
             <li class="breadcrumb-honki active" aria-current="page">
               隨機交換

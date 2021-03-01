@@ -22,7 +22,7 @@
 
 .hans-book-card2 {
   width: 100%;
-  height: 646px;
+  // height: 646px;
   margin: 28px 0.5rem 2rem 0.5rem;
   border-radius: 10px;
 
@@ -91,11 +91,13 @@
   height: 1.5rem;
   width: 12.5rem;
 
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
 
   overflow: hidden;
-  // margin: 0 35px 1rem 35px;
+  margin: 0 0 0.5rem 0;
+  // transition: 2s;
 }
 
 .hans-card-solar-term-year {
@@ -113,7 +115,7 @@
 
   text-align: center;
 
-  margin: 1rem 8px 0 8px;
+  margin: 0.5rem 8px 0.5rem 8px;
   // position: absolute;
   // bottom: 0;
   // transform: translate(0, 70px);
@@ -121,6 +123,7 @@
 }
 
 .hans-card-col-left {
+  width: 220px;
   flex-direction: column;
 }
 
@@ -141,6 +144,7 @@
 .hans-close-btn {
   height: 0;
   text-align: right;
+  align-self: center;
   transform: translate(100px, -50px);
   cursor: pointer;
 }
@@ -150,6 +154,69 @@
 }
 
 .hans-osb-content {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  // height: 143px;
+
+  font-size: 14px;
+  text-align: justify;
+
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  //  debug
+  // border: 1px solid #000;
+}
+
+.hans-center-block-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* A 按鈕（倩），縮小版， hans 改ˋ */
+.hans-btn-a {
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--honki-red);
+  border-style: none;
+  color: var(--honki-white);
+  // line-height: 80px;
+  transition: all 0.5s;
+}
+.hans-btn-a-fa-shopping-cart {
+  margin-right: 40px;
+}
+
+.hans-btn-a:hover {
+  color: rgb(224, 193, 188);
+}
+.hans-btn-a:focus {
+  outline: none;
+}
+
+.hans-fa-shopping-card-item {
+}
+
+.hans-book-overview {
+  height: 75px;
+
+  font-size: 12px;
+  color: #707070;
+  text-align: justify;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0 1rem;
+}
+
+.hans-read-more {
+  font-size: 12px;
+  color: #707070;
+  margin: 0 0.5rem 1rem 0.5rem;
+  padding: 0 1rem;
 }
