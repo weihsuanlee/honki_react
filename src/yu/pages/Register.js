@@ -78,7 +78,7 @@ function Register(props) {
     }
 
     setErrors(newErrors)
-    
+
     if (newErrors.length === 0) {
       register()
     }
@@ -122,7 +122,6 @@ function Register(props) {
       toMenu()
     } else {
       setShowFail(true)
-      
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
     }
