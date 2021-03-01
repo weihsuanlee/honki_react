@@ -84,6 +84,7 @@ function OldSeasonBookCardList(props) {
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
             cardYear={getCardYear(e)}
+            bookOverview={bookList(e).book_overview}
             whyThisBook={bookList(e).why_this_book}
             thisYearHappened={bookList(e).this_year_happened}
             relatedLink={bookList(e).related_link}

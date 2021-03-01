@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaTimesCircle } from 'react-icons/fa'
+import { FaTimesCircle, FaShoppingCart } from 'react-icons/fa'
 
 // import style
 import '../styles/old-season-book-card.scss'
@@ -7,7 +7,7 @@ import '../styles/old-season-book-card.scss'
 function OldSeasonBookCard(props) {
   const [cardStSid, setCardStSid] = useState(-1)
   const [cardClass, setCardClass] = useState('hans-book-card')
-  const [elementDisPlay, setElementDisPlay] = useState('displayOff')
+  const [elementDisplay, setElementDisplay] = useState('displayOff')
   const [cardBaseClass, setCardBaseClass] = useState('hans-book-base')
   const [solarTermYearSelect, setSolarTermYearSelect] = useState(
     'hans-card-solar-term-year'
@@ -23,6 +23,7 @@ function OldSeasonBookCard(props) {
     bookName,
     bookImg,
     cardYear,
+    bookOverview,
     whyThisBook,
     thisYearHappened,
     relatedLink,
@@ -42,8 +43,8 @@ function OldSeasonBookCard(props) {
             console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
 
-            setTimeout(() => setElementDisPlay('displayOn'), 1500)
-            setTimeout(() => setElementDisPlay('fadeIn'), 1550)
+            setTimeout(() => setElementDisplay('displayOn'), 1500)
+            setTimeout(() => setElementDisplay('fadeIn'), 1550)
             setSolarTermYearSelect('hans-card-solar-term-year2')
             setbookNameStyle('hans-book-name2')
             console.log('打開卡片，確認節氣編號: ', solarTermToShow)
@@ -64,21 +65,29 @@ function OldSeasonBookCard(props) {
             {/* <!-- 書名 28 字以內 --> */}
             <div className={bookNameStyle}>{bookName}</div>
           </div>
+
           <div className={solarTermYearSelect}>
             {solarTermName} {cardYear} 選書
           </div>
+          <div className={'hans-book-overview ' + elementDisplay}>
+            {bookOverview}
+          </div>
+          <div className={'hans-read-more ' + elementDisplay}>...閱讀更多</div>
+          <div className={'hans-center-block-item ' + elementDisplay}>
+            <div className="hans-btn-a">
+              {/* <FaShoppingCart className="hans-fa-shopping-card-item" />{' '} */}
+              放入購物車
+            </div>
+          </div>
         </div>
-        <div
-          className={'hans-card-col-right ' + elementDisPlay}
-          // 之後可能可以移到別的區塊，現在是 debug 方便掛在一起
-        >
+        <div className={'hans-card-col-right ' + elementDisplay}>
           <div className="hans-close-btn">
             <FaTimesCircle
               size={25}
               onClick={() => {
                 setCardClass('hans-book-card')
                 newTargetToggle(solarTermToShow)
-                setElementDisPlay('displayOff')
+                setElementDisplay('displayOff')
                 setSolarTermYearSelect('hans-card-solar-term-year')
                 setbookNameStyle('hans-book-name')
                 console.log('收合卡片確認: ', solarTermToShow)
