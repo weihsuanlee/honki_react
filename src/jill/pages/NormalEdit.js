@@ -36,7 +36,7 @@ function NormalEdit(props) {
         method: 'get',
         headers: new Headers({
           Accept: 'application/json',
-          'Content-Type': 'appliaction/json',
+          'Content-Type': 'application/json',
         }),
       }
     )
