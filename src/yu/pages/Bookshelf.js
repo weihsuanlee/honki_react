@@ -82,7 +82,7 @@ function Bookshelf(props) {
       Swal.fire({
         title: '恭喜你成為我們的VIP!',
         // text: 'Congratulations! We welcome you to your VIP membership.',
-        imageUrl: 'http://localhost:3000/images/yu/CELEBRATE.gif',
+        imageUrl: 'http://localhost:3000/images/yu/mushroom-2.gif',
         imageWidth: 250,
         imageHeight: 250,
         imageAlt: 'logo',
