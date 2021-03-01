@@ -36,10 +36,22 @@
 	// background-color: #fff;
 	// background-image: url('../image/bg-paper.svg') repeat;
 	position: relative;
+	cursor: none;
 }
 .chia_main_book {
 	cursor: url('../image/decoration/bee.svg') auto;
 	background: url('../image/bg-paper.svg') repeat, #fff;
+}
+.chia_cursor {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #e83015;
+	pointer-events: none;
+	mix-blend-mode: difference;
+	z-index: 999;
+	transition: transform 0.2s;
 }
 
 // .test_nav {
@@ -281,8 +293,29 @@
 .chia_purchasebotton:hover {
 	background-color: var(--word-color);
 }
-.chia_purchasebotton:hover .purchase {
+.chia_purchasebotton:hover .chia_purchase {
 	color: var(--word-color-sub);
 }
 
 //handmade modal
+#chia_myvideo {
+	width: 100%;
+	height: 100%;
+}
+.chia_honki {
+	height: 900px;
+}
+.chia_honkititle {
+	font-weight: 900;
+}
+
+@media screen and (max-width: 1920px) {
+	.chia_main {
+		height: 900px;
+	}
+}
+@media screen and (max-width: 1440px) {
+	.chia_main {
+		height: 800px;
+	}
+}

@@ -102,11 +102,11 @@ function EditTab2() {
           <div className="formItems row d-flex justify-content-center">
             <Button
               className="btn-md-dark form-button form-control col-3"
-              onClick={() => {
-                if (newPassword === newPassword2) {
-                  editPassword(newPassword, sid)
-                }
-              }}
+              // onClick={() => {
+              //   if (newPassword === newPassword2) {
+              //     editPassword(newPassword, sid)
+              //   }
+              // }}
             >
               確認修改
             </Button>

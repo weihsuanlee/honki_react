@@ -32,9 +32,9 @@ function Register(props) {
   // const [password, setPassword] = useState('')
   // const [password2, setPassword2] = useState('')
 
-  const [showSucess, setShowSucess] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
   const [showFail, setShowFail] = useState(false)
-  const handleCloseSucess = () => setShowSucess(false)
+  const handleCloseSuccess = () => setShowSuccess(false)
   const handleCloseFail = () => setShowFail(false)
   // 按了提交按鈕用的
   const handleSubmit = (e) => {
@@ -118,7 +118,7 @@ function Register(props) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      setShowSucess(true)
+      setShowSuccess(true)
       toMenu()
     } else {
       setShowFail(true)
@@ -359,7 +359,7 @@ function Register(props) {
                     送出
                   </Button>
 
-                  <Modal show={showSucess} onHide={handleCloseSucess}>
+                  <Modal show={showSuccess} onHide={handleCloseSuccess}>
                     <Modal.Header closeButton>
                       <Modal.Title>Honki</Modal.Title>
                     </Modal.Header>
@@ -367,7 +367,7 @@ function Register(props) {
                       註冊成功，歡迎你加入我們!
                     </Modal.Body>
                     <Modal.Footer>
-                      <Button variant="secondary" onClick={handleCloseSucess}>
+                      <Button variant="secondary" onClick={handleCloseSuccess}>
                         關閉
                       </Button>
                       {/* <Button variant="primary" onClick={handleClose}>
