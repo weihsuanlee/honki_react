@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import $ from 'react'
+import '../Style/Chiaavatar.scss'
+import { SVG_FACES } from './constant'
+import { SVG_HAIR } from './constant'
+import { SVG_CLOTH } from './constant'
+import { SVG_ACC } from './constant'
+import { SVG_TERMS } from './constant'
 
 function ChiaComment(props) {
-  console.log(props.isNum)
   let commentaccount
   let commentname
   let nickname
+  let curFace = ''
+  let curHair = ''
+  let curTerms = ''
+  let curAcc = ''
+  let curCloth = ''
   if (localStorage.getItem('userLogin')) {
     commentaccount = localStorage.getItem('userLogin')
     commentname = JSON.parse(commentaccount)
     nickname = commentname.body.nickname
+    curFace = localStorage.getItem('curFace')
+    curHair = localStorage.getItem('curHair')
+    curTerms = localStorage.getItem('curTerms')
+    curAcc = localStorage.getItem('curAcc')
+    curCloth = localStorage.getItem('curCloth')
   }
+  //u
   //useEffect
   const [commentNickname, setCommentNickname] = useState(nickname)
   const [comment, setComment] = useState('')
@@ -24,6 +40,11 @@ function ChiaComment(props) {
       commentsid,
       commentNickname,
       comment,
+      curFace,
+      curHair,
+      curTerms,
+      curAcc,
+      curCloth,
     }
 
     const url = 'http://localhost:3333/reviews/content/comment'
@@ -76,7 +97,40 @@ function ChiaComment(props) {
         <div className="chia_c-tai d-flex">
           <div className="chia_memberbox">
             <div className="chia_memeberimg ">
-              <img className="chia_advatar" src="./image/050501.jpg" alt="" />
+              <div className="chia_memeberimg ">
+                <img className="chia_advatar" src="./image/050501.jpg" alt="" />
+                <div className="chia_avatar_bg">
+                  <img
+                    className="chia_advatar"
+                    src={SVG_TERMS[curTerms]}
+                    alt=""
+                  />
+                </div>
+                <div className="chia_avatar_hair">
+                  <img
+                    className="chia_advatar"
+                    src={SVG_HAIR[curHair]}
+                    alt=""
+                  />
+                </div>
+                <div className="chia_avatar_face">
+                  <img
+                    className="chia_advatar"
+                    src={SVG_FACES[curFace]}
+                    alt=""
+                  />
+                </div>
+                <div className="chia_avatar_cloth">
+                  <img
+                    className="chia_advatar"
+                    src={SVG_CLOTH[curCloth]}
+                    alt=""
+                  />
+                </div>
+                <div className="chia_avatar_acc">
+                  <img className="chia_advatar" src={SVG_ACC[curAcc]} alt="" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="chia_c-box">

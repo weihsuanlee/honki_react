@@ -46,6 +46,9 @@ function ChiaReviewContent(props) {
         .css('trasnform', 'scale(1.1)')
         .css('transition', '.5s')
     }
+    $('.chia_contentborder-r').on('mouseenter', function () {
+      $(this).css('trasnform', 'scale(1.1)').css('transition', '.5s')
+    })
   }, [isTransform])
 
   console.log(isLike)

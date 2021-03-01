@@ -6,9 +6,9 @@ import $ from 'jquery'
 import Aos from 'aos'
 
 import HonkiHeroContext from '../Component/HonkHeroContext'
-import HonkiindexButton from '../Component/HonkiIndexButton'
-import HonkiVideo from '../image/honki.mp4'
-import HonkiHero from './HonkiHero'
+// import HonkiindexButton from '../Component/HonkiIndexButton'
+// import HonkiVideo from '../image/honki.mp4'
+// import HonkiHero from './HonkiHero'
 import { FaMouse } from 'react-icons/fa'
 
 // import Navbar from '../Component/Navbar'
@@ -137,8 +137,10 @@ function RecommendBook() {
 
   return (
     <>
+      {IndexIntro}
       <div className="chia_main_book">
         <Container fluid className="chia_main d-flex flex-column">
+          <div className="chia_cursor"></div>
           {/* <div className="test_nav"></div> */}
           <div className="chia_main_row row">
             <div className="chia_header" data-aos="fade-right">

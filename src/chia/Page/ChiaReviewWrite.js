@@ -4,8 +4,16 @@ import '../Style/chiareviewwrite.scss'
 import $ from 'jquery'
 
 function ChiaReviewWrite() {
+  let commentaccount
+  let commentname
+  let nickname
+  if (localStorage.getItem('userLogin')) {
+    commentaccount = localStorage.getItem('userLogin')
+    commentname = JSON.parse(commentaccount)
+    nickname = commentname.body.nickname
+  }
   const [dataLoading, setLoading] = useState(false)
-  const [reviewnickname, setReviewNickname] = useState('')
+  const [reviewnickname, setReviewNickname] = useState(nickname)
   const [reviewcategory, setReviewCategory] = useState('')
   const [reviewbooktitle, setReviewBooktitle] = useState('')
   const [reviewRanking, setReviewRanking] = useState('')
