@@ -38,7 +38,9 @@ function OldSeasonBookCard(props) {
             handlePlateToggle(solarTermToShow)
             console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
-            setElementDisPlay('displayOn')
+
+            setTimeout(() => setElementDisPlay('displayOn'), 1500)
+            setTimeout(() => setElementDisPlay('fadeIn'), 1510)
             setSolarTermYearSelect('hans-card-solar-term-year2')
             setbookNameStyle('hans-book-name2')
             console.log('打開卡片，確認節氣編號: ', solarTermToShow)
