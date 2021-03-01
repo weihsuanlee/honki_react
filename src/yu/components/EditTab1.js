@@ -41,7 +41,9 @@ function EditTab1() {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Your work has been saved',
+          Html: 'color:red',
+          title: '修改成功',
+          // text: 'Profile Updated!',
           showConfirmButton: false,
           timer: 1500,
         })
@@ -51,7 +53,7 @@ function EditTab1() {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Your work has been saved',
+        title: '修改失敗',
         showConfirmButton: false,
         timer: 1500,
       })
