@@ -52,18 +52,43 @@ function Chiacategory() {
               <Link to="/product/literature">
                 <button className="chia_bbtn novel">文學小說</button>
               </Link>
-              <button className="chia_bbtn business">商業理財</button>
+              <Link to="/product/business">
+                <button className="chia_bbtn business">商業理財</button>
+              </Link>
 
-              <button className="chia_bbtn artdesign">藝術設計</button>
+              <Link to="/product/arts">
+                <button className="chia_bbtn artdesign">藝術設計</button>
+              </Link>
 
-              <button className="chia_bbtn psychology">心靈勵志</button>
-              <button className="chia_bbtn comic">輕小說/漫畫</button>
-              <button className="chia_bbtn language">語言考試</button>
-              <button className="chia_bbtn childeducation">親子教養</button>
-              <button className="chia_bbtn travel">旅遊</button>
-              <button className="chia_bbtn food">飲食</button>
-              <button className="chia_bbtn childbook">童書</button>
-              <button className="chia_bbtn foreignbook">外文書</button>
+              <Link to="/product/self-help">
+                <button className="chia_bbtn psychology">心靈勵志</button>
+              </Link>
+
+              <Link to="/product/comics">
+                <button className="chia_bbtn comic">輕小說/漫畫</button>
+              </Link>
+              <Link to="/product/education">
+                <button className="chia_bbtn language">語言考試</button>
+              </Link>
+              <Link to="/product/parenting">
+                <button className="chia_bbtn childeducation">親子教養</button>
+              </Link>
+
+              <Link to="/product/children">
+                <button className="chia_bbtn childbook">童書</button>
+              </Link>
+
+              <Link to="/product/foods">
+                <button className="chia_bbtn food">飲食</button>
+              </Link>
+
+              <Link to="/product/travel">
+                <button className="chia_bbtn travel">旅遊</button>
+              </Link>
+
+              <Link to="/product/foreign">
+                <button className="chia_bbtn foreignbook">外文書</button>
+              </Link>
             </div>
           </div>
         </div>

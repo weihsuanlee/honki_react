@@ -293,7 +293,7 @@
 .chia_purchasebotton:hover {
 	background-color: var(--word-color);
 }
-.chia_purchasebotton:hover .purchase {
+.chia_purchasebotton:hover .chia_purchase {
 	color: var(--word-color-sub);
 }
 
@@ -307,4 +307,15 @@
 }
 .chia_honkititle {
 	font-weight: 900;
+}
+
+@media screen and (max-width: 1920px) {
+	.chia_main {
+		height: 900px;
+	}
+}
+@media screen and (max-width: 1440px) {
+	.chia_main {
+		height: 800px;
+	}
 }

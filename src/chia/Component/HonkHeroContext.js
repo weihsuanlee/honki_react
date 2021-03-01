@@ -19,8 +19,14 @@ function HonkiHeroContext(props) {
         transition: '.2s',
       })
     }
-    $(Window).scroll(function () {
+
+    $(Window).on('scroll', function () {
       let scroll = $(this).scrollTop()
+      if (scroll > 150) {
+        $('.chia_mouse_scrolldown').addClass('d-none')
+      } else {
+        $('.chia_mouse_scrolldown').removeClass('d-none')
+      }
       if (scroll > 900) {
         setIstoggler(false)
       }
@@ -45,7 +51,6 @@ function HonkiHeroContext(props) {
             >
               <span className="chia_solar_index">驚蟄</span>
             </Link>
-            <Link className="chia_i">距離下一個節氣還有...</Link>
           </p>
         </div>
       </div>

@@ -6,6 +6,7 @@ import $ from 'jquery'
 
 import CHiaAcitvity from '../Component/CHiaActivity'
 
+import SecondHand from '../image/secondhandbook.jpg'
 import Chiahugecircle from '../image/circledot/hugecircle.svg'
 
 function ChiaActivity() {
@@ -77,8 +78,28 @@ function ChiaActivity() {
           <div className="chia_eventactivity row d-flex justify-content-center">
             <div className="chia_eventbox  d-flex ">
               <CHiaAcitvity one={true} />
-              <CHiaAcitvity two={true} />
-              <CHiaAcitvity three={true} />
+              <div className="chia_eventitem" data-aos="fade-up-left">
+                <div className="chia_eventimfo d-flex flex-column">
+                  <div className="chia_eventimg">
+                    <img src={SecondHand} />
+                  </div>
+                  <div className="d-flex">
+                    <div className="chia_eventdate">2021-03</div>
+                    <div className="chia_eventtype">線上</div>
+                  </div>
+                </div>
+                <div className="chia_eventcontent d-flex justify-content-center align-items-center">
+                  <div className="chia_e-content">
+                    <p>
+                      想要為自己的舊書找一個新家嗎?那就來看看HONKI二手書吧!!
+                    </p>
+                    <p></p>
+                  </div>
+                  <div className="chia_e-link">
+                    <Link to="/used-books">VIEW MORE...</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

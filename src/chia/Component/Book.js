@@ -38,6 +38,7 @@ function Book(props) {
         BookCover={props.BookCover}
         Intro={props.Intro}
         Name={props.Name}
+        view={props.booklink}
       />
     </>
   )
