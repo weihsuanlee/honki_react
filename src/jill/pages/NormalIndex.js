@@ -37,7 +37,7 @@ function NormalIndex() {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const data = await response.json()
@@ -111,7 +111,19 @@ function NormalIndex() {
             <MyChangeBooks myrows={mybook_rows} />
           </div>
         </div>
-
+        <p className="jill-try-css">測試動畫</p>
+        <div className="jill-slider_container">
+          <div className="row">
+            {changeData.map((item, index) => (
+              <div className="d-flex jill-pics">
+                <img
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
+        </div>
         {/* 其他人在換什麼 */}
         {/* 標題開始 */}
         <div className="container my-5">

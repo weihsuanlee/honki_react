@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment'
+import Swal from 'sweetalert2'
 
 function EditTab1() {
   let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-  console.log(userLogin)
+  const [hasQueryInfo, setHasQueryInfo] = useState(false)
 
   const [name, setName] = useState(userLogin.body.name)
   const [nickname, setNickname] = useState(userLogin.body.nickname)
-  // const [email, setEmail] = useState(userLogin.body.email)
-  const email = userLogin.body.email
+  const [email, setEmail] = useState(userLogin.body.email)
   const [mobile, setMobile] = useState(userLogin.body.mobile)
   const [address, setAddress] = useState(userLogin.body.address)
-  const userBirthday = userLogin.body.birthday.split('T')[0]
+  const userBirthday = moment(userLogin.body.birthday).format('YYYY-MM-DD')
   const [birthday, setBirthday] = useState(userBirthday)
   const [password, setPassword] = useState(userLogin.body.passward)
 
@@ -26,7 +27,6 @@ function EditTab1() {
         mobile: mobile,
         address: address,
         birthday: birthday,
-        password: password,
       }),
       headers: new Headers({
         Accept: 'application/json',
@@ -36,27 +36,65 @@ function EditTab1() {
     try {
       const response = await fetch(request)
       const data = await response.json()
-
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
-        console.log(JSON.parse(localStorage.getItem('userLogin')))
-        window.location.href = '/edit'
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500,
+        })
       }
-
       console.log(data)
-    } catch (error) {}
+    } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+    }
+  }
+
+  const geyInfo = async () => {
+    console.log('get user info')
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    const url = 'http://localhost:3333/member/edit/' + userLogin.body.sid
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    try {
+      const response = await fetch(request)
+      const data = await response.json()
+      if (data.success) {
+        localStorage.setItem('userLogin', JSON.stringify(data))
+        setName(data.body.name)
+        setNickname(data.body.nickname)
+        setEmail(data.body.email)
+        setMobile(data.body.mobile)
+        setAddress(data.body.address)
+        const userBirthday = moment(data.body.birthday).format('YYYY-MM-DD')
+        setBirthday(userBirthday)
+        setPassword(data.body.passward)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
-    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-    console.log(userLogin)
-    // setName(userLogin.body.name)
-    // setNickname(userLogin.body.nickname)
-    // setEmail(userLogin.body.email)
-    // setMobile(userLogin.body.mobile)
-    // setAddress(userLogin.body.address)
-    // setBirthday(userLogin.body.birthday.slice(0, 10))
+    if (!hasQueryInfo) {
+      setHasQueryInfo(true)
+      geyInfo()
+    }
   })
+
   return (
     <>
       <div className="panels yu-edit-panels">
@@ -177,48 +215,6 @@ function EditTab1() {
                   console.log(birthday)
                   setBirthday(e.target.value)
                   console.log(e.target.value)
-                }}
-              />
-            </div>
-          </div>
-
-          {/* <!-- 密碼input--> */}
-          <div className="form-group">
-            <div className="formItems row d-flex justify-content-center">
-              <label
-                className="inputText col-2"
-                htmlFor="exampleFormControlTextarea1"
-              >
-                密碼
-              </label>
-              <input
-                type="password"
-                className="form-control formInput col-6"
-                id="password"
-                name="password"
-                placeholder="修改前請先輸入密碼"
-                onChange={(e) => {
-                  setPassword(e.target.value)
-                }}
-              />
-            </div>
-          </div>
-          {/* <!-- 密碼確認input--> */}
-          <div className="form-group">
-            <div className="formItems row d-flex justify-content-center">
-              <label
-                className="inputText col-2"
-                htmlFor="exampleFormControlTextarea1"
-              >
-                確認密碼
-              </label>
-              <input
-                type="password"
-                className="form-control formInput col-6"
-                id="password"
-                name="password"
-                onChange={(e) => {
-                  setPassword(e.target.value)
                 }}
               />
             </div>

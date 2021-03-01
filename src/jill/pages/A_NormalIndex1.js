@@ -37,7 +37,7 @@ function NormalIndex() {
       method: 'get',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const data = await response.json()

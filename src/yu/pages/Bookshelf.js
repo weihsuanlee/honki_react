@@ -7,6 +7,7 @@ import { SVG_CLOTH } from '../constants'
 import { SVG_ACC } from '../constants'
 import { SVG_TERMS } from '../constants'
 import { Container, Row, Col } from 'react-bootstrap'
+import Swal from 'sweetalert2'
 
 function Bookshelf(props) {
   const [curFace, setCurFace] = useState(0)
@@ -78,6 +79,13 @@ function Bookshelf(props) {
       colorForVip5.style.color = '#fff'
       drop.style.backgroundColor = '#fff'
       setVip(true)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500,
+      })
     })
   }, [])
 

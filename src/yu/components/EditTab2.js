@@ -1,12 +1,11 @@
-import { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 function EditTab2() {
-  const divRef = useRef()
+  const sid = localStorage.getItem('userId')
+  const [oriPassword, setOriPassword] = useState('')
   const [newPassword, setNewpassword] = useState('')
   const [newPassword2, setNewpassword2] = useState('')
-  const sid = localStorage.getItem('userId')
 
   const editPassword = async function (newPassword, sid) {
     const url = 'http://localhost:3333/member/editnewpassword'
@@ -27,9 +26,7 @@ function EditTab2() {
   }
   return (
     <>
-      <div ref={divRef} className="panel-title yu-edit-password-title">
-        修改密碼
-      </div>
+      <div className="panel-title yu-edit-password-title">修改密碼</div>
       {/* <!-- 收合選單-2修改密碼 --> */}
       <div className="panel" id="two-panel">
         {/* <!-- <div className="panel-title">修改密碼</div> -->
@@ -48,6 +45,10 @@ function EditTab2() {
               id="password"
               name="password"
               required
+              value={oriPassword}
+              onChange={(e) => {
+                setOriPassword(e.target.value)
+              }}
             />
           </div>
         </div>
@@ -102,7 +103,9 @@ function EditTab2() {
             <Button
               className="btn-md-dark form-button form-control col-3"
               onClick={() => {
-                editPassword(newPassword, sid)
+                if (newPassword === newPassword2) {
+                  editPassword(newPassword, sid)
+                }
               }}
             >
               確認修改

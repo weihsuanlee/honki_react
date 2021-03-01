@@ -1,44 +1,733 @@
 .jill-pics img {
   height: 200px;
 }
-.jill-slider_container {
+.slider_container {
   margin: 30px auto;
   width: 400px;
   height: 280px;
-  position: absolute;
+  position: relative;
   // border: 20px solid;
   // border-color: #fff;
   // border-bottom-width: 100px;
   // background-color: #f5f5f5;
   // box-shadow: #666 0 0 5px;
-  overflow: hidden;
-
-  top: 100px;
-  left: 700px;
+  // overflow: hidden;
 }
 
-.jill-slider_container div {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // opacity: 0;
-  // filter: alpha(opacity=0);
-  animation-name: jill;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
+.slider_container div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 
-@keyframes jill {
-  from {
-    top: 0;
-    left: 0;
+.slider_container div {
+  -webkit-animation: round 100s linear infinite;
+  animation: round 100s linear infinite;
+}
+
+@-webkit-keyframes round {
+  1% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+  5% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+  6% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
   }
 
-  to {
-    margin-top: -200px;
-    // margin-top: 0px;
-    // margin-left: -100px;
+  7% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
   }
+
+  11% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  12% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  13% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  17% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  18% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  19% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  23% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  24% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  25% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  29% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  30% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  31% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  35% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  36% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  37% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  41% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  42% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  43% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  47% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  48% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  49% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  53% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  54% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  55% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  59% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  60% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  61% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  65% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  66% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  67% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  71% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  72% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  73% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  77% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  78% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  79% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  83% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  84% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  85% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  89% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  90% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  91% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  95% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  98% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  99% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  100% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+}
+@keyframes round {
+  1% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+  5% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+  6% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  7% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  11% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  12% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  13% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  17% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  18% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  19% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  23% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  24% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  25% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  29% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  30% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  31% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  35% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  36% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  37% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  41% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  42% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  43% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  47% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  48% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  49% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  53% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  54% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  55% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  59% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  60% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  61% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  65% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  66% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  67% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  71% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  72% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  73% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  77% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  78% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  79% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  83% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  84% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  85% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  89% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  90% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  91% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  95% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 1- 5秒靜止*/
+  }
+
+  98% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+
+  99% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* 0 - 1秒 淡入*/
+  }
+
+  100% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* 5-6秒淡出*/
+  }
+}
+.slider_container div:nth-child(21) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.slider_container div:nth-child(20) {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
+
+.slider_container div:nth-child(19) {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+
+.slider_container div:nth-child(18) {
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+
+.slider_container div:nth-child(17) {
+  -webkit-animation-delay: 20s;
+  animation-delay: 20s;
+}
+
+.slider_container div:nth-child(16) {
+  -webkit-animation-delay: 25s;
+  animation-delay: 25s;
+}
+
+.slider_container div:nth-child(15) {
+  -webkit-animation-delay: 30s;
+  animation-delay: 30s;
+}
+
+.slider_container div:nth-child(14) {
+  -webkit-animation-delay: 35s;
+  animation-delay: 35s;
+}
+
+.slider_container div:nth-child(13) {
+  -webkit-animation-delay: 40s;
+  animation-delay: 40s;
+}
+
+.slider_container div:nth-child(12) {
+  -webkit-animation-delay: 45s;
+  animation-delay: 45s;
+}
+
+.slider_container div:nth-child(11) {
+  -webkit-animation-delay: 50s;
+  animation-delay: 50s;
+}
+
+.slider_container div:nth-child(10) {
+  -webkit-animation-delay: 55s;
+  animation-delay: 55s;
+}
+
+.slider_container div:nth-child(9) {
+  -webkit-animation-delay: 60s;
+  animation-delay: 60s;
+}
+
+.slider_container div:nth-child(8) {
+  -webkit-animation-delay: 65s;
+  animation-delay: 65s;
+}
+
+.slider_container div:nth-child(7) {
+  -webkit-animation-delay: 70s;
+  animation-delay: 70s;
+}
+
+.slider_container div:nth-child(6) {
+  -webkit-animation-delay: 75s;
+  animation-delay: 75s;
+}
+
+.slider_container div:nth-child(5) {
+  -webkit-animation-delay: 80s;
+  animation-delay: 80s;
+}
+
+.slider_container div:nth-child(4) {
+  -webkit-animation-delay: 85s;
+  animation-delay: 85s;
+}
+
+.slider_container div:nth-child(3) {
+  -webkit-animation-delay: 90s;
+  animation-delay: 90s;
+}
+
+.slider_container div:nth-child(2) {
+  -webkit-animation-delay: 95s;
+  animation-delay: 95s;
+}
+
+.slider_container div:nth-child(1) {
+  -webkit-animation-delay: 100s;
+  animation-delay: 100s;
 }
 
 // .jill-try-css {

@@ -46,7 +46,7 @@ function Login(props) {
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
       // 如果上一頁是購物車結帳來的登入跳回繼續結帳
-      if (props.location.state == 'CartItems') {
+      if (props.location.state === 'CartItems') {
         props.history.goBack()
       } else {
         // 其他跳轉回會員menu
