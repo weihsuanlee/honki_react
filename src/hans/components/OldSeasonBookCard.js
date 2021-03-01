@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// import { Component } from 'react'
 
 // import style
 import '../styles/old-season-book-card.scss'
@@ -28,7 +27,6 @@ function OldSeasonBookCard(props) {
     solarTermClicked,
     stClickedId,
   } = props
-  // console.log('card', solarTermToShowList)
 
   return (
     <>
@@ -36,38 +34,22 @@ function OldSeasonBookCard(props) {
       <div
         className={cardClass}
         onClick={() => {
-          // console.log(solarTermClicked)
           if (solarTermClicked === true) {
             handlePlateToggle(solarTermToShow)
             console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
             setElementFadeIn('displayOn')
             setSolarTermYearSelect('hans-card-solar-term-year2')
-            // setCardBaseClass('hans-book-card2')
-            // console.log('handlePlateToggle')
             console.log('打開卡片，確認節氣編號: ', solarTermToShow)
             getCardBookSid(cardStBookId)
             console.log('打開卡片，確認書本編號: ', cardStBookId)
           } else {
             setCardClass('hans-book-card')
-            // setCardBaseClass('hans-book-card2')
             newTargetToggle(solarTermToShow)
-            // handlePlateToggle(solarTermToShow)
-            // console.log('newTargetToggle + handlePlateToggle')
             setElementFadeIn('displayOff')
             setSolarTermYearSelect('hans-card-solar-term-year')
             console.log('收合卡片確認: ', solarTermToShow)
           }
-
-          // 第二版動作
-          // if (stClickedId !== -1 || stClickedId !== solarTermToShow) {
-          //   newTargetToggle(solarTermToShow)
-          // } else {
-          //   handlePlateToggle(solarTermToShow)
-          // }
-
-          // 第一版動作
-          // handlePlateToggle(solarTermToShow)
         }}
       >
         <div className={cardBaseClass}>
