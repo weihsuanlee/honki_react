@@ -7,7 +7,7 @@ import '../styles/old-season-book-card.scss'
 function OldSeasonBookCard(props) {
   const [cardStSid, setCardStSid] = useState(-1)
   const [cardClass, setCardClass] = useState('hans-book-card')
-  const [elementFadeIn, setElementFadeIn] = useState('fadeOut')
+  const [elementFadeIn, setElementFadeIn] = useState('displayOff')
   const [cardBaseClass, setCardBaseClass] = useState(
     'hans-book-base hans-pointer'
   )
@@ -19,6 +19,7 @@ function OldSeasonBookCard(props) {
     cardStBookId,
     handlePlateToggle,
     newTargetToggle,
+    getCardBookSid,
     solarTermToShow,
     bookName,
     bookImg,
@@ -40,18 +41,20 @@ function OldSeasonBookCard(props) {
             handlePlateToggle(solarTermToShow)
             console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
-            setElementFadeIn('fadeIn')
+            setElementFadeIn('displayOn')
             setSolarTermYearSelect('hans-card-solar-term-year2')
             // setCardBaseClass('hans-book-card2')
             // console.log('handlePlateToggle')
-            console.log('打開卡片確認: ', solarTermToShow)
+            console.log('打開卡片，確認節氣編號: ', solarTermToShow)
+            getCardBookSid(cardStBookId)
+            console.log('打開卡片，確認書本編號: ', cardStBookId)
           } else {
             setCardClass('hans-book-card')
             // setCardBaseClass('hans-book-card2')
             newTargetToggle(solarTermToShow)
             // handlePlateToggle(solarTermToShow)
             // console.log('newTargetToggle + handlePlateToggle')
-            setElementFadeIn('fadeOut')
+            setElementFadeIn('displayOff')
             setSolarTermYearSelect('hans-card-solar-term-year')
             console.log('收合卡片確認: ', solarTermToShow)
           }
@@ -81,7 +84,6 @@ function OldSeasonBookCard(props) {
             <span className={elementFadeIn}>選書</span>
           </div>
           <div className="hans-book-name">{bookName}</div>
-          <div>{cardStBookId}</div>
         </div>
       </div>
       {/* <!-- book card end --> */}

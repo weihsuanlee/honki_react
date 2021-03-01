@@ -30,6 +30,7 @@ function OldSeasons(props) {
   const [firstCardSid, setFirstCardSid] = useState('')
   const [solarTermBookToShow, setSolarTermBookToShow] = useState({})
   const [solarTermBookToShowList, setSolarTermBookToShowList] = useState({})
+  const [clickedCardSid, setClickedCardSid] = useState('')
 
   // 麵包屑
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
@@ -199,7 +200,9 @@ function OldSeasons(props) {
   }
   */
 
-  function handleCardClick(id) {}
+  const getCardBookSid = (id) => {
+    setClickedCardSid(id)
+  }
 
   function handlePlateToggle(id) {
     setStClickedId(id)
@@ -294,8 +297,10 @@ function OldSeasons(props) {
                 // getInitialStDataFromServer={getInitialStDataFromServer}
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
+                getCardBookSid={getCardBookSid}
                 solarTermBookToShow={solarTermBookToShow}
                 firstCardSid={firstCardSid}
+                clickedCardSid={clickedCardSid}
                 solarTermNameList={solarTermNameList}
                 solarTermClicked={solarTermClicked}
                 stClickedId={stClickedId}

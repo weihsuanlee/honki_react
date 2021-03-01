@@ -9,8 +9,10 @@ function OldSeasonBookCardList(props) {
     // getInitialStDataFromServer,
     handlePlateToggle,
     newTargetToggle,
+    getCardBookSid,
     solarTermClicked,
     firstCardSid,
+    clickedCardSid,
     solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
@@ -46,7 +48,15 @@ function OldSeasonBookCardList(props) {
     return tempList
   }
 
-  let solarTermToShowList = getStToShowList(firstCardSid)
+  const getStToShowList2 = (stId) => {
+    let tempList = [stId]
+
+    return tempList
+  }
+
+  let solarTermToShowList = !solarTermClicked
+    ? getStToShowList2(clickedCardSid)
+    : getStToShowList(firstCardSid)
 
   // console.log(solarTermToShowList)
   // console.log(solarTermNameList)
@@ -65,13 +75,14 @@ function OldSeasonBookCardList(props) {
             key={e}
             handlePlateToggle={handlePlateToggle}
             newTargetToggle={newTargetToggle}
-            // cardStbookId={bookList(e).st_sid}
+            getCardBookSid={getCardBookSid}
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
             solarTermToShow={bookList(e).solar_term_id - 1}
             solarTermName={solarTermNameList[bookList(e).solar_term_id - 1]}
             cardYear={getCardYear(e)}
             solarTermClicked={solarTermClicked}
+            cardStBookId={e}
           />
         )
       })}
