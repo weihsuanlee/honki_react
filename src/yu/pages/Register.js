@@ -32,8 +32,10 @@ function Register(props) {
   // const [password, setPassword] = useState('')
   // const [password2, setPassword2] = useState('')
 
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
+  const [showSucess, setShowSucess] = useState(false)
+  const [showFail, setShowFail] = useState(false)
+  const handleCloseSucess = () => setShowSucess(false)
+  const handleCloseFail = () => setShowFail(false)
   // 按了提交按鈕用的
   const handleSubmit = (e) => {
     //開啟開始觸發檢查的旗標
@@ -76,6 +78,7 @@ function Register(props) {
     }
 
     setErrors(newErrors)
+    
     if (newErrors.length === 0) {
       register()
     }
@@ -115,9 +118,11 @@ function Register(props) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      setShow(true)
+      setShowSucess(true)
       toMenu()
     } else {
+      setShowFail(true)
+      
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
     }
@@ -355,7 +360,7 @@ function Register(props) {
                     送出
                   </Button>
 
-                  <Modal show={show} onHide={handleClose}>
+                  <Modal show={showSucess} onHide={handleCloseSucess}>
                     <Modal.Header closeButton>
                       <Modal.Title>Honki</Modal.Title>
                     </Modal.Header>
@@ -363,12 +368,25 @@ function Register(props) {
                       註冊成功，歡迎你加入我們!
                     </Modal.Body>
                     <Modal.Footer>
-                      <Button variant="secondary" onClick={handleClose}>
+                      <Button variant="secondary" onClick={handleCloseSucess}>
                         關閉
                       </Button>
                       {/* <Button variant="primary" onClick={handleClose}>
                           Save Changes
                         </Button> */}
+                    </Modal.Footer>
+                  </Modal>
+                  <Modal show={showFail} onHide={handleCloseFail}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Honki</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className="yu-register-success my-4">
+                      電子信箱重複囉
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleCloseFail}>
+                        關閉
+                      </Button>
                     </Modal.Footer>
                   </Modal>
                 </div>
