@@ -129,7 +129,7 @@ function NormalIndex() {
         {/* 標題開始 */}
         <div className="container my-5">
           <h5 className="jill-otherbooks-area-title">
-            其他人在換什麼
+            看看裡面有什麼
             {/* 蝴蝶SVG */}
             <NormalButterfly />
           </h5>

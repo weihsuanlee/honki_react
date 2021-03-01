@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 // 二手書svg
 import NormalBee from './../components/NormalBee'
 import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
+import DancingImg from '../components/DancingImg'
 
 // 抓取登入的userId(還沒用)
 // const userId = localStorage.getItem('userId')
@@ -228,6 +229,9 @@ class MyChangeBooks extends React.Component {
                 <div className="jill-underline"></div>
                 <li>{this.state.nickname}</li>
               </ul>
+              <div className="jill-random-dancing">
+                <DancingImg />
+              </div>
             </div>
           ) : (
             ''
