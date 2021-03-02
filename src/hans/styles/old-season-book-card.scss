@@ -78,7 +78,7 @@
 }
 
 .hans-book-name {
-  height: 1.5rem;
+  height: 3rem;
   // width: 12.5rem;
 
   font-size: 14px;
@@ -89,7 +89,7 @@
 }
 
 .hans-book-name2 {
-  height: 1.5rem;
+  height: 3rem;
   width: 12.5rem;
 
   font-size: 16px;
@@ -108,7 +108,7 @@
 
   cursor: pointer;
 
-  margin: 1rem 8px 0 8px;
+  margin: 0rem 8px 1rem 8px;
   // position: absolute;
   // bottom: 0;
   // transform: translate(0, 70px);
@@ -276,7 +276,7 @@
     // display: none;
   }
   .hans-close-btn {
-    transform: translate(90px, -520px);
+    transform: translate(90px, -540px);
   }
   .hans-osb-content {
     height: unset;
@@ -288,6 +288,6 @@
     padding: 1rem 1rem 0 1rem;
   }
   .hans-close-btn {
-    transform: translate(26px, -520px);
+    transform: translate(42px, -540px);
   }
 }

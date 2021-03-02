@@ -9,7 +9,7 @@ import OldSeasonPageTitle from '../components/OldSeasonPageTitle'
 import SelectedSolarTermInfo from '../components/SelectedSolarTermInfo'
 import SolarTermToShow from '../components/SolarTermToShow'
 import OldSeasonBookCardList from '../components/OldSeasonBookCardList'
-import BookCardDebug from '../components/BookCardDebug'
+// import BookCardDebug from '../components/BookCardDebug'
 // import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 // import style
@@ -21,7 +21,7 @@ function OldSeasons(props) {
   const [solarTermNameList, setSolarTermNameList] = useState([])
 
   // 節氣說明
-  const [targetSolarTerm, setTargetSolarTerm] = useState(0)
+  // const [targetSolarTerm, setTargetSolarTerm] = useState(0)
   const [solarTermToShow, setSolarTermToShow] = useState('')
   const [solarTermDesc, setSolarTermDesc] = useState('')
   const [solarTermImgs, setSolarTermImgs] = useState([])
@@ -107,7 +107,7 @@ function OldSeasons(props) {
     // debug
     setFirstCardSid(29)
 
-    console.log(data)
+    // console.log(data)
     setSolarTermData(data)
 
     // console.log(data['solar_term_list'])

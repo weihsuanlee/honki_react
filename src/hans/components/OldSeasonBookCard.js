@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { FaTimesCircle, FaShoppingCart } from 'react-icons/fa'
+import { FaTimesCircle } from 'react-icons/fa'
 
 // import style
 import '../styles/old-season-book-card.scss'
@@ -119,10 +119,10 @@ function OldSeasonBookCard(props) {
               }}
             />
           </div>
-          <div className="hans-osb-content-subtitle">時事回顧</div>
-          <div className="hans-osb-content">{thisYearHappened}</div>
           <div className="hans-osb-content-subtitle">選書說明</div>
           <div className="hans-osb-content">{whyThisBook}</div>
+          <div className="hans-osb-content-subtitle">時事回顧</div>
+          <div className="hans-osb-content">{thisYearHappened}</div>
           <div className="hans-osb-content-subtitle">延伸閱讀</div>
           <div className="hans-osb-content">{relatedLink}</div>
         </div>
