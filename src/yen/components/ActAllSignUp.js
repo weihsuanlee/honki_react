@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment'
-// import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 import '../styles/yen-allsignup.scss'
 import '../styles/yen-check.scss'
@@ -134,27 +133,50 @@ function ActAllSignUp(props) {
   const [orderDetail, setOrderDetail] = useState('')
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
-  const [deleteOrder, setDeleteOrder] = useState(null)
-  // const [noOrder, setNoOrder] = useState([])
-  const [show, setShow] = useState(false)
-  const handleShow = () => setShow(true)
-  const handleClose = () => setShow(false)
-
-  function handleCloseClick(whichClose) {
-    console.log(whichClose)
-    if (whichClose === 'closeAlert') {
-      handleClose()
-    }
-    if (whichClose === 'deleteOrder') {
-      deleteOrderOnServer()
-      handleClose()
-    }
-  }
+  // const [deleteOrder, setDeleteOrder] = useState(null)
 
   function deleteButtonClick(deleteOrderNum) {
     console.log('deleteOrderNum', deleteOrderNum)
-    setDeleteOrder(deleteOrderNum)
-    handleShow()
+    // setDeleteOrder(deleteOrderNum)
+    // handleShow()
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn-md-light yen-signup-check',
+        cancelButton: 'btn-md-dark',
+      },
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons
+      .fire({
+        title: '您確定要刪除報名嗎？',
+        text: '刪除後將無法復原訂單',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '是的！刪掉它！',
+        cancelButtonText: '不，先不要',
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          deleteOrderOnServer(deleteOrderNum)
+          swalWithBootstrapButtons.fire(
+            '已取消報名',
+            '此報名已被取消',
+            'success'
+          )
+          postOrderDetailFromServer()
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            '已放棄取消報名',
+            '您的報名尚未刪除：）',
+            'error'
+          )
+        }
+      })
   }
 
   function orderDetailButtonClick(orderNumber) {
@@ -177,7 +199,7 @@ function ActAllSignUp(props) {
     console.log('backToOrder 2', backToOrder)
   }
 
-  async function deleteOrderOnServer() {
+  async function deleteOrderOnServer(deleteOrder) {
     const url = 'http://localhost:3333/member/actorder/' + deleteOrder
     console.log('url', url)
     // header的資料格式
@@ -189,11 +211,6 @@ function ActAllSignUp(props) {
     console.log('response', response)
     backToOrderBtnClick()
   }
-
-  // 刪除後重新取得列表
-  useEffect(() => {
-    postOrderDetailFromServer()
-  }, [show, deleteOrder])
 
   console.log('orderLists.length', orderLists.rows)
 
@@ -217,9 +234,7 @@ function ActAllSignUp(props) {
     // console.log('response', response)
     console.log('order data', data)
     setOrderLists(data)
-    // setNoOrder(orderLists)
     console.log('orderLists', orderLists)
-    // console.log('NoOrder', noOrder)
   }
 
   const noOrders = (
@@ -470,43 +485,6 @@ function ActAllSignUp(props) {
             </div>
           </div>
         </div>
-        <Modal
-          show={show}
-          onHide={handleClose}
-          backdrop="static"
-          keyboard={false}
-        >
-          <Modal.Header>
-            <Modal.Title>取消報名</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="yen-alert-body">
-            取消報名後就無法回復
-            <br />
-            請問您是否確認要取消報名？
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="outline-secondary"
-              className="yen-cancel"
-              onClick={() => {
-                const whichClose = 'closeAlert'
-                handleCloseClick(whichClose)
-              }}
-            >
-              關閉
-            </Button>
-            <Button
-              variant="outline-danger"
-              className="yen-delete"
-              onClick={() => {
-                const whichClose = 'deleteOrder'
-                handleCloseClick(whichClose)
-              }}
-            >
-              取消報名
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </>
     )
   }
