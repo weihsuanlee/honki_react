@@ -113,8 +113,49 @@ function IndexNew(props) {
           <span className="yen-title-text">最新活動</span>
         </div>
 
-        <div className="yen-new-box d-flex">
+        {/* 手機板按鈕 */}
+        <div className="yen-select-area">
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const area = '?changeCity=north'
+              areaButtonClick(area)
+            }}
+          >
+            北部地區
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const area = '?changeCity=medium'
+              areaButtonClick(area)
+            }}
+          >
+            中部地區
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const area = '?changeCity=south'
+              areaButtonClick(area)
+            }}
+          >
+            南部地區
+          </button>
+          <button
+            className="btn-md-light yen-select-btn"
+            onClick={() => {
+              const area = '?changeCity=east'
+              areaButtonClick(area)
+            }}
+          >
+            東部地區
+          </button>
+        </div>
+        <div className="yen-new-box">
           <div className="yen-new-card-box">{cityCard}</div>
+
+          {/* 桌機板地圖 */}
           <div className="yen-island-box">
             <div className="yen-island">
               <SvgTaiwan />
