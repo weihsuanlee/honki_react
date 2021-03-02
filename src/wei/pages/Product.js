@@ -106,7 +106,7 @@ function Product(props) {
       setTotalPages(data.totalPages)
       setAvgPrice(data.avgPrice)
 
-      // 1.5秒後關閉spinner
+      // 1秒後關閉spinner
       setTimeout(() => {
         setIsLoading(false)
       }, 1000)
