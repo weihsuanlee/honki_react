@@ -320,18 +320,20 @@ function NormalAdd(props) {
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
-              // onClick={() => {
-              //   addUserToSever()
-              // }}
-              className="btn-md-dark jill-addform-btn"
-            >
-              新增
-            </button>
-            <Link to="./NormalIndex">
-              <button className="btn-md-dark jill-addform-btn">取消</button>
-            </Link>
+            <div className="jill-fix-addform-btn">
+              <button
+                type="submit"
+                // onClick={() => {
+                //   addUserToSever()
+                // }}
+                className="btn-md-dark jill-addform-btn"
+              >
+                新增
+              </button>
+              <Link to="./NormalIndex">
+                <button className="btn-md-dark jill-addform-btn">取消</button>
+              </Link>
+            </div>
           </form>
           {/* <!-- 按鈕 --> */}
           <div className="form-group button-group jill-fix-btn">
