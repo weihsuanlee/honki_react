@@ -1,19 +1,22 @@
-// import { useEffect } from 'react'
+import { useState } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
   // const [cardListLength, setCardListLength] = useState(6)
+  const [currentFirstCardSid, setCurrentFirstCardSid] = useState(-1)
 
   const {
     // getInitialStDataFromServer,
     handlePlateToggle,
     newTargetToggle,
     getCardBookSid,
+    setFirstCardSid,
     solarTermClicked,
+    // setSolarTermClicked,
     firstCardSid,
     clickedCardSid,
-    solarTermBookToShow,
+    // solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
   } = props

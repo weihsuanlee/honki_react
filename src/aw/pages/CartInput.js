@@ -46,23 +46,16 @@ function CartInput(props) {
   }, [])
 
   //input1
-  const Terms1 = (trans) => {
-    console.log(trans)
+  const Terms1 = (recipient_trans) => {
+    console.log(recipient_trans)
     const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
     console.log('index', currentCart)
-    currentCart[0].trans = trans
+    currentCart[0].recipient_trans = recipient_trans
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
-    setSeletedOption1(trans)
+    setSeletedOption1(recipient_trans)
   }
   //input2
-  const Terms2 = (dis) => {
-    console.log(dis)
-    const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
-    currentCart[0].dis = dis
-    console.log('index', currentCart)
-    localStorage.setItem('inputTerms', JSON.stringify(currentCart))
-    setSeletedOption2(dis)
-  }
+
   //input3
   const Terms3 = (payment) => {
     console.log(payment)
@@ -111,13 +104,13 @@ function CartInput(props) {
   }
 
   //input8
-  const Terms8 = (reciveName) => {
-    console.log(reciveName)
+  const Terms8 = (recipient_name) => {
+    console.log(recipient_name)
     const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
-    currentCart[0].reciveName = reciveName
+    currentCart[0].recipient_name = recipient_name
     console.log('index', currentCart)
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
-    setSeletedOption8(reciveName)
+    setSeletedOption8(recipient_name)
   }
   //input9
   const Terms9 = (recivePhone) => {

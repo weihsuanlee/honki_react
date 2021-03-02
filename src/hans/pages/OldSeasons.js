@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 // import components
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
@@ -101,7 +102,10 @@ function OldSeasons(props) {
     // console.log('initialStId', initialStId)
     let initialSid = data['solar_term_books'].length - 1
     console.log('initialSid', initialSid)
-    setFirstCardSid(initialSid)
+    // setFirstCardSid(initialSid)
+
+    // debug
+    setFirstCardSid(29)
 
     console.log(data)
     setSolarTermData(data)
@@ -202,6 +206,8 @@ function OldSeasons(props) {
         <div className="row justify-content-center">
           <div className="col">
             <SolarTermPlate
+              setFirstCardSid={setFirstCardSid}
+              setSolarTermClicked={setSolarTermClicked}
               solarPlateSize={solarPlateSize}
               redCenterSize={redCenterSize}
               redCenterImg={redCenterImg}
@@ -227,7 +233,7 @@ function OldSeasons(props) {
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">
-            <div className="osb-book-col-grad"></div>
+            {/* <FaChevronLeft size={25} /> */}
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片， 6 張卡片 */}
 
@@ -236,11 +242,13 @@ function OldSeasons(props) {
                 handlePlateToggle={handlePlateToggle}
                 newTargetToggle={newTargetToggle}
                 getCardBookSid={getCardBookSid}
+                setFirstCardSid={setFirstCardSid}
                 solarTermBookToShow={solarTermBookToShow}
                 firstCardSid={firstCardSid}
                 clickedCardSid={clickedCardSid}
                 solarTermNameList={solarTermNameList}
                 solarTermClicked={solarTermClicked}
+                setSolarTermClicked={setSolarTermClicked}
                 stClickedId={stClickedId}
                 solarTermBookToShowList={solarTermBookToShowList}
               />
@@ -249,6 +257,7 @@ function OldSeasons(props) {
                 solarTermBookToShowList={solarTermBookToShowList}
               /> */}
             </div>
+            {/* <FaChevronRight size={25} /> */}
           </div>
         </div>
       </div>
