@@ -71,10 +71,11 @@ function ProductCarousel(props) {
   const settings = {
     arrows: true,
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 992,

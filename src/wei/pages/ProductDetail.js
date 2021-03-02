@@ -425,7 +425,7 @@ function ProductDetail(props) {
       {isLoading ? detailSpinner : productDetailDisplay}
       <div className="container-fluid wei-detail-books">
         <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center wei-carousel">
           <div className="col-10">
             <ProductCarousel
               productRelated={productRelated}

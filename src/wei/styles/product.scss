@@ -127,7 +127,7 @@
   height: 100%;
 }
 .wei-book {
-  width: 8%;
+  width: 7%;
   position: absolute;
   bottom: 0;
   padding-bottom: 4px;
@@ -697,6 +697,12 @@ ol.wei-breadcrumb {
     width: 30%;
     margin-bottom: 8px;
   }
+  @media (max-width: 768px) {
+    .wei-detail-text {
+      width: 50%;
+      margin-bottom: 8px;
+    }
+  }
   .wei-detail-text-author {
     width: 20%;
   }
@@ -990,6 +996,7 @@ ol.wei-breadcrumb {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
 .wei-slick .wei-card-icon {
   top: -24px;
   left: 24px;

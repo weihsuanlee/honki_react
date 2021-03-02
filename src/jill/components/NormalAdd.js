@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom'
 // import NormalBee from './../components/NormalBee'
 import DancingImg from '../components/DancingImg'
 
+import Swal from 'sweetalert2'
+
 function NormalAdd(props) {
   const [dataLoading, setDataLoading] = useState(false)
   let jillForm = document.getElementById('form-jill')
@@ -87,9 +89,26 @@ function NormalAdd(props) {
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
-      alert('儲存完成')
-      props.history.push('/NormalIndex')
+      // alert('儲存完成')
+
+      Swal.fire({
+        title: '新增成功!!',
+        // text: 'Congratulations! We welcome you to your VIP membership.',
+        imageUrl: 'http://localhost:3000/images/jill/mushroom-hero.gif',
+        imageWidth: 251,
+        imageHeight: 196,
+        imageAlt: 'logo',
+        showConfirmButton: false,
+        timer: 5000,
+      })
+
+      // props.history.push('/NormalIndex')
     }, 500)
+
+    window.setTimeout(
+      () => (window.location.href = `http://localhost:3000/NormalIndex`),
+      3000
+    )
   }
 
   const handleFileChange = (event) => {

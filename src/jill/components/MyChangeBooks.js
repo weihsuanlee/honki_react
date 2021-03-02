@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import NormalBee from './../components/NormalBee'
 import ChangeBooksIcon2 from './../components/ChangeBooksIcon2'
 import DancingImg from '../components/DancingImg'
+// 跳窗
+import Swal from 'sweetalert2'
 
 // 抓取登入的userId(還沒用)
 // const userId = localStorage.getItem('userId')
@@ -67,11 +69,12 @@ class MyChangeBooks extends React.Component {
     console.log(newMyrows)
   }
 
-  // userid傳不到後端
+  //隨機交換按鈕送出
   handleSubmit = (event) => {
     const userId = localStorage.getItem('userId')
     console.log('handleSubmit userId', userId)
     // alert('A name was submitted: ' + userId)
+
     event.preventDefault()
     // 送到後端的資料
     // const data = { tweet: { body: this.state.userId } }
@@ -93,18 +96,29 @@ class MyChangeBooks extends React.Component {
       .then((res) => {
         /*接到request data後要做的事情*/
         console.log('ChangeBook', res)
-        window.location.href =
-          `http://localhost:3000/RandomSuccess/` + this.state.c_sid
+        // 跳轉視窗延遲
+        window.setTimeout(
+          () =>
+            (window.location.href =
+              `http://localhost:3000/RandomSuccess/` + this.state.c_sid),
+          3000
+        )
+        // window.location.href =
+        //   `http://localhost:3000/RandomSuccess/` + this.state.c_sid
         //更新某一筆資料
         // this.handleServerItemAdd(data)
       })
-    // .then((response) => {
-    //   this.setState({ userId: response.userId })
-    // })
-    // .catch((e) => {
-    //   /*發生錯誤時要做的事情*/
-    // })
-    // })
+
+    Swal.fire({
+      title: '看我變變變!',
+      // text: 'Congratulations! We welcome you to your VIP membership.',
+      imageUrl: 'http://localhost:3000/images/jill/mushroom-magic.gif',
+      imageWidth: 250,
+      imageHeight: 250,
+      imageAlt: 'logo',
+      showConfirmButton: false,
+      timer: 10000,
+    })
   }
 
   // 與JS或JQ整合要在這邊，執行順序是class，再來render然後才是這區塊，這邊可以fetch

@@ -1,3 +1,11 @@
+// 選擇模式下面的規則簡介
+.jill-change-rules{
+ margin-left: 210px;
+ margin-top: -175px;
+ margin-bottom: 100px;
+ width: 680px;
+}
+
 // 修一下新增二手書單的按鈕位置
 .jill-fix-addform-btn{
   margin-left:295.5px;
@@ -110,18 +118,19 @@
 // 隨機交換按鈕
 .jill-random-btn {
   // position: absolute;
-  // margin-left: 960px;
-  // margin-left: 1280px;
+  margin-top: -133px;
+  
   margin-left: 1200px;
-  margin-top: -132px;
-  margin-top: -0px;
+  margin-left: 920px;
+  // margin-top: -0px;
   // transition: 0.5s;
 }
 
 .jill-random-btn:hover {
   // position: absolute;
-  margin-left: 980px;
-  margin-left: 1220px;
+  // margin-left: 980px;
+  // margin-left: 1220px;
+  margin-left: 940px;
   background-color: red;
 }
 

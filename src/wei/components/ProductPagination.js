@@ -51,6 +51,15 @@ function ProductPagination(props) {
       <Pagination>
         <Pagination.Prev
           onClick={() => {
+            setPage(1)
+            pageButtonClick(1)
+          }}
+          style={{ transform: 'translateY(-2px)' }}
+        >
+          ⇤
+        </Pagination.Prev>
+        <Pagination.Prev
+          onClick={() => {
             setPage(pagePrev)
             pageButtonClick(pagePrev)
           }}
@@ -68,6 +77,15 @@ function ProductPagination(props) {
           }}
         >
           →
+        </Pagination.Next>
+        <Pagination.Next
+          onClick={() => {
+            setPage(totalPages)
+            pageButtonClick(totalPages)
+          }}
+          style={{ transform: 'translateY(-2px)' }}
+        >
+          ⇥
         </Pagination.Next>
       </Pagination>
     </>
