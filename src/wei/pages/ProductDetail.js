@@ -10,6 +10,7 @@ import SharePop from '../components/SharePop'
 import Favorite from '../components/Favorite'
 import ProductCarousel from '../components/ProductCarousel'
 import ProductHistoryCarousel from '../components/ProductHistoryCarousel'
+import DetailSpinner from '../components/DetailSpinner'
 
 function ProductDetail(props) {
   // 傳送 recentlyViewed
@@ -30,6 +31,8 @@ function ProductDetail(props) {
   const [favorited, setFavorited] = useState(false)
   // 全商品收藏狀態
   const [favorites, setFavorites] = useState([])
+  // loading spinner
+  const [isLoading, setIsLoading] = useState(true)
 
   const [modalShow, setModalShow] = React.useState(false)
   const [productDetail, setProductDetail] = useState([])
@@ -60,7 +63,7 @@ function ProductDetail(props) {
     } else {
       currentCart.push(item)
       localStorage.setItem('cart5566', JSON.stringify(currentCart))
-      // 更新購物車數量 
+      // 更新購物車數量
       updateCartNum()
     }
     // 設定資料
@@ -74,6 +77,8 @@ function ProductDetail(props) {
 
   // 伺服器抓資料async
   const getProductDetail = async () => {
+    // 先開啟spinner
+    setIsLoading(true)
     const response = await fetch('http://localhost:3333/product/book/' + sid, {
       method: 'get',
     })
@@ -91,6 +96,10 @@ function ProductDetail(props) {
       discountState = '原價'
     }
     setDiscountDisplay(discountState)
+    // 0.5秒後關閉spinner
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 500)
   }
 
   // didMount
@@ -213,6 +222,8 @@ function ProductDetail(props) {
       addFavorite()
     }
   }
+  const detailSpinner = <DetailSpinner show="true" />
+
   const productDetailDisplay = (
     <>
       <div className="container-fluid wei-bg-white">
@@ -411,7 +422,7 @@ function ProductDetail(props) {
 
   return (
     <>
-      {productDetailDisplay}
+      {isLoading ? detailSpinner : productDetailDisplay}
       <div className="container-fluid wei-detail-books">
         <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
         <div className="row justify-content-center">
