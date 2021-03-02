@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import { FaTimesCircle, FaShoppingCart } from 'react-icons/fa'
 
 // import style
 import '../styles/old-season-book-card.scss'
 
 function OldSeasonBookCard(props) {
-  const [cardStSid, setCardStSid] = useState(-1)
+  // const [cardStSid, setCardStSid] = useState(-1)
   const [cardClass, setCardClass] = useState('hans-book-card')
   const [elementDisplay, setElementDisplay] = useState('displayOff')
   const [cardBaseClass, setCardBaseClass] = useState('hans-book-base')
@@ -16,6 +17,7 @@ function OldSeasonBookCard(props) {
 
   const {
     cardStBookId,
+    bookSid,
     handlePlateToggle,
     newTargetToggle,
     getCardBookSid,
@@ -57,13 +59,27 @@ function OldSeasonBookCard(props) {
           <div className={cardBaseClass}>
             <img
               className="hans-book-img"
+              onClick={() => {
+                !solarTermClicked
+                  ? props.history.push('/products/' + bookSid)
+                  : console.log('link ready')
+              }}
               src={'http://localhost:3000/images/books/' + bookImg}
               alt=""
             />
           </div>
           <div className="hans-book-card-description">
             {/* <!-- 書名 28 字以內 --> */}
-            <div className={bookNameStyle}>{bookName}</div>
+            <div
+              className={bookNameStyle}
+              onClick={() => {
+                !solarTermClicked
+                  ? props.history.push('/products/' + bookSid)
+                  : console.log('link ready')
+              }}
+            >
+              {bookName}
+            </div>
           </div>
 
           <div className={solarTermYearSelect}>
@@ -72,7 +88,16 @@ function OldSeasonBookCard(props) {
           <div className={'hans-book-overview ' + elementDisplay}>
             {bookOverview}
           </div>
-          <div className={'hans-read-more ' + elementDisplay}>...閱讀更多</div>
+          <div
+            className={'hans-read-more ' + elementDisplay}
+            onClick={() => {
+              !solarTermClicked
+                ? props.history.push('/products/' + bookSid)
+                : console.log('link ready')
+            }}
+          >
+            ...閱讀更多
+          </div>
           <div className={'hans-center-block-item ' + elementDisplay}>
             <div className="hans-btn-a">
               {/* <FaShoppingCart className="hans-fa-shopping-card-item" />{' '} */}
@@ -107,4 +132,4 @@ function OldSeasonBookCard(props) {
   )
 }
 
-export default OldSeasonBookCard
+export default withRouter(OldSeasonBookCard)
