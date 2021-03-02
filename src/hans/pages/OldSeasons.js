@@ -233,7 +233,7 @@ function OldSeasons(props) {
           </div>
 
           <div className="col-xl-6 osb-book-col-outer">
-            <FaChevronLeft size={25} />
+            {/* <FaChevronLeft size={25} /> */}
             <div className="row justify-content-center osb-book-col fadein-on-start">
               {/* 過往節氣選書卡片， 6 張卡片 */}
 
@@ -257,7 +257,7 @@ function OldSeasons(props) {
                 solarTermBookToShowList={solarTermBookToShowList}
               /> */}
             </div>
-            <FaChevronRight size={25} />
+            {/* <FaChevronRight size={25} /> */}
           </div>
         </div>
       </div>
