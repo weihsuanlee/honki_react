@@ -1,10 +1,7 @@
 import '../styles/cartStyle.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
 import { withRouter, Link } from 'react-router-dom'
-// import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
-// import ProductBanner from '../components/ProductBanner'
-// import ListSpinner from '../components/ListSpinner'
-// import MyPopOver from '../components/MyPopOver'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
 
 function CartConfirm(props) {
@@ -12,8 +9,22 @@ function CartConfirm(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
   const [inputerms, setInputerms] = useState([])
+  const [orderData, setOrderData] = useState([])
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
+
+  ///
+  let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+  const [hasQueryInfo, setHasQueryInfo] = useState(false)
+  const [name, setName] = useState(userLogin.body.name)
+  const [nickname, setNickname] = useState(userLogin.body.nickname)
+  const [email, setEmail] = useState(userLogin.body.email)
+  const [mobile, setMobile] = useState(userLogin.body.mobile)
+  const [address, setAddress] = useState(userLogin.body.address)
+  const userBirthday = moment(userLogin.body.birthday).format('YYYY-MM-DD')
+  const [birthday, setBirthday] = useState(userBirthday)
+  const [password, setPassword] = useState(userLogin.body.passward)
+
   // 更動購物車數量
   const { updateCartNum } = props
 
@@ -79,7 +90,7 @@ function CartConfirm(props) {
   }, [mycart])
 
   // 更新購物車中的商品數量
-  const updateCartToLocalStorage = (item, isAdded = true) => {
+  const updateCartToLocalStorage1 = (item, isAdded = true) => {
     console.log(item, isAdded)
     const currentCart = JSON.parse(localStorage.getItem('cart5566')) || []
     console.log('index', currentCart)
@@ -95,6 +106,55 @@ function CartConfirm(props) {
     setMycart(currentCart)
   }
 
+  const updateCartToLocalStorage = async function () {
+    // let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+
+    const newCart = localStorage.getItem('cart5566') || '[]'
+    const newCartJson = JSON.parse(newCart)
+    const newInput = localStorage.getItem('inputTerms') || '[]'
+    const newInputJson = JSON.parse(newInput)
+    const Alldata = { input: newInputJson, items: newCartJson }
+    // console.log('newCart', newCart)
+    // console.log('newInput', newInput)
+    console.log('Alldata', Alldata)
+    const url = 'http://localhost:3333/cart/cartInput1/'
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(Alldata),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    try {
+      const response = await fetch(request)
+      const data = await response.json()
+      console.log(data)
+      if (data.success) {
+        // localStorage.setItem('userLogin', JSON.stringify(data))
+        console.log(data)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    // localStorage.removeItem('cart5566')
+  }
+  const emptyCart = (
+    <>
+      <div className="cart-page noselect">
+        <div className="ru-cart-wrap mx-auto">
+          <main className="d-flex justify-content-center align-items-center w-100 aw-cart-empty">
+            <div className="empty-cart-display ">
+              <h4>您的購物車是空的，快去挑選商品！</h4>
+              <Link to="/product" class="d-flex justify-content-end mr-2">
+                <h5>繼續購物</h5>
+              </Link>
+            </div>
+          </main>
+        </div>
+      </div>
+    </>
+  )
   // 計算總價用的函式
   const sumQuantity = (items) => {
     let total = 0
@@ -113,10 +173,27 @@ function CartConfirm(props) {
     }
     return total
   }
+  // 計算總量的函式
+  const sumAmount2 = (items) => {
+    let total = 0
+    const newCart = localStorage.getItem('inputTerms') || '[]'
+    console.log(JSON.parse(newCart)[0].recipient_trans)
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].amount * items[i].price
+    }
+    if (JSON.parse(newCart)[0].recipient_trans === '超商取貨') {
+      total += 60
+    }
+    if (JSON.parse(newCart)[0].recipient_trans === '宅配') {
+      total += 120
+    }
+    return total
+  }
+
   const loading = (
     <>
       <div className="d-flex justify-content-center">
-      <div className="spinner-border aw-spinner" role="status">
+        <div className="spinner-border aw-spinner" role="status">
           <span className="sr-only aw-spinner">Loading...</span>
         </div>
       </div>
@@ -151,7 +228,6 @@ function CartConfirm(props) {
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item">
-                    {' '}
                     <img
                       src="http://localhost:3000/images/aw/ladybird.svg"
                       alt=""
@@ -253,58 +329,11 @@ function CartConfirm(props) {
                     </div>
                   </div>
                   <div class="aw-countArea aw-pr-42">
-                    {/* <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5> 共 </h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> {toCurrency(sumQuantity(mycart))}</h5>
-                        </div>
-                        <h5> 本 </h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>小計</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> {toCurrency(sumAmount(mycart))}</h5>
-                        </div>
-                        <h5>元</h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>運費</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> 60</h5>
-                        </div>
-                        <h5> 元 </h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0">
-                      <div class="row aw-row aw-count pt-2">
-                        <h5>折扣</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> -60</h5>
-                        </div>
-                        <h5>元</h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end p-0 aw-borderTop">
-                      <div class="row aw-row aw-count pb-5">
-                        <h5>總計</h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5>{toCurrency(sumAmount(mycart))}元</h5>
-                        </div>
-                        <h5>元</h5>
-                      </div>
-                    </div> */}
-
                     <div class="aw-countArea pr-0">
                       <div class="d-flex justify-content-end p-0">
                         <div class="row aw-row aw-count pt-2">
                           <div class="text-right">
                             <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>{' '}
-                            <h5>折扣</h5>
                           </div>
                           <div class="aw-count-num d-flex justify-content-end">
                             {/* 計算加總本數 */}
@@ -312,12 +341,10 @@ function CartConfirm(props) {
                               <h5> {toCurrency(sumQuantity(mycart))}</h5>
                               <h5>$ {toCurrency(sumAmount(mycart))}</h5>
                               <h5> 60</h5>
-                              <h5> -60</h5>
                             </div>
                           </div>
                           <div class="text-right">
                             <h5>本</h5>
-                            <h5>元</h5>
                             <h5>元</h5>
                             <h5>元</h5>
                           </div>
@@ -328,7 +355,7 @@ function CartConfirm(props) {
                         <div class="row aw-row aw-count pb-5">
                           <h5>總計</h5>
                           <div class="aw-count-num d-flex justify-content-end">
-                            <h5>$ {toCurrency(sumAmount(mycart))}</h5>
+                            <h5>$ {toCurrency(sumAmount2(mycart))}</h5>
                           </div>
                           <h5>元</h5>
                         </div>
@@ -355,7 +382,9 @@ function CartConfirm(props) {
                                       運送方式
                                     </label>
                                     <div class="col-8">
-                                      <h6 class="m-0"> {item.trans}</h6>
+                                      <h6 class="m-0">
+                                        {item.recipient_trans}
+                                      </h6>
                                     </div>
                                   </div>
                                 </div>
@@ -463,7 +492,7 @@ function CartConfirm(props) {
                                       姓名
                                     </label>
                                     <div class="col-8">
-                                      <h6 class="m-0">{item.reciveName}</h6>
+                                      <h6 class="m-0">{item.recipient_name}</h6>
                                     </div>
                                   </div>
                                 </div>
@@ -528,7 +557,14 @@ function CartConfirm(props) {
                       <div class=" position-relative">
                         <div class="d-flex justify-content-center ">
                           <Link class="aw-a" to="/CartOrder">
-                            <button class="btn-md-dark w-100">確認訂單</button>
+                            <button
+                              class="btn-md-dark w-100"
+                              onClick={() => {
+                                updateCartToLocalStorage(false)
+                              }}
+                            >
+                              確認訂單
+                            </button>
                           </Link>
                         </div>
                         <div class="d-flex justify-content-start position-absolute aw-icecream">
@@ -563,7 +599,14 @@ function CartConfirm(props) {
       </div>
     </>
   )
-  return dataLoading ? loading : display
+  if (
+    !localStorage.getItem('cart5566') ||
+    JSON.parse(localStorage.getItem('cart5566')).length === 0
+  ) {
+    return emptyCart
+  } else {
+    return dataLoading ? loading : display
+  }
 }
 
 export default withRouter(CartConfirm)
