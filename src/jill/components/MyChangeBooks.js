@@ -76,13 +76,14 @@ class MyChangeBooks extends React.Component {
     // 送到後端的資料
     // const data = { tweet: { body: this.state.userId } }
     console.log('this.state.c_sid', this.state.c_sid)
+    const url = 'http://localhost:3333/normal-index/random/' + this.state.c_sid
 
     // let history = this.props.history
-    fetch('http://localhost:3333/normal-index/random/' + this.state.c_sid, {
-      method: 'POST', //PUT會連第一段SQL都跑不出來
+    fetch(url, {
+      method: 'POST', // or 'PUT'
       body: JSON.stringify({
         userId: userId,
-      }),
+      }), // data can be `string` or {object}!
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',

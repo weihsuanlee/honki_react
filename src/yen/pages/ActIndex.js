@@ -16,7 +16,6 @@ function ActIndex(props) {
   const [page, setPage] = useState(null)
   // 熱門活動
   const [hotLists, setHotLists] = useState([])
-  const [hotAddClass, setHotAddClass] = useState('')
   // 最新活動
   const [newLists, setNewLists] = useState([])
   // query string page
@@ -200,12 +199,8 @@ function ActIndex(props) {
 
   return (
     <>
-      <IndexHeader />
-      <IndexHot
-        hotLists={hotLists}
-        hotAddClass={hotAddClass}
-        queryPage={queryPage}
-      />
+      <IndexHeader queryPage={queryPage} queryClass={queryClass} />
+      <IndexHot hotLists={hotLists} queryPage={queryPage} />
       <IndexNew
         newLists={newLists}
         setQuerySelect={setQuerySelect}

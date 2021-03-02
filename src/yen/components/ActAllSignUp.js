@@ -8,6 +8,7 @@ import '../styles/yen-allsignup.scss'
 import '../styles/yen-check.scss'
 import SvgPencil from './svg/SvgPencil'
 import SvgCheckFormArrow from './svg/SvgCheckFormArrow'
+import SvgQQ from './svg/SvgQQ'
 import ActCalendar from './ActCalendar'
 
 function ActAllSignUp(props) {
@@ -134,6 +135,7 @@ function ActAllSignUp(props) {
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
   const [deleteOrder, setDeleteOrder] = useState(null)
+  // const [noOrder, setNoOrder] = useState([])
   const [show, setShow] = useState(false)
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
@@ -188,6 +190,7 @@ function ActAllSignUp(props) {
     backToOrderBtnClick()
   }
 
+  // 刪除後重新取得列表
   useEffect(() => {
     postOrderDetailFromServer()
   }, [show, deleteOrder])
@@ -209,11 +212,26 @@ function ActAllSignUp(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log('response', response)
+    // console.log('response', response)
     console.log('order data', data)
     setOrderLists(data)
-    console.log('orderLists', orderLists.rows)
+    // setNoOrder(orderLists)
+    console.log('orderLists', orderLists)
+    // console.log('NoOrder', noOrder)
   }
+
+  const noOrders = (
+    <>
+      <div className="yen-no-order-box">
+        <div className="yen-no-order-text">
+          <h5>您還沒有參加活動喔</h5>
+        </div>
+        <div className="yen-no-order-QQ">
+          <SvgQQ />
+        </div>
+      </div>
+    </>
+  )
 
   const orderCard = (
     <>
@@ -407,64 +425,89 @@ function ActAllSignUp(props) {
     postOrderDetailFromServer()
   }, [])
 
-  return (
-    <>
-      <div className="yen-signup-showbox">
-        <div className="yen-signup-showbox-bg">
-          <ActCalendar orderLists={orderLists} />
-          <div
-            className="yen-signup-list"
-            style={{ display: checkDetail === true ? 'none' : 'block' }}
-          >
-            {orderCard}
-          </div>
-          <div
-            className="yen-check-list"
-            style={{ display: backToOrder === false ? 'block' : 'none' }}
-          >
-            {orderDetailCard}
+  // console.log('NoOrder 11', noOrder)
+
+  if (orderLists.length === 0) {
+    return (
+      <>
+        <div className="yen-signup-showbox">
+          <div className="yen-signup-showbox-bg">
+            <ActCalendar orderLists={orderLists} />
+            <div className="yen-signup-list">{noOrders}</div>
           </div>
         </div>
-      </div>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header>
-          <Modal.Title>取消報名</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="yen-alert-body">
-          取消報名後就無法回復
-          <br />
-          請問您是否確認要取消報名？
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="outline-secondary"
-            className="yen-cancel"
-            onClick={() => {
-              const whichClose = 'closeAlert'
-              handleCloseClick(whichClose)
-            }}
-          >
-            關閉
-          </Button>
-          <Button
-            variant="outline-danger"
-            className="yen-delete"
-            onClick={() => {
-              const whichClose = 'deleteOrder'
-              handleCloseClick(whichClose)
-            }}
-          >
-            取消報名
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  )
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div className="yen-signup-showbox">
+          <div className="yen-signup-showbox-bg">
+            <ActCalendar orderLists={orderLists} />
+            <div
+              className="yen-signup-list"
+              style={{ display: checkDetail === true ? 'none' : 'block' }}
+              // style={{ display: 'none' }}
+            >
+              {orderCard}
+            </div>
+            <div
+              className="yen-check-list"
+              style={{ display: backToOrder === false ? 'block' : 'none' }}
+              // style={{ display: 'none' }}
+            >
+              {orderDetailCard}
+            </div>
+            <div
+              className="yen-signup-list"
+              style={{
+                display: orderLists.length === 0 ? 'block' : 'none',
+              }}
+            >
+              {noOrders}
+            </div>
+          </div>
+        </div>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header>
+            <Modal.Title>取消報名</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="yen-alert-body">
+            取消報名後就無法回復
+            <br />
+            請問您是否確認要取消報名？
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="outline-secondary"
+              className="yen-cancel"
+              onClick={() => {
+                const whichClose = 'closeAlert'
+                handleCloseClick(whichClose)
+              }}
+            >
+              關閉
+            </Button>
+            <Button
+              variant="outline-danger"
+              className="yen-delete"
+              onClick={() => {
+                const whichClose = 'deleteOrder'
+                handleCloseClick(whichClose)
+              }}
+            >
+              取消報名
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    )
+  }
 }
 
 export default withRouter(ActAllSignUp)
