@@ -18,6 +18,9 @@ function IndexHeader() {
                 className="yen-pics-right"
               />
             </div>
+            <div className="yen-repeat-bt">
+              <div className="yen-pics-left"></div>
+            </div>
             <div className="yen-header-box">
               <div className="yen-header-text">
                 <SvgText />

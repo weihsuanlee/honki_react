@@ -83,6 +83,10 @@ body {
   position: absolute;
 }
 
+.yen-repeat-bt {
+  display: none;
+}
+
 .yen-header-ladybug {
   position: absolute;
   bottom: -4%;
@@ -165,6 +169,38 @@ body {
 }
 
 @media (max-width: 576px) {
+  .yen-header > .d-flex {
+    display: block !important;
+  }
+
+  .yen-repeat-left {
+    width: 100%;
+    height: 50%;
+    display: none;
+  }
+
+  .yen-bg-img {
+    width: 100%;
+    height: 50vh;
+    animation: fadein 2s ease-in;
+  }
+
+  .yen-bg-img > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .yen-bg-img::after {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .yen-repeat-bt {
+    display: block;
+    width: 100vw;
+    height: 50vh;
+  }
+
   .yen-header-box {
     z-index: 10;
     position: absolute;
