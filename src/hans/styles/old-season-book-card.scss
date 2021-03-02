@@ -132,7 +132,7 @@
   border-radius: 5px;
 
   margin: 27px 27px 27px 0px;
-  padding: 1rem 4rem;
+  padding: 1rem 4rem 0 4rem;
 
   // display: none;
 }
@@ -150,7 +150,7 @@
 }
 
 .hans-osb-content {
-  // height: 143px;
+  height: 143px;
 
   font-size: 14px;
   text-align: justify;
@@ -232,13 +232,22 @@
     // debug 用背景色
     background-color: var(--honki-white);
     // background-color: grey;
-    transform: unset;
+    transform: translate(-120px);
     transition: 2s;
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1350px) {
+  .hans-book-card2 {
+    transform: unset;
+  }
 }
+
+// @media only screen and (max-width: 1200px) {
+//   .hans-book-card2 {
+//     transform: unset;
+//   }
+// }
 
 /* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
 @media only screen and (max-width: 992px) {
@@ -250,14 +259,23 @@
     width: unset;
 
     margin: 27px 20px 27px 20px;
-    padding: 1rem 4rem;
+    padding: 1rem 4rem 0rem 4rem;
 
     // display: none;
+  }
+  .hans-close-btn {
+    transform: translate(90px, -520px);
+  }
+  .hans-osb-content {
+    height: unset;
   }
 }
 
 @media only screen and (max-width: 360px) {
   .hans-card-col-right {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem 0 1rem;
+  }
+  .hans-close-btn {
+    transform: translate(26px, -520px);
   }
 }
