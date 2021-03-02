@@ -653,7 +653,62 @@ ol.wei-breadcrumb {
     }
   }
 }
-
+.wei-detail-spinner {
+  .wei-detail-pic,
+  .wei-detail-title,
+  .wei-detail-subtitle,
+  .wei-reviews,
+  .wei-detail-text,
+  .wei-detail-final-price,
+  .wei-detail-badge {
+    background: #ccc;
+    overflow: hidden;
+    content: '';
+    height: 19px;
+    z-index: 1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    animation: loading-wei 1.5s infinite;
+  }
+  .wei-detail-title {
+    height: 33px;
+    width: 70%;
+    margin-bottom: 8px;
+  }
+  .wei-detail-pic {
+    height: 307px;
+  }
+  .wei-detail-subtitle {
+    width: 20%;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+  .wei-reviews {
+    height: 16px;
+    width: 18%;
+  }
+  .wei-detail-text {
+    width: 30%;
+    margin-bottom: 8px;
+  }
+  .wei-detail-text-author {
+    width: 20%;
+  }
+  .wei-detail-final-price {
+    height: 24px;
+    width: 15%;
+    margin-bottom: 8px;
+  }
+  .wei-detail-badge {
+    height: 24px;
+  }
+}
 /* pagination */
 .wei-pagination {
   margin-bottom: 192px;

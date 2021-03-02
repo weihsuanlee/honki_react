@@ -69,7 +69,7 @@ function Bookshelf(props) {
         'src',
         'http://localhost:3000/images/yu/vip-bookshelf.png'
       )
-      bodyForVip.style.background = `url('http://localhost:3000/images/bg_noise.png') #484747`
+      bodyForVip.style.background = `url('http://localhost:3000/images/bg_noise.png') #1c1b1b`
       // colorForVip.forEach(function(userItem){
       //   style.color = '#fff'}
       colorForVip1.style.color = '#fff'
@@ -77,18 +77,21 @@ function Bookshelf(props) {
       colorForVip3.style.color = '#fff'
       colorForVip4.style.color = '#fff'
       colorForVip5.style.color = '#fff'
-      drop.style.backgroundColor = '#fff'
+      drop.style.backgroundColor = 'transparent'
       setVip(true)
-      Swal.fire({
-        title: '恭喜你成為我們的VIP!',
-        // text: 'Congratulations! We welcome you to your VIP membership.',
-        imageUrl: 'http://localhost:3000/images/yu/mushroom-2.gif',
-        imageWidth: 250,
-        imageHeight: 250,
-        imageAlt: 'logo',
-        showConfirmButton: false,
-        timer: 9000,
-      })
+
+      setTimeout(function () {
+        Swal.fire({
+          title: '恭喜你成為我們的VIP!',
+          // text: 'Congratulations! We welcome you to your VIP membership.',
+          imageUrl: 'http://localhost:3000/images/yu/mushroom-2.gif',
+          imageWidth: 250,
+          imageHeight: 250,
+          imageAlt: 'logo',
+          showConfirmButton: false,
+          timer: 9000,
+        })
+      }, 3000)
     })
   }, [])
 
@@ -309,7 +312,7 @@ function Bookshelf(props) {
                 <p className="yu-book-vipcolor5">新購買的二十四節氣書籍</p>
                 <div className="yu-book-new-book-pic mx-auto" draggable="true">
                   <img
-                    src="http://localhost:3000/images/books/9789863984740.jpg"
+                    src="http://localhost:3000/images/books/5fe422ca006c3.jpg"
                     className="yu-book-newbook w-100"
                     alt=""
                   />

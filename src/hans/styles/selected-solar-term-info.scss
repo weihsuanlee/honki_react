@@ -25,18 +25,21 @@
 }
 
 @media only screen and (max-width: 1200px) {
-}
-
-/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
-@media only screen and (max-width: 992px) {
   .hans-st-info {
-    width: unset;
-    height: unset;
-    padding-bottom: 1rem;
-    transform: translate(0, 0);
     display: none;
     // opacity: 0;
   }
+}
+
+@media only screen and (max-width: 992px) {
+  // .hans-st-info {
+  //   width: unset;
+  //   height: unset;
+  //   padding-bottom: 1rem;
+  //   transform: translate(0, 0);
+  //   display: none;
+  //   // opacity: 0;
+  // }
 
   .red-center-text {
     transform: translate(0, -40px);

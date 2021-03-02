@@ -25,6 +25,8 @@ https://codepen.io/ant1mas/pen/MeJjaK
   /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
 
   // 圓盤位置
+  // z-index: 2;
+
   transform: translate(0px, 0px);
   // transform: translate(-81px, -265px);
   // transform: translate(-70px, -173px) rotate(15deg);
@@ -217,14 +219,14 @@ https://codepen.io/ant1mas/pen/MeJjaK
   width: 200%;
   height: 200%;
   border-radius: 50%;
-  background: var(--honki-black);
-  opacity: 85%;
+  // background: var(--honki-black);
+  // opacity: 85%;
 }
 
-.slice:hover .slice-contents {
-  background-color: transparent;
-  transition: 1s;
-}
+// .slice:hover .slice-contents {
+//   background-color: transparent;
+//   transition: 1s;
+// }
 
 /* .red-center-bg-color:hover {
   background-color: transparent;

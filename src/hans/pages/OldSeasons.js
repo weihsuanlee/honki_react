@@ -36,7 +36,7 @@ function OldSeasons(props) {
   const [showBreadCrumb, setShowBreadCrumb] = useState(false)
   const [stClickedId, setStClickedId] = useState(-1)
 
-  const [displayTitle, setDisplayTitle] = useState('displayOn')
+  const [displayTitle, setDisplayTitle] = useState('fadeIn')
   const [displaySolarTermInfo, setDisplaySolarTermInfo] = useState(
     'd-flex justify-content-center  fadeOut'
   )
@@ -89,32 +89,6 @@ function OldSeasons(props) {
     return solarTermId
   }
 
-  // 把日期轉換成 YYYY-MM-DD 格式
-  // 參考： https://stackoverflow.com/questions/6253851/converting-yyyy-mm-dd-to-unix-timestamp-in-javascript
-  /*
-  function formatDate(date) {
-    let d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear()
-
-    if (month.length < 2) month = '0' + month
-    if (day.length < 2) day = '0' + day
-
-    return [year, month, day].join('-')
-  }
-  */
-
-  /*
-  console.log(formatDate('Sun May 11,2014'))
-
-  // 把日期轉為 Unix Timestamp 來比較大小
-  console.log(
-    new Date(formatDate('Sun May 11,2014')).getTime() >
-      new Date('2020-01-01').getTime()
-  )
-  */
-
   // 和伺服器要資料，初始節氣卡
   const getInitialStDataFromServer = async () => {
     const response = await fetch('http://localhost:3333/old-seasons', {
@@ -163,42 +137,6 @@ function OldSeasons(props) {
 
     return data
   }
-
-  // 舊的 Toogle 處理 function
-  /*
-  const getStDataFromServer = async (id) => {
-    const response = await fetch('http://localhost:3333/old-seasons', {
-      method: 'get',
-    })
-    const data = await response.json()
-    // console.log(data)
-    setSolarTermData(data)
-    // console.log(data['solar_term_list'])
-    // console.log(data['solar_term_list'][id])
-    // console.log(data['solar_term_books'])
-
-    setSolarTermDesc(data['solar_term_list'][id]['st_desc'])
-    setSolarTermNameList(
-      Array.from(Array(24).keys()).map(
-        (id) => data['solar_term_list'][id]['solar_term']
-      )
-    )
-    setSolarTermToShow(data['solar_term_list'][id]['solar_term'])
-    setSolarTermImgToShow(data['solar_term_list'][id]['st_img'])
-    // setSolarTermImgs(solarTermId.map((eid) => data['solar_term_list'][id]))
-
-    // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
-    // console.log('test', data['current_solar_term_id'])
-
-    let stImgArray = solarTermId.map(
-      (id) => data['solar_term_list'][id]['st_img']
-    )
-    // console.log(stImgArray)
-    setSolarTermImgs(stImgArray)
-
-    return data
-  }
-  */
 
   const getCardBookSid = (id) => {
     setClickedCardSid(id)
@@ -283,7 +221,7 @@ function OldSeasons(props) {
                 solarTermDesc={solarTermDesc}
               />
             </div>
-            <div className={displayTitle}>
+            <div className={'hans-z-index-up20 ' + displayTitle}>
               <OldSeasonPageTitle />
             </div>
           </div>

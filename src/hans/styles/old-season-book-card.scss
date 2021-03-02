@@ -22,12 +22,11 @@
 
 .hans-book-card2 {
   width: 100%;
-  // height: 646px;
+  height: 646px;
   margin: 28px 0.5rem 2rem 0.5rem;
   border-radius: 10px;
 
   display: flex;
-  // flex-direction: column;
 
   // debug-------------------------------
   // debug 用背景色
@@ -95,6 +94,8 @@
   font-weight: bold;
   text-align: center;
 
+  cursor: pointer;
+
   overflow: hidden;
   margin: 0 0 0.5rem 0;
   // transition: 2s;
@@ -124,7 +125,6 @@
 
 .hans-card-col-left {
   width: 220px;
-  flex-direction: column;
 }
 
 .hans-card-col-right {
@@ -134,9 +134,7 @@
   border-radius: 5px;
 
   margin: 27px 27px 27px 0px;
-  padding: 1rem 4rem;
-
-  flex-direction: column;
+  padding: 1rem 4rem 0 4rem;
 
   // display: none;
 }
@@ -154,7 +152,7 @@
 }
 
 .hans-osb-content {
-  // height: 143px;
+  height: 143px;
 
   font-size: 14px;
   text-align: justify;
@@ -181,6 +179,8 @@
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   background-color: var(--honki-red);
   border-style: none;
   color: var(--honki-white);
@@ -196,9 +196,6 @@
 }
 .hans-btn-a:focus {
   outline: none;
-}
-
-.hans-fa-shopping-card-item {
 }
 
 .hans-book-overview {
@@ -217,6 +214,76 @@
 .hans-read-more {
   font-size: 12px;
   color: #707070;
+
+  cursor: pointer;
+
   margin: 0 0.5rem 1rem 0.5rem;
   padding: 0 1rem;
+}
+
+/* media 變化 start */
+
+@media only screen and (max-width: 1440px) {
+  .hans-book-card2 {
+    width: 100%;
+    height: unset;
+    margin: 28px 0.5rem 2rem 0.5rem;
+    border-radius: 10px;
+
+    display: flex;
+    // flex-direction: column;
+
+    // debug-------------------------------
+    // debug 用背景色
+    background-color: var(--honki-white);
+    // background-color: grey;
+    transform: translate(-120px);
+    transition: 2s;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .hans-book-card2 {
+    transform: unset;
+  }
+}
+
+// @media only screen and (max-width: 1200px) {
+//   .hans-book-card2 {
+//     transform: unset;
+//   }
+// }
+
+/* 使桌面版 navbar 在寬度小於 992px 時取消 margin-top */
+@media only screen and (max-width: 992px) {
+  .hans-book-card2 {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .hans-card-col-left{
+    margin: 0 auto;
+  }
+  .hans-card-col-right {
+    width: unset;
+
+    margin: 27px 20px 27px 20px;
+    padding: 1rem 4rem 0rem 4rem;
+
+    // display: none;
+  }
+  .hans-close-btn {
+    transform: translate(90px, -520px);
+  }
+  .hans-osb-content {
+    height: unset;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .hans-card-col-right {
+    padding: 1rem 1rem 0 1rem;
+  }
+  .hans-close-btn {
+    transform: translate(26px, -520px);
+  }
 }

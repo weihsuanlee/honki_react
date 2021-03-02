@@ -270,7 +270,7 @@ function Navbar(props) {
                 >
                   <FaUserAlt
                     className="fas fa-user fa-lg"
-                    style={{ fontSize: '24px' }}
+                    style={{ fontSize: '20px', transform: 'translateY(2px)' }}
                   />
                 </Link>
                 <NavDropdown
@@ -308,7 +308,7 @@ function Navbar(props) {
                 >
                   <FaShoppingCart
                     className="fas fa-shopping-cart fa-lg"
-                    style={{ fontSize: '24px' }}
+                    style={{ fontSize: '24px', transform: 'translateY(2px)' }}
                   />
                   {cartNum ? (
                     <div className="honki-cart-num" id="cartNum">

@@ -15,7 +15,6 @@ function Product(props) {
   let searchParams = new URLSearchParams(props.location.search)
   let url = props.match.url
 
-  // console.log(props)
   // 書籍商品
   const [books, setBooks] = useState([])
   // 分類選單 Display
@@ -37,7 +36,7 @@ function Product(props) {
   // spinner
   const [isLoading, setIsLoading] = useState(true)
   // 設定navbar搜尋欄 顯示
-  const { navSearchShow, setNavSearchShow } = props
+  const { setNavSearchShow } = props
 
   // sorts 排序條件按鈕事件處理
   //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
@@ -106,7 +105,7 @@ function Product(props) {
       setTotalPages(data.totalPages)
       setAvgPrice(data.avgPrice)
 
-      // 1.5秒後關閉spinner
+      // 1秒後關閉spinner
       setTimeout(() => {
         setIsLoading(false)
       }, 1000)
