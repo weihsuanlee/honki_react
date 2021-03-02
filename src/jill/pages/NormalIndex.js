@@ -28,6 +28,8 @@ function NormalIndex() {
   // 卸載
   const [show, setShow] = useState(true)
 
+  const [dataLoading, setDataLoading] = useState(false)
+
   const getDataFromServer = async () => {
     // 先開起載入指示器
     // setIsLoading(true)
@@ -41,6 +43,9 @@ function NormalIndex() {
       }),
     })
     const data = await response.json()
+
+    // 開啟載入指示
+    setDataLoading(true)
 
     // 最後設定到狀態中
     // setOrderDisplay(data)
@@ -61,7 +66,7 @@ function NormalIndex() {
     console.log(data)
     // 3秒後關閉指示器
     setTimeout(() => {
-      // setIsLoading(false)
+      setDataLoading(false)
     }, 3000)
   }
   // 模擬componentDidMount
