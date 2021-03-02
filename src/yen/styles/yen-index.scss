@@ -215,7 +215,7 @@ body {
 
   .yen-header-text {
     padding-left: 5%;
-    margin-top: 3%;
+    margin-top: 15%;
     width: 85%;
     height: 85%;
     position: absolute;
@@ -485,7 +485,12 @@ body {
     /* margin-top: 2%; */
     width: 100vw;
     height: 100%;
-    overflow: visible;
+    overflow: scroll;
+  }
+
+  .yen-hot-cover-box {
+    width: 160%;
+    height: 80.5%;
   }
 
   .yen-hot-cards-s {
@@ -502,8 +507,7 @@ body {
   }
 
   .yen-hot-ladybug {
-    top: -2%;
-    width: 5%;
+    display: none;
   }
 
   .yen-hot-run {
@@ -526,6 +530,11 @@ body {
   width: 100%;
   height: 73%;
   margin-top: 2%;
+  display: flex;
+}
+
+.yen-new > .yen-select-area {
+  display: none;
 }
 
 .yen-new-card-box {
@@ -935,12 +944,48 @@ body {
 }
 
 @media (max-width: 575px) {
+  .yen-new {
+    width: 100vw;
+    height: 180vh;
+    margin: 0;
+  }
+
+  .yen-title-box {
+    margin: 0;
+    padding-left: 30%;
+    padding-bottom: 16px;
+  }
+
   .yen-island-box {
     display: none;
   }
 
   .yen-new-bg {
     display: none;
+  }
+
+  .yen-new-box {
+    display: block;
+    height: 44.5%;
+  }
+
+  .yen-new > .yen-select-area {
+    display: block;
+    width: 90%;
+    margin-left: 8%;
+    margin-bottom: 6%;
+  }
+
+  .yen-new-card-box {
+    width: 100vw;
+    display: block;
+    padding: 7%;
+  }
+
+  .yen-new-card {
+    width: 100%;
+    height: 82%;
+    margin-bottom: 15%;
   }
 }
 /* new media query end */
@@ -1094,6 +1139,63 @@ body {
   left: 10%;
 }
 
-/* new media query */
-/* new media query end */
+/* event end */
+
+/* event media query */
+@media (max-width: 575px) {
+  .yen-event {
+    margin-left: 8%;
+    height: 130vh;
+  }
+
+  .yen-event > .yen-breadcrumb {
+    width: 80%;
+    line-height: 1rem;
+  }
+
+  .yen-select {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 5%;
+  }
+
+  .yen-select-btn {
+    width: 46%;
+    // margin-right: 2%;
+    margin-top: 5%;
+  }
+
+  .yen-event-ladybug {
+    display: none;
+  }
+
+  .yen-allevent {
+    height: 60%;
+  }
+
+  .yen-event-wrap {
+    height: 90%;
+    margin-bottom: 5%;
+    overflow-y: scroll;
+    padding-right: 5%;
+  }
+
+  .yen-event-card {
+    width: 100%;
+    height: 85%;
+    margin-top: 7.5%;
+    margin-right: 0;
+  }
+
+  .yen-pages {
+    margin-top: 0;
+  }
+
+  .yen-slide {
+    display: none;
+  }
+}
+
+/* event media query end */
 /* index end */
