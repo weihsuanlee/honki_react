@@ -64,14 +64,14 @@ function NormalIndex() {
     setMybook_rows(data.mybook_rows[0])
 
     console.log(data)
-    // 3秒後關閉指示器
-    setTimeout(() => {
-      setDataLoading(false)
-    }, 3000)
   }
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
+    // 5秒後關閉指示器
+    setTimeout(() => {
+      setDataLoading(false)
+    }, 5000)
   }, [])
 
   // 測試函式型元件模擬componentDidMount跟componentDidUpload
