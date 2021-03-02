@@ -83,6 +83,8 @@
 
   font-size: 14px;
 
+  cursor: pointer;
+
   overflow: hidden;
 }
 
@@ -103,6 +105,8 @@
 
 .hans-card-solar-term-year {
   font-size: 12px;
+
+  cursor: pointer;
 
   margin: 1rem 8px 0 8px;
   // position: absolute;
@@ -260,7 +264,7 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
-  .hans-card-col-left{
+  .hans-card-col-left {
     margin: 0 auto;
   }
   .hans-card-col-right {

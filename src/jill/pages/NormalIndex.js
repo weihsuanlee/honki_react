@@ -28,6 +28,8 @@ function NormalIndex() {
   // 卸載
   const [show, setShow] = useState(true)
 
+  const [dataLoading, setDataLoading] = useState(false)
+
   const getDataFromServer = async () => {
     // 先開起載入指示器
     // setIsLoading(true)
@@ -41,6 +43,9 @@ function NormalIndex() {
       }),
     })
     const data = await response.json()
+
+    // 開啟載入指示
+    setDataLoading(true)
 
     // 最後設定到狀態中
     // setOrderDisplay(data)
@@ -59,14 +64,14 @@ function NormalIndex() {
     setMybook_rows(data.mybook_rows[0])
 
     console.log(data)
-    // 3秒後關閉指示器
-    setTimeout(() => {
-      // setIsLoading(false)
-    }, 3000)
   }
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
+    // 5秒後關閉指示器
+    setTimeout(() => {
+      setDataLoading(false)
+    }, 5000)
   }, [])
 
   // 測試函式型元件模擬componentDidMount跟componentDidUpload

@@ -81,6 +81,7 @@ function OldSeasonBookCardList(props) {
             solarTermName={solarTermNameList[bookList(e).solar_term_id - 1]}
             // 節氣書卡資訊
             cardStBookId={e}
+            bookSid={bookList(e).book_sid}
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
             cardYear={getCardYear(e)}
