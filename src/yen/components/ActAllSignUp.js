@@ -135,7 +135,7 @@ function ActAllSignUp(props) {
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
   const [deleteOrder, setDeleteOrder] = useState(null)
-  const [noOrder, setNoOrder] = useState([])
+  // const [noOrder, setNoOrder] = useState([])
   const [show, setShow] = useState(false)
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
@@ -215,9 +215,9 @@ function ActAllSignUp(props) {
     // console.log('response', response)
     console.log('order data', data)
     setOrderLists(data)
-    setNoOrder(orderLists)
+    // setNoOrder(orderLists)
     console.log('orderLists', orderLists)
-    console.log('NoOrder', noOrder)
+    // console.log('NoOrder', noOrder)
   }
 
   const noOrders = (
@@ -425,9 +425,9 @@ function ActAllSignUp(props) {
     postOrderDetailFromServer()
   }, [])
 
-  console.log('NoOrder 11', noOrder)
+  // console.log('NoOrder 11', noOrder)
 
-  if (noOrder.rows === []) {
+  if (orderLists.length === 0) {
     return (
       <>
         <div className="yen-signup-showbox">
@@ -461,7 +461,7 @@ function ActAllSignUp(props) {
             <div
               className="yen-signup-list"
               style={{
-                display: orderLists === [] ? 'block' : 'none',
+                display: orderLists.length === 0 ? 'block' : 'none',
               }}
             >
               {noOrders}
