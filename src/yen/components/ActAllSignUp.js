@@ -136,7 +136,7 @@ function ActAllSignUp(props) {
   // const [deleteOrder, setDeleteOrder] = useState(null)
 
   function deleteButtonClick(deleteOrderNum) {
-    console.log('deleteOrderNum', deleteOrderNum)
+    // console.log('deleteOrderNum', deleteOrderNum)
     // setDeleteOrder(deleteOrderNum)
     // handleShow()
     const swalWithBootstrapButtons = Swal.mixin({
@@ -151,68 +151,75 @@ function ActAllSignUp(props) {
       .fire({
         title: '您確定要刪除報名嗎？',
         text: '刪除後將無法復原訂單',
-        icon: 'warning',
         showCancelButton: true,
         confirmButtonText: '是的！刪掉它！',
         cancelButtonText: '不，先不要',
         reverseButtons: true,
+        imageUrl: 'http://localhost:3000/images/yen/bye2.gif',
+        imageWidth: 300,
+        imageHeight: 250,
+        imageAlt: 'Custom image',
       })
       .then((result) => {
         if (result.isConfirmed) {
           deleteOrderOnServer(deleteOrderNum)
-          swalWithBootstrapButtons.fire(
-            '已取消報名',
-            '此報名已被取消',
-            'success'
-          )
+          swalWithBootstrapButtons.fire({
+            imageUrl: 'http://localhost:3000/images/yen/bye.gif',
+            imageWidth: 350,
+            imageHeight: 250,
+            imageAlt: 'Custom image',
+            html: '<b>已取消報名</b>',
+          })
           postOrderDetailFromServer()
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
         ) {
-          swalWithBootstrapButtons.fire(
-            '已放棄取消報名',
-            '您的報名尚未刪除：）',
-            'error'
-          )
+          swalWithBootstrapButtons.fire({
+            imageUrl: 'http://localhost:3000/images/yen/bye3.gif',
+            imageWidth: 350,
+            imageHeight: 320,
+            imageAlt: 'Custom image',
+            html: '<b>您的報名尚未取消</b>',
+          })
         }
       })
   }
 
   function orderDetailButtonClick(orderNumber) {
-    console.log('orderNumber', orderNumber)
+    // console.log('orderNumber', orderNumber)
     setOrderDetail(orderNumber)
-    console.log('orderDetail', orderDetail)
+    // console.log('orderDetail', orderDetail)
   }
 
   function checkDetailBtnClick() {
     checkDetail ? setCheckDetail(false) : setCheckDetail(true)
     setBackToOrder(false)
-    console.log('checkDetail 1', checkDetail)
-    console.log('backToOrder 1', backToOrder)
+    // console.log('checkDetail 1', checkDetail)
+    // console.log('backToOrder 1', backToOrder)
   }
 
   function backToOrderBtnClick() {
     backToOrder ? setBackToOrder(false) : setBackToOrder(true)
     setCheckDetail(false)
-    console.log('checkDetail 2', checkDetail)
-    console.log('backToOrder 2', backToOrder)
+    // console.log('checkDetail 2', checkDetail)
+    // console.log('backToOrder 2', backToOrder)
   }
 
   async function deleteOrderOnServer(deleteOrder) {
     const url = 'http://localhost:3333/member/actorder/' + deleteOrder
-    console.log('url', url)
+    // console.log('url', url)
     // header的資料格式
     const request = new Request(url, {
       method: 'DELETE',
     })
 
     const response = await fetch(request)
-    console.log('response', response)
+    // console.log('response', response)
     backToOrderBtnClick()
   }
 
-  console.log('orderLists.length', orderLists.rows)
+  // console.log('orderLists.length', orderLists.rows)
 
   async function postOrderDetailFromServer() {
     const url = 'http://localhost:3333/member/actorder'
@@ -232,9 +239,9 @@ function ActAllSignUp(props) {
     const response = await fetch(request)
     const data = await response.json()
     // console.log('response', response)
-    console.log('order data', data)
+    // console.log('order data', data)
     setOrderLists(data)
-    console.log('orderLists', orderLists)
+    // console.log('orderLists', orderLists)
   }
 
   const noOrders = (
