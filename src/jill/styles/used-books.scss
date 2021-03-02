@@ -1,3 +1,9 @@
+// 修一下新增二手書單的按鈕位置
+.jill-fix-addform-btn{
+  margin-left:295.5px;
+
+}
+
 // 把頁數推遠
 .jill-other-row {
   margin-bottom: 60px;
@@ -11,30 +17,32 @@
   z-index: 99;
 }
 
+// 首頁會飛的書-動畫-始
 .jill-pics img {
   // height: 200px;
   height: 300px;
 }
 .jill-slider_container {
   margin: 30px auto;
-  // width: 400px;
-  width: 600px;
-  // width: 220px;
-  height: 280px;
-  // height: 320px;
   position: absolute;
   // border: 20px solid;
   // border-color: #fff;
   // border-bottom-width: 100px;
   // background-color: #f5f5f5;
   // box-shadow: #666 0 0 5px;
+
+  // 電視感absolute的位置&電視大小
+  // top: 80px;
+  // left: 1200px;
+  // width: 600px;
+  // height: 280px;
+
   overflow: hidden;
-  top: 80px;
-  // top: 200px;
-  // left: 750px;
-  // left: 1350px;
-  // left: 1280px;
-  left: 1200px;
+// 迴轉壽司直的一整條長寬&absolute
+  width: 600px;
+  height: 2700px;
+  top:0px;
+  left: 1520px;
 }
 
 .jill-slider_container div {
@@ -45,7 +53,7 @@
   // filter: alpha(opacity=0);
   animation-name: jill;
   // animation-duration: 4s;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   // animation-fill-mode: backwards;
   // animation-direction: alternate;
@@ -54,6 +62,7 @@
 @keyframes jill {
   0% {
     margin-top: 0px;
+    padding-top: 80px;
   }
 
   50% {
@@ -64,11 +73,15 @@
 
   100% {
     // margin-top: -200px;
+
     margin-top: -250px;
+    margin-top: -200px;
     // margin-top: 0px;
     // margin-left: -100px;
   }
 }
+
+// 首頁會飛的書-動畫-終
 
 // .jill-try-css {
 //   animation-duration: 3s;
@@ -1178,9 +1191,9 @@
 .jill-fix-btn2 {
   /* 修正我想跟別人換-查看 頁面按鈕從Form抓出來後的走位 */
   margin-top: 0px;
-  margin-left: 28%;
+  margin-left: 349px;
   // margin-left: 20%;
-  margin-left: 45%;
+  // margin-left: 45%;
 }
 
 /* 修正走位看書的人 */

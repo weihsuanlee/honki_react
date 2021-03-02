@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment'
-// import $ from 'jquery'
+import Swal from 'sweetalert2'
 
 import '../styles/yen-allsignup.scss'
 import '../styles/yen-check.scss'
 import SvgPencil from './svg/SvgPencil'
 import SvgCheckFormArrow from './svg/SvgCheckFormArrow'
+import SvgQQ from './svg/SvgQQ'
 import ActCalendar from './ActCalendar'
 
 function ActAllSignUp(props) {
@@ -133,26 +133,50 @@ function ActAllSignUp(props) {
   const [orderDetail, setOrderDetail] = useState('')
   const [checkDetail, setCheckDetail] = useState(false)
   const [backToOrder, setBackToOrder] = useState(true)
-  const [deleteOrder, setDeleteOrder] = useState(null)
-  const [show, setShow] = useState(false)
-  const handleShow = () => setShow(true)
-  const handleClose = () => setShow(false)
-
-  function handleCloseClick(whichClose) {
-    console.log(whichClose)
-    if (whichClose === 'closeAlert') {
-      handleClose()
-    }
-    if (whichClose === 'deleteOrder') {
-      deleteOrderOnServer()
-      handleClose()
-    }
-  }
+  // const [deleteOrder, setDeleteOrder] = useState(null)
 
   function deleteButtonClick(deleteOrderNum) {
     console.log('deleteOrderNum', deleteOrderNum)
-    setDeleteOrder(deleteOrderNum)
-    handleShow()
+    // setDeleteOrder(deleteOrderNum)
+    // handleShow()
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn-md-light yen-signup-check',
+        cancelButton: 'btn-md-dark',
+      },
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons
+      .fire({
+        title: '您確定要刪除報名嗎？',
+        text: '刪除後將無法復原訂單',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '是的！刪掉它！',
+        cancelButtonText: '不，先不要',
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          deleteOrderOnServer(deleteOrderNum)
+          swalWithBootstrapButtons.fire(
+            '已取消報名',
+            '此報名已被取消',
+            'success'
+          )
+          postOrderDetailFromServer()
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            '已放棄取消報名',
+            '您的報名尚未刪除：）',
+            'error'
+          )
+        }
+      })
   }
 
   function orderDetailButtonClick(orderNumber) {
@@ -175,7 +199,7 @@ function ActAllSignUp(props) {
     console.log('backToOrder 2', backToOrder)
   }
 
-  async function deleteOrderOnServer() {
+  async function deleteOrderOnServer(deleteOrder) {
     const url = 'http://localhost:3333/member/actorder/' + deleteOrder
     console.log('url', url)
     // header的資料格式
@@ -188,9 +212,7 @@ function ActAllSignUp(props) {
     backToOrderBtnClick()
   }
 
-  useEffect(() => {
-    postOrderDetailFromServer()
-  }, [show, deleteOrder])
+  console.log('orderLists.length', orderLists.rows)
 
   async function postOrderDetailFromServer() {
     const url = 'http://localhost:3333/member/actorder'
@@ -209,11 +231,24 @@ function ActAllSignUp(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log('response', response)
+    // console.log('response', response)
     console.log('order data', data)
     setOrderLists(data)
-    console.log('orderLists', orderLists.rows)
+    console.log('orderLists', orderLists)
   }
+
+  const noOrders = (
+    <>
+      <div className="yen-no-order-box">
+        <div className="yen-no-order-text">
+          <h5>您還沒有參加活動喔</h5>
+        </div>
+        <div className="yen-no-order-QQ">
+          <SvgQQ />
+        </div>
+      </div>
+    </>
+  )
 
   const orderCard = (
     <>
@@ -407,64 +442,52 @@ function ActAllSignUp(props) {
     postOrderDetailFromServer()
   }, [])
 
-  return (
-    <>
-      <div className="yen-signup-showbox">
-        <div className="yen-signup-showbox-bg">
-          <ActCalendar orderLists={orderLists} />
-          <div
-            className="yen-signup-list"
-            style={{ display: checkDetail === true ? 'none' : 'block' }}
-          >
-            {orderCard}
-          </div>
-          <div
-            className="yen-check-list"
-            style={{ display: backToOrder === false ? 'block' : 'none' }}
-          >
-            {orderDetailCard}
+  // console.log('NoOrder 11', noOrder)
+
+  if (orderLists.rows == 0) {
+    return (
+      <>
+        <div className="yen-signup-showbox">
+          <div className="yen-signup-showbox-bg">
+            <ActCalendar orderLists={orderLists} />
+            <div className="yen-signup-list">{noOrders}</div>
           </div>
         </div>
-      </div>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header>
-          <Modal.Title>取消報名</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="yen-alert-body">
-          取消報名後就無法回復
-          <br />
-          請問您是否確認要取消報名？
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="outline-secondary"
-            className="yen-cancel"
-            onClick={() => {
-              const whichClose = 'closeAlert'
-              handleCloseClick(whichClose)
-            }}
-          >
-            關閉
-          </Button>
-          <Button
-            variant="outline-danger"
-            className="yen-delete"
-            onClick={() => {
-              const whichClose = 'deleteOrder'
-              handleCloseClick(whichClose)
-            }}
-          >
-            取消報名
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  )
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div className="yen-signup-showbox">
+          <div className="yen-signup-showbox-bg">
+            <ActCalendar orderLists={orderLists} />
+            <div
+              className="yen-signup-list"
+              style={{ display: checkDetail === true ? 'none' : 'block' }}
+              // style={{ display: 'none' }}
+            >
+              {orderCard}
+            </div>
+            <div
+              className="yen-check-list"
+              style={{ display: backToOrder === false ? 'block' : 'none' }}
+              // style={{ display: 'none' }}
+            >
+              {orderDetailCard}
+            </div>
+            <div
+              className="yen-signup-list"
+              style={{
+                display: orderLists.rows == 0 ? 'block' : 'none',
+              }}
+            >
+              {noOrders}
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
 }
 
 export default withRouter(ActAllSignUp)

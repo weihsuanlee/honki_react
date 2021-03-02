@@ -71,7 +71,7 @@ class MyChangeBooks extends React.Component {
   handleSubmit = (event) => {
     const userId = localStorage.getItem('userId')
     console.log('handleSubmit userId', userId)
-    alert('A name was submitted: ' + userId)
+    // alert('A name was submitted: ' + userId)
     event.preventDefault()
     // 送到後端的資料
     // const data = { tweet: { body: this.state.userId } }
@@ -229,9 +229,9 @@ class MyChangeBooks extends React.Component {
                 <div className="jill-underline"></div>
                 <li>{this.state.nickname}</li>
               </ul>
-              <div className="jill-random-dancing">
+              {/* <div className="jill-random-dancing">
                 <DancingImg />
-              </div>
+              </div> */}
             </div>
           ) : (
             ''
