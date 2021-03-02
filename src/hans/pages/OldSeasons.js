@@ -52,6 +52,9 @@ function OldSeasons(props) {
 
   const [solarTermClicked, setSolarTermClicked] = useState(true)
 
+  // props
+  const { updateCartNum } = props
+
   // 模擬componentDidMount
   useEffect(() => {
     // 從伺服器取出節氣清單與節氣選書清單資料
@@ -251,6 +254,7 @@ function OldSeasons(props) {
                 setSolarTermClicked={setSolarTermClicked}
                 stClickedId={stClickedId}
                 solarTermBookToShowList={solarTermBookToShowList}
+                updateCartNum={updateCartNum}
               />
 
               {/* <BookCardDebug

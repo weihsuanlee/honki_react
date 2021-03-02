@@ -128,7 +128,7 @@ function App() {
                   <ActCheckSignUp />
                 </Route> */}
                 <Route path="/old-seasons">
-                  <OldSeasons />
+                  <OldSeasons updateCartNum={updateCartNum} />
                 </Route>
                 <Route path="/reviews">
                   <Review />

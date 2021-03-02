@@ -1,17 +1,17 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 import OldSeasonBookCard from '../components/OldSeasonBookCard'
 
 function OldSeasonBookCardList(props) {
   // const [cardListLength, setCardListLength] = useState(6)
-  const [currentFirstCardSid, setCurrentFirstCardSid] = useState(-1)
+  // const [currentFirstCardSid, setCurrentFirstCardSid] = useState(-1)
 
   const {
     // getInitialStDataFromServer,
     handlePlateToggle,
     newTargetToggle,
     getCardBookSid,
-    setFirstCardSid,
+    // setFirstCardSid,
     solarTermClicked,
     // setSolarTermClicked,
     firstCardSid,
@@ -19,6 +19,7 @@ function OldSeasonBookCardList(props) {
     // solarTermBookToShow,
     solarTermBookToShowList,
     solarTermNameList,
+    updateCartNum,
   } = props
 
   // const solarTermToShowList = (stSid) => {
@@ -84,6 +85,7 @@ function OldSeasonBookCardList(props) {
             solarTermName={solarTermNameList[bookList(e).solar_term_id - 1]}
             // 節氣書卡資訊
             cardStBookId={e}
+            thisBook={bookList(e)}
             bookSid={bookList(e).book_sid}
             bookName={bookList(e).title}
             bookImg={bookList(e).book_pics}
@@ -94,6 +96,7 @@ function OldSeasonBookCardList(props) {
             relatedLink={bookList(e).related_link}
             // 確認卡片點擊狀況
             solarTermClicked={solarTermClicked}
+            updateCartNum={updateCartNum}
           />
         )
       })}
