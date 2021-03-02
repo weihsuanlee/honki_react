@@ -4,9 +4,9 @@ import { ImGoogle2 } from 'react-icons/im'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
-import { Modal, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 function Login(props) {
   // const [show, setShow] = useState(false)
@@ -16,8 +16,8 @@ function Login(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
+  // const [show, setShow] = useState(false)
+  // const handleClose = () => setShow(false)
 
   const login = async function (email, password) {
     const url = 'http://localhost:3333/member/login'
@@ -55,7 +55,18 @@ function Login(props) {
     } else {
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
-      setShow(true)
+      Swal.fire({
+        position: 'top',
+        // title: '咦...帳號或密碼好像錯了哦',
+        // text: '咦...帳號或密碼好像錯了哦',
+        imageUrl: 'http://localhost:3000/images/components/logo.svg',
+        imageWidth: 50,
+        imageHeight: 50,
+        html: '<b>咦...帳號或密碼好像錯了哦</b>',
+        showConfirmButton: false,
+        timer: 9000,
+      })
+      // setShow(true)
     }
   }
 
@@ -174,7 +185,7 @@ function Login(props) {
                       送出
                     </Button>
 
-                    <Modal show={show} onHide={handleClose}>
+                    {/* <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
                         <Modal.Title>Honki</Modal.Title>
                       </Modal.Header>
@@ -185,11 +196,8 @@ function Login(props) {
                         <Button variant="secondary" onClick={handleClose}>
                           關閉
                         </Button>
-                        {/* <Button variant="primary" onClick={handleClose}>
-                          Save Changes
-                        </Button> */}
                       </Modal.Footer>
-                    </Modal>
+                    </Modal> */}
                   </div>
                 </div>
               </div>

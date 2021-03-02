@@ -1,7 +1,8 @@
 import '../styles/members-register.scss'
 import { useState } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import moment from 'moment'
+import Swal from 'sweetalert2'
 
 function Register(props) {
   const [inputs, setInputs] = useState({
@@ -32,10 +33,10 @@ function Register(props) {
   // const [password, setPassword] = useState('')
   // const [password2, setPassword2] = useState('')
 
-  const [showSuccess, setShowSuccess] = useState(false)
-  const [showFail, setShowFail] = useState(false)
-  const handleCloseSuccess = () => setShowSuccess(false)
-  const handleCloseFail = () => setShowFail(false)
+  // const [showSuccess, setShowSuccess] = useState(false)
+  // const [showFail, setShowFail] = useState(false)
+  // const handleCloseSuccess = () => setShowSuccess(false)
+  // const handleCloseFail = () => setShowFail(false)
   // 按了提交按鈕用的
   const handleSubmit = (e) => {
     //開啟開始觸發檢查的旗標
@@ -118,17 +119,34 @@ function Register(props) {
       localStorage.setItem('userLogin', JSON.stringify(data))
       localStorage.setItem('userId', JSON.stringify(data.body.sid))
       console.log(JSON.parse(localStorage.getItem('userLogin')))
-      setShowSuccess(true)
+      // setShowSuccess(true)
+      Swal.fire({
+        position: 'center',
+        imageUrl: 'http://localhost:3000/images/yu/mushroom-1.gif',
+        imageWidth: 250,
+        html: '<b>註冊成功，歡迎你加入我們!</b>',
+        showConfirmButton: false,
+        timer: 4000,
+      })
       toMenu()
     } else {
-      setShowFail(true)
+      // setShowFail(true)
+      Swal.fire({
+        position: 'center',
+        imageUrl: 'http://localhost:3000/images/components/logo.svg',
+        imageWidth: 50,
+        imageHeight: 50,
+        html: '<b>電子信箱重複囉</b>',
+        showConfirmButton: false,
+        timer: 4000,
+      })
       localStorage.removeItem('userLogin')
       localStorage.removeItem('userId')
     }
   }
 
   function toMenu() {
-    window.setTimeout(() => (window.location.href = '/menu'), 2000)
+    window.setTimeout(() => (window.location.href = '/menu'), 4000)
   }
 
   return (
@@ -359,7 +377,7 @@ function Register(props) {
                     送出
                   </Button>
 
-                  <Modal show={showSuccess} onHide={handleCloseSuccess}>
+                  {/* <Modal show={showSuccess} onHide={handleCloseSuccess}>
                     <Modal.Header closeButton>
                       <Modal.Title>Honki</Modal.Title>
                     </Modal.Header>
@@ -370,9 +388,6 @@ function Register(props) {
                       <Button variant="secondary" onClick={handleCloseSuccess}>
                         關閉
                       </Button>
-                      {/* <Button variant="primary" onClick={handleClose}>
-                          Save Changes
-                        </Button> */}
                     </Modal.Footer>
                   </Modal>
                   <Modal show={showFail} onHide={handleCloseFail}>
@@ -387,7 +402,7 @@ function Register(props) {
                         關閉
                       </Button>
                     </Modal.Footer>
-                  </Modal>
+                  </Modal> */}
                 </div>
               </div>
             </div>
