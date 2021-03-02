@@ -195,6 +195,8 @@ function ActAllSignUp(props) {
     postOrderDetailFromServer()
   }, [show, deleteOrder])
 
+  console.log('orderLists.length', orderLists.rows)
+
   async function postOrderDetailFromServer() {
     const url = 'http://localhost:3333/member/actorder'
 
@@ -427,7 +429,7 @@ function ActAllSignUp(props) {
 
   // console.log('NoOrder 11', noOrder)
 
-  if (orderLists.length === 0) {
+  if (orderLists.rows == 0) {
     return (
       <>
         <div className="yen-signup-showbox">
@@ -461,7 +463,7 @@ function ActAllSignUp(props) {
             <div
               className="yen-signup-list"
               style={{
-                display: orderLists.length === 0 ? 'block' : 'none',
+                display: orderLists.rows == 0 ? 'block' : 'none',
               }}
             >
               {noOrders}
