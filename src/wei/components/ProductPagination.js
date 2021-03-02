@@ -1,11 +1,17 @@
 import { Pagination } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function ProductPagination(props) {
   let searchParams = new URLSearchParams(props.location.search)
   const { totalPages, page, setPage } = props
   const pagePrev = page - 1 ? page - 1 : 1
   const pageNext = page + 1 < totalPages ? page + 1 : totalPages
+  useEffect(() => {
+    if (!searchParams.get('page')) {
+      setPage(1)
+    }
+  }, [props.location])
 
   function pageButtonClick(newPage) {
     if (searchParams.has('page')) {
@@ -17,9 +23,7 @@ function ProductPagination(props) {
       pathname: props.match.url,
       search: '?' + searchParams.toString(),
     }
-    // setQueryString(queryString)
     props.history.push(queryString)
-    // console.log(queryString)
   }
 
   let active = page
