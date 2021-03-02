@@ -118,8 +118,38 @@ function NormalIndex() {
         </div>
         {/* <p className="jill-try-css">測試動畫</p> */}
         {/* 往上飛的書動畫 */}
+        {/* 第一遍map */}
         <div className="jill-slider_container">
           <div className="row">
+            {changeData.map((item, index) => (
+              <div className="d-flex jill-pics">
+                <img
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  alt=""
+                />
+              </div>
+            ))}
+            {/* 第二遍map */}
+            {changeData.map((item, index) => (
+              <div className="d-flex jill-pics">
+                <img
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  alt=""
+                />
+              </div>
+            ))}
+
+            {/* 第三遍map */}
+            {changeData.map((item, index) => (
+              <div className="d-flex jill-pics">
+                <img
+                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  alt=""
+                />
+              </div>
+            ))}
+
+            {/* 第四遍map */}
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
