@@ -294,8 +294,8 @@ function CartOrder(props) {
 
                       <Accordion.Collapse eventKey="10">
                         <Card>
-                          <Card.Body>
-                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-3 pl-3">
+                          <Card.Body className="p-0">
+                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-5 pl-5">
                               <div class="aw-cart-page1-subtitle row  ">
                                 <div class=" col-6 row aw-row  align-items-center aw-p-0">
                                   <div class="col-sm"></div>
@@ -422,9 +422,9 @@ function CartOrder(props) {
                       </Card.Header>
 
                       <Accordion.Collapse eventKey="11">
-                        <Card.Body>
+                        <Card.Body className="p-0">
                           <div class="row aw-row ">
-                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-3 pl-3">
+                            <div class="aw-ptpb-64 aw-border-lightYellow col-12 pr-5 pl-5">
                               {orderData2.map((value, index) => (
                                 <div
                                   class=" form-width-height aw-form-width-height"
