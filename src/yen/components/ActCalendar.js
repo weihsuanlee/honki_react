@@ -41,8 +41,12 @@ class ActCalendar extends Component {
     this.initCalendar()
   }
 
-  componentWillUpdate() {
-    // console.log('componentWillUpdate', this.props)
+  componentDidUpdate(prevProps) {
+    // 常見用法（別忘了比較 prop）：
+    if (this.props.orderLists !== prevProps.orderLists) {
+      this.getDataFromServer()
+      this.initCalendar()
+    }
   }
 
   getDataFromServer() {
