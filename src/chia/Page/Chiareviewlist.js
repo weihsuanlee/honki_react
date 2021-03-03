@@ -22,7 +22,7 @@ function Chiareviewlist() {
     <>
       <div className="chia_writereview">
         <Link to="/reviews/edit" className="chia_write">
-          撰寫留言
+          撰寫心得
         </Link>
       </div>
     </>

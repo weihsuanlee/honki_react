@@ -129,7 +129,9 @@ function RecommendBook() {
             context3="自我成長"
           />
           <div className="chia_mouse_scrolldown ">
-            SCROLL <FaMouse /> DOWN
+            SCROLL
+            <FaMouse />
+            DOWN
           </div>
         </div>
       </div>
