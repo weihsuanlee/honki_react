@@ -1,6 +1,6 @@
 import '../styles/cartStyle.scss'
 import { FaThLarge, FaListUl, FaHeart } from 'react-icons/fa'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 
@@ -120,6 +120,7 @@ function CartConfirm(props) {
     const url = 'http://localhost:3333/cart/cartInput1/'
     const request = new Request(url, {
       method: 'POST',
+      credentials: 'include',
       body: JSON.stringify(Alldata),
       headers: new Headers({
         Accept: 'application/json',
@@ -129,10 +130,11 @@ function CartConfirm(props) {
     try {
       const response = await fetch(request)
       const data = await response.json()
-      console.log(data)
+      console.log('確認訂單回傳', data)
       if (data.success) {
         // localStorage.setItem('userLogin', JSON.stringify(data))
         console.log(data)
+        props.history.push('/CartOrder')
       }
     } catch (error) {
       console.log(error)
@@ -389,7 +391,7 @@ function CartConfirm(props) {
                                   </div>
                                 </div>
 
-                                <div class="form-group aw-mb-16 ">
+                                {/* <div class="form-group aw-mb-16 ">
                                   <div class="formItems row d-flex">
                                     <label
                                       class="inputText col-4"
@@ -401,7 +403,7 @@ function CartConfirm(props) {
                                       <h6 class="m-0">{item.dis}</h6>
                                     </div>
                                   </div>
-                                </div>
+                                </div> */}
                               </div>
 
                               <div class="form-tittle aw-mb-4">
@@ -556,7 +558,7 @@ function CartConfirm(props) {
                       })}
                       <div class=" position-relative">
                         <div class="d-flex justify-content-center ">
-                          <Link class="aw-a" to="/CartOrder">
+                          <div class="aw-a" to="/CartOrder">
                             <button
                               class="btn-md-dark w-100"
                               onClick={() => {
@@ -565,7 +567,7 @@ function CartConfirm(props) {
                             >
                               確認訂單
                             </button>
-                          </Link>
+                          </div>
                         </div>
                         <div class="d-flex justify-content-start position-absolute aw-icecream">
                           <img
