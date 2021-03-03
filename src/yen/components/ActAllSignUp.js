@@ -165,7 +165,7 @@ function ActAllSignUp(props) {
           deleteOrderOnServer(deleteOrderNum)
           swalWithBootstrapButtons.fire({
             imageUrl: 'http://localhost:3000/images/yen/bye.gif',
-            imageWidth: 350,
+            // imageWidth: 350,
             imageHeight: 250,
             imageAlt: 'Custom image',
             html: '<b>已取消報名</b>',
@@ -177,7 +177,7 @@ function ActAllSignUp(props) {
         ) {
           swalWithBootstrapButtons.fire({
             imageUrl: 'http://localhost:3000/images/yen/bye3.gif',
-            imageWidth: 350,
+            // imageWidth: 350,
             imageHeight: 320,
             imageAlt: 'Custom image',
             html: '<b>您的報名尚未取消</b>',
@@ -251,7 +251,7 @@ function ActAllSignUp(props) {
           <h5>您還沒有參加活動喔</h5>
         </div>
         <div className="yen-no-order-QQ">
-          <SvgQQ />
+          <img src="http://localhost:3000/images/yen/bye5-1.gif" alt="" />
         </div>
       </div>
     </>

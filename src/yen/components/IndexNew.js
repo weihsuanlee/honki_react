@@ -104,7 +104,7 @@ function IndexNew(props) {
     <>
       <div
         className="yen-new"
-        style={{ display: props.location.search ? 'none' : 'block' }}
+        // style={{ display: props.location.search ? 'none' : 'block' }}
       >
         <div className="yen-title-box d-flex">
           <div className="yen-circle">
