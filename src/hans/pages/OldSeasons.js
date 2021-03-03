@@ -108,7 +108,7 @@ function OldSeasons(props) {
     // setFirstCardSid(initialSid)
 
     // debug
-    setFirstCardSid(28)
+    setFirstCardSid(29)
 
     // console.log(data)
     setSolarTermData(data)
