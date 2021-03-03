@@ -32,6 +32,7 @@ function NormalIndex() {
 
   const getDataFromServer = async () => {
     // 先開起載入指示器
+    setDataLoading(true)
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -45,7 +46,7 @@ function NormalIndex() {
     const data = await response.json()
 
     // 開啟載入指示
-    setDataLoading(true)
+    // setDataLoading(true)
 
     // 最後設定到狀態中
     // setOrderDisplay(data)
@@ -65,13 +66,15 @@ function NormalIndex() {
 
     console.log(data)
   }
+
   // 模擬componentDidMount
   useEffect(() => {
-    getDataFromServer()
-    // 5秒後關閉指示器
     setTimeout(() => {
       setDataLoading(false)
     }, 1000)
+    getDataFromServer()
+
+    // 5秒後關閉指示器
   }, [])
 
   // 測試函式型元件模擬componentDidMount跟componentDidUpload
