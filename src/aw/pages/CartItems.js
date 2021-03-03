@@ -120,7 +120,7 @@ function CartItems(props) {
   const loading = (
     <>
       <div className="d-flex justify-content-center">
-      <div className="spinner-border aw-spinner" role="status">
+        <div className="spinner-border aw-spinner" role="status">
           <span className="sr-only aw-spinner">Loading...</span>
         </div>
       </div>
@@ -254,6 +254,7 @@ function CartItems(props) {
                                 </div>
                                 <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
                                   <button
+                                    class="aw-amount-btn mr-1"
                                     onClick={() => {
                                       if (item.amount === 1) return
                                       updateCartToLocalStorage(item, false)
@@ -263,6 +264,7 @@ function CartItems(props) {
                                   </button>
                                   {item.amount}
                                   <button
+                                    class="aw-amount-btn ml-1"
                                     onClick={() =>
                                       updateCartToLocalStorage(item, true)
                                     }
