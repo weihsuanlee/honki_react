@@ -86,7 +86,7 @@ function IndexHot(props) {
     <>
       <div
         className="yen-overflow-box"
-        style={{ display: props.location.search ? 'none' : 'block' }}
+        // style={{ display: props.location.search ? 'none' : 'block' }}
       >
         <div className="yen-hot">
           <div className="yen-title-box d-flex">
