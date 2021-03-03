@@ -104,11 +104,11 @@ function OldSeasons(props) {
     let initialStId = data['current_solar_term_id'][0]['solar_term_id']
     // console.log('initialStId', initialStId)
     let initialSid = data['solar_term_books'].length - 1
-    console.log('initialSid', initialSid)
+    // console.log('initialSid', initialSid)
     // setFirstCardSid(initialSid)
 
     // debug
-    setFirstCardSid(29)
+    setFirstCardSid(28)
 
     // console.log(data)
     setSolarTermData(data)

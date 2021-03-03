@@ -81,16 +81,16 @@ function OldSeasonBookCard(props) {
         onClick={() => {
           if (solarTermClicked === true) {
             handlePlateToggle(solarTermToShow)
-            console.log('solarTermClicked', solarTermClicked)
+            // console.log('solarTermClicked', solarTermClicked)
             setCardClass('hans-book-card2')
 
             setTimeout(() => setElementDisplay('displayOn'), 1500)
             setTimeout(() => setElementDisplay('fadeIn'), 1550)
             setSolarTermYearSelect('hans-card-solar-term-year2')
             setbookNameStyle('hans-book-name2')
-            console.log('打開卡片，確認節氣編號: ', solarTermToShow)
+            // console.log('打開卡片，確認節氣編號: ', solarTermToShow)
             getCardBookSid(cardStBookId)
-            console.log('打開卡片，確認書本編號: ', cardStBookId)
+            // console.log('打開卡片，確認書本編號: ', cardStBookId)
           }
         }}
       >
@@ -167,7 +167,7 @@ function OldSeasonBookCard(props) {
                 setElementDisplay('displayOff')
                 setSolarTermYearSelect('hans-card-solar-term-year')
                 setbookNameStyle('hans-book-name')
-                console.log('收合卡片確認: ', solarTermToShow)
+                // console.log('收合卡片確認: ', solarTermToShow)
               }}
             />
           </div>
