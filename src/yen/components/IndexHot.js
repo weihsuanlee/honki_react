@@ -62,6 +62,11 @@ function IndexHot(props) {
                   props.history.push('/activity/event/' + value.act_sid)
                 }, 1000)
               }}
+              onTouchEnd={() => {
+                setTimeout(() => {
+                  props.history.push('/activity/event/' + value.act_sid)
+                }, 1000)
+              }}
             >
               <div className="yen-hot-cover-box d-flex">
                 <div className="yen-hot-cover">

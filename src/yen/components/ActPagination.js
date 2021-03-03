@@ -1,11 +1,22 @@
 import { Pagination } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 function ActPagination(props) {
   let urlPage = new URLSearchParams(props.location.search)
   const { totalPages, page, setPage, setQueryPage } = props
   const pagePrev = page - 1 > 0 ? page - 1 : 1
   const pageNext = page + 1 < totalPages ? page + 1 : totalPages
+
+  const [active, setActive] = useState(page)
+
+  useEffect(() => {
+    if (!urlPage.has('page')) {
+      setPage(1)
+      pageButtonClick(1)
+      setActive(1)
+    }
+  }, [urlPage])
 
   function pageButtonClick(newPage) {
     if (urlPage.has('page')) {
@@ -22,7 +33,7 @@ function ActPagination(props) {
     // console.log(queryPage)
   }
 
-  let active = page
+  //let active = page
   let items = []
 
   for (let number = page - 5; number <= page + 5; number++) {
@@ -34,6 +45,7 @@ function ActPagination(props) {
           onClick={() => {
             setPage(number)
             pageButtonClick(number)
+            setActive(number)
           }}
         >
           {number}
@@ -49,6 +61,7 @@ function ActPagination(props) {
           onClick={() => {
             setPage(pagePrev)
             pageButtonClick(pagePrev)
+            setActive(pagePrev)
           }}
         >
           ←
@@ -61,6 +74,7 @@ function ActPagination(props) {
           onClick={() => {
             setPage(pageNext)
             pageButtonClick(pageNext)
+            setActive(pageNext)
           }}
         >
           →
