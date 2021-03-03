@@ -25,10 +25,15 @@ function CartInput(props) {
   const [seletedOption13, setSeletedOption13] = useState('')
   const [seletedOption14, setSeletedOption14] = useState('')
   const [seletedOption15, setSeletedOption15] = useState('')
+  const [likeList, setLikeList] = useState([])
   console.log(countries, townships, postcodes)
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [post, setPost] = useState('')
+  let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+  const [name, setName] = useState(userLogin.body.name)
+  const [email, setEmail] = useState(userLogin.body.email)
+  const [mobile, setMobile] = useState(userLogin.body.mobile)
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
   // 更動購物車數量
@@ -48,9 +53,16 @@ function CartInput(props) {
     console.log(JSON.parse(newCart))
     setMycart(JSON.parse(newCart))
   }
-  useEffect(() => {
-    getCartFromLocalStorage()
-  }, [])
+  useEffect(
+    () => {
+      getCartFromLocalStorage()
+      geyInfo_user()
+      start()
+    },
+    [],
+    [],
+    []
+  )
 
   //input1
   const Terms1 = (recipient_trans) => {
@@ -278,6 +290,73 @@ function CartInput(props) {
       total += 120
     }
     return total
+  }
+  // 清除畫面
+  const start = () => {
+    setSeletedOption8('')
+    setSeletedOption9('')
+    setSeletedOption10('')
+    setSeletedOption11('')
+    setSeletedOption12('')
+    setSeletedOption13('')
+    setSeletedOption14('')
+    setSeletedOption15('')
+  }
+
+  const geyInfo_user = async () => {
+    console.log('get user info')
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    const url = 'http://localhost:3333/member/edit/' + userLogin.body.sid
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    try {
+      const response = await fetch(request)
+      const data = await response.json()
+      if (data.success) {
+        localStorage.setItem('userLogin', JSON.stringify(data))
+        setSeletedOption5(data.body.name)
+        setSeletedOption6(data.body.email)
+        setSeletedOption7(data.body.mobile)
+        Terms5(data.body.name)
+        Terms6(data.body.email)
+        Terms7(data.body.mobile)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  // 讀取會員資料
+  const geyInfo = async () => {
+    console.log('get user info')
+    let userLogin = JSON.parse(localStorage.getItem('userLogin'))
+    const url = 'http://localhost:3333/member/edit/' + userLogin.body.sid
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    try {
+      const response = await fetch(request)
+      const data = await response.json()
+      if (data.success) {
+        localStorage.setItem('userLogin', JSON.stringify(data))
+        setSeletedOption8(data.body.name)
+        setSeletedOption9(data.body.email)
+        setSeletedOption10(data.body.mobile)
+        Terms8(data.body.name)
+        Terms9(data.body.email)
+        Terms10(data.body.mobile)
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const loading = (
@@ -619,8 +698,21 @@ function CartInput(props) {
                           </div>
                         </div>
 
-                        <div class="form-tittle">
-                          <h5>收件人資訊</h5>
+                        <div class="formItems  form-tittle d-flex align-items-center row w-100 ">
+                          <h5 className="col-5 pl-0">收件人資訊</h5>
+                          <div className="col-7">
+                            <div className="d-flex justify-content-end  align-items-center ">
+                              <label className="aw-label">同訂購人</label>
+                              <input
+                                className="mb-2 ml-2"
+                                type="checkbox"
+                                // checked={item.completed}
+                                onChange={(e) => {
+                                  geyInfo()
+                                }}
+                              />
+                            </div>
+                          </div>
                         </div>
 
                         <div class="form-group ">
