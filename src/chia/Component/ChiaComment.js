@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import $ from 'react'
 import '../Style/Chiaavatar.scss'
+import Chiareplyarea from '../Component/Chia_replyarea'
+import { Link } from 'react-router-dom'
 import { SVG_FACES } from './constant'
 import { SVG_HAIR } from './constant'
 import { SVG_CLOTH } from './constant'
 import { SVG_ACC } from './constant'
 import { SVG_TERMS } from './constant'
+import { FaReply } from 'react-icons/fa'
+
+import Chiasmallmodalreply from '../Page/Chiasmallmodalreply'
+import Chiasmallmodal from '../Page/Chiasmallmodal'
 
 function ChiaComment(props) {
   let commentaccount
@@ -26,13 +32,19 @@ function ChiaComment(props) {
     curAcc = localStorage.getItem('curAcc')
     curCloth = localStorage.getItem('curCloth')
   }
-  //u
+  console.log(nickname)
   //useEffect
   const [commentNickname, setCommentNickname] = useState(nickname)
   const [comment, setComment] = useState('')
   const [commentsid, setCommentSid] = useState(props.isNum)
-  console.log(commentNickname)
+  // console.log(commentNickname)
+  const [isshow, setIsShow] = useState(false)
+  const [show, setShow] = useState(false)
+  const [sid, setSid] = useState('')
+  const [rname, setRname] = useState('')
 
+  const handleClose = () => setIsShow(false)
+  const handleShow = () => setIsShow(true)
   // console.log(commentname.body.nickname)
 
   async function addComment() {
@@ -60,7 +72,11 @@ function ChiaComment(props) {
     console.log(JSON.stringify(newData))
     const response = await fetch(request)
     const data = await response.json()
-
+    setShow(true)
+    setTimeout(() => {
+      setIsShow(true)
+      // window.location = '/reviews'
+    }, 1000)
     console.log('This is the result', data)
   }
 
@@ -97,39 +113,28 @@ function ChiaComment(props) {
         <div className="chia_c-tai d-flex">
           <div className="chia_memberbox">
             <div className="chia_memeberimg ">
-              <div className="chia_memeberimg ">
-                <img className="chia_advatar" src="./image/050501.jpg" alt="" />
-                <div className="chia_avatar_bg">
-                  <img
-                    className="chia_advatar"
-                    src={SVG_TERMS[curTerms]}
-                    alt=""
-                  />
-                </div>
-                <div className="chia_avatar_hair">
-                  <img
-                    className="chia_advatar"
-                    src={SVG_HAIR[curHair]}
-                    alt=""
-                  />
-                </div>
-                <div className="chia_avatar_face">
-                  <img
-                    className="chia_advatar"
-                    src={SVG_FACES[curFace]}
-                    alt=""
-                  />
-                </div>
-                <div className="chia_avatar_cloth">
-                  <img
-                    className="chia_advatar"
-                    src={SVG_CLOTH[curCloth]}
-                    alt=""
-                  />
-                </div>
-                <div className="chia_avatar_acc">
-                  <img className="chia_advatar" src={SVG_ACC[curAcc]} alt="" />
-                </div>
+              <div className="chia_avatar_bg">
+                <img
+                  className="chia_advatar"
+                  src={SVG_TERMS[curTerms]}
+                  alt=""
+                />
+              </div>
+              <div className="chia_avatar_hair">
+                <img className="chia_advatar" src={SVG_HAIR[curHair]} alt="" />
+              </div>
+              <div className="chia_avatar_face">
+                <img className="chia_advatar" src={SVG_FACES[curFace]} alt="" />
+              </div>
+              <div className="chia_avatar_cloth">
+                <img
+                  className="chia_advatar"
+                  src={SVG_CLOTH[curCloth]}
+                  alt=""
+                />
+              </div>
+              <div className="chia_avatar_acc">
+                <img className="chia_advatar" src={SVG_ACC[curAcc]} alt="" />
               </div>
             </div>
           </div>
@@ -192,14 +197,43 @@ function ChiaComment(props) {
                 <div className="chia_comment d-flex">
                   <div className="chia_memberbox">
                     <div className="chia_memeberimg ">
-                      <img
-                        className="chia_advatar"
-                        src="./image/050501.jpg"
-                        alt=""
-                      />
+                      <div className="chia_avatar_bg">
+                        <img
+                          className="chia_advatar"
+                          src={SVG_TERMS[v.curTerms]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="chia_avatar_hair">
+                        <img
+                          className="chia_advatar"
+                          src={SVG_HAIR[v.curHair]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="chia_avatar_face">
+                        <img
+                          className="chia_advatar"
+                          src={SVG_FACES[v.curFace]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="chia_avatar_cloth">
+                        <img
+                          className="chia_advatar"
+                          src={SVG_CLOTH[v.curCloth]}
+                          alt=""
+                        />
+                      </div>
+                      <div className="chia_avatar_acc">
+                        <img
+                          className="chia_advatar"
+                          src={SVG_ACC[v.curAcc]}
+                          alt=""
+                        />
+                      </div>
                     </div>
                   </div>
-
                   <div className="chia_c-box">
                     <div className="chia_membername" key={v.sid}>
                       {v.review_nickname}
@@ -207,7 +241,45 @@ function ChiaComment(props) {
                     <div className="chia_content">{v.comment}</div>
                     <div classname="chia_time">{v.writtentime}</div>
                   </div>
+                  <div className="chia_commentedit ml-auto">
+                    {nickname === v.review_nickname ? (
+                      ''
+                    ) : (
+                      <Link
+                        onClick={() => {
+                          let x = v.sid
+                          let y = v.review_nickname
+                          setIsShow(true)
+                          setSid(x)
+                          setRname(y)
+                        }}
+                      >
+                        {' '}
+                        {nickname ? (
+                          <FaReply style={{ color: '#1c1b1b' }} />
+                        ) : (
+                          ''
+                        )}
+                      </Link>
+                    )}
+                    <Chiasmallmodalreply
+                      r_nickname={rname}
+                      r_sid={sid}
+                      c_sid={props.isNum}
+                      isshow={isshow}
+                      handleClose={handleClose}
+                      nickname={nickname}
+                      curTerms={curTerms}
+                      curHair={curHair}
+                      curFace={curFace}
+                      curCloth={curCloth}
+                      curAcc={curAcc}
+                    />
+                  </div>
                 </div>
+              ))}
+              {newGetComment.map((v, i) => (
+                <Chiareplyarea sid={v.sid} />
               ))}
             </div>
           </div>
@@ -215,6 +287,12 @@ function ChiaComment(props) {
 
         {nickname ? commentArea : withoutlogin}
       </div>
+      <Chiasmallmodal
+        commentsid={commentsid}
+        isshow={show}
+        handleClose={handleClose}
+        content="留言成功"
+      />
     </>
   )
 }

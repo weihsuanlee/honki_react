@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { withRouter, Link, Switch, NavLink } from 'react-router-dom'
 import { BsArrowLeftShort, BsArrowRightShort, BsSearch } from 'react-icons/bs'
 import $ from 'jquery'
+import ReviewPagination from './ReviewPagination'
 
 function Reviewlistbody(props) {
   let searchParams = new URLSearchParams(props.location.search)
   let url = props.match.url
   // let pagekazo = Number(searchParams.get('page'))
   console.log(props)
-  console.log(url)
+  // console.log(url)
   const [list, setList] = useState([])
   const [fliterdata, setfilterdata] = useState([])
   const [loading, setLoading] = useState(false)
@@ -17,6 +18,11 @@ function Reviewlistbody(props) {
   const [listPerPage, setListPerPage] = useState('')
   const [isactive, setIsActive] = useState(false)
 
+  //page part try 2
+
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState('')
+
   //search part
   const [isturon, setIsturnon] = useState(false)
   const [search, setSearch] = useState('')
@@ -24,6 +30,10 @@ function Reviewlistbody(props) {
 
   //likes part
   const [likekazo, setLikeKazo] = useState([])
+
+  //ranking
+  const [Ranking, setRanking] = useState([])
+  const [isRanking, setIsRanking] = useState(false)
 
   useEffect(() => {
     fetchList()
@@ -56,13 +66,23 @@ function Reviewlistbody(props) {
       console.log('after data', data.f_rows)
       console.log('Page data', data.v_rows)
       setList(data.f_rows)
+      setTotalPages(data.totalPages)
       setListPerPage(data.totalPages)
       setfilterdata(data.v_rows)
     }
     searchProduct()
     console.log(isturon)
-  }, [isturon, props.location, isactive, isSearch, search, currentPage])
+  }, [
+    isturon,
+    props.location,
+    isactive,
+    isSearch,
+    search,
+    currentPage,
+    isRanking,
+  ])
 
+  console.log(isRanking)
   function searchItem() {
     const queryString = `?${isSearch}=${search}`
     props.history.push(`/reviews${queryString}`)
@@ -72,9 +92,17 @@ function Reviewlistbody(props) {
     const queryString = `?${isSearch}=${search}&page=${currentPage}`
     props.history.push(`/reviews${queryString}`)
   }
+  function RankingChange() {
+    const queryString = `?ranking=?`
+    props.history.push(`/reviews${queryString}`)
+  }
+  function TimeChange() {
+    const queryString = `?time=?`
+    props.history.push(`/reviews${queryString}`)
+  }
 
-  console.log(props.location.search)
-  console.log(currentPage)
+  // console.log(props.location.search)
+  // console.log(currentPage)
 
   const fetchList = async () => {
     setLoading(true)
@@ -82,6 +110,7 @@ function Reviewlistbody(props) {
     const res = await fetch(fetchURL)
     res.json().then((res) => {
       setList(res.rows)
+      setRanking(res.r_rows)
       setListPerPage(res.totalPages)
       setLoading(false)
     })
@@ -100,19 +129,11 @@ function Reviewlistbody(props) {
       })
   }
 
-  list.forEach((v, i) => {
+  fliterdata.forEach((v, i) => {
     v.like = likekazo.filter((s, i) => {
       return s.likesid === v.sid
     })
   })
-
-  //Get current Post
-  const indexOfLastPost = currentPage * 6
-  const indexOfFirstPost = indexOfLastPost - 6
-  const currentList = list.slice(indexOfFirstPost, indexOfLastPost)
-  //Change Page
-
-  // const paginate = (pagenumber) => setCurrentPage(pagenumber)
 
   // console.log(isSearch)
 
@@ -130,12 +151,11 @@ function Reviewlistbody(props) {
               onChange={(e) => {
                 setSearch(e.target.value)
                 setIsSearch('search')
-                // PageChange()
               }}
               onKeyPress={(e) => {
                 if (e.key === 'Enter') {
                   searchItem()
-                  // PageChange()
+                  PageChange()
                 }
               }}
             />
@@ -155,6 +175,7 @@ function Reviewlistbody(props) {
                 !isturon ? setIsturnon(true) : setIsturnon(false)
               }
             }}
+            style={{ cursor: 'pointer' }}
           >
             會員名稱
           </div>
@@ -186,8 +207,24 @@ function Reviewlistbody(props) {
             </button>
           </div>
 
-          <div className="chia_rankings chia_botannobgc">評分</div>
-          <div className="chia_date chia_botannobgc">日期</div>
+          <div
+            className="chia_rankings chia_botannobgc"
+            onClick={() => {
+              RankingChange()
+            }}
+            style={{ cursor: 'pointer' }}
+          >
+            評分
+          </div>
+          <div
+            className="chia_rankings chia_botannobgc"
+            onClick={() => {
+              TimeChange()
+            }}
+            style={{ cursor: 'pointer' }}
+          >
+            時間
+          </div>
         </div>
       </div>
     </>
@@ -197,77 +234,6 @@ function Reviewlistbody(props) {
   for (let i = 1; i < listPerPage + 1; i++) {
     pageitems.push(i)
   }
-
-  // console.log(pageitems)
-
-  const PageNum = (
-    <>
-      <div className="chia_pagenumber d-flex justify-content-center">
-        <nav aria-label="Page navigation example">
-          <ul className=" pagination chia_pagination text-center  d-flex align-items-center ">
-            <li className="chia_page-item">
-              <Link
-                className="chia_custompage"
-                to={
-                  props.location.search
-                    ? props.location.search
-                    : props.location.pathname
-                }
-                onClick={() => {
-                  currentPage - 1
-                    ? setCurrentPage(currentPage - 1)
-                    : setCurrentPage(1)
-                }}
-              >
-                <BsArrowLeftShort />
-              </Link>
-            </li>
-            {pageitems.map((v) => (
-              <li className="chia_page-item ">
-                <Link
-                  className="chia_custompage"
-                  to={
-                    props.location.search
-                      ? props.location.search
-                      : props.location.pathname
-                  }
-                  onClick={() => {
-                    setCurrentPage(v)
-                  }}
-                  // onChange={() => {
-                  //   setCurrentPage(pagekazo)
-                  // }}
-                >
-                  {v}
-                </Link>
-              </li>
-            ))}
-            <li className="chia_page-item">
-              <Link
-                className="chia_custompage"
-                to={
-                  props.location.search
-                    ? props.location.search
-                    : props.location.pathname
-                }
-                onClick={() => {
-                  {
-                    currentPage + 1 < listPerPage
-                      ? setCurrentPage(currentPage + 1)
-                      : setCurrentPage(listPerPage)
-                    setIsActive(true)
-                  }
-                  // PageChange()
-                }}
-              >
-                <BsArrowRightShort />
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </>
-  )
 
   const List = (
     <>
@@ -288,7 +254,7 @@ function Reviewlistbody(props) {
             </thead>
 
             <tbody className="chia_reviewtablebody">
-              {currentList.map((v, i) => (
+              {fliterdata.map((v, i) => (
                 <tr className="chia_reviewtr" key={i}>
                   <td scope="col" className="chia_reviewtd">
                     <p className="chia_content ">{v.review_nickname}</p>
@@ -322,8 +288,12 @@ function Reviewlistbody(props) {
               ))}
             </tbody>
           </table>
-
-          {PageNum}
+          <ReviewPagination
+            totalPages={totalPages}
+            page={page}
+            setPage={setPage}
+          />
+          {/* {PageNum} */}
         </div>
       </div>
     </>

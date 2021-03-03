@@ -1,5 +1,5 @@
 .chia_changeable {
-	height: 800px;
+	height: 900px;
 	// background: url('../image/Hero_3.jpg') no-repeat;
 	// background-size: cover;
 	// background-attachment: fixed;
@@ -7,7 +7,7 @@
 	position: relative;
 }
 .chia_changpaji {
-	height: 800px;
+	height: 900px;
 }
 .chia_herowordA {
 	height: 800px;
@@ -84,7 +84,7 @@
 	justify-content: center;
 	position: absolute;
 	top: 40%;
-	left: 25%;
+	left: 22%;
 	// transform-style: preserve-3d;
 	// transform: rotateZ(-5deg);
 }
@@ -136,5 +136,34 @@
 	}
 	100% {
 		transform: rotateY(360deg);
+	}
+}
+
+@media screen and (max-width: 1440px) {
+	.chia_changpaji {
+		height: 800px;
+	}
+	.chia_bookstoreword {
+		height: 15%;
+		font-size: 27px;
+		font-weight: 700;
+
+		top: 35%;
+		left: 14%;
+		// transform-style: preserve-3d;
+		// transform: rotateZ(-5deg);
+	}
+}
+@media screen and (max-width: 1024px) {
+	.chia_bookstoreword {
+		font-weight: 700;
+		width: 500px;
+		display: flex;
+		flex-wrap: wrap;
+		top: 35%;
+		left: 22.5%;
+	}
+	.chia_a {
+		font-size: 48px;
 	}
 }

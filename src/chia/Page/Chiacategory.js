@@ -45,10 +45,10 @@ function Chiacategory() {
               data-aos-easing="ease-in-out"
               data-aos-mirror="true"
             >
-              <Link to="/product/business">
+              <Link to="/product/lifestyle">
                 <button className="chia_bbtn life">生活風格</button>
               </Link>
-              <Link to="/product/business">
+              <Link to="/product/literature">
                 <button className="chia_bbtn novel">文學小說</button>
               </Link>
               <Link to="/product/business">

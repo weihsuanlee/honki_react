@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ChiaModal from './ChiaModal'
 import $ from 'jquery'
-import HandmadeModal from './HandMadeModal'
+
 // import BookCover from '../image/Book/01.jpg'
 
 function Book(props) {

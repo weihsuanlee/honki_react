@@ -77,8 +77,8 @@ function App() {
               value={{ style: { transform: 'translateY(-2px)' } }}
             >
               <Switch>
-                <Route path="/" exact component={HonkiIndex} />
-                <Route path="/bookstoreindex" component={Home} />
+                <Route path="/" exact component={Home} />
+                {/* <Route path="/bookstoreindex" component={Home} /> */}
                 <Route path="/member">
                   <Login />
                 </Route>
