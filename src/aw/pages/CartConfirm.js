@@ -192,6 +192,19 @@ function CartConfirm(props) {
     return total
   }
 
+  const TransFee = (items) => {
+    let total = 0
+    const newCart = localStorage.getItem('inputTerms') || '[]'
+
+    if (JSON.parse(newCart)[0].recipient_trans === '超商取貨') {
+      total = 60
+    }
+    if (JSON.parse(newCart)[0].recipient_trans === '宅配') {
+      total = 120
+    }
+    return total
+  }
+
   const loading = (
     <>
       <div className="d-flex justify-content-center">
@@ -342,7 +355,7 @@ function CartConfirm(props) {
                             <div class="text-right">
                               <h5> {toCurrency(sumQuantity(mycart))}</h5>
                               <h5>$ {toCurrency(sumAmount(mycart))}</h5>
-                              <h5> 60</h5>
+                              <h5> {TransFee()}</h5>
                             </div>
                           </div>
                           <div class="text-right">

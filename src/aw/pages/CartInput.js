@@ -28,7 +28,7 @@ function CartInput(props) {
   console.log(countries, townships, postcodes)
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
-  const [post, setPost] = useState()
+  const [post, setPost] = useState('')
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
   // 更動購物車數量
@@ -141,6 +141,9 @@ function CartInput(props) {
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
     setSeletedOption11(reciveCountry)
     setCountry(reciveCountry)
+    setPost('')
+    setTownship(-1)
+    setSeletedOption12(-1)
   }
 
   //input12 郵遞區號 區
@@ -148,9 +151,10 @@ function CartInput(props) {
     console.log(reciveArea)
     const currentCart = JSON.parse(localStorage.getItem('inputTerms')) || [{}]
     currentCart[0].reciveArea = townships[country][reciveArea]
-    currentCart[0].recivePost = postcodes[country][township]
+    currentCart[0].recivePost = postcodes[country][reciveArea]
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
     setSeletedOption12(reciveArea)
+    setPost(postcodes[country][reciveArea])
 
     setTownship(reciveArea)
   }
@@ -717,11 +721,7 @@ function CartInput(props) {
                                   onChange={(e) => {
                                     Terms13(e.target.value)
                                   }}
-                                  value={
-                                    country > -1 &&
-                                    township > -1 &&
-                                    postcodes[country][township]
-                                  }
+                                  value={post}
                                 />
                               </div>
                               <textarea
