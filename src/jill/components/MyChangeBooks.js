@@ -190,9 +190,9 @@ class MyChangeBooks extends React.Component {
                 className="form-control formInput col-7"
                 id="exampleFormControlSelect1"
               >
-                <option selected="true" disabled>
+                {/* <option selected="true" disabled>
                   請選擇
-                </option>
+                </option> */}
                 {/* 成功的寫法在NormalIndex只能撈一筆的時候的寫法，myrows={mybook_rows} */}
                 {myrows.map((m, i) => (
                   <option key={i} value={m.ISBN}>
@@ -248,7 +248,13 @@ class MyChangeBooks extends React.Component {
               </div> */}
             </div>
           ) : (
-            ''
+            <div className="row jill-none-area">
+              <img
+                src="http://localhost:3000/images/jill/mushroom-cry-unscreen.gif"
+                alt=""
+              />
+              <h5 className="jill-book-none">您現在沒有二手書。</h5>
+            </div>
           )}
         </div>
         {/* 要讓它後執行，或給預設值 ，要怎麼抓到myrows的索引值*/}
