@@ -32,6 +32,13 @@ function CartInput(props) {
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
   // 更動購物車數量
+  if (
+    !localStorage.getItem('cart5566') ||
+    JSON.parse(localStorage.getItem('cart5566')).length === 0
+  ) {
+    props.history.push('/cart')
+  }
+
   const { updateCartNum } = props
 
   function getCartFromLocalStorage() {
@@ -800,6 +807,7 @@ function CartInput(props) {
       </div>
     </>
   )
+
   return dataLoading ? loading : display
 }
 

@@ -25,6 +25,12 @@ function CartConfirm(props) {
   const [birthday, setBirthday] = useState(userBirthday)
   const [password, setPassword] = useState(userLogin.body.passward)
 
+  if (
+    !localStorage.getItem('cart5566') ||
+    JSON.parse(localStorage.getItem('cart5566')).length === 0
+  ) {
+    props.history.push('/cart')
+  }
   // 更動購物車數量
   const { updateCartNum } = props
 
@@ -139,8 +145,10 @@ function CartConfirm(props) {
     } catch (error) {
       console.log(error)
     }
-    // localStorage.removeItem('cart5566')
+    localStorage.removeItem('cart5566')
+    updateCartNum()
   }
+
   const emptyCart = (
     <>
       <div className="cart-page noselect">
@@ -614,14 +622,8 @@ function CartConfirm(props) {
       </div>
     </>
   )
-  if (
-    !localStorage.getItem('cart5566') ||
-    JSON.parse(localStorage.getItem('cart5566')).length === 0
-  ) {
-    return emptyCart
-  } else {
-    return dataLoading ? loading : display
-  }
+
+  return dataLoading ? loading : display
 }
 
 export default withRouter(CartConfirm)

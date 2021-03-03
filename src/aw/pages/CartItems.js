@@ -16,7 +16,12 @@ function CartItems(props) {
   const { updateCartNum } = props
   //select into localStorage
   const [selectAmount, setSelectAmount] = useState()
-
+  if (
+    !localStorage.getItem('cart5566') ||
+    JSON.parse(localStorage.getItem('cart5566')).length === 0
+  ) {
+    props.history.push('/cart')
+  }
   function getCartFromLocalStorage() {
     // 開啟載入的指示圖示
     setDataLoading(true)
@@ -341,6 +346,7 @@ function CartItems(props) {
       </div>
     </>
   )
+
   return dataLoading ? loading : display
 }
 

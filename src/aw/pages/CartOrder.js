@@ -1,6 +1,6 @@
 import '../styles/cartStyle.scss'
 import {} from 'react-icons/fa'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Tabs, Tab, Accordion, Card, Button } from 'react-bootstrap'
 // import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 // import ProductBanner from '../components/ProductBanner'
@@ -619,9 +619,9 @@ function CartOrder(props) {
                   </Accordion>
                 </div>
                 <div class="row justify-content-center aw-stepBtn pr-0">
-                  <a class="aw-a" href="http://localhost:3000/bookstoreindex">
+                  <Link class="aw-a" to="/">
                     <button class="btn-md-dark">回首頁</button>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div class="col-1"> </div>

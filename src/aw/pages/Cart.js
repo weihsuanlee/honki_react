@@ -99,9 +99,19 @@ function Cart(props) {
           <main className="d-flex justify-content-center align-items-center w-100 aw-cart-empty">
             <div className="empty-cart-display ">
               <h4>您的購物車是空的，快去挑選商品！</h4>
-              <Link to="/product" class="d-flex justify-content-end mr-2">
-                <h5>繼續購物</h5>
-              </Link>
+              <div className="d-flex justify-content-center mb-5 mt-4">
+                <Link to="/product" className="btn btn-md-dark wei-link">
+                  去書城逛逛
+                </Link>
+              </div>
+              <div className="mx-auto mb-5" style={{ width: '40%' }}>
+                <img
+                  // src="http://localhost:3000/images/wei/unboxing.svg"
+                  src="http://localhost:3000/images/wei/mushroom-cleaning.gif"
+                  className="w-100 img-full"
+                  alt=""
+                />
+              </div>
             </div>
           </main>
         </div>
