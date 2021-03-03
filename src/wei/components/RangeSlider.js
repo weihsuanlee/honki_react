@@ -22,7 +22,7 @@ class RangeSlider extends React.Component {
       <div>
         <WeiRange
           min={0}
-          max={3000}
+          max={2000}
           allowCross={false}
           onChange={this.handleChange}
           defaultValue={sliderValues}
