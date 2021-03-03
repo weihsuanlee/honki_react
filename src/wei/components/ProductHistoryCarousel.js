@@ -71,7 +71,7 @@ function ProductHistoryCarousel(props) {
   const settings = {
     arrows: true,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -82,6 +82,7 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+          infinite: true,
         },
       },
       {
@@ -89,6 +90,7 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          infinite: true,
         },
       },
       {
@@ -96,12 +98,12 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          infinite: true,
         },
       },
     ],
   }
-
-  return (
+  const productDisplay = (
     <>
       <Slider {...settings} className="wei-left-slick">
         {productHistory.map((v, i) => (
@@ -170,6 +172,7 @@ function ProductHistoryCarousel(props) {
       </Slider>
     </>
   )
+  return <>{productDisplay}</>
 }
 
 export default withRouter(ProductHistoryCarousel)
