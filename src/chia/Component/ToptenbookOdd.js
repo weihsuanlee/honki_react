@@ -8,7 +8,7 @@ function ToptenbookOdd(props) {
   }, [])
   return (
     <>
-      <Link to="#">
+      <Link to="#" style={{ color: '#1c1b1b' }}>
         <div className="chia_rankingbook" data-aos="flip-right">
           <div className="chia_rankingbooktop d-flex flex-column justify-content-center chia_rankingbook_odd chiagrey">
             <div className="chia_bookcover">
