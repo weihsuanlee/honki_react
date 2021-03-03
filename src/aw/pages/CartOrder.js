@@ -168,18 +168,29 @@ function CartOrder(props) {
 
   // 計算總量的函式
   const sumAmount2 = (items) => {
-    console.log(items)
     let total = 0
     const newCart = localStorage.getItem('inputTerms') || '[]'
-
     for (let i = 0; i < items.length; i++) {
-      total += items[i].amount * items[i].price
+      total += +items[i].quantity * +items[i].price
     }
     if (JSON.parse(newCart)[0].recipient_trans === '超商取貨') {
       total += 60
     }
     if (JSON.parse(newCart)[0].recipient_trans === '宅配') {
       total += 120
+    }
+    return total
+  }
+
+  const TransFee = (items) => {
+    let total = 0
+    const newCart = localStorage.getItem('inputTerms') || '[]'
+
+    if (JSON.parse(newCart)[0].recipient_trans === '超商取貨') {
+      total = 60
+    }
+    if (JSON.parse(newCart)[0].recipient_trans === '宅配') {
+      total = 120
     }
     return total
   }
@@ -371,7 +382,7 @@ function CartOrder(props) {
                                         <h5>
                                           $ {toCurrency(sumAmount(orderData))}
                                         </h5>
-                                        <h5> 60</h5>
+                                        <h5> {TransFee()}</h5>
                                       </div>
                                     </div>
                                     <div class="text-right">

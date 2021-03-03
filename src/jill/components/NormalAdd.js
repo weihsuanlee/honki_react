@@ -157,7 +157,7 @@ function NormalAdd(props) {
               <Link to="./used-books">二手交換</Link>
             </li>
             <li className="breadcrumb-honki active" aria-current="page">
-              一般交換
+              隨機交換
             </li>
           </ol>
         </nav>
