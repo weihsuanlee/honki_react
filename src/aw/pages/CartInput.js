@@ -444,7 +444,7 @@ function CartInput(props) {
                       <form>
                         <div class=" form-width-height aw-form-width-height">
                           <div class="form-tittle">
-                            <h5>運費與折價</h5>
+                            <h5>運費</h5>
                           </div>
 
                           <div class="form-group ">
@@ -496,10 +496,10 @@ function CartInput(props) {
                     </div>
                     <div class="aw-transport-fee col-2 ">
                       <div class="aw-transport-fee-items text-right">
-                        <h6>
+                        <h5>
                           {seletedOption1 === '超商取貨' ? 60 + '元' : ''}
                           {seletedOption1 === '宅配' ? 120 + '元' : ''}
-                        </h6>
+                        </h5>
                       </div>
                       {/* <div class="aw-transport-fee-items text-right">
                         <h6>60元</h6>

@@ -431,7 +431,7 @@ function CartOrder(props) {
                                   key={index}
                                 >
                                   <div class="form-tittle aw-mb-4">
-                                    <h5>運費與折價</h5>
+                                    <h5>運費</h5>
                                   </div>
                                   <div class="aw-btbb aw-mb-40 aw-ptpb-20">
                                     <div class="form-group aw-mb-16 ">
