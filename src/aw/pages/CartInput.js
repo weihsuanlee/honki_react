@@ -454,7 +454,7 @@ function CartInput(props) {
                     </div>
                   </div>
                   <div class="aw-productAreaPadding">
-                    <div class="aw-productArea">
+                    <div class="aw-productArea2">
                       {mycart.map((item, index) => {
                         return (
                           <>
@@ -497,23 +497,23 @@ function CartInput(props) {
                       })}
                     </div>
                   </div>
-                  <div class="aw-countArea aw-pr-42">
-                    <div class="d-flex justify-content-end aw-p-9">
-                      <div class="row aw-row aw-count ">
-                        <h5> 共 </h5>
-                        <div class="aw-count-num d-flex justify-content-end">
-                          <h5> {toCurrency(sumQuantity(mycart))}</h5>
+                  <div class="aw-countArea aw-pr-42 pb-3">
+                    <div class="d-flex justify-content-end p-0">
+                      <div class="row aw-row aw-count pt-2">
+                        <div class="text-right">
+                          <h5> 共 </h5> <h5>小計</h5>
                         </div>
-                        <h5> 本 </h5>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-end aw-p-9">
-                      <div class="row aw-row aw-count ">
-                        <h5> 小計 </h5>
                         <div class="aw-count-num d-flex justify-content-end">
-                          <h5> {toCurrency(sumAmount(mycart))}</h5>
+                          {/* 計算加總本數 */}
+                          <div class="text-right">
+                            <h5>{toCurrency(sumQuantity(mycart))}</h5>
+                            <h5>$ {toCurrency(sumAmount(mycart))}</h5>
+                          </div>
                         </div>
-                        <h5> 元 </h5>
+                        <div class="text-right">
+                          <h5>本</h5>
+                          <h5>元</h5>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -573,11 +573,11 @@ function CartInput(props) {
                         </div>
                       </form>
                     </div>
-                    <div class="aw-transport-fee col-2 ">
+                    <div class="aw-transport-fee col-2 pr-0">
                       <div class="aw-transport-fee-items text-right">
                         <h5>
-                          {seletedOption1 === '超商取貨' ? 60 + '元' : ''}
-                          {seletedOption1 === '宅配' ? 120 + '元' : ''}
+                          {seletedOption1 === '超商取貨' ? 60 + ' 元' : ''}
+                          {seletedOption1 === '宅配' ? 120 + ' 元' : ''}
                         </h5>
                       </div>
                       {/* <div class="aw-transport-fee-items text-right">
@@ -585,9 +585,17 @@ function CartInput(props) {
                       </div> */}
                     </div>
                   </div>
-                  <div class="row aw-row d-flex justify-content-end aw-pr-42">
-                    <div class=" text-right aw-p-9">
-                      <h5>總計 {toCurrency(sumAmount2(mycart))}元</h5>
+                  <div class="aw-countArea pr-0  pt-0">
+                    <div class="aw-pr-42">
+                      <div class="d-flex justify-content-end p-0 ">
+                        <div class="row aw-row aw-count pb-5">
+                          <h5>總計</h5>
+                          <div class="aw-count-num d-flex justify-content-end">
+                            <h5>$ {toCurrency(sumAmount2(mycart))}</h5>
+                          </div>
+                          <h5>元</h5>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="aw-pt-20 row aw-row d-flex justify-content-between aw-pr-42">

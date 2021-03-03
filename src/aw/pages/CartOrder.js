@@ -255,7 +255,7 @@ function CartOrder(props) {
                   <div class=" aw-changeProductBtnRow d-flex justify-content-center">
                     <div class="">
                       <h4>
-                        訂單編號 <span>A0000001</span>
+                        訂單編號 <span>A0000017</span>
                       </h4>
                     </div>
                   </div>
@@ -316,7 +316,7 @@ function CartOrder(props) {
                                 </div>
                               </div>
                               <div class="aw-productAreaPadding">
-                                <div class="aw-productArea">
+                                <div class="aw-productArea2">
                                   {orderData.map((value, index) => (
                                     <div class="row aw-card d-flex align-items-center ">
                                       <div class="col-6 row aw-row  align-items-center aw-p-0 ">
@@ -365,7 +365,7 @@ function CartOrder(props) {
                                   ))}
                                 </div>
                               </div>
-                              <div class="aw-countArea aw-pr-42">
+                              <div class="aw-countArea aw-pr-42 pb-3">
                                 <div class="d-flex justify-content-end p-0">
                                   <div class="row aw-row aw-count pt-2">
                                     <div class="text-right">
@@ -375,7 +375,6 @@ function CartOrder(props) {
                                       {/* 計算加總本數 */}
                                       <div class="text-right">
                                         <h5>
-                                          {' '}
                                           {toCurrency(sumQuantity(orderData))}
                                         </h5>
                                         <h5>
@@ -391,16 +390,19 @@ function CartOrder(props) {
                                     </div>
                                   </div>
                                 </div>
-
-                                <div class="d-flex justify-content-end p-0 aw-borderTop">
-                                  <div class="row aw-row aw-count pb-5">
-                                    <h5>總計</h5>
-                                    <div class="aw-count-num d-flex justify-content-end">
-                                      <h5>
-                                        $ {toCurrency(sumAmount2(orderData))}
-                                      </h5>
+                              </div>
+                              <div class="aw-countArea pr-0 aw-borderTop pt-0">
+                                <div class="aw-pr-42">
+                                  <div class="d-flex justify-content-end p-0 ">
+                                    <div class="row aw-row aw-count pb-5">
+                                      <h5>總計</h5>
+                                      <div class="aw-count-num d-flex justify-content-end">
+                                        <h5>
+                                          $ {toCurrency(sumAmount2(orderData))}
+                                        </h5>
+                                      </div>
+                                      <h5>元</h5>
                                     </div>
-                                    <h5>元</h5>
                                   </div>
                                 </div>
                               </div>

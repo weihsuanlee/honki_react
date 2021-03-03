@@ -146,6 +146,7 @@ function CartConfirm(props) {
       console.log(error)
     }
     localStorage.removeItem('cart5566')
+
     updateCartNum()
   }
 
@@ -308,7 +309,7 @@ function CartConfirm(props) {
                     </div>
                   </div>
                   <div class="aw-productAreaPadding">
-                    <div class="aw-productArea">
+                    <div class="aw-productArea2">
                       {mycart.map((item, index) => {
                         return (
                           <>
@@ -351,30 +352,31 @@ function CartConfirm(props) {
                       })}
                     </div>
                   </div>
-                  <div class="aw-countArea aw-pr-42">
-                    <div class="aw-countArea pr-0">
-                      <div class="d-flex justify-content-end p-0">
-                        <div class="row aw-row aw-count pt-2">
+                  <div class="aw-countArea aw-pr-42 pb-3">
+                    <div class="d-flex justify-content-end p-0">
+                      <div class="row aw-row aw-count pt-2">
+                        <div class="text-right">
+                          <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>
+                        </div>
+                        <div class="aw-count-num d-flex justify-content-end">
+                          {/* 計算加總本數 */}
                           <div class="text-right">
-                            <h5> 共 </h5> <h5>小計</h5> <h5>運費</h5>{' '}
-                          </div>
-                          <div class="aw-count-num d-flex justify-content-end">
-                            {/* 計算加總本數 */}
-                            <div class="text-right">
-                              <h5> {toCurrency(sumQuantity(mycart))}</h5>
-                              <h5>$ {toCurrency(sumAmount(mycart))}</h5>
-                              <h5> {TransFee()}</h5>
-                            </div>
-                          </div>
-                          <div class="text-right">
-                            <h5>本</h5>
-                            <h5>元</h5>
-                            <h5>元</h5>
+                            <h5>{toCurrency(sumQuantity(mycart))}</h5>
+                            <h5>$ {toCurrency(sumAmount(mycart))}</h5>
+                            <h5> {TransFee()}</h5>
                           </div>
                         </div>
+                        <div class="text-right">
+                          <h5>本</h5>
+                          <h5>元</h5>
+                          <h5>元</h5>
+                        </div>
                       </div>
-
-                      <div class="d-flex justify-content-end p-0 aw-borderTop">
+                    </div>
+                  </div>
+                  <div class="aw-countArea pr-0 aw-borderTop pt-0">
+                    <div class="aw-pr-42">
+                      <div class="d-flex justify-content-end p-0 ">
                         <div class="row aw-row aw-count pb-5">
                           <h5>總計</h5>
                           <div class="aw-count-num d-flex justify-content-end">
