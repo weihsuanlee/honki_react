@@ -656,7 +656,11 @@ function Navbar(props) {
             <Accordion.Collapse eventKey="4">
               <Card.Body>
                 <ul className="menu-subtitle">
-                  <li>節氣選書</li>
+                  <li>
+                    <Link to="/old-seasons">
+                      <p>節氣選書</p>
+                    </Link>
+                  </li>
                 </ul>
               </Card.Body>
             </Accordion.Collapse>
