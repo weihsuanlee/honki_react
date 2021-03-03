@@ -29,7 +29,11 @@ function ChangeBook() {
 
             <div className="chia_a">有</div>
 
-            <div className="chia_a chia_b">繁星般</div>
+            <div className="chia_a chia_b">繁</div>
+
+            <div className="chia_a">星</div>
+
+            <div className="chia_a">般</div>
 
             <div className="chia_a">的</div>
 

@@ -82,7 +82,7 @@ function Navbar(props) {
         <div className="container col-12" style={{ padding: '0 16px' }}>
           <Link
             className="navbar-brand"
-            to="/bookstoreindex"
+            to="/"
             style={{ paddingLeft: '8px', paddingRight: '18px' }}
           >
             {/* <!-- LOGO SVG --> */}
@@ -325,7 +325,7 @@ function Navbar(props) {
       </nav>
       {/* <!-- 桌機版 navbar  end --> */}
       <nav className="navbar navbar-mobile d-lg-none fixed-top">
-        <Link className="navbar-brand wei-nav-brand" to="/bookstoreindex">
+        <Link className="navbar-brand wei-nav-brand" to="/">
           {/* <!-- LOGO SVG --> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"

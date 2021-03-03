@@ -6,9 +6,7 @@ import $ from 'jquery'
 import Aos from 'aos'
 
 import HonkiHeroContext from '../Component/HonkHeroContext'
-// import HonkiindexButton from '../Component/HonkiIndexButton'
-// import HonkiVideo from '../image/honki.mp4'
-// import HonkiHero from './HonkiHero'
+
 import { FaMouse } from 'react-icons/fa'
 
 // import Navbar from '../Component/Navbar'
@@ -52,9 +50,12 @@ function RecommendBook() {
 
     ;(() => {
       slider.addEventListener('mousedown', start)
+      slider.addEventListener('touchstart', start)
       slider.addEventListener('mousemove', move)
+      slider.addEventListener('touchmove', move)
       slider.addEventListener('mouseleave', end)
       slider.addEventListener('mouseup', end)
+      slider.addEventListener('touchend', end)
     })()
 
     let cursor = $('.chia_cursor')

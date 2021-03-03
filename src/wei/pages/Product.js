@@ -168,9 +168,10 @@ function Product(props) {
         <h6 className="text-center my-5">
           <FaBook /> 查無相關商品
         </h6>
-        <div className="mx-auto" style={{ width: '30%' }}>
+        <div className="mx-auto" style={{ width: '80%' }}>
           <img
-            src="http://localhost:3000/images/wei/clumsy.svg"
+            src="http://localhost:3000/images/wei/mushroom.gif"
+            // src="http://localhost:3000/images/wei/clumsy.svg"
             className="w-100 img-full"
             alt=""
           />
@@ -287,7 +288,7 @@ function Product(props) {
           </div>
         </div>
         <div className="row justify-content-end ">
-          <div className="col-11 col-lg-10 col-xl-9 wei-pagination">
+          <div className="col-12 col-lg-10 col-xl-9 wei-pagination">
             {totalPages ? (
               <ProductPagination
                 totalPages={totalPages}

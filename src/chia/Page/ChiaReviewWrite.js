@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import '../Style/chiareviewwrite.scss'
 import $ from 'jquery'
+import MultiLevelBreadCrumb from '../Component/MultipleBreadCrumb'
+import Chiasmallmodal from '../Page/Chiasmallmodal'
 
-function ChiaReviewWrite() {
+function ChiaReviewWrite(props) {
   let commentaccount
   let commentname
   let nickname
@@ -18,6 +20,10 @@ function ChiaReviewWrite() {
   const [reviewbooktitle, setReviewBooktitle] = useState('')
   const [reviewRanking, setReviewRanking] = useState('')
   const [reviewContent, setReviewContent] = useState('')
+  const [isshow, setIsShow] = useState(false)
+
+  const handleClose = () => setIsShow(false)
+  const handleShow = () => setIsShow(true)
 
   const solarterm = [
     '立春',
@@ -78,7 +84,11 @@ function ChiaReviewWrite() {
 
     const response = await fetch(request)
     const data = await response.json()
-
+    // props.history.push('/reviews')
+    setTimeout(() => {
+      setIsShow(true)
+      props.history.push('/reviews')
+    }, 1500)
     console.log('This is the result', data)
   }
 
@@ -103,18 +113,14 @@ function ChiaReviewWrite() {
       <div class="chia_reviewwrite">
         <div class="container-fluid">
           <div class="bread row">
-            <div class="breadbox">
-              <Link to="#">首頁</Link>
-              <Link to="#">讀者感言</Link>
-              <Link to="#">撰寫心得</Link>
-            </div>
+            <MultiLevelBreadCrumb />
           </div>
         </div>
 
         <div class="container">
           <div class="chia_contentbox d-flex justify-content-center">
             <div class="chia_contentborder-r  d-flex justify-content-center align-items-center">
-              <form
+              <div
                 action=""
                 className="chia_contentborder-l d-flex justify-content-center chia_form"
                 method="javascript:"
@@ -131,6 +137,7 @@ function ChiaReviewWrite() {
                       onChange={(e) => {
                         setReviewNickname(e.target.value)
                       }}
+                      readOnly
                     />
                   </div>
                   <div className="form-group .e-m chia_form_g">
@@ -198,16 +205,23 @@ function ChiaReviewWrite() {
                     className="chia_reviewtbtn mx-auto"
                     onClick={() => {
                       addReview()
+                      setIsShow(true)
                     }}
                   >
                     送出
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <Chiasmallmodal
+        isshow={isshow}
+        handleClose={handleClose}
+        content="發表成功"
+        answer="確定"
+      />
     </>
   )
 }

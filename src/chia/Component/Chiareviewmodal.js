@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import $ from 'jquery'
+import Chiasmallmodal from '../Page/Chiasmallmodal'
 
 function Chiareviewmodal(props) {
   const [reviewnickname, setReviewNickname] = useState(props.nickname)
-  const [reviewcategory, setReviewCategory] = useState(props.category)
+  const [reviewcategory, setReviewCategory] = useState('')
   const [reviewbooktitle, setReviewBooktitle] = useState(props.booktitle)
-  const [reviewRanking, setReviewRanking] = useState(props.ranking)
+  const [reviewRanking, setReviewRanking] = useState('')
   const [reviewContent, setReviewContent] = useState(props.content)
   const [isNum, setIsNum] = useState(props.isNum)
+  const [isshow, setIsShow] = useState(false)
+
+  const handleClose = () => setIsShow(false)
+  const handleShow = () => setIsShow(true)
+
+  console.log(props)
+
   const solarterm = [
     '立春',
     '雨水',
@@ -49,11 +57,16 @@ function Chiareviewmodal(props) {
   useEffect(() => {
     $('.chia_rankingselect').on('change', function () {
       setReviewRanking(this.value)
+      console.log(reviewRanking)
     })
     $('.chia_solarselect ').on('change', function () {
       setReviewCategory(this.value)
     })
-  }, [])
+  }, [reviewcategory, reviewRanking])
+
+  console.log(reviewRanking)
+
+  console.log(reviewcategory)
   async function editreview() {
     const newData = {
       reviewnickname,
@@ -79,12 +92,12 @@ function Chiareviewmodal(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-
-    console.log('This is the data', data)
+    let backurl = `'/reviews/content/${isNum}'`
     setTimeout(() => {
-      alert('儲存完成')
-      props.history.push(`/reviews/content/${props.isNum}`)
+      setIsShow(true)
+      window.location = '/reviews'
     }, 1000)
+    console.log('This is the data', data)
   }
 
   return (
@@ -101,7 +114,7 @@ function Chiareviewmodal(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="chia_editreviewbox d-flex justify-content-center">
-            <form
+            <div
               action=""
               className="chia_editreview d-flex justify-content-center chia_form"
               method="javascript:"
@@ -146,7 +159,6 @@ function Chiareviewmodal(props) {
                       name=""
                       id=""
                       className="chia_rankingselect chia_select"
-                      value={reviewRanking}
                     >
                       <option className="chiaranking" value="5">
                         5&#9733;
@@ -183,18 +195,25 @@ function Chiareviewmodal(props) {
                   className="chia_reviewtbtn mx-auto"
                   onClick={() => {
                     editreview()
+                    // setIsShow(true)
                   }}
                 >
                   送出
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </Modal.Body>
         {/* <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer> */}
       </Modal>
+      <Chiasmallmodal
+        isshow={isshow}
+        handleClose={handleClose}
+        content="更改成功"
+        answer="確定"
+      />
     </>
   )
 }
