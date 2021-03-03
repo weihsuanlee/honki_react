@@ -72,11 +72,11 @@ function ChiaComment(props) {
     console.log(JSON.stringify(newData))
     const response = await fetch(request)
     const data = await response.json()
-    setShow(true)
+    // setShow(true)
     setTimeout(() => {
-      setIsShow(true)
-      // window.location = '/reviews'
-    }, 1000)
+      setShow(true)
+      window.location = '/reviews'
+    }, 1500)
     console.log('This is the result', data)
   }
 

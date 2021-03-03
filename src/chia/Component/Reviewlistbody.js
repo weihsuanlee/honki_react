@@ -299,10 +299,18 @@ function Reviewlistbody(props) {
     </>
   )
 
+  const withnoresult = (
+    <>
+      <div className="mx-auto mt-5">
+        <h6 className="text-center my-5">是不是打錯字了呢?</h6>
+      </div>
+    </>
+  )
+
   return (
     <>
       {Searchbar}
-      {List}
+      {fliterdata.length > 0 ? List : withnoresult}
     </>
   )
 }
