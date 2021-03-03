@@ -284,12 +284,11 @@ function CartOrder(props) {
                       <Card.Header>
                         <Accordion.Toggle
                           as={Button}
+                          className="w-100 text-left"
                           variant="link"
                           eventKey="10"
                         >
                           <h5 class="m-0">本次購物清單</h5>
-                          <i class="fas fa-chevron-up"></i>
-                          <i class="fas fa-chevron-down d-none"></i>
                         </Accordion.Toggle>
                       </Card.Header>
 
@@ -414,12 +413,11 @@ function CartOrder(props) {
                       <Card.Header>
                         <Accordion.Toggle
                           as={Button}
+                          className="w-100 text-left"
                           variant="link"
                           eventKey="11"
                         >
                           <h5 class="m-0">本次訂單明細</h5>
-                          <i class="fas fa-chevron-up"></i>
-                          <i class="fas fa-chevron-down d-none"></i>
                         </Accordion.Toggle>
                       </Card.Header>
 

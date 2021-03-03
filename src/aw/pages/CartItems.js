@@ -1,5 +1,10 @@
 import '../styles/cartStyle.scss'
-import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import {
+  FaTimesCircle,
+  FaAngleLeft,
+  FaPlusSquare,
+  FaMinusSquare,
+} from 'react-icons/fa'
 import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -252,25 +257,21 @@ function CartItems(props) {
                                 <div class="col-sm d-flex justify-content-center aw-p-9">
                                   <p class="aw-book-title">$ {item.price}元</p>
                                 </div>
-                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
-                                  <button
-                                    class="aw-amount-btn mr-2"
+                                <div class="col-sm d-flex align-items-center justify-content-center aw-p-0 ">
+                                  <FaMinusSquare
+                                    class="aw-amount-btn mr-2 "
                                     onClick={() => {
                                       if (item.amount === 1) return
                                       updateCartToLocalStorage(item, false)
                                     }}
-                                  >
-                                    -
-                                  </button>
+                                  ></FaMinusSquare>
                                   {item.amount}
-                                  <button
-                                    class="aw-amount-btn ml-2"
+                                  <FaPlusSquare
+                                    class="aw-amount-btn ml-2 "
                                     onClick={() =>
                                       updateCartToLocalStorage(item, true)
                                     }
-                                  >
-                                    +
-                                  </button>
+                                  ></FaPlusSquare>
                                 </div>
                                 <div class="col-sm d-flex align-items-center justify-content-center aw-p-9">
                                   <p class="aw-book-title">
