@@ -67,7 +67,12 @@ function CHiaAcitvity(props) {
           <div className="chia_eventcontent d-flex justify-content-center align-items-center">
             <div className="chia_e-content">
               <p>{v.act_name}</p>
-              <p>活動價{v.act_price}</p>
+              <p>
+                活動價
+                <span style={{ color: '#e83015', fontWeight: '700' }}>
+                  {v.act_price}
+                </span>
+              </p>
             </div>
             <div className="chia_e-link">
               <Link to={`/activity/event/${v.act_sid}`}>VIEW MORE...</Link>
