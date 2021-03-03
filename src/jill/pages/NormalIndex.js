@@ -71,7 +71,7 @@ function NormalIndex() {
     // 5秒後關閉指示器
     setTimeout(() => {
       setDataLoading(false)
-    }, 5000)
+    }, 1000)
   }, [])
 
   // 測試函式型元件模擬componentDidMount跟componentDidUpload
@@ -86,8 +86,16 @@ function NormalIndex() {
     console.log('Func componentDidMount')
     console.log('mybook_rows有值變化:')
   }, [mybook_rows.book_name])
-
-  return (
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border aw-spinner" role="status">
+          <span className="sr-only aw-spinner">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
+  const display = (
     <>
       {/* 測試類別型元件卸載畫面 */}
 
@@ -242,6 +250,7 @@ function NormalIndex() {
       </div>
     </>
   )
+  return dataLoading ? loading : display
 }
 
 export default NormalIndex
