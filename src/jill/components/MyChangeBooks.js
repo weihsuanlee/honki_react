@@ -101,7 +101,7 @@ class MyChangeBooks extends React.Component {
           () =>
             (window.location.href =
               `http://localhost:3000/RandomSuccess/` + this.state.c_sid),
-          3000
+          4000
         )
         // window.location.href =
         //   `http://localhost:3000/RandomSuccess/` + this.state.c_sid
