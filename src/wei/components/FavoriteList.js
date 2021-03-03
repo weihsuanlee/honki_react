@@ -20,9 +20,10 @@ function FavoriteList(props) {
             去書城逛逛
           </Link>
         </div>
-        <div className="mx-auto" style={{ width: '30%' }}>
+        <div className="mx-auto mb-5" style={{ width: '15%' }}>
           <img
-            src="http://localhost:3000/images/wei/unboxing.svg"
+            // src="http://localhost:3000/images/wei/unboxing.svg"
+            src="http://localhost:3000/images/wei/mushroom-cleaning.gif"
             className="w-100 img-full"
             alt=""
           />

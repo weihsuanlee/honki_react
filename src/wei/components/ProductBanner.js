@@ -14,6 +14,7 @@ function ProductBanner(props) {
   function searchButtonClick() {
     const queryString = `?${searchSelect}search=${search}`
     props.history.push(`/product${queryString}`)
+    setSearch('')
   }
   return (
     <>
