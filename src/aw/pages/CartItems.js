@@ -254,7 +254,7 @@ function CartItems(props) {
                                 </div>
                                 <div class="col-sm d-flex align-items-center justify-content-center aw-p-0">
                                   <button
-                                    class="aw-amount-btn mr-1"
+                                    class="aw-amount-btn mr-2"
                                     onClick={() => {
                                       if (item.amount === 1) return
                                       updateCartToLocalStorage(item, false)
@@ -264,7 +264,7 @@ function CartItems(props) {
                                   </button>
                                   {item.amount}
                                   <button
-                                    class="aw-amount-btn ml-1"
+                                    class="aw-amount-btn ml-2"
                                     onClick={() =>
                                       updateCartToLocalStorage(item, true)
                                     }
