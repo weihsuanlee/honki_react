@@ -181,37 +181,45 @@
 	margin-bottom: 0;
 }
 
-/* Pagenation */
-.chia_pagenumber {
-	margin-top: 36px;
-}
-.chia_page-item {
-	font-size: 25px;
-}
+// /* Pagenation */
+// .chia_pagenumber {
+// 	margin-top: 36px;
+// }
+// .chia_page-item {
+// 	font-size: 25px;
+// }
 
-.chia_pagination {
-	height: 56px;
-}
+// .chia_pagination {
+// 	height: 56px;
+// }
 
-.chia_page-item_a {
-	width: 56px;
-	height: 56px;
-	line-height: 2.5;
+// .chia_page-item_a {
+// 	width: 56px;
+// 	height: 56px;
+// 	line-height: 2.5;
+// }
+// .chia_custompage {
+// 	border: none;
+// 	margin-right: 16px;
+// 	margin-left: 16px;
+// 	color: var(--word-color);
+// }
+// .chia_custompage:hover {
+// 	color: var(--word-color);
+// 	text-decoration: none;
+// }
+// .chiareview_active {
+// 	background-color: rgba(232, 48, 21, .33);
+// 	border-radius: 50%;
+// }
+// .chia_searchmemberbar {
+// 	width: 213px;
+// }
+.chia_rankings {
+	transition: .3s;
 }
-.chia_custompage {
-	border: none;
-	margin-right: 16px;
-	margin-left: 16px;
-	color: var(--word-color);
-}
-.chia_custompage:hover {
-	color: var(--word-color);
-	text-decoration: none;
-}
-.chiareview_active {
-	background-color: rgba(232, 48, 21, .33);
-	border-radius: 50%;
-}
-.chia_searchmemberbar {
-	width: 213px;
+.chia_rankings:hover {
+	color: #fff;
+	background-color: var(--word-color);
+	transform: scale((1.1));
 }

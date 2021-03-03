@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import $ from 'jquery'
-// import Hero_3 from '../image/030502.gif'
+import Hero_3 from '../image/030503.gif'
 // import Hero_2 from '../image/030502.jpg'
 import Hero_1 from '../image/Hero_1.jpg'
 
@@ -10,7 +10,7 @@ function HonkiHeroContext(props) {
   useEffect(() => {
     if (isToggler) {
       $('.chia_hero-image')
-        .css('background', `url('${Hero_1}') no-repeat`)
+        .css('background', `url('${Hero_3}') no-repeat`)
         .css({ transition: '.2s', backgroundSize: 'cover' })
     } else {
       $('.chia_hero-image').css({

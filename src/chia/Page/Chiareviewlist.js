@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { withRouter, Link, Switch, Route } from 'react-router-dom'
 import ReviewContent from '../Page/ChiaRevoewContent'
 import ReviewWrite from '../Page/ChiaReviewWrite'
+import Chiasmallmodalreply from './Chiasmallmodalreply'
 import '../Style/chiareviewlist.scss'
 // import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs'
 
@@ -31,6 +32,10 @@ function Chiareviewlist() {
       <Switch>
         <Route path="/reviews/content/:sid?" component={ReviewContent} />
         <Route path="/reviews/edit" component={ReviewWrite} />
+        <Route
+          path="/reviews/content/reply/:sid"
+          component={Chiasmallmodalreply}
+        />
         <div className="chia_reviewsection">
           <div className="container ">
             <div className="chia_reviewtitle row">
