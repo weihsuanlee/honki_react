@@ -235,7 +235,7 @@ function CartOrder(props) {
                   <div class="aw-progress-circle-item ">
                     <img
                       class="aw-ladybirdfinal"
-                      src="http://localhost:3000/images/aw/ladybird.svg"
+                      src="http://localhost:3000/images/aw/Group 1138.svg"
                       alt=""
                     />
                   </div>
@@ -261,7 +261,10 @@ function CartOrder(props) {
                   </div>
 
                   <div class="d-flex justify-content-end aw-composition">
-                    <img src="/images/cart/composition-24.svg" alt="" />
+                    <img
+                      src="http://localhost:3000/images/aw/composition-24.svg"
+                      alt=""
+                    />
                   </div>
                   <div class="col-3"></div>
                 </div>
