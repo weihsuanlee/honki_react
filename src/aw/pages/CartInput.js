@@ -334,11 +334,12 @@ function CartInput(props) {
     try {
       const response = await fetch(request)
       const data = await response.json()
+      console.log(data)
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
         setSeletedOption5(data.body.name)
-        setSeletedOption6(data.body.email)
-        setSeletedOption7(data.body.mobile)
+        setSeletedOption6(data.body.mobile)
+        setSeletedOption7(data.body.email)
         Terms5(data.body.name)
         Terms6(data.body.mobile)
         Terms7(data.body.email)
