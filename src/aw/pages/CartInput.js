@@ -334,14 +334,15 @@ function CartInput(props) {
     try {
       const response = await fetch(request)
       const data = await response.json()
+      console.log(data)
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
         setSeletedOption5(data.body.name)
-        setSeletedOption6(data.body.email)
-        setSeletedOption7(data.body.mobile)
+        setSeletedOption6(data.body.mobile)
+        setSeletedOption7(data.body.email)
         Terms5(data.body.name)
-        Terms6(data.body.email)
-        Terms7(data.body.mobile)
+        Terms6(data.body.mobile)
+        Terms7(data.body.email)
       }
     } catch (error) {
       console.log(error)
@@ -365,11 +366,11 @@ function CartInput(props) {
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
         setSeletedOption8(data.body.name)
-        setSeletedOption9(data.body.email)
-        setSeletedOption10(data.body.mobile)
+        setSeletedOption9(data.body.mobile)
+        setSeletedOption10(data.body.email)
         Terms8(data.body.name)
-        Terms9(data.body.email)
-        Terms10(data.body.mobile)
+        Terms9(data.body.mobile)
+        Terms10(data.body.email)
       }
     } catch (error) {
       console.log(error)
@@ -699,7 +700,7 @@ function CartInput(props) {
                           <div class="formItems row d-flex">
                             <label class="inputText col-5">聯絡電話</label>
                             <input
-                              type="email"
+                              type="tel"
                               class="form-control formInput col-7"
                               placeholder=""
                               value={seletedOption6}
