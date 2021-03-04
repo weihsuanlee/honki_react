@@ -1,9 +1,11 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import { Button, Modal } from 'react-bootstrap'
 import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { countries, townships, postcodes } from './townships'
-
+import CreditCard from './../components/CreditCard'
+import Swal from 'sweetalert2'
 function CartInput(props) {
   const [mycart, setMycart] = useState([])
   const [mycart1, setMycart1] = useState([])
@@ -83,7 +85,22 @@ function CartInput(props) {
     console.log('index', currentCart)
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
     setSeletedOption3(payment)
+
+    if (payment === '信用卡付款') {
+      // setShowSuccess(true)
+      let el = document.getElementById('cd')
+      el.style.display = 'block'
+      // toMenu()
+    } else {
+      let el = document.getElementById('cd')
+      el.style.display = 'none'
+    }
   }
+
+  function toMenu() {
+    window.setTimeout(() => (window.location.href = '/cartInput'), 4000)
+  }
+
   //input4
   const Terms4 = (invoice) => {
     console.log(invoice)
@@ -627,7 +644,9 @@ function CartInput(props) {
                             </select>
                           </div>
                         </div>
-
+                        <div style={{ display: 'none' }} id="cd">
+                          <CreditCard> </CreditCard>
+                        </div>
                         <div class="form-group ">
                           <div class="formItems row d-flex">
                             <label
