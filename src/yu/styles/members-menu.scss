@@ -25,63 +25,90 @@
   margin-bottom: 1%;
 }
 
-// .yu-menu-member-photo {
-//   width: 150px;
-//   height: 150px;
-//   margin-left: 550px;
-// }
+.yu-menu-member-photo {
+  position: relative;
+  margin-left: auto;
+  margin-right: 50px;
+  width: 150px;
+  height: 150px;
+}
 
-.yu-menu-member-photo-face img {
+.yu-menu-member-photo-face {
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 22.8%;
-  top: 23.5%;
+  top: 29px;
+  left: 73px;
   z-index: 200;
 }
 
-.yu-menu-member-photo-hair img {
+.yu-menu-member-photo-face img {
+  width: 100%;
+  height: 100%;
+}
+
+.yu-menu-member-photo-hair {
   width: 160px;
   height: 160px;
   position: absolute;
-  right: 19.8%;
-  top: 17.2%;
+  top: -31px;
+  z-index: 100;
+}
+
+.yu-menu-member-photo-hair img {
+  width: 100%;
+  height: 100%;
+}
+
+.yu-menu-member-photo-acc {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 62px;
   z-index: 100;
 }
 
 .yu-menu-member-photo-acc img {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  right: 22.87%;
-  top: 22.6%;
-  z-index: 100;
+  width: 100%;
+  height: 100%;
 }
 
-.yu-menu-member-photo-cloth img {
+.yu-menu-member-photo-cloth {
   width: 80px;
   height: 80px;
   position: absolute;
-  right: 22%;
-  top: 26.5%;
+  top: 55px;
+  left: 35px;
   z-index: 10;
 }
 
-.yu-menu-member-photo-bg img {
+.yu-menu-member-photo-cloth img {
+  width: 100%;
+  height: 100%;
+}
+
+.yu-menu-member-photo-bg {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  right: 20%;
-  top: 20%;
+  // right: 20%;
+  // top: 20%;
   z-index: 10;
 }
 
+.yu-menu-member-photo-bg img {
+  width: 100%;
+  height: 100%;
+}
+
 .yu-menu-general {
-  position: absolute;
-  right: 12%;
-  top: 23%;
+  // position: absolute;
+  // right: 12%;
+  // top: 23%;
+  margin-right: 12%;
 }
 
 .yu-menu-general-member {
