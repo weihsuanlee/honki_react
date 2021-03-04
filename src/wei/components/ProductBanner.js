@@ -166,7 +166,7 @@ function ProductBanner(props) {
             <div
               className="wei-book"
               onClick={() => {
-                props.history.push('/products/85')
+                props.history.push('/products/6')
               }}
             >
               <img
@@ -257,7 +257,7 @@ function ProductBanner(props) {
             <div
               className="wei-book"
               onClick={() => {
-                props.history.push('/products/135')
+                props.history.push('/products/10')
               }}
             >
               <img
