@@ -71,7 +71,7 @@ function NormalIndex() {
   useEffect(() => {
     setTimeout(() => {
       setDataLoading(false)
-    }, 3000)
+    }, 1800)
     getDataFromServer()
 
     // 5秒後關閉指示器
