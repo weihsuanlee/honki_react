@@ -101,14 +101,14 @@ function OldSeasons(props) {
     const data = await response.json()
 
     // let currentSolarTermId = data['current_solar_term_id']
-    let initialStId = data['current_solar_term_id'][0]['solar_term_id']
+    // let initialStId = data['current_solar_term_id'][0]['solar_term_id']
     // console.log('initialStId', initialStId)
-    let initialSid = data['solar_term_books'].length - 1
-    // console.log('initialSid', initialSid)
-    // setFirstCardSid(initialSid)
+    let initialSid = data['solar_term_books'].length
+    console.log('initialSid', initialSid)
+    setFirstCardSid(initialSid)
 
     // debug
-    setFirstCardSid(29)
+    // setFirstCardSid(29)
 
     // console.log(data)
     setSolarTermData(data)
@@ -122,14 +122,14 @@ function OldSeasons(props) {
 
     // console.log(data['solar_term_books'][1]['title'])
 
-    setSolarTermDesc(data['solar_term_list'][initialStId]['st_desc'])
+    // setSolarTermDesc(data['solar_term_list'][initialStId]['st_desc'])
     setSolarTermNameList(
       Array.from(Array(24).keys()).map(
         (e) => data['solar_term_list'][e]['solar_term']
       )
     )
-    setSolarTermToShow(data['solar_term_list'][initialStId]['solar_term'])
-    setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
+    // setSolarTermToShow(data['solar_term_list'][initialStId]['solar_term'])
+    // setSolarTermImgToShow(data['solar_term_list'][initialStId]['st_img'])
 
     // setSolarTermBookToShow(data['solar_term_books'][1]['title'])
     // console.log('solarTermBookToShow', data['current_solar_term_id'][0])
