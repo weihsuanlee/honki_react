@@ -581,7 +581,7 @@ function CartConfirm(props) {
                       })}
                       <div class=" position-relative">
                         <div class="d-flex justify-content-center ">
-                          <div class="aw-a" to="/CartOrder">
+                          <Link class="aw-a" to="/CartOrder">
                             <button
                               class="btn-md-dark w-100"
                               onClick={() => {
@@ -590,7 +590,7 @@ function CartConfirm(props) {
                             >
                               確認訂單
                             </button>
-                          </div>
+                          </Link>
                         </div>
                         <div class="d-flex justify-content-start position-absolute aw-icecream">
                           <img

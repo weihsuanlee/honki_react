@@ -1,9 +1,11 @@
 import '../styles/cartStyle.scss'
 import { FaTimesCircle, FaAngleLeft } from 'react-icons/fa'
+import { Button, Modal } from 'react-bootstrap'
 import { withRouter, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { countries, townships, postcodes } from './townships'
-
+import CreditCard from './../components/CreditCard'
+import Swal from 'sweetalert2'
 function CartInput(props) {
   const [mycart, setMycart] = useState([])
   const [mycart1, setMycart1] = useState([])
@@ -83,7 +85,22 @@ function CartInput(props) {
     console.log('index', currentCart)
     localStorage.setItem('inputTerms', JSON.stringify(currentCart))
     setSeletedOption3(payment)
+
+    if (payment === '信用卡付款') {
+      // setShowSuccess(true)
+      let el = document.getElementById('cd')
+      el.style.display = 'block'
+      // toMenu()
+    } else {
+      let el = document.getElementById('cd')
+      el.style.display = 'none'
+    }
   }
+
+  function toMenu() {
+    window.setTimeout(() => (window.location.href = '/cartInput'), 4000)
+  }
+
   //input4
   const Terms4 = (invoice) => {
     console.log(invoice)
@@ -317,14 +334,15 @@ function CartInput(props) {
     try {
       const response = await fetch(request)
       const data = await response.json()
+      console.log(data)
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
         setSeletedOption5(data.body.name)
-        setSeletedOption6(data.body.email)
-        setSeletedOption7(data.body.mobile)
+        setSeletedOption6(data.body.mobile)
+        setSeletedOption7(data.body.email)
         Terms5(data.body.name)
-        Terms6(data.body.email)
-        Terms7(data.body.mobile)
+        Terms6(data.body.mobile)
+        Terms7(data.body.email)
       }
     } catch (error) {
       console.log(error)
@@ -348,11 +366,11 @@ function CartInput(props) {
       if (data.success) {
         localStorage.setItem('userLogin', JSON.stringify(data))
         setSeletedOption8(data.body.name)
-        setSeletedOption9(data.body.email)
-        setSeletedOption10(data.body.mobile)
+        setSeletedOption9(data.body.mobile)
+        setSeletedOption10(data.body.email)
         Terms8(data.body.name)
-        Terms9(data.body.email)
-        Terms10(data.body.mobile)
+        Terms9(data.body.mobile)
+        Terms10(data.body.email)
       }
     } catch (error) {
       console.log(error)
@@ -627,7 +645,9 @@ function CartInput(props) {
                             </select>
                           </div>
                         </div>
-
+                        <div style={{ display: 'none' }} id="cd">
+                          <CreditCard> </CreditCard>
+                        </div>
                         <div class="form-group ">
                           <div class="formItems row d-flex">
                             <label
@@ -680,7 +700,7 @@ function CartInput(props) {
                           <div class="formItems row d-flex">
                             <label class="inputText col-5">聯絡電話</label>
                             <input
-                              type="email"
+                              type="tel"
                               class="form-control formInput col-7"
                               placeholder=""
                               value={seletedOption6}
