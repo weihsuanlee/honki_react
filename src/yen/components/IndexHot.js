@@ -41,8 +41,11 @@ function IndexHot(props) {
       slider.scrollLeft = scrollLeft - walk
     })
   }, [])
-  // let urlPage = props.location.search
-  // console.log('IndexHot', props)
+  let urlPage = props.location.search
+  if (urlPage === '?page=1') {
+    urlPage = '?page=1'
+  }
+  console.log('IndexHot', props)
 
   const hoverCard = (
     <>
@@ -86,7 +89,9 @@ function IndexHot(props) {
     <>
       <div
         className="yen-overflow-box"
-        // style={{ display: props.location.search ? 'none' : 'block' }}
+        style={{
+          display: props.location.search !== '?page=1' ? 'none' : 'block',
+        }}
       >
         <div className="yen-hot">
           <div className="yen-title-box d-flex">

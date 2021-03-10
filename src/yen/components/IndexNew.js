@@ -16,12 +16,6 @@ import SvgBgCircleLine from './svg/SvgBgCircleLine'
 import SvgWithDog from './svg/SvgWithDog'
 
 function IndexNew(props) {
-  // // 如果切換分頁就隱藏這個區塊
-  // if (props.location.search !== '') {
-  //   // console.log('clear', props)
-  //   return <></>
-  // }
-
   // 取得篩選state
   const { setQuerySelect } = props
 
@@ -29,6 +23,11 @@ function IndexNew(props) {
   function areaButtonClick(area) {
     console.log('area', area)
     setQuerySelect(area)
+  }
+
+  let urlPage = props.location.search
+  if (urlPage === '?page=1') {
+    urlPage = '?page=1'
   }
 
   // 將資料庫的活動分類數字轉字串
@@ -104,7 +103,9 @@ function IndexNew(props) {
     <>
       <div
         className="yen-new"
-        // style={{ display: props.location.search ? 'none' : 'block' }}
+        style={{
+          display: props.location.search !== '?page=1' ? 'none' : 'block',
+        }}
       >
         <div className="yen-title-box d-flex">
           <div className="yen-circle">
