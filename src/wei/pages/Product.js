@@ -61,6 +61,10 @@ function Product(props) {
           mode: 'no-cors',
         }
       )
+        .then((res) => {
+          res.json()
+        })
+        .catch((err) => {})
       const data = await response.json()
       console.log(data, 'data filtered')
       setBooks(data.rows)
@@ -91,10 +95,14 @@ function Product(props) {
     const response = await fetch(
       'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/product',
       {
-        method: 'get',
+        method: 'GET',
         mode: 'no-cors',
       }
     )
+      .then((res) => {
+        res.json()
+      })
+      .catch((err) => {})
     const data = await response.json()
     // console.log(data)
     setBooks(data.rows)
