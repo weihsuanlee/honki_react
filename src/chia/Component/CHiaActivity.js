@@ -32,7 +32,8 @@ function CHiaAcitvity(props) {
   }
 
   async function fetchEvent() {
-    const fetchURL = 'http://https://honki-books.herokuapp.com/reviews/honkiindex/event'
+    const fetchURL =
+      'http://https://honki-books.herokuapp.com/reviews/honkiindex/event'
     const res = await fetch(fetchURL)
     res
       .json()
@@ -56,7 +57,7 @@ function CHiaAcitvity(props) {
           <div className="chia_eventimfo d-flex flex-column" key={i}>
             <div className="chia_eventimg">
               <img
-                src={`http://https://wizardly-bassi-d73330.netlify.app/images/yen/event/${v.act_name}/0.jpg`}
+                src={`http://http://wizardly-bassi-d73330.netlify.app/images/yen/event/${v.act_name}/0.jpg`}
               />
             </div>
             <div className="d-flex">

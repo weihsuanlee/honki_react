@@ -106,8 +106,8 @@ function Cart(props) {
               </div>
               <div className="mx-auto mb-5" style={{ width: '40%' }}>
                 <img
-                  // src="http://https://wizardly-bassi-d73330.netlify.app/images/wei/unboxing.svg"
-                  src="http://https://wizardly-bassi-d73330.netlify.app/images/wei/mushroom-cleaning.gif"
+                  // src="http://http://wizardly-bassi-d73330.netlify.app/images/wei/unboxing.svg"
+                  src="http://http://wizardly-bassi-d73330.netlify.app/images/wei/mushroom-cleaning.gif"
                   className="w-100 img-full"
                   alt=""
                 />
@@ -202,7 +202,7 @@ function Cart(props) {
                                 <img
                                   class="w-100"
                                   src={
-                                    'http://https://wizardly-bassi-d73330.netlify.app/images/books/' +
+                                    'http://http://wizardly-bassi-d73330.netlify.app/images/books/' +
                                     item.book_id
                                   }
                                   alt=""

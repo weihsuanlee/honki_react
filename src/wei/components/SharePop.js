@@ -16,7 +16,7 @@ function SharePop(props) {
         <div
           onClick={() => {
             window.open(
-              `https://twitter.com/intent/tweet?url=http://https://wizardly-bassi-d73330.netlify.app/products/${productDetail.sid}%0A&hashtags=HONKI,本気&text=Check%20out%20this%20book!📗📕📘%0A%27${productDetail.title}%27%0A推薦這本書👍👍%0A%0A`,
+              `https://twitter.com/intent/tweet?url=http://http://wizardly-bassi-d73330.netlify.app/products/${productDetail.sid}%0A&hashtags=HONKI,本気&text=Check%20out%20this%20book!📗📕📘%0A%27${productDetail.title}%27%0A推薦這本書👍👍%0A%0A`,
               '_blank'
             )
           }}
@@ -30,7 +30,7 @@ function SharePop(props) {
           className="mt-3 wei-copy"
           onClick={() => {
             navigator.clipboard.writeText(
-              `http://https://wizardly-bassi-d73330.netlify.app/products/` + productDetail.sid
+              `http://http://wizardly-bassi-d73330.netlify.app/products/` + productDetail.sid
             )
             copyButtonClick()
           }}

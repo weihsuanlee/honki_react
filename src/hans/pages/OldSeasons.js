@@ -171,11 +171,11 @@ function OldSeasons(props) {
     setRedCenterImg(
       solarTermClicked
         ? [
-            'http://https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
+            'http://http://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeIn',
           ]
         : [
-            'http://https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
+            'http://http://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
             'img-full fadeOut',
           ]
     )

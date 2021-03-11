@@ -42,7 +42,7 @@ function RandomIndex() {
         <div className="jill-myRbook-area d-flex row">
           <div className="jill-myRbook">
             <img
-              src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
+              src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
               alt=""
             />
             <Link to="./RandomEdit">
@@ -54,7 +54,7 @@ function RandomIndex() {
           </div>
           <div className="jill-myRbook">
             <img
-              src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
+              src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
               alt=""
             />
             <Link to="./RandomEdit">
@@ -66,7 +66,7 @@ function RandomIndex() {
           </div>
           <div className="jill-myRbook">
             <img
-              src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
+              src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e889675b4.png"
               alt=""
             />
             <Link to="./RandomEdit">

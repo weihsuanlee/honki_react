@@ -135,7 +135,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
               </div>
@@ -144,7 +144,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
               </div>
@@ -154,7 +154,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
               </div>
@@ -164,7 +164,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
               </div>
@@ -187,7 +187,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
                 <ul>

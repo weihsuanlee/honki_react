@@ -13,7 +13,7 @@ function IndexHeader() {
             </div>
             <div className="yen-bg-img">
               <img
-                src="http://https://wizardly-bassi-d73330.netlify.app/images/yen/pexels-mentatdgt-1319854.jpg"
+                src="http://http://wizardly-bassi-d73330.netlify.app/images/yen/pexels-mentatdgt-1319854.jpg"
                 alt="bg"
                 className="yen-pics-right"
               />

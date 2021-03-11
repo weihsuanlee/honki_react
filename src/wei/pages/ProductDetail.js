@@ -32,9 +32,12 @@ function ProductDetail(props) {
   const getProductDetail = async () => {
     // 先開啟spinner
     setIsLoading(true)
-    const response = await fetch('http://https://honki-books.herokuapp.com/product/book/' + sid, {
-      method: 'get',
-    })
+    const response = await fetch(
+      'http://https://honki-books.herokuapp.com/product/book/' + sid,
+      {
+        method: 'get',
+      }
+    )
     const data = await response.json()
     setProductDetail(data.detail[0])
     setProductRelated(data.related)
@@ -62,14 +65,17 @@ function ProductDetail(props) {
 
   // 傳送localstorage近期瀏覽recentlyViewed
   const sendRecentlyViewed = async (recent) => {
-    const response = await fetch('http://https://honki-books.herokuapp.com/product/history', {
-      method: 'post',
-      body: JSON.stringify(recent),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+    const response = await fetch(
+      'http://https://honki-books.herokuapp.com/product/history',
+      {
+        method: 'post',
+        body: JSON.stringify(recent),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    )
     const data = await response.json()
     setProductHistory(data.history)
     console.log(data)
@@ -99,7 +105,8 @@ function ProductDetail(props) {
   // 取得會員收藏書單資料
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url = 'http://https://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url =
+      'http://https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -134,13 +141,15 @@ function ProductDetail(props) {
   const onClickFavorite = () => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href = 'http://https://wizardly-bassi-d73330.netlify.app/member'
+      window.location.href =
+        'http://http://wizardly-bassi-d73330.netlify.app/member'
       return
     }
     if (favorited) {
       // 已經是愛心
       const removeFavorite = async () => {
-        const url = 'http://https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+        const url =
+          'http://https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -165,7 +174,8 @@ function ProductDetail(props) {
     } else {
       // 如果不是愛心
       const addFavorite = async () => {
-        const url = 'http://https://honki-books.herokuapp.com/product/favorite/addFavorite'
+        const url =
+          'http://https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({

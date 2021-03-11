@@ -20,7 +20,7 @@ body {
   /* font-family: 'Abel', sans-serif; */
   font-size: 16px;
   /* 紙質背景 若要改個人顏色就在自己頁面style body background: url(相對路徑到bg_noise) white */
-  background: url('http://https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
+  background: url('http://http://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
     var(--honki-paper);
   overflow-x: hidden;
 }
@@ -261,7 +261,7 @@ select {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background: url('http://https://wizardly-bassi-d73330.netlify.app/images/select-btn.png')
+  background: url('http://http://wizardly-bassi-d73330.netlify.app/images/select-btn.png')
     no-repeat 100%;
 }
 
@@ -278,7 +278,7 @@ input:disabled {
 }
 
 select:disabled {
-  background: url('http://https://wizardly-bassi-d73330.netlify.app/images/select-btn-disabled.png')
+  background: url('http://http://wizardly-bassi-d73330.netlify.app/images/select-btn-disabled.png')
     no-repeat 100%;
 }
 

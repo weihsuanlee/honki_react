@@ -155,7 +155,7 @@ function ActAllSignUp(props) {
         confirmButtonText: '是的！刪掉它！',
         cancelButtonText: '不，先不要',
         reverseButtons: true,
-        imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/yen/bye2.gif',
+        imageUrl: 'http://http://wizardly-bassi-d73330.netlify.app/images/yen/bye2.gif',
         imageWidth: 300,
         imageHeight: 250,
         imageAlt: 'Custom image',
@@ -164,7 +164,7 @@ function ActAllSignUp(props) {
         if (result.isConfirmed) {
           deleteOrderOnServer(deleteOrderNum)
           swalWithBootstrapButtons.fire({
-            imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/yen/bye.gif',
+            imageUrl: 'http://http://wizardly-bassi-d73330.netlify.app/images/yen/bye.gif',
             // imageWidth: 350,
             imageHeight: 250,
             imageAlt: 'Custom image',
@@ -176,7 +176,7 @@ function ActAllSignUp(props) {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire({
-            imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/yen/bye3.gif',
+            imageUrl: 'http://http://wizardly-bassi-d73330.netlify.app/images/yen/bye3.gif',
             // imageWidth: 350,
             imageHeight: 320,
             imageAlt: 'Custom image',
@@ -251,7 +251,7 @@ function ActAllSignUp(props) {
           <h5>您還沒有參加活動喔</h5>
         </div>
         <div className="yen-no-order-QQ">
-          <img src="http://https://wizardly-bassi-d73330.netlify.app/images/yen/bye5-1.gif" alt="" />
+          <img src="http://http://wizardly-bassi-d73330.netlify.app/images/yen/bye5-1.gif" alt="" />
         </div>
       </div>
     </>
@@ -262,7 +262,7 @@ function ActAllSignUp(props) {
       {orderLists.rows &&
         orderLists.rows.map((value, index) => {
           const pic =
-            'http://https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
+            'http://http://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
             value.bookname +
             '/0.jpg'
           const orderNumberBtn = value.order_number

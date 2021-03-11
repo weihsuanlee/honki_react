@@ -87,9 +87,12 @@ function Product(props) {
     setIsLoading(true)
 
     // 和伺服器要資料
-    const response = await fetch('http://https://honki-books.herokuapp.com/product', {
-      method: 'get',
-    })
+    const response = await fetch(
+      'http://https://honki-books.herokuapp.com/product',
+      {
+        method: 'get',
+      }
+    )
     const data = await response.json()
     // console.log(data)
     setBooks(data.rows)
@@ -133,7 +136,7 @@ function Product(props) {
         </h6>
         <div className="mx-auto" style={{ width: '80%' }}>
           <img
-            src="http://https://wizardly-bassi-d73330.netlify.app/images/wei/mushroom.gif"
+            src="http://http://wizardly-bassi-d73330.netlify.app/images/wei/mushroom.gif"
             className="w-100 img-full"
             alt=""
           />

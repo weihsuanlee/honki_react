@@ -253,7 +253,7 @@ function CartConfirm(props) {
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item">
                     <img
-                      src="http://https://wizardly-bassi-d73330.netlify.app/images/aw/ladybird.svg"
+                      src="http://http://wizardly-bassi-d73330.netlify.app/images/aw/ladybird.svg"
                       alt=""
                     />
                   </div>
@@ -320,7 +320,7 @@ function CartConfirm(props) {
                                     <img
                                       class="w-100"
                                       src={
-                                        'http://https://wizardly-bassi-d73330.netlify.app/images/books/' +
+                                        'http://http://wizardly-bassi-d73330.netlify.app/images/books/' +
                                         item.book_id
                                       }
                                       alt=""
@@ -594,7 +594,7 @@ function CartConfirm(props) {
                         </div>
                         <div class="d-flex justify-content-start position-absolute aw-icecream">
                           <img
-                            src="http://https://wizardly-bassi-d73330.netlify.app/images/aw/Character-ice-cream.svg"
+                            src="http://http://wizardly-bassi-d73330.netlify.app/images/aw/Character-ice-cream.svg"
                             alt=""
                           />
                         </div>
