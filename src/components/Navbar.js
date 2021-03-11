@@ -40,6 +40,7 @@ function Navbar(props) {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
+      $('.wrapper').toggleClass('d-none')
       $(this).toggleClass('active')
       $(this).siblings().toggleClass('d-none')
       $('body').toggleClass('active')
@@ -70,7 +71,6 @@ function Navbar(props) {
       nav.current.style = 'display:none;'
       notLogin.current.style = 'display:block;'
     }
-
     // logout = () => {
     //   localStorage.removeItem('userLogin')
     //   window.location.href = '/login'
@@ -449,7 +449,7 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-      <div className="wrapper d-lg-none">
+      <div className="wrapper d-none">
         <div className="search-box-m navbar-search-m mx-auto mb-2">
           <form className="d-flex search-bar-m">
             <div className="select-list-m select-list">
