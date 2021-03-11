@@ -144,7 +144,7 @@ function ActEvent(props) {
     if (!eventid) return
 
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/activity/event/' +
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/activity/event/' +
       eventid
 
     // header的資料格式

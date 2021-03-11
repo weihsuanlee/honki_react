@@ -9,7 +9,7 @@ function EditTab4() {
   const sid = localStorage.getItem('userId')
 
   const passwordForDelete = async function (passwordConfirm, sid) {
-    const url = 'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/editdeleteaccount'
+    const url = 'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/member/editdeleteaccount'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({

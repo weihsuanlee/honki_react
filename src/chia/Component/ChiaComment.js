@@ -60,7 +60,7 @@ function ChiaComment(props) {
     }
 
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/comment'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/comment'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),
@@ -86,7 +86,7 @@ function ChiaComment(props) {
 
   async function fetchcomment() {
     const fetchURL =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/getcomment'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/getcomment'
     const res = await fetch(fetchURL)
     res
       .json()

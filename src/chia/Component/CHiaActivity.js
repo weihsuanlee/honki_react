@@ -33,7 +33,7 @@ function CHiaAcitvity(props) {
 
   async function fetchEvent() {
     const fetchURL =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/honkiindex/event'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/honkiindex/event'
     const res = await fetch(fetchURL)
     res
       .json()

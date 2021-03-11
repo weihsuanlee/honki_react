@@ -96,7 +96,7 @@ function OldSeasons(props) {
   // 和伺服器要資料，初始節氣卡
   const getInitialStDataFromServer = async () => {
     const response = await fetch(
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/old-seasons',
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/old-seasons',
       {
         method: 'get',
       }

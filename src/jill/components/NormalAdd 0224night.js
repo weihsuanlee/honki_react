@@ -34,7 +34,8 @@ function NormalAdd(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/normal-index/add'
+    const url =
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/normal-index/add'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -68,7 +69,8 @@ function NormalAdd(props) {
     const formdata = new FormData(e.target)
     formdata.append('userId', userId)
 
-    const url = 'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/normal-index/picture-upload'
+    const url =
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/normal-index/picture-upload'
 
     const request = new Request(url, {
       method: 'POST',

@@ -40,7 +40,7 @@ function ChiaReviewContent(props) {
 
   async function fetchReview() {
     const fetchURl =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/list/content'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/list/content'
     const res = await fetch(fetchURl)
     res
       .json()
@@ -85,7 +85,7 @@ function ChiaReviewContent(props) {
     }
 
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/like'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/content/like'
 
     const request = new Request(url, {
       method: 'POST',
@@ -105,7 +105,7 @@ function ChiaReviewContent(props) {
   }
   async function deleteContent() {
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/list/content/delete/' +
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/list/content/delete/' +
       isNum
 
     const request = new Request(url, {

@@ -18,7 +18,7 @@ function EditTab1() {
   const editInfo = async function () {
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/edit/' +
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/member/edit/' +
       userLogin.body.sid
 
     const request = new Request(url, {
@@ -66,7 +66,7 @@ function EditTab1() {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/edit/' +
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/member/edit/' +
       userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',

@@ -52,7 +52,7 @@ class ActCalendar extends Component {
   getDataFromServer() {
     const userId = localStorage.getItem('userId')
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/actorder'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/member/actorder'
     const that = this
     fetch(url, {
       method: 'POST', // or 'PUT'

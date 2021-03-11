@@ -52,7 +52,7 @@ function ActIndex(props) {
 
       // 和伺服器要資料
       const response = await fetch(
-        'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/activity' +
+        'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/activity' +
           url,
         {
           method: 'GET',
@@ -105,7 +105,7 @@ function ActIndex(props) {
 
     // 連接的伺服器資料網址
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/activity'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/activity'
 
     // header的資料格式
     const request = new Request(url, {
@@ -132,7 +132,7 @@ function ActIndex(props) {
   async function getHotEventFromServer() {
     // 連接的伺服器資料網址
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/activity/hot'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/activity/hot'
 
     // header的資料格式
     const request = new Request(url, {
@@ -182,7 +182,7 @@ function ActIndex(props) {
   async function getNewEventFromServer() {
     // 連接的伺服器資料網址
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/activity/new'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/activity/new'
 
     // header的資料格式
     const request = new Request(url, {

@@ -70,7 +70,7 @@ function ChiaReviewWrite(props) {
       reviewContent,
     }
     const url =
-      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/reviews/edit/add'
+      'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/reviews/edit/add'
 
     const request = new Request(url, {
       method: 'POST',
