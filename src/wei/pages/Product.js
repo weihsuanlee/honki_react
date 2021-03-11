@@ -53,7 +53,7 @@ function Product(props) {
       setIsLoading(true)
       // 和伺服器要資料
       const response = await fetch(
-        'http://localhost:3333' +
+        'https://honki-books.herokuapp.com' +
           props.location.pathname +
           props.location.search,
         {
