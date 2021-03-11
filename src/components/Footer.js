@@ -8,7 +8,7 @@ function Footer() {
       <footer className="desktopfooter">
         <div className="top d-flex">
           <img
-            src="http://https://wizardly-bassi-d73330.netlify.app/images/components/footeritem.svg"
+            src="http://https://wizardly-bassi-d73330.netlify.app/public/images/components/footeritem.svg"
             width="185px"
             height="118px"
             alt=""
