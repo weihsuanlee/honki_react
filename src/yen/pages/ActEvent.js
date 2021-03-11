@@ -167,7 +167,7 @@ function ActEvent(props) {
     setActNotice(data[0].act_notice)
     setActCancel(data[0].act_cancel_or_change)
     setActPic(
-      'http://http://wizardly-bassi-d73330.netlify.app/images/yen/event/' + data[0].act_name + '/0.jpg'
+      'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' + data[0].act_name + '/0.jpg'
     )
     console.log(actPic)
   }

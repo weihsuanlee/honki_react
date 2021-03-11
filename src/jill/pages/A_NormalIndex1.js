@@ -139,7 +139,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -162,7 +162,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -207,7 +207,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -233,7 +233,7 @@ function NormalIndex() {
 
                 <div className="jill-mycard d-flex">
                   <img
-                    src="http://http://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -275,7 +275,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
                 <ul>

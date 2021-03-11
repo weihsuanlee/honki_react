@@ -43,7 +43,7 @@ function IndexAllEvent(props) {
       {props.eventLists.rows &&
         props.eventLists.rows.map((value, index) => {
           const pic =
-            'http://http://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
+            'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
             value.act_name +
             '/0.jpg'
 

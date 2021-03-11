@@ -34,13 +34,16 @@ function NormalIndex() {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://https://honki-books.herokuapp.com/normal-index', {
-      method: 'get',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+    const response = await fetch(
+      'http://https://honki-books.herokuapp.com/normal-index',
+      {
+        method: 'get',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    )
     const data = await response.json()
 
     // 最後設定到狀態中
@@ -139,7 +142,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
                 <ul>

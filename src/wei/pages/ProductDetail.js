@@ -141,8 +141,7 @@ function ProductDetail(props) {
   const onClickFavorite = () => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href =
-        'http://http://wizardly-bassi-d73330.netlify.app/member'
+      window.location.href = 'https://wizardly-bassi-d73330.netlify.app/member'
       return
     }
     if (favorited) {

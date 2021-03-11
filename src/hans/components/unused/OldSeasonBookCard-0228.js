@@ -49,7 +49,7 @@ function OldSeasonBookCard(props) {
         <div className="hans-book-base hans-pointer">
           <img
             className="hans-book-img"
-            src={'http://http://wizardly-bassi-d73330.netlify.app/images/books/' + bookImg}
+            src={'https://wizardly-bassi-d73330.netlify.app/images/books/' + bookImg}
             alt=""
           />
         </div>

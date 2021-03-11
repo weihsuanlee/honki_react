@@ -71,7 +71,7 @@ function ProductDetailDisplay(props) {
               <img
                 className="w-100"
                 src={
-                  `http://http://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
                   productDetail.book_pics
                 }
                 alt=""

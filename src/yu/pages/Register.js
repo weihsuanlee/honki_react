@@ -122,7 +122,7 @@ function Register(props) {
       // setShowSuccess(true)
       Swal.fire({
         position: 'center',
-        imageUrl: 'http://http://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-1.gif',
+        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-1.gif',
         imageWidth: 250,
         html: '<b>註冊成功，歡迎你加入我們!</b>',
         showConfirmButton: false,
@@ -133,7 +133,7 @@ function Register(props) {
       // setShowFail(true)
       Swal.fire({
         position: 'center',
-        imageUrl: 'http://http://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
+        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
         imageWidth: 50,
         imageHeight: 50,
         html: '<b>電子信箱重複囉</b>',
@@ -165,7 +165,7 @@ function Register(props) {
             <div className="yu-register-bookspage">
               <img
                 className="yu-register-bookspage1-1"
-                src="http://http://wizardly-bassi-d73330.netlify.app/images/yu/book-register.jpg"
+                src="https://wizardly-bassi-d73330.netlify.app/images/yu/book-register.jpg"
                 alt=""
               />
             </div>

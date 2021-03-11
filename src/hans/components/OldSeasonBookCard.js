@@ -103,7 +103,7 @@ function OldSeasonBookCard(props) {
                   ? props.history.push('/products/' + bookSid)
                   : console.log('link ready')
               }}
-              src={'http://http://wizardly-bassi-d73330.netlify.app/images/books/' + bookImg}
+              src={'https://wizardly-bassi-d73330.netlify.app/images/books/' + bookImg}
               alt=""
             />
           </div>

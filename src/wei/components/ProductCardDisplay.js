@@ -41,7 +41,7 @@ function ProductCardDisplay(props) {
   const onClickFavorite = (bookId) => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href = 'http://http://wizardly-bassi-d73330.netlify.app/member'
+      window.location.href = 'https://wizardly-bassi-d73330.netlify.app/member'
       return
     }
 
@@ -119,7 +119,7 @@ function ProductCardDisplay(props) {
             >
               <img
                 className="w-100"
-                src={`http://http://wizardly-bassi-d73330.netlify.app/images/books/` + v.book_pics}
+                src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + v.book_pics}
                 alt=""
               />
             </div>
