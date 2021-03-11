@@ -1,5 +1,6 @@
 import { Button, Modal } from 'react-bootstrap'
 import { FaBookOpen } from 'react-icons/fa'
+
 function ReadTrialModal(props) {
   return (
     <Modal

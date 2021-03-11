@@ -1,9 +1,7 @@
-import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
-// import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 import { withRouter } from 'react-router-dom'
 import RangeSlider from './RangeSlider'
-// import { useState } from 'react'
+import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
 
 function PriceFilterPop(props) {
   const { setSliderValues, avgPrice } = props
@@ -16,7 +14,6 @@ function PriceFilterPop(props) {
       pathname: props.match.url,
       search: '?' + searchParams.toString(),
     }
-    // setQueryString(queryString)
     props.history.push(queryString)
   }
   function clearPriceFilter() {
@@ -27,8 +24,6 @@ function PriceFilterPop(props) {
       pathname: props.match.url,
       search: '?' + searchParams.toString(),
     }
-    // setSliderValues([0, 0])
-    // setQueryString(queryString)
     props.history.push(queryString)
   }
   const popover = (

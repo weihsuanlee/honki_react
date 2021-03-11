@@ -1,5 +1,5 @@
+import { withRouter } from 'react-router-dom'
 import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
-import { withRouter, Link } from 'react-router-dom'
 import { FaShare, FaTwitterSquare, FaCopy, FaCheckCircle } from 'react-icons/fa'
 
 function SharePop(props) {

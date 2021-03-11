@@ -1,5 +1,5 @@
-import { FaSearch } from 'react-icons/fa'
 import { withRouter } from 'react-router-dom'
+import { FaSearch } from 'react-icons/fa'
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap'
 
 function ProductBanner(props) {

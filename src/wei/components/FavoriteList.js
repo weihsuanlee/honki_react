@@ -1,8 +1,9 @@
 import '../styles/product.scss'
 import { useEffect, useState } from 'react'
-import { FaTimesCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import { FaTimesCircle } from 'react-icons/fa'
+
 
 function FavoriteList(props) {
   const [favorites, setFavorites] = useState([])

@@ -1,31 +1,25 @@
 import '../styles/product.scss'
-import { FaThLarge, FaListUl, FaCaretDown, FaBook } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 import { withRouter, NavLink } from 'react-router-dom'
+import { FaBook } from 'react-icons/fa'
 import MultiLevelBreadCrumb from '../../components/MultiLevelBreadCrumb'
 import ProductBanner from '../components/ProductBanner'
 import ListSpinner from '../components/ListSpinner'
 import CardSpinner from '../components/CardSpinner'
-import PriceFilterPop from '../components/PriceFilterPop'
 import ProductPagination from '../components/ProductPagination'
 import ProductCardDisplay from '../components/ProductCardDisplay'
 import ProductListDisplay from '../components/ProductListDisplay'
-import { useEffect, useState } from 'react'
+import SortButtons from '../components/SortButtons'
 
 function Product(props) {
-  let searchParams = new URLSearchParams(props.location.search)
-  let url = props.match.url
-
   // 書籍商品
   const [books, setBooks] = useState([])
   // 分類選單 Display
   const [categoryDisplay, setCategoriesDisplay] = useState([])
-
   // 篩選搜尋
   const [search, setSearch] = useState('')
   const [searchSelect, setSearchSelect] = useState('title_')
   const [searchTitle, setSearchTitle] = useState('書名')
-  // minPrice, maxPrice 價格篩選
-  const [sliderValues, setSliderValues] = useState([0, 1000])
   // avgPrice
   const [avgPrice, setAvgPrice] = useState(0)
   // 分頁 pagination
@@ -38,38 +32,6 @@ function Product(props) {
   // 設定navbar搜尋欄 顯示
   const { setNavSearchShow } = props
 
-  // sorts 排序條件按鈕事件處理
-  //（priceDESC, priceASC, discountDESC, discountASC, pubyearDESC, pubyearASC, starsDESC, starsASC）
-  function sortsButtonClick(click1, click2, num) {
-    const sortButton = document.querySelectorAll('.wei-sort-button')
-    const sortArrows = document.querySelectorAll('.wei-sort-arrow')
-    const sortArrow = sortButton[num].firstElementChild
-    for (let svg of sortArrows) {
-      svg.style.opacity = '0'
-    }
-    if (
-      searchParams.get('sorts') !== click1 &&
-      searchParams.get('sorts') !== click2
-    ) {
-      searchParams.set('sorts', click1)
-      sortArrow.style.opacity = '1'
-      sortArrow.style.transform = 'scaleY(1)'
-    } else if (searchParams.get('sorts') === click1) {
-      searchParams.set('sorts', click2)
-      sortArrow.style.opacity = '1'
-      sortArrow.style.transform = 'scaleY(-1)'
-    } else {
-      searchParams.delete('sorts')
-      sortArrow.style.opacity = '0'
-    }
-    setPage(1)
-    searchParams.delete('page')
-    const queryString = {
-      pathname: url,
-      search: '?' + searchParams.toString(),
-    }
-    props.history.push(queryString)
-  }
   // 模擬componentDidMount
   useEffect(() => {
     getDataFromServer()
@@ -86,7 +48,6 @@ function Product(props) {
 
   // 模擬componentDidUpdate
   useEffect(() => {
-    // console.log(props)
     async function filterProduct() {
       // 先開啟spinner
       setIsLoading(true)
@@ -104,7 +65,6 @@ function Product(props) {
       setBooks(data.rows)
       setTotalPages(data.totalPages)
       setAvgPrice(data.avgPrice)
-
       // 1秒後關閉spinner
       setTimeout(() => {
         setIsLoading(false)
@@ -116,10 +76,12 @@ function Product(props) {
     if ((props.match.url === '/product') & !props.location.search) {
       window.scrollBy(0, 0)
     } else {
-      window.scrollBy(0, 0.75 * window.innerHeight)
+      // window.scrollBy(0, 0.75 * window.innerHeight)
+      window.scrollBy(0, 0.95 * window.innerHeight)
     }
   }, [props.location])
 
+  // 列表商品資料
   const getDataFromServer = async () => {
     // 先開啟spinner
     setIsLoading(true)
@@ -129,16 +91,17 @@ function Product(props) {
       method: 'get',
     })
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     setBooks(data.rows)
     setCategoriesDisplay(data.c_rows)
     setTotalPages(data.totalPages)
 
-    // 2秒後關閉spinner
+    // 1.5秒後關閉spinner
     setTimeout(() => {
       setIsLoading(false)
     }, 1500)
   }
+  // 書籍分類選單
   const categoriesDisplay = (
     <div className="wei-categories">
       <h6 className="wei-categories-title">書籍分類</h6>
@@ -158,10 +121,10 @@ function Product(props) {
       </ul>
     </div>
   )
-
+  // spinner 載入緩衝骨架
   const cardSpinner = <CardSpinner show="true" />
   const listSpinner = <ListSpinner show="true" />
-
+  // 查無相關商品
   const noResults = (
     <>
       <div className="mx-auto mt-5">
@@ -171,7 +134,6 @@ function Product(props) {
         <div className="mx-auto" style={{ width: '80%' }}>
           <img
             src="http://localhost:3000/images/wei/mushroom.gif"
-            // src="http://localhost:3000/images/wei/clumsy.svg"
             className="w-100 img-full"
             alt=""
           />
@@ -196,77 +158,11 @@ function Product(props) {
           <div className="col-12">
             <MultiLevelBreadCrumb />
           </div>
-          <div className="col-12 wei-button-group">
-            <div className="wei-top-buttons d-flex">
-              <PriceFilterPop
-                avgPrice={avgPrice}
-                setSliderValues={setSliderValues}
-                sliderValues={sliderValues}
-              />
-              <button
-                className="btn-rounded-dark wei-sort-button"
-                onClick={() => {
-                  const click1 = 'priceDESC'
-                  const click2 = 'priceASC'
-                  sortsButtonClick(click1, click2, 0)
-                }}
-              >
-                價格排序
-                <FaCaretDown className="ml-1 wei-sort-arrow" />
-              </button>
-              <button
-                className="btn-rounded-dark wei-sort-button"
-                onClick={() => {
-                  const click1 = 'discountDESC'
-                  const click2 = 'discountASC'
-                  sortsButtonClick(click1, click2, 1)
-                }}
-              >
-                折扣
-                <FaCaretDown className="ml-1 wei-sort-arrow" />
-              </button>
-            </div>
-            <div className="wei-bottom-buttons d-flex">
-              <button
-                className="btn-rounded-dark wei-sort-button"
-                onClick={() => {
-                  const click1 = 'starsDESC'
-                  const click2 = 'starsASC'
-                  sortsButtonClick(click1, click2, 2)
-                }}
-              >
-                評分
-                <FaCaretDown className="ml-1 wei-sort-arrow" />
-              </button>
-              <button
-                className="btn-rounded-dark wei-sort-button"
-                onClick={() => {
-                  const click1 = 'pubyearDESC'
-                  const click2 = 'pubyearASC'
-                  sortsButtonClick(click1, click2, 3)
-                }}
-              >
-                出版年份
-                <FaCaretDown className="ml-1 wei-sort-arrow" />
-              </button>
-              <button
-                className="btn-rounded-dark"
-                onClick={() => {
-                  setCardList(true)
-                }}
-              >
-                <FaListUl />
-              </button>
-              <button
-                className="btn-rounded-dark"
-                onClick={() => {
-                  setCardList(false)
-                }}
-              >
-                <FaThLarge />
-              </button>
-            </div>
-          </div>
+          <SortButtons
+            setCardList={setCardList}
+            setPage={setPage}
+            avgPrice={avgPrice}
+          />
         </div>
         <div className="row justify-content-center">
           <div className="d-none d-lg-block col-2">{categoriesDisplay}</div>
