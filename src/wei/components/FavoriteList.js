@@ -33,8 +33,7 @@ function FavoriteList(props) {
   )
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url =
-      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url = 'http://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -56,7 +55,7 @@ function FavoriteList(props) {
   }
   const removeFavorite = async (bookId, userId) => {
     const url =
-      'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+      'http://honki-books.herokuapp.com/product/favorite/removeFavorite'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({

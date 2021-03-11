@@ -10,7 +10,7 @@ function Chia_replyarea(props) {
   const [err, setErr] = useState('')
   async function fetchcomment() {
     const fetchURL =
-      'https://honki-books.herokuapp.com/reviews/comment/reply/content'
+      'http://honki-books.herokuapp.com/reviews/comment/reply/content'
     const res = await fetch(fetchURL)
     res
       .json()

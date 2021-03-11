@@ -53,7 +53,7 @@ function Product(props) {
       setIsLoading(true)
       // 和伺服器要資料
       const response = await fetch(
-        'https://honki-books.herokuapp.com' +
+        'http://honki-books.herokuapp.com' +
           props.location.pathname +
           props.location.search,
         {
@@ -87,7 +87,7 @@ function Product(props) {
     setIsLoading(true)
 
     // 和伺服器要資料
-    const response = await fetch('https://honki-books.herokuapp.com/product', {
+    const response = await fetch('http://honki-books.herokuapp.com/product', {
       method: 'get',
     })
     const data = await response.json()

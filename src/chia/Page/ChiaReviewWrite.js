@@ -69,7 +69,7 @@ function ChiaReviewWrite(props) {
       reviewRanking,
       reviewContent,
     }
-    const url = 'https://honki-books.herokuapp.com/reviews/edit/add'
+    const url = 'http://honki-books.herokuapp.com/reviews/edit/add'
 
     const request = new Request(url, {
       method: 'POST',

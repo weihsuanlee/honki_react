@@ -20,7 +20,7 @@ function ProductCarousel(props) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+          'http://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -46,7 +46,7 @@ function ProductCarousel(props) {
       // 如果不是愛心
       const addFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
+          'http://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
