@@ -33,7 +33,7 @@ function RandomSuccess(props) {
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
     const response = await fetch(
-      'http://honki-books.herokuapp.com/normal-index/random-success/' + c_sid,
+      'https://honki-books.herokuapp.com/normal-index/random-success/' + c_sid,
       {
         method: 'get',
         headers: new Headers({

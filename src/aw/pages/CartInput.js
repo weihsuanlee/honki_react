@@ -324,7 +324,7 @@ function CartInput(props) {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const url =
-      'http://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
+      'https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -354,7 +354,7 @@ function CartInput(props) {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
     const url =
-      'http://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
+      'https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({

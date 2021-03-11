@@ -20,7 +20,7 @@ function Login(props) {
   // const handleClose = () => setShow(false)
 
   const login = async function (email, password) {
-    const url = 'http://honki-books.herokuapp.com/member/login'
+    const url = 'https://honki-books.herokuapp.com/member/login'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({

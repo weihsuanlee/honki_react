@@ -35,7 +35,7 @@ function NormalIndex() {
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
     const response = await fetch(
-      'http://honki-books.herokuapp.com/normal-index',
+      'https://honki-books.herokuapp.com/normal-index',
       {
         method: 'get',
         headers: new Headers({

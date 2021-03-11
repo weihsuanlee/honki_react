@@ -33,7 +33,7 @@ function ProductDetail(props) {
     // 先開啟spinner
     setIsLoading(true)
     const response = await fetch(
-      'http://honki-books.herokuapp.com/product/book/' + sid,
+      'https://honki-books.herokuapp.com/product/book/' + sid,
       {
         method: 'get',
       }
@@ -66,7 +66,7 @@ function ProductDetail(props) {
   // 傳送localstorage近期瀏覽recentlyViewed
   const sendRecentlyViewed = async (recent) => {
     const response = await fetch(
-      'http://honki-books.herokuapp.com/product/history',
+      'https://honki-books.herokuapp.com/product/history',
       {
         method: 'post',
         body: JSON.stringify(recent),
@@ -105,7 +105,8 @@ function ProductDetail(props) {
   // 取得會員收藏書單資料
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url = 'http://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url =
+      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -147,7 +148,7 @@ function ProductDetail(props) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url =
-          'http://honki-books.herokuapp.com/product/favorite/removeFavorite'
+          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -173,7 +174,7 @@ function ProductDetail(props) {
       // 如果不是愛心
       const addFavorite = async () => {
         const url =
-          'http://honki-books.herokuapp.com/product/favorite/addFavorite'
+          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({

@@ -13,7 +13,8 @@ function ProductCardDisplay(props) {
 
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url = 'http://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url =
+      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -49,7 +50,7 @@ function ProductCardDisplay(props) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url =
-          'http://honki-books.herokuapp.com/product/favorite/removeFavorite'
+          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -75,7 +76,7 @@ function ProductCardDisplay(props) {
       // 如果不是愛心
       const addFavorite = async () => {
         const url =
-          'http://honki-books.herokuapp.com/product/favorite/addFavorite'
+          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
