@@ -123,8 +123,7 @@ function ProductCardDisplay(props) {
               <img
                 className="w-100"
                 src={
-                  `https://honki-books.netlify.app/images/books/` +
-                  v.book_pics
+                  `https://honki-books.netlify.app/images/books/` + v.book_pics
                 }
                 alt=""
               />
@@ -144,7 +143,7 @@ function ProductCardDisplay(props) {
           <div className="wei-book-text">
             <p className="wei-book-title">{v.title}</p>
             <p className="wei-book-author">{v.author}</p>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-wrap">
               <span className="wei-stars wei-product-stars">
                 <FaStar
                   className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}
