@@ -211,7 +211,8 @@ function ActAllSignUp(props) {
 
   async function deleteOrderOnServer(deleteOrder) {
     const url =
-      'https://honki-books.herokuapp.com/member/actorder/' + deleteOrder
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/actorder/' +
+      deleteOrder
     // console.log('url', url)
     // header的資料格式
     const request = new Request(url, {
@@ -226,7 +227,8 @@ function ActAllSignUp(props) {
   // console.log('orderLists.length', orderLists.rows)
 
   async function postOrderDetailFromServer() {
-    const url = 'https://honki-books.herokuapp.com/member/actorder'
+    const url =
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/member/actorder'
 
     // header的資料格式
     const request = new Request(url, {

@@ -13,7 +13,7 @@ function ProductListDisplay(props) {
   const fetchFavoriteList = async () => {
     if (!userId) return
     const url =
-      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -50,7 +50,7 @@ function ProductListDisplay(props) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+          'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -77,7 +77,7 @@ function ProductListDisplay(props) {
       // 如果不是愛心
       const addFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
+          'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -90,7 +90,9 @@ function ProductListDisplay(props) {
           }),
           mode: 'no-cors',
         })
-        const response = await fetch(request)
+        const response = await fetch(request).then((response) =>
+          response.json()
+        )
         const data = await response.json()
         if (data.success) {
           fetchFavoriteList()

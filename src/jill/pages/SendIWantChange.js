@@ -30,7 +30,7 @@ function SendIWantChange(props) {
   // 伺服器抓資料async
   const getProductDetail = async () => {
     const response = await fetch(
-      'https://honki-books.herokuapp.com/normal-index/used-book-detail/' +
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/normal-index/used-book-detail/' +
         c_sid,
       {
         method: 'get',
@@ -53,7 +53,7 @@ function SendIWantChange(props) {
   // 寫入iwant表單
   // const sendiwant = async () => {
   //   const response = await fetch(
-  //     'https://honki-books.herokuapp.com/normal-index/used-book-detail/' + c_sid,
+  //     'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/normal-index/used-book-detail/' + c_sid,
   //     {
   //       method: 'get',
   //       headers: new Headers({
@@ -142,7 +142,7 @@ function SendIWantChange(props) {
                         <div class="jill-upload-pics">
                           <img
                             src={
-                              `https://honki-books.herokuapp.com/img/` + pics[i]
+                              `https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/img/` + pics[i]
                             }
                             alt=""
                           />

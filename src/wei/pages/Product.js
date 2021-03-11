@@ -53,7 +53,7 @@ function Product(props) {
       setIsLoading(true)
       // 和伺服器要資料
       const response = await fetch(
-        'https://honki-books.herokuapp.com' +
+        'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com' +
           props.location.pathname +
           props.location.search,
         {
@@ -88,10 +88,13 @@ function Product(props) {
     setIsLoading(true)
 
     // 和伺服器要資料
-    const response = await fetch('https://honki-books.herokuapp.com/product', {
-      method: 'get',
-      mode: 'no-cors',
-    })
+    const response = await fetch(
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product',
+      {
+        method: 'get',
+        mode: 'no-cors',
+      }
+    )
     const data = await response.json()
     // console.log(data)
     setBooks(data.rows)

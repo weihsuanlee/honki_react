@@ -32,14 +32,28 @@ function ProductDetail(props) {
   const getProductDetail = async () => {
     // 先開啟spinner
     setIsLoading(true)
-    const response = await fetch(
-      'https://honki-books.herokuapp.com/product/book/' + sid,
-      {
-        method: 'get',
-        mode: 'no-cors',
-      }
-    )
+    const url =
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/book/' +
+      sid
+    const request = new Request(url, {
+      method: 'get',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      mode: 'no-cors',
+    })
+    // const response = await fetch(
+    //   'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/book/' + sid,
+    //   {
+    //     method: 'get',
+    //     mode: 'no-cors',
+    //   }
+    // )
+    // const data = await response.json()
+    const response = await fetch(request)
     const data = await response.json()
+
     setProductDetail(data.detail[0])
     setProductRelated(data.related)
 
@@ -67,9 +81,9 @@ function ProductDetail(props) {
   // 傳送localstorage近期瀏覽recentlyViewed
   const sendRecentlyViewed = async (recent) => {
     const response = await fetch(
-      'https://honki-books.herokuapp.com/product/history',
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/history',
       {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify(recent),
         headers: new Headers({
           Accept: 'application/json',
@@ -108,7 +122,7 @@ function ProductDetail(props) {
   const fetchFavoriteList = async () => {
     if (!userId) return
     const url =
-      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -151,7 +165,7 @@ function ProductDetail(props) {
       // 已經是愛心
       const removeFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+          'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -178,7 +192,7 @@ function ProductDetail(props) {
       // 如果不是愛心
       const addFavorite = async () => {
         const url =
-          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
+          'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({

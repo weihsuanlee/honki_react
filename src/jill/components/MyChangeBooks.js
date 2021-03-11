@@ -82,7 +82,7 @@ class MyChangeBooks extends React.Component {
 
     // let history = this.props.history
     fetch(
-      'https://honki-books.herokuapp.com/normal-index/random/' +
+      'https://cors-anywhere.herokuapp.com/https://honki-books.herokuapp.com/normal-index/random/' +
         this.state.c_sid,
       {
         method: 'POST', //PUT會連第一段SQL都跑不出來
