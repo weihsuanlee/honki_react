@@ -58,6 +58,7 @@ function Product(props) {
           props.location.search,
         {
           method: 'get',
+          mode: 'no-cors',
         }
       )
       const data = await response.json()
@@ -89,6 +90,7 @@ function Product(props) {
     // 和伺服器要資料
     const response = await fetch('https://honki-books.herokuapp.com/product', {
       method: 'get',
+      mode: 'no-cors',
     })
     const data = await response.json()
     // console.log(data)

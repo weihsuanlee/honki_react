@@ -31,6 +31,7 @@ function ProductCarousel(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
+          mode: 'no-cors',
         })
         const response = await fetch(request)
         const data = await response.json()
@@ -57,6 +58,7 @@ function ProductCarousel(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
+          mode: 'no-cors',
         })
         const response = await fetch(request)
         const data = await response.json()

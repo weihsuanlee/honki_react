@@ -36,6 +36,7 @@ function ProductDetail(props) {
       'https://honki-books.herokuapp.com/product/book/' + sid,
       {
         method: 'get',
+        mode: 'no-cors',
       }
     )
     const data = await response.json()
@@ -74,6 +75,7 @@ function ProductDetail(props) {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         }),
+        mode: 'no-cors',
       }
     )
     const data = await response.json()
@@ -116,6 +118,7 @@ function ProductDetail(props) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       }),
+      mode: 'no-cors',
     })
     const response = await fetch(request)
     const data = await response.json()
@@ -159,6 +162,7 @@ function ProductDetail(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
+          mode: 'no-cors',
         })
         const response = await fetch(request)
         const data = await response.json()
@@ -185,6 +189,7 @@ function ProductDetail(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
+          mode: 'no-cors',
         })
         const response = await fetch(request)
         const data = await response.json()
