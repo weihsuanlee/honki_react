@@ -58,7 +58,6 @@ function Product(props) {
           props.location.search,
         {
           method: 'get',
-          mode: 'no-cors',
           headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -97,7 +96,6 @@ function Product(props) {
       'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/product',
       {
         method: 'GET',
-        mode: 'no-cors',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',

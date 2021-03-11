@@ -23,7 +23,6 @@ function ProductListDisplay(props) {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       }),
-      mode: 'no-cors',
     })
     const response = await fetch(request)
     const data = await response.json()
@@ -61,7 +60,6 @@ function ProductListDisplay(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
-          mode: 'no-cors',
         })
         const response = await fetch(request)
         const data = await response.json()
@@ -88,7 +86,6 @@ function ProductListDisplay(props) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
           }),
-          mode: 'no-cors',
         })
         const response = await fetch(request).then((response) =>
           response.json()
