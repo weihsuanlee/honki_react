@@ -150,7 +150,7 @@ function CartItems(props) {
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item">
                     <img
-                      src="http://localhost:3000/images/aw/ladybird.svg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/aw/ladybird.svg"
                       alt=""
                     ></img>
                   </div>
@@ -231,7 +231,7 @@ function CartItems(props) {
                                     <img
                                       class="w-100"
                                       src={
-                                        'http://localhost:3000/images/books/' +
+                                        'http://https://wizardly-bassi-d73330.netlify.app/images/books/' +
                                         item.book_id
                                       }
                                       alt=""

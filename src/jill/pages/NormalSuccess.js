@@ -72,7 +72,7 @@ function NormalSuccess() {
                   </div>
                   <div className="jill-normal-success-message-L-img">
                     <img
-                      src="http://localhost:3000/images/books/5fe1e0d53a3c6.png"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
                       alt=""
                     />
                   </div>
@@ -84,7 +84,7 @@ function NormalSuccess() {
                   </div>
                   <div className="jill-normal-success-message-R-img">
                     <img
-                      src="http://localhost:3000/images/books/5fe1e25e7712a.png"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e25e7712a.png"
                       alt=""
                     />
                   </div>

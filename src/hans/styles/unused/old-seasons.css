@@ -18,14 +18,14 @@ https://codepen.io/ant1mas/pen/MeJjaK
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .book-card > div {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .book-base {
@@ -84,7 +84,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
 /* solar-term-plate 的各種設定 start */
 .title-pointer {
   -webkit-transform: translate(calc(18vw), 0rem);
-          transform: translate(calc(18vw), 0rem);
+  transform: translate(calc(18vw), 0rem);
 }
 
 .title-box {
@@ -100,17 +100,17 @@ https://codepen.io/ant1mas/pen/MeJjaK
   margin: 0.5rem;
   /* transform: translate(calc(100vw / 12), calc(100vh * 7 / 9 - 80px)); */
   -webkit-transform: translate(calc(100vw / 12), 0rem);
-          transform: translate(calc(100vw / 12), 0rem);
+  transform: translate(calc(100vw / 12), 0rem);
 }
 
 .title {
   -webkit-transform: translate(0.5rem, -0.5rem);
-          transform: translate(0.5rem, -0.5rem);
+  transform: translate(0.5rem, -0.5rem);
 }
 
 .rotate {
   -webkit-animation: rotation 120s infinite linear;
-          animation: rotation 120s infinite linear;
+  animation: rotation 120s infinite linear;
 }
 
 @-webkit-keyframes rotation {
@@ -118,13 +118,13 @@ https://codepen.io/ant1mas/pen/MeJjaK
     /* transform: translate(0px, 0px) rotate(0deg); */
     /* transform: translate(-81px, -205px) rotate(0deg); */
     -webkit-transform: translate(-70px, -173px) rotate(15deg);
-            transform: translate(-70px, -173px) rotate(15deg);
+    transform: translate(-70px, -173px) rotate(15deg);
   }
   to {
     /* transform: translate(0px, 0px) rotate(359deg); */
     /* transform: translate(-81px, -205px) rotate(359deg); */
     -webkit-transform: translate(-70px, -173px) rotate(374deg);
-            transform: translate(-70px, -173px) rotate(374deg);
+    transform: translate(-70px, -173px) rotate(374deg);
   }
 }
 
@@ -133,13 +133,13 @@ https://codepen.io/ant1mas/pen/MeJjaK
     /* transform: translate(0px, 0px) rotate(0deg); */
     /* transform: translate(-81px, -205px) rotate(0deg); */
     -webkit-transform: translate(-70px, -173px) rotate(15deg);
-            transform: translate(-70px, -173px) rotate(15deg);
+    transform: translate(-70px, -173px) rotate(15deg);
   }
   to {
     /* transform: translate(0px, 0px) rotate(359deg); */
     /* transform: translate(-81px, -205px) rotate(359deg); */
     -webkit-transform: translate(-70px, -173px) rotate(374deg);
-            transform: translate(-70px, -173px) rotate(374deg);
+    transform: translate(-70px, -173px) rotate(374deg);
   }
 }
 
@@ -158,12 +158,12 @@ https://codepen.io/ant1mas/pen/MeJjaK
   border-radius: 50%;
   list-style: none;
   /* image source: https://www.behance.net/gallery/38204839/The-24-Solar-Terms-Character-Design */
-  background-image: url(http://localhost:3000/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
+  background-image: url(http://https://wizardly-bassi-d73330.netlify.app/images/hans/The_24_Solar_Terms_by_Cinyee_Chiu_715x715.png);
   background-size: 100% 100%;
   /* transform: translate(0px, 0px); */
   /* transform: translate(-81px, -265px); */
   -webkit-transform: translate(-70px, -173px) rotate(15deg);
-          transform: translate(-70px, -173px) rotate(15deg);
+  transform: translate(-70px, -173px) rotate(15deg);
 }
 
 /* .solar-term-plate-v2:hover {
@@ -181,7 +181,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   background-size: 100% 100%; */
   overflow: hidden;
   -webkit-transform: translate(40%, 40%);
-          transform: translate(40%, 40%);
+  transform: translate(40%, 40%);
 }
 
 /* .red-center .red-center-bg-color {
@@ -203,74 +203,74 @@ https://codepen.io/ant1mas/pen/MeJjaK
   width: 5000px;
   height: 5000px;
   -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
 }
 
 .slice:nth-child(1) {
   -webkit-transform: rotate(0deg) skewY(60deg);
-          transform: rotate(0deg) skewY(60deg);
+  transform: rotate(0deg) skewY(60deg);
   opacity: 0;
   display: block;
 }
 
 .slice:nth-child(2) {
   -webkit-transform: rotate(30deg) skewY(60deg);
-          transform: rotate(30deg) skewY(60deg);
+  transform: rotate(30deg) skewY(60deg);
 }
 
 .slice:nth-child(3) {
   -webkit-transform: rotate(60deg) skewY(60deg);
-          transform: rotate(60deg) skewY(60deg);
+  transform: rotate(60deg) skewY(60deg);
 }
 
 .slice:nth-child(4) {
   -webkit-transform: rotate(90deg) skewY(60deg);
-          transform: rotate(90deg) skewY(60deg);
+  transform: rotate(90deg) skewY(60deg);
 }
 
 .slice:nth-child(5) {
   -webkit-transform: rotate(120deg) skewY(60deg);
-          transform: rotate(120deg) skewY(60deg);
+  transform: rotate(120deg) skewY(60deg);
 }
 
 .slice:nth-child(6) {
   -webkit-transform: rotate(150deg) skewY(60deg);
-          transform: rotate(150deg) skewY(60deg);
+  transform: rotate(150deg) skewY(60deg);
 }
 
 .slice:nth-child(7) {
   -webkit-transform: rotate(180deg) skewY(60deg);
-          transform: rotate(180deg) skewY(60deg);
+  transform: rotate(180deg) skewY(60deg);
 }
 
 .slice:nth-child(8) {
   -webkit-transform: rotate(210deg) skewY(60deg);
-          transform: rotate(210deg) skewY(60deg);
+  transform: rotate(210deg) skewY(60deg);
 }
 
 .slice:nth-child(9) {
   -webkit-transform: rotate(240deg) skewY(60deg);
-          transform: rotate(240deg) skewY(60deg);
+  transform: rotate(240deg) skewY(60deg);
 }
 
 .slice:nth-child(10) {
   -webkit-transform: rotate(270deg) skewY(60deg);
-          transform: rotate(270deg) skewY(60deg);
+  transform: rotate(270deg) skewY(60deg);
 }
 
 .slice:nth-child(11) {
   -webkit-transform: rotate(300deg) skewY(60deg);
-          transform: rotate(300deg) skewY(60deg);
+  transform: rotate(300deg) skewY(60deg);
 }
 
 .slice:nth-child(12) {
   -webkit-transform: rotate(330deg) skewY(60deg);
-          transform: rotate(330deg) skewY(60deg);
+  transform: rotate(330deg) skewY(60deg);
 }
 
 .slice:nth-child(13) {
   -webkit-transform: rotate(360deg) skewY(60deg);
-          transform: rotate(360deg) skewY(60deg);
+  transform: rotate(360deg) skewY(60deg);
 }
 
 .slice-contents {
@@ -306,7 +306,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
   } */
   .title-bg {
     -webkit-transform: translate(-1rem, 0rem);
-            transform: translate(-1rem, 0rem);
+    transform: translate(-1rem, 0rem);
     /* z-index: 2; */
   }
   .title {
@@ -314,7 +314,7 @@ https://codepen.io/ant1mas/pen/MeJjaK
     text-align: center;
     /* z-index: 2; */
     -webkit-transform: translate(0.5rem, -0.5rem);
-            transform: translate(0.5rem, -0.5rem);
+    transform: translate(0.5rem, -0.5rem);
   }
 }
 /*# sourceMappingURL=old-seasons.css.map */

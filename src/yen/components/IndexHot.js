@@ -52,7 +52,7 @@ function IndexHot(props) {
       {props.hotLists.rows &&
         props.hotLists.rows.map((value, index) => {
           const pic =
-            'http://localhost:3000/images/yen/event/' +
+            'http://https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
             value.act_name +
             '/0.jpg'
 

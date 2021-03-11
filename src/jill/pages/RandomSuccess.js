@@ -93,19 +93,19 @@ function RandomSuccess(props) {
           <div className="jill-postcard d-flex justify-content-center">
             {/* <!-- 明信片底圖 --> */}
             <img
-              src="http://localhost:3000/images/jill/postcard-random.png"
+              src="http://https://wizardly-bassi-d73330.netlify.app/images/jill/postcard-random.png"
               alt=""
             />
             {/* <!-- 抽中的書 --> */}
             <div className="jill-random-success-book">
               {/* 隨機的真圖 */}
               <img
-                src={`http://localhost:3000/images/books/` + book_pics}
+                src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + book_pics}
                 alt=""
               />
               {/* 測試時的假圖 */}
               {/* <img
-                src="http://localhost:3000/images/books/5fe29d1d6361c.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe29d1d6361c.png"
                 alt=""
               /> */}
             </div>

@@ -67,9 +67,9 @@ function Bookshelf(props) {
       buyItNow.style.display = 'none'
       newbookshelf.setAttribute(
         'src',
-        'http://localhost:3000/images/yu/vip-bookshelf.png'
+        'http://https://wizardly-bassi-d73330.netlify.app/images/yu/vip-bookshelf.png'
       )
-      bodyForVip.style.background = `url('http://localhost:3000/images/bg_noise.png') #1c1b1b`
+      bodyForVip.style.background = `url('http://https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png') #1c1b1b`
       // colorForVip.forEach(function(userItem){
       //   style.color = '#fff'}
       colorForVip1.style.color = '#fff'
@@ -84,7 +84,7 @@ function Bookshelf(props) {
         Swal.fire({
           title: '恭喜你成為我們的VIP!',
           // text: 'Congratulations! We welcome you to your VIP membership.',
-          imageUrl: 'http://localhost:3000/images/yu/mushroom-2.gif',
+          imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-2.gif',
           imageWidth: 250,
           imageHeight: 250,
           imageAlt: 'logo',
@@ -264,7 +264,7 @@ function Bookshelf(props) {
 
               <img
                 className="yu-book-bookshelf w-100"
-                src="http://localhost:3000/images/yu/general-bookshelf.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/yu/general-bookshelf.png"
                 alt=""
               />
             </Col>
@@ -312,7 +312,7 @@ function Bookshelf(props) {
                 <p className="yu-book-vipcolor5">新購買的二十四節氣書籍</p>
                 <div className="yu-book-new-book-pic mx-auto" draggable="true">
                   <img
-                    src="http://localhost:3000/images/books/5fe422ca006c3.jpg"
+                    src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe422ca006c3.jpg"
                     className="yu-book-newbook w-100"
                     alt=""
                   />
@@ -320,7 +320,7 @@ function Bookshelf(props) {
                 <div className="yu-book-ladybug">
                   <img
                     className="w-100"
-                    src="http://localhost:3000/images/yu/ladybug.svg"
+                    src="http://https://wizardly-bassi-d73330.netlify.app/images/yu/ladybug.svg"
                     alt=""
                   />
                 </div>

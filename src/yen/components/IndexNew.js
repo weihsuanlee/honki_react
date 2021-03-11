@@ -46,7 +46,7 @@ function IndexNew(props) {
       {props.newLists.rows &&
         props.newLists.rows.map((value, index) => {
           const pic =
-            'http://localhost:3000/images/yen/event/' +
+            'http://https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
             value.act_name +
             '/0.jpg'
 

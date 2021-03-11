@@ -56,7 +56,7 @@ function CHiaAcitvity(props) {
           <div className="chia_eventimfo d-flex flex-column" key={i}>
             <div className="chia_eventimg">
               <img
-                src={`http://localhost:3000/images/yen/event/${v.act_name}/0.jpg`}
+                src={`http://https://wizardly-bassi-d73330.netlify.app/images/yen/event/${v.act_name}/0.jpg`}
               />
             </div>
             <div className="d-flex">

@@ -40,7 +40,7 @@ function ProductListDisplay(props) {
   const onClickFavorite = (bookId) => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href = 'http://localhost:3000/member'
+      window.location.href = 'http://https://wizardly-bassi-d73330.netlify.app/member'
       return
     }
 
@@ -113,7 +113,7 @@ function ProductListDisplay(props) {
             <div className="wei-list-book-pic my-auto mx-auto">
               <img
                 className="w-100"
-                src={`http://localhost:3000/images/books/` + v.book_pics}
+                src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + v.book_pics}
                 alt=""
                 onClick={() => {
                   props.history.push('/products/' + v.sid)

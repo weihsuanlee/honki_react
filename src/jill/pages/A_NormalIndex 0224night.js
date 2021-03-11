@@ -139,7 +139,7 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src={`http://localhost:3000/images/books/` + item.book_pics}
+                  src={`http://https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
                   alt=""
                 />
                 <ul>

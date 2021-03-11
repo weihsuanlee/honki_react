@@ -27,7 +27,7 @@ function ActIndex(props) {
 
   // 換頁會恢復到第一頁的修正
   useEffect(() => {
-    // http://localhost:3000/activity?page=2
+    // http://https://wizardly-bassi-d73330.netlify.app/activity?page=2
     if (!props.location.search) return
 
     let urlPage = new URLSearchParams(props.location.search)

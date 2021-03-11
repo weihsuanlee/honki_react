@@ -235,7 +235,7 @@ function CartOrder(props) {
                   <div class="aw-progress-circle-item ">
                     <img
                       class="aw-ladybirdfinal"
-                      src="http://localhost:3000/images/aw/Group 1138.svg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/aw/Group 1138.svg"
                       alt=""
                     />
                   </div>
@@ -262,7 +262,7 @@ function CartOrder(props) {
 
                   <div class="d-flex justify-content-end aw-composition">
                     <img
-                      src="http://localhost:3000/images/aw/composition-24.svg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/aw/composition-24.svg"
                       alt=""
                     />
                   </div>
@@ -329,7 +329,7 @@ function CartOrder(props) {
                                               key={index}
                                               class="w-100"
                                               src={
-                                                'http://localhost:3000/images/books/' +
+                                                'http://https://wizardly-bassi-d73330.netlify.app/images/books/' +
                                                 value.book_id
                                               }
                                               // "/images/cart/cartpic1.png"

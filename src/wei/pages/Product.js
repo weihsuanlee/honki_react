@@ -133,7 +133,7 @@ function Product(props) {
         </h6>
         <div className="mx-auto" style={{ width: '80%' }}>
           <img
-            src="http://localhost:3000/images/wei/mushroom.gif"
+            src="http://https://wizardly-bassi-d73330.netlify.app/images/wei/mushroom.gif"
             className="w-100 img-full"
             alt=""
           />

@@ -93,7 +93,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe1e6b4a812e.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e6b4a812e.png"
                 alt=""
               />
             </div>
@@ -106,7 +106,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd774fed874.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd774fed874.jpg"
                 alt=""
               />
             </div>
@@ -119,7 +119,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe1e25e7712a.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e25e7712a.png"
                 alt=""
               />
             </div>
@@ -132,7 +132,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd4315e718e.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd4315e718e.png"
                 alt=""
               />
             </div>
@@ -145,7 +145,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd76f536e17.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd76f536e17.jpg"
                 alt=""
               />
             </div>
@@ -158,7 +158,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe1ece65a1ed.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe1ece65a1ed.jpg"
                 alt=""
               />
             </div>
@@ -171,7 +171,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe2b8f3e050e.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe2b8f3e050e.jpg"
                 alt=""
               />
             </div>
@@ -184,7 +184,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd494742e81.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd494742e81.jpg"
                 alt=""
               />
             </div>
@@ -197,7 +197,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd8432b6bea.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd8432b6bea.png"
                 alt=""
               />
             </div>
@@ -210,7 +210,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe424a314978.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe424a314978.png"
                 alt=""
               />
             </div>
@@ -223,7 +223,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe3efd8f1856.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe3efd8f1856.jpg"
                 alt=""
               />
             </div>
@@ -236,7 +236,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ff2c60b2dd5d.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ff2c60b2dd5d.jpg"
                 alt=""
               />
             </div>
@@ -249,7 +249,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5ffd6044c062c.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5ffd6044c062c.jpg"
                 alt=""
               />
             </div>
@@ -262,7 +262,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe44c4c1f286.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe44c4c1f286.png"
                 alt=""
               />
             </div>
@@ -275,7 +275,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe4544c89b6f.jpg"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe4544c89b6f.jpg"
                 alt=""
               />
             </div>
@@ -288,7 +288,7 @@ function ProductBanner(props) {
             >
               <img
                 className="w-100"
-                src="http://localhost:3000/images/books/5fe47b1418006.png"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/books/5fe47b1418006.png"
                 alt=""
               />
             </div>

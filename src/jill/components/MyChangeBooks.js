@@ -100,11 +100,11 @@ class MyChangeBooks extends React.Component {
         window.setTimeout(
           () =>
             (window.location.href =
-              `http://localhost:3000/RandomSuccess/` + this.state.c_sid),
+              `http://https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` + this.state.c_sid),
           4000
         )
         // window.location.href =
-        //   `http://localhost:3000/RandomSuccess/` + this.state.c_sid
+        //   `http://https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` + this.state.c_sid
         //更新某一筆資料
         // this.handleServerItemAdd(data)
       })
@@ -112,7 +112,7 @@ class MyChangeBooks extends React.Component {
     Swal.fire({
       title: '看我變變變!',
       // text: 'Congratulations! We welcome you to your VIP membership.',
-      imageUrl: 'http://localhost:3000/images/jill/mushroom-magic.gif',
+      imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-magic.gif',
       imageWidth: 250,
       imageHeight: 250,
       imageAlt: 'logo',
@@ -226,7 +226,7 @@ class MyChangeBooks extends React.Component {
               <NormalBee />
               <img
                 src={
-                  `http://localhost:3000/images/books/` + this.state.book_pics
+                  `http://https://wizardly-bassi-d73330.netlify.app/images/books/` + this.state.book_pics
                 }
                 alt=""
               />
@@ -250,7 +250,7 @@ class MyChangeBooks extends React.Component {
           ) : (
             <div className="row jill-none-area">
               <img
-                src="http://localhost:3000/images/jill/mushroom-cry-unscreen.gif"
+                src="http://https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-cry-unscreen.gif"
                 alt=""
               />
               <h5 className="jill-book-none">您現在沒有二手書。</h5>

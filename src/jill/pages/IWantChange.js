@@ -79,21 +79,21 @@ function IWantChange() {
                 <div className="jill-upload-pics-area row">
                   <div className="jill-upload-pics">
                     <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne1.jpg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne1.jpg"
                       alt=""
                     />
                   </div>
 
                   <div className="jill-upload-pics">
                     <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne2.jpg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne2.jpg"
                       alt=""
                     />
                   </div>
 
                   <div className="jill-upload-pics">
                     <img
-                      src="http://localhost:3000/images/jill/BCPics/CompanyOfOne3.jpg"
+                      src="http://https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne3.jpg"
                       alt=""
                     />
                   </div>

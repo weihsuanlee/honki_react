@@ -94,7 +94,7 @@ function NormalAdd(props) {
       Swal.fire({
         title: '新增成功!!',
         // text: 'Congratulations! We welcome you to your VIP membership.',
-        imageUrl: 'http://localhost:3000/images/jill/mushroom-hero.gif',
+        imageUrl: 'http://https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-hero.gif',
         imageWidth: 251,
         imageHeight: 196,
         imageAlt: 'logo',
@@ -106,7 +106,7 @@ function NormalAdd(props) {
     }, 500)
 
     window.setTimeout(
-      () => (window.location.href = `http://localhost:3000/NormalIndex`),
+      () => (window.location.href = `http://https://wizardly-bassi-d73330.netlify.app/NormalIndex`),
       3000
     )
   }
