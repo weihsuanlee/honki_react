@@ -54,7 +54,6 @@ function ProductPagination(props) {
             setPage(1)
             pageButtonClick(1)
           }}
-          style={{ transform: 'translateY(-2px)' }}
         >
           ⇤
         </Pagination.Prev>
@@ -83,7 +82,6 @@ function ProductPagination(props) {
             setPage(totalPages)
             pageButtonClick(totalPages)
           }}
-          style={{ transform: 'translateY(-2px)' }}
         >
           ⇥
         </Pagination.Next>
