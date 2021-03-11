@@ -104,12 +104,12 @@ class MyChangeBooks extends React.Component {
         window.setTimeout(
           () =>
             (window.location.href =
-              `https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` +
+              `https://honki-books.netlify.app/RandomSuccess/` +
               this.state.c_sid),
           4000
         )
         // window.location.href =
-        //   `https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` + this.state.c_sid
+        //   `https://honki-books.netlify.app/RandomSuccess/` + this.state.c_sid
         //更新某一筆資料
         // this.handleServerItemAdd(data)
       })
@@ -118,7 +118,7 @@ class MyChangeBooks extends React.Component {
       title: '看我變變變!',
       // text: 'Congratulations! We welcome you to your VIP membership.',
       imageUrl:
-        'https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-magic.gif',
+        'https://honki-books.netlify.app/images/jill/mushroom-magic.gif',
       imageWidth: 250,
       imageHeight: 250,
       imageAlt: 'logo',
@@ -232,7 +232,7 @@ class MyChangeBooks extends React.Component {
               <NormalBee />
               <img
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  `https://honki-books.netlify.app/images/books/` +
                   this.state.book_pics
                 }
                 alt=""
@@ -257,7 +257,7 @@ class MyChangeBooks extends React.Component {
           ) : (
             <div className="row jill-none-area">
               <img
-                src="https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-cry-unscreen.gif"
+                src="https://honki-books.netlify.app/images/jill/mushroom-cry-unscreen.gif"
                 alt=""
               />
               <h5 className="jill-book-none">您現在沒有二手書。</h5>

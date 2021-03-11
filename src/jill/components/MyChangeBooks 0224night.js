@@ -141,7 +141,7 @@ class MyChangeBooks extends React.Component {
               <NormalBee />
               <img
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` + this.state.book_pics
+                  `https://honki-books.netlify.app/images/books/` + this.state.book_pics
                 }
                 alt=""
               />
@@ -192,7 +192,7 @@ class MyChangeBooks extends React.Component {
             </div>
             <div className="jill-mycard d-flex">
               <img
-                src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + this.state.pic}
+                src={`https://honki-books.netlify.app/images/books/` + this.state.pic}
                 alt=""
               />
               <ul>
@@ -215,7 +215,7 @@ class MyChangeBooks extends React.Component {
             </div>
             <div className="jill-mycard d-flex">
               <img
-                src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                 alt=""
               />
               <ul>
@@ -260,7 +260,7 @@ class MyChangeBooks extends React.Component {
             </div>
             <div className="jill-mycard d-flex">
               <img
-                src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                 alt=""
               />
               <ul>
@@ -286,7 +286,7 @@ class MyChangeBooks extends React.Component {
 
             <div className="jill-mycard d-flex">
               <img
-                src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                 alt=""
               />
               <ul>

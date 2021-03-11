@@ -2,7 +2,7 @@
 //   padding-top: 0;
 // }
 .wei-bg-black {
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
+  background: url('https://honki-books.netlify.app/images/bg_noise.png')
     var(--honki-black);
   height: 100vh;
   position: relative;
@@ -15,7 +15,7 @@
   display: block;
   width: 72px;
   height: 45px;
-  background-image: url('https://wizardly-bassi-d73330.netlify.app/images/wei/cricket.svg');
+  background-image: url('https://honki-books.netlify.app/images/wei/cricket.svg');
   background-repeat: no-repeat;
   position: absolute;
   transform: scaleX(-1);
@@ -168,8 +168,7 @@ $bookNum: 16;
   height: 25px;
   position: absolute;
   bottom: 0;
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-    #564030;
+  background: url('https://honki-books.netlify.app/images/bg_noise.png') #564030;
 }
 
 /* breadcrumb */
@@ -231,8 +230,7 @@ ol.wei-breadcrumb {
 
 .wei-card-pic {
   /* text-align: center; */
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-    white;
+  background: url('https://honki-books.netlify.app/images/bg_noise.png') white;
   border-radius: 15px;
   padding: 40px 20px;
   /* height: 240px; */
@@ -410,8 +408,7 @@ ol.wei-breadcrumb {
   margin-top: 20px;
 }
 .wei-card-list-pic {
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-    white;
+  background: url('https://honki-books.netlify.app/images/bg_noise.png') white;
   border-radius: 15px;
   transition: all 0.5s;
   width: 20%;
@@ -528,8 +525,7 @@ ol.wei-breadcrumb {
   }
 }
 .wei-skeleton-pic {
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-    white;
+  background: url('https://honki-books.netlify.app/images/bg_noise.png') white;
   border-radius: 15px;
   padding: 40px 20px;
   width: 100%;
@@ -632,8 +628,7 @@ ol.wei-breadcrumb {
     margin-top: 20px;
   }
   .wei-skeleton-list-pic {
-    background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-      white;
+    background: url('https://honki-books.netlify.app/images/bg_noise.png') white;
     border-radius: 15px;
     transition: all 0.5s;
     width: 20%;
@@ -728,8 +723,7 @@ ol.wei-breadcrumb {
 
 /* ------ product detail ------ */
 .wei-bg-white {
-  background: url('https://wizardly-bassi-d73330.netlify.app/images/bg_noise.png')
-    white;
+  background: url('https://honki-books.netlify.app/images/bg_noise.png') white;
   padding: 72px;
   margin-top: -80px;
 }

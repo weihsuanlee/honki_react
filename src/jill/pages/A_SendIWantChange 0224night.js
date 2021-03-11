@@ -134,21 +134,21 @@ function SendIWantChange(props) {
                 <div class="jill-upload-pics-area row">
                   <div class="jill-upload-pics">
                     <img
-                      src="https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne1.jpg"
+                      src="https://honki-books.netlify.app/images/jill/BCPics/CompanyOfOne1.jpg"
                       alt=""
                     />
                   </div>
 
                   <div class="jill-upload-pics">
                     <img
-                      src="https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne2.jpg"
+                      src="https://honki-books.netlify.app/images/jill/BCPics/CompanyOfOne2.jpg"
                       alt=""
                     />
                   </div>
 
                   <div class="jill-upload-pics">
                     <img
-                      src="https://wizardly-bassi-d73330.netlify.app/images/jill/BCPics/CompanyOfOne3.jpg"
+                      src="https://honki-books.netlify.app/images/jill/BCPics/CompanyOfOne3.jpg"
                       alt=""
                     />
                   </div>

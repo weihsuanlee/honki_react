@@ -238,7 +238,7 @@ function CartOrder(props) {
                   <div class="aw-progress-circle-item ">
                     <img
                       class="aw-ladybirdfinal"
-                      src="https://wizardly-bassi-d73330.netlify.app/images/aw/Group 1138.svg"
+                      src="https://honki-books.netlify.app/images/aw/Group 1138.svg"
                       alt=""
                     />
                   </div>
@@ -265,7 +265,7 @@ function CartOrder(props) {
 
                   <div class="d-flex justify-content-end aw-composition">
                     <img
-                      src="https://wizardly-bassi-d73330.netlify.app/images/aw/composition-24.svg"
+                      src="https://honki-books.netlify.app/images/aw/composition-24.svg"
                       alt=""
                     />
                   </div>
@@ -332,7 +332,7 @@ function CartOrder(props) {
                                               key={index}
                                               class="w-100"
                                               src={
-                                                'https://wizardly-bassi-d73330.netlify.app/images/books/' +
+                                                'https://honki-books.netlify.app/images/books/' +
                                                 value.book_id
                                               }
                                               // "/images/cart/cartpic1.png"

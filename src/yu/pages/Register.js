@@ -124,7 +124,7 @@ function Register(props) {
       Swal.fire({
         position: 'center',
         imageUrl:
-          'https://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-1.gif',
+          'https://honki-books.netlify.app/images/yu/mushroom-1.gif',
         imageWidth: 250,
         html: '<b>註冊成功，歡迎你加入我們!</b>',
         showConfirmButton: false,
@@ -136,7 +136,7 @@ function Register(props) {
       Swal.fire({
         position: 'center',
         imageUrl:
-          'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
+          'https://honki-books.netlify.app/images/components/logo.svg',
         imageWidth: 50,
         imageHeight: 50,
         html: '<b>電子信箱重複囉</b>',
@@ -168,7 +168,7 @@ function Register(props) {
             <div className="yu-register-bookspage">
               <img
                 className="yu-register-bookspage1-1"
-                src="https://wizardly-bassi-d73330.netlify.app/images/yu/book-register.jpg"
+                src="https://honki-books.netlify.app/images/yu/book-register.jpg"
                 alt=""
               />
             </div>

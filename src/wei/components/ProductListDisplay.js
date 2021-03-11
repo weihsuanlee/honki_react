@@ -41,7 +41,7 @@ function ProductListDisplay(props) {
   const onClickFavorite = (bookId) => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href = 'https://wizardly-bassi-d73330.netlify.app/member'
+      window.location.href = 'https://honki-books.netlify.app/member'
       return
     }
 
@@ -119,7 +119,7 @@ function ProductListDisplay(props) {
               <img
                 className="w-100"
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  `https://honki-books.netlify.app/images/books/` +
                   v.book_pics
                 }
                 alt=""

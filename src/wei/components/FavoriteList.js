@@ -22,8 +22,8 @@ function FavoriteList(props) {
         </div>
         <div className="mx-auto mb-5" style={{ width: '15%' }}>
           <img
-            // src="https://wizardly-bassi-d73330.netlify.app/images/wei/unboxing.svg"
-            src="https://wizardly-bassi-d73330.netlify.app/images/wei/mushroom-cleaning.gif"
+            // src="https://honki-books.netlify.app/images/wei/unboxing.svg"
+            src="https://honki-books.netlify.app/images/wei/mushroom-cleaning.gif"
             className="w-100 img-full"
             alt=""
           />
@@ -94,7 +94,7 @@ function FavoriteList(props) {
               <img
                 className="w-100"
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  `https://honki-books.netlify.app/images/books/` +
                   favorite.book_pics
                 }
                 alt=""

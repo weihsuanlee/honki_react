@@ -61,7 +61,7 @@ function Login(props) {
         // title: '咦...帳號或密碼好像錯了哦',
         // text: '咦...帳號或密碼好像錯了哦',
         imageUrl:
-          'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
+          'https://honki-books.netlify.app/images/components/logo.svg',
         imageWidth: 50,
         imageHeight: 50,
         html: '<b>咦...帳號或密碼好像錯了哦</b>',
@@ -94,7 +94,7 @@ function Login(props) {
               <div className="yu-login-bookspage">
                 <img
                   className="yu-login-bookspage1-1"
-                  src="https://wizardly-bassi-d73330.netlify.app/images/yu/book-login.jpg"
+                  src="https://honki-books.netlify.app/images/yu/book-login.jpg"
                   alt=""
                 />
               </div>

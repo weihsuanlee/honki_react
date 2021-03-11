@@ -93,7 +93,7 @@ function RandomSuccess(props) {
           <div className="jill-postcard d-flex justify-content-center">
             {/* <!-- 明信片底圖 --> */}
             <img
-              src="https://wizardly-bassi-d73330.netlify.app/images/jill/postcard-random.png"
+              src="https://honki-books.netlify.app/images/jill/postcard-random.png"
               alt=""
             />
             {/* <!-- 抽中的書 --> */}
@@ -101,14 +101,14 @@ function RandomSuccess(props) {
               {/* 隨機的真圖 */}
               <img
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  `https://honki-books.netlify.app/images/books/` +
                   book_pics
                 }
                 alt=""
               />
               {/* 測試時的假圖 */}
               {/* <img
-                src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe29d1d6361c.png"
+                src="https://honki-books.netlify.app/images/books/5fe29d1d6361c.png"
                 alt=""
               /> */}
             </div>

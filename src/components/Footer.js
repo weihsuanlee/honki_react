@@ -8,7 +8,7 @@ function Footer() {
       <footer className="desktopfooter">
         <div className="top d-flex">
           <img
-            src="https://wizardly-bassi-d73330.netlify.app/images/components/footeritem.svg"
+            src="https://honki-books.netlify.app/images/components/footeritem.svg"
             width="185px"
             height="118px"
             alt=""
@@ -23,7 +23,7 @@ function Footer() {
             <div className="footer-info d-flex flex-cloumn col-12 col-md">
               <Link to="/" className="logo">
                 <img
-                  src="https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg"
+                  src="https://honki-books.netlify.app/images/components/logo.svg"
                   width="72px"
                   height="55px"
                   alt=""
@@ -123,7 +123,7 @@ function Footer() {
         <div className="top d-flex">
           <img
             className="topimg"
-            src="https://wizardly-bassi-d73330.netlify.app/images/components/footeritem.svg"
+            src="https://honki-books.netlify.app/images/components/footeritem.svg"
             alt=""
           />
           {/* <div className="circle mt-4 ml-3 d-flex flex-column">
@@ -136,7 +136,7 @@ function Footer() {
             <div className="footer-header d-flex flex-cloumn col-12 col-md justify-content-center">
               <Link to="/" className="logo">
                 <img
-                  src="https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg"
+                  src="https://honki-books.netlify.app/images/components/logo.svg"
                   width="48px"
                   height="37px"
                   alt=""
@@ -270,7 +270,7 @@ function Footer() {
         <div className="top d-flex">
           <img
             className="topimg"
-            src="https://wizardly-bassi-d73330.netlify.app/images/components/footeritem.svg"
+            src="https://honki-books.netlify.app/images/components/footeritem.svg"
             alt=""
           />
           {/* <div className="circle mt-4 ml-3 d-flex flex-column">
@@ -283,7 +283,7 @@ function Footer() {
             <div className="footer-header d-flex flex-cloumn col-12 col-md justify-content-center">
               <Link to="/" className="logo">
                 <img
-                  src="https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg"
+                  src="https://honki-books.netlify.app/images/components/logo.svg"
                   width="48px"
                   height="37px"
                   alt=""

@@ -93,7 +93,7 @@ function CartItems(props) {
     console.log('梅登入就掰', userId)
     if (!userId) {
       props.history.push('/member', 'CartItems')
-      // window.location.href = 'https://wizardly-bassi-d73330.netlify.app/member'
+      // window.location.href = 'https://honki-books.netlify.app/member'
     } else {
       props.history.push('/CartInput')
     }
@@ -165,7 +165,7 @@ function CartItems(props) {
                   <div class="aw-progress-circle-item"></div>
                   <div class="aw-progress-circle-item">
                     <img
-                      src="https://wizardly-bassi-d73330.netlify.app/images/aw/ladybird.svg"
+                      src="https://honki-books.netlify.app/images/aw/ladybird.svg"
                       alt=""
                     ></img>
                   </div>
@@ -246,7 +246,7 @@ function CartItems(props) {
                                     <img
                                       class="w-100"
                                       src={
-                                        'https://wizardly-bassi-d73330.netlify.app/images/books/' +
+                                        'https://honki-books.netlify.app/images/books/' +
                                         item.book_id
                                       }
                                       alt=""

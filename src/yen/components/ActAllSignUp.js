@@ -155,8 +155,7 @@ function ActAllSignUp(props) {
         confirmButtonText: '是的！刪掉它！',
         cancelButtonText: '不，先不要',
         reverseButtons: true,
-        imageUrl:
-          'https://wizardly-bassi-d73330.netlify.app/images/yen/bye2.gif',
+        imageUrl: 'https://honki-books.netlify.app/images/yen/bye2.gif',
         imageWidth: 300,
         imageHeight: 250,
         imageAlt: 'Custom image',
@@ -165,8 +164,7 @@ function ActAllSignUp(props) {
         if (result.isConfirmed) {
           deleteOrderOnServer(deleteOrderNum)
           swalWithBootstrapButtons.fire({
-            imageUrl:
-              'https://wizardly-bassi-d73330.netlify.app/images/yen/bye.gif',
+            imageUrl: 'https://honki-books.netlify.app/images/yen/bye.gif',
             // imageWidth: 350,
             imageHeight: 250,
             imageAlt: 'Custom image',
@@ -178,8 +176,7 @@ function ActAllSignUp(props) {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire({
-            imageUrl:
-              'https://wizardly-bassi-d73330.netlify.app/images/yen/bye3.gif',
+            imageUrl: 'https://honki-books.netlify.app/images/yen/bye3.gif',
             // imageWidth: 350,
             imageHeight: 320,
             imageAlt: 'Custom image',
@@ -258,7 +255,7 @@ function ActAllSignUp(props) {
         </div>
         <div className="yen-no-order-QQ">
           <img
-            src="https://wizardly-bassi-d73330.netlify.app/images/yen/bye5-1.gif"
+            src="https://honki-books.netlify.app/images/yen/bye5-1.gif"
             alt=""
           />
         </div>
@@ -271,7 +268,7 @@ function ActAllSignUp(props) {
       {orderLists.rows &&
         orderLists.rows.map((value, index) => {
           const pic =
-            'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
+            'https://honki-books.netlify.app/images/yen/event/' +
             value.bookname +
             '/0.jpg'
           const orderNumberBtn = value.order_number

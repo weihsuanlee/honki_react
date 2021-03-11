@@ -169,7 +169,7 @@ function ActEvent(props) {
     setActNotice(data[0].act_notice)
     setActCancel(data[0].act_cancel_or_change)
     setActPic(
-      'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
+      'https://honki-books.netlify.app/images/yen/event/' +
         data[0].act_name +
         '/0.jpg'
     )

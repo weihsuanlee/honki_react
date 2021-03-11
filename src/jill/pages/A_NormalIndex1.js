@@ -142,7 +142,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -165,7 +165,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -210,7 +210,7 @@ function NormalIndex() {
                 </div>
                 <div className="jill-mycard d-flex">
                   <img
-                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -236,7 +236,7 @@ function NormalIndex() {
 
                 <div className="jill-mycard d-flex">
                   <img
-                    src="https://wizardly-bassi-d73330.netlify.app/images/books/5fe1e0d53a3c6.png"
+                    src="https://honki-books.netlify.app/images/books/5fe1e0d53a3c6.png"
                     alt=""
                   />
                   <ul>
@@ -279,7 +279,7 @@ function NormalIndex() {
               <div className="jill-mycard d-flex jill-other-card">
                 <img
                   src={
-                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    `https://honki-books.netlify.app/images/books/` +
                     item.book_pics
                   }
                   alt=""
