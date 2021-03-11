@@ -93,7 +93,7 @@ function Register(props) {
   }
 
   const register = async function () {
-    const url = 'http://localhost:3333/member/register'
+    const url = 'http://https://honki-books.herokuapp.com/member/register'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({

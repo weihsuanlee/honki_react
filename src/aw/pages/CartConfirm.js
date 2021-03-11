@@ -123,7 +123,7 @@ function CartConfirm(props) {
     // console.log('newCart', newCart)
     // console.log('newInput', newInput)
     console.log('Alldata', Alldata)
-    const url = 'http://localhost:3333/cart/cartInput1/'
+    const url = 'http://https://honki-books.herokuapp.com/cart/cartInput1/'
     const request = new Request(url, {
       method: 'POST',
       credentials: 'include',

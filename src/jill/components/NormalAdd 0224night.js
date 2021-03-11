@@ -34,7 +34,7 @@ function NormalAdd(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3333/normal-index/add'
+    const url = 'http://https://honki-books.herokuapp.com/normal-index/add'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -68,7 +68,7 @@ function NormalAdd(props) {
     const formdata = new FormData(e.target)
     formdata.append('userId', userId)
 
-    const url = 'http://localhost:3333/normal-index/picture-upload'
+    const url = 'http://https://honki-books.herokuapp.com/normal-index/picture-upload'
 
     const request = new Request(url, {
       method: 'POST',

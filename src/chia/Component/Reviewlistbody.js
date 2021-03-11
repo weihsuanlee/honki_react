@@ -106,7 +106,7 @@ function Reviewlistbody(props) {
 
   const fetchList = async () => {
     setLoading(true)
-    const fetchURL = 'http://localhost:3333/reviews/test'
+    const fetchURL = 'http://https://honki-books.herokuapp.com/reviews/test'
     const res = await fetch(fetchURL)
     res.json().then((res) => {
       setList(res.rows)
@@ -117,7 +117,7 @@ function Reviewlistbody(props) {
   }
 
   const fetchLike = async () => {
-    const fetchURL = 'http://localhost:3333/reviews/content/likelike'
+    const fetchURL = 'http://https://honki-books.herokuapp.com/reviews/content/likelike'
     const res = await fetch(fetchURL)
     res
       .json()

@@ -323,7 +323,7 @@ function CartInput(props) {
   const geyInfo_user = async () => {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-    const url = 'http://localhost:3333/member/edit/' + userLogin.body.sid
+    const url = 'http://https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -352,7 +352,7 @@ function CartInput(props) {
   const geyInfo = async () => {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-    const url = 'http://localhost:3333/member/edit/' + userLogin.body.sid
+    const url = 'http://https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({

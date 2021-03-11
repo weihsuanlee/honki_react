@@ -143,7 +143,7 @@ function ActEvent(props) {
   async function getEventDetailFromServer(eventid) {
     if (!eventid) return
 
-    const url = 'http://localhost:3333/activity/event/' + eventid
+    const url = 'http://https://honki-books.herokuapp.com/activity/event/' + eventid
 
     // header的資料格式
     const request = new Request(url, {

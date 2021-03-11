@@ -33,7 +33,7 @@ function Chiasmallmodalreply(props) {
       curCloth,
     }
 
-    const url = 'http://localhost:3333/reviews/comment/reply'
+    const url = 'http://https://honki-books.herokuapp.com/reviews/comment/reply'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),

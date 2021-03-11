@@ -52,7 +52,7 @@ function CartOrder(props) {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://localhost:3333/cart/order_detail', {
+    const response = await fetch('http://https://honki-books.herokuapp.com/cart/order_detail', {
       credentials: 'include',
       method: 'get',
       // headers: new Headers({
@@ -81,7 +81,7 @@ function CartOrder(props) {
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
     const response = await fetch(
-      'http://localhost:3333/cart/order_detail_input',
+      'http://https://honki-books.herokuapp.com/cart/order_detail_input',
       {
         credentials: 'include',
         method: 'get',

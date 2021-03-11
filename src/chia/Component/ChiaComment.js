@@ -59,7 +59,7 @@ function ChiaComment(props) {
       curCloth,
     }
 
-    const url = 'http://localhost:3333/reviews/content/comment'
+    const url = 'http://https://honki-books.herokuapp.com/reviews/content/comment'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),
@@ -84,7 +84,7 @@ function ChiaComment(props) {
   const [err, setErr] = useState('')
 
   async function fetchcomment() {
-    const fetchURL = 'http://localhost:3333/reviews/content/getcomment'
+    const fetchURL = 'http://https://honki-books.herokuapp.com/reviews/content/getcomment'
     const res = await fetch(fetchURL)
     res
       .json()

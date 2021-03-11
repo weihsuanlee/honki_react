@@ -39,7 +39,7 @@ function ChiaReviewContent(props) {
   console.log(typeof props.match.params.sid)
 
   async function fetchReview() {
-    const fetchURl = 'http://localhost:3333/reviews/list/content'
+    const fetchURl = 'http://https://honki-books.herokuapp.com/reviews/list/content'
     const res = await fetch(fetchURl)
     res
       .json()
@@ -83,7 +83,7 @@ function ChiaReviewContent(props) {
       isNum,
     }
 
-    const url = 'http://localhost:3333/reviews/content/like'
+    const url = 'http://https://honki-books.herokuapp.com/reviews/content/like'
 
     const request = new Request(url, {
       method: 'POST',
@@ -102,7 +102,7 @@ function ChiaReviewContent(props) {
     console.log('This is the result', data)
   }
   async function deleteContent() {
-    const url = 'http://localhost:3333/reviews/list/content/delete/' + isNum
+    const url = 'http://https://honki-books.herokuapp.com/reviews/list/content/delete/' + isNum
 
     const request = new Request(url, {
       method: 'DELETE',
