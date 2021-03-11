@@ -143,7 +143,7 @@ function ActEvent(props) {
   async function getEventDetailFromServer(eventid) {
     if (!eventid) return
 
-    const url = 'http://https://honki-books.herokuapp.com/activity/event/' + eventid
+    const url = 'https://honki-books.herokuapp.com/activity/event/' + eventid
 
     // header的資料格式
     const request = new Request(url, {
@@ -167,7 +167,9 @@ function ActEvent(props) {
     setActNotice(data[0].act_notice)
     setActCancel(data[0].act_cancel_or_change)
     setActPic(
-      'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' + data[0].act_name + '/0.jpg'
+      'https://wizardly-bassi-d73330.netlify.app/images/yen/event/' +
+        data[0].act_name +
+        '/0.jpg'
     )
     console.log(actPic)
   }

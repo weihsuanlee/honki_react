@@ -36,13 +36,16 @@ function NormalIndex() {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://https://honki-books.herokuapp.com/normal-index', {
-      method: 'get',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+    const response = await fetch(
+      'https://honki-books.herokuapp.com/normal-index',
+      {
+        method: 'get',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    )
     const data = await response.json()
 
     // 開啟載入指示
@@ -135,7 +138,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
               </div>
@@ -144,7 +150,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
               </div>
@@ -154,7 +163,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
               </div>
@@ -164,7 +176,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="d-flex jill-pics">
                 <img
-                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
               </div>
@@ -187,7 +202,10 @@ function NormalIndex() {
             {changeData.map((item, index) => (
               <div className="jill-mycard d-flex jill-other-card">
                 <img
-                  src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + item.book_pics}
+                  src={
+                    `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                    item.book_pics
+                  }
                   alt=""
                 />
                 <ul>

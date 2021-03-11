@@ -8,7 +8,7 @@ function EditTab2() {
   const [newPassword2, setNewpassword2] = useState('')
 
   const editPassword = async function (newPassword, sid) {
-    const url = 'http://https://honki-books.herokuapp.com/member/editnewpassword'
+    const url = 'https://honki-books.herokuapp.com/member/editnewpassword'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({

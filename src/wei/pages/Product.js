@@ -87,12 +87,9 @@ function Product(props) {
     setIsLoading(true)
 
     // 和伺服器要資料
-    const response = await fetch(
-      'http://https://honki-books.herokuapp.com/product',
-      {
-        method: 'get',
-      }
-    )
+    const response = await fetch('https://honki-books.herokuapp.com/product', {
+      method: 'get',
+    })
     const data = await response.json()
     // console.log(data)
     setBooks(data.rows)

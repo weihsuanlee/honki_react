@@ -52,14 +52,17 @@ function CartOrder(props) {
     // setIsLoading(true)
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
-    const response = await fetch('http://https://honki-books.herokuapp.com/cart/order_detail', {
-      credentials: 'include',
-      method: 'get',
-      // headers: new Headers({
-      //   Accept: 'application/json',
-      //   'Content-Type': 'appliaction/json',
-      // }),
-    })
+    const response = await fetch(
+      'https://honki-books.herokuapp.com/cart/order_detail',
+      {
+        credentials: 'include',
+        method: 'get',
+        // headers: new Headers({
+        //   Accept: 'application/json',
+        //   'Content-Type': 'appliaction/json',
+        // }),
+      }
+    )
     const data = await response.json()
 
     // 最後設定到狀態中
@@ -81,7 +84,7 @@ function CartOrder(props) {
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
     const response = await fetch(
-      'http://https://honki-books.herokuapp.com/cart/order_detail_input',
+      'https://honki-books.herokuapp.com/cart/order_detail_input',
       {
         credentials: 'include',
         method: 'get',

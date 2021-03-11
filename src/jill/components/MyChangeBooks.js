@@ -81,16 +81,20 @@ class MyChangeBooks extends React.Component {
     console.log('this.state.c_sid', this.state.c_sid)
 
     // let history = this.props.history
-    fetch('http://https://honki-books.herokuapp.com/normal-index/random/' + this.state.c_sid, {
-      method: 'POST', //PUT會連第一段SQL都跑不出來
-      body: JSON.stringify({
-        userId: userId,
-      }),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+    fetch(
+      'https://honki-books.herokuapp.com/normal-index/random/' +
+        this.state.c_sid,
+      {
+        method: 'POST', //PUT會連第一段SQL都跑不出來
+        body: JSON.stringify({
+          userId: userId,
+        }),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    )
       .then((res) => res.json())
       .catch((error) => console.error('Error:', error))
       .then((res) => {
@@ -100,7 +104,8 @@ class MyChangeBooks extends React.Component {
         window.setTimeout(
           () =>
             (window.location.href =
-              `https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` + this.state.c_sid),
+              `https://wizardly-bassi-d73330.netlify.app/RandomSuccess/` +
+              this.state.c_sid),
           4000
         )
         // window.location.href =
@@ -112,7 +117,8 @@ class MyChangeBooks extends React.Component {
     Swal.fire({
       title: '看我變變變!',
       // text: 'Congratulations! We welcome you to your VIP membership.',
-      imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-magic.gif',
+      imageUrl:
+        'https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-magic.gif',
       imageWidth: 250,
       imageHeight: 250,
       imageAlt: 'logo',
@@ -226,7 +232,8 @@ class MyChangeBooks extends React.Component {
               <NormalBee />
               <img
                 src={
-                  `https://wizardly-bassi-d73330.netlify.app/images/books/` + this.state.book_pics
+                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  this.state.book_pics
                 }
                 alt=""
               />

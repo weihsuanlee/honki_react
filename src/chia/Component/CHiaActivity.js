@@ -33,7 +33,7 @@ function CHiaAcitvity(props) {
 
   async function fetchEvent() {
     const fetchURL =
-      'http://https://honki-books.herokuapp.com/reviews/honkiindex/event'
+      'https://honki-books.herokuapp.com/reviews/honkiindex/event'
     const res = await fetch(fetchURL)
     res
       .json()

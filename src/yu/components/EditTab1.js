@@ -17,7 +17,8 @@ function EditTab1() {
 
   const editInfo = async function () {
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-    const url = 'http://https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
+    const url =
+      'https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
 
     const request = new Request(url, {
       method: 'POST',
@@ -63,7 +64,8 @@ function EditTab1() {
   const geyInfo = async () => {
     console.log('get user info')
     let userLogin = JSON.parse(localStorage.getItem('userLogin'))
-    const url = 'http://https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
+    const url =
+      'https://honki-books.herokuapp.com/member/edit/' + userLogin.body.sid
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({

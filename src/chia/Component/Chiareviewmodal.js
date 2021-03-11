@@ -77,7 +77,7 @@ function Chiareviewmodal(props) {
       isNum,
     }
 
-    const url = 'http://https://honki-books.herokuapp.com/reviews/list/content/update'
+    const url = 'https://honki-books.herokuapp.com/reviews/list/content/update'
 
     const request = new Request(url, {
       method: 'PUT',

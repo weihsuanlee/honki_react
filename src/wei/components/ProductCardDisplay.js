@@ -13,7 +13,8 @@ function ProductCardDisplay(props) {
 
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url = 'http://https://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url =
+      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -48,7 +49,8 @@ function ProductCardDisplay(props) {
     if (favorites.indexOf(bookId) > -1) {
       // 已經是愛心
       const removeFavorite = async () => {
-        const url = 'http://https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+        const url =
+          'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -73,7 +75,8 @@ function ProductCardDisplay(props) {
     } else {
       // 如果不是愛心
       const addFavorite = async () => {
-        const url = 'http://https://honki-books.herokuapp.com/product/favorite/addFavorite'
+        const url =
+          'https://honki-books.herokuapp.com/product/favorite/addFavorite'
         const request = new Request(url, {
           method: 'POST',
           body: JSON.stringify({
@@ -119,7 +122,10 @@ function ProductCardDisplay(props) {
             >
               <img
                 className="w-100"
-                src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + v.book_pics}
+                src={
+                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  v.book_pics
+                }
                 alt=""
               />
             </div>

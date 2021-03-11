@@ -155,7 +155,8 @@ function ActAllSignUp(props) {
         confirmButtonText: '是的！刪掉它！',
         cancelButtonText: '不，先不要',
         reverseButtons: true,
-        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/yen/bye2.gif',
+        imageUrl:
+          'https://wizardly-bassi-d73330.netlify.app/images/yen/bye2.gif',
         imageWidth: 300,
         imageHeight: 250,
         imageAlt: 'Custom image',
@@ -164,7 +165,8 @@ function ActAllSignUp(props) {
         if (result.isConfirmed) {
           deleteOrderOnServer(deleteOrderNum)
           swalWithBootstrapButtons.fire({
-            imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/yen/bye.gif',
+            imageUrl:
+              'https://wizardly-bassi-d73330.netlify.app/images/yen/bye.gif',
             // imageWidth: 350,
             imageHeight: 250,
             imageAlt: 'Custom image',
@@ -176,7 +178,8 @@ function ActAllSignUp(props) {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire({
-            imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/yen/bye3.gif',
+            imageUrl:
+              'https://wizardly-bassi-d73330.netlify.app/images/yen/bye3.gif',
             // imageWidth: 350,
             imageHeight: 320,
             imageAlt: 'Custom image',
@@ -207,7 +210,8 @@ function ActAllSignUp(props) {
   }
 
   async function deleteOrderOnServer(deleteOrder) {
-    const url = 'http://https://honki-books.herokuapp.com/member/actorder/' + deleteOrder
+    const url =
+      'https://honki-books.herokuapp.com/member/actorder/' + deleteOrder
     // console.log('url', url)
     // header的資料格式
     const request = new Request(url, {
@@ -222,7 +226,7 @@ function ActAllSignUp(props) {
   // console.log('orderLists.length', orderLists.rows)
 
   async function postOrderDetailFromServer() {
-    const url = 'http://https://honki-books.herokuapp.com/member/actorder'
+    const url = 'https://honki-books.herokuapp.com/member/actorder'
 
     // header的資料格式
     const request = new Request(url, {
@@ -251,7 +255,10 @@ function ActAllSignUp(props) {
           <h5>您還沒有參加活動喔</h5>
         </div>
         <div className="yen-no-order-QQ">
-          <img src="https://wizardly-bassi-d73330.netlify.app/images/yen/bye5-1.gif" alt="" />
+          <img
+            src="https://wizardly-bassi-d73330.netlify.app/images/yen/bye5-1.gif"
+            alt=""
+          />
         </div>
       </div>
     </>

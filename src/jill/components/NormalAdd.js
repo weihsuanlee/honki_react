@@ -36,7 +36,7 @@ function NormalAdd(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'http://https://honki-books.herokuapp.com/normal-index/add'
+    const url = 'https://honki-books.herokuapp.com/normal-index/add'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -70,7 +70,7 @@ function NormalAdd(props) {
     const formdata = new FormData(e.target)
     formdata.append('userId', userId)
 
-    const url = 'http://https://honki-books.herokuapp.com/normal-index/picture-upload'
+    const url = 'https://honki-books.herokuapp.com/normal-index/picture-upload'
 
     const request = new Request(url, {
       method: 'POST',
@@ -94,7 +94,8 @@ function NormalAdd(props) {
       Swal.fire({
         title: '新增成功!!',
         // text: 'Congratulations! We welcome you to your VIP membership.',
-        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-hero.gif',
+        imageUrl:
+          'https://wizardly-bassi-d73330.netlify.app/images/jill/mushroom-hero.gif',
         imageWidth: 251,
         imageHeight: 196,
         imageAlt: 'logo',
@@ -106,7 +107,8 @@ function NormalAdd(props) {
     }, 500)
 
     window.setTimeout(
-      () => (window.location.href = `https://wizardly-bassi-d73330.netlify.app/NormalIndex`),
+      () =>
+        (window.location.href = `https://wizardly-bassi-d73330.netlify.app/NormalIndex`),
       3000
     )
   }

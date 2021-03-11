@@ -33,7 +33,7 @@ function RandomSuccess(props) {
     // 模擬和伺服器要資料，先寫死
     // 注意header資料格式要設定，伺服器才知道是json格式
     const response = await fetch(
-      'http://https://honki-books.herokuapp.com/normal-index/random-success/' + c_sid,
+      'https://honki-books.herokuapp.com/normal-index/random-success/' + c_sid,
       {
         method: 'get',
         headers: new Headers({
@@ -100,7 +100,10 @@ function RandomSuccess(props) {
             <div className="jill-random-success-book">
               {/* 隨機的真圖 */}
               <img
-                src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + book_pics}
+                src={
+                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  book_pics
+                }
                 alt=""
               />
               {/* 測試時的假圖 */}

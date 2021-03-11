@@ -31,7 +31,7 @@ function NormalEdit(props) {
   // 伺服器抓資料async
   const getProductDetail = async () => {
     const response = await fetch(
-      'http://https://honki-books.herokuapp.com/normal-index/used-book-detail/' + c_sid,
+      'https://honki-books.herokuapp.com/normal-index/used-book-detail/' + c_sid,
       {
         method: 'get',
         headers: new Headers({
@@ -119,7 +119,9 @@ function NormalEdit(props) {
                       return (
                         <div class="jill-upload-pics">
                           <img
-                            src={`http://https://honki-books.herokuapp.com/img/` + pics[i]}
+                            src={
+                              `https://honki-books.herokuapp.com/img/` + pics[i]
+                            }
                             alt=""
                           />
                         </div>

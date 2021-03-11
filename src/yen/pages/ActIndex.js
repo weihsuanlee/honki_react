@@ -51,13 +51,16 @@ function ActIndex(props) {
       const url = props.location.search
 
       // 和伺服器要資料
-      const response = await fetch('http://https://honki-books.herokuapp.com/activity' + url, {
-        method: 'GET',
-        header: new Headers({
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }),
-      })
+      const response = await fetch(
+        'https://honki-books.herokuapp.com/activity' + url,
+        {
+          method: 'GET',
+          header: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }),
+        }
+      )
       const data = await response.json()
       // console.log('new data page', response, data)
       setEventLists(data)
@@ -100,7 +103,7 @@ function ActIndex(props) {
     if (defaultPage) return
 
     // 連接的伺服器資料網址
-    const url = 'http://https://honki-books.herokuapp.com/activity'
+    const url = 'https://honki-books.herokuapp.com/activity'
 
     // header的資料格式
     const request = new Request(url, {
@@ -126,7 +129,7 @@ function ActIndex(props) {
   // 熱門活動
   async function getHotEventFromServer() {
     // 連接的伺服器資料網址
-    const url = 'http://https://honki-books.herokuapp.com/activity/hot'
+    const url = 'https://honki-books.herokuapp.com/activity/hot'
 
     // header的資料格式
     const request = new Request(url, {
@@ -175,7 +178,7 @@ function ActIndex(props) {
   // 最新活動
   async function getNewEventFromServer() {
     // 連接的伺服器資料網址
-    const url = 'http://https://honki-books.herokuapp.com/activity/new'
+    const url = 'https://honki-books.herokuapp.com/activity/new'
 
     // header的資料格式
     const request = new Request(url, {

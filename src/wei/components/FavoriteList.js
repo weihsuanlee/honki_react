@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import { FaTimesCircle } from 'react-icons/fa'
 
-
 function FavoriteList(props) {
   const [favorites, setFavorites] = useState([])
   const userId = localStorage.getItem('userId')
@@ -34,7 +33,8 @@ function FavoriteList(props) {
   )
   const fetchFavoriteList = async () => {
     if (!userId) return
-    const url = 'http://https://honki-books.herokuapp.com/product/favorite/favoriteList'
+    const url =
+      'https://honki-books.herokuapp.com/product/favorite/favoriteList'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -55,7 +55,8 @@ function FavoriteList(props) {
     }
   }
   const removeFavorite = async (bookId, userId) => {
-    const url = 'http://https://honki-books.herokuapp.com/product/favorite/removeFavorite'
+    const url =
+      'https://honki-books.herokuapp.com/product/favorite/removeFavorite'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -92,7 +93,10 @@ function FavoriteList(props) {
             <div className="wei-list-book-pic my-auto mx-auto">
               <img
                 className="w-100"
-                src={`https://wizardly-bassi-d73330.netlify.app/images/books/` + favorite.book_pics}
+                src={
+                  `https://wizardly-bassi-d73330.netlify.app/images/books/` +
+                  favorite.book_pics
+                }
                 alt=""
               />
             </div>

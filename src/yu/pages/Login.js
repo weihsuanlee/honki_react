@@ -20,7 +20,7 @@ function Login(props) {
   // const handleClose = () => setShow(false)
 
   const login = async function (email, password) {
-    const url = 'http://https://honki-books.herokuapp.com/member/login'
+    const url = 'https://honki-books.herokuapp.com/member/login'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -59,7 +59,8 @@ function Login(props) {
         position: 'top',
         // title: '咦...帳號或密碼好像錯了哦',
         // text: '咦...帳號或密碼好像錯了哦',
-        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
+        imageUrl:
+          'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
         imageWidth: 50,
         imageHeight: 50,
         html: '<b>咦...帳號或密碼好像錯了哦</b>',

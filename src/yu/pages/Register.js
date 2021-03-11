@@ -93,7 +93,7 @@ function Register(props) {
   }
 
   const register = async function () {
-    const url = 'http://https://honki-books.herokuapp.com/member/register'
+    const url = 'https://honki-books.herokuapp.com/member/register'
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -122,7 +122,8 @@ function Register(props) {
       // setShowSuccess(true)
       Swal.fire({
         position: 'center',
-        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-1.gif',
+        imageUrl:
+          'https://wizardly-bassi-d73330.netlify.app/images/yu/mushroom-1.gif',
         imageWidth: 250,
         html: '<b>註冊成功，歡迎你加入我們!</b>',
         showConfirmButton: false,
@@ -133,7 +134,8 @@ function Register(props) {
       // setShowFail(true)
       Swal.fire({
         position: 'center',
-        imageUrl: 'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
+        imageUrl:
+          'https://wizardly-bassi-d73330.netlify.app/images/components/logo.svg',
         imageWidth: 50,
         imageHeight: 50,
         html: '<b>電子信箱重複囉</b>',

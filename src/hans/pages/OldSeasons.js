@@ -95,9 +95,12 @@ function OldSeasons(props) {
 
   // 和伺服器要資料，初始節氣卡
   const getInitialStDataFromServer = async () => {
-    const response = await fetch('http://https://honki-books.herokuapp.com/old-seasons', {
-      method: 'get',
-    })
+    const response = await fetch(
+      'https://honki-books.herokuapp.com/old-seasons',
+      {
+        method: 'get',
+      }
+    )
     const data = await response.json()
 
     // let currentSolarTermId = data['current_solar_term_id']
@@ -171,11 +174,13 @@ function OldSeasons(props) {
     setRedCenterImg(
       solarTermClicked
         ? [
-            'https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
+            'https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' +
+              stImg,
             'img-full fadeIn',
           ]
         : [
-            'https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' + stImg,
+            'https://wizardly-bassi-d73330.netlify.app/images/hans/solar-terms-circle/' +
+              stImg,
             'img-full fadeOut',
           ]
     )
