@@ -59,12 +59,13 @@ function Product(props) {
         {
           method: 'get',
           mode: 'no-cors',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
         }
       )
-        .then((res) => {
-          res.json()
-        })
-        .catch((err) => {})
+
       const data = await response.json()
       console.log(data, 'data filtered')
       setBooks(data.rows)
@@ -97,12 +98,13 @@ function Product(props) {
       {
         method: 'GET',
         mode: 'no-cors',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
       }
     )
-      .then((res) => {
-        res.json()
-      })
-      .catch((err) => {})
+
     const data = await response.json()
     // console.log(data)
     setBooks(data.rows)
