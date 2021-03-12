@@ -40,9 +40,13 @@ function Navbar(props) {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
-      // setTimeout(function () {
-      $('.wrapper').toggleClass('d-none')
-      // }, 1200)
+      if ($('.wrapper').hasClass('d-none')) {
+        $('.wrapper').removeClass('d-none')
+      } else {
+        setTimeout(function () {
+          $('.wrapper').addClass('d-none')
+        }, 800)
+      }
       $(this).toggleClass('active')
       $(this).siblings().toggleClass('d-none')
       $('body').toggleClass('active')
