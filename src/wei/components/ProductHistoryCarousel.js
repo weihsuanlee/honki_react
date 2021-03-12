@@ -108,7 +108,7 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: true,
+          infinite: productHistory.length > 3,
           arrows: false,
         },
       },

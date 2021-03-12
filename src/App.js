@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
-import Login from './yu/pages/Login'
-import Register from './yu/pages/Register'
-import Menu from './yu/pages/Menu'
-import Edit from './yu/pages/Edit'
-import Bookshelf from './yu/pages/Bookshelf'
+// import Login from './yu/pages/Login'
+// import Register from './yu/pages/Register'
+// import Menu from './yu/pages/Menu'
+// import Edit from './yu/pages/Edit'
+// import Bookshelf from './yu/pages/Bookshelf'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -33,7 +33,7 @@ function App() {
   const [navSearchShow, setNavSearchShow] = useState(true)
   // 購物車數量狀態紀錄
   const [cartNum, setCartNum] = useState(0)
-  const [vip, setVip] = useState(false)
+  // const [vip, setVip] = useState(false)
   return (
     <Router>
       <>

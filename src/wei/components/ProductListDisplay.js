@@ -170,6 +170,7 @@ function ProductListDisplay(props) {
                       ? `${v.discount * 10}折`
                       : '原價'}
                   </span>
+                  <br className="d-sm-none" />
                   <del className="wei-del-price">NT ${v.price}</del>
                 </div>
               </div>
