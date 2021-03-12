@@ -23,6 +23,7 @@
   left: calc(50% - 180px);
 }
 .wei-bg-black:hover.wei-bg-black::before {
+  background: none;
   animation: jumping 2s infinite;
   animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
