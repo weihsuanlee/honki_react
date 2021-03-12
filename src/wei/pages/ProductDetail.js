@@ -240,7 +240,7 @@ function ProductDetail(props) {
         </div>
         <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
         <div className="row justify-content-center">
-          <div className="col-10 wei-detail-carousel">
+          <div className="col-12 col-sm-10 wei-detail-carousel">
             <ProductHistoryCarousel
               productHistory={productHistory}
               productRelated={productRelated}

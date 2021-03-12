@@ -47,25 +47,7 @@ function SharePop(props) {
   )
   return (
     <>
-      <OverlayTrigger
-        trigger="click"
-        placement="right"
-        overlay={popover}
-        className="d-none d-lg-block"
-      >
-        <Button className="wei-pop wei-detail-icon wei-detail-share">
-          <FaShare
-            className="wei-detail-share-icon"
-            style={{ color: 'black' }}
-          />
-        </Button>
-      </OverlayTrigger>
-      <OverlayTrigger
-        trigger="click"
-        placement="bottom"
-        overlay={popover}
-        className="d-lg-none"
-      >
+      <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
         <Button className="wei-pop wei-detail-icon wei-detail-share">
           <FaShare
             className="wei-detail-share-icon"

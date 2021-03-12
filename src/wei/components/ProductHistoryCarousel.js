@@ -85,6 +85,7 @@ function ProductHistoryCarousel(props) {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
+          arrows: true,
         },
       },
       {
@@ -93,6 +94,7 @@ function ProductHistoryCarousel(props) {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
+          arrows: true,
         },
       },
       {
@@ -101,6 +103,7 @@ function ProductHistoryCarousel(props) {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
+          arrows: true,
         },
       },
       {
