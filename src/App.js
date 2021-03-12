@@ -3,11 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Product from './wei/pages/Product'
 import ProductDetail from './wei/pages/ProductDetail'
-// import Login from './yu/pages/Login'
-// import Register from './yu/pages/Register'
-// import Menu from './yu/pages/Menu'
-// import Edit from './yu/pages/Edit'
-// import Bookshelf from './yu/pages/Bookshelf'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -48,7 +43,7 @@ function App() {
                 <Route path="/products/:sid?">
                   <ProductDetail updateCartNum={updateCartNum} />
                 </Route>
-                <Route path="/:category?">
+                <Route path="/product/:category?">
                   <Product
                     navSearchShow={navSearchShow}
                     setNavSearchShow={setNavSearchShow}

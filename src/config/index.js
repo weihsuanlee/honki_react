@@ -4,19 +4,19 @@ export const devUrl = 'http://localhost:3000'
 export const prodUrl = 'http://www.abc.com'
 
 export const pathnameList = [
-  '/',
-  '/lifestyle',
-  '/literature',
-  '/business',
-  '/arts',
-  '/self-help',
-  '/comics',
-  '/education',
-  '/parenting',
-  '/children',
-  '/foods',
-  '/travel',
-  '/foreign',
+  '/product',
+  '/product/lifestyle',
+  '/product/literature',
+  '/product/business',
+  '/product/arts',
+  '/product/self-help',
+  '/product/comics',
+  '/product/education',
+  '/product/parenting',
+  '/product/children',
+  '/product/foods',
+  '/product/travel',
+  '/product/foreign',
   '/products/:sid?',
 ]
 
