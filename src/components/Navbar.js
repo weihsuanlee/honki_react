@@ -40,7 +40,7 @@ function Navbar(props) {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
-      setTimeout($('.wrapper').toggleClass('d-none'), 500)
+      setTimeout($('.wrapper').toggleClass('d-none'), 1300)
       $(this).toggleClass('active')
       $(this).siblings().toggleClass('d-none')
       $('body').toggleClass('active')
