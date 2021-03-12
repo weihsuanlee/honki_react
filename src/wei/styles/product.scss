@@ -5,12 +5,12 @@
   background: url('https://honki-books.netlify.app/images/bg_noise.png')
     var(--honki-black);
   height: 100vh;
-  position: relative;
+  // position: relative;
   overflow: hidden;
   margin-top: -80px;
 }
 
-.wei-bg-black::before {
+.wei-searcharea::before {
   content: '';
   display: block;
   width: 72px;
@@ -19,11 +19,11 @@
   background-repeat: no-repeat;
   position: absolute;
   transform: scaleX(-1);
-  top: calc(50vh - 76px);
+  // top: calc(50vh - 76px);
+  bottom: 40px;
   left: calc(50% - 180px);
 }
-.wei-bg-black:hover.wei-bg-black::before {
-  background: none;
+.wei-bg-black:hover .wei-searcharea::before {
   animation: jumping 2s infinite;
   animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
@@ -52,6 +52,7 @@
 }
 .wei-searcharea {
   height: 50%;
+  position: relative;
 }
 .wei-search-box {
   position: absolute;
