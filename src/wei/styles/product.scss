@@ -22,7 +22,7 @@
   top: calc(50vh - 76px);
   left: calc(50% - 180px);
 }
-.wei-bg-black:hover .wei-bg-black::before {
+.wei-bg-black:hover.wei-bg-black::before {
   animation: jumping 2s infinite;
   animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
@@ -193,7 +193,10 @@ ol.wei-breadcrumb {
   align-items: center;
 }
 .wei-sort-button {
-  padding: 0 16px 0 32px;
+  // padding: 0 16px 0 32px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
 }
 .wei-sort-arrow {
   // opacity: 0;

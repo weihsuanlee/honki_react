@@ -18,7 +18,8 @@ function SortButtons(props) {
     const sortArrows = document.querySelectorAll('.wei-sort-arrow')
     const sortArrow = sortButton[num].firstElementChild
     for (let svg of sortArrows) {
-      svg.style.opacity = '0'
+      // svg.style.opacity = '0'
+      svg.style.display = 'none'
     }
     if (
       searchParams.get('sorts') !== click1 &&
@@ -26,7 +27,7 @@ function SortButtons(props) {
     ) {
       searchParams.set('sorts', click1)
       // sortArrow.style.opacity = '1'
-      sortArrow.style.display = 'none'
+      sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(1)'
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
