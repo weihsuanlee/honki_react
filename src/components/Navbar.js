@@ -436,7 +436,7 @@ function Navbar(props) {
             </svg>
             <FaShoppingCart className="fas fa-shopping-cart nav-mobile-icons" />
             {cartNum ? (
-              <div className="honki-cart-num" id="cartNum">
+              <div className="honki-cart-num-mobile" id="cartNum">
                 {cartNum}
               </div>
             ) : (

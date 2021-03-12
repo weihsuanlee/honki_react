@@ -251,3 +251,16 @@ body.active {
   text-align: center;
   font-size: 10px;
 }
+.honki-cart-num-mobile {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  background-color: var(--honki-black);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 10px;
+}
