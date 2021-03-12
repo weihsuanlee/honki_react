@@ -45,24 +45,6 @@ function App() {
               value={{ style: { transform: 'translateY(-2px)' } }}
             >
               <Switch>
-                {/* <Route path="/member">
-                  <Login />
-                </Route>
-                <Route path="/bookshelf">
-                  <Bookshelf vip={vip} setVip={setVip} />
-                </Route>
-                <Route path="/edit">
-                  <Edit />
-                </Route>
-                <Route path="/menu">
-                  <Menu vip={vip} setVip={setVip} />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <Route path="/register">
-                  <Register />
-                </Route> */}
                 <Route path="/products/:sid?">
                   <ProductDetail updateCartNum={updateCartNum} />
                 </Route>
@@ -72,15 +54,6 @@ function App() {
                     setNavSearchShow={setNavSearchShow}
                   />
                 </Route>
-                {/* <Route path="/products/:sid?">
-                  <ProductDetail updateCartNum={updateCartNum} />
-                </Route>
-                <Route path="/product/:category?">
-                  <Product
-                    navSearchShow={navSearchShow}
-                    setNavSearchShow={setNavSearchShow}
-                  />
-                </Route> */}
               </Switch>
             </IconContext.Provider>
           </ScrollToTop>

@@ -12,7 +12,7 @@ function ProductCarousel(props) {
   const onClickFavorite = (bookId) => {
     // 如果會員沒登入就按收藏 先掰
     if (!userId) {
-      window.location.href = 'https://honki-books.netlify.app/member'
+      window.location.href = 'https://honki-books.netlify.app/'
       return
     }
 
