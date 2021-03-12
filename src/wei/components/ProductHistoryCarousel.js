@@ -103,6 +103,14 @@ function ProductHistoryCarousel(props) {
           infinite: true,
         },
       },
+      {
+        breakpoint: 360,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
     ],
   }
   const productDisplay = (
@@ -150,7 +158,7 @@ function ProductHistoryCarousel(props) {
             <div className="wei-book-text">
               <p className="wei-book-title">{v.title}</p>
               <p className="wei-book-author">{v.author}</p>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex flex-wrap justify-content-between">
                 <span className="wei-stars wei-product-stars">
                   <FaStar
                     className={`mr-1 wei-star ` + (v.stars > 0 ? 'yellow' : '')}

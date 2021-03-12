@@ -119,8 +119,7 @@ function ProductListDisplay(props) {
               <img
                 className="w-100"
                 src={
-                  `https://honki-books.netlify.app/images/books/` +
-                  v.book_pics
+                  `https://honki-books.netlify.app/images/books/` + v.book_pics
                 }
                 alt=""
                 onClick={() => {
@@ -164,7 +163,7 @@ function ProductListDisplay(props) {
                 <p className="wei-book-author">{v.author}</p>
                 <div className="wei-book-price wei-book-list-price">
                   NT$ {v.final_price}
-                  <span className="wei-detail-badge mx-4 px-3 py-1">
+                  <span className="wei-detail-badge px-3 py-1">
                     {v.discount.toString().length === 4
                       ? `${v.discount * 100}折`
                       : v.discount.toString().length === 3

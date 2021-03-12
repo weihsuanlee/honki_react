@@ -22,7 +22,7 @@
   top: calc(50vh - 76px);
   left: calc(50% - 180px);
 }
-.wei-bg-black:hover.wei-bg-black::before {
+.wei-bg-black:hover .wei-bg-black::before {
   animation: jumping 2s infinite;
   animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
@@ -196,7 +196,8 @@ ol.wei-breadcrumb {
   padding: 0 16px 0 32px;
 }
 .wei-sort-arrow {
-  opacity: 0;
+  // opacity: 0;
+  display: none;
 }
 .wei-button-group .btn-rounded-dark {
   margin-top: 0.5rem;
@@ -381,6 +382,7 @@ ol.wei-breadcrumb {
       margin-bottom: 8px;
     }
   }
+
   .wei-book-text-right {
     width: 60%;
   }
@@ -402,6 +404,11 @@ ol.wei-breadcrumb {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+  }
+}
+@media (max-width: 360px) {
+  .wei-card-list .wei-book-text-left {
+    width: 100%;
   }
 }
 .wei-card-list-text {
@@ -477,6 +484,15 @@ ol.wei-breadcrumb {
   }
   .wei-detail-badge {
     font-size: 12px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+@media (max-width: 360px) {
+  .wei-book-list-price {
+    .wei-detail-badge {
+      margin-left: 0.75rem;
+    }
   }
 }
 .wei-list-heart-bg {

@@ -25,15 +25,18 @@ function SortButtons(props) {
       searchParams.get('sorts') !== click2
     ) {
       searchParams.set('sorts', click1)
-      sortArrow.style.opacity = '1'
+      // sortArrow.style.opacity = '1'
+      sortArrow.style.display = 'none'
       sortArrow.style.transform = 'scaleY(1)'
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
-      sortArrow.style.opacity = '1'
+      // sortArrow.style.opacity = '1'
+      sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(-1)'
     } else {
       searchParams.delete('sorts')
-      sortArrow.style.opacity = '0'
+      // sortArrow.style.opacity = '0'
+      sortArrow.style.display = 'none'
     }
     setPage(1)
     searchParams.delete('page')
