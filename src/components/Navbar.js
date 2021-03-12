@@ -40,7 +40,9 @@ function Navbar(props) {
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
-      setTimeout($('.wrapper').toggleClass('d-none'), 1300)
+      setTimeout(function () {
+        $('.wrapper').toggleClass('d-none')
+      }, 1200)
       $(this).toggleClass('active')
       $(this).siblings().toggleClass('d-none')
       $('body').toggleClass('active')
@@ -459,7 +461,7 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-      <div className="wrapper d-none">
+      <div className="wrapper d-lg-none d-none">
         <div className="search-box-m navbar-search-m mx-auto mb-2">
           <form className="d-flex search-bar-m">
             <div className="select-list-m select-list">
