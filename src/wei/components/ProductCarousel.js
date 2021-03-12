@@ -98,13 +98,6 @@ function ProductCarousel(props) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 390,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
           arrows: false,
         },
       },

@@ -54,6 +54,7 @@ function ProductPagination(props) {
             setPage(1)
             pageButtonClick(1)
           }}
+          className={page === 1 ? 'd-none' : ''}
         >
           ⇤
         </Pagination.Prev>
@@ -62,18 +63,20 @@ function ProductPagination(props) {
             setPage(pagePrev)
             pageButtonClick(pagePrev)
           }}
+          className={page === 1 ? 'd-none' : ''}
         >
           ←
         </Pagination.Prev>
-        {page - 4 > 0 ? <Pagination.Ellipsis /> : ''}
+        {page - 4 > 0 ? <Pagination.Ellipsis disabled /> : ''}
         {items}
-        {page + 3 < totalPages ? <Pagination.Ellipsis /> : ''}
+        {page + 3 < totalPages ? <Pagination.Ellipsis disabled /> : ''}
 
         <Pagination.Next
           onClick={() => {
             setPage(pageNext)
             pageButtonClick(pageNext)
           }}
+          className={page === totalPages ? 'd-none' : ''}
         >
           →
         </Pagination.Next>
@@ -82,6 +85,7 @@ function ProductPagination(props) {
             setPage(totalPages)
             pageButtonClick(totalPages)
           }}
+          className={page === totalPages ? 'd-none' : ''}
         >
           ⇥
         </Pagination.Next>

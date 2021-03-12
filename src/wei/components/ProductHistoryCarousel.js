@@ -102,19 +102,19 @@ function ProductHistoryCarousel(props) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: true,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 390,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
           infinite: productHistory.length > 2,
           arrows: false,
         },
       },
+      // {
+      //   breakpoint: 390,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2,
+      //     infinite: productHistory.length > 2,
+      //     arrows: false,
+      //   },
+      // },
     ],
   }
   const productDisplay = (

@@ -230,7 +230,7 @@ function ProductDetail(props) {
       <div className="container-fluid wei-detail-books">
         <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
         <div className="row justify-content-center wei-carousel">
-          <div className="col-10 wei-detail-carousel">
+          <div className="col-12 col-sm-10 wei-detail-carousel">
             <ProductCarousel
               productRelated={productRelated}
               favorites={favorites}
