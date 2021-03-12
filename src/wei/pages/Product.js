@@ -78,7 +78,10 @@ function Product(props) {
     filterProduct()
     console.log(props)
 
-    if ((props.match.url === '/product') & !props.location.search) {
+    if (
+      (props.match.url === '/product' || props.match.url === '/') &
+      !props.location.search
+    ) {
       window.scrollBy(0, 0)
     } else {
       // window.scrollBy(0, 0.75 * window.innerHeight)
