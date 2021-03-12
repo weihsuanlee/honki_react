@@ -29,18 +29,15 @@ function SortButtons(props) {
       // sortArrow.style.opacity = '1'
       sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(1)'
-      sortButton.style.paddingRight = '14px'
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
       // sortArrow.style.opacity = '1'
       sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(-1)'
-      sortButton.style.paddingRight = '14px'
     } else {
       searchParams.delete('sorts')
       // sortArrow.style.opacity = '0'
       sortArrow.style.display = 'none'
-      sortButton.style.paddingRight = '20px'
     }
     setPage(1)
     searchParams.delete('page')
@@ -111,7 +108,7 @@ function SortButtons(props) {
               setCardList(true)
             }}
           >
-            <FaListUl className="wei-sort-icon"/>
+            <FaListUl className="wei-sort-icon" />
           </button>
           <button
             className="btn-rounded-dark"
@@ -119,7 +116,7 @@ function SortButtons(props) {
               setCardList(false)
             }}
           >
-            <FaThLarge className="wei-sort-icon"/>
+            <FaThLarge className="wei-sort-icon" />
           </button>
         </div>
       </div>

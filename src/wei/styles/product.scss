@@ -1042,6 +1042,13 @@ ol.wei-breadcrumb {
 .wei-left-slick > .slick-list > .slick-track {
   margin-left: 0;
 }
+@media (max-width: 390px) {
+  .wei-detail-carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 // favorite list
 .wei-card-list-favorite:hover {
   .wei-card-list-pic {
