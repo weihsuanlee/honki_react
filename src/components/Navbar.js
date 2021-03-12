@@ -420,7 +420,10 @@ function Navbar(props) {
             </svg>
             <FaUserAlt className="fas fa-user nav-mobile-icons" />
           </div>
-          <div className="nav-mobile-link" style={{ cursor: 'pointer' }}>
+          <div
+            className="nav-mobile-link position-relative"
+            style={{ cursor: 'pointer' }}
+          >
             <svg x="0px" y="0px" viewBox="0 0 117 111">
               <g>
                 <path
@@ -432,6 +435,13 @@ function Navbar(props) {
               </g>
             </svg>
             <FaShoppingCart className="fas fa-shopping-cart nav-mobile-icons" />
+            {cartNum ? (
+              <div className="honki-cart-num" id="cartNum">
+                {cartNum}
+              </div>
+            ) : (
+              ''
+            )}
           </div>
           <div className="nav-mobile-link nav-burger">
             <svg x="0px" y="0px" viewBox="0 0 117 111">
