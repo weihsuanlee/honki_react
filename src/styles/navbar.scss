@@ -116,7 +116,7 @@ body.active {
   transition: all 0.8s ease-in-out;
   opacity: 0;
   overflow-y: scroll;
-  z-index: 500;
+  // z-index: 500;
 }
 .wrapper.active {
   clip-path: circle(75%);

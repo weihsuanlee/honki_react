@@ -37,6 +37,11 @@ function Navbar(props) {
   }
 
   useEffect(() => {
+    if ($('.wrapper').hasClass('active')) {
+      $('.wrapper').css('z-index', '500')
+    } else {
+      $('.wrapper').css('z-index', '-100')
+    }
     // 使用jq的動態需要改寫
     $('.nav-burger').on('click', function () {
       $('.wrapper').toggleClass('active')
