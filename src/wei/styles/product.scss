@@ -202,6 +202,12 @@ ol.wei-breadcrumb {
   // opacity: 0;
   display: none;
 }
+@media (max-width: 390px) {
+  .wei-sort-icon {
+    transform: translateY(2px);
+  }
+}
+
 .wei-button-group .btn-rounded-dark {
   margin-top: 0.5rem;
   margin-right: 8px;

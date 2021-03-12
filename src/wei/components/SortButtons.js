@@ -111,7 +111,7 @@ function SortButtons(props) {
               setCardList(true)
             }}
           >
-            <FaListUl />
+            <FaListUl className="wei-sort-icon"/>
           </button>
           <button
             className="btn-rounded-dark"
@@ -119,7 +119,7 @@ function SortButtons(props) {
               setCardList(false)
             }}
           >
-            <FaThLarge />
+            <FaThLarge className="wei-sort-icon"/>
           </button>
         </div>
       </div>
