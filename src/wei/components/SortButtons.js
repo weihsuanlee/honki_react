@@ -29,15 +29,18 @@ function SortButtons(props) {
       // sortArrow.style.opacity = '1'
       sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(1)'
+      sortButton.style.paddingRight = '14px'
     } else if (searchParams.get('sorts') === click1) {
       searchParams.set('sorts', click2)
       // sortArrow.style.opacity = '1'
       sortArrow.style.display = 'block'
       sortArrow.style.transform = 'scaleY(-1)'
+      sortButton.style.paddingRight = '14px'
     } else {
       searchParams.delete('sorts')
       // sortArrow.style.opacity = '0'
       sortArrow.style.display = 'none'
+      sortButton.style.paddingRight = '20px'
     }
     setPage(1)
     searchParams.delete('page')

@@ -104,11 +104,12 @@ function ProductHistoryCarousel(props) {
         },
       },
       {
-        breakpoint: 360,
+        breakpoint: 390,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          arrows: false,
         },
       },
     ],
