@@ -49,7 +49,7 @@ function SortButtons(props) {
   }
   return (
     <>
-      <div className="col-12 wei-button-group">
+      <div className="col-12 wei-button-group px-0">
         <div className="wei-top-buttons d-flex">
           <PriceFilterPop
             avgPrice={avgPrice}
