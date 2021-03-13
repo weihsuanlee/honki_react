@@ -42,14 +42,6 @@ function ProductDetail(props) {
         'Content-Type': 'application/json',
       },
     })
-    // const response = await fetch(
-    //   'https://safe-reaches-81172.herokuapp.com/https://honki-books.herokuapp.com/product/book/' + sid,
-    //   {
-    //     method: 'get',
-    //     mode: 'no-cors',
-    //   }
-    // )
-    // const data = await response.json()
     const response = await fetch(request)
     const data = await response.json()
 
@@ -226,27 +218,29 @@ function ProductDetail(props) {
 
   return (
     <>
-      {isLoading ? detailSpinner : productDetailDisplay}
-      <div className="container-fluid wei-detail-books">
-        <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
-        <div className="row justify-content-center wei-carousel">
-          <div className="col-12 col-sm-10 wei-detail-carousel">
-            <ProductCarousel
-              productRelated={productRelated}
-              favorites={favorites}
-              fetchFavoriteList={fetchFavoriteList}
-            />
+      <div className="pt-5">
+        {isLoading ? detailSpinner : productDetailDisplay}
+        <div className="container-fluid wei-detail-books">
+          <h6 className="wei-detail-books-subtitle">你可能也會喜歡</h6>
+          <div className="row justify-content-center wei-carousel">
+            <div className="col-12 col-sm-10 wei-detail-carousel">
+              <ProductCarousel
+                productRelated={productRelated}
+                favorites={favorites}
+                fetchFavoriteList={fetchFavoriteList}
+              />
+            </div>
           </div>
-        </div>
-        <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
-        <div className="row justify-content-center">
-          <div className="col-12 col-sm-10 wei-detail-carousel">
-            <ProductHistoryCarousel
-              productHistory={productHistory}
-              productRelated={productRelated}
-              favorites={favorites}
-              fetchFavoriteList={fetchFavoriteList}
-            />
+          <h6 className="wei-detail-books-subtitle">最近瀏覽</h6>
+          <div className="row justify-content-center">
+            <div className="col-12 col-sm-10 wei-detail-carousel">
+              <ProductHistoryCarousel
+                productHistory={productHistory}
+                productRelated={productRelated}
+                favorites={favorites}
+                fetchFavoriteList={fetchFavoriteList}
+              />
+            </div>
           </div>
         </div>
       </div>
